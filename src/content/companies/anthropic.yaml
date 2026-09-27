@@ -1,0 +1,103 @@
+id: "anthropic"
+name:
+  en: "Anthropic"
+  ru: "Anthropic"
+segment: "frontier-lab"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer"
+  - "ai-engineer"
+  - "ai-platform-engineer"
+  leadership:
+  - "engineering-manager"
+summary:
+  en: "A short loop with a values round that can end the process on its own. Technical rounds are practical rather than puzzle-style, and candidates may not use AI assistants in live interviews."
+  ru: "Короткий цикл с раундом ценностей, который сам по себе может остановить процесс. Технические раунды практические, а не олимпиадные; в живых интервью кандидатам нельзя пользоваться AI-ассистентами."
+loop:
+- stage:
+    en: "Recruiter screen"
+    ru: "Скрининг с рекрутером"
+  detail:
+    en: "15–30 minutes on background and motivation, including why Anthropic and interest in AI safety. The recruiter warned that candidates can pass technically and still fail on values."
+    ru: "15–30 минут о бэкграунде и мотивации, включая «почему Anthropic» и интерес к безопасности AI. Рекрутер предупредил, что можно пройти техническую часть и не пройти по ценностям."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-anthropic-staff-infra"
+- stage:
+    en: "Coding tools and rules"
+    ru: "Инструменты и правила кодинга"
+  detail:
+    en: "Technical roles use live coding in tools such as Colab and CodeSignal, and interviews run over Google Meet. You may look things up, but basic syntax and standard libraries should not slow you down."
+    ru: "На технических ролях — живой кодинг в инструментах вроде Colab и CodeSignal, интервью проходят в Google Meet. Подсматривать можно, но базовый синтаксис и стандартные библиотеки не должны отнимать время."
+  claim: "confirmed"
+  sources:
+  - "anthropic-careers"
+- stage:
+    en: "No AI help in live interviews"
+    ru: "Без AI-помощи в живых интервью"
+  detail:
+    en: "AI may be used to prepare and to polish an application you drafted yourself, not during live interviews. Take-home work is done without Claude unless the company says otherwise."
+    ru: "AI можно использовать для подготовки и для доработки заявки, которую вы написали сами, но не во время живых интервью. Домашние задания выполняются без Claude, если компания не скажет иначе."
+  claim: "confirmed"
+  sources:
+  - "anthropic-candidate-ai-guidance"
+- stage:
+    en: "Progressive coding assessment"
+    ru: "Кодинг с нарастающей спецификацией"
+  detail:
+    en: "Guides describe 60–90 minutes on one practical problem that grows over about four levels, such as an in-memory store or banking logic, with tests unlocking each level."
+    ru: "Гайды описывают 60–90 минут на одну практическую задачу, которая усложняется примерно за четыре уровня, например хранилище в памяти или банковская логика; тесты открывают следующий уровень."
+  claim: "secondary"
+  sources:
+  - "interviewing-io-anthropic"
+  - "exponent-anthropic-swe"
+- stage:
+    en: "Hiring manager screen"
+    ru: "Разговор с нанимающим менеджером"
+  detail:
+    en: "About 45–60 minutes on past projects, engineering judgement and technical decisions."
+    ru: "Около 45–60 минут о прошлых проектах, инженерных суждениях и технических решениях."
+  claim: "secondary"
+  sources:
+  - "exponent-anthropic-swe"
+  - "interviewing-io-anthropic"
+- stage:
+    en: "Onsite"
+    ru: "Финальные раунды"
+  detail:
+    en: "One candidate had five rounds: system design (distributing a large file to thousands of machines), a practical coding project (an image-processing pipeline), a project deep dive on cross-team agreement and conflict, a behavioral round and a culture round."
+    ru: "У одного кандидата было пять раундов: system design (раздать большой файл тысячам машин), практический проект на код (конвейер обработки изображений), разбор проекта с упором на договорённости и конфликты между командами, поведенческий раунд и раунд культуры."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-anthropic-staff-infra"
+- stage:
+    en: "Values and culture round"
+    ru: "Раунд ценностей и культуры"
+  detail:
+    en: "Questions about a time the work conflicted with your values and how you weigh delivery pressure against safety or security concerns."
+    ru: "Вопросы о случае, когда работа противоречила вашим ценностям, и о том, как вы взвешиваете давление сроков против рисков безопасности."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-anthropic-staff-infra"
+- stage:
+    en: "Engineering manager loop"
+    ru: "Цикл для руководителя разработки"
+  detail:
+    en: "A screen on the mission and AI safety, then a technical design (an inference batching service on one GPU), a presentation of a major initiative, and questions on the largest team managed, growing people, ambiguity and disagreement."
+    ru: "Скрининг о миссии и безопасности AI, затем технический дизайн (сервис батчинга инференса на одном GPU), презентация крупной инициативы и вопросы о самой большой команде, развитии людей, неопределённости и несогласии."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-anthropic-em"
+coding:
+  value: "required"
+  note:
+    en: "For technical roles; interviews for non-technical roles are conversational"
+    ru: "Для технических ролей; интервью на нетехнические роли проходят в форме беседы"
+  sources:
+  - "anthropic-careers"
+prep:
+- "anthropic-candidate-ai-guidance"
+- "anthropic-careers"
+reviewed: "2026-09-26"

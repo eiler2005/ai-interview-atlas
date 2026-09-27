@@ -1,0 +1,267 @@
+theme: "evals-observability"
+questions:
+  - id: "eval-judge"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design an LLM judge and a calibration process that exposes order, verbosity and self-preference biases."
+      ru: "Спроектируйте LLM-судью и калибровку, выявляющую смещения из-за порядка, многословия и предпочтения собственных ответов."
+    tests:
+      en: "Whether model judgements are validated against independent labels."
+      ru: "Умение проверять решения модели по независимой разметке."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 27
+    outline:
+      en:
+        - "Define a task-specific rubric and a held-out human-labelled calibration set."
+        - "Randomise answer order and test sensitivity to length and model identity."
+        - "Measure disagreements and use expert review where automated judgement is unreliable."
+      ru:
+        - "Задать критерии задачи и отложенную калибровочную выборку с человеческой разметкой."
+        - "Менять порядок ответов и проверять влияние длины и идентичности модели."
+        - "Измерять расхождения и передавать экспертам ненадёжные случаи."
+    reading: ["paper-llm-as-judge"]
+  - id: "eval-scarce-labels"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    text:
+      en: "How would you build a useful evaluation set when reference answers are missing and expert time is scarce?"
+      ru: "Как собрать полезный eval-набор без эталонных ответов и при дефиците экспертного времени?"
+    tests:
+      en: "Whether sampling and annotation effort target consequential uncertainty."
+      ru: "Умение направить выборку и разметку на значимую неопределённость."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "eval-hallucination"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?"
+      ru: "Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?"
+    tests:
+      en: "Whether faithfulness to evidence is separated from fluency and general plausibility."
+      ru: "Умение отличать опору на источники от беглости и правдоподобия."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+  - id: "eval-release-gate"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design a release gate for prompt and model updates, including what happens when aggregate gains hide a critical regression."
+      ru: "Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию."
+    tests:
+      en: "Whether release decisions account for failure severity and uncertainty."
+      ru: "Учёт тяжести ошибок и неопределённости при выпуске."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 28
+    outline:
+      en:
+        - "Version the candidate, baseline, dataset and graders."
+        - "Set acceptance rules for critical slices and repeated stochastic trials."
+        - "Combine offline results with a monitored rollout and explicit rollback criteria."
+      ru:
+        - "Версионировать кандидат, baseline, датасет и оценщиков."
+        - "Задать правила допуска для критических срезов и повторных стохастических запусков."
+        - "Сочетать офлайн-оценку с контролируемым rollout и явными критериями отката."
+    reading: ["anthropic-evals-for-agents"]
+  - id: "eval-benchmark-mismatch"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    text:
+      en: "Benchmark results improve but users report a worse product. What hypotheses would you test first?"
+      ru: "Результаты бенчмарков растут, а пользователи жалуются на ухудшение продукта. Какие гипотезы проверить сначала?"
+    tests:
+      en: "Whether evaluation coverage is connected to actual user tasks."
+      ru: "Умение связать покрытие оценки с реальными задачами пользователей."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 29
+    outline:
+      en:
+        - "Compare benchmark tasks and traffic with actual user workflows."
+        - "Check leakage, slice regressions, latency and changes in user expectations."
+        - "Reproduce complaints and add representative failures without overfitting the test set."
+      ru:
+        - "Сопоставить задачи бенчмарка и трафик с реальными сценариями."
+        - "Проверить утечки, регрессии срезов, задержку и изменения ожиданий."
+        - "Воспроизвести жалобы и добавить типичные ошибки, не подгоняя модель под тест."
+    reading: ["google-rules-of-ml"]
+  - id: "eval-contamination"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "How does benchmark contamination distort evaluation, and how would you reduce leakage into training or model selection?"
+      ru: "Как загрязнение бенчмарка искажает оценку и как уменьшить утечку в обучение или подбор модели?"
+    tests:
+      en: "Whether repeated tuning on test data is recognised as leakage."
+      ru: "Понимание того, что повторная настройка по тестовому набору создаёт утечку."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "eval-traces"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design observability for a production LLM workflow: which spans, versions, costs and feedback should be linked?"
+      ru: "Спроектируйте наблюдаемость LLM-процесса в production: какие spans, версии, затраты и обратную связь нужно связать?"
+    tests:
+      en: "Whether a failed user task can be reconstructed without indiscriminate sensitive logging."
+      ru: "Умение восстановить сбой задачи без бесконтрольного логирования чувствительных данных."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 30
+    outline:
+      en:
+        - "Link model, retrieval and tool spans to one task identifier and version set."
+        - "Record latency, token use, outcomes and sampled feedback with retention controls."
+        - "Use traces to diagnose stage failures and convert recurring failures into eval cases."
+      ru:
+        - "Связать spans модели, retrieval и инструментов с идентификатором задачи и версиями."
+        - "Записывать задержки, токены, исходы и выборочную обратную связь с ограничением хранения."
+        - "Локализовать по трассировкам ошибки этапов и превращать повторы в eval-кейсы."
+    reading: ["google-sre-book","anthropic-evals-for-agents"]
+  - id: "eval-prompt-rollback"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How would you version prompts and dependent configuration so an observed regression can be rolled back reproducibly?"
+      ru: "Как версионировать промпты и зависимые настройки для воспроизводимого отката обнаруженной регрессии?"
+    tests:
+      en: "Whether rollback restores the actual system configuration."
+      ru: "Умение восстановить при откате реальную конфигурацию системы."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "eval-online"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design online evaluation for an AI feature: choose what to log, review manually and compare in an experiment."
+      ru: "Спроектируйте онлайн-оценку AI-функции: что логировать, проверять вручную и сравнивать экспериментом?"
+    tests:
+      en: "Whether experimental outcomes are distinguished from passive correlations."
+      ru: "Умение отличать результаты эксперимента от пассивных корреляций."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+  - id: "eval-agent-outcomes"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How should evaluation of a tool-using agent differ from grading one generated response?"
+      ru: "Чем оценка агента с инструментами должна отличаться от проверки одного сгенерированного ответа?"
+    tests:
+      en: "Whether final state, trajectory and repeated-run reliability are all inspected."
+      ru: "Учёт конечного состояния, траектории и надёжности повторных запусков."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 31
+    outline:
+      en:
+        - "Check the final environment state, not just the agent's success message."
+        - "Grade task completion separately from unsafe or wasteful trajectories."
+        - "Repeat trials and report reliability across runs with clean, controlled environments."
+      ru:
+        - "Проверять конечное состояние среды, а не сообщение агента об успехе."
+        - "Отдельно оценивать выполнение задачи и опасные либо расточительные траектории."
+        - "Повторять испытания в чистых контролируемых средах и показывать надёжность между запусками."
+    reading: ["anthropic-evals-for-agents"]
+  - id: "eval-emergent-capability"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Design an experiment for a suspected emergent capability or bias in a large model, with controls against misleading task framing."
+      ru: "Спроектируйте эксперимент для предполагаемой новой способности или смещения большой модели с контролем влияния формулировки задачи."
+    tests:
+      en: "Whether a capability claim is testable and alternative explanations are considered."
+      ru: "Умение проверять утверждение о способности и рассматривать альтернативные объяснения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "eval-upgrade-complaint"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    text:
+      en: "A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?"
+      ru: "Клиент жалуется на худшие ответы после обновления модели. Как проверить регрессию и решить, что восстановить или изменить?"
+    tests:
+      en: "Whether concrete customer failures drive reproduction and remediation."
+      ru: "Умение воспроизвести реальные клиентские ошибки и выбрать исправление."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+  - id: "eval-frontier-harness"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Build the evaluation harness for a new model release, covering reproducibility, execution isolation and comparable results."
+      ru: "Спроектируйте eval-harness для новой модели с воспроизводимостью, изоляцией исполнения и сопоставимыми результатами."
+    tests:
+      en: "Whether evaluation infrastructure can support trustworthy comparisons."
+      ru: "Умение построить инфраструктуру для достоверного сравнения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+    added: "2026-09-26"
+  - id: "eval-production-actions"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?"
+      ru: "Как изменить оценку LLM-процесса при переходе от предложений к исполнению действий в production?"
+    tests:
+      en: "Whether action consequences change the acceptance criteria."
+      ru: "Умение учитывать последствия действий в критериях допуска."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+  - id: "eval-multiple-good-answers"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Two qualified clinicians produce different good notes from the same consultation. How would you evaluate a generated note fairly?"
+      ru: "Два квалифицированных врача составляют разные, но хорошие записи одной консультации. Как корректно оценить сгенерированную запись?"
+    tests:
+      en: "Whether evaluation permits valid variation while checking omissions and unsupported content."
+      ru: "Умение допускать корректную вариативность, проверяя пропуски и неподтверждённое содержание."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"

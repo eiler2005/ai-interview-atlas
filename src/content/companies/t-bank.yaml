@@ -1,0 +1,57 @@
+id: "t-bank"
+name:
+  en: "T-Bank"
+  ru: "Т-Банк"
+segment: "ru-big-tech"
+markets:
+- "ru"
+roles:
+  engineering:
+  - "software-engineer-general"
+  leadership:
+  - "engineering-manager"
+summary:
+  en: "Interviewers describe a screening, live coding and a team-fit interview. A 2025 senior candidate also had a management section and system design, and received a grade before meeting teams."
+  ru: "Интервьюеры описывают скрининг, live coding и фит-интервью с командой. У кандидата уровня senior в 2025 году были ещё секция по менеджменту и system design, а грейд он получил до встреч с командами."
+loop:
+- stage:
+    en: "HR introduction and screening"
+    ru: "Знакомство с HR и скрининг"
+  detail:
+    en: "An introduction with HR, then a technical screening on theory."
+    ru: "Знакомство с HR, затем технический скрининг по теории."
+  claim: "confirmed"
+  sources:
+  - "tj-tbank-interviews"
+- stage:
+    en: "Live coding"
+    ru: "Live coding"
+  detail:
+    en: "Programming in real time, about an hour and a half in one interviewer's description; the thinking process is assessed, not only the answer."
+    ru: "Программирование в реальном времени, по описанию одного из интервьюеров — около полутора часов; оценивают ход мысли, а не только ответ."
+  claim: "confirmed"
+  sources:
+  - "tj-tbank-interviews"
+- stage:
+    en: "Team fit"
+    ru: "Фит-интервью с командой"
+  detail:
+    en: "A final interview to check fit with the team and its tasks."
+    ru: "Финальное интервью, чтобы проверить совпадение с командой и её задачами."
+  claim: "confirmed"
+  sources:
+  - "tj-tbank-interviews"
+- stage:
+    en: "Senior and team-lead track (2025)"
+    ru: "Трек senior и тимлида (2025)"
+  detail:
+    en: "A conversational management section, a two-hour language section and system design (a courier-tracking service), then fit interviews with several teams after a grade was assigned."
+    ru: "Разговорная секция по менеджменту, двухчасовая языковая секция и system design (отслеживание курьеров), затем фит-интервью с несколькими командами после присвоения грейда."
+  claim: "participant_report"
+  sources:
+  - "habr-ozon-tbank-candidate"
+coding:
+  value: "required"
+  sources:
+  - "tj-tbank-interviews"
+reviewed: "2026-09-26"

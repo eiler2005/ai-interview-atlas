@@ -1,0 +1,101 @@
+theme: "ai-operating-model"
+questions:
+  - id: "ops-platform-ownership"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Define a strategy for an internal AI platform, including who owns its success metrics.
+      ru: >-
+        Определите стратегию внутренней AI-платформы и распределите ответственность за её метрики успеха.
+    tests:
+      en: >-
+        Whether platform investment is tied to internal customer outcomes and clear ownership.
+      ru: >-
+        Связаны ли инвестиции в платформу с результатами внутренних клиентов и понятной ответственностью.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-stripe-questions"
+        company: "stripe"
+    start_here: ["leadership"]
+    priority: 16
+    outline:
+      en:
+        - "Identify recurring needs across teams and where a shared service adds value."
+        - "Separate platform reliability and adoption from the business outcomes owned by consuming teams."
+        - "Choose a first supported workflow, service boundaries and a review of continued investment."
+      ru:
+        - "Найдите повторяющиеся потребности команд и пользу общего сервиса."
+        - "Разделите надёжность и использование платформы и бизнес-результаты команд-потребителей."
+        - "Выберите первый поддерживаемый процесс, границы сервиса и порядок пересмотра инвестиций."
+    reading: ["google-sre-book","paper-heart"]
+  - id: "ops-restricted-models"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        How would you support multiple model providers when some deployment environments permit only a subset of models?
+      ru: >-
+        Как поддерживать несколько поставщиков моделей, если в отдельных средах разрешена только часть моделей?
+    tests:
+      en: >-
+        Whether a platform preserves deployment constraints and makes capability gaps visible.
+      ru: >-
+        Учитывает ли платформа ограничения сред и явно ли показывает различия возможностей.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    start_here: ["leadership"]
+    priority: 17
+    outline:
+      en:
+        - "Make environment policy and data restrictions explicit in model selection."
+        - "Define a portable interface without pretending all models have identical capabilities."
+        - "Evaluate allowed fallbacks and fail closed when no compliant route exists."
+      ru:
+        - "Явно включите политику среды и ограничения данных в выбор модели."
+        - "Определите переносимый интерфейс, сохраняя различия возможностей моделей."
+        - "Проверьте допустимые резервные варианты и отказывайте, если разрешённого маршрута нет."
+    reading: ["azure-multitenant","nist-ai-rmf"]
+  - id: "ops-private-evaluation"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?
+      ru: >-
+        Как оценивать корпоративного AI-ассистента, если ваша команда не может просматривать данные клиента?
+    tests:
+      en: >-
+        Whether you can obtain useful quality evidence within data-access restrictions.
+      ru: >-
+        Умеете ли вы получать полезные данные о качестве в рамках ограниченного доступа.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "ops-shared-data-access"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Design a service that lets several teams query a shared dataset without exposing the underlying raw records.
+      ru: >-
+        Спроектируйте сервис, в котором несколько команд запрашивают общий набор данных без доступа к исходным записям.
+    tests:
+      en: >-
+        Whether you define permissible results and enforce access across a shared platform.
+      ru: >-
+        Умеете ли вы определить допустимые результаты и обеспечить разграничение доступа на общей платформе.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"

@@ -1,0 +1,210 @@
+theme: "multimodal-voice"
+questions:
+  - id: "mm-visual-input"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare projection layers, cross-attention and token-based integration for giving a language model access to images."
+      ru: "Сравните проекционные слои, cross-attention и токенное представление для подключения изображений к языковой модели."
+    tests:
+      en: "Whether image encoding is separated from cross-modal fusion."
+      ru: "Умение различать кодирование изображения и объединение модальностей."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 32
+    outline:
+      en:
+        - "Separate the vision encoder from the interface to the language model."
+        - "Compare projected image tokens with cross-attention to visual features."
+        - "Discuss visual token budget, spatial detail and training alignment."
+      ru:
+        - "Отделить visual encoder от интерфейса с языковой моделью."
+        - "Сравнить проекцию токенов изображения с cross-attention к визуальным признакам."
+        - "Обсудить бюджет визуальных токенов, пространственные детали и обучение выравниванию."
+    reading: ["paper-flamingo"]
+  - id: "mm-video"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "What architectural and data choices change when a vision-language model must reason over video rather than isolated images?"
+      ru: "Какие архитектурные решения и требования к данным меняются при переходе от отдельных изображений к видео?"
+    tests:
+      en: "Whether temporal information and sampling cost are addressed."
+      ru: "Учёт временной информации и стоимости выборки кадров."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+  - id: "mm-latency"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Build an end-to-end latency budget for a voice agent, from detecting the end of speech to playing its reply."
+      ru: "Составьте сквозной бюджет задержки голосового агента от определения конца реплики до воспроизведения ответа."
+    tests:
+      en: "Whether turn detection, ASR, generation, synthesis and transport all appear in the budget."
+      ru: "Учёт определения конца реплики, ASR, генерации, синтеза и сети."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-barge-in"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design interruption handling when a user starts speaking while the agent's audio is still playing."
+      ru: "Спроектируйте обработку перебивания, когда пользователь начинает говорить во время ответа агента."
+    tests:
+      en: "Whether playback cancellation and conversational state remain consistent."
+      ru: "Умение согласовать остановку воспроизведения с состоянием диалога."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-speech-stack"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    text:
+      en: "Compare a speech-recognition, text-model and speech-synthesis pipeline with an end-to-end speech-to-speech model."
+      ru: "Сравните каскад распознавания речи, текстовой модели и синтеза с единой speech-to-speech моделью."
+    tests:
+      en: "Whether latency, controllability and paralinguistic information shape the choice."
+      ru: "Учёт задержки, управляемости и невербальной информации при выборе."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-speech-quality"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "How would you evaluate speech recognition beyond word error rate and synthetic speech when many renditions are acceptable?"
+      ru: "Как оценивать распознавание речи помимо WER, а синтез — при множестве допустимых вариантов звучания?"
+    tests:
+      en: "Whether task-critical errors and perceptual quality are measured separately."
+      ru: "Умение отдельно измерять критические ошибки задачи и воспринимаемое качество."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-accents"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "How would you improve and evaluate speech recognition for mixed-language utterances and different accents?"
+      ru: "Как улучшать и проверять распознавание смешанных языков в реплике и разных акцентов?"
+    tests:
+      en: "Whether subgroup coverage and domain errors are visible in evaluation."
+      ru: "Учёт покрытия групп и доменных ошибок в оценке."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 33
+    outline:
+      en:
+        - "Build evaluation slices for languages, accents, noise and code-switching."
+        - "Inspect entity and task-critical errors alongside aggregate word error rate."
+        - "Validate any adaptation on held-out speakers and domains to detect regressions."
+      ru:
+        - "Собрать срезы по языкам, акцентам, шуму и переключению языков."
+        - "Проверять ошибки сущностей и критичные для задачи ошибки наряду с общим WER."
+        - "Проверять адаптацию на отложенных говорящих и доменах для выявления регрессий."
+    reading: ["paper-whisper"]
+  - id: "mm-streaming-audio"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How would you choose speech synthesis chunk boundaries and playback buffering under variable network delay?"
+      ru: "Как выбирать границы частей синтезируемой речи и буфер воспроизведения при переменной задержке сети?"
+    tests:
+      en: "Whether prosody, first-audio latency and playback continuity are balanced."
+      ru: "Умение сбалансировать просодию, задержку первого звука и непрерывность."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-diarisation"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design speaker diarisation and explain how you would assign conversational roles without assuming speaker clusters imply identity."
+      ru: "Спроектируйте диаризацию и назначение ролей в беседе, не приравнивая кластер голоса к личности."
+    tests:
+      en: "Whether segmentation, clustering and role inference are distinguished."
+      ru: "Умение различать сегментацию, кластеризацию и вывод о роли."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-cross-modal-retrieval"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design search across text, images and video, including how queries and results share a comparable representation."
+      ru: "Спроектируйте поиск по текстам, изображениям и видео, задав сопоставимое представление запросов и результатов."
+    tests:
+      en: "Whether cross-modal alignment and retrieval granularity are explicit."
+      ru: "Умение явно задать выравнивание модальностей и единицу поиска."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-normalization"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "How would you prepare numbers, abbreviations and ambiguous written forms for speech synthesis without changing their meaning?"
+      ru: "Как подготовить числа, аббревиатуры и неоднозначные письменные формы к синтезу речи, не меняя смысл?"
+    tests:
+      en: "Whether text normalisation handles context-sensitive pronunciation."
+      ru: "Учёт контекста при нормализации произношения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-dubbing"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design a dubbing pipeline that preserves speaker identity and fits translated speech into the original video's timing."
+      ru: "Спроектируйте дубляж с сохранением голосов говорящих и укладыванием перевода в тайминг исходного видео."
+    tests:
+      en: "Whether translation, alignment and audio quality are jointly constrained."
+      ru: "Совместный учёт перевода, временного выравнивания и качества звука."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-clinical-audio"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "How would you improve recognition in a noisy consultation with overlapping speakers and specialised medical vocabulary?"
+      ru: "Как улучшить распознавание шумной консультации с пересекающимися репликами и специализированной медицинской лексикой?"
+    tests:
+      en: "Whether noise, overlap and rare terminology have separate diagnostics."
+      ru: "Умение отдельно диагностировать шум, наложение речи и редкие термины."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "mm-vision-language-action"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "What distinguishes a vision-language-action policy from a language model that merely invokes external tools?"
+      ru: "Чем vision-language-action policy отличается от языковой модели, просто вызывающей внешние инструменты?"
+    tests:
+      en: "Whether action representation and control feedback are distinguished."
+      ru: "Понимание различий в представлении действий и обратной связи управления."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"

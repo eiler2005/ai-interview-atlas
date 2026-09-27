@@ -1,0 +1,11 @@
+theme: behavioral-values
+questions:
+  - id: why-us
+    tracks: [engineering, leadership]
+    type: behavioral
+    text: {en: "Why this company, and where do you disagree with it?", ru: "Почему эта компания и в чём вы с ней не согласны?"}
+    tests: {en: "Motivation grounded in facts.", ru: "Мотивация, основанная на фактах."}
+    provenance: published
+    evidence:
+      - {source: prep-guide}
+    added: 2026-09-20

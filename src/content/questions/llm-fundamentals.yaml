@@ -1,0 +1,310 @@
+theme: "llm-fundamentals"
+questions:
+  - id: "llm-attention"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Derive scaled dot-product attention and explain how its scale affects softmax gradients."
+      ru: "Выведите формулу scaled dot-product attention и объясните, как масштаб влияет на градиенты softmax."
+    tests:
+      en: "Whether tensor shapes and numerical behaviour support the explanation."
+      ru: "Понимание размерностей тензоров и численной устойчивости."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 1
+    outline:
+      en:
+        - "Track Q, K and V shapes through score computation and weighted summation."
+        - "Scale by the square root of key width; discuss saturation of softmax."
+        - "Apply the causal mask before softmax and check numerical stability."
+      ru:
+        - "Проследить размерности Q, K и V до взвешенной суммы."
+        - "Объяснить деление на корень из размерности ключа и насыщение softmax."
+        - "Наложить causal mask до softmax и проверить численную устойчивость."
+    reading: ["paper-attention"]
+  - id: "llm-kv-cache"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Derive the memory required by a decoder's KV cache as batch size and context length grow."
+      ru: "Выведите объём памяти KV-кеша декодера в зависимости от размера батча и длины контекста."
+    tests:
+      en: "Whether cache size is calculated from the actual architecture."
+      ru: "Умение рассчитать размер кеша с учётом архитектуры."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+      - source: "outcome-school-company-wise"
+        company: "amazon"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 2
+    outline:
+      en:
+        - "For equal sequence lengths, use 2 × batch × layers × tokens × KV heads × head width × bytes."
+        - "Explain why queries are not retained for future decode steps."
+        - "Account separately for weights, activations, padding and allocation overhead."
+      ru:
+        - "Для равных длин использовать 2 × батч × слои × токены × KV-головы × размер головы × байты."
+        - "Объяснить, почему запросы не сохраняют для последующих шагов декодирования."
+        - "Отдельно учесть веса, активации, padding и накладные расходы выделения памяти."
+    reading: ["paper-pagedattention","paper-gqa"]
+  - id: "llm-grouped-query"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare multi-head, multi-query and grouped-query attention in quality and serving memory."
+      ru: "Сравните multi-head, multi-query и grouped-query attention по качеству и памяти при инференсе."
+    tests:
+      en: "Whether shared keys and values are distinguished from query heads."
+      ru: "Понимание различия между головами запросов и общими ключами и значениями."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 3
+    outline:
+      en:
+        - "MHA uses separate KV heads; MQA shares one; GQA shares within groups."
+        - "Relate KV-head count to cache size and memory reads."
+        - "Discuss quality evaluation and the need to train or adapt the checkpoint."
+      ru:
+        - "В MHA головы KV отдельные, в MQA одна общая, в GQA общие внутри групп."
+        - "Связать число KV-голов с размером кеша и чтением памяти."
+        - "Обсудить проверку качества и необходимость обучения или адаптации весов."
+    reading: ["paper-gqa"]
+  - id: "llm-latent-attention"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain how latent attention compresses the KV representation and what must be reconstructed at inference."
+      ru: "Объясните, как latent attention сжимает представление KV и что приходится восстанавливать при инференсе."
+    tests:
+      en: "Whether architectural compression is distinguished from lower numeric precision."
+      ru: "Понимание отличия архитектурного сжатия от снижения численной точности."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "llm-flashattention"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Why can an exact attention kernel run faster without changing the quadratic attention computation?"
+      ru: "Почему точный attention может работать быстрее без изменения квадратичного характера вычислений?"
+    tests:
+      en: "Whether memory traffic is separated from arithmetic complexity."
+      ru: "Понимание различия между обменом с памятью и вычислительной сложностью."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "llm-tokenization"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain BPE training and why numbers, source code and different writing systems can tokenize unevenly."
+      ru: "Объясните обучение BPE и причины неодинаковой токенизации чисел, кода и разных письменностей."
+    tests:
+      en: "Whether tokenisation choices are connected to context use and representation."
+      ru: "Понимание влияния токенизации на расход контекста и представление текста."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "llm-position-schemes"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare additive positional embeddings, rotary embeddings and attention biases for representing token order."
+      ru: "Сравните добавляемые позиционные эмбеддинги, rotary embeddings и смещения attention для задания порядка токенов."
+    tests:
+      en: "Whether different mechanisms for encoding position are understood."
+      ru: "Понимание разных способов задать позицию токена."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "llm-rope-extension"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain rotary position encoding and the trade-offs of interpolation when extending context beyond training lengths."
+      ru: "Объясните RoPE и компромиссы интерполяции при расширении контекста за пределы обучающей длины."
+    tests:
+      en: "Whether a longer accepted input is distinguished from reliable long-context reasoning."
+      ru: "Умение отличать допустимую длину входа от надёжной работы с длинным контекстом."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+  - id: "llm-compute-optimal"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    text:
+      en: "Under a fixed training compute budget, how do Chinchilla-style scaling results change the balance between model size and training tokens?"
+      ru: "Как результаты Chinchilla меняют выбор размера модели и числа обучающих токенов при фиксированном бюджете вычислений?"
+    tests:
+      en: "Whether empirical training trade-offs are kept separate from deployment economics."
+      ru: "Понимание различия между оптимумом обучения и экономикой эксплуатации."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 4
+    outline:
+      en:
+        - "State the fixed-compute setting and the empirical nature of the fit."
+        - "Balance parameter count with sufficient training tokens."
+        - "Separate training-optimal allocation from inference cost and data quality constraints."
+      ru:
+        - "Задать фиксированный бюджет вычислений и эмпирический характер зависимости."
+        - "Сбалансировать число параметров с достаточным объёмом обучающих токенов."
+        - "Отделить оптимум обучения от стоимости инференса и ограничений качества данных."
+    reading: ["paper-chinchilla"]
+  - id: "llm-experts"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "How does sparse expert routing increase parameter capacity, and what costs remain despite activating only some experts?"
+      ru: "Как разреженная маршрутизация по экспертам увеличивает число параметров и какие затраты сохраняются при активации части экспертов?"
+    tests:
+      en: "Whether active computation, total memory and communication are separated."
+      ru: "Умение различать активные вычисления, общую память и коммуникации."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "llm-training-stages"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    text:
+      en: "What objectives and data distinguish pretraining, instruction tuning and preference optimisation?"
+      ru: "Чем отличаются цели и данные предобучения, instruction tuning и оптимизации по предпочтениям?"
+    tests:
+      en: "Whether the candidate can identify what each stage can and cannot change."
+      ru: "Понимание возможностей и ограничений каждого этапа."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+  - id: "llm-decoding"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare greedy decoding, beam search and temperature, top-k and nucleus sampling; give a failure mode for each."
+      ru: "Сравните greedy decoding, beam search, температуру, top-k и nucleus sampling; приведите ограничение каждого подхода."
+    tests:
+      en: "Whether probability manipulation is connected to output diversity and quality."
+      ru: "Понимание связи преобразований вероятностей с разнообразием и качеством ответов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+  - id: "llm-context-position"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "How would you test and reduce a model's tendency to miss relevant evidence in the middle of a long context?"
+      ru: "Как проверить и уменьшить склонность модели пропускать важные сведения в середине длинного контекста?"
+    tests:
+      en: "Whether context utilisation is measured rather than inferred from context capacity."
+      ru: "Умение измерять использование контекста, а не судить по его вместимости."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 5
+    outline:
+      en:
+        - "Move the same relevant evidence through controlled context positions."
+        - "Measure accuracy across lengths, distractors and model variants."
+        - "Compare retrieval, ordering and context reduction without assuming a universal cure."
+      ru:
+        - "Перемещать одни и те же нужные сведения по позициям в контексте."
+        - "Измерять точность при разных длинах, отвлекающих фрагментах и моделях."
+        - "Сравнить retrieval, порядок и сокращение контекста без обещания универсального решения."
+    reading: ["paper-lost-in-the-middle"]
+  - id: "llm-normalization"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare pre-normalisation and post-normalisation transformer blocks, then explain what RMSNorm changes."
+      ru: "Сравните transformer-блоки с нормализацией до и после подслоя и объясните отличие RMSNorm."
+    tests:
+      en: "Whether normalisation is linked to optimisation stability and its actual formula."
+      ru: "Понимание связи формулы нормализации с устойчивостью обучения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "llm-gated-mlp"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain the two branches of SwiGLU and the parameter and compute trade-offs against a conventional feed-forward block."
+      ru: "Объясните две ветви SwiGLU и компромиссы по параметрам и вычислениям относительно обычного feed-forward блока."
+    tests:
+      en: "Whether gated activations are explained beyond their name."
+      ru: "Понимание механики gated activations."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+  - id: "llm-decoder-pass"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Trace the tensor shapes through one decoder-only transformer layer and through the final vocabulary projection."
+      ru: "Проследите размерности тензоров в слое decoder-only transformer и в финальной проекции на словарь."
+    tests:
+      en: "Whether attention, residual paths and vocabulary logits form a coherent computation."
+      ru: "Умение связать attention, residual-связи и логиты словаря в единое вычисление."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "llm-language-loss"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Relate cross-entropy, KL divergence and perplexity for next-token prediction; state the assumptions behind each comparison."
+      ru: "Свяжите cross-entropy, KL divergence и perplexity в предсказании следующего токена и назовите условия корректного сравнения."
+    tests:
+      en: "Whether probabilistic definitions are used consistently."
+      ru: "Умение согласованно использовать вероятностные определения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+  - id: "llm-long-attention"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain how self-attention cost grows with context length and compare ways to reduce that cost."
+      ru: "Объясните рост стоимости self-attention с длиной контекста и сравните способы её уменьшить."
+    tests:
+      en: "Whether efficiency changes are distinguished from changes to model behaviour."
+      ru: "Умение отличать оптимизацию исполнения от изменения поведения модели."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"

@@ -1,0 +1,40 @@
+id: "yandex"
+name:
+  en: "Yandex"
+  ru: "Яндекс"
+segment: "ru-big-tech"
+markets:
+- "ru"
+roles:
+  engineering:
+  - "software-engineer-general"
+summary:
+  en: "Employer articles from 2021 and 2024 describe architecture and algorithmic interviews for general developers. They are separate documents from the same company, without independent corroboration; an AI-specific loop is not established."
+  ru: "Статьи работодателя 2021 и 2024 годов описывают архитектурные и алгоритмические интервью для разработчиков. Это отдельные документы одной компании, без независимого подтверждения; специальный AI-цикл не установлен."
+loop:
+- stage:
+    en: "Algorithmic section"
+    ru: "Алгоритмическая секция"
+  detail:
+    en: "Sixty minutes with two problems and 30–40 minutes of coding; assessed on clear explanation, complexity analysis and bugs in the code."
+    ru: "Шестьдесят минут, две задачи, 30–40 минут на код; оценивают ясность объяснения, анализ сложности и количество ошибок в коде."
+  claim: "confirmed"
+  sources:
+  - "yandex-algorithmic-section"
+- stage:
+    en: "Architecture section (senior)"
+    ru: "Архитектурная секция (для старших)"
+  detail:
+    en: "Design a high-load, fault-tolerant system modelled on a real service; assessed on requirements, data flows and APIs, the architecture, capacity estimates and bottlenecks, and operations."
+    ru: "Спроектировать высоконагруженную отказоустойчивую систему по мотивам реального сервиса; оценивают требования, потоки данных и API, архитектуру, расчёт ресурсов и узкие места, эксплуатацию."
+  claim: "confirmed"
+  sources:
+  - "yandex-architecture-section"
+coding:
+  value: "required"
+  sources:
+  - "yandex-algorithmic-section"
+prep:
+- "yandex-algorithmic-section"
+- "yandex-architecture-section"
+reviewed: "2026-09-26"

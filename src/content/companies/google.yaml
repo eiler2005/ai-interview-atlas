@@ -1,0 +1,52 @@
+id: "google"
+name:
+  en: "Google and Google DeepMind"
+  ru: "Google и Google DeepMind"
+segment: "big-tech"
+markets:
+- "intl"
+roles:
+  leadership:
+  - "engineering-manager"
+  - "ai-pm"
+summary:
+  en: "Guides describe engineering-management and Gemini product interviews. One L6 management candidate reports code review and debugging. These sources do not establish a general software- or research-engineer loop."
+  ru: "Гайды описывают интервью руководителей разработки и продакт-менеджеров Gemini. Один кандидат на EM уровня L6 сообщает о code review и отладке. Общий цикл для разработчиков или research-инженеров эти источники не устанавливают."
+loop:
+- stage:
+    en: "Engineering manager path"
+    ru: "Путь руководителя разработки"
+  detail:
+    en: "Recruiter screen, a technical phone screen with coding, then an onsite with coding, system design and leadership interviews; a hiring committee reviews the feedback and team matching follows."
+    ru: "Скрининг с рекрутером, технический телефонный скрининг с кодингом, затем финальные интервью по кодингу, system design и лидерству; отзывы рассматривает hiring committee, после чего идёт подбор команды."
+  claim: "secondary"
+  sources:
+  - "exponent-google-em"
+- stage:
+    en: "Engineering manager report (L6)"
+    ru: "Отчёт кандидата на EM (L6)"
+  detail:
+    en: "Googleyness and behavioral questions (a team disagreement, attrition during a reorganisation), two system design rounds pushed down to implementation detail, an EM round on low performers, and a must-pass code review and debugging round on 200+ lines in a shared document without an IDE."
+    ru: "Googleyness и поведенческие вопросы (разногласия в команде, уход людей во время реорганизации), два раунда system design с погружением в детали реализации, EM-раунд о слабых сотрудниках и обязательный к прохождению раунд code review и отладки на 200+ строках в общем документе без IDE."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-google-em-l6"
+- stage:
+    en: "Gemini product manager path"
+    ru: "Путь продакт-менеджера Gemini"
+  detail:
+    en: "Recruiter and hiring manager screens on AI-first thinking, a product design round with about 15 minutes of vibe-coding a prototype, an execution and strategy round on debugging LLM systems, a generative-AI system design round and a leadership round."
+    ru: "Скрининги с рекрутером и нанимающим менеджером об AI-first мышлении, раунд продуктового дизайна с примерно 15 минутами vibe coding прототипа, раунд execution и стратегии об отладке LLM-систем, раунд system design генеративного AI и раунд лидерства."
+  claim: "secondary"
+  sources:
+  - "exponent-gemini-pm"
+coding:
+  value: "varies"
+  note:
+    en: "One EM candidate reports code review/debugging; AI prototyping for PMs is a secondary-guide claim. Confirm your role's format."
+    ru: "Один кандидат на EM сообщает о code review/отладке; AI-прототипирование для PM описано во вторичном гайде. Уточните формат своей роли."
+  sources:
+  - "exponent-google-em"
+  - "exponent-report-google-em-l6"
+  - "exponent-gemini-pm"
+reviewed: "2026-09-26"

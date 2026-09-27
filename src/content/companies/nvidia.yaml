@@ -1,0 +1,36 @@
+id: "nvidia"
+name: {en: "NVIDIA", ru: "NVIDIA"}
+segment: "ai-infra"
+markets: ["intl"]
+roles:
+  engineering: ["software-engineer-general", "ai-engineer"]
+summary:
+  en: "Official guidance is company-wide. AI-specific detail below comes from a secondary guide based on 2024 conversations, not a verified current universal loop."
+  ru: "Официальный гайд общий для компании. Детали AI-интервью ниже взяты из вторичного гайда по беседам 2024 года, а не из подтверждённого единого актуального процесса."
+loop:
+  - stage: {en: "Team interviews", ru: "Интервью с командой"}
+    detail:
+      en: "Meet the hiring manager, teammates and other groups. The official page requires an in-person onsite before an offer."
+      ru: "Встречи с нанимающим руководителем, командой и другими группами. Официальная страница требует очного этапа до оффера."
+    claim: "confirmed"
+    sources: ["nvidia-how-we-hire"]
+  - stage: {en: "Technical assessment", ru: "Техническая оценка"}
+    detail:
+      en: "Technical candidates may receive a coding exercise; interview composition depends on the role."
+      ru: "Техническим кандидатам могут предложить программирование; состав интервью зависит от роли."
+    claim: "confirmed"
+    sources: ["nvidia-how-we-hire"]
+  - stage: {en: "Historical specialist variation (2024)", ru: "Исторические различия специализаций (2024)"}
+    detail:
+      en: "The guide reports team-dependent coding and design rounds, including one LLM-focused screen using PyTorch. Confirm your team's current scope."
+      ru: "Гайд описывает зависящие от команды раунды кодинга и дизайна, включая один LLM-скрининг с PyTorch. Уточните актуальный формат своей команды."
+    claim: "secondary"
+    sources: ["interviewing-io-nvidia"]
+coding:
+  value: "varies"
+  note:
+    en: "The official page says coding may be required for technical roles."
+    ru: "По официальной странице кодинг возможен для технических ролей."
+  sources: ["nvidia-how-we-hire"]
+prep: ["nvidia-how-we-hire"]
+reviewed: "2026-09-26"

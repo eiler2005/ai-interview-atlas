@@ -1,0 +1,259 @@
+theme: "ai-system-design"
+questions:
+  - id: "sd-enterprise-rag"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design a knowledge assistant over ten million enterprise documents with per-user permissions and a continuously changing corpus."
+      ru: "Спроектируйте помощника по десяти миллионам корпоративных документов с индивидуальными правами и постоянно меняющимся корпусом."
+    tests:
+      en: "Whether ingestion, retrieval, access control and serving form an operable system."
+      ru: "Умение связать загрузку, поиск, контроль доступа и обслуживание в рабочую систему."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+      - source: "outcome-school-company-wise"
+        company: "amazon"
+      - source: "outcome-school-company-wise"
+        company: "databricks"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 34
+    outline:
+      en:
+        - "Clarify query volume, freshness and permission semantics before sizing."
+        - "Separate ingestion and index versions from query-time authorisation and retrieval."
+        - "Evaluate grounded answers and test revocation, stale data and partial outages."
+      ru:
+        - "Уточнить объём запросов, свежесть и семантику прав до расчёта мощности."
+        - "Разделить загрузку и версии индекса с проверкой прав и поиском во время запроса."
+        - "Оценить обоснованность ответов и проверить отзыв прав, устаревание и частичные отказы."
+    reading: ["azure-search-document-access","anthropic-contextual-retrieval"]
+  - id: "sd-code-assistant"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design a repository-aware coding assistant, from indexing and context assembly to applying edits and checking results."
+      ru: "Спроектируйте coding assistant для репозитория: от индексации и сборки контекста до применения изменений и проверки результата."
+    tests:
+      en: "Whether code context, safe edits and task evaluation are connected."
+      ru: "Умение связать контекст кода, безопасные изменения и проверку задачи."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "sd-support-agent"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design a customer-support agent that can execute service actions and transfer the case to a human when needed."
+      ru: "Спроектируйте агента поддержки, который выполняет сервисные действия и при необходимости передаёт обращение человеку."
+    tests:
+      en: "Whether execution authority and human escalation are part of the architecture."
+      ru: "Учёт полномочий исполнения и передачи человеку в архитектуре."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 36
+    outline:
+      en:
+        - "Map supported intents to explicit tools and permission boundaries."
+        - "Use observed operation outcomes and persistent case state to prevent duplicate actions."
+        - "Define escalation triggers and transfer enough context for a human to continue."
+      ru:
+        - "Связать поддерживаемые обращения с явными инструментами и границами разрешений."
+        - "Использовать наблюдаемые исходы операций и состояние обращения против повторных действий."
+        - "Задать условия эскалации и передавать контекст для продолжения человеком."
+    reading: ["anthropic-building-effective-agents","anthropic-writing-tools"]
+  - id: "sd-catalogue-search"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design semantic search for a large product catalogue, including relevance measurement and rapidly changing inventory."
+      ru: "Спроектируйте семантический поиск по большому каталогу товаров с оценкой релевантности и быстро меняющимися остатками."
+    tests:
+      en: "Whether semantic relevance is combined with valid catalogue constraints."
+      ru: "Умение сочетать смысловую релевантность с ограничениями каталога."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "sd-moderation"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design a moderation system that combines specialist classifiers and LLMs while controlling delay and review workload."
+      ru: "Спроектируйте модерацию, сочетающую специализированные классификаторы и LLM при ограничениях задержки и нагрузки на проверяющих."
+    tests:
+      en: "Whether risk classes, escalation and false decisions shape system design."
+      ru: "Учёт классов риска, эскалации и ошибочных решений в дизайне."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+  - id: "sd-document-intelligence"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable."
+      ru: "Спроектируйте извлечение структурированных полей из десяти миллионов сканов с возможностью проверки сомнительных результатов."
+    tests:
+      en: "Whether extraction quality, provenance and scalable processing are planned together."
+      ru: "Совместный учёт качества извлечения, происхождения данных и масштабирования."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+  - id: "sd-text-to-sql"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution."
+      ru: "Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения."
+    tests:
+      en: "Whether semantic correctness and query permissions constrain generation."
+      ru: "Учёт смысловой корректности и разрешений при генерации запросов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "databricks"
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+  - id: "sd-meeting-assistant"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design a meeting assistant that records discussion, distinguishes speakers and publishes summaries and action items to connected tools."
+      ru: "Спроектируйте помощника для встреч: запись, различение говорящих, публикация итогов и поручений в подключённые системы."
+    tests:
+      en: "Whether audio processing, attribution and integration reliability fit together."
+      ru: "Умение согласовать обработку аудио, атрибуцию и надёжность интеграций."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+    added: "2026-09-26"
+  - id: "sd-gateway"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design an LLM gateway with provider routing, failover, caching, rate limits and enforceable spending budgets."
+      ru: "Спроектируйте LLM gateway с маршрутизацией, failover, кешированием, лимитами запросов и обязательными бюджетами."
+    tests:
+      en: "Whether provider differences and failure handling preserve the service contract."
+      ru: "Умение сохранить контракт сервиса при различиях и отказах провайдеров."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 35
+    outline:
+      en:
+        - "Define provider capabilities and normalise only compatible request semantics."
+        - "Enforce tenant quotas and budgets before dispatch, including retries."
+        - "Specify failover boundaries for partially streamed responses and side-effecting tool calls."
+      ru:
+        - "Описать возможности провайдеров и унифицировать только совместимую семантику."
+        - "Проверять квоты и бюджеты клиентов до отправки, включая повторы."
+        - "Задать границы failover при частично переданном ответе и вызовах с побочными эффектами."
+    reading: ["stripe-rate-limiters","stripe-idempotency"]
+  - id: "sd-consumer-chat"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design a streaming chat service for hundreds of millions of users, including capacity, conversation storage and graceful overload behaviour."
+      ru: "Спроектируйте потоковый чат для сотен миллионов пользователей с планированием мощности, хранением диалогов и работой при перегрузке."
+    tests:
+      en: "Whether scale assumptions lead to explicit capacity and reliability decisions."
+      ru: "Умение вывести решения по мощности и надёжности из предположений о масштабе."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+      - source: "outcome-school-company-wise"
+        company: "openai"
+      - source: "outcome-school-company-wise"
+        company: "google"
+      - source: "outcome-school-company-wise"
+        company: "meta"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 37
+    outline:
+      en:
+        - "Estimate concurrent streams, token demand and storage from declared traffic assumptions."
+        - "Separate admission control, inference scheduling and durable conversation state."
+        - "Plan capacity headroom, cancellation, overload rejection and recovery from partial failure."
+      ru:
+        - "Оценить число потоков, спрос на токены и хранение по явным предположениям о трафике."
+        - "Разделить допуск запросов, планирование инференса и долговременное состояние диалога."
+        - "Предусмотреть запас мощности, отмену, отказ при перегрузке и восстановление после частичного сбоя."
+    reading: ["google-sre-book","paper-pagedattention"]
+  - id: "sd-thread-state"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How would you support multiple questions within one conversation while keeping turn ordering and shared context consistent?"
+      ru: "Как поддержать несколько вопросов в одном диалоге, сохраняя порядок реплик и согласованность общего контекста?"
+    tests:
+      en: "Whether concurrent conversation updates have clear consistency semantics."
+      ru: "Умение явно задать согласованность параллельных обновлений диалога."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "sd-billion-document-search"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design distributed search for a billion documents at a million queries per second; state your partitioning and capacity assumptions."
+      ru: "Спроектируйте распределённый поиск по миллиарду документов при миллионе запросов в секунду; задайте предположения о разбиении и мощности."
+    tests:
+      en: "Whether indexing, fan-out and tail latency are grounded in estimates."
+      ru: "Умение обосновать индексацию, fan-out и хвостовую задержку расчётами."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "sd-model-api"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility."
+      ru: "Спроектируйте безопасный API доступа к моделям для разработчиков: аутентификация, квоты, потоковые ответы и обратная совместимость."
+    tests:
+      en: "Whether a model endpoint is treated as a durable platform contract."
+      ru: "Понимание endpoint модели как долгосрочного платформенного контракта."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "sd-webhooks"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design reliable delivery of events to customer webhook endpoints despite timeouts, duplicate attempts and unavailable receivers."
+      ru: "Спроектируйте надёжную доставку событий на webhook клиентов при тайм-аутах, повторах и недоступности получателей."
+    tests:
+      en: "Whether delivery guarantees and consumer responsibilities are stated precisely."
+      ru: "Умение точно задать гарантии доставки и обязанности получателя."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"

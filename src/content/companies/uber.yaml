@@ -1,0 +1,42 @@
+id: "uber"
+name: {en: "Uber", ru: "Uber"}
+segment: "big-tech"
+markets: ["intl"]
+roles:
+  engineering: ["software-engineer-general"]
+summary:
+  en: "Use the general engineering process as a baseline. The sources do not confirm an AI-specific loop for every team."
+  ru: "Общий инженерный процесс — отправная точка. Источники не подтверждают единый AI-цикл для всех команд."
+loop:
+  - stage: {en: "Talent team and hiring manager", ru: "Рекрутер и нанимающий руководитель"}
+    detail:
+      en: "Discuss experience, role expectations, decisions and the team's work."
+      ru: "Обсуждают опыт, ожидания от роли, принятые решения и работу команды."
+    claim: "confirmed"
+    sources: ["uber-how-we-hire"]
+  - stage: {en: "Technical and functional assessment", ru: "Техническая и профессиональная оценка"}
+    detail:
+      en: "Technical roles include collaborative problem-solving; some roles add a work-related exercise before team interviews."
+      ru: "Для технических ролей предусмотрено совместное решение задачи; перед встречами с командой возможно практическое задание."
+    claim: "confirmed"
+    sources: ["uber-how-we-hire"]
+  - stage: {en: "Coding guidance (2021)", ru: "Рекомендации по кодингу (2021)"}
+    detail:
+      en: "The engineering article describes working code, test cases and explaining your reasoning in a familiar language. Formats may have changed."
+      ru: "Инженерная статья описывает работающий код, тесты и объяснение решения на знакомом языке. Форматы могли измениться."
+    claim: "confirmed"
+    sources: ["uber-engineering-coding-2021"]
+  - stage: {en: "Senior engineering rounds", ru: "Раунды для опытных инженеров"}
+    detail:
+      en: "A third-party guide reports coding, system design, collaboration and leadership, plus a bar-raiser discussion. Team variation is explicit."
+      ru: "Сторонний гайд описывает кодинг, system design, сотрудничество и лидерство, а также беседу с bar raiser. Подчёркнуты различия между командами."
+    claim: "secondary"
+    sources: ["interviewing-io-uber"]
+coding:
+  value: "required"
+  note:
+    en: "The official engineering guide includes coding; this label concerns software-engineering roles."
+    ru: "Официальный инженерный гайд включает кодинг; метка относится к разработчикам ПО."
+  sources: ["uber-engineering-coding-2021"]
+prep: ["uber-how-we-hire", "uber-engineering-coding-2021"]
+reviewed: "2026-09-26"

@@ -1,0 +1,288 @@
+theme: "inference-economics"
+questions:
+  - id: "inf-prefill-decode"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Contrast prefill with autoregressive decode and explain when compute or memory bandwidth becomes the bottleneck."
+      ru: "Сравните prefill и авторегрессионное декодирование: когда узким местом становятся вычисления, а когда пропускная способность памяти?"
+    tests:
+      en: "Whether bottlenecks are conditioned on workload and batch size."
+      ru: "Умение определять узкое место с учётом нагрузки и батча."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 6
+    outline:
+      en:
+        - "Prefill processes prompt positions in parallel; decode advances autoregressively."
+        - "Small-batch decode often reads weights with limited arithmetic reuse."
+        - "Profile sequence lengths and batching before declaring either phase compute- or bandwidth-bound."
+      ru:
+        - "Prefill обрабатывает позиции промпта параллельно, decode идёт авторегрессионно."
+        - "При малом батче decode часто читает веса с низким повторным использованием вычислений."
+        - "Профилировать длины и батчинг до вывода о вычислительном или memory-bound ограничении."
+    reading: ["hf-llm-optims"]
+  - id: "inf-continuous-batching"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain iteration-level batching and how requests enter and leave a running inference batch."
+      ru: "Объясните батчинг на уровне итераций: как запросы добавляются в выполняющийся батч и покидают его?"
+    tests:
+      en: "Whether scheduling is connected to utilisation, fairness and waiting time."
+      ru: "Понимание связи планировщика с утилизацией, справедливостью и ожиданием."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 7
+    outline:
+      en:
+        - "Admit new sequences at iteration boundaries and remove completed ones."
+        - "Enforce token and KV-memory budgets rather than request count alone."
+        - "Measure queueing and starvation alongside throughput."
+      ru:
+        - "Добавлять последовательности на границах итераций и удалять завершённые."
+        - "Ограничивать токены и KV-память, а не только число запросов."
+        - "Измерять ожидание и голодание запросов наряду с throughput."
+    reading: ["paper-pagedattention"]
+  - id: "inf-paged-cache"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "How does paging the KV cache reduce waste, and what remains for the scheduler to solve?"
+      ru: "Как страничная организация KV-кеша сокращает потери памяти и какие задачи остаются планировщику?"
+    tests:
+      en: "Whether memory management is distinguished from request scheduling."
+      ru: "Умение отличать управление памятью от планирования запросов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "inf-speculation"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain exact speculative decoding, its acceptance step and workloads where the draft model adds overhead instead of speed."
+      ru: "Объясните точное speculative decoding, проверку предложенных токенов и случаи, когда draft-модель лишь добавляет накладные расходы."
+    tests:
+      en: "Whether speedup is explained without promising a universal quality or latency benefit."
+      ru: "Понимание условий ускорения без универсальных обещаний."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 8
+    outline:
+      en:
+        - "A smaller model proposes several tokens for parallel target verification."
+        - "Describe acceptance and correction sampling that preserve the target distribution."
+        - "Evaluate acceptance rate, draft cost and available parallel compute."
+      ru:
+        - "Малая модель предлагает несколько токенов для параллельной проверки целевой моделью."
+        - "Описать принятие и корректирующий сэмплинг, сохраняющие распределение целевой модели."
+        - "Оценить долю принятых токенов, стоимость draft и доступные параллельные вычисления."
+    reading: ["paper-speculative-decoding"]
+  - id: "inf-prefix-cache"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "What makes a prompt prefix reusable, and which changes invalidate or reduce the value of a prefix cache?"
+      ru: "Когда префикс промпта можно переиспользовать и какие изменения обесценивают или инвалидируют кеш?"
+    tests:
+      en: "Whether exact reuse, cache lifetime and tenant isolation are considered."
+      ru: "Учёт точного совпадения, срока жизни кеша и изоляции клиентов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "inf-precision"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare floating-point and integer serving formats down to four bits; how would you validate an acceptable reduction in precision?"
+      ru: "Сравните форматы с плавающей точкой и целочисленные форматы вплоть до четырёх бит: как проверить допустимость снижения точности?"
+    tests:
+      en: "Whether memory savings are checked against quality, kernels and hardware support."
+      ru: "Умение сопоставить экономию памяти с качеством, ядрами и поддержкой оборудования."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "inf-parallelism"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare tensor, pipeline, data, sequence and expert parallelism for a large model deployment."
+      ru: "Сравните tensor, pipeline, data, sequence и expert parallelism при развёртывании большой модели."
+    tests:
+      en: "Whether communication patterns and memory limits determine the choice."
+      ru: "Умение выбирать по обмену данными и ограничениям памяти."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+      - source: "outcome-school-company-wise"
+        company: "meta"
+      - source: "outcome-school-company-wise"
+        company: "amazon"
+    added: "2026-09-26"
+  - id: "inf-memory-budget"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Estimate a serving memory budget for a 70-billion-parameter model, explicitly choosing precision, context and concurrency assumptions."
+      ru: "Оцените память для обслуживания модели с 70 млрд параметров, явно задав точность, контекст и конкурентность."
+    tests:
+      en: "Whether weights, cache and runtime headroom are all budgeted."
+      ru: "Умение учесть веса, кеш и запас памяти во время выполнения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 9
+    outline:
+      en:
+        - "Weight storage is parameter count times bytes per parameter, before quantisation metadata."
+        - "Add architecture-specific KV storage for the chosen concurrent sequences."
+        - "Reserve activations, workspace and allocator headroom; state any sharding assumptions."
+      ru:
+        - "Память весов — число параметров на байты на параметр, без метаданных квантования."
+        - "Добавить KV-память конкретной архитектуры для заданных параллельных последовательностей."
+        - "Заложить активации, рабочие буферы и запас аллокатора; явно указать шардирование."
+    reading: ["paper-pagedattention"]
+  - id: "inf-latency-metrics"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    text:
+      en: "Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems."
+      ru: "Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса."
+    tests:
+      en: "Whether user-visible delay is separated from aggregate capacity."
+      ru: "Умение отличать задержку для пользователя от совокупной пропускной способности."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+  - id: "inf-roofline"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Build a roofline estimate for single-request decoding of a 70B model on an H100; check first whether the chosen representation fits."
+      ru: "Постройте roofline-оценку декодирования модели 70B для одного запроса на H100; сначала проверьте, помещается ли выбранное представление."
+    tests:
+      en: "Whether bandwidth, capacity and achievable utilisation constrain the estimate."
+      ru: "Умение ограничить оценку пропускной способностью памяти, её объёмом и достижимой утилизацией."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "inf-runtime-choice"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    text:
+      en: "How would you benchmark vLLM, SGLang, TensorRT-LLM and a custom runtime for a specific workload?"
+      ru: "Как сравнить vLLM, SGLang, TensorRT-LLM и собственный runtime на конкретной нагрузке?"
+    tests:
+      en: "Whether a reproducible workload drives the choice instead of a generic ranking."
+      ru: "Умение выбирать по воспроизводимой нагрузке, а не общему рейтингу."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "inf-cost-reduction"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    text:
+      en: "You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable."
+      ru: "Вам поручили снизить стоимость инференса на порядок. Расставьте меры по приоритету и объясните, как проверить достижимость цели."
+    tests:
+      en: "Whether savings are measured under explicit quality and latency constraints."
+      ru: "Умение оценить экономию при явных ограничениях качества и задержки."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+      - source: "outcome-school-company-wise"
+        company: "amazon"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 10
+    outline:
+      en:
+        - "Measure cost per successful task at the required quality and SLO."
+        - "Compare smaller models, shorter contexts, reuse, batching and precision changes."
+        - "Benchmark each change and check whether the combined savings actually reach the target."
+      ru:
+        - "Измерить стоимость успешной задачи при нужном качестве и SLO."
+        - "Сравнить меньшие модели, сокращение контекста, переиспользование, батчинг и точность."
+        - "Измерить каждое изменение и проверить, достигается ли цель в совокупности."
+    reading: ["hf-llm-optims","google-sre-book"]
+  - id: "inf-tail-regression"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "After a deployment, p99 latency doubles although model weights are unchanged. How do you isolate the cause?"
+      ru: "После релиза p99 задержки удвоился, хотя веса модели не менялись. Как локализовать причину?"
+    tests:
+      en: "Whether diagnosis separates queueing, scheduling, dependencies and traffic changes."
+      ru: "Умение разделить ожидание, планирование, зависимости и изменения трафика."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+      - source: "outcome-school-company-wise"
+        company: "amazon"
+      - source: "outcome-school-company-wise"
+        company: "databricks"
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 11
+    outline:
+      en:
+        - "Compare traffic mix, queue time and per-stage latency before and after release."
+        - "Inspect cache hit rates, batching, dependency tails and resource saturation."
+        - "Reproduce one hypothesis at a time and use a rollback or canary to verify causality."
+      ru:
+        - "Сравнить состав трафика, время в очереди и задержки этапов до и после релиза."
+        - "Проверить попадания в кеш, батчинг, хвосты зависимостей и насыщение ресурсов."
+        - "Проверять гипотезы по одной и подтвердить причинность откатом или canary."
+    reading: ["paper-tail-at-scale"]
+  - id: "inf-chunked-prefill"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Why can splitting prefill into chunks help mixed prompt and decode traffic, and what trade-off does chunk size introduce?"
+      ru: "Почему разбиение prefill на части помогает смешанному трафику и какой компромисс задаёт размер части?"
+    tests:
+      en: "Whether throughput and decode stalls are considered together."
+      ru: "Совместный учёт пропускной способности и пауз декодирования."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "inf-disaggregation"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "When would you separate prefill and decode onto different workers, and how would you price the KV transfer overhead?"
+      ru: "Когда стоит разделить prefill и decode между воркерами и как оценить накладные расходы передачи KV?"
+    tests:
+      en: "Whether independent scaling is weighed against transport and operational complexity."
+      ru: "Умение сопоставить независимое масштабирование со стоимостью передачи и эксплуатации."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"

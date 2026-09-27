@@ -1,0 +1,18 @@
+# Changelog
+
+[English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
+
+## 2026-09-27 — First edition
+
+### Added
+- 255 bilingual questions across 17 themes: 191 in AI Engineering and 146 in AI Leadership, with overlap between tracks. Each track has 40 starting questions with answer outlines and reading.
+- 20 company pages with sourced interview-loop claims, coding requirements and clearly labelled general-role baselines where specialist AI evidence is unavailable.
+- 107 source records: 21 official sources, 9 participant reports, 17 preparation guides, 1 secondary compilation and 59 references. Of the questions, 245 cite interview sources and 10 are labelled as practice generated from published radar themes. References support reading, not claims that a question was asked.
+- An aggregate requirements radar from 79 postings collected in September 2026: 62 leadership and 17 engineering. Only leadership theme counts are published; engineering is below the minimum track size of 20, and cells below five postings are suppressed.
+- Content schema for tracks, roles, themes, sources, companies, questions and the requirements radar, with provenance rules enforced at build time.
+- Generator for bilingual README, theme, company, radar and source pages plus a static radar SVG; `--check` fails on stale pages, broken local links and missing Russian pages.
+- Methodology, attribution and contribution guides in English and Russian; privacy hooks and CI that reuse the Career Copilot checker and Gitleaks.
+
+### Limits
+- Preparation guides and compilation tags remain secondary evidence, not first-hand confirmation. General software or product interview guides do not establish an AI-specific loop; source-check dates do not guarantee a current process for every team.
+- The radar is a small, nonrepresentative sample weighted towards international fintech and business software. It measures requirements in retained postings, not current hiring availability or the whole market. Only anonymised aggregates are published.

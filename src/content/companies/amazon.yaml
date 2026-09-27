@@ -1,0 +1,43 @@
+id: "amazon"
+name:
+  en: "Amazon"
+  ru: "Amazon"
+segment: "big-tech"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "ai-engineer"
+  leadership:
+  - "ai-pm"
+summary:
+  en: "A secondary AI-product guide describes Leadership Principles, a written exercise and a Bar Raiser. Engineering topics come from a compilation. Neither source establishes a universal current loop."
+  ru: "Вторичный гайд для AI-продактов описывает принципы лидерства, письменное задание и Bar Raiser. Инженерные темы взяты из подборки. Ни один источник не подтверждает единый актуальный цикл."
+loop:
+- stage:
+    en: "AI product manager path"
+    ru: "Путь AI-продакт-менеджера"
+  detail:
+    en: "A recruiter screen on ownership and customer obsession, a one- to two-page written answer to a Leadership Principles prompt, product screening rounds, then a final loop of four or five rounds with Leadership Principles deep dives, product thinking, generative-AI evaluation, system design for technical PM roles and a Bar Raiser."
+    ru: "Скрининг с рекрутером об ownership и customer obsession, письменный ответ на одну-две страницы по принципам лидерства, продуктовые скрининги, затем финальный цикл из четырёх-пяти раундов: принципы лидерства с глубокими уточнениями, продуктовое мышление, оценка генеративного AI, system design для технических PM и Bar Raiser."
+  claim: "secondary"
+  sources:
+  - "exponent-amazon-ai-pm"
+- stage:
+    en: "Engineering questions"
+    ru: "Вопросы для инженеров"
+  detail:
+    en: "A compilation attributes to Amazon questions on implementing attention, serving cost, parallelism, enterprise RAG design and diagnosing latency regressions."
+    ru: "Подборка относит к Amazon вопросы о реализации attention, стоимости serving, параллелизме, дизайне корпоративного RAG и диагностике роста задержки."
+  claim: "secondary"
+  sources:
+  - "outcome-school-company-wise"
+coding:
+  value: "unknown"
+  note:
+    en: "The retained secondary sources do not meet the atlas's evidence threshold for a coding requirement."
+    ru: "Сохранённые вторичные источники не подтверждают требование кодинга по правилам атласа."
+  sources:
+  - "exponent-amazon-ai-pm"
+  - "outcome-school-company-wise"
+reviewed: "2026-09-26"

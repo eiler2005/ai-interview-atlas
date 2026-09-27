@@ -1,0 +1,63 @@
+id: "openai"
+name:
+  en: "OpenAI"
+  ru: "OpenAI"
+segment: "frontier-lab"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer-general"
+  - "ai-engineer"
+  leadership:
+  - "product-manager-general"
+summary:
+  en: "Guides describe practical coding rather than puzzles, a project presentation and, in some loops, an AI-assisted coding round. Product managers are expected to work close to general managers. The official interview guide could not be read for this edition, so every stage below is secondary."
+  ru: "Гайды описывают практический кодинг вместо головоломок, презентацию проекта и в части циклов раунд кодинга с AI-ассистентом. От продакт-менеджеров ждут роли, близкой к генеральному менеджеру. Официальный гайд по интервью для этого выпуска прочитать не удалось, поэтому все этапы ниже — вторичные."
+loop:
+- stage:
+    en: "Recruiter call"
+    ru: "Звонок с рекрутером"
+  detail:
+    en: "About 30 minutes on background, motivation and fit for the role."
+    ru: "Около 30 минут о бэкграунде, мотивации и соответствии роли."
+  claim: "secondary"
+  sources:
+  - "interviewing-io-openai"
+  - "exponent-openai-pm"
+- stage:
+    en: "Technical screens"
+    ru: "Технические скрининги"
+  detail:
+    en: "About an hour of practical coding, and for engineers a separate hour-long system design screen."
+    ru: "Около часа практического кодинга, а для инженеров — отдельный часовой скрининг по system design."
+  claim: "secondary"
+  sources:
+  - "interviewing-io-openai"
+- stage:
+    en: "Engineering onsite"
+    ru: "Финальные раунды для инженеров"
+  detail:
+    en: "Four to six hours: coding, system design, a project presentation with slides, a behavioral conversation with a senior manager that covers AI safety, and a collaboration round. An agentic, AI-assisted coding round on an existing codebase was in beta."
+    ru: "От четырёх до шести часов: кодинг, system design, презентация проекта со слайдами, поведенческая беседа с senior-менеджером, включая безопасность AI, и раунд о совместной работе. Раунд агентного кодинга с AI-ассистентом на существующей кодовой базе был в бета-режиме."
+  claim: "secondary"
+  sources:
+  - "interviewing-io-openai"
+- stage:
+    en: "Product manager loop"
+    ru: "Цикл для продакт-менеджера"
+  detail:
+    en: "A hiring manager screen, an hour-long product sense screen and a product execution screen, then four to six final rounds across product sense, execution, go-to-market, engineering partnership, stakeholders and behavioral questions."
+    ru: "Разговор с нанимающим менеджером, часовой скрининг по product sense и скрининг по execution, затем четыре–шесть финальных раундов: product sense, execution, go-to-market, работа с инженерами, стейкхолдеры и поведенческие вопросы."
+  claim: "secondary"
+  sources:
+  - "exponent-openai-pm"
+coding:
+  value: "unknown"
+  note:
+    en: "Secondary guides describe coding; no company or first-hand source verifies the requirement in this edition."
+    ru: "Вторичные гайды описывают кодинг; в этом выпуске нет подтверждения требования компанией или участником интервью."
+  sources:
+  - "interviewing-io-openai"
+  - "exponent-openai-pm"
+reviewed: "2026-09-26"

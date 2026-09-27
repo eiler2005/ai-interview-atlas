@@ -1,0 +1,422 @@
+theme: "engineering-leadership"
+questions:
+  - id: "lead-low-performance"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me how you handled an engineer who was not meeting expectations.
+      ru: >-
+        Расскажите, как вы работали с инженером, который не справлялся с ожиданиями.
+    tests:
+      en: >-
+        Whether you diagnose performance fairly and make expectations actionable.
+      ru: >-
+        Умеете ли вы справедливо разобраться в причинах и превратить ожидания в конкретные действия.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-google-em-l6"
+        company: "google"
+    start_here: ["leadership"]
+    priority: 18
+    outline:
+      en:
+        - "Identify the performance gap using observable examples."
+        - "Explain the feedback, listening and support you provided."
+        - "Describe agreed next steps and the follow-up result."
+      ru:
+        - "Покажите отклонение от ожиданий на наблюдаемых примерах."
+        - "Объясните обратную связь, обсуждение и оказанную поддержку."
+        - "Опишите согласованные действия и результат последующей проверки."
+    reading: ["google-manager-training"]
+  - id: "lead-disruptive-star"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?
+      ru: >-
+        Как вы работали с сильным инженером, чьё поведение вызывало конфликты с коллегами?
+    tests:
+      en: >-
+        Whether you hold performance and collaboration to explicit standards.
+      ru: >-
+        Предъявляете ли вы понятные требования и к результатам, и к взаимодействию.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-google-em-l6"
+        company: "google"
+    start_here: ["leadership"]
+    priority: 19
+    outline:
+      en:
+        - "Separate technical results from the impact of specific behaviour."
+        - "Explain your feedback and how you heard their perspective."
+        - "Describe agreed behaviour changes and subsequent observations."
+      ru:
+        - "Разделите технические результаты и последствия конкретного поведения."
+        - "Объясните обратную связь и то, как вы выслушали сотрудника."
+        - "Опишите согласованные изменения поведения и последующие наблюдения."
+    reading: ["google-manager-training"]
+  - id: "lead-mentee-growth"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe how someone you mentored progressed in their career.
+      ru: >-
+        Расскажите, как развивалась карьера человека, которого вы наставляли.
+    tests:
+      en: >-
+        Whether you develop others through opportunities and evidence rather than taking credit for their success.
+      ru: >-
+        Помогаете ли вы развиваться через задачи и обратную связь, не присваивая чужие достижения.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-anthropic-em"
+        company: "anthropic"
+    start_here: ["leadership"]
+    priority: 20
+    outline:
+      en:
+        - "Describe their development goal and starting point."
+        - "Explain how coaching helped them choose actions."
+        - "Distinguish their achievements from your support."
+      ru:
+        - "Опишите цель развития сотрудника и исходную ситуацию."
+        - "Объясните, как наставничество помогло выбрать действия."
+        - "Отделите достижения сотрудника от вашей поддержки."
+    reading: ["google-manager-training"]
+  - id: "lead-team-disagrees"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        What do you do when your team disagrees with your proposed direction?
+      ru: >-
+        Что вы делаете, когда команда не согласна с предложенным вами направлением?
+    tests:
+      en: >-
+        Whether you invite challenge while retaining responsibility for a decision.
+      ru: >-
+        Готовы ли вы обсуждать возражения, сохраняя ответственность за решение.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-anthropic-em"
+        company: "anthropic"
+    start_here: ["leadership"]
+    priority: 21
+    outline:
+      en:
+        - "Clarify the disputed assumptions and actively seek the strongest objection."
+        - "Use evidence or a bounded experiment where it can resolve the disagreement."
+        - "Explain decision rights, communicate the choice and define when to revisit it."
+      ru:
+        - "Уточните спорные предположения и разберите самое сильное возражение."
+        - "Используйте данные или ограниченный эксперимент, если это поможет разрешить спор."
+        - "Объясните полномочия, сообщите решение и условия его пересмотра."
+    reading: ["design-docs-at-google"]
+  - id: "lead-reorganisation-retention"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How would you respond when a high performer considers leaving during a reorganisation?
+      ru: >-
+        Как вы поступите, если сильный сотрудник собирается уйти во время реорганизации?
+    tests:
+      en: >-
+        Whether you listen honestly and address retention without making promises you cannot keep.
+      ru: >-
+        Умеете ли вы разобраться в причинах ухода без невыполнимых обещаний.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-google-em-l6"
+        company: "google"
+    start_here: ["leadership"]
+    priority: 22
+    outline:
+      en:
+        - "Understand the person's concerns and separate change uncertainty from persistent problems."
+        - "Explain what is known, what you can change and what remains undecided."
+        - "Discuss feasible support, surface unresolved concerns and agree a follow-up."
+      ru:
+        - "Выясните причины и отделите неопределённость перемен от устойчивых проблем."
+        - "Объясните, что известно, на что вы влияете и какие решения ещё не приняты."
+        - "Обсудите доступную поддержку, нерешённые вопросы и последующую встречу."
+    reading: ["gitlab-organizational-change"]
+  - id: "lead-team-after-change"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How would you stabilise an engineering team after a change in management?
+      ru: >-
+        Как вы стабилизируете инженерную команду после смены руководства?
+    tests:
+      en: >-
+        Whether you establish trust and operating clarity before imposing broad changes.
+      ru: >-
+        Умеете ли вы восстановить доверие и ясность работы до масштабных изменений.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-google-em-l6"
+        company: "google"
+    start_here: ["leadership"]
+    priority: 23
+    outline:
+      en:
+        - "Listen to team members and partners and identify urgent delivery or wellbeing risks."
+        - "Clarify priorities, decision ownership and communication routines."
+        - "Make a small number of justified changes and check their effect."
+      ru:
+        - "Выслушайте команду и партнёров и выявите срочные риски для работы и людей."
+        - "Уточните приоритеты, ответственность за решения и регулярное взаимодействие."
+        - "Внесите ограниченное число обоснованных изменений и проверьте их эффект."
+    reading: ["gitlab-organizational-change"]
+  - id: "lead-opportunity-coalition"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe how you identified a valuable opportunity and persuaded a group to deliver it.
+      ru: >-
+        Расскажите, как вы нашли ценную возможность и убедили группу людей её реализовать.
+    tests:
+      en: >-
+        Whether you create influence through evidence, alignment and shared ownership.
+      ru: >-
+        Умеете ли вы влиять через данные, согласование интересов и общую ответственность.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "monzo-staff-plus-interview"
+        company: "monzo"
+    start_here: ["leadership"]
+    priority: 24
+    outline:
+      en:
+        - "Explain why the opportunity mattered and how you discovered it."
+        - "Describe competing priorities, objections and how participants shaped the plan."
+        - "Show delivery and impact, including what remained outside your control."
+      ru:
+        - "Объясните значение возможности и как вы её обнаружили."
+        - "Опишите конкурирующие приоритеты, возражения и вклад участников в план."
+        - "Покажите выполнение и эффект, обозначив границы своего влияния."
+    reading: ["design-docs-at-google","google-sre-book"]
+  - id: "lead-team-scale"
+    tracks: ["leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        What is the largest team you have managed, and how did your responsibilities change at that scale?
+      ru: >-
+        Какой самой большой командой вы руководили и как при таком масштабе менялись ваши обязанности?
+    tests:
+      en: >-
+        Whether your management model matches the actual span and complexity.
+      ru: >-
+        Соответствовал ли ваш способ управления реальному масштабу и сложности.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-anthropic-em"
+        company: "anthropic"
+  - id: "lead-high-performer-development"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        How have you managed and developed your strongest performers?
+      ru: >-
+        Как вы руководили самыми сильными сотрудниками и помогали им развиваться?
+    tests:
+      en: >-
+        Whether you provide challenge and growth without creating a privileged exception.
+      ru: >-
+        Создаёте ли вы возможности роста без особых правил для отдельных сотрудников.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-em-m1"
+        company: "meta"
+  - id: "lead-partner-feedback"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A cross-functional partner gives you critical feedback about your leadership. How do you respond?
+      ru: >-
+        Коллега из другой функции критически оценивает ваше руководство. Как вы реагируете?
+    tests:
+      en: >-
+        Whether you investigate feedback and translate it into changed behaviour.
+      ru: >-
+        Проверяете ли вы обратную связь и меняете ли на её основе поведение.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-em-m1"
+        company: "meta"
+  - id: "lead-two-valid-views"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a team disagreement that you resolved without discarding the valid concerns on either side.
+      ru: >-
+        Расскажите о споре в команде, который вы разрешили, сохранив обоснованные доводы обеих сторон.
+    tests:
+      en: >-
+        Whether you uncover underlying needs instead of forcing a superficial compromise.
+      ru: >-
+        Выявляете ли вы реальные потребности вместо поверхностного компромисса.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-google-em-l6"
+        company: "google"
+  - id: "lead-strategic-hiring"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How do you decide which engineering capabilities to hire for?
+      ru: >-
+        Как вы определяете, какие инженерные компетенции нужно нанимать?
+    tests:
+      en: >-
+        Whether staffing choices follow strategy and gaps in team capability.
+      ru: >-
+        Следуют ли кадровые решения из стратегии и пробелов в компетенциях.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-stripe"
+        company: "stripe"
+  - id: "lead-quality-standard"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How do you establish engineering quality standards across a team?
+      ru: >-
+        Как вы задаёте стандарты инженерного качества в команде?
+    tests:
+      en: >-
+        Whether standards are observable, proportionate and part of daily delivery.
+      ru: >-
+        Являются ли стандарты проверяемыми, соразмерными риску и встроенными в работу.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-stripe"
+        company: "stripe"
+  - id: "lead-engineering-persuasion"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How would you convince engineers that a proposed product feature is worth building?
+      ru: >-
+        Как вы убедите инженеров, что предложенную продуктовую функцию стоит делать?
+    tests:
+      en: >-
+        Whether you engage technical concerns and establish a shared reason to invest.
+      ru: >-
+        Учитываете ли вы технические возражения и формируете ли общее обоснование работы.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-perplexity-ai-pm"
+        company: "perplexity"
+  - id: "lead-personal-growth"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        What have you changed about your management approach as you have grown?
+      ru: >-
+        Что вы изменили в своём подходе к управлению по мере профессионального роста?
+    tests:
+      en: >-
+        Whether reflection produces concrete changes in how you lead.
+      ru: >-
+        Приводит ли рефлексия к конкретным изменениям в руководстве.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-em-m1"
+        company: "meta"
+  - id: "lead-research-product-boundary"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?
+      ru: >-
+        Исследователям нужно продолжать эксперименты, а продуктовым инженерам — выпустить надёжный сервис. Как вы распределите ответственность и передачу работы?
+    tests:
+      en: >-
+        Whether team design accommodates uncertainty without abandoning production ownership.
+      ru: >-
+        Учитываете ли вы неопределённость исследований, сохраняя ответственность за эксплуатацию.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:engineering-leadership"]
+  - id: "lead-ai-review-skills"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        An engineering team adopts AI coding tools, but reviewers struggle to verify the resulting changes. How would you build the missing capability?
+      ru: >-
+        Команда внедрила AI-инструменты программирования, но ревьюерам трудно проверять изменения. Как вы разовьёте недостающие навыки?
+    tests:
+      en: >-
+        Whether enablement is tied to verification and ownership rather than tool usage counts.
+      ru: >-
+        Связываете ли вы развитие навыков с проверкой и ответственностью, а не числом использований инструмента.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:engineering-leadership"]
+  - id: "lead-platform-team-charter"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?
+      ru: >-
+        Двум продуктовым командам нужна общая AI-инфраструктура, но ни одна не может выделить инженера. Как организовать работу без обещаний платформы, под которые нет людей?
+    tests:
+      en: >-
+        Whether you resolve capacity and accountability before creating a new team boundary.
+      ru: >-
+        Решаете ли вы вопросы ресурсов и ответственности до создания новой командной структуры.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:engineering-leadership"]

@@ -1,0 +1,61 @@
+id: "databricks"
+name:
+  en: "Databricks"
+  ru: "Databricks"
+segment: "ai-infra"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer-general"
+  - "ai-engineer"
+  leadership:
+  - "product-manager-general"
+summary:
+  en: "An older guide describes a timed coding screen and role-specific final rounds, with a take-home case for product managers. Treat the details as dated."
+  ru: "Более старый гайд описывает кодинг-скрининг на время и финальные раунды под роль, а для продакт-менеджеров — домашний кейс. Детали могли устареть."
+loop:
+- stage:
+    en: "Recruiter screen"
+    ru: "Скрининг с рекрутером"
+  detail:
+    en: "Background, fit with the role and why Databricks."
+    ru: "Бэкграунд, соответствие роли и «почему Databricks»."
+  claim: "secondary"
+  sources:
+  - "exponent-databricks"
+- stage:
+    en: "Technical screen"
+    ru: "Технический скрининг"
+  detail:
+    en: "About 70 minutes of coding on CodeSignal."
+    ru: "Около 70 минут кодинга на CodeSignal."
+  claim: "secondary"
+  sources:
+  - "exponent-databricks"
+- stage:
+    en: "Final round"
+    ru: "Финальный этап"
+  detail:
+    en: "Four or five hour-long interviews mixing behavioral, technical and domain rounds; product managers also prepare and present a take-home case."
+    ru: "Четыре-пять часовых интервью: поведенческие, технические и доменные раунды; продакт-менеджеры также готовят и презентуют домашний кейс."
+  claim: "secondary"
+  sources:
+  - "exponent-databricks"
+- stage:
+    en: "Questions reported for AI work"
+    ru: "Вопросы по AI-направлению"
+  detail:
+    en: "A compilation attributes to Databricks questions on permission-aware enterprise RAG, Text-to-SQL over large warehouses and diagnosing latency regressions."
+    ru: "Подборка относит к Databricks вопросы о корпоративном RAG с учётом прав доступа, Text-to-SQL над большими хранилищами и диагностике роста задержки."
+  claim: "secondary"
+  sources:
+  - "outcome-school-company-wise"
+coding:
+  value: "unknown"
+  note:
+    en: "The older secondary guide describes coding; company or first-hand confirmation is absent here."
+    ru: "Старый вторичный гайд описывает кодинг; подтверждения компанией или участником интервью здесь нет."
+  sources:
+  - "exponent-databricks"
+reviewed: "2026-09-26"

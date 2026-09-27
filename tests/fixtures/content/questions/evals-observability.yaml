@@ -1,0 +1,28 @@
+theme: evals-observability
+questions:
+  - id: regression-gate
+    tracks: [engineering, leadership]
+    roles: [ai-engineer, ai-pm]
+    type: system_design
+    level: staff
+    start_here: [leadership]
+    priority: 1
+    text: {en: "Design the gate that decides whether a prompt change ships.", ru: "Спроектируйте гейт, который решает, выпускать ли изменение промпта."}
+    tests: {en: "Treating evaluation as a release policy.", ru: "Оценка как политика выпуска."}
+    outline:
+      en: [A golden set from real traffic., Thresholds agreed before the change.]
+      ru: [Эталонный набор из реального трафика., Пороги согласованы до изменения.]
+    reading: [eval-paper]
+    provenance: published
+    evidence:
+      - {source: big-compilation, company: example-labs}
+      - {source: candidate-blog, company: sample-bank, observed: 2026-07}
+    added: 2026-09-20
+  - id: eval-metrics-for-assistant
+    tracks: [leadership]
+    type: product_case
+    text: {en: "Which metrics tell you an assistant launch worked?", ru: "Какие метрики покажут, что запуск ассистента удался?"}
+    tests: {en: "Linking quality metrics to outcomes.", ru: "Связь метрик качества с результатом."}
+    provenance: generated
+    basis: [radar:evals-observability]
+    added: 2026-09-20

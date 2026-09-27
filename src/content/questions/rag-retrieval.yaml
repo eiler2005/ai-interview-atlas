@@ -1,0 +1,258 @@
+theme: "rag-retrieval"
+questions:
+  - id: "rag-chunking"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Choose a chunking approach for technical documentation, including how you preserve meaning across section boundaries."
+      ru: "Выберите подход к разбиению технической документации на чанки, сохраняя смысл на границах разделов."
+    tests:
+      en: "Whether chunk size follows document structure and retrieval evaluation."
+      ru: "Умение выбирать размер чанков по структуре документов и результатам поиска."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 12
+    outline:
+      en:
+        - "Preserve headings, source locations and the context needed to interpret each chunk."
+        - "Vary chunk size and overlap on representative questions."
+        - "Measure retrieval misses and downstream answer quality, including table and boundary cases."
+      ru:
+        - "Сохранить заголовки, позиции в источнике и контекст для понимания чанка."
+        - "Сравнить размеры и перекрытия на характерных вопросах."
+        - "Измерить пропуски поиска и качество ответов, включая таблицы и границы чанков."
+    reading: ["anthropic-contextual-retrieval"]
+  - id: "rag-hybrid"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "When would you combine lexical and dense retrieval, and how would you merge their rankings?"
+      ru: "Когда стоит объединить лексический и векторный поиск и как свести их ранжирование?"
+    tests:
+      en: "Whether exact terms and semantic similarity receive appropriate treatment."
+      ru: "Умение учитывать точные термины и смысловое сходство."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 13
+    outline:
+      en:
+        - "Explain lexical strength on identifiers and dense strength on paraphrases."
+        - "Fuse rankings without assuming raw scores are comparable."
+        - "Ablate each retriever and reranking on a fixed relevance set."
+      ru:
+        - "Объяснить пользу лексического поиска для идентификаторов и векторного для перефразировок."
+        - "Свести ранжирование, не предполагая сопоставимости исходных оценок."
+        - "Проверить вклад каждого поиска и переранжирования на фиксированном наборе релевантности."
+    reading: ["anthropic-contextual-retrieval"]
+  - id: "rag-reranking"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?"
+      ru: "Где разместить cross-encoder reranker в поисковом пайплайне и когда выигрыш качества оправдывает задержку?"
+    tests:
+      en: "Whether candidate count, recall and reranking cost are balanced."
+      ru: "Умение сбалансировать число кандидатов, полноту поиска и стоимость переранжирования."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+  - id: "rag-stage-evaluation"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "How would you separately evaluate document retrieval and answer generation in a RAG application?"
+      ru: "Как отдельно оценить поиск документов и генерацию ответа в RAG-приложении?"
+    tests:
+      en: "Whether failures can be attributed to the correct stage."
+      ru: "Умение локализовать ошибки на правильном этапе."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 14
+    outline:
+      en:
+        - "Build questions with relevant passages and acceptable answer criteria."
+        - "Measure retrieval recall separately from answer support and correctness."
+        - "Use oracle passages to distinguish retrieval failures from generation failures."
+      ru:
+        - "Подготовить вопросы с релевантными фрагментами и критериями ответа."
+        - "Отдельно измерять полноту поиска, подтверждённость и правильность ответа."
+        - "Подставить эталонные фрагменты, чтобы отличить ошибки поиска от генерации."
+    reading: ["paper-rag","anthropic-evals-for-agents"]
+  - id: "rag-hyde"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain hypothetical-document retrieval and how you would establish whether it improves your query distribution."
+      ru: "Объясните поиск через гипотетический документ и способ проверить пользу на вашем распределении запросов."
+    tests:
+      en: "Whether generated query expansion is treated as a testable hypothesis."
+      ru: "Умение проверять полезность генерируемого расширения запроса."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "rag-agentic"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    text:
+      en: "When should a retrieval application plan multiple searches instead of making one fixed retrieval call?"
+      ru: "Когда поисковому приложению стоит планировать несколько поисков вместо одного фиксированного вызова?"
+    tests:
+      en: "Whether iterative retrieval earns its extra cost and failure modes."
+      ru: "Умение обосновать добавочную стоимость и риски итеративного поиска."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "rag-embedding-drift"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Search quality declines as the corpus changes. How would you detect embedding drift and separate it from indexing defects?"
+      ru: "Качество поиска падает по мере изменения корпуса. Как выявить дрейф эмбеддингов и отличить его от ошибок индексации?"
+    tests:
+      en: "Whether diagnosis uses stable relevance sets and production slices."
+      ru: "Умение диагностировать по стабильным наборам релевантности и срезам трафика."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "rag-permissions"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design retrieval that enforces the source system's access rights, including permission changes and shared caches."
+      ru: "Спроектируйте поиск с соблюдением прав исходной системы, включая изменения разрешений и общие кеши."
+    tests:
+      en: "Whether access checks cover the full path to generated output."
+      ru: "Умение обеспечить проверку доступа на всём пути до ответа."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+      - source: "outcome-school-company-wise"
+        company: "databricks"
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 15
+    outline:
+      en:
+        - "Propagate identity and enforce authorisation before content reaches the model."
+        - "Keep permission updates, deletions and cache keys consistent with the policy."
+        - "Test denied access and revocation paths; citations and logs need the same boundary."
+      ru:
+        - "Передавать идентичность и проверять доступ до попадания текста в модель."
+        - "Согласовать изменения прав, удаления и ключи кеша с политикой доступа."
+        - "Проверить запрет и отзыв доступа; ссылки и логи должны соблюдать ту же границу."
+    reading: ["azure-search-document-access"]
+  - id: "rag-ann-index"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare exact search, HNSW and IVF-PQ for an embedding index under memory, recall and latency constraints."
+      ru: "Сравните точный поиск, HNSW и IVF-PQ для индекса эмбеддингов при ограничениях памяти, полноты и задержки."
+    tests:
+      en: "Whether approximation is evaluated against a measurable exact baseline."
+      ru: "Умение проверять приближённый поиск относительно точного эталона."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 16
+    outline:
+      en:
+        - "Use exact search on a sample as the recall baseline."
+        - "Compare graph traversal with coarse partitions and product quantisation."
+        - "Measure memory, update cost and filtered-search behaviour at target latency."
+      ru:
+        - "Использовать точный поиск на выборке как эталон полноты."
+        - "Сравнить обход графа с грубыми кластерами и product quantisation."
+        - "Измерить память, стоимость обновлений и поиск с фильтрами при целевой задержке."
+    reading: ["paper-hnsw"]
+  - id: "rag-document-layout"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How would you index tables, diagrams and multi-column pages without losing their relationships to surrounding text?"
+      ru: "Как индексировать таблицы, схемы и многоколоночные страницы, сохраняя их связи с окружающим текстом?"
+    tests:
+      en: "Whether parsing errors and layout structure are considered before embedding."
+      ru: "Учёт ошибок парсинга и структуры документа до построения эмбеддингов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "rag-freshness"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design continuous index updates, including changed documents, deletions and queries during a rebuild."
+      ru: "Спроектируйте непрерывное обновление индекса с изменениями, удалениями и запросами во время перестроения."
+    tests:
+      en: "Whether freshness has consistency guarantees and an observable lag."
+      ru: "Умение задать гарантии согласованности и измеримый лаг свежести."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+  - id: "rag-citations"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How would you connect each factual claim in an answer to the retrieved passage that supports it?"
+      ru: "Как связать каждое фактическое утверждение ответа с подтверждающим найденным фрагментом?"
+    tests:
+      en: "Whether a citation is checked for support rather than merely attached."
+      ru: "Умение проверять, подтверждает ли ссылка утверждение."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+  - id: "rag-structured-queries"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "A user asks for the count of open orders blocked by supplier issues. Why might document retrieval fail, and what should answer the query?"
+      ru: "Пользователь спрашивает число открытых заказов, заблокированных проблемами поставщика. Почему поиск документов может ошибиться и какой механизм должен отвечать?"
+    tests:
+      en: "Whether structured aggregation is separated from semantic retrieval."
+      ru: "Умение отличать структурированную агрегацию от семантического поиска."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+  - id: "rag-clinical-context"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "How can a patient's existing medication list help transcribe drug names without causing the recogniser to insert drugs that were never spoken?"
+      ru: "Как использовать список лекарств пациента для распознавания названий, не заставляя систему добавлять не произнесённые препараты?"
+    tests:
+      en: "Whether contextual retrieval is balanced against confirmation bias."
+      ru: "Умение учитывать риск подтверждающего смещения при использовании контекста."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"

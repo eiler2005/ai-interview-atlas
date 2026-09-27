@@ -1,0 +1,471 @@
+theme: "behavioral-values"
+questions:
+  - id: "beh-motivation-and-disagreement"
+    tracks: ["engineering","leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        Why do you want to work at Anthropic, and where do you disagree with its approach?
+      ru: >-
+        Почему вы хотите работать в Anthropic и в чём не согласны с её подходом?
+    tests:
+      en: >-
+        Whether motivation is informed and leaves room for independent judgement.
+      ru: >-
+        Основана ли мотивация на понимании компании и сохраняете ли вы самостоятельность суждений.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    start_here: ["leadership"]
+    priority: 38
+    outline:
+      en:
+        - "Connect specific public work or mission choices to your own professional interests."
+        - "Offer a reasoned disagreement and state what evidence could change your view."
+        - "Explain how you would contribute while engaging constructively with that disagreement."
+      ru:
+        - "Свяжите конкретную публичную работу или решения компании со своими профессиональными интересами."
+        - "Сформулируйте обоснованное несогласие и данные, которые могли бы изменить вашу позицию."
+        - "Объясните свой возможный вклад и конструктивную работу при сохранении разногласий."
+    reading: ["anthropic-careers"]
+  - id: "beh-mistake-learning"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a mistake you made, its consequences and what you changed afterward.
+      ru: >-
+        Расскажите о своей ошибке, её последствиях и последующих изменениях в работе.
+    tests:
+      en: >-
+        Whether you take responsibility and show learning through concrete behaviour.
+      ru: >-
+        Берёте ли вы ответственность и подтверждаете ли выводы конкретными изменениями поведения.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    start_here: ["leadership"]
+    priority: 39
+    outline:
+      en:
+        - "Describe your decision and what you knew at the time."
+        - "Explain impact, recovery and your responsibility without blaming others."
+        - "Identify a lasting change and evidence that it helped."
+      ru:
+        - "Опишите своё решение и данные, которыми располагали тогда."
+        - "Объясните последствия, восстановление и свою ответственность без перекладывания вины."
+        - "Назовите устойчивое изменение и признаки его пользы."
+    reading: ["google-sre-postmortem-culture"]
+  - id: "beh-unresolved-disagreement"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me about a time you disagreed with someone and could not persuade them.
+      ru: >-
+        Расскажите о случае, когда вы были не согласны с человеком, но не смогли его убедить.
+    tests:
+      en: >-
+        Whether you work constructively after losing an argument.
+      ru: >-
+        Умеете ли вы конструктивно работать после того, как вашу позицию не приняли.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-amazon-ai-pm"
+        company: "amazon"
+    start_here: ["leadership"]
+    priority: 40
+    outline:
+      en:
+        - "State both positions fairly and explain your evidence."
+        - "Describe the decision process and how you supported the agreed action."
+        - "Explain the result, limits of commitment and what you learned."
+      ru:
+        - "Честно изложите обе позиции и свои аргументы."
+        - "Опишите принятие решения и поддержку согласованных действий."
+        - "Объясните результат, границы обязательств и сделанные выводы."
+    reading: ["amazon-leadership-principles"]
+  - id: "beh-moral-conflict"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a time when work created a moral conflict for you. What did you do?
+      ru: >-
+        Расскажите о моральном конфликте, возникшем у вас в работе. Как вы поступили?
+    tests:
+      en: >-
+        Whether you can explain values, consequences and practical action without a rehearsed slogan.
+      ru: >-
+        Умеете ли вы объяснить ценности, последствия и действия без заученных лозунгов.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-anthropic-staff-infra"
+        company: "anthropic"
+  - id: "beh-ai-safety-view"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    level: "senior"
+    text:
+      en: >-
+        What do you see as the significant risks of advanced AI systems?
+      ru: >-
+        Какие риски развитых AI-систем вы считаете существенными?
+    tests:
+      en: >-
+        Whether you articulate a coherent, evidence-sensitive view of AI risk.
+      ru: >-
+        Умеете ли вы последовательно изложить позицию о рисках AI и её основания.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+  - id: "beh-proud-project"
+    tracks: ["engineering","leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        Which project are you most proud of, and why?
+      ru: >-
+        Каким проектом вы больше всего гордитесь и почему?
+    tests:
+      en: >-
+        Whether you explain meaningful impact and your actual contribution.
+      ru: >-
+        Умеете ли вы объяснить значимый результат и свой реальный вклад.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+  - id: "beh-interpersonal-conflict"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a conflict with a colleague, how you handled it and what you learned.
+      ru: >-
+        Расскажите о конфликте с коллегой: как вы его разрешали и чему научились.
+    tests:
+      en: >-
+        Whether you understand the other person's perspective and your own part in the conflict.
+      ru: >-
+        Понимаете ли вы позицию другого человека и свою роль в конфликте.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+  - id: "beh-stakeholder-priorities"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me about conflicting stakeholder priorities and how you established alignment.
+      ru: >-
+        Расскажите о противоречащих приоритетах участников проекта и о том, как вы согласовали действия.
+    tests:
+      en: >-
+        Whether you make competing objectives explicit and build an actionable agreement.
+      ru: >-
+        Умеете ли вы явно обсудить конкурирующие цели и договориться о действиях.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+  - id: "beh-research-priorities"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a disagreement with a researcher or technical lead about priorities and what followed.
+      ru: >-
+        Расскажите о разногласии с исследователем или техническим лидером по приоритетам и о том, что произошло дальше.
+    tests:
+      en: >-
+        Whether you can reason across research and engineering incentives.
+      ru: >-
+        Умеете ли вы учитывать различия мотивации исследователей и инженеров.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+  - id: "beh-ml-project-obstacles"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a project that used data and machine learning. What obstacles did you encounter?
+      ru: >-
+        Расскажите о проекте с данными и машинным обучением. С какими препятствиями вы столкнулись?
+    tests:
+      en: >-
+        Whether you connect technical obstacles to actions and delivered outcomes.
+      ru: >-
+        Связываете ли вы технические препятствия с действиями и достигнутыми результатами.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+  - id: "beh-ambiguity-result"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me about achieving a meaningful result despite substantial ambiguity.
+      ru: >-
+        Расскажите, как вы добились значимого результата в условиях существенной неопределённости.
+    tests:
+      en: >-
+        Whether you reduce uncertainty through decisions and feedback.
+      ru: >-
+        Умеете ли вы снижать неопределённость через решения и обратную связь.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+  - id: "beh-wrong-technical-choice"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a technical decision you championed that turned out to be wrong.
+      ru: >-
+        Расскажите о техническом решении, которое вы отстаивали, но которое оказалось ошибочным.
+    tests:
+      en: >-
+        Whether you can reverse a position and repair its consequences.
+      ru: >-
+        Умеете ли вы пересмотреть позицию и исправить последствия.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+  - id: "beh-beyond-initial-scope"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me about an opportunity you saw that was larger than the original scope of your assignment.
+      ru: >-
+        Расскажите о замеченной вами возможности, выходившей за первоначальные рамки задачи.
+    tests:
+      en: >-
+        Whether you recognise broader value and justify taking on additional scope.
+      ru: >-
+        Умеете ли вы увидеть более широкую пользу и обосновать расширение работы.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "amazon"
+  - id: "beh-incomplete-context"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a time when you had to make progress without access to the full context.
+      ru: >-
+        Расскажите о случае, когда пришлось двигаться вперёд без доступа к полному контексту.
+    tests:
+      en: >-
+        Whether you distinguish safe assumptions from decisions that require clarification.
+      ru: >-
+        Различаете ли вы допустимые предположения и решения, требующие уточнений.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "beh-hardest-shipped-work"
+    tracks: ["engineering","leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        What is the most technically demanding thing you have shipped, and what would you do differently now?
+      ru: >-
+        Какую самую технически сложную работу вы довели до выпуска и что сегодня сделали бы иначе?
+    tests:
+      en: >-
+        Whether you explain complexity and lessons beyond the prestige of the technology.
+      ru: >-
+        Умеете ли вы объяснить сложность и выводы без опоры на престиж технологии.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "beh-ml-business-impact"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe one model you shipped that improved a business outcome and another that did not.
+      ru: >-
+        Расскажите об одной выпущенной модели, улучшившей бизнес-результат, и о другой, которая этого не сделала.
+    tests:
+      en: >-
+        Whether you distinguish deployment from realised value and can explain the difference.
+      ru: >-
+        Различаете ли вы выпуск модели и достигнутую пользу и можете ли объяснить разницу.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "beh-long-term-sacrifice"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me about a short-term sacrifice you made to achieve a longer-term benefit.
+      ru: >-
+        Расскажите, чем вы пожертвовали в краткосрочной перспективе ради долгосрочной пользы.
+    tests:
+      en: >-
+        Whether you can justify delayed value and assess whether it materialised.
+      ru: >-
+        Умеете ли вы обосновать отложенную пользу и проверить, была ли она получена.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "beh-customer-pushback"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a time you pushed back on a customer's request.
+      ru: >-
+        Расскажите о случае, когда вы возразили против запроса клиента.
+    tests:
+      en: >-
+        Whether you protect the customer's underlying goal while challenging a proposed solution.
+      ru: >-
+        Умеете ли вы защищать настоящую цель клиента, оспаривая предложенное решение.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+  - id: "beh-sensitive-mission"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        How do you think about work for defence or intelligence customers, and what would you do if a requested project conflicted with your values?
+      ru: >-
+        Как вы относитесь к работе для оборонных или разведывательных заказчиков и что сделаете, если проект противоречит вашим ценностям?
+    tests:
+      en: >-
+        Whether you reason about concrete boundaries and professional responsibility.
+      ru: >-
+        Умеете ли вы рассуждать о конкретных границах и профессиональной ответственности.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+  - id: "beh-ai-decision-ownership"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me about an AI decision you owned that had significant downstream consequences.
+      ru: >-
+        Расскажите об AI-решении, за которое вы отвечали и которое имело существенные последующие последствия.
+    tests:
+      en: >-
+        Whether you consider impact beyond your immediate deliverable.
+      ru: >-
+        Учитываете ли вы последствия за пределами собственного результата работы.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-amazon-ai-pm"
+        company: "amazon"
+  - id: "beh-critical-feedback"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe feedback that was difficult for you to hear and what you did with it.
+      ru: >-
+        Расскажите об обратной связи, которую было трудно услышать, и о том, как вы её использовали.
+    tests:
+      en: >-
+        Whether you can respond to criticism with specific learning and action.
+      ru: >-
+        Умеете ли вы отвечать на критику конкретными выводами и действиями.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-anthropic-swe"
+        company: "anthropic"
+  - id: "beh-conflict-under-urgency"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How do you manage conflict when the situation is urgent?
+      ru: >-
+        Как вы управляете конфликтом, когда нужно действовать срочно?
+    tests:
+      en: >-
+        Whether urgency changes the decision process without eliminating respect and accountability.
+      ru: >-
+        Меняет ли срочность процесс решения без отказа от уважения и ответственности.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-openai-pm"
+        company: "openai"
+  - id: "beh-product-failure"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        What is the largest failure you have experienced as a product manager?
+      ru: >-
+        Какую самую крупную неудачу вы пережили как продакт-менеджер?
+    tests:
+      en: >-
+        Whether you can discuss product judgement, consequences and changed practice honestly.
+      ru: >-
+        Умеете ли вы честно разобрать продуктовое решение, последствия и изменение практики.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-openai-pm"
+        company: "openai"

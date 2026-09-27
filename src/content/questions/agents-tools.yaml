@@ -1,0 +1,268 @@
+theme: "agents-tools"
+questions:
+  - id: "agt-react"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "What does interleaving reasoning with tool observations add to a language-model agent compared with reasoning alone?"
+      ru: "Что даёт чередование рассуждений и наблюдений от инструментов по сравнению с одними рассуждениями модели?"
+    tests:
+      en: "Whether external feedback changes the agent's next action."
+      ru: "Понимание влияния внешней обратной связи на следующее действие."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 17
+    outline:
+      en:
+        - "Distinguish a planned action from an observation returned by the environment."
+        - "Use observations to update the next step and detect failed assumptions."
+        - "Discuss tool failures and the extra latency of repeated interaction."
+      ru:
+        - "Отличать запланированное действие от наблюдения, возвращённого средой."
+        - "Использовать наблюдения для следующего шага и выявления неверных предположений."
+        - "Обсудить ошибки инструментов и задержку повторных взаимодействий."
+    reading: ["paper-react"]
+  - id: "agt-retries"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design recovery from tool errors and timeouts, including cases where a timed-out call may already have changed external state."
+      ru: "Спроектируйте восстановление после ошибок и тайм-аутов инструментов, включая случай, когда операция уже изменила внешнее состояние."
+    tests:
+      en: "Whether retries preserve correctness as well as availability."
+      ru: "Умение сохранить корректность при повторных попытках."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 18
+    outline:
+      en:
+        - "Classify transient, permanent and ambiguous outcomes before retrying."
+        - "Use idempotency keys or reconcile external state after uncertain writes."
+        - "Bound attempts and deadlines; add backoff, jitter and an escalation path."
+      ru:
+        - "Различать временные, постоянные и неопределённые исходы до повтора."
+        - "Использовать ключи идемпотентности или сверять состояние после неопределённых записей."
+        - "Ограничить попытки и время; добавить backoff, jitter и эскалацию."
+    reading: ["stripe-idempotency"]
+  - id: "agt-structured-output"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "How do schema-constrained responses differ from function calls, and which component actually executes an action?"
+      ru: "Чем ответ по схеме отличается от function calling и какой компонент действительно исполняет действие?"
+    tests:
+      en: "Whether valid syntax is distinguished from authorised execution."
+      ru: "Умение отличать валидный формат от разрешённого исполнения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "agt-mcp"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "What does MCP standardise between an AI application and an external service that a model's function-call format does not?"
+      ru: "Что MCP стандартизирует между AI-приложением и внешним сервисом сверх формата function call модели?"
+    tests:
+      en: "Whether protocol transport and capabilities are separated from model decisions."
+      ru: "Умение отличать транспорт и возможности протокола от решений модели."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+    added: "2026-09-26"
+  - id: "agt-tool-surface"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "How would you select, name and document tools so that a model chooses the right operation and arguments?"
+      ru: "Как выбрать, назвать и описать инструменты, чтобы модель верно выбирала операцию и аргументы?"
+    tests:
+      en: "Whether tool design reduces ambiguity and measurable misuse."
+      ru: "Умение уменьшать неоднозначность и измеримые ошибки вызовов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 19
+    outline:
+      en:
+        - "Expose cohesive operations with unambiguous names and validated schemas."
+        - "Return relevant, bounded results and actionable error messages."
+        - "Evaluate tool selection and arguments on realistic tasks, then remove confusing overlap."
+      ru:
+        - "Выделить целостные операции с понятными именами и проверяемыми схемами."
+        - "Возвращать ограниченные релевантные результаты и понятные ошибки."
+        - "Проверять выбор инструмента и аргументов на реальных задачах и устранять неоднозначное дублирование."
+    reading: ["anthropic-writing-tools"]
+  - id: "agt-multi-agent"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    text:
+      en: "When does splitting work among agents improve results, and when do coordination costs dominate?"
+      ru: "Когда разделение работы между агентами улучшает результат, а когда преобладают затраты на координацию?"
+    tests:
+      en: "Whether task independence and shared-state conflicts guide orchestration."
+      ru: "Умение учитывать независимость задач и конфликты общего состояния."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "agt-memory"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?"
+      ru: "Спроектируйте память агента, работающего в нескольких сессиях: что сохранять, извлекать, пересматривать и забывать?"
+    tests:
+      en: "Whether durable state is distinguished from transient context."
+      ru: "Умение различать долговременное состояние и текущий контекст."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "agt-tool-choice"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "How should an agent decide whether to answer directly or obtain fresh information with a tool?"
+      ru: "Как агент должен решать, ответить сразу или получить свежие сведения через инструмент?"
+    tests:
+      en: "Whether uncertainty, freshness and tool cost influence the decision."
+      ru: "Учёт неопределённости, свежести и стоимости вызова."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "agt-termination"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Define completion and stopping conditions for an agent loop so it cannot spend indefinitely on an unfinished task."
+      ru: "Задайте критерии завершения и остановки агентного цикла, исключающие бесконечные затраты на незавершённую задачу."
+    tests:
+      en: "Whether progress, budgets and terminal states are explicit."
+      ru: "Умение явно задать прогресс, бюджет и конечные состояния."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 20
+    outline:
+      en:
+        - "Separate success, blocked, cancelled and budget-exhausted outcomes."
+        - "Track progress using observable state, with step, cost and time limits."
+        - "Checkpoint enough state to resume or hand off without repeating side effects."
+      ru:
+        - "Разделить успех, блокировку, отмену и исчерпание бюджета."
+        - "Отслеживать прогресс по наблюдаемому состоянию с лимитами шагов, стоимости и времени."
+        - "Сохранить состояние для продолжения или передачи без повторных побочных эффектов."
+    reading: ["anthropic-building-effective-agents"]
+  - id: "agt-reversibility"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "How would you make an agent's production actions reversible where possible and auditable where reversal is impossible?"
+      ru: "Как сделать действия агента в production обратимыми там, где это возможно, и проверяемыми там, где откат невозможен?"
+    tests:
+      en: "Whether compensating actions and durable evidence are planned before execution."
+      ru: "Умение заранее продумать компенсационные действия и журнал исполнения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+  - id: "agt-approval"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design human approval for consequential agent actions, including how approval remains bound to the exact action being executed."
+      ru: "Спроектируйте подтверждение человеком значимых действий агента, связав разрешение с конкретным исполняемым действием."
+    tests:
+      en: "Whether approval controls are enforced outside the model."
+      ru: "Умение обеспечить контроль разрешений вне модели."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 21
+    outline:
+      en:
+        - "Preview the concrete action, target and consequences before approval."
+        - "Bind approval to validated arguments and recheck authorisation at execution."
+        - "Record the decision and execution result; expire approval after material changes."
+      ru:
+        - "Показать конкретное действие, адресата и последствия до подтверждения."
+        - "Связать разрешение с проверенными аргументами и повторно проверить права при исполнении."
+        - "Записать решение и результат; аннулировать разрешение при существенном изменении действия."
+    reading: ["anthropic-building-effective-agents","stripe-idempotency"]
+  - id: "agt-goal-drift"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?"
+      ru: "После долгой работы агент уверенно решает не ту задачу. Как найти момент расхождения состояния с целью и восстановить работу?"
+    tests:
+      en: "Whether diagnosis uses task state and observations rather than confidence in prose."
+      ru: "Умение опираться на состояние задачи и наблюдения, а не уверенный текст."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "agt-coding-harness"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?"
+      ru: "Как для coding agent отделить вклад модели от вклада harness в надёжное завершение задачи?"
+    tests:
+      en: "Whether controlled comparisons can identify the source of improvements."
+      ru: "Умение установить источник улучшения контролируемым сравнением."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "agt-erp-writes"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    text:
+      en: "Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations."
+      ru: "Спроектируйте агента, создающего и обновляющего наряды в действующей ERP без дублирования или незаметного искажения операций."
+    tests:
+      en: "Whether business invariants survive uncertain model and network behaviour."
+      ru: "Умение сохранить бизнес-инварианты при неопределённости модели и сети."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"
+  - id: "agt-ontology"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Why might an enterprise agent operate on an ontology of business objects and actions instead of raw tables and documents?"
+      ru: "Почему корпоративному агенту может быть полезнее работать с онтологией бизнес-объектов и действий, чем с сырыми таблицами и документами?"
+    tests:
+      en: "Whether semantic modelling is connected to valid operations and permissions."
+      ru: "Умение связать семантическую модель с допустимыми операциями и правами."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"

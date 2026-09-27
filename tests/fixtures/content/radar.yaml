@@ -1,0 +1,15 @@
+period: {from: 2026-09-01, to: 2026-09-20}
+method:
+  en: Synthetic sample for tests.
+  ru: Синтетическая выборка для тестов.
+min_cell: 5
+min_track: 20
+sample:
+  postings: 60
+  tracks: {engineering: 20, leadership: 40}
+  markets: {intl: 30, ru: 20, unknown: 10}
+rows:
+  - {track: leadership, theme: evals-observability, postings: 18}
+  - {track: engineering, theme: agents-tools, postings: 7}
+  - {track: leadership, theme: agents-tools, postings: 12}
+ai_mentions: {leadership: 9}

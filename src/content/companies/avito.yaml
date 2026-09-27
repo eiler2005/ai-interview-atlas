@@ -1,0 +1,52 @@
+id: "avito"
+name:
+  en: "Avito"
+  ru: "Авито"
+segment: "ru-big-tech"
+markets:
+- "ru"
+roles:
+  engineering:
+  - "software-engineer-general"
+summary:
+  en: "The engineering loop published in 2019 has four one-hour sections. A 2025 candidate for analyst and project roles describes a take-home task presented to the team."
+  ru: "Инженерный цикл, описанный в 2019 году, состоит из четырёх секций по часу. Кандидатка 2025 года на аналитические и проектные роли описывает домашнее задание с презентацией команде."
+loop:
+- stage:
+    en: "Remote technical interview"
+    ru: "Удалённое техническое интервью"
+  detail:
+    en: "Forty-five minutes of programming and technical questions to decide whether to continue in person."
+    ru: "Сорок пять минут программирования и технических вопросов, чтобы решить, продолжать ли очно."
+  claim: "confirmed"
+  sources:
+  - "avito-interview-structure"
+- stage:
+    en: "Four sections (2019)"
+    ru: "Четыре секции (2019)"
+  detail:
+    en: "One hour each: programming, architecture and experience with large applications, platform skills, and a final with HR and the hiring manager."
+    ru: "По часу: программирование, архитектура и опыт с крупными приложениями, платформенные навыки и финал с HR и руководителем."
+  claim: "confirmed"
+  sources:
+  - "avito-interview-structure"
+- stage:
+    en: "Analyst and project roles (2025)"
+    ru: "Аналитические и проектные роли (2025)"
+  detail:
+    en: "Phone screen, HR interview, hiring manager interview, a take-home task presented to the team and department head, and a decision within three to seven days."
+    ru: "Телефонный скрининг, интервью с HR, интервью с руководителем, домашнее задание с презентацией команде и руководителю отдела, решение за три–семь дней."
+  claim: "participant_report"
+  sources:
+  - "vc-avito-candidate"
+coding:
+  value: "varies"
+  note:
+    en: "Engineers code; the analyst loop used a take-home task instead"
+    ru: "Инженеры пишут код; в цикле для аналитиков вместо этого было домашнее задание"
+  sources:
+  - "avito-interview-structure"
+  - "vc-avito-candidate"
+prep:
+- "avito-interview-structure"
+reviewed: "2026-09-26"

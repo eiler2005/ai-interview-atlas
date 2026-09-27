@@ -1,0 +1,502 @@
+theme: "ai-product-strategy"
+questions:
+  - id: "prod-enterprise-assistant"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        How would you improve ChatGPT for enterprise customers?
+      ru: >-
+        Как бы вы улучшили ChatGPT для корпоративных клиентов?
+    tests:
+      en: >-
+        Whether you select a specific workflow and justify its business value.
+      ru: >-
+        Умеете ли вы выбрать конкретный рабочий процесс и обосновать его ценность.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-openai-pm"
+        company: "openai"
+    start_here: ["leadership"]
+    priority: 6
+    outline:
+      en:
+        - "Choose a customer segment, user and costly workflow problem."
+        - "Compare AI and non-AI solutions, integration effort and trust requirements."
+        - "Define a pilot outcome, quality guardrails and a rollout decision."
+      ru:
+        - "Выберите сегмент клиентов, пользователя и существенную проблему рабочего процесса."
+        - "Сравните AI- и обычные решения, сложность интеграции и требования к доверию."
+        - "Определите результат пилота, ограничения по качеству и условие расширения запуска."
+    reading: ["paper-heart","google-rules-of-ml"]
+  - id: "prod-capability-cost"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        A model offers much greater capability but costs ten times as much. How would you decide what product to build with it?
+      ru: >-
+        Модель существенно мощнее, но стоит в десять раз дороже. Как решить, какой продукт на ней создавать?
+    tests:
+      en: >-
+        Whether you translate capability into willingness to pay and unit economics.
+      ru: >-
+        Умеете ли вы связать возможности модели с готовностью платить и экономикой продукта.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-openai-pm"
+        company: "openai"
+    start_here: ["leadership"]
+    priority: 7
+    outline:
+      en:
+        - "Identify tasks where the improvement changes the feasible outcome."
+        - "Estimate cost per successful workflow, including retries and human review."
+        - "Test willingness to pay and consider selective routing before broad deployment."
+      ru:
+        - "Найдите задачи, где улучшение делает возможным новый результат."
+        - "Оцените стоимость успешно выполненного процесса с повторами и проверкой человеком."
+        - "Проверьте готовность платить и выборочное использование модели до массового внедрения."
+    reading: ["google-rules-of-ml","paper-heart"]
+  - id: "prod-ai-suitability"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        How do you decide whether an LLM is useful for a proposed product problem?
+      ru: >-
+        Как определить, полезна ли LLM для предложенной продуктовой задачи?
+    tests:
+      en: >-
+        Whether you start with the task and evidence rather than the technology.
+      ru: >-
+        Начинаете ли вы с задачи и данных, а не с технологии.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-gemini-pm"
+        company: "google"
+    start_here: ["leadership"]
+    priority: 8
+    outline:
+      en:
+        - "Describe the job, baseline solution and cost of mistakes."
+        - "Check data access, evaluability, latency and the need for predictable behaviour."
+        - "Run a bounded comparison and name a reason to reject the LLM approach."
+      ru:
+        - "Опишите задачу пользователя, базовое решение и цену ошибки."
+        - "Проверьте доступ к данным, возможность оценки, задержку и требования к предсказуемости."
+        - "Проведите ограниченное сравнение и назовите основание отказаться от LLM."
+    reading: ["google-rules-of-ml","anthropic-building-effective-agents"]
+  - id: "prod-student-assistant"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Design a Gemini-based assistant for university students.
+      ru: >-
+        Спроектируйте ассистента на основе Gemini для студентов университета.
+    tests:
+      en: >-
+        Whether a clear user need drives scope, learning outcomes and safeguards.
+      ru: >-
+        Определяет ли понятная потребность пользователя функции, учебные результаты и защитные меры.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-gemini-pm"
+        company: "google"
+    start_here: ["leadership"]
+    priority: 9
+    outline:
+      en:
+        - "Pick a student segment and one recurring unmet need."
+        - "Design a usable flow with uncertainty, verification and misuse in mind."
+        - "Measure task success and learning value alongside retention."
+      ru:
+        - "Выберите сегмент студентов и одну регулярную неудовлетворённую потребность."
+        - "Спроектируйте удобный сценарий с учётом неопределённости, проверки и злоупотреблений."
+        - "Измеряйте успешность задачи и пользу для обучения наряду с удержанием."
+    reading: ["paper-heart","nist-ai-rmf"]
+  - id: "prod-confident-errors"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Users say Gemini gives incorrect answers with excessive confidence. What would you change?
+      ru: >-
+        Пользователи жалуются, что Gemini уверенно даёт неверные ответы. Что вы измените?
+    tests:
+      en: >-
+        Whether you diagnose failure types and improve calibrated user trust.
+      ru: >-
+        Умеете ли вы различать причины ошибок и формировать обоснованное доверие.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-gemini-pm"
+        company: "google"
+    start_here: ["leadership"]
+    priority: 10
+    outline:
+      en:
+        - "Collect representative failures and separate knowledge, retrieval and presentation issues."
+        - "Compare grounding, abstention and interaction changes on the same tasks."
+        - "Track unsupported claims, useful task completion and segment-level regressions."
+      ru:
+        - "Соберите типичные ошибки и разделите проблемы знаний, поиска и подачи ответа."
+        - "Сравните опору на источники, отказ от ответа и изменения интерфейса на одинаковых задачах."
+        - "Отслеживайте неподтверждённые утверждения, полезное выполнение задач и регрессии по сегментам."
+    reading: ["nist-ai-rmf","anthropic-evals-for-agents"]
+  - id: "prod-writing-priorities"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        How would you prioritise features for an AI writing assistant in Microsoft Word?
+      ru: >-
+        Как вы расставите приоритеты функций AI-ассистента для письма в Microsoft Word?
+    tests:
+      en: >-
+        Whether prioritisation accounts for user value, reliability and workflow fit.
+      ru: >-
+        Учитывает ли приоритизация пользу, надёжность и соответствие рабочему процессу.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-microsoft-ai-pm"
+        company: "microsoft"
+    start_here: ["leadership"]
+    priority: 11
+    outline:
+      en:
+        - "Segment writing tasks and identify friction in the existing workflow."
+        - "Compare expected value, quality risk, engineering cost and dependencies."
+        - "Choose a narrow first release and measure accepted, useful assistance."
+      ru:
+        - "Разделите задачи письма и найдите трудности в текущем процессе."
+        - "Сопоставьте ожидаемую пользу, риск качества, трудоёмкость и зависимости."
+        - "Выберите узкий первый релиз и измеряйте принятую пользователем полезную помощь."
+    reading: ["paper-heart","google-rules-of-ml"]
+  - id: "prod-ai-feature-metrics"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        How would you measure success for an AI feature in a Microsoft product?
+      ru: >-
+        Как вы измерите успех AI-функции в продукте Microsoft?
+    tests:
+      en: >-
+        Whether metrics connect model behaviour to user and business outcomes.
+      ru: >-
+        Связывают ли метрики поведение модели с результатами для пользователя и бизнеса.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-microsoft-ai-pm"
+        company: "microsoft"
+    start_here: ["leadership"]
+    priority: 12
+    outline:
+      en:
+        - "Name the user goal and an observable successful task."
+        - "Separate adoption, retention, task quality, latency and cost."
+        - "Use a baseline or experiment and guard against metric gaming."
+      ru:
+        - "Назовите цель пользователя и наблюдаемый признак успешно выполненной задачи."
+        - "Разделите внедрение, удержание, качество задачи, задержку и стоимость."
+        - "Используйте базовую линию или эксперимент и учитывайте манипулирование метриками."
+    reading: ["paper-heart"]
+  - id: "prod-search-north-star"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        What North Star metric would you choose for an AI search product, and what would constrain it?
+      ru: >-
+        Какую главную метрику вы выберете для AI-поиска и какими ограничениями её дополните?
+    tests:
+      en: >-
+        Whether one headline metric remains accountable to trust and task completion.
+      ru: >-
+        Остаётся ли главная метрика связанной с доверием и выполнением задачи.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-perplexity-ai-pm"
+        company: "perplexity"
+    start_here: ["leadership"]
+    priority: 13
+    outline:
+      en:
+        - "Define a valuable completed search task and how to observe it."
+        - "Add quality, safety, latency and cost guardrails."
+        - "Explain denominator, segmentation and how the metric could mislead."
+      ru:
+        - "Определите полезно завершённую поисковую задачу и способ её наблюдать."
+        - "Добавьте ограничения по качеству, безопасности, задержке и стоимости."
+        - "Объясните знаменатель, сегментацию и ситуации, когда метрика вводит в заблуждение."
+    reading: ["paper-heart"]
+  - id: "prod-notification-paradox"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Notification engagement rises while total time spent remains flat. How would you interpret that result?
+      ru: >-
+        Вовлечённость в уведомления растёт, а общее время в продукте не меняется. Как вы объясните результат?
+    tests:
+      en: >-
+        Whether you distinguish substitution, measurement artifacts and real user value.
+      ru: >-
+        Различаете ли вы замещение активности, артефакты измерения и пользу пользователю.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-ai-pm"
+        company: "meta"
+    start_here: ["leadership"]
+    priority: 14
+    outline:
+      en:
+        - "Check definitions, exposure, cohorts and the experiment setup."
+        - "Test whether notifications shift existing activity or create valuable new actions."
+        - "Include opt-outs, satisfaction and longer-term effects before deciding."
+      ru:
+        - "Проверьте определения, показы, когорты и устройство эксперимента."
+        - "Проверьте, перераспределяют ли уведомления активность или создают новые полезные действия."
+        - "Учтите отключения уведомлений, удовлетворённость и долгосрочный эффект."
+    reading: ["paper-heart"]
+  - id: "prod-favorite-agent"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Choose an AI agent or product you use and propose its most valuable improvement.
+      ru: >-
+        Выберите AI-агента или продукт, которым пользуетесь, и предложите самое полезное улучшение.
+    tests:
+      en: >-
+        Whether product judgement rests on observed friction and a testable hypothesis.
+      ru: >-
+        Основано ли продуктовое суждение на наблюдаемой проблеме и проверяемой гипотезе.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-amazon-ai-pm"
+        company: "amazon"
+    start_here: ["leadership"]
+    priority: 15
+    outline:
+      en:
+        - "Describe a real workflow and where the product fails the user."
+        - "Explain why the proposed improvement outranks alternatives."
+        - "Specify a prototype, success measure and possible adverse effect."
+      ru:
+        - "Опишите реальный сценарий и момент, в котором продукт подводит пользователя."
+        - "Объясните, почему выбранное улучшение важнее альтернатив."
+        - "Определите прототип, критерий успеха и возможный негативный эффект."
+    reading: ["paper-heart"]
+  - id: "prod-memory-machine-launch"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        You have invented a memory machine that generates video, images, smells and sounds. How would you bring it to market?
+      ru: >-
+        Вы изобрели «машину воспоминаний», которая создаёт видео, изображения, запахи и звуки. Как вывести её на рынок?
+    tests:
+      en: >-
+        Whether you turn an unfamiliar capability into a focused market entry.
+      ru: >-
+        Умеете ли вы превратить непривычную возможность в конкретную стратегию выхода на рынок.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-openai-pm"
+        company: "openai"
+  - id: "prod-agent-use-cases"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Which business use cases suit AI agents, and how would you compare them?
+      ru: >-
+        Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?
+    tests:
+      en: >-
+        Whether you distinguish the value of autonomous action from its operational cost.
+      ru: >-
+        Различаете ли вы пользу автономных действий и их эксплуатационную цену.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-microsoft-ai-pm"
+        company: "microsoft"
+  - id: "prod-model-choice"
+    tracks: ["leadership"]
+    type: "knowledge"
+    level: "senior"
+    text:
+      en: >-
+        Explain the product trade-offs in choosing a model.
+      ru: >-
+        Объясните продуктовые компромиссы при выборе модели.
+    tests:
+      en: >-
+        Whether model selection considers task quality, cost, latency and constraints together.
+      ru: >-
+        Учитываете ли вы одновременно качество на задаче, цену, задержку и ограничения.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-microsoft-ai-pm"
+        company: "microsoft"
+  - id: "prod-new-search-feature"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Propose a new feature for Perplexity and explain whom it serves.
+      ru: >-
+        Предложите новую функцию для Perplexity и объясните, для кого она нужна.
+    tests:
+      en: >-
+        Whether you can make a differentiated, evidence-seeking product proposal.
+      ru: >-
+        Умеете ли вы сформулировать отличающееся от существующих решений предложение и способ его проверить.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-perplexity-ai-pm"
+        company: "perplexity"
+  - id: "prod-roadmap"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        How do you prioritise a product roadmap when several valuable opportunities compete?
+      ru: >-
+        Как вы расставляете приоритеты дорожной карты, когда конкурируют несколько ценных возможностей?
+    tests:
+      en: >-
+        Whether prioritisation exposes assumptions and opportunity cost.
+      ru: >-
+        Выявляете ли вы предположения и упущенные возможности при приоритизации.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-databricks"
+        company: "databricks"
+  - id: "prod-handyman-marketplace"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Design a product connecting local tradespeople with customers.
+      ru: >-
+        Спроектируйте продукт, связывающий местных мастеров с заказчиками.
+    tests:
+      en: >-
+        Whether you reason about both sides of a marketplace and initial liquidity.
+      ru: >-
+        Учитываете ли вы обе стороны маркетплейса и его запуск при малом числе участников.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-ai-pm"
+        company: "meta"
+  - id: "prod-product-cannibalisation"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        A new service grows while Facebook monthly active users decline. How would you assess whether the service is succeeding?
+      ru: >-
+        Новый сервис растёт, а месячная аудитория Facebook сокращается. Как оценить, успешен ли сервис?
+    tests:
+      en: >-
+        Whether you investigate portfolio effects instead of reading one metric in isolation.
+      ru: >-
+        Умеете ли вы исследовать влияние на весь продуктовый портфель, а не одну метрику.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-ai-pm"
+        company: "meta"
+  - id: "prod-volunteer-cold-start"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Design a volunteer-matching product and explain how it gets through cold start.
+      ru: >-
+        Спроектируйте продукт подбора волонтёров и объясните, как преодолеть холодный старт.
+    tests:
+      en: >-
+        Whether you make the first useful matches possible before scale arrives.
+      ru: >-
+        Умеете ли вы обеспечить первые полезные совпадения до появления масштаба.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-ai-pm"
+        company: "meta"
+  - id: "prod-search-versus-answer"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?
+      ru: >-
+        В чём AI-сервис ответов лучше обычного поиска, а в чём уступает? Что вы улучшите первым?
+    tests:
+      en: >-
+        Whether you compare products through user tasks and evidence quality.
+      ru: >-
+        Сравниваете ли вы продукты через задачи пользователя и качество доказательств.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+  - id: "prod-impactful-product"
+    tracks: ["leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        Walk through the product you built that had the greatest impact, including the business case and evidence of results.
+      ru: >-
+        Расскажите о созданном вами продукте с наибольшим влиянием: бизнес-обосновании и данных о результате.
+    tests:
+      en: >-
+        Whether you can connect personal decisions, experiments and realised impact.
+      ru: >-
+        Умеете ли вы связать собственные решения, эксперименты и достигнутый результат.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "monzo-pm-interview"
+        company: "monzo"

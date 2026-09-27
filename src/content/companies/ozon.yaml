@@ -1,0 +1,59 @@
+id: "ozon"
+name:
+  en: "Ozon"
+  ru: "Ozon"
+segment: "ru-big-tech"
+markets:
+- "ru"
+roles:
+  engineering:
+  - "software-engineer-general"
+summary:
+  en: "Candidate reports from 2022 and 2025 describe a screening, a long technical section with concurrency and code review, and a system design round."
+  ru: "Отчёты кандидатов 2022 и 2025 годов описывают скрининг, длинную техническую секцию с многопоточностью и code review и раунд system design."
+loop:
+- stage:
+    en: "Technical screening"
+    ru: "Технический скрининг"
+  detail:
+    en: "Forty to sixty minutes of conversation about experience, language internals and concurrency."
+    ru: "Сорок–шестьдесят минут разговора об опыте, устройстве языка и многопоточности."
+  claim: "participant_report"
+  sources:
+  - "habr-ozon-tbank-candidate"
+  - "habr-ozon-candidate-2022"
+- stage:
+    en: "Main technical section"
+    ru: "Основная техническая секция"
+  detail:
+    en: "One and a half to two hours of practical cases on concurrency, caching and SQL; one report included a code review that turned on misused locks."
+    ru: "Полтора–два часа практических кейсов на многопоточность, кэширование и SQL; в одном отчёте был code review, где главным оказалось неверное использование блокировок."
+  claim: "participant_report"
+  sources:
+  - "habr-ozon-tbank-candidate"
+  - "habr-ozon-candidate-2022"
+- stage:
+    en: "System design"
+    ru: "System design"
+  detail:
+    en: "About an hour: a well-known large-scale system, then a non-standard feature on top of it."
+    ru: "Около часа: известная крупная система, затем нестандартная функция поверх неё."
+  claim: "participant_report"
+  sources:
+  - "habr-ozon-candidate-2022"
+  - "habr-ozon-tbank-candidate"
+- stage:
+    en: "Grade and offer"
+    ru: "Грейд и оффер"
+  detail:
+    en: "The 2025 candidate was offered a lower grade than the role applied for."
+    ru: "Кандидату 2025 года предложили грейд ниже той роли, на которую он претендовал."
+  claim: "participant_report"
+  sources:
+  - "habr-ozon-tbank-candidate"
+coding:
+  value: "required"
+  sources:
+  - "habr-ozon-tbank-candidate"
+  - "habr-ozon-candidate-2022"
+reviewed: "2026-09-26"

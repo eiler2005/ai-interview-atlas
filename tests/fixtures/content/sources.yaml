@@ -1,0 +1,39 @@
+- id: example-labs-careers
+  kind: official
+  title: How we interview
+  publisher: Example Labs
+  url: https://example.com/careers/interviews
+  published: 2026-05
+  retrieved: 2026-09-20
+  lang: en
+- id: candidate-blog
+  kind: participant_report
+  title: My loop at two companies
+  publisher: A candidate blog
+  url: https://example.org/blog/interview
+  published: 2026-08-02
+  retrieved: 2026-09-20
+  lang: en
+- id: prep-guide
+  kind: prep_guide
+  title: Behavioral interview guide
+  publisher: Example Guides
+  url: https://example.net/guide
+  retrieved: 2026-09-20
+  lang: en
+- id: big-compilation
+  kind: secondary_compilation
+  title: Interview question compilation
+  publisher: Example Collective
+  url: https://example.com/compilation
+  retrieved: 2026-09-20
+  lang: en
+  license: Apache-2.0
+- id: eval-paper
+  kind: reference
+  title: Evaluating assistants
+  publisher: Example Research
+  url: https://example.org/papers/evals
+  published: "2025"
+  retrieved: 2026-09-20
+  lang: en

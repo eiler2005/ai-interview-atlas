@@ -1,0 +1,85 @@
+id: "monzo"
+name:
+  en: "Monzo"
+  ru: "Monzo"
+segment: "fintech"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer-general"
+  leadership:
+  - "product-manager-general"
+summary:
+  en: "Monzo's 2025 engineering articles describe task or pair-coding routes and Staff+ leadership assessment; its product article dates to 2022. These are general-role baselines. All three sources are employer publications, without independent corroboration; confirm the current format."
+  ru: "Инженерные статьи Monzo 2025 года описывают задание или парный кодинг и оценку лидерства для Staff+; продуктовая статья датирована 2022 годом. Это общие процессы. Все три источника выпущены работодателем, без независимого подтверждения; уточните текущий формат."
+loop:
+- stage:
+    en: "Engineering initial call"
+    ru: "Первый звонок для инженеров"
+  detail:
+    en: "An hour on background, recent projects, technical challenges and trade-offs."
+    ru: "Час о бэкграунде, недавних проектах, технических сложностях и компромиссах."
+  claim: "confirmed"
+  sources:
+  - "monzo-backend-interview"
+- stage:
+    en: "Take-home or pair coding"
+    ru: "Домашнее задание или парное программирование"
+  detail:
+    en: "Either a small program written in your own time and then reviewed, or about an hour of pairing with an engineer to implement a provided interface."
+    ru: "Либо небольшая программа, написанная в своё время и затем разобранная, либо около часа в паре с инженером над реализацией заданного интерфейса."
+  claim: "confirmed"
+  sources:
+  - "monzo-backend-interview"
+  - "monzo-staff-plus-interview"
+- stage:
+    en: "Systems design"
+    ru: "System design"
+  detail:
+    en: "A collaborative whiteboard session on scalable, reliable and fault-tolerant systems; Staff+ candidates go deeper into scalability, testing and security."
+    ru: "Совместная сессия на виртуальной доске о масштабируемых, надёжных и отказоустойчивых системах; кандидаты Staff+ глубже разбирают масштабирование, тестирование и безопасность."
+  claim: "confirmed"
+  sources:
+  - "monzo-backend-interview"
+  - "monzo-staff-plus-interview"
+- stage:
+    en: "Behavioural"
+    ru: "Поведенческое интервью"
+  detail:
+    en: "An hour with two interviewers on communication, learning, teamwork and delivering projects."
+    ru: "Час с двумя интервьюерами о коммуникации, обучении, работе в команде и доведении проектов до результата."
+  claim: "confirmed"
+  sources:
+  - "monzo-backend-interview"
+- stage:
+    en: "Impact and leadership (Staff+)"
+    ru: "Влияние и лидерство (Staff+)"
+  detail:
+    en: "How you spot opportunities as a leader and convince a group of people to act on them."
+    ru: "Как вы как лидер находите возможности и убеждаете группу людей действовать."
+  claim: "confirmed"
+  sources:
+  - "monzo-staff-plus-interview"
+- stage:
+    en: "Product manager loop (2022)"
+    ru: "Цикл продакт-менеджера (2022)"
+  detail:
+    en: "A 30-minute recruiter screen, a 45-minute chat about product experience, then a 20-minute walkthrough of your most impactful product, an interactive case study and a leadership interview."
+    ru: "30-минутный скрининг с рекрутером, 45-минутный разговор о продуктовом опыте, затем 20-минутный рассказ о самом значимом продукте, интерактивный кейс и интервью о лидерстве."
+  claim: "confirmed"
+  sources:
+  - "monzo-pm-interview"
+coding:
+  value: "varies"
+  note:
+    en: "The 2025 engineering description includes coding; the 2022 product description lists no coding stage. Confirm the current role-specific process."
+    ru: "Описание инженерного процесса 2025 года включает кодинг; в продуктовом описании 2022 года такой этап не указан. Уточните актуальный процесс для своей роли."
+  sources:
+  - "monzo-backend-interview"
+  - "monzo-pm-interview"
+prep:
+- "monzo-backend-interview"
+- "monzo-staff-plus-interview"
+- "monzo-pm-interview"
+reviewed: "2026-09-26"

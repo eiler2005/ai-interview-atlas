@@ -1,0 +1,23 @@
+id: example-labs
+name: {en: Example Labs, ru: Example Labs}
+segment: frontier-lab
+markets: [intl]
+roles:
+  engineering: [ai-engineer, applied-ai-engineer]
+  leadership: [ai-pm]
+loop:
+  - stage: {en: Recruiter screen, ru: Скрининг с рекрутером}
+    detail: {en: About 30 minutes., ru: Около 30 минут.}
+    claim: confirmed
+    sources: [example-labs-careers]
+  - stage: {en: Practical coding, ru: Практический кодинг}
+    claim: participant_report
+    sources: [candidate-blog]
+  - stage: {en: Onsite, ru: Финальные раунды}
+    claim: secondary
+    sources: [big-compilation]
+coding:
+  value: required
+  sources: [example-labs-careers]
+prep: [example-labs-careers]
+reviewed: 2026-09-20

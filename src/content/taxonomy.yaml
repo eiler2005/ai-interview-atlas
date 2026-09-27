@@ -1,0 +1,151 @@
+tracks:
+  - id: "engineering"
+    name: {en: "AI Engineering", ru: "AI-инженерия"}
+    summary:
+      en: "Engineers who build, ship and run AI systems: applications, agents, platforms, inference and research code."
+      ru: "Инженеры, которые строят, выпускают и эксплуатируют AI-системы: приложения, агентов, платформы, инференс и исследовательский код."
+  - id: "leadership"
+    name: {en: "AI Leadership", ru: "AI-лидерство"}
+    summary:
+      en: "People who decide what AI to build and lead the teams, programmes and organisations that build it."
+      ru: "Те, кто решает, какой AI строить, и руководит командами, программами и организациями, которые его строят."
+
+roles:
+  - id: "software-engineer-general"
+    track: "engineering"
+    name: {en: "Software engineer (general interview baseline)", ru: "Разработчик ПО (общий процесс интервью)"}
+  - id: "product-manager-general"
+    track: "leadership"
+    name: {en: "Product manager (general interview baseline)", ru: "Продакт-менеджер (общий процесс интервью)"}
+  - id: "ai-engineer"
+    track: "engineering"
+    name: {en: "AI / LLM engineer", ru: "AI/LLM-инженер"}
+  - id: "software-engineer"
+    track: "engineering"
+    name: {en: "Software engineer on AI products", ru: "Разработчик AI-продуктов"}
+  - id: "applied-ai-engineer"
+    track: "engineering"
+    name: {en: "Applied AI / forward-deployed engineer", ru: "Прикладной / forward-deployed инженер"}
+  - id: "agent-engineer"
+    track: "engineering"
+    name: {en: "Agent engineer", ru: "Инженер агентов"}
+  - id: "ai-platform-engineer"
+    track: "engineering"
+    name: {en: "AI platform / MLOps engineer", ru: "Инженер AI-платформы / MLOps"}
+  - id: "inference-engineer"
+    track: "engineering"
+    name: {en: "Inference and performance engineer", ru: "Инженер инференса и производительности"}
+  - id: "research-engineer"
+    track: "engineering"
+    name: {en: "Research engineer", ru: "Research-инженер"}
+  - id: "ai-pm"
+    track: "leadership"
+    name: {en: "AI product manager (senior to group)", ru: "AI-продакт-менеджер (от senior до group)"}
+  - id: "product-director"
+    track: "leadership"
+    name: {en: "Director or head of product", ru: "Директор или руководитель продукта"}
+  - id: "engineering-manager"
+    track: "leadership"
+    name: {en: "Engineering manager", ru: "Руководитель разработки (EM)"}
+  - id: "engineering-director"
+    track: "leadership"
+    name: {en: "Director or head of engineering", ru: "Директор или руководитель инженерии"}
+  - id: "tpm"
+    track: "leadership"
+    name: {en: "Technical program manager", ru: "Технический руководитель программ (TPM)"}
+  - id: "ai-platform-lead"
+    track: "leadership"
+    name: {en: "AI platform lead", ru: "Руководитель AI-платформы"}
+  - id: "ai-transformation-lead"
+    track: "leadership"
+    name: {en: "Head of AI adoption / chief AI officer", ru: "Руководитель внедрения AI / CAIO"}
+  - id: "fde-lead"
+    track: "leadership"
+    name: {en: "Forward-deployed or solutions leader", ru: "Руководитель forward-deployed / solutions"}
+
+themes:
+  - id: "llm-fundamentals"
+    name: {en: "LLM fundamentals", ru: "Основы LLM"}
+    summary:
+      en: "How transformers and LLMs work: attention, tokens, context, sampling, scaling. Engineers derive and implement; leaders need the intuition behind cost, quality and limits."
+      ru: "Как устроены трансформеры и LLM: attention, токены, контекст, сэмплинг, масштабирование. Инженеры выводят и реализуют; руководителям нужна интуиция о цене, качестве и ограничениях."
+  - id: "inference-economics"
+    name: {en: "Inference, serving and cost", ru: "Инференс, serving и стоимость"}
+    summary:
+      en: "Serving models at scale: prefill and decode, batching, caching, quantisation, latency metrics and the levers that move cost."
+      ru: "Обслуживание моделей в масштабе: prefill и decode, батчинг, кэширование, квантизация, метрики задержки и рычаги стоимости."
+  - id: "rag-retrieval"
+    name: {en: "RAG and retrieval", ru: "RAG и поиск"}
+    summary:
+      en: "Grounding answers in documents: chunking, hybrid search, reranking, permissions, freshness and citation."
+      ru: "Ответы с опорой на документы: чанкинг, гибридный поиск, реранкинг, права доступа, свежесть и атрибуция."
+  - id: "agents-tools"
+    name: {en: "Agents, tools and protocols", ru: "Агенты, инструменты и протоколы"}
+    summary:
+      en: "Agent loops, tool design, memory, termination, human approval and protocols such as MCP."
+      ru: "Агентные циклы, дизайн инструментов, память, завершение, одобрение человеком и протоколы вроде MCP."
+  - id: "post-training"
+    name: {en: "Fine-tuning and post-training", ru: "Дообучение и post-training"}
+    summary:
+      en: "Supervised fine-tuning, preference optimisation, reinforcement learning, parameter-efficient methods and distillation."
+      ru: "Supervised fine-tuning, оптимизация по предпочтениям, обучение с подкреплением, параметрически эффективные методы и дистилляция."
+  - id: "evals-observability"
+    name: {en: "Evaluation and observability", ru: "Оценка качества и наблюдаемость"}
+    summary:
+      en: "Knowing whether an AI system works: eval sets, LLM judges, regression gates, online measurement and production traces."
+      ru: "Как понять, что AI-система работает: eval-наборы, LLM-судьи, регрессионные гейты, онлайн-измерения и трассировки."
+  - id: "safety-security-governance"
+    name: {en: "Safety, security and governance", ru: "Безопасность, защита и governance"}
+    summary:
+      en: "Prompt injection, data exfiltration, guardrails, privacy, red-teaming, and the regulation and risk frameworks leaders are accountable for."
+      ru: "Prompt injection, утечка данных, guardrails, приватность, red-teaming, а также регулирование и риск-фреймворки, за которые отвечают руководители."
+  - id: "multimodal-voice"
+    name: {en: "Multimodal and voice", ru: "Мультимодальность и голос"}
+    summary:
+      en: "Vision-language models, real-time voice agents, speech quality and multimodal retrieval."
+      ru: "Vision-language модели, голосовые агенты в реальном времени, качество речи и мультимодальный поиск."
+  - id: "ai-system-design"
+    name: {en: "AI system design", ru: "Дизайн AI-систем"}
+    summary:
+      en: "End-to-end design of AI products and platforms, explained aloud with requirements, trade-offs and failure modes."
+      ru: "Сквозной дизайн AI-продуктов и платформ, рассказанный вслух: требования, компромиссы и сценарии отказа."
+  - id: "coding-practical"
+    name: {en: "Practical coding", ru: "Практический кодинг"}
+    summary:
+      en: "Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review."
+      ru: "Кодинг, похожий на работу: конкурентность, лимиты, повторы, растущая спецификация, отладка и code review."
+  - id: "ai-product-strategy"
+    name: {en: "AI product strategy and metrics", ru: "Стратегия и метрики AI-продукта"}
+    summary:
+      en: "When AI is worth it, how to design AI features, measure them and build the business case."
+      ru: "Когда AI оправдан, как проектировать AI-функции, измерять их и строить бизнес-кейс."
+  - id: "ai-operating-model"
+    name: {en: "AI platform and operating model", ru: "AI-платформа и операционная модель"}
+    summary:
+      en: "Internal AI platforms, adoption across an organisation, enablement, cost governance and centres of excellence."
+      ru: "Внутренние AI-платформы, внедрение AI в организации, обучение людей, управление затратами и центры компетенций."
+  - id: "engineering-leadership"
+    name: {en: "Leading engineering teams", ru: "Руководство инженерными командами"}
+    summary:
+      en: "Hiring, coaching, performance, team design and delivery for teams that build AI."
+      ru: "Найм, развитие, работа с результативностью, устройство команд и доставка для команд, которые строят AI."
+  - id: "program-delivery"
+    name: {en: "Programmes and delivery", ru: "Программы и delivery"}
+    summary:
+      en: "Planning and running cross-team work: dependencies, launches, risk and communication."
+      ru: "Планирование и ведение межкомандной работы: зависимости, запуски, риски и коммуникация."
+  - id: "applied-scenarios"
+    name: {en: "Applied and customer scenarios", ru: "Прикладные и клиентские сценарии"}
+    summary:
+      en: "Open-ended situations with customers and messy problems: the first 48 hours, rescuing a pilot, decomposing a business problem."
+      ru: "Открытые ситуации с клиентами и запутанными задачами: первые 48 часов, спасение пилота, декомпозиция бизнес-задачи."
+  - id: "domain-payments-fintech"
+    name: {en: "Payments and regulated domains", ru: "Платежи и регулируемые отрасли"}
+    summary:
+      en: "AI in payments, banking and other regulated industries, including agentic commerce."
+      ru: "AI в платежах, банках и других регулируемых отраслях, включая агентную коммерцию."
+  - id: "behavioral-values"
+    name: {en: "Behavioral and values", ru: "Поведенческие вопросы и ценности"}
+    summary:
+      en: "Your real stories, motivation and judgement: ownership, conflict, mistakes, and why this company."
+      ru: "Ваши реальные истории, мотивация и суждения: ответственность, конфликты, ошибки и почему именно эта компания."

@@ -1,0 +1,12 @@
+theme: agents-tools
+questions:
+  - id: tool-errors
+    tracks: [engineering]
+    type: knowledge
+    text: {en: "How do you handle tool errors in an agent loop?", ru: "Как обрабатывать ошибки инструментов в агентном цикле?"}
+    tests: {en: "Retries, budgets and termination.", ru: "Повторы, бюджеты и завершение."}
+    provenance: published
+    evidence:
+      - {source: example-labs-careers, company: example-labs}
+      - {source: big-compilation, company: example-labs}
+    added: 2026-09-20

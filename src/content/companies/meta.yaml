@@ -1,0 +1,63 @@
+id: "meta"
+name:
+  en: "Meta"
+  ru: "Meta"
+segment: "big-tech"
+markets:
+- "intl"
+roles:
+  leadership:
+  - "engineering-manager"
+  - "ai-pm"
+  - "tpm"
+summary:
+  en: "Structured loops with published preparation guides. Recent reports describe an AI-assisted coding round for engineering managers and live prototyping in AI product manager interviews."
+  ru: "Структурированные циклы с опубликованными гайдами по подготовке. Свежие отчёты описывают раунд кодинга с AI-ассистентом для руководителей разработки и живое прототипирование в интервью на AI-продакт-менеджера."
+loop:
+- stage:
+    en: "Engineering manager initial interview"
+    ru: "Первое интервью руководителя разработки"
+  detail:
+    en: "A 45-minute conversation with a software engineering manager covering both technical and management skills."
+    ru: "45-минутная беседа с руководителем разработки о технических и управленческих навыках."
+  claim: "confirmed"
+  sources:
+  - "meta-swe-l-initial"
+- stage:
+    en: "Technical program manager loop"
+    ru: "Цикл для TPM"
+  detail:
+    en: "Five conversations with technical program managers and cross-functional team members."
+    ru: "Пять бесед с техническими руководителями программ и участниками смежных команд."
+  claim: "confirmed"
+  sources:
+  - "meta-tpm-onsite"
+- stage:
+    en: "Engineering manager report (M1)"
+    ru: "Отчёт кандидата на EM (M1)"
+  detail:
+    en: "Screening with a behavioral round and a system design round chosen from ML, software or product; the main loop had ML system design, a project deep dive, team management, behavioral questions and an AI-assisted coding round."
+    ru: "Скрининг с поведенческим раундом и раундом system design на выбор (ML, софт или продукт); в основном цикле были ML system design, разбор проекта, управление командой, поведенческие вопросы и раунд кодинга с AI-ассистентом."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-meta-em-m1"
+- stage:
+    en: "AI product manager report (level unverified)"
+    ru: "Отчёт кандидата на AI PM (уровень не проверен)"
+  detail:
+    en: "Product sense and analytical phone screens, then an hour split between product sense and live prototyping in a Llama-based vibe-coding tool, with follow-ups on retrieval, latency, inference cost and token efficiency."
+    ru: "Телефонные скрининги по product sense и аналитике, затем час, разделённый между product sense и живым прототипированием в инструменте vibe coding на базе Llama, с вопросами о поиске, задержке, стоимости инференса и экономии токенов."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-meta-ai-pm"
+coding:
+  value: "varies"
+  note:
+    en: "Engineering managers may get an AI-assisted coding round"
+    ru: "Руководителям разработки может достаться раунд кодинга с AI-ассистентом"
+  sources:
+  - "exponent-report-meta-em-m1"
+prep:
+- "meta-swe-l-initial"
+- "meta-tpm-onsite"
+reviewed: "2026-09-26"

@@ -1,0 +1,250 @@
+theme: "coding-practical"
+questions:
+  - id: "code-causal-attention"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement scaled dot-product attention with a causal mask and tests that would expose attention to future tokens."
+      ru: "Реализуйте scaled dot-product attention с causal mask и тестами, выявляющими доступ к будущим токенам."
+    tests:
+      en: "Whether shapes, masking and numerical stability are correct in executable code."
+      ru: "Умение корректно реализовать размерности, маскирование и численную устойчивость."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+      - source: "outcome-school-company-wise"
+        company: "google"
+      - source: "outcome-school-company-wise"
+        company: "amazon"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 38
+    outline:
+      en:
+        - "Check batch, sequence and head dimensions before implementing score multiplication."
+        - "Use stable softmax after masking disallowed positions."
+        - "Test small hand-computable cases and ensure changing future inputs cannot change earlier outputs."
+      ru:
+        - "Проверить размерности батча, последовательности и голов до вычисления scores."
+        - "Использовать устойчивый softmax после маскирования запрещённых позиций."
+        - "Проверить малые ручные примеры и неизменность ранних выходов при изменении будущих входов."
+    reading: ["paper-attention"]
+  - id: "code-grouped-attention"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement multi-head attention, then modify the implementation so several query heads share each pair of key and value heads."
+      ru: "Реализуйте multi-head attention, затем измените код так, чтобы несколько query-голов делили пару голов key и value."
+    tests:
+      en: "Whether tensor layout and head grouping are implemented consistently."
+      ru: "Умение согласованно реализовать расположение тензоров и группировку голов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+    added: "2026-09-26"
+  - id: "code-cached-decode"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement one-token decoding with a KV cache and compare its output with a full-prefix forward pass."
+      ru: "Реализуйте декодирование одного токена с KV-кешем и сравните результат с полным проходом по префиксу."
+    tests:
+      en: "Whether positions, cache updates and attention masks remain correct."
+      ru: "Корректность позиций, обновлений кеша и attention mask."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "code-bpe"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Write a small BPE trainer and encoder, specifying how merge ties and unseen input symbols are handled."
+      ru: "Напишите небольшой BPE trainer и encoder, задав правила при равной частоте пар и неизвестных входных символах."
+    tests:
+      en: "Whether learned merges and encoding behaviour agree."
+      ru: "Согласованность обученных слияний и поведения encoder."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "code-sampling"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement temperature scaling, top-k filtering and nucleus sampling for a logits vector, including boundary cases."
+      ru: "Реализуйте температуру, top-k фильтрацию и nucleus sampling для вектора логитов, включая граничные случаи."
+    tests:
+      en: "Whether probability mass, ties and invalid parameters are handled correctly."
+      ru: "Корректная обработка вероятностей, равенств и недопустимых параметров."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+    added: "2026-09-26"
+  - id: "code-lru"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Build a cache with constant-time lookup and recency updates, then add expiry without breaking eviction semantics."
+      ru: "Напишите кеш с постоянным временем поиска и обновления давности, затем добавьте срок действия без нарушения правил вытеснения."
+    tests:
+      en: "Whether data-structure invariants survive an evolving specification."
+      ru: "Умение сохранить инварианты структуры данных при расширении требований."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+  - id: "code-token-bucket"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement a token-bucket limiter and explain what must change when several workers enforce the same limit."
+      ru: "Реализуйте token-bucket limiter и объясните изменения для общего лимита, применяемого несколькими воркерами."
+    tests:
+      en: "Whether time accounting and concurrent updates preserve the quota."
+      ru: "Умение сохранить квоту при учёте времени и параллельных обновлениях."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 39
+    outline:
+      en:
+        - "Refill from elapsed monotonic time and cap tokens at capacity."
+        - "Make the check-and-consume operation atomic across competing calls."
+        - "Test bursts and time boundaries; state the shared-store or partitioning contract for distributed enforcement."
+      ru:
+        - "Пополнять токены по монотонному времени с ограничением ёмкости."
+        - "Сделать проверку и списание атомарными для конкурирующих вызовов."
+        - "Проверить всплески и временные границы; задать контракт общего хранилища или разбиения для распределённого лимита."
+    reading: ["stripe-rate-limiters"]
+  - id: "code-async-batches"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Write an asynchronous API batch processor with bounded concurrency, retry jitter and isolated per-item failures."
+      ru: "Напишите асинхронный обработчик батча API-запросов с ограничением конкурентности, jitter повторов и изоляцией ошибок элементов."
+    tests:
+      en: "Whether cancellation, retries and results remain well-defined under partial failure."
+      ru: "Умение корректно задать отмену, повторы и результаты при частичных отказах."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+      - source: "outcome-school-company-wise"
+        company: "perplexity"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 40
+    outline:
+      en:
+        - "Bound in-flight work and propagate cancellation and deadlines."
+        - "Retry only suitable failures with capped backoff and jitter; consider idempotency."
+        - "Return per-item outcomes and test timeouts, permanent failures and partial completion."
+      ru:
+        - "Ограничить число выполняемых запросов и передавать отмену и deadline."
+        - "Повторять подходящие ошибки с ограниченным backoff и jitter, учитывая идемпотентность."
+        - "Возвращать результат каждого элемента и проверить тайм-ауты, постоянные ошибки и частичный успех."
+    reading: ["stripe-idempotency","google-sre-book"]
+  - id: "code-stream-parser"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement an incremental SSE parser whose data events can contain JSON split across arbitrary network chunks."
+      ru: "Реализуйте инкрементальный SSE parser, где JSON в событиях данных может быть разбит произвольными сетевыми чанками."
+    tests:
+      en: "Whether transport boundaries are kept separate from message boundaries."
+      ru: "Умение отличать границы транспорта от границ сообщений."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "code-semantic-chunks"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement overlapping text chunks that preserve semantic units; define what happens when one unit exceeds the target size."
+      ru: "Реализуйте перекрывающиеся чанки текста с сохранением смысловых единиц; задайте поведение, если единица больше целевого размера."
+    tests:
+      en: "Whether ambiguous size and boundary requirements are clarified before coding."
+      ru: "Умение уточнить неоднозначные требования к размеру и границам до реализации."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "code-cosine-search"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement exact cosine similarity search over embeddings and explain the limits that would require a different production design."
+      ru: "Реализуйте точный поиск по cosine similarity и объясните ограничения, требующие иной production-архитектуры."
+    tests:
+      en: "Whether a correct baseline is separated from a scalable serving system."
+      ru: "Умение отличать корректный baseline от масштабируемого сервиса."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "code-agent-loop"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit."
+      ru: "Реализуйте минимальный агентный runner с проверяемой диспетчеризацией инструментов, обработкой ошибок и жёстким лимитом шагов."
+    tests:
+      en: "Whether loop state and terminal conditions are explicit in code."
+      ru: "Умение явно задать состояние цикла и условия завершения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "code-transactions"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Implement an in-memory key-value store with begin, commit and abort, stating the transaction semantics you support."
+      ru: "Реализуйте key-value хранилище в памяти с begin, commit и abort, явно задав поддерживаемую семантику транзакций."
+    tests:
+      en: "Whether rollback and visibility match a precise contract."
+      ru: "Соответствие отката и видимости чёткому контракту."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+  - id: "code-refactoring"
+    tracks: ["engineering","leadership"]
+    type: "coding"
+    text:
+      en: "Refactor a small, poorly structured program with passing tests. Explain the first change and how you preserve observable behaviour."
+      ru: "Отрефакторите небольшую плохо структурированную программу с проходящими тестами. Объясните первое изменение и сохранение наблюдаемого поведения."
+    tests:
+      en: "Whether improvements are incremental and justified by maintainability."
+      ru: "Умение улучшать код постепенно с понятной пользой для сопровождения."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    added: "2026-09-26"
+  - id: "code-pagination"
+    tracks: ["engineering"]
+    type: "coding"
+    text:
+      en: "Write a function that collects a paginated REST result while handling page size, termination and incomplete responses explicitly."
+      ru: "Напишите функцию сбора постраничного REST-ответа с явной обработкой размера страницы, завершения и неполных ответов."
+    tests:
+      en: "Whether boundary conditions prevent missing or duplicated records."
+      ru: "Умение предотвратить пропуски и дублирование записей на границах страниц."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    added: "2026-09-26"

@@ -1,0 +1,271 @@
+theme: "program-delivery"
+questions:
+  - id: "prog-difficult-launch"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Walk through the most difficult product launch you led.
+      ru: >-
+        Расскажите о самом сложном продуктовом запуске, которым вы руководили.
+    tests:
+      en: >-
+        Whether you can explain dependencies, decisions and your contribution to the result.
+      ru: >-
+        Умеете ли вы объяснить зависимости, решения и собственный вклад в результат.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-openai-pm"
+        company: "openai"
+    start_here: ["leadership"]
+    priority: 25
+    outline:
+      en:
+        - "Set out the goal, constraints, stakeholders and critical dependencies."
+        - "Explain a consequential decision, alternatives and how you kept people aligned."
+        - "State the realised outcome and what you changed for later launches."
+      ru:
+        - "Опишите цель, ограничения, участников и критические зависимости."
+        - "Разберите важное решение, альтернативы и согласование действий участников."
+        - "Назовите достигнутый результат и изменения для последующих запусков."
+    reading: ["google-sre-book","design-docs-at-google"]
+  - id: "prog-prelaunch-hallucinations"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        Three weeks before launching an LLM feature, evaluation reveals substantial hallucinations on edge cases. What happens next?
+      ru: >-
+        За три недели до запуска LLM-функции оценка выявила много галлюцинаций в пограничных сценариях. Что вы предпримете?
+    tests:
+      en: >-
+        Whether you make a risk-based launch decision rather than protecting the date at any cost.
+      ru: >-
+        Принимаете ли вы решение о запуске на основе риска, а не любой ценой сохраняете дату.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-amazon-ai-pm"
+        company: "amazon"
+    start_here: ["leadership"]
+    priority: 26
+    outline:
+      en:
+        - "Check severity, prevalence, affected users and the reliability of the evaluation."
+        - "Compare narrowing scope, adding review, fixing causes and delaying release."
+        - "Assign a decision owner, explicit exit criteria and a communication plan."
+      ru:
+        - "Проверьте тяжесть, частоту, затронутых пользователей и надёжность оценки."
+        - "Сравните сужение объёма, проверку человеком, устранение причин и перенос запуска."
+        - "Назначьте владельца решения, критерии готовности и план коммуникаций."
+    reading: ["nist-ai-rmf","anthropic-evals-for-agents"]
+  - id: "prog-cross-team-delivery"
+    tracks: ["leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a large cross-functional project, including ambiguity, roadblocks and delays.
+      ru: >-
+        Расскажите о крупном межфункциональном проекте: неопределённости, препятствиях и задержках.
+    tests:
+      en: >-
+        Whether your delivery method adapts to changing information and dependencies.
+      ru: >-
+        Умеете ли вы менять способ выполнения работы по мере уточнения данных и зависимостей.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-meta-em-m1"
+        company: "meta"
+    start_here: ["leadership"]
+    priority: 27
+    outline:
+      en:
+        - "Map deliverables and dependencies to accountable owners."
+        - "Explain how you detected a blockage and changed the plan or escalation path."
+        - "Distinguish actual delivery and impact from initial targets."
+      ru:
+        - "Свяжите результаты и зависимости с конкретными ответственными."
+        - "Объясните, как обнаружили препятствие и изменили план или порядок эскалации."
+        - "Разделите выполненную работу и её эффект и первоначальные цели."
+    reading: ["design-docs-at-google","google-sre-book"]
+  - id: "prog-device-update"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        How would you roll out updates to Alexa devices already deployed in people's homes?
+      ru: >-
+        Как вы организуете обновление устройств Alexa, уже установленных у пользователей дома?
+    tests:
+      en: >-
+        Whether you account for fleet diversity, interrupted updates and safe rollout.
+      ru: >-
+        Учитываете ли вы разнообразие устройств, прерывания обновлений и безопасный выпуск.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-amazon-ai-pm"
+        company: "amazon"
+    start_here: ["leadership"]
+    priority: 28
+    outline:
+      en:
+        - "Clarify update scope, compatibility, connectivity and user disruption."
+        - "Use controlled cohorts, health checks and recoverable installation."
+        - "Define rollout pauses, rollback ownership and support communication."
+      ru:
+        - "Уточните состав обновления, совместимость, связь и неудобства для пользователей."
+        - "Предусмотрите контролируемые группы, проверки состояния и восстановление после установки."
+        - "Определите условия приостановки, ответственность за откат и взаимодействие с поддержкой."
+    reading: ["google-sre-book"]
+  - id: "prog-initiative-retrospective"
+    tracks: ["leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        Present a major initiative you led: what worked, what did not, and what you learned.
+      ru: >-
+        Представьте крупную инициативу, которой вы руководили: что сработало, что нет и чему вы научились.
+    tests:
+      en: >-
+        Whether you can assess an initiative honestly across planning and execution.
+      ru: >-
+        Умеете ли вы честно оценить инициативу на этапах планирования и выполнения.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-anthropic-em"
+        company: "anthropic"
+  - id: "prog-technical-ownership"
+    tracks: ["engineering","leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        Walk through a project you owned from beginning to end and its key technical decisions.
+      ru: >-
+        Расскажите о проекте, за который отвечали от начала до конца, и его ключевых технических решениях.
+    tests:
+      en: >-
+        Whether technical choices are connected to constraints, sequencing and outcomes.
+      ru: >-
+        Связываете ли вы технические решения с ограничениями, порядком работ и результатами.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+  - id: "prog-delayed-by-judgement"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Tell me about a technical misjudgement that delayed a project.
+      ru: >-
+        Расскажите о техническом просчёте, из-за которого задержался проект.
+    tests:
+      en: >-
+        Whether you recognise faulty assumptions and change planning practice afterward.
+      ru: >-
+        Умеете ли вы находить ошибочные предположения и менять подход к планированию.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+  - id: "prog-four-hour-demo"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        You have four hours to build and demonstrate an AI-powered product. How do you allocate the time?
+      ru: >-
+        У вас четыре часа, чтобы собрать и показать работающий AI-продукт. Как распределить время?
+    tests:
+      en: >-
+        Whether you scope a credible demonstration and protect time for integration.
+      ru: >-
+        Умеете ли вы выбрать реалистичный объём демонстрации и оставить время на интеграцию.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "prog-zero-to-one-ai"
+    tracks: ["leadership"]
+    type: "self_presentation"
+    level: "senior"
+    text:
+      en: >-
+        Describe an AI product you built from scratch and how you took it through delivery.
+      ru: >-
+        Расскажите об AI-продукте, созданном с нуля, и о том, как вы довели его до выпуска.
+    tests:
+      en: >-
+        Whether you can explain a complete delivery path rather than only a prototype.
+      ru: >-
+        Умеете ли вы объяснить полный путь до выпуска, а не только создание прототипа.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-microsoft-ai-pm"
+        company: "microsoft"
+  - id: "prog-dependency-slip"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        An upstream data team will miss a milestone on your AI programme. How do you revise the plan and communicate the impact?
+      ru: >-
+        Команда-поставщик данных не успевает к контрольной дате AI-программы. Как вы пересмотрите план и сообщите о последствиях?
+    tests:
+      en: >-
+        Whether you quantify dependency impact and present actionable alternatives.
+      ru: >-
+        Умеете ли вы оценить влияние зависимости и предложить варианты действий.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:program-delivery"]
+  - id: "prog-research-milestones"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How would you plan an AI programme whose central research hypothesis may fail?
+      ru: >-
+        Как вы спланируете AI-программу, если её основная исследовательская гипотеза может не подтвердиться?
+    tests:
+      en: >-
+        Whether milestones retire uncertainty and support explicit stop decisions.
+      ru: >-
+        Снижают ли контрольные точки неопределённость и позволяют ли обоснованно остановить работу.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:program-delivery"]
+  - id: "prog-multi-owner-readiness"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        Engineering, operations and risk teams disagree about launch readiness. How would you reach a traceable decision?
+      ru: >-
+        Инженерная команда, эксплуатация и риск-функция расходятся в оценке готовности запуска. Как принять решение, основания которого можно проверить?
+    tests:
+      en: >-
+        Whether you clarify criteria and decision authority instead of counting approvals.
+      ru: >-
+        Уточняете ли вы критерии и полномочия, а не просто собираете согласования.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:program-delivery"]

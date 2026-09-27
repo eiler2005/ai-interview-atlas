@@ -1,0 +1,265 @@
+theme: "post-training"
+questions:
+  - id: "pt-rlhf"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Walk through a preference-based RLHF pipeline and explain the roles of the reward model and reference-policy penalty."
+      ru: "Разберите RLHF на предпочтениях и объясните роль reward model и штрафа за отклонение от опорной политики."
+    tests:
+      en: "Whether data collection, reward fitting and policy optimisation are distinguished."
+      ru: "Умение различать сбор данных, обучение награды и оптимизацию политики."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 22
+    outline:
+      en:
+        - "Separate demonstrations, preference pairs and policy rollouts."
+        - "Explain reward-model training and policy optimisation with a reference constraint."
+        - "Evaluate held-out human preferences and reward overoptimisation."
+      ru:
+        - "Разделить демонстрации, пары предпочтений и траектории политики."
+        - "Объяснить обучение модели награды и оптимизацию политики с ограничением относительно опорной модели."
+        - "Проверить отложенные человеческие предпочтения и переоптимизацию награды."
+    reading: ["paper-instructgpt"]
+  - id: "pt-dpo"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare DPO with PPO-based RLHF, including the assumptions behind offline preference learning and reasons to collect fresh rollouts."
+      ru: "Сравните DPO с RLHF на PPO, включая предпосылки обучения по офлайн-предпочтениям и причины собирать новые траектории."
+    tests:
+      en: "Whether a simpler objective is distinguished from universally better alignment."
+      ru: "Умение не путать простоту функции потерь с универсальным превосходством."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 23
+    outline:
+      en:
+        - "Describe the preference objective using policy and reference log-probabilities."
+        - "Explain how it avoids a separately trained reward model in the basic formulation."
+        - "Discuss preference coverage and distribution shift rather than declaring online RL obsolete."
+      ru:
+        - "Описать функцию предпочтений через логарифмы вероятностей политики и опорной модели."
+        - "Объяснить отсутствие отдельно обучаемой reward model в базовом варианте."
+        - "Обсудить покрытие предпочтений и сдвиг распределения без тезиса об устаревании online RL."
+    reading: ["paper-dpo"]
+  - id: "pt-grpo"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Explain group-relative policy optimisation and the trade-offs of estimating advantages without a learned value model."
+      ru: "Объясните GRPO и компромиссы оценки advantage без обученной value model."
+    tests:
+      en: "Whether relative rewards and variance are connected to sample groups."
+      ru: "Понимание связи относительных наград и дисперсии с группами ответов."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "pt-lora"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Derive the low-rank weight update used by LoRA and propose an experiment for choosing its rank."
+      ru: "Выведите низкоранговое обновление весов LoRA и предложите эксперимент для выбора ранга."
+    tests:
+      en: "Whether parameter savings are linked to adaptation capacity and validation."
+      ru: "Умение связать экономию параметров с выразительностью адаптации и проверкой качества."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 24
+    outline:
+      en:
+        - "Represent the update as ΔW = BA and state both matrix shapes."
+        - "Compare trainable parameter counts with a full weight matrix."
+        - "Tune rank and target modules on held-out tasks; check regressions and merging constraints."
+      ru:
+        - "Записать обновление ΔW = BA и размерности обеих матриц."
+        - "Сравнить число обучаемых параметров с полной матрицей весов."
+        - "Выбрать ранг и модули по отложенным задачам; проверить регрессии и ограничения слияния."
+    reading: ["paper-lora"]
+  - id: "pt-qlora"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "How does QLoRA reduce finetuning memory, and which tensors remain trainable or require higher precision?"
+      ru: "Как QLoRA сокращает память дообучения и какие тензоры остаются обучаемыми или требуют большей точности?"
+    tests:
+      en: "Whether quantised base weights are separated from adapter optimisation."
+      ru: "Умение отличать квантованные базовые веса от оптимизации адаптеров."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 25
+    outline:
+      en:
+        - "Keep the base model quantised and frozen while training low-rank adapters."
+        - "Explain NF4, double quantisation and paged optimisers as separate memory mechanisms."
+        - "Account for dequantisation compute and remaining activation memory."
+      ru:
+        - "Сохранить базовую модель квантованной и замороженной, обучая низкоранговые адаптеры."
+        - "Разделить роли NF4, двойного квантования и paged optimizers."
+        - "Учесть вычисления деквантования и сохраняющуюся память активаций."
+    reading: ["paper-qlora"]
+  - id: "pt-adaptation-method"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Compare low-rank adapters, prefix tuning, soft prompt tuning and full finetuning for one task."
+      ru: "Сравните низкоранговые адаптеры, prefix tuning, soft prompt tuning и полное дообучение для одной задачи."
+    tests:
+      en: "Whether data, capacity and deployment constraints guide adaptation."
+      ru: "Умение выбирать метод по данным, выразительности и ограничениям развёртывания."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "pt-forgetting"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "After domain finetuning, general capabilities regress. How would you measure and reduce catastrophic forgetting?"
+      ru: "После доменного дообучения просели общие способности модели. Как измерить и уменьшить catastrophic forgetting?"
+    tests:
+      en: "Whether task gains are checked against preserved capabilities."
+      ru: "Умение проверять сохранение способностей наряду с успехом на целевой задаче."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "pt-method-choice"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    text:
+      en: "Choose between prompt changes, retrieval and finetuning for a failing AI feature; include data freshness, latency and total cost."
+      ru: "Выберите между изменением промпта, retrieval и дообучением для неудачной AI-функции; учтите свежесть данных, задержку и полную стоимость."
+    tests:
+      en: "Whether the intervention matches the observed failure mode."
+      ru: "Умение выбрать вмешательство по выявленной причине ошибки."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+      - source: "outcome-school-company-wise"
+        company: "microsoft"
+      - source: "outcome-school-company-wise"
+        company: "databricks"
+    added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 26
+    outline:
+      en:
+        - "Classify missing knowledge, poor instructions and unwanted behaviour separately."
+        - "Establish a prompt baseline; test retrieval for fresh attributable knowledge."
+        - "Use finetuning when representative examples justify it, then compare lifecycle cost and held-out quality."
+      ru:
+        - "Разделить нехватку знаний, плохие инструкции и нежелательное поведение."
+        - "Задать промптовый baseline; проверить retrieval для свежих знаний с источниками."
+        - "Дообучать при достаточных характерных примерах и сравнить полную стоимость и отложенное качество."
+    reading: ["paper-rag","paper-lora"]
+  - id: "pt-training-memory"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Budget memory for full bf16 finetuning of a 7B model with Adam, then recalculate for LoRA and explain your optimiser assumptions."
+      ru: "Рассчитайте память полного bf16-дообучения модели 7B с Adam, затем для LoRA; явно задайте предположения об оптимизаторе."
+    tests:
+      en: "Whether gradients, optimiser state, master weights and activations are all considered."
+      ru: "Учёт градиентов, состояния оптимизатора, мастер-весов и активаций."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "pt-verifiable-reward"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "When is a programmatically verifiable reward preferable to a learned reward model, and where can the verifier still be exploited?"
+      ru: "Когда программно проверяемая награда предпочтительнее обученной модели награды и как можно обмануть саму проверку?"
+    tests:
+      en: "Whether verification is treated as a specification with blind spots."
+      ru: "Понимание ограничений проверки как спецификации."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "pt-reward-hacking"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "Policy reward keeps rising while humans prefer its outputs less. How would you diagnose and limit reward hacking?"
+      ru: "Награда политики растёт, а людям ответы нравятся всё меньше. Как выявить и ограничить reward hacking?"
+    tests:
+      en: "Whether optimisation of the proxy is distinguished from improvement in the real goal."
+      ru: "Умение отличать оптимизацию прокси от достижения реальной цели."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "pt-distillation"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design a teacher-to-student distillation process and explain how you would detect capabilities the smaller model fails to retain."
+      ru: "Спроектируйте дистилляцию учителя в малую модель и проверку способностей, которые ученик не сохранил."
+    tests:
+      en: "Whether data coverage and independent evaluation constrain teacher imitation."
+      ru: "Учёт покрытия данных и независимой оценки при подражании учителю."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+    added: "2026-09-26"
+  - id: "pt-constitutional"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    text:
+      en: "Explain how Constitutional AI uses principles, self-revision and AI-generated preferences, and identify what human judgement it still depends on."
+      ru: "Объясните использование принципов, самокоррекции и AI-предпочтений в Constitutional AI и сохранённую зависимость от человеческих решений."
+    tests:
+      en: "Whether reduced labelling effort is distinguished from removing human value choices."
+      ru: "Умение отличать сокращение разметки от устранения человеческого выбора ценностей."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    added: "2026-09-26"
+  - id: "pt-loss-divergence"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "A long pretraining run suddenly diverges. How do you investigate data, numerics and optimiser state before resuming from a checkpoint?"
+      ru: "В длинном запуске предобучения внезапно расходится loss. Как проверить данные, численную устойчивость и оптимизатор перед продолжением с checkpoint?"
+    tests:
+      en: "Whether recovery is based on a reproducible diagnosis."
+      ru: "Умение восстанавливать обучение на основе воспроизводимой диагностики."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+    added: "2026-09-26"
+  - id: "pt-distributed-training"
+    tracks: ["engineering"]
+    type: "system_design"
+    text:
+      en: "Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable."
+      ru: "Спроектируйте обучение модели, не помещающейся на одном ускорителе: как разделить состояние и ограничить стоимость коммуникаций?"
+    tests:
+      en: "Whether model state, activations and network topology determine the parallel plan."
+      ru: "Умение выбирать параллелизм по состоянию модели, активациям и топологии сети."
+    provenance: "published"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "google"
+    added: "2026-09-26"

@@ -1,0 +1,165 @@
+{
+  "period": {
+    "from": "2026-09-15",
+    "to": "2026-09-19"
+  },
+  "method": {
+    "en": "79 public full-text job postings for senior product, engineering and programme roles, first seen 2026-09-15 – 2026-09-19 on employer career boards and job boards during one job search, deduplicated by employer and title. The track comes from the job title, with content checks to exclude functions outside scope; design, marketing, sales and similar functions are excluded. Claude Sonnet 5 classified the first 60 postings and GPT Astra completed the remaining batch against the criteria below, retaining evidence for every marked theme. GPT Astra checked a deterministic random sample of eight retained postings and the flagged ambiguous cases against the full source text. Author and review records are retained privately. A posting counts once per theme. “The role itself involves AI” means the role owns AI or machine-learning products, features, models, teams or infrastructure; using AI tools does not count. The sample leans towards international fintech and business software and is not a market survey. This edition has too few engineering postings to publish that track.",
+    "ru": "79 публичных вакансий с полным текстом на старшие роли в продукте, инженерии и управлении программами, впервые замеченных 2026-09-15 – 2026-09-19 на карьерных сайтах работодателей и job-бордах в ходе одного поиска работы; дубликаты по работодателю и названию убраны. Трек определяется по названию должности; содержание проверено, чтобы исключить функции за рамками исследования. Дизайн, маркетинг, продажи и похожие функции исключены. Claude Sonnet 5 классифицировала первые 60 вакансий, GPT Astra завершила оставшуюся часть по критериям ниже; для каждой отмеченной темы сохранена цитата. GPT Astra сверила с полным текстом воспроизводимую случайную выборку из восьми оставшихся вакансий и отмеченные спорные случаи. Записи об авторстве и проверке сохранены приватно. Вакансия учитывается в теме один раз. «Сама роль связана с AI» означает, что роль отвечает за AI/ML-продукты, функции, модели, команды или инфраструктуру; использование AI-инструментов не считается. В выборке больше международного финтеха и B2B-софта; это не обзор рынка. В этом выпуске слишком мало инженерных вакансий, поэтому этот трек не публикуется."
+  },
+  "min_cell": 5,
+  "min_track": 20,
+  "sample": {
+    "postings": 79,
+    "tracks": {
+      "engineering": 17,
+      "leadership": 62
+    },
+    "markets": {
+      "intl": 79,
+      "ru": 0,
+      "unknown": 0
+    }
+  },
+  "criteria": {
+    "llm-fundamentals": {
+      "en": "experience with or knowledge of LLMs, generative AI or foundation models",
+      "ru": "опыт работы с LLM, генеративным AI или foundation-моделями либо их знание"
+    },
+    "inference-economics": {
+      "en": "AI/ML serving, inference or GPU infrastructure, or the latency and cost of AI workloads",
+      "ru": "serving, инференс или GPU-инфраструктура для AI/ML, задержка и стоимость AI-нагрузок"
+    },
+    "rag-retrieval": {
+      "en": "retrieval-augmented generation, semantic or vector search, embeddings",
+      "ru": "RAG, семантический или векторный поиск, эмбеддинги"
+    },
+    "agents-tools": {
+      "en": "AI agents, agentic workflows, AI tool use or agent protocols such as MCP",
+      "ru": "AI-агенты, агентные процессы, вызов инструментов или протоколы вроде MCP"
+    },
+    "post-training": {
+      "en": "training or fine-tuning machine-learning models",
+      "ru": "обучение или дообучение ML-моделей"
+    },
+    "evals-observability": {
+      "en": "evaluating, testing or monitoring the quality of AI/ML systems",
+      "ru": "оценка, тестирование или мониторинг качества AI/ML-систем"
+    },
+    "safety-security-governance": {
+      "en": "responsible AI, AI risk, AI regulation or the security of AI systems; general security or financial compliance without AI does not count",
+      "ru": "ответственный AI, риски и регулирование AI, безопасность AI-систем; общая безопасность или финансовый комплаенс без AI не считаются"
+    },
+    "multimodal-voice": {
+      "en": "speech, vision or multimodal AI",
+      "ru": "речь, компьютерное зрение или мультимодальный AI"
+    },
+    "ai-system-design": {
+      "en": "designing the architecture of AI/ML systems or platforms; general software architecture does not count",
+      "ru": "проектирование архитектуры AI/ML-систем или платформ; архитектура обычного софта не считается"
+    },
+    "coding-practical": {
+      "en": "hands-on coding in the role or proficiency in a named programming language",
+      "ru": "написание кода в роли или владение конкретным языком программирования"
+    },
+    "ai-product-strategy": {
+      "en": "product strategy, roadmap, metrics or the business case for AI/ML products or features; general product strategy does not count",
+      "ru": "стратегия, роадмап, метрики или бизнес-кейс AI/ML-продуктов и функций; общая продуктовая стратегия не считается"
+    },
+    "ai-operating-model": {
+      "en": "internal AI platforms, AI adoption or transformation across an organisation, AI enablement",
+      "ru": "внутренние AI-платформы, внедрение AI в организации, обучение и поддержка команд"
+    },
+    "engineering-leadership": {
+      "en": "managing engineers or engineering managers: hiring, coaching, performance, team or organisation design",
+      "ru": "руководство инженерами или руководителями: найм, развитие, результативность, устройство команд и организации"
+    },
+    "program-delivery": {
+      "en": "leading cross-functional delivery: roadmaps, planning, dependencies, launches and execution across teams",
+      "ru": "руководство межкомандной доставкой: роадмапы, планирование, зависимости, запуски и исполнение"
+    },
+    "applied-scenarios": {
+      "en": "customer-facing technical deployment: forward-deployed, solutions or pilot work with customers",
+      "ru": "техническое внедрение у клиентов: forward-deployed, solutions-работа и пилоты"
+    },
+    "domain-payments-fintech": {
+      "en": "payments, banking, lending, insurance, fintech or financial-regulation domain experience",
+      "ru": "опыт в платежах, банкинге, кредитовании, страховании, финтехе или финансовом регулировании"
+    }
+  },
+  "ai_mentions": {
+    "leadership": 26
+  },
+  "rows": [
+    {
+      "track": "leadership",
+      "theme": "llm-fundamentals",
+      "postings": 9
+    },
+    {
+      "track": "leadership",
+      "theme": "inference-economics",
+      "postings": 9
+    },
+    {
+      "track": "leadership",
+      "theme": "rag-retrieval",
+      "postings": 5
+    },
+    {
+      "track": "leadership",
+      "theme": "agents-tools",
+      "postings": 17
+    },
+    {
+      "track": "leadership",
+      "theme": "evals-observability",
+      "postings": 6
+    },
+    {
+      "track": "leadership",
+      "theme": "safety-security-governance",
+      "postings": 10
+    },
+    {
+      "track": "leadership",
+      "theme": "ai-system-design",
+      "postings": 11
+    },
+    {
+      "track": "leadership",
+      "theme": "coding-practical",
+      "postings": 18
+    },
+    {
+      "track": "leadership",
+      "theme": "ai-product-strategy",
+      "postings": 13
+    },
+    {
+      "track": "leadership",
+      "theme": "ai-operating-model",
+      "postings": 8
+    },
+    {
+      "track": "leadership",
+      "theme": "engineering-leadership",
+      "postings": 30
+    },
+    {
+      "track": "leadership",
+      "theme": "program-delivery",
+      "postings": 51
+    },
+    {
+      "track": "leadership",
+      "theme": "applied-scenarios",
+      "postings": 8
+    },
+    {
+      "track": "leadership",
+      "theme": "domain-payments-fintech",
+      "postings": 25
+    }
+  ]
+}

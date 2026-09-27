@@ -1,0 +1,61 @@
+id: "stripe"
+name:
+  en: "Stripe"
+  ru: "Stripe"
+segment: "fintech"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer-general"
+  leadership:
+  - "engineering-manager"
+  - "product-manager-general"
+summary:
+  en: "Secondary guides describe debugging, API integration and system design, with project presentations for managers. These general-role accounts do not establish a current universal or AI-specific loop."
+  ru: "Вторичные гайды описывают отладку, интеграцию с API и system design, а для руководителей — презентации проектов. Эти общие описания не подтверждают единый актуальный или специальный AI-цикл."
+loop:
+- stage:
+    en: "Recruiter screen"
+    ru: "Скрининг с рекрутером"
+  detail:
+    en: "About 30 minutes, including motivation and Stripe's operating principles."
+    ru: "Около 30 минут, включая мотивацию и принципы работы Stripe."
+  claim: "secondary"
+  sources:
+  - "exponent-stripe"
+- stage:
+    en: "Technical assessment"
+    ru: "Техническая оценка"
+  detail:
+    en: "Live coding for engineers; a hiring manager call or take-home case for product managers; questions on people and organisation for engineering managers."
+    ru: "Живой кодинг для инженеров; разговор с нанимающим менеджером или домашний кейс для продакт-менеджеров; вопросы о людях и организации для руководителей разработки."
+  claim: "secondary"
+  sources:
+  - "exponent-stripe"
+- stage:
+    en: "Onsite"
+    ru: "Финальные раунды"
+  detail:
+    en: "Four to six rounds of 45–60 minutes: coding, debugging, integration, system design with API design, and behavioral; managers add a project presentation."
+    ru: "Четыре–шесть раундов по 45–60 минут: кодинг, отладка, интеграция, system design с дизайном API и поведенческий раунд; у руководителей — ещё презентация проекта."
+  claim: "secondary"
+  sources:
+  - "exponent-stripe"
+- stage:
+    en: "Bug squash"
+    ru: "Bug squash"
+  detail:
+    en: "45–60 minutes side by side with an engineer on a real historical bug in an open-source project. The process counts more than finishing: reproduce first, work from hypotheses, fix narrowly and add a regression test."
+    ru: "45–60 минут рядом с инженером над реальным историческим багом в open-source проекте. Процесс важнее результата: сначала воспроизвести, двигаться от гипотез, чинить точечно и добавить регрессионный тест."
+  claim: "secondary"
+  sources:
+  - "coditioning-stripe-bug-squash"
+coding:
+  value: "unknown"
+  note:
+    en: "Guides describe engineering coding, but no company or first-hand source verifies the requirement here."
+    ru: "Гайды описывают инженерный кодинг, но здесь нет подтверждения требования компанией или участником интервью."
+  sources:
+  - "exponent-stripe"
+reviewed: "2026-09-26"

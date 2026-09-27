@@ -1,0 +1,43 @@
+id: "atlassian"
+name: {en: "Atlassian", ru: "Atlassian"}
+segment: "enterprise-ai"
+markets: ["intl"]
+roles:
+  engineering: ["software-engineer-general"]
+  leadership: ["product-manager-general"]
+summary:
+  en: "Separate official handbooks cover general engineering and product roles, not additional AI stages. Both are from Atlassian; independent corroboration is absent."
+  ru: "Отдельные официальные гайды описывают общие инженерные и продуктовые роли, не дополнительные AI-этапы. Оба выпущены Atlassian; независимого подтверждения нет."
+loop:
+  - stage: {en: "Engineering coding", ru: "Инженерный кодинг"}
+    detail:
+      en: "Two areas: data structures and code design. Explain reasoning and trade-offs in your chosen language."
+      ru: "Два направления: структуры данных и дизайн кода. Объясняйте решения и компромиссы на выбранном языке."
+    claim: "confirmed"
+    sources: ["atlassian-engineering-handbook"]
+  - stage: {en: "Engineering system design", ru: "Инженерный system design"}
+    detail:
+      en: "Explore architecture under constraints, including reliability and cost; follow-up questions change the problem."
+      ru: "Разбор архитектуры с ограничениями, включая надёжность и стоимость; уточнения меняют условия задачи."
+    claim: "confirmed"
+    sources: ["atlassian-engineering-handbook"]
+  - stage: {en: "Engineering manager conversation and review", ru: "Беседа с руководителем и рассмотрение"}
+    detail:
+      en: "Discuss experience and mindset with a manager. After interviewer feedback, an independent hiring committee reviews the evidence."
+      ru: "Обсуждение опыта и подхода с руководителем. После обратной связи интервьюеров материалы рассматривает независимый комитет."
+    claim: "confirmed"
+    sources: ["atlassian-engineering-handbook"]
+  - stage: {en: "Product-management loop", ru: "Цикл продакт-менеджера"}
+    detail:
+      en: "After the hiring manager: three interviews on influence, product craft and outcomes, plus a values interview. Communication is assessed throughout."
+      ru: "После нанимающего руководителя: три интервью о влиянии, продуктовом мастерстве и результатах, плюс интервью о ценностях. Коммуникацию оценивают на всех этапах."
+    claim: "confirmed"
+    sources: ["atlassian-product-handbook"]
+coding:
+  value: "varies"
+  note:
+    en: "Engineering includes coding; the product handbook specifies a different assessment."
+    ru: "Инженерный процесс включает кодинг; продуктовый гайд описывает другую оценку."
+  sources: ["atlassian-engineering-handbook", "atlassian-product-handbook"]
+prep: ["atlassian-engineering-handbook", "atlassian-product-handbook"]
+reviewed: "2026-09-26"

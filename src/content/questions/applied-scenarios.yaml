@@ -1,0 +1,444 @@
+theme: "applied-scenarios"
+questions:
+  - id: "app-claims-discovery"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A customer wants to automate claims processing with AI. What would you do in the first two weeks?
+      ru: >-
+        Клиент хочет автоматизировать обработку страховых требований с помощью AI. Что вы сделаете за первые две недели?
+    tests:
+      en: >-
+        Whether you turn a broad request into a bounded, measurable workflow.
+      ru: >-
+        Умеете ли вы превратить широкий запрос в ограниченный и измеримый рабочий процесс.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    start_here: ["leadership"]
+    priority: 29
+    outline:
+      en:
+        - "Map the current process, decisions, exceptions and accountable users."
+        - "Check data access, error consequences and which steps need human judgement."
+        - "Choose a narrow pilot with a baseline, acceptance criteria and an owner."
+      ru:
+        - "Разберите текущий процесс, решения, исключения и ответственных пользователей."
+        - "Проверьте доступ к данным, последствия ошибок и этапы, требующие решения человека."
+        - "Выберите узкий пилот с базовой линией, критериями приёмки и владельцем."
+    reading: ["anthropic-building-effective-agents","nist-ai-rmf"]
+  - id: "app-pilot-rescue"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A customer executive wants to cancel an AI pilot because it keeps producing wrong results. What would you do over the next 48 hours?
+      ru: >-
+        Руководитель клиента хочет закрыть AI-пилот из-за постоянных ошибок. Что вы сделаете в ближайшие 48 часов?
+    tests:
+      en: >-
+        Whether you combine incident triage with a credible customer recovery plan.
+      ru: >-
+        Умеете ли вы сочетать разбор ошибок с реалистичным планом восстановления доверия.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+    start_here: ["leadership"]
+    priority: 30
+    outline:
+      en:
+        - "Acknowledge impact and collect concrete failing workflows with the customer."
+        - "Contain harmful behaviour and separate data, system and expectation problems."
+        - "Agree on a short recovery experiment and explicit continue-or-stop criteria."
+      ru:
+        - "Признайте последствия и соберите с клиентом конкретные неудачные сценарии."
+        - "Ограничьте вред и разделите проблемы данных, системы и ожиданий."
+        - "Согласуйте короткий проверочный этап и критерии продолжения или остановки."
+    reading: ["google-sre-book","anthropic-evals-for-agents"]
+  - id: "app-finetuning-request"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A customer insists on fine-tuning their own model on support tickets, while you suspect retrieval would be enough. How do you proceed?
+      ru: >-
+        Клиент настаивает на дообучении своей модели на обращениях в поддержку, а вы считаете, что хватит поиска по данным. Как действовать?
+    tests:
+      en: >-
+        Whether you investigate the need without turning architecture preferences into a sales argument.
+      ru: >-
+        Умеете ли вы выяснить потребность, не подменяя её предпочтением архитектуры.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "databricks"
+    start_here: ["leadership"]
+    priority: 31
+    outline:
+      en:
+        - "Ask what ownership is meant to achieve: behaviour, knowledge, cost or control."
+        - "Build a representative task set and compare plausible approaches."
+        - "Explain data governance, maintenance and migration costs before recommending."
+      ru:
+        - "Уточните, зачем нужна своя модель: поведение, знания, цена или контроль."
+        - "Соберите представительный набор задач и сравните подходящие решения."
+        - "Объясните требования к данным, сопровождению и миграции до рекомендации."
+    reading: ["google-rules-of-ml","anthropic-building-effective-agents"]
+  - id: "app-model-retirement"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A deployed agent's base model will be retired in 60 days. How would you migrate it without losing quality?
+      ru: >-
+        Базовую модель работающего агента отключат через 60 дней. Как вы проведёте миграцию без потери качества?
+    tests:
+      en: >-
+        Whether provider lifecycle risk is handled through reproducible evaluation and controlled change.
+      ru: >-
+        Умеете ли вы управлять сменой поставщиком модели через воспроизводимую оценку и контролируемые изменения.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "databricks"
+    start_here: ["leadership"]
+    priority: 32
+    outline:
+      en:
+        - "Inventory affected workflows, tool contracts and model-specific behaviour."
+        - "Compare candidates against representative recorded tasks and failure cases."
+        - "Plan staged migration, rollback within the available window and customer communication."
+      ru:
+        - "Составьте перечень затронутых процессов, контрактов инструментов и особенностей модели."
+        - "Сравните кандидатов на типичных зафиксированных задачах и известных ошибках."
+        - "Спланируйте поэтапный переход, откат в доступное время и информирование клиентов."
+    reading: ["anthropic-evals-for-agents","google-sre-book"]
+  - id: "app-slow-expensive"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A customer says their eight-GPU chatbot is too slow and too expensive. You have a week with them; how do you use it?
+      ru: >-
+        Клиент жалуется, что чат-бот на восьми GPU слишком медленный и дорогой. У вас неделя работы с ним; как её использовать?
+    tests:
+      en: >-
+        Whether you diagnose bottlenecks and evaluate changes against useful customer outcomes.
+      ru: >-
+        Умеете ли вы найти узкие места и оценивать изменения через полезный результат для клиента.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+    start_here: ["leadership"]
+    priority: 33
+    outline:
+      en:
+        - "Measure real workload, latency distribution, utilisation and cost per successful task."
+        - "Profile before choosing serving, model, retrieval or interaction changes."
+        - "Validate improvements on the same workload with quality and reliability guardrails."
+      ru:
+        - "Измерьте реальную нагрузку, распределение задержек, утилизацию и стоимость успешной задачи."
+        - "Проведите профилирование до выбора изменений сервинга, модели, поиска или интерфейса."
+        - "Проверьте улучшения на той же нагрузке с ограничениями по качеству и надёжности."
+    reading: ["google-sre-book","google-rules-of-ml"]
+  - id: "app-vpc-pilot"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        An enterprise wants document Q&A over two million internal files within four weeks, with no data leaving its VPC. How would you scope the pilot?
+      ru: >-
+        Компания хочет за четыре недели запустить ответы по двум миллионам внутренних файлов без вывода данных за пределы VPC. Как определить объём пилота?
+    tests:
+      en: >-
+        Whether you negotiate scope around access controls, deployment constraints and measurable value.
+      ru: >-
+        Умеете ли вы согласовать объём с учётом прав доступа, ограничений среды и измеримой пользы.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+    start_here: ["leadership"]
+    priority: 34
+    outline:
+      en:
+        - "Clarify corpus priority, permissions, permitted services and the most valuable queries."
+        - "Choose a representative subset and a deployable end-to-end workflow."
+        - "Agree acceptance tests, operational ownership and what the pilot cannot establish."
+      ru:
+        - "Уточните приоритетные документы, права, разрешённые сервисы и самые ценные запросы."
+        - "Выберите представительную часть данных и реализуемый сквозной процесс."
+        - "Согласуйте приёмочные проверки, ответственность за эксплуатацию и пределы выводов пилота."
+    reading: ["azure-multitenant","nist-ai-rmf"]
+  - id: "app-rag-account-triage"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?
+      ru: >-
+        Корпоративный клиент сообщает, что Claude галлюцинирует в ассистенте с поиском по базе знаний. Как вы начнёте разбор ошибок?
+    tests:
+      en: >-
+        Whether you separate retrieval failures, unsupported generation and misunderstood user expectations.
+      ru: >-
+        Различаете ли вы ошибки поиска, неподтверждённую генерацию и неверно понятые ожидания пользователя.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+  - id: "app-research-explanation"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How would you explain a complex AI research result to a nontechnical audience?
+      ru: >-
+        Как вы объясните сложный результат AI-исследования нетехнической аудитории?
+    tests:
+      en: >-
+        Whether you communicate implications and limitations without replacing evidence with hype.
+      ru: >-
+        Умеете ли вы объяснить значение и ограничения результата без преувеличений.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+  - id: "app-rail-downtime"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A freight railway loses substantial revenue to unexpected locomotive downtime. Turn the problem into an engineering plan.
+      ru: >-
+        Грузовая железная дорога теряет существенную выручку из-за внезапных простоев локомотивов. Превратите проблему в инженерный план.
+    tests:
+      en: >-
+        Whether you connect operational decisions, usable data and intervention value.
+      ru: >-
+        Умеете ли вы связать эксплуатационные решения, пригодные данные и пользу вмешательства.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "palantir"
+  - id: "app-city-traffic"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        How would you design a system to improve traffic in New York City?
+      ru: >-
+        Как бы вы спроектировали систему улучшения дорожного движения в Нью-Йорке?
+    tests:
+      en: >-
+        Whether you decompose an ambiguous city-scale objective into measurable interventions.
+      ru: >-
+        Умеете ли вы разложить неопределённую городскую задачу на измеримые меры.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-palantir-fde"
+        company: "palantir"
+  - id: "app-employee-sync"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Design synchronisation between two systems that hold employee records.
+      ru: >-
+        Спроектируйте синхронизацию двух систем с данными о сотрудниках.
+    tests:
+      en: >-
+        Whether you identify record ownership, conflicts and recovery semantics.
+      ru: >-
+        Умеете ли вы определить владельца записи, правила конфликтов и восстановление.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-palantir-fde"
+        company: "palantir"
+  - id: "app-field-catalogue"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Design an application for recording species while exploring an unfamiliar environment.
+      ru: >-
+        Спроектируйте приложение для регистрации видов при исследовании незнакомой местности.
+    tests:
+      en: >-
+        Whether you clarify field constraints and support trustworthy data collection.
+      ru: >-
+        Умеете ли вы выяснить полевые ограничения и обеспечить надёжный сбор данных.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-palantir-fde"
+        company: "palantir"
+  - id: "app-decline-migration"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A prospective customer already runs on H100 GPUs. When would you recommend that they keep their current setup?
+      ru: >-
+        Потенциальный клиент уже использует GPU H100. В каких случаях вы посоветуете сохранить текущую систему?
+    tests:
+      en: >-
+        Whether you can reject a migration when customer economics do not justify it.
+      ru: >-
+        Умеете ли вы отказаться от миграции, если экономика клиента её не оправдывает.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "app-open-model-engagement"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A customer wants to replace a proprietary frontier-model API with an open model. How would you run the engagement?
+      ru: >-
+        Клиент хочет заменить API закрытой передовой модели открытой моделью. Как вы организуете проект?
+    tests:
+      en: >-
+        Whether the migration plan tests quality, operating costs and ownership assumptions.
+      ru: >-
+        Проверяет ли план миграции качество, эксплуатационные расходы и предположения об ответственности.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "app-robot-data-collection"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A robotics customer requests 50,000 hours of demonstrations across twelve tasks and three robot types. How would you organise collection and decide what data to keep?
+      ru: >-
+        Заказчик в робототехнике просит 50 000 часов демонстраций для двенадцати задач и трёх типов роботов. Как организовать сбор и отбирать данные?
+    tests:
+      en: >-
+        Whether collection targets are tied to coverage and usable demonstrations rather than hours alone.
+      ru: >-
+        Связываете ли вы объём сбора с покрытием и пригодностью демонстраций, а не только часами.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "app-diligence-economics"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        Estimate the cost and turnaround of AI due diligence over 5,000 documents. Which improvement would you investigate first?
+      ru: >-
+        Оцените стоимость и сроки AI-проверки 5 000 документов в рамках due diligence. Какое улучшение вы проверите первым?
+    tests:
+      en: >-
+        Whether estimates expose workload assumptions and the dominant cost driver.
+      ru: >-
+        Показывают ли оценки предположения о нагрузке и основной источник затрат.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "app-missed-contract-clause"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A lawyer reports that the assistant missed a change-of-control clause during contract review. How would you investigate?
+      ru: >-
+        Юрист сообщает, что ассистент пропустил условие о смене контроля при проверке договора. Как вы разберёте случай?
+    tests:
+      en: >-
+        Whether you trace the failure through ingestion, retrieval, reasoning and review.
+      ru: >-
+        Умеете ли вы проследить ошибку от загрузки и поиска до анализа и проверки.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "app-hospital-scheduling"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A hospital group schedules outpatient visits manually by phone. What would you build for them?
+      ru: >-
+        Сеть клиник вручную записывает пациентов на амбулаторный приём по телефону. Что вы предложите создать?
+    tests:
+      en: >-
+        Whether you design around workflow, integration and safe exception handling.
+      ru: >-
+        Учитываете ли вы рабочий процесс, интеграцию и безопасную обработку исключений.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "app-contact-centre"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?
+      ru: >-
+        Контакт-центр хочет заменить телефонное меню голосовыми агентами. Как вы проведёте проект?
+    tests:
+      en: >-
+        Whether you scope user journeys, handoff and operational readiness together.
+      ru: >-
+        Умеете ли вы одновременно проработать сценарии, перевод на оператора и готовность эксплуатации.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "app-public-service-language"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A public agency wants a multilingual assistant for a paper-and-call-centre welfare service, hosted on premises. How would you scope delivery?
+      ru: >-
+        Государственное ведомство хочет перевести социальную услугу с бумаги и колл-центра на многоязычного ассистента в своём контуре. Как определить объём работ?
+    tests:
+      en: >-
+        Whether access, language coverage and deployment constraints shape the service.
+      ru: >-
+        Учитываете ли вы доступность услуги, покрытие языков и ограничения размещения.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"

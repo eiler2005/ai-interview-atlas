@@ -1,0 +1,393 @@
+theme: "safety-security-governance"
+questions:
+  - id: "sec-mail-agent-boundaries"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        An assistant reads external email, searches internal documents and sends replies. Where could an attacker redirect it, and how would you constrain the damage?
+      ru: >-
+        Ассистент читает внешнюю почту, ищет внутренние документы и отправляет ответы. Как атакующий может изменить его поведение и как ограничить ущерб?
+    tests:
+      en: >-
+        Whether you locate trust boundaries and enforce permissions outside the model.
+      ru: >-
+        Умеете ли вы находить границы доверия и обеспечивать права доступа вне модели.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    start_here: ["leadership"]
+    priority: 1
+    outline:
+      en:
+        - "Separate untrusted message content from authority to read or send."
+        - "Restrict tools and destinations; require explicit approval for sensitive disclosure."
+        - "Test indirect injection and monitor attempted exfiltration; prompts alone are insufficient."
+      ru:
+        - "Разделите содержимое недоверенного письма и полномочия на чтение или отправку."
+        - "Ограничьте инструменты и адресатов; требуйте явного подтверждения передачи чувствительных данных."
+        - "Проверяйте косвенную инъекцию и попытки утечки; одного промпта недостаточно."
+    reading: ["owasp-llm-top-10"]
+  - id: "sec-safe-deployment"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        How would you organise safe deployment of an AI model into production?
+      ru: >-
+        Как вы организуете безопасное внедрение AI-модели в промышленную эксплуатацию?
+    tests:
+      en: >-
+        Whether you connect risk assessment to accountable release decisions.
+      ru: >-
+        Связываете ли вы оценку рисков с ответственностью за решение о выпуске.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+    start_here: ["leadership"]
+    priority: 2
+    outline:
+      en:
+        - "Define intended use, affected groups and unacceptable outcomes."
+        - "Assign owners to evaluation, residual-risk acceptance and incident handling."
+        - "Use staged exposure, monitoring and a tested rollback or shutdown path."
+      ru:
+        - "Определите назначение, затронутые группы и недопустимые последствия."
+        - "Назначьте ответственных за оценку, принятие остаточного риска и инциденты."
+        - "Предусмотрите постепенный запуск, мониторинг и проверенный откат или остановку."
+    reading: ["nist-ai-rmf","google-sre-book"]
+  - id: "sec-consumer-safety"
+    tracks: ["leadership"]
+    type: "product_case"
+    level: "senior"
+    text:
+      en: >-
+        How would you approach safety for a generative-AI consumer product?
+      ru: >-
+        Как вы организуете безопасность потребительского продукта на основе генеративного AI?
+    tests:
+      en: >-
+        Whether safety requirements reflect actual users and plausible harm.
+      ru: >-
+        Учитывают ли требования безопасности реальных пользователей и возможный вред.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    start_here: ["leadership"]
+    priority: 3
+    outline:
+      en:
+        - "Choose a concrete use case, user population and abuse model."
+        - "Combine product limits, model evaluation, reporting and human escalation."
+        - "Measure both harmful completions and unnecessary refusals by user segment."
+      ru:
+        - "Выберите конкретный сценарий, аудиторию и модель злоупотреблений."
+        - "Объедините продуктовые ограничения, оценку модели, жалобы и эскалацию человеку."
+        - "Измеряйте вредные ответы и необоснованные отказы по сегментам пользователей."
+    reading: ["nist-ai-rmf","owasp-llm-top-10"]
+  - id: "sec-action-authorisation"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        What safeguards should surround an AI system that acts on a user's behalf?
+      ru: >-
+        Какие защитные меры нужны AI-системе, действующей от имени пользователя?
+    tests:
+      en: >-
+        Whether you distinguish generated intent from authorised execution.
+      ru: >-
+        Различаете ли вы предложенное моделью действие и разрешённое выполнение.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "openai"
+    start_here: ["leadership"]
+    priority: 4
+    outline:
+      en:
+        - "Scope credentials to the user, resource and operation."
+        - "Show consequential actions for confirmation and enforce policy at execution."
+        - "Record actions, bound spending and provide recovery for partial completion."
+      ru:
+        - "Ограничьте полномочия пользователем, ресурсом и операцией."
+        - "Показывайте значимые действия для подтверждения и проверяйте политику при выполнении."
+        - "Фиксируйте действия, ограничивайте расходы и предусмотрите восстановление после частичного выполнения."
+    reading: ["owasp-llm-top-10","stripe-idempotency"]
+  - id: "sec-delivery-pressure"
+    tracks: ["engineering","leadership"]
+    type: "behavioral"
+    level: "senior"
+    text:
+      en: >-
+        Describe a situation where delivery pressure conflicted with security or safety concerns. How did you decide what to do?
+      ru: >-
+        Расскажите о ситуации, когда сроки вступили в противоречие с требованиями безопасности. Как вы приняли решение?
+    tests:
+      en: >-
+        Whether you make risk and accountability explicit under pressure.
+      ru: >-
+        Умеете ли вы явно обсуждать риски и ответственность под давлением сроков.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "exponent-report-anthropic-staff-infra"
+        company: "anthropic"
+    start_here: ["leadership"]
+    priority: 5
+    outline:
+      en:
+        - "Describe the concrete hazard and what evidence was available then."
+        - "Explain alternatives, escalation and who could accept the remaining risk."
+        - "Report the result honestly and the control changed afterward."
+      ru:
+        - "Опишите конкретную угрозу и доступные на тот момент данные."
+        - "Объясните альтернативы, эскалацию и полномочия на принятие остаточного риска."
+        - "Честно изложите результат и последующие изменения в контроле."
+    reading: ["nist-ai-rmf"]
+  - id: "sec-alignment-open-problem"
+    tracks: ["leadership"]
+    type: "knowledge"
+    level: "senior"
+    text:
+      en: >-
+        Which unresolved alignment problem deserves the most attention, and why?
+      ru: >-
+        Какую нерешённую проблему согласования AI с человеческими намерениями вы считаете наиболее важной и почему?
+    tests:
+      en: >-
+        Whether you separate an argument from speculation and identify useful evidence.
+      ru: >-
+        Разделяете ли вы аргументы и предположения и понимаете ли, какие данные нужны.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+  - id: "sec-interpretability-tradeoff"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        How would you weigh a performance improvement against reduced model interpretability?
+      ru: >-
+        Как вы сопоставите улучшение качества модели и снижение её интерпретируемости?
+    tests:
+      en: >-
+        Whether the trade-off depends on use, consequences and available controls.
+      ru: >-
+        Связываете ли вы компромисс со сценарием применения, последствиями и доступными мерами контроля.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "anthropic"
+  - id: "sec-upload-moderation"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Design a system for detecting harmful content in Facebook and Instagram uploads.
+      ru: >-
+        Спроектируйте систему выявления вредного контента в загрузках Facebook и Instagram.
+    tests:
+      en: >-
+        Whether you combine detection, review and appeals at the required scale.
+      ru: >-
+        Умеете ли вы объединить выявление нарушений, проверку и апелляции в нужном масштабе.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+        company: "meta"
+  - id: "sec-annotation-outsourcing"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        Some annotators submit answers produced by a chatbot instead of doing the assigned work. How would you detect and address this?
+      ru: >-
+        Часть разметчиков сдаёт ответы чат-бота вместо самостоятельной разметки. Как это выявить и исправить?
+    tests:
+      en: >-
+        Whether you investigate annotation quality without assuming an infallible AI detector.
+      ru: >-
+        Умеете ли вы проверить качество разметки без веры в безошибочный детектор AI-текста.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-guardrail-exception"
+    tracks: ["engineering","leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?
+      ru: >-
+        Продуктовая команда просит исключение из правила безопасности AI для одного корпоративного клиента. Как оценить, согласовать и ограничить срок такого исключения?
+    tests:
+      en: >-
+        Whether exceptions retain an accountable owner, compensating controls and an expiry decision.
+      ru: >-
+        Есть ли у исключения ответственный владелец, компенсирующие меры и решение о прекращении его действия.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:safety-security-governance"]
+  - id: "sec-matter-isolation"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Two partners at one law firm advise opposing sides of a deal. How would you isolate their AI workspaces?
+      ru: >-
+        Два партнёра одной юридической фирмы консультируют разные стороны сделки. Как изолировать их AI-рабочие пространства?
+    tests:
+      en: >-
+        Whether access boundaries can be narrower than a customer tenant.
+      ru: >-
+        Понимаете ли вы, что границы доступа могут проходить внутри одного клиента.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-stale-legal-authority"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        An AI research memo relies on a court decision that has been overruled. Where should the workflow catch this?
+      ru: >-
+        AI-меморандум ссылается на судебное решение, которое утратило силу. На каком этапе это должен выявить процесс?
+    tests:
+      en: >-
+        Whether you address source validity as well as faithful citation.
+      ru: >-
+        Проверяете ли вы актуальность правового основания наряду с точностью цитирования.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-chat-safety"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Design safeguards for an open-ended character-chat service.
+      ru: >-
+        Спроектируйте защитные меры для сервиса свободного общения с персонажами.
+    tests:
+      en: >-
+        Whether controls cover long conversations and escalation rather than isolated replies.
+      ru: >-
+        Учитывают ли меры контроля длинные диалоги и эскалацию, а не только отдельные ответы.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-generation-intervention"
+    tracks: ["engineering","leadership"]
+    type: "knowledge"
+    level: "senior"
+    text:
+      en: >-
+        When would you intervene during token generation rather than filter the completed answer?
+      ru: >-
+        Когда стоит вмешиваться во время генерации токенов, а не фильтровать готовый ответ?
+    tests:
+      en: >-
+        Whether you weigh exposure, latency and partial-output risks.
+      ru: >-
+        Учитываете ли вы риск раскрытия, задержку и последствия частичного ответа.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-age-assurance"
+    tracks: ["leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        How would you design age assurance when minors receive a substantially different product experience?
+      ru: >-
+        Как организовать проверку возраста, если продукт для несовершеннолетних существенно отличается?
+    tests:
+      en: >-
+        Whether you consider privacy, evasion and the consequences of classification errors.
+      ru: >-
+        Учитываете ли вы приватность, обход проверки и последствия ошибок определения возраста.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-voice-consent"
+    tracks: ["leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Design safeguards for voice cloning, including consent, provenance and abuse response.
+      ru: >-
+        Спроектируйте защиту сервиса клонирования голоса: согласие, происхождение аудио и реагирование на злоупотребления.
+    tests:
+      en: >-
+        Whether you treat consent as a verifiable lifecycle requirement.
+      ru: >-
+        Рассматриваете ли вы согласие как проверяемое требование на всём жизненном цикле.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-clinical-invention"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A generated clinical note includes a medication never mentioned during the visit. How would you detect and contain this safety incident?
+      ru: >-
+        В сгенерированной медицинской записи появился препарат, который не обсуждался на приёме. Как выявить и локализовать этот инцидент?
+    tests:
+      en: >-
+        Whether you prioritise patient harm and verification over average text quality.
+      ru: >-
+        Ставите ли вы предотвращение вреда пациенту и проверку выше среднего качества текста.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "sec-robot-safety"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        Design the safety architecture for a learned robot policy operating close to people.
+      ru: >-
+        Спроектируйте архитектуру безопасности обученной политики робота, работающего рядом с людьми.
+    tests:
+      en: >-
+        Whether safety depends on independent constraints and a safe fallback.
+      ru: >-
+        Предусматриваете ли вы независимые ограничения и безопасный режим отказа.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"

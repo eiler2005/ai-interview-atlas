@@ -1,0 +1,43 @@
+id: "perplexity"
+name:
+  en: "Perplexity"
+  ru: "Perplexity"
+segment: "ai-native"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "ai-engineer"
+  leadership:
+  - "ai-pm"
+summary:
+  en: "A secondary guide describes product interviews; a compilation attributes engineering topics to Perplexity. These are preparation leads, not confirmation of a current company-wide loop."
+  ru: "Вторичный гайд описывает продуктовые интервью; подборка приписывает Perplexity инженерные темы. Это ориентиры для подготовки, не подтверждение актуального процесса всей компании."
+loop:
+- stage:
+    en: "Product manager path"
+    ru: "Путь продакт-менеджера"
+  detail:
+    en: "A 30-minute recruiter screen, a 45-minute product sense case, then five 45-minute rounds: product thinking, analytics and strategy, engineering behavioral, engineering execution and design thinking."
+    ru: "30-минутный скрининг с рекрутером, 45-минутный кейс по product sense, затем пять раундов по 45 минут: продуктовое мышление, аналитика и стратегия, поведенческий раунд с инженерами, инженерный execution и дизайн-мышление."
+  claim: "secondary"
+  sources:
+  - "exponent-perplexity-ai-pm"
+- stage:
+    en: "Engineering questions"
+    ru: "Вопросы для инженеров"
+  detail:
+    en: "A compilation attributes to Perplexity questions on index freshness, attributing claims to sources, LLM gateways, online evaluation and latency metrics."
+    ru: "Подборка относит к Perplexity вопросы о свежести индекса, атрибуции утверждений к источникам, LLM-шлюзах, онлайн-оценке и метриках задержки."
+  claim: "secondary"
+  sources:
+  - "outcome-school-company-wise"
+coding:
+  value: "unknown"
+  note:
+    en: "No company or first-hand source here establishes a coding requirement."
+    ru: "Здесь нет источника компании или участника интервью, подтверждающего требование кодинга."
+  sources:
+  - "outcome-school-company-wise"
+  - "exponent-perplexity-ai-pm"
+reviewed: "2026-09-26"

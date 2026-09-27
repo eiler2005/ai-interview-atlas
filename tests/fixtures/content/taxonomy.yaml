@@ -1,0 +1,30 @@
+tracks:
+  - id: engineering
+    name: {en: "AI Engineering", ru: "AI-инженерия"}
+    summary: {en: "Engineers who build AI systems.", ru: "Инженеры, которые строят AI-системы."}
+  - id: leadership
+    name: {en: "AI Leadership", ru: "AI-лидерство"}
+    summary: {en: "People who lead AI products and teams.", ru: "Те, кто руководит AI-продуктами и командами."}
+roles:
+  - id: ai-engineer
+    track: engineering
+    name: {en: "AI engineer", ru: "AI-инженер"}
+  - id: applied-ai-engineer
+    track: engineering
+    name: {en: "Applied AI engineer", ru: "Прикладной AI-инженер"}
+  - id: ai-pm
+    track: leadership
+    name: {en: "AI product manager", ru: "AI-продакт-менеджер"}
+  - id: engineering-manager
+    track: leadership
+    name: {en: "Engineering manager", ru: "Руководитель разработки"}
+themes:
+  - id: evals-observability
+    name: {en: "Evaluation and observability", ru: "Оценка качества и наблюдаемость"}
+    summary: {en: "Measuring quality before and after release.", ru: "Измерение качества до и после выпуска."}
+  - id: agents-tools
+    name: {en: "Agents and tools", ru: "Агенты и инструменты"}
+    summary: {en: "Tool use and agent loops.", ru: "Вызов инструментов и агентные циклы."}
+  - id: behavioral-values
+    name: {en: "Behavioral and values", ru: "Поведенческие вопросы и ценности"}
+    summary: {en: "Stories and motivation.", ru: "Истории и мотивация."}

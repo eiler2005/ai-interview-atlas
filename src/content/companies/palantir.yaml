@@ -1,0 +1,61 @@
+id: "palantir"
+name:
+  en: "Palantir"
+  ru: "Palantir"
+segment: "enterprise-ai"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "applied-ai-engineer"
+  - "software-engineer-general"
+summary:
+  en: "Secondary guides emphasize decomposition of an ambiguous practical problem and report restrictions on AI assistance. Confirm the current team's format and tool rules."
+  ru: "Вторичные гайды выделяют декомпозицию неоднозначной практической задачи и сообщают об ограничениях AI-помощи. Уточните актуальный формат и правила инструментов у команды."
+loop:
+- stage:
+    en: "Recruiter call"
+    ru: "Звонок с рекрутером"
+  detail:
+    en: "About 30 minutes on motivation and connection to the mission."
+    ru: "Около 30 минут о мотивации и связи с миссией компании."
+  claim: "secondary"
+  sources:
+  - "exponent-palantir-fde"
+- stage:
+    en: "Technical screen"
+    ru: "Технический скрининг"
+  detail:
+    en: "Live coding or an online assessment with a coding task, a SQL query and an API task."
+    ru: "Живой кодинг или онлайн-тест: задача на код, SQL-запрос и задача с API."
+  claim: "secondary"
+  sources:
+  - "exponent-palantir-fde"
+- stage:
+    en: "Onsite"
+    ru: "Финальные раунды"
+  detail:
+    en: "Three hour-long rounds drawn from decomposition, coding, learning an unfamiliar system, re-engineering a large codebase and system design."
+    ru: "Три часовых раунда из набора: декомпозиция, кодинг, освоение незнакомой системы, переработка большого кода и system design."
+  claim: "secondary"
+  sources:
+  - "exponent-palantir-fde"
+  - "outcome-school-company-wise"
+- stage:
+    en: "Hiring manager interview"
+    ru: "Интервью с нанимающим менеджером"
+  detail:
+    en: "About an hour that revisits weaker areas, ownership and team fit."
+    ru: "Около часа: возврат к слабым местам, ответственность и соответствие команде."
+  claim: "secondary"
+  sources:
+  - "exponent-palantir-fde"
+  - "outcome-school-company-wise"
+coding:
+  value: "unknown"
+  note:
+    en: "A secondary guide describes coding for FDEs; company or first-hand confirmation is absent here."
+    ru: "Вторичный гайд описывает кодинг для FDE; подтверждения компанией или участником интервью здесь нет."
+  sources:
+  - "exponent-palantir-fde"
+reviewed: "2026-09-26"

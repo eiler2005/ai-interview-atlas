@@ -1,0 +1,12 @@
+id: sample-bank
+name: {en: Sample Bank, ru: Сэмпл Банк}
+segment: fintech
+markets: [intl, ru]
+roles:
+  leadership: [ai-pm, engineering-manager]
+loop:
+  - stage: {en: Screen, ru: Скрининг}
+    claim: assumption
+coding:
+  value: unknown
+reviewed: 2026-09-20

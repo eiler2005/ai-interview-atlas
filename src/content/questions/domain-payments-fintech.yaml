@@ -1,0 +1,125 @@
+theme: "domain-payments-fintech"
+questions:
+  - id: "pay-agent-authority"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        A shopping agent can initiate payments. How would you prove that each payment matches the user's actual authorisation?
+      ru: >-
+        Торговый агент может инициировать платежи. Как доказать, что каждый платёж соответствует реальному разрешению пользователя?
+    tests:
+      en: >-
+        Whether you separate an agent's proposal from a verifiable payment mandate.
+      ru: >-
+        Разделяете ли вы предложение агента и проверяемое разрешение на платёж.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:domain-payments-fintech"]
+    start_here: ["leadership"]
+    priority: 35
+    outline:
+      en:
+        - "Represent user intent and transaction constraints explicitly, including amount and payee."
+        - "Validate authority at execution; require new confirmation for changes outside the grant."
+        - "Preserve an audit trail and distinguish authorisation evidence from settlement success."
+      ru:
+        - "Явно представьте намерение пользователя и ограничения операции, включая сумму и получателя."
+        - "Проверяйте полномочия при выполнении; запрашивайте новое подтверждение изменений за пределами разрешения."
+        - "Сохраняйте аудиторский след и различайте подтверждение полномочий и успешное завершение расчётов."
+    reading: ["ap2-protocol"]
+  - id: "pay-ambiguous-timeout"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        An AI support agent initiates a refund, then the payment API times out. How should the system recover without issuing the refund twice?
+      ru: >-
+        AI-агент поддержки инициировал возврат, после чего платёжный API не ответил вовремя. Как восстановить работу без двойного возврата?
+    tests:
+      en: >-
+        Whether you treat an unknown outcome as a reconciliation problem rather than blindly repeating a side effect.
+      ru: >-
+        Рассматриваете ли вы неизвестный исход как задачу сверки, а не повод бездумно повторить операцию.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:domain-payments-fintech"]
+    start_here: ["leadership"]
+    priority: 36
+    outline:
+      en:
+        - "Assign one stable operation identity and persist intent before retries."
+        - "Use the provider's idempotency contract and reconcile status after ambiguous failures."
+        - "Handle retention limits, concurrent attempts and manual escalation; do not promise global exactly-once execution."
+      ru:
+        - "Задайте стабильный идентификатор операции и сохраните намерение до повторов."
+        - "Используйте контракт идемпотентности поставщика и сверяйте статус после неоднозначного сбоя."
+        - "Учтите срок хранения ключей, конкурентные попытки и ручную эскалацию; не обещайте сквозное выполнение строго один раз."
+    reading: ["stripe-idempotency"]
+  - id: "pay-bank-copilot-release"
+    tracks: ["leadership"]
+    type: "applied_scenario"
+    level: "senior"
+    text:
+      en: >-
+        A bank wants to roll out an AI assistant that proposes case decisions to employees. What evidence and controls would you require before expansion?
+      ru: >-
+        Банк хочет внедрить AI-ассистента, предлагающего сотрудникам решения по обращениям. Какие данные и меры контроля нужны перед расширением запуска?
+    tests:
+      en: >-
+        Whether you keep accountability and validation proportional to the decision's consequences.
+      ru: >-
+        Соразмерны ли ответственность и проверка последствиям решения.
+    provenance: "generated"
+    added: "2026-09-26"
+    basis: ["radar:domain-payments-fintech"]
+    start_here: ["leadership"]
+    priority: 37
+    outline:
+      en:
+        - "Define the decisions, affected customers and limits of the assistant's authority."
+        - "Evaluate representative cases and harmful errors, including how employees use or override suggestions."
+        - "Document owners, monitoring, escalation and a controlled expansion; verify applicable jurisdiction-specific obligations separately."
+      ru:
+        - "Определите решения, затронутых клиентов и границы полномочий ассистента."
+        - "Оцените типичные случаи и опасные ошибки, включая принятие и отмену рекомендаций сотрудниками."
+        - "Зафиксируйте владельцев, мониторинг, эскалацию и контролируемое расширение; отдельно проверьте применимые требования юрисдикции."
+    reading: ["nist-ai-rmf"]
+  - id: "pay-clinical-data-boundary"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        A clinical AI service handles recordings, transcripts and notes containing protected health information. How does that constrain architecture and use of third-party model APIs?
+      ru: >-
+        Клинический AI-сервис обрабатывает аудио, расшифровки и записи с защищённой медицинской информацией. Как это влияет на архитектуру и использование сторонних API моделей?
+    tests:
+      en: >-
+        Whether you map sensitive data flows and establish permitted processing before integration.
+      ru: >-
+        Умеете ли вы описать потоки чувствительных данных и определить допустимую обработку до интеграции.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"
+  - id: "pay-clinical-writeback"
+    tracks: ["engineering","leadership"]
+    type: "system_design"
+    level: "senior"
+    text:
+      en: >-
+        How would you write an AI-generated clinical note back into an electronic health-record system, and what can go wrong?
+      ru: >-
+        Как записать подготовленный AI медицинский документ обратно в систему электронных медицинских карт и какие сбои возможны?
+    tests:
+      en: >-
+        Whether you consider patient identity, review status, duplicate writes and recovery.
+      ru: >-
+        Учитываете ли вы идентификацию пациента, статус проверки, повторные записи и восстановление.
+    provenance: "published"
+    added: "2026-09-26"
+    evidence:
+      - source: "outcome-school-company-wise"

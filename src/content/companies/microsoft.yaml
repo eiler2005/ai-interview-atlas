@@ -1,0 +1,54 @@
+id: "microsoft"
+name:
+  en: "Microsoft"
+  ru: "Microsoft"
+segment: "big-tech"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer-general"
+  leadership:
+  - "ai-pm"
+summary:
+  en: "Most loops are two to four conversations of up to an hour. Technical rounds ask you to code in your strongest language in a tool that runs the code, and to test before you say done."
+  ru: "Обычно две–четыре беседы до часа каждая. На технических раундах просят писать код на самом сильном для вас языке в инструменте, который запускает код, и тестировать, прежде чем сказать «готово»."
+loop:
+- stage:
+    en: "Screening and interviews"
+    ru: "Скрининг и интервью"
+  detail:
+    en: "Some roles start with a short screening conversation. Most interviews are two to four conversations of up to an hour with potential teammates and cross-functional colleagues; some roles ask for code samples, a portfolio or other work samples."
+    ru: "На части ролей сначала короткий скрининг. Обычно интервью — это две–четыре беседы до часа с будущими коллегами из команды и смежных функций; на некоторых ролях просят примеры кода, портфолио или другие рабочие материалы."
+  claim: "confirmed"
+  sources:
+  - "microsoft-how-we-hire"
+- stage:
+    en: "Technical interviews"
+    ru: "Технические интервью"
+  detail:
+    en: "About 45-minute rounds on problem solving, design, clean code and testing, in a third-party tool where code compiles and runs; code in the language you know best, not pseudocode."
+    ru: "Раунды около 45 минут: решение задач, дизайн, чистый код и тестирование в стороннем инструменте, где код компилируется и запускается; писать на языке, который знаете лучше всего, а не псевдокодом."
+  claim: "confirmed"
+  sources:
+  - "microsoft-technical-interviewing"
+- stage:
+    en: "AI product manager path"
+    ru: "Путь AI-продакт-менеджера"
+  detail:
+    en: "Recruiter and hiring manager screens of about 30 minutes each, then three to six hour-long rounds: behavioral, AI product design, technical and AI fluency, strategy, execution and prioritisation, and cross-functional collaboration."
+    ru: "Скрининги с рекрутером и нанимающим менеджером примерно по 30 минут, затем три–шесть часовых раундов: поведенческий, дизайн AI-продукта, техническая и AI-грамотность, стратегия, execution и приоритизация, работа со смежными командами."
+  claim: "secondary"
+  sources:
+  - "exponent-microsoft-ai-pm"
+coding:
+  value: "varies"
+  note:
+    en: "Required in technical interviews"
+    ru: "Обязателен на технических интервью"
+  sources:
+  - "microsoft-technical-interviewing"
+prep:
+- "microsoft-how-we-hire"
+- "microsoft-technical-interviewing"
+reviewed: "2026-09-26"

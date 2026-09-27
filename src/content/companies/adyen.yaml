@@ -1,0 +1,49 @@
+id: "adyen"
+name: {en: "Adyen", ru: "Adyen"}
+segment: "fintech"
+markets: ["intl"]
+roles:
+  engineering: ["software-engineer-general"]
+  leadership: ["product-manager-general"]
+summary:
+  en: "The official process covers teams broadly. These sources do not establish a separate AI-specialist loop."
+  ru: "Официальный процесс описывает разные команды. Отдельный цикл для AI-специалистов эти источники не подтверждают."
+loop:
+  - stage: {en: "Recruiter and team", ru: "Рекрутер и команда"}
+    detail:
+      en: "Discuss relevant experience, responsibilities and working style. Interview order can vary."
+      ru: "Обсуждают подходящий опыт, обязанности и стиль работы. Порядок встреч может меняться."
+    claim: "confirmed"
+    sources: ["adyen-hiring-faq"]
+  - stage: {en: "Role-specific assessment", ru: "Оценка навыков для роли"}
+    detail:
+      en: "A technical test or case presentation, depending on the role."
+      ru: "Технический тест или презентация кейса — в зависимости от роли."
+    claim: "confirmed"
+    sources: ["adyen-hiring-faq"]
+  - stage: {en: "Leadership and executive interviews", ru: "Руководитель и высшее руководство"}
+    detail:
+      en: "Meet a team leader, then a Management Board or Global Leadership executive."
+      ru: "Встреча с руководителем команды, затем с представителем Management Board или Global Leadership."
+    claim: "confirmed"
+    sources: ["adyen-hiring-faq"]
+  - stage: {en: "Preparation across stages", ru: "Подготовка ко всем этапам"}
+    detail:
+      en: "The recruitment team's 2025 advice emphasizes real examples connecting your experience to the Adyen Formula."
+      ru: "Рекомендации рекрутеров 2025 года предлагают связывать принципы Adyen Formula с реальными примерами из своего опыта."
+    claim: "confirmed"
+    sources: ["adyen-recruitment-tips"]
+  - stage: {en: "Historical Java assessment report", ru: "Историческое сообщение о тесте Java"}
+    detail:
+      en: "One Java-role applicant described an invitation to a test combining SQL and Java. It does not establish today's universal format."
+      ru: "Кандидат на Java-роль описал приглашение на тест с SQL и Java. Это не подтверждает единый формат сегодня."
+    claim: "participant_report"
+    sources: ["reddit-adyen-java-assessment"]
+coding:
+  value: "varies"
+  note:
+    en: "Programming is reported for Java hiring; confirm the assessment for your role."
+    ru: "Для Java-ролей сообщают о программировании; уточните задание для своей роли."
+  sources: ["adyen-hiring-faq", "reddit-adyen-java-assessment"]
+prep: ["adyen-hiring-faq", "adyen-recruitment-tips"]
+reviewed: "2026-09-26"

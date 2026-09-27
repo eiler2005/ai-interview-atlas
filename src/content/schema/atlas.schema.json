@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eiler2005/ai-interview-atlas/schema/atlas.schema.json",
+  "title": "AI Interview Atlas content",
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80},
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "partialDate": {"type": "string", "pattern": "^\\d{4}(?:-\\d{2}(?:-\\d{2})?)?$"},
+    "track": {"enum": ["engineering", "leadership"]},
+    "text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "ru"],
+      "properties": {
+        "en": {"type": "string", "minLength": 1},
+        "ru": {"type": "string", "minLength": 1}
+      }
+    },
+    "textList": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "ru"],
+      "properties": {
+        "en": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "ru": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tracks", "roles", "themes"],
+      "properties": {
+        "tracks": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "summary"],
+            "properties": {
+              "id": {"$ref": "#/$defs/track"},
+              "name": {"$ref": "#/$defs/text"},
+              "summary": {"$ref": "#/$defs/text"}
+            }
+          }
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "track", "name"],
+            "properties": {
+              "id": {"$ref": "#/$defs/id"},
+              "track": {"$ref": "#/$defs/track"},
+              "name": {"$ref": "#/$defs/text"}
+            }
+          }
+        },
+        "themes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "summary"],
+            "properties": {
+              "id": {"$ref": "#/$defs/id"},
+              "name": {"$ref": "#/$defs/text"},
+              "summary": {"$ref": "#/$defs/text"}
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "title", "publisher", "url", "retrieved", "lang"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "kind": {
+          "enum": ["official", "participant_report", "prep_guide", "secondary_compilation", "reference"]
+        },
+        "title": {"type": "string", "minLength": 1},
+        "publisher": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "published": {"$ref": "#/$defs/partialDate"},
+        "retrieved": {"$ref": "#/$defs/date"},
+        "lang": {"enum": ["en", "ru"]},
+        "license": {"type": "string", "minLength": 1},
+        "note": {"$ref": "#/$defs/text"}
+      }
+    },
+    "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "claim": {"enum": ["confirmed", "participant_report", "secondary", "assumption"]},
+    "company": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "segment", "markets", "roles", "loop", "coding", "reviewed"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "name": {"$ref": "#/$defs/text"},
+        "segment": {
+          "enum": [
+            "frontier-lab",
+            "big-tech",
+            "ai-infra",
+            "ai-native",
+            "fintech",
+            "enterprise-ai",
+            "ru-big-tech"
+          ]
+        },
+        "markets": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["intl", "ru"]}
+        },
+        "roles": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "engineering": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+            "leadership": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}
+          }
+        },
+        "summary": {"$ref": "#/$defs/text"},
+        "loop": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["stage", "claim"],
+            "properties": {
+              "stage": {"$ref": "#/$defs/text"},
+              "detail": {"$ref": "#/$defs/text"},
+              "claim": {"$ref": "#/$defs/claim"},
+              "sources": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}
+            }
+          }
+        },
+        "coding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value"],
+          "properties": {
+            "value": {"enum": ["required", "not_required", "varies", "unknown"]},
+            "note": {"$ref": "#/$defs/text"},
+            "sources": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}
+          }
+        },
+        "prep": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "reviewed": {"$ref": "#/$defs/date"}
+      }
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tracks", "type", "text", "tests", "provenance", "added"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "tracks": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/track"}
+        },
+        "roles": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "type": {
+          "enum": [
+            "knowledge",
+            "coding",
+            "system_design",
+            "product_case",
+            "applied_scenario",
+            "leadership",
+            "behavioral",
+            "self_presentation"
+          ]
+        },
+        "level": {"enum": ["mid", "senior", "staff", "director"]},
+        "start_here": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/track"}
+        },
+        "priority": {"type": "integer", "minimum": 1, "maximum": 999},
+        "text": {"$ref": "#/$defs/text"},
+        "tests": {"$ref": "#/$defs/text"},
+        "outline": {"$ref": "#/$defs/textList"},
+        "reading": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "provenance": {"enum": ["published", "generated"]},
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source"],
+            "properties": {
+              "source": {"$ref": "#/$defs/id"},
+              "company": {"$ref": "#/$defs/id"},
+              "observed": {"$ref": "#/$defs/partialDate"}
+            }
+          }
+        },
+        "basis": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^radar:[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "uniqueItems": true
+        },
+        "added": {"$ref": "#/$defs/date"}
+      }
+    },
+    "questionsFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["theme", "questions"],
+      "properties": {
+        "theme": {"$ref": "#/$defs/id"},
+        "questions": {"type": "array", "items": {"$ref": "#/$defs/question"}}
+      }
+    },
+    "radar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["period", "method", "min_cell", "min_track", "sample", "rows"],
+      "properties": {
+        "period": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["from", "to"],
+          "properties": {"from": {"$ref": "#/$defs/date"}, "to": {"$ref": "#/$defs/date"}}
+        },
+        "method": {"$ref": "#/$defs/text"},
+        "min_cell": {"type": "integer", "minimum": 5},
+        "min_track": {"type": "integer", "minimum": 20},
+        "sample": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["postings", "tracks", "markets"],
+          "properties": {
+            "postings": {"type": "integer", "minimum": 1},
+            "tracks": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "engineering": {"type": "integer", "minimum": 0},
+                "leadership": {"type": "integer", "minimum": 0}
+              }
+            },
+            "markets": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "intl": {"type": "integer", "minimum": 0},
+                "ru": {"type": "integer", "minimum": 0},
+                "unknown": {"type": "integer", "minimum": 0}
+              }
+            }
+          }
+        },
+        "criteria": {
+          "type": "object",
+          "additionalProperties": {"$ref": "#/$defs/text"}
+        },
+        "ai_mentions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "engineering": {"type": "integer", "minimum": 0},
+            "leadership": {"type": "integer", "minimum": 0}
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["track", "theme", "postings"],
+            "properties": {
+              "track": {"$ref": "#/$defs/track"},
+              "theme": {"$ref": "#/$defs/id"},
+              "postings": {"type": "integer", "minimum": 0}
+            }
+          }
+        }
+      }
+    }
+  }
+}

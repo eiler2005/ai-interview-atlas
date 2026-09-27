@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.svg text eol=lf
+README.md linguist-generated=true
+README.ru.md linguist-generated=true
+docs/themes/** linguist-generated=true
+docs/companies/** linguist-generated=true
+docs/ru/themes/** linguist-generated=true
+docs/ru/companies/** linguist-generated=true
+docs/radar.md linguist-generated=true
+docs/ru/radar.md linguist-generated=true
+docs/sources.md linguist-generated=true
+docs/ru/sources.md linguist-generated=true
+docs/assets/radar.*.svg linguist-generated=true
