@@ -46,7 +46,7 @@ SOURCE_KINDS = (
 BOOK = {
     "en": {
         "subtitle": (
-            "Questions and interview loops for AI engineering and AI leadership · edition {edition}"
+            "Questions and interview loops for AI leadership and AI engineering · edition {edition}"
         ),
         "how": "How to use this book",
         "how_items": [
@@ -122,7 +122,7 @@ BOOK = {
         ],
     },
     "ru": {
-        "subtitle": "Вопросы и этапы интервью для AI-инженерии и AI-лидерства · выпуск {edition}",
+        "subtitle": "Вопросы и этапы интервью для AI-лидерства и AI-инженерии · выпуск {edition}",
         "how": "Как пользоваться книгой",
         "how_items": [
             (

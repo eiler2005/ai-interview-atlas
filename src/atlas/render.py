@@ -37,9 +37,11 @@ LABELS = {
     "en": {
         "switch": "English · [Русский]({other})",
         "tagline": (
-            "Interview questions and interview loops for AI engineering and AI leadership roles. "
-            "Every company claim and every reported question carries a source and the date it "
-            "was read; questions derived from job-posting themes are labelled as generated."
+            "Sourced interview questions and interview loops for AI leadership — product "
+            "managers, engineering managers, directors and technical programme managers — and "
+            "for AI engineering. Every company claim and every reported question carries a "
+            "source and the date it was read; questions written from job-posting themes are "
+            "labelled as generated, and answers are written out rather than linked to a course."
         ),
         "stats": (
             "Questions: {questions} (engineering {engineering}, leadership {leadership}) · "
@@ -214,9 +216,11 @@ LABELS = {
     "ru": {
         "switch": "[English]({other}) · Русский",
         "tagline": (
-            "Вопросы и этапы интервью для ролей в AI-инженерии и AI-лидерстве. У каждого "
-            "утверждения о компании и каждого вопроса указаны источник и дата, когда его "
-            "прочитали; вопросы, выведенные из тем вакансий, помечены как сгенерированные."
+            "Вопросы и этапы интервью с источниками — для AI-лидерства (продакт-менеджеры, "
+            "руководители разработки, директора, руководители программ) и для AI-инженерии. "
+            "У каждого утверждения о компании и каждого вопроса указаны источник и дата, когда "
+            "его прочитали; вопросы, выведенные из тем вакансий, помечены как сгенерированные, "
+            "а ответы написаны, а не заменены ссылкой на платный курс."
         ),
         "stats": (
             "Вопросов: {questions} (инженерия — {engineering}, лидерство — {leadership}) · "

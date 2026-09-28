@@ -162,7 +162,8 @@ def test_answers_render_only_for_the_language_that_has_them(content_dir):
     assert "Ответы готовы: 1 из 1." in page
     assert "answers/leadership.md)" not in page.split("\n")[3]
     assert "[Ответы на эти вопросы](docs/ru/answers/leadership.md)" in pages["README.ru.md"]
-    assert "answers" not in pages["README.md"]
+    # The English README links no answers page while English answers do not exist.
+    assert "answers/" not in pages["README.md"]
 
 
 def test_an_answer_needs_a_priority_question_and_one_paragraph(content_dir):
