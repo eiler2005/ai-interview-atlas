@@ -29,15 +29,16 @@ uv run pytest -q
 uv run python scripts/build.py --check
 ```
 
-Maintainers also run the [Career Copilot](https://github.com/eiler2005/career-copilot) privacy checker with a private dictionary and Gitleaks. With both projects checked out side by side:
+Maintainers also run a publication check: the path allowlist, content rules and [Gitleaks](https://github.com/gitleaks/gitleaks), plus a private dictionary of strings that must never appear here. The checker is the [Career Copilot](https://github.com/eiler2005/career-copilot) CLI, used from this repository without checking that project out:
 
 ```sh
 git config --local core.hooksPath .githooks
-git config --local ajh.privateDictionary /absolute/private/privacy-dictionary.json
-uv run --project ../app ajh privacy check --root . --scope worktree --gitleaks
+git config --local ajh.privateDictionary /absolute/path/to/privacy-dictionary.json
+uvx --from "git+https://github.com/eiler2005/career-copilot@fac2dd3c3545c97b07fdb47fddb717f7db732a60" \
+  ajh privacy check --root . --scope worktree --gitleaks
 ```
 
-The hooks repeat the check for the exact staged files and for the full history before a push. Stage explicit paths and never bypass the hooks.
+Set `ATLAS_PRIVACY_APP` to a local checkout of that project to use it instead. The hooks repeat the check for the exact staged files and for the full history before a push. Stage explicit paths and never bypass the hooks.
 
 ## Answers
 

@@ -29,15 +29,16 @@ uv run pytest -q
 uv run python scripts/build.py --check
 ```
 
-Мейнтейнеры также запускают проверку приватности [Career Copilot](https://github.com/eiler2005/career-copilot) с приватным словарём и Gitleaks. Если оба проекта лежат рядом:
+Мейнтейнеры также запускают проверку перед публикацией: список разрешённых путей, правила содержимого и [Gitleaks](https://github.com/gitleaks/gitleaks), плюс приватный словарь строк, которых здесь быть не должно. Проверку выполняет CLI [Career Copilot](https://github.com/eiler2005/career-copilot), и выкачивать этот проект для неё не нужно:
 
 ```sh
 git config --local core.hooksPath .githooks
-git config --local ajh.privateDictionary /absolute/private/privacy-dictionary.json
-uv run --project ../app ajh privacy check --root . --scope worktree --gitleaks
+git config --local ajh.privateDictionary /absolute/path/to/privacy-dictionary.json
+uvx --from "git+https://github.com/eiler2005/career-copilot@fac2dd3c3545c97b07fdb47fddb717f7db732a60" \
+  ajh privacy check --root . --scope worktree --gitleaks
 ```
 
-Хуки повторяют проверку для точного набора застейдженных файлов и для всей истории перед push. Добавляйте в индекс только явные пути и не обходите хуки.
+Чтобы использовать локальную копию того проекта, укажите её в `ATLAS_PRIVACY_APP`. Хуки повторяют проверку для точного набора застейдженных файлов и для всей истории перед push. Добавляйте в индекс только явные пути и не обходите хуки.
 
 ## Ответы
 

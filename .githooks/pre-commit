@@ -1,7 +1,6 @@
 #!/bin/sh
-# Scan the exact staged blobs with the Career Copilot privacy checker and Gitleaks.
+# Generated pages must match the content, and the exact staged blobs must be publishable.
 set -eu
 root=$(git rev-parse --show-toplevel)
-app="${ATLAS_PRIVACY_APP:-$root/../app}"
 uv run --project "$root" --frozen python "$root/scripts/build.py" --root "$root" --check
-uv run --project "$app" --frozen ajh privacy check --root "$root" --scope index --gitleaks
+"$root/.githooks/privacy-check" index

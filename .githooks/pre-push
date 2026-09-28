@@ -1,7 +1,6 @@
 #!/bin/sh
-# Scan staging and full history before anything leaves this machine.
+# Scan staging and the full history before anything leaves this machine.
 set -eu
 root=$(git rev-parse --show-toplevel)
-app="${ATLAS_PRIVACY_APP:-$root/../app}"
-uv run --project "$app" --frozen ajh privacy check --root "$root" --scope index --gitleaks
-uv run --project "$app" --frozen ajh privacy check --root "$root" --scope history --gitleaks
+"$root/.githooks/privacy-check" index
+"$root/.githooks/privacy-check" history

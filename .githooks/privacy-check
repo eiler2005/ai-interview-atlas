@@ -1,0 +1,12 @@
+#!/bin/sh
+# Run the Career Copilot privacy checker over one scope of this repository.
+# Uses a local checkout when available, otherwise the pinned public release.
+set -eu
+root=$(git rev-parse --show-toplevel)
+pinned="git+https://github.com/eiler2005/career-copilot@fac2dd3c3545c97b07fdb47fddb717f7db732a60"
+app="${ATLAS_PRIVACY_APP:-$root/../app}"
+if [ -f "$app/pyproject.toml" ]; then
+  uv run --project "$app" --frozen ajh privacy check --root "$root" --scope "$1" --gitleaks
+else
+  uvx --from "$pinned" ajh privacy check --root "$root" --scope "$1" --gitleaks
+fi
