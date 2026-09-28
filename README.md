@@ -7,6 +7,8 @@ English · [Русский](README.ru.md)
 
 You are preparing for an interview as an AI product manager, engineering manager, director, technical programme manager or AI engineer. Most question lists online either cite nothing or hide the answers behind a course, and almost none of them cover leadership roles. This one is free, and every claim names where it came from and when it was read.
 
+Prefer paper or a tablet? The same content is a printable book: [PDF editions](https://github.com/eiler2005/ai-interview-atlas/releases/latest) — the atlas in English and in Russian, and the written answers as a separate volume.
+
 ## What is inside
 
 - **255 questions** across 17 themes: 191 for engineering, 146 for leadership. Each says what it tests.
