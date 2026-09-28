@@ -38,3 +38,14 @@ uv run --project ../app ajh privacy check --root . --scope worktree --gitleaks
 ```
 
 The hooks repeat the check for the exact staged files and for the full history before a push. Stage explicit paths and never bypass the hooks.
+
+## Printable PDF books
+
+The same content can be printed as one book per language. The books use the [Career Copilot](https://github.com/eiler2005/career-copilot) document renderer pinned in `pyproject.toml` and its standard layout: A4 pages, 12 pt body text, a contents page, PDF bookmarks and clickable source links.
+
+```sh
+uv sync --group pdf
+uv run --group pdf python scripts/build_pdf.py
+```
+
+The books, their Markdown sources and hash manifests are written to `dist/pdf/`. The build needs a Unicode TTF font: Arial on macOS, DejaVu Sans on Linux, or `--font PATH`. It stops if the font lacks any character. The radar chart is included when `rsvg-convert` is installed. Before sharing a book, check its extracted text and look at every page (`pdftotext`, `pdftoppm`). PDFs are release files: never commit them.

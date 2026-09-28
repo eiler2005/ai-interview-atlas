@@ -2,6 +2,12 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## 2026-09-28 — Printable PDF books
+
+### Added
+- `scripts/build_pdf.py` builds one PDF book per language from the same content with the Career Copilot document renderer: A4 pages, 12 pt body text, a contents page whose page numbers are checked against the rendered bookmarks, and clickable source links. The parts are the *Start here* questions for each track, every theme, company loops, the requirements radar with its chart, the methodology, attribution and sources.
+- Answer checklists are printed once, in *Start here*; theme parts point to them by number. Emoji markers are printed as font glyphs (● confirmed by the company, ○ candidate report, † secondary, ‡ generated, ? assumption), and the build stops if the font lacks any character. Books, their Markdown sources and hash manifests are written to the ignored `dist/pdf/`.
+
 ## 2026-09-27 — First edition
 
 ### Added
