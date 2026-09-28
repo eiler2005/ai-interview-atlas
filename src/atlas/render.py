@@ -204,6 +204,7 @@ LABELS = {
             "[Sources and attribution]({sources}): every cited page with its retrieval date.",
             "[Attribution]({attribution}): upstream material, adaptations and licensing.",
             "[Contributing](CONTRIBUTING.md): add a question with a dated public source.",
+            "[Roadmap]({roadmap}): what comes next, and what this project will not do.",
             (
                 "License: Apache-2.0 · © 2026 ai-interview-atlas contributors. Paraphrased "
                 "material from licensed compilations is attributed on the sources page."
@@ -454,6 +455,7 @@ LABELS = {
                 "[Как участвовать](CONTRIBUTING.ru.md): добавить вопрос с датированным публичным "
                 "источником."
             ),
+            ("[Дорожная карта]({roadmap}): что будет дальше и чего проект делать не будет."),
             (
                 "Лицензия Apache-2.0 · © 2026 ai-interview-atlas contributors. Пересказанный "
                 "материал из лицензированных подборок указан на странице источников."
@@ -931,6 +933,7 @@ class Renderer:
                     methodology=methodology_page(lang),
                     sources=sources_page(lang),
                     attribution=f"{base(lang)}/ATTRIBUTION.md",
+                    roadmap=f"{base(lang)}/ROADMAP.md",
                 )
             )
         return "\n".join(lines)

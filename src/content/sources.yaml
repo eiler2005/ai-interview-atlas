@@ -1,5 +1,16 @@
 # Interview sources: company pages, candidate reports, preparation guides and compilations.
 
+- id: "faiss-indexes"
+  kind: "reference"
+  title: "Faiss indexes"
+  publisher: "Faiss maintainers"
+  url: "https://github.com/facebookresearch/faiss/wiki/Faiss-indexes"
+  retrieved: "2026-09-28"
+  lang: "en"
+  note:
+    en: "Primary implementation documentation for HNSW, IVF and product quantisation; reference reading, not interview evidence."
+    ru: "Первичная документация реализации HNSW, IVF и product quantisation; материал для изучения, не свидетельство вопроса на интервью."
+
 - id: "anthropic-careers"
   kind: "official"
   title: "Careers"

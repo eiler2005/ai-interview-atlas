@@ -61,7 +61,7 @@
     - Использовать точный поиск на выборке как эталон полноты.
     - Сравнить обход графа с грубыми кластерами и product quantisation.
     - Измерить память, стоимость обновлений и поиск с фильтрами при целевой задержке.
-  - Читать: [Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs](https://arxiv.org/abs/1603.09320) (Malkov and Yashunin, arXiv)
+  - Читать: [Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs](https://arxiv.org/abs/1603.09320) (Malkov and Yashunin, arXiv) · [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) (Faiss maintainers)
 - **Как индексировать таблицы, схемы и многоколоночные страницы, сохраняя их связи с окружающим текстом?**
   - System design
   - Что проверяет: Учёт ошибок парсинга и структуры документа до построения эмбеддингов.

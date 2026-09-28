@@ -87,6 +87,7 @@ Questions marked † that come from [AI Engineering Interview Questions Company 
 - [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314) · Dettmers et al., arXiv · published 2023-05 · retrieved 2026-09-26
 - [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/) · Eugene Yan · published 2023-07 · retrieved 2026-09-26
 - [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) · European Commission · retrieved 2026-09-26
+- [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) · Faiss maintainers · retrieved 2026-09-28. Primary implementation documentation for HNSW, IVF and product quantisation; reference reading, not interview evidence.
 - [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) · Fedus et al., arXiv · published 2021-01 · retrieved 2026-09-26
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) · Gao et al., arXiv · published 2022-12 · retrieved 2026-09-26
 - [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) · GitLab Handbook · retrieved 2026-09-26

@@ -87,6 +87,7 @@
 - [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314) · Dettmers et al., arXiv · опубликовано 2023-05 · проверено 2026-09-26
 - [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/) · Eugene Yan · опубликовано 2023-07 · проверено 2026-09-26
 - [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) · European Commission · проверено 2026-09-26
+- [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) · Faiss maintainers · проверено 2026-09-28. Первичная документация реализации HNSW, IVF и product quantisation; материал для изучения, не свидетельство вопроса на интервью.
 - [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) · Fedus et al., arXiv · опубликовано 2021-01 · проверено 2026-09-26
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) · Gao et al., arXiv · опубликовано 2022-12 · проверено 2026-09-26
 - [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) · GitLab Handbook · проверено 2026-09-26

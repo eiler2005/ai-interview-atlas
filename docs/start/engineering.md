@@ -5,6 +5,8 @@ English · [Русский](../ru/start/engineering.md) · ← [AI Interview Atl
 
 The priority questions of this track, in study order. Answer each one aloud before you read anything: the theme page behind every question adds what a strong answer covers and what to read.
 
+[Answers to these questions](../answers/engineering.md)
+
 - **1. Derive scaled dot-product attention and explain how its scale affects softmax gradients.**
   - Knowledge · [LLM fundamentals](../themes/llm-fundamentals.md)
 - **2. Derive the memory required by a decoder's KV cache as batch size and context length grow.**

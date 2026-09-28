@@ -61,7 +61,7 @@ Grounding answers in documents: chunking, hybrid search, reranking, permissions,
     - Use exact search on a sample as the recall baseline.
     - Compare graph traversal with coarse partitions and product quantisation.
     - Measure memory, update cost and filtered-search behaviour at target latency.
-  - Read: [Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs](https://arxiv.org/abs/1603.09320) (Malkov and Yashunin, arXiv)
+  - Read: [Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs](https://arxiv.org/abs/1603.09320) (Malkov and Yashunin, arXiv) · [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) (Faiss maintainers)
 - **How would you index tables, diagrams and multi-column pages without losing their relationships to surrounding text?**
   - System design
   - Tests: Whether parsing errors and layout structure are considered before embedding.

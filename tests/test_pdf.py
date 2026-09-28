@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from atlas.content import load
-from atlas.pdf import PLACEHOLDER, Book, pdf_text
+from atlas.pdf import PLACEHOLDER, AnswersBook, Book, pdf_text
 
 FIXTURE = Path(__file__).parent / "fixtures" / "content"
 TODAY = date(2026, 9, 27)
@@ -48,6 +48,21 @@ def test_start_here_checklists_print_once_and_themes_point_to_them():
     assert "# Содержание" in russian
     assert "Спроектируйте гейт" in russian
     assert "Чек-лист ответа — в части «С чего начать: AI-лидерство», вопрос 1." in russian
+
+
+def test_answers_book_uses_only_the_selected_language():
+    content = load(FIXTURE, today=TODAY)
+    question = next(q for q in content.questions if q.get("answer"))
+    russian_answer = question["answer"]["ru"]
+    question["answer"]["en"] = "An independent synthetic English answer."
+    english = AnswersBook(content, FIXTURE, "en").markdown()
+    russian = AnswersBook(content, FIXTURE, "ru").markdown()
+    assert pdf_text(question["answer"]["en"]) in english
+    assert pdf_text(russian_answer) not in english
+    assert pdf_text(russian_answer) in russian
+    assert question["answer"]["en"] not in russian
+    assert pdf_text(question["text"]["en"]) in english
+    assert pdf_text(question["text"]["ru"]) in russian
 
 
 def test_rendered_pdf_matches_its_contents(tmp_path):

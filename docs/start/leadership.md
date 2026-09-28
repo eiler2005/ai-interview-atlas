@@ -5,6 +5,8 @@ English · [Русский](../ru/start/leadership.md) · ← [AI Interview Atla
 
 The priority questions of this track, in study order. Answer each one aloud before you read anything: the theme page behind every question adds what a strong answer covers and what to read.
 
+[Answers to these questions](../answers/leadership.md)
+
 - **1. An assistant reads external email, searches internal documents and sends replies. Where could an attacker redirect it, and how would you constrain the damage?**
   - System design · Senior · [Safety, security and governance](../themes/safety-security-governance.md) · Asked at: [Anthropic](../companies/anthropic.md) †
 - **2. How would you organise safe deployment of an AI model into production?**

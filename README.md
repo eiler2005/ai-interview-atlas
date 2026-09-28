@@ -18,9 +18,9 @@ Prefer paper or a tablet? The same content is a printable book: [PDF editions](h
 ## What is inside
 
 - **255 questions** across 17 themes: 191 for engineering, 146 for leadership. Each says what it tests.
-- **Written answers** to the priority questions exist in Russian today; the English ones follow in the next wave.
+- **80 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
 - **20 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
-- **107 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
+- **108 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
 - **A requirements radar** built from real job postings: what employers actually ask for, by theme.
 
 ## Why this one
@@ -108,4 +108,5 @@ Leadership postings in the sample: the role itself involves AI or machine learni
 - [Sources and attribution](docs/sources.md): every cited page with its retrieval date.
 - [Attribution](docs/ATTRIBUTION.md): upstream material, adaptations and licensing.
 - [Contributing](CONTRIBUTING.md): add a question with a dated public source.
+- [Roadmap](docs/ROADMAP.md): what comes next, and what this project will not do.
 - License: Apache-2.0 · © 2026 ai-interview-atlas contributors. Paraphrased material from licensed compilations is attributed on the sources page.

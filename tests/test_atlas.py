@@ -44,6 +44,8 @@ def repository(tmp_path: Path) -> Path:
         "docs/ru/METHODOLOGY.md",
         "docs/ATTRIBUTION.md",
         "docs/ru/ATTRIBUTION.md",
+        "docs/ROADMAP.md",
+        "docs/ru/ROADMAP.md",
     ):
         (root / name).parent.mkdir(parents=True, exist_ok=True)
         (root / name).write_text("# Synthetic\n", encoding="utf-8")
@@ -168,6 +170,21 @@ def test_answers_render_only_for_the_language_that_has_them(content_dir):
     assert "answers/" not in pages["docs/start/leadership.md"]
     assert "**80 written answers**" not in pages["README.md"]
     assert "**1 написанных ответов**" in pages["README.ru.md"]
+
+
+def test_adding_english_answer_preserves_russian_and_links_both_editions(content_dir):
+    before = render(load(content_dir, today=TODAY))
+    path = content_dir / "questions" / "evals-observability.yaml"
+    edit(path, lambda data: data["questions"][0]["answer"].update(en="A synthetic answer."))
+    pages = render(load(content_dir, today=TODAY))
+    english = pages["docs/answers/leadership.md"]
+    russian = pages["docs/ru/answers/leadership.md"]
+    assert "A synthetic answer." in english and "A synthetic answer." not in russian
+    assert "../ru/answers/leadership.md" in english
+    assert "../../answers/leadership.md" in russian
+    # Adding a translation changes navigation, not the original answer body.
+    assert before["docs/ru/answers/leadership.md"].split("###", 1)[1] == russian.split("###", 1)[1]
+    assert "../answers/leadership.md" in pages["docs/start/leadership.md"]
 
 
 def test_an_answer_needs_a_priority_question_and_one_paragraph(content_dir):

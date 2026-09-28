@@ -2,6 +2,14 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-09-28 continuation
+
+### Changed
+- Added a bilingual repository roadmap, separate from a personal preparation plan, with explicit limits on company evidence and source freshness.
+- Completed 80 English written answers alongside 80 Russian answers and corrected technical and translation issues. All 160 texts passed independent content review; all four local PDF books passed text and visual production checks. Local files do not establish a new release or maintainer approval.
+- Added a primary Faiss reference for the comparison of exact search, HNSW and IVF-PQ; the catalogue now contains 108 sources.
+- Automated checks complement factual review; worktree, index and history privacy checks have distinct scopes.
+
 ## 2026-09-28 — A README that explains itself
 
 ### Changed
@@ -12,9 +20,9 @@
 ## 2026-09-28 — Written answers, in Russian first
 
 ### Added
-- A written answer for each of the 80 priority questions, 40 per track: one paragraph of 100-150 words that a candidate could say aloud — the point, the mechanism and its trade-off, what to do or measure, and where the answer stops holding. Each answer is presented as one good answer, not the reference answer.
+- Written answers for 80 priority questions, 40 per track: one paragraph of 100-150 words that a candidate could say aloud — the point, the mechanism and its trade-off, what to do or measure, and where the answer stops holding. Each answer is presented as one good answer, not the reference answer.
 - For `behavioral` and `self_presentation` questions an answer describes how to build your own account and what the interviewer is listening for; no invented stories, companies or numbers.
-- Answers live in the `answer` field of the same content files and are rendered to separate pages (`docs/ru/answers/`) and a separate 42-page PDF edition, so the question pages and the main book stay unchanged for a first pass at answering yourself.
+- Answers live in the `answer` field of the same content files and are rendered to separate pages (`docs/ru/answers/`) and a separate PDF edition, so the question pages and the main book stay unchanged for a first pass at answering yourself. PDF pagination depends on the build; local editions are not necessarily released assets.
 - Answers start in one language: pages and the answers book for a language appear only once that language has answers. English answers follow in a later wave.
 
 ## 2026-09-28 — Printable PDF books
