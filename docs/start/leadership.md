@@ -5,6 +5,8 @@ English · [Русский](../ru/start/leadership.md) · ← [AI Interview Atla
 
 The priority questions of this track, in study order. Answer each one aloud before you read anything: the theme page behind every question adds what a strong answer covers and what to read.
 
+For a study sequence with weekly practice and completion checks, use the [learning path](../LEARNING_PATH.md).
+
 [Answers to these questions](../answers/leadership.md)
 
 - **1. An assistant reads external email, searches internal documents and sends replies. Where could an attacker redirect it, and how would you constrain the damage?**

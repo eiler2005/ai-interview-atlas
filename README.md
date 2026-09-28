@@ -35,6 +35,8 @@ Prefer paper or a tablet? The same content is a printable book: [PDF editions](h
 2. Answer aloud before reading anything. Each question lists what it tests; the priority ones add a checklist and what to read.
 3. Before an interview, open that employer's page and the themes its loop covers.
 
+For a study sequence with weekly practice and completion checks, use the [learning path](docs/LEARNING_PATH.md).
+
 Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide or compilation without a first-hand source · 🧪 generated from job-posting themes. Interview loops change often, so check the retrieval date.
 
 ## Tracks and roles
@@ -109,4 +111,5 @@ Leadership postings in the sample: the role itself involves AI or machine learni
 - [Attribution](docs/ATTRIBUTION.md): upstream material, adaptations and licensing.
 - [Contributing](CONTRIBUTING.md): add a question with a dated public source.
 - [Roadmap](docs/ROADMAP.md): what comes next, and what this project will not do.
+- [Learning path](docs/LEARNING_PATH.md) — a study curriculum; the project roadmap describes repository development.
 - License: Apache-2.0 · © 2026 ai-interview-atlas contributors. Paraphrased material from licensed compilations is attributed on the sources page.

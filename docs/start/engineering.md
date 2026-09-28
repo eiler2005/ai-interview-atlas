@@ -5,6 +5,8 @@ English · [Русский](../ru/start/engineering.md) · ← [AI Interview Atl
 
 The priority questions of this track, in study order. Answer each one aloud before you read anything: the theme page behind every question adds what a strong answer covers and what to read.
 
+For a study sequence with weekly practice and completion checks, use the [learning path](../LEARNING_PATH.md).
+
 [Answers to these questions](../answers/engineering.md)
 
 - **1. Derive scaled dot-product attention and explain how its scale affects softmax gradients.**

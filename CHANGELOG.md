@@ -5,6 +5,7 @@
 ## Unreleased — 2026-09-28 continuation
 
 ### Changed
+- Added a bilingual learning path with role-specific priorities, eight-week practice plans, diagnostic checks and evidence-based completion gates; the project roadmap remains separate.
 - Added a bilingual repository roadmap, separate from a personal preparation plan, with explicit limits on company evidence and source freshness.
 - Completed 80 English written answers alongside 80 Russian answers and corrected technical and translation issues. All 160 texts passed independent content review; all four local PDF books passed text and visual production checks. Local files do not establish a new release or maintainer approval.
 - Added a primary Faiss reference for the comparison of exact search, HNSW and IVF-PQ; the catalogue now contains 108 sources.

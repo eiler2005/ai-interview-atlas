@@ -111,6 +111,10 @@ LABELS = {
             ),
         ],
         "quickstart": "Start in three steps",
+        "learning_path": (
+            "For a study sequence with weekly practice and completion checks, use the "
+            "[learning path]({page})."
+        ),
         "quickstart_items": [
             (
                 "Pick your track and work through its priority questions: "
@@ -205,6 +209,10 @@ LABELS = {
             "[Attribution]({attribution}): upstream material, adaptations and licensing.",
             "[Contributing](CONTRIBUTING.md): add a question with a dated public source.",
             "[Roadmap]({roadmap}): what comes next, and what this project will not do.",
+            (
+                "[Learning path]({learning_path}) — a study curriculum; the project roadmap "
+                "describes repository development."
+            ),
             (
                 "License: Apache-2.0 · © 2026 ai-interview-atlas contributors. Paraphrased "
                 "material from licensed compilations is attributed on the sources page."
@@ -359,6 +367,10 @@ LABELS = {
             ),
         ],
         "quickstart": "Как начать за три шага",
+        "learning_path": (
+            "Порядок изучения, еженедельная практика и критерии готовности — в "
+            "[учебном плане]({page})."
+        ),
         "quickstart_items": [
             (
                 "Выберите трек и пройдите его приоритетные вопросы: "
@@ -456,6 +468,10 @@ LABELS = {
                 "источником."
             ),
             ("[Дорожная карта]({roadmap}): что будет дальше и чего проект делать не будет."),
+            (
+                "[Учебный план]({learning_path}) — программа подготовки; дорожная карта "
+                "проекта описывает развитие репозитория."
+            ),
             (
                 "Лицензия Apache-2.0 · © 2026 ai-interview-atlas contributors. Пересказанный "
                 "материал из лицензированных подборок указан на странице источников."
@@ -779,6 +795,8 @@ class Renderer:
             + labels["back"].format(readme=rel(page, readme(lang))),
             "",
             md(labels["start_intro"]),
+            "",
+            labels["learning_path"].format(page=rel(page, f"{base(lang)}/LEARNING_PATH.md")),
         ]
         if self.answered(lang, track):
             link = rel(page, answers_page(lang, track))
@@ -861,7 +879,15 @@ class Renderer:
                     **pages,
                 )
             )
-        lines += ["", labels["legend"], "", f"## {labels['tracks']}", ""]
+        lines += [
+            "",
+            labels["learning_path"].format(page=rel(page, f"{base(lang)}/LEARNING_PATH.md")),
+            "",
+            labels["legend"],
+            "",
+            f"## {labels['tracks']}",
+            "",
+        ]
         for track in content.taxonomy["tracks"]:
             roles = [
                 r["name"][lang] for r in content.taxonomy["roles"] if r["track"] == track["id"]
@@ -934,6 +960,7 @@ class Renderer:
                     sources=sources_page(lang),
                     attribution=f"{base(lang)}/ATTRIBUTION.md",
                     roadmap=f"{base(lang)}/ROADMAP.md",
+                    learning_path=f"{base(lang)}/LEARNING_PATH.md",
                 )
             )
         return "\n".join(lines)

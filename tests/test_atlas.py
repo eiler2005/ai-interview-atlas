@@ -46,6 +46,8 @@ def repository(tmp_path: Path) -> Path:
         "docs/ru/ATTRIBUTION.md",
         "docs/ROADMAP.md",
         "docs/ru/ROADMAP.md",
+        "docs/LEARNING_PATH.md",
+        "docs/ru/LEARNING_PATH.md",
     ):
         (root / name).parent.mkdir(parents=True, exist_ok=True)
         (root / name).write_text("# Synthetic\n", encoding="utf-8")
