@@ -14,6 +14,8 @@ GENERATED_DIRS = (
     "docs/themes",
     "docs/companies",
     "docs/answers",
+    "docs/start",
+    "docs/ru/start",
     "docs/ru/themes",
     "docs/ru/companies",
     "docs/ru/answers",

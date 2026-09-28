@@ -36,17 +36,73 @@ COLORS = {"engineering": "#1f6feb", "leadership": "#bc4c00"}
 LABELS = {
     "en": {
         "switch": "English · [Русский]({other})",
-        "tagline": (
-            "Sourced interview questions and interview loops for AI leadership — product "
-            "managers, engineering managers, directors and technical programme managers — and "
-            "for AI engineering. Every company claim and every reported question carries a "
-            "source and the date it was read; questions written from job-posting themes are "
-            "labelled as generated, and answers are written out rather than linked to a course."
-        ),
         "stats": (
             "Questions: {questions} (engineering {engineering}, leadership {leadership}) · "
             "companies: {companies} · sources: {sources} · updated {updated}"
         ),
+        "hero": "The questions AI interviews actually ask — every one with a source you can check.",
+        "intro": (
+            "You are preparing for an interview as an AI product manager, engineering manager, "
+            "director, technical programme manager or AI engineer. Most question lists online "
+            "either cite nothing or hide the answers behind a course, and almost none of them "
+            "cover leadership roles. This one is free, and every claim names where it came from "
+            "and when it was read."
+        ),
+        "inside": "What is inside",
+        "inside_items": [
+            (
+                "**{questions} questions** across {themes} themes: {engineering} for engineering, "
+                "{leadership} for leadership. Each says what it tests."
+            ),
+            (
+                "**{answers} written answers** to the priority questions — a paragraph you could say "
+                "aloud, not a link to a paid course."
+            ),
+            (
+                "**{companies} company pages**: the interview loop stage by stage, the coding "
+                "requirement, and the questions reported for that company."
+            ),
+            (
+                "**{sources} sources**, each with the date it was read, so you can check anything "
+                "yourself and see what has aged."
+            ),
+            (
+                "**A requirements radar** built from real job postings: what employers actually ask "
+                "for, by theme."
+            ),
+        ],
+        "answers_pending": (
+            "**Written answers** to the priority questions exist in Russian today; the English "
+            "ones follow in the next wave."
+        ),
+        "different": "Why this one",
+        "different_items": [
+            (
+                "**Every claim is dated and attributed.** A marker tells you whether the company "
+                "confirmed it, a candidate reported it, or a guide repeated it without a source."
+            ),
+            (
+                "**Leadership is covered properly.** Product, engineering management, direction and "
+                "programme delivery are first-class here, not an afterthought behind the coding "
+                "questions."
+            ),
+            (
+                "**Nothing is sold.** Apache-2.0, no course, no sign-up. Where an answer needs "
+                "outside reading, the link goes to the paper or the documentation."
+            ),
+        ],
+        "quickstart": "Start in three steps",
+        "quickstart_items": [
+            (
+                "Pick your track and work through its priority questions: "
+                "[{engineering_name}]({engineering_page}) · [{leadership_name}]({leadership_page})."
+            ),
+            (
+                "Answer aloud before reading anything. Each question lists what it tests; the "
+                "priority ones add a checklist and what to read."
+            ),
+            "Before an interview, open that employer's page and the themes its loop covers.",
+        ],
         "how": "How to use it",
         "how_items": [
             (
@@ -89,6 +145,11 @@ LABELS = {
         "tracks": "Tracks and roles",
         "start": "Start here: {track}",
         "answers": "Answers: {track}",
+        "start_intro": (
+            "The priority questions of this track, in study order. Answer each one aloud before "
+            "you read anything: the theme page behind every question adds what a strong answer "
+            "covers and what to read."
+        ),
         "answers_intro": (
             "Written answers to the priority questions of this track, in the same order and "
             "numbering as *Start here*. Answer each question yourself first: what follows is one "
@@ -215,17 +276,71 @@ LABELS = {
     },
     "ru": {
         "switch": "[English]({other}) · Русский",
-        "tagline": (
-            "Вопросы и этапы интервью с источниками — для AI-лидерства (продакт-менеджеры, "
-            "руководители разработки, директора, руководители программ) и для AI-инженерии. "
-            "У каждого утверждения о компании и каждого вопроса указаны источник и дата, когда "
-            "его прочитали; вопросы, выведенные из тем вакансий, помечены как сгенерированные, "
-            "а ответы написаны, а не заменены ссылкой на платный курс."
-        ),
         "stats": (
             "Вопросов: {questions} (инженерия — {engineering}, лидерство — {leadership}) · "
             "компаний: {companies} · источников: {sources} · обновлено {updated}"
         ),
+        "hero": "Вопросы, которые на AI-интервью задают на самом деле — с источниками и с ответами.",
+        "intro": (
+            "Вы готовитесь к интервью на AI-продакта, руководителя разработки, директора, "
+            "руководителя программ или AI-инженера. Большинство списков вопросов в сети либо "
+            "ни на что не ссылаются, либо прячут ответы за платным курсом, а руководящие роли "
+            "почти никто не покрывает. Здесь бесплатно, с источниками и с написанными ответами."
+        ),
+        "inside": "Что внутри",
+        "inside_items": [
+            (
+                "**{questions} вопросов** в {themes} темах: {engineering} по инженерии, "
+                "{leadership} по лидерству. У каждого указано, что он проверяет."
+            ),
+            (
+                "**{answers} написанных ответов** на приоритетные вопросы — абзац, который можно "
+                "произнести вслух, а не ссылка на платный курс."
+            ),
+            (
+                "**{companies} страниц компаний**: этапы интервью по шагам, требование к кодингу и "
+                "вопросы, о которых сообщали для этой компании."
+            ),
+            (
+                "**{sources} источников**, у каждого дата прочтения: любое утверждение можно "
+                "проверить самому и увидеть, что устарело."
+            ),
+            (
+                "**Радар требований** по реальным вакансиям: что работодатели просят на самом деле, "
+                "в разрезе тем."
+            ),
+        ],
+        "answers_pending": (
+            "**Написанные ответы** на приоритетные вопросы пока есть на русском; английские "
+            "появятся следующей волной."
+        ),
+        "different": "Чем этот отличается",
+        "different_items": [
+            (
+                "**У каждого утверждения есть дата и источник.** Метка показывает, подтвердила ли "
+                "это компания, рассказал кандидат или гайд повторил без первоисточника."
+            ),
+            (
+                "**Лидерство разобрано всерьёз.** Продукт, управление инженерами, директорские роли "
+                "и руководство программами здесь равноправны, а не приложение к задачам на код."
+            ),
+            (
+                "**Ничего не продаётся.** Apache-2.0, без курса и регистрации. Где ответу нужно "
+                "внешнее чтение, ссылка ведёт на статью или документацию."
+            ),
+        ],
+        "quickstart": "Как начать за три шага",
+        "quickstart_items": [
+            (
+                "Выберите трек и пройдите его приоритетные вопросы: "
+                "[{engineering_name}]({engineering_page}) · [{leadership_name}]({leadership_page})."
+            ),
+            (
+                "Сначала отвечайте вслух и только потом читайте. У каждого вопроса написано, что он "
+                "проверяет; у приоритетных есть чек-лист и материалы для чтения."
+            ),
+            "Перед интервью откройте страницу работодателя и темы, которые есть в его цикле.",
+        ],
         "how": "Как пользоваться",
         "how_items": [
             (
@@ -268,6 +383,11 @@ LABELS = {
         "tracks": "Треки и роли",
         "start": "С чего начать: {track}",
         "answers": "Ответы: {track}",
+        "start_intro": (
+            "Приоритетные вопросы трека в порядке изучения. Сначала ответьте вслух и только "
+            "потом читайте: на странице темы у каждого вопроса есть чек-лист ответа и материалы "
+            "для чтения."
+        ),
         "answers_intro": (
             "Письменные ответы на приоритетные вопросы трека в том же порядке и нумерации, что и "
             "в разделе «С чего начать». Сначала ответьте сами: здесь один из хороших ответов, а "
@@ -416,6 +536,14 @@ def company_page(lang: str, company: str) -> str:
     return f"{base(lang)}/companies/{company}.md"
 
 
+def start_page(lang: str, track: str) -> str:
+    return f"{base(lang)}/start/{track}.md"
+
+
+def common_page(lang: str) -> str:
+    return f"{base(lang)}/common.md"
+
+
 def answers_page(lang: str, track: str) -> str:
     return f"{base(lang)}/answers/{track}.md"
 
@@ -471,8 +599,12 @@ class Renderer:
             for company in self.content.companies.values():
                 pages[company_page(lang, company["id"])] = self.company(lang, company)
             for track in TRACKS:
+                # Always generated: the README links a start page for every track.
+                pages[start_page(lang, track)] = self.start(lang, track)
                 if self.answered(lang, track):
                     pages[answers_page(lang, track)] = self.answers(lang, track)
+            if self.common():
+                pages[common_page(lang)] = self.common_questions(lang)
             pages[sources_page(lang)] = self.sources(lang)
             if self.content.radar:
                 pages[radar_page(lang)] = self.radar(lang)
@@ -499,7 +631,14 @@ class Renderer:
         )
 
     def question(
-        self, question: dict, lang: str, page: str, *, full: bool = True, theme_link: bool = False
+        self,
+        question: dict,
+        lang: str,
+        page: str,
+        *,
+        full: bool = True,
+        theme_link: bool = False,
+        number: int | None = None,
     ) -> list[str]:
         labels = LABELS[lang]
         meta = [labels["types"][question["type"]]]
@@ -513,7 +652,8 @@ class Renderer:
             meta.append(f"{labels['asked_at']}: {asked}")
         if question["provenance"] == "generated":
             meta.append(f"🧪 {labels['generated']}")
-        lines = [f"- **{md(question['text'][lang])}**", f"  - {' · '.join(meta)}"]
+        label = f"{number}. " if number else ""
+        lines = [f"- **{label}{md(question['text'][lang])}**", f"  - {' · '.join(meta)}"]
         if not full:
             return lines
         lines.append(f"  - {labels['tests']}: {md(question['tests'][lang])}")
@@ -593,34 +733,98 @@ class Renderer:
                 lines += ["", f"{labels['read']}: " + " · ".join(links)]
         return "\n".join(lines)
 
+    def common(self) -> list[dict]:
+        """Questions reported at two or more companies."""
+        return [q for q in self.content.questions if len(self.content.asked_at(q)) >= 2]
+
+    def start(self, lang: str, track: str) -> str:
+        labels, page = LABELS[lang], start_page(lang, track)
+        name = self.track_names[track][lang]
+        lines = [
+            HEADER,
+            f"# {labels['start'].format(track=name)}",
+            "",
+            self.switch(lang, page, start_page(other(lang), track))
+            + " · "
+            + labels["back"].format(readme=rel(page, readme(lang))),
+            "",
+            md(labels["start_intro"]),
+        ]
+        if self.answered(lang, track):
+            link = rel(page, answers_page(lang, track))
+            lines += ["", labels["answers_link"].format(page=link)]
+        lines.append("")
+        for number, question in enumerate(self.start_here(track), 1):
+            lines += self.question(question, lang, page, full=False, theme_link=True, number=number)
+        return "\n".join(lines)
+
+    def common_questions(self, lang: str) -> str:
+        labels, page = LABELS[lang], common_page(lang)
+        lines = [
+            HEADER,
+            f"# {labels['common']}",
+            "",
+            self.switch(lang, page, common_page(other(lang)))
+            + " · "
+            + labels["back"].format(readme=rel(page, readme(lang))),
+            "",
+            labels["common_intro"],
+        ]
+        for theme in self.content.taxonomy["themes"]:
+            chosen = [q for q in self.common() if q["theme"] == theme["id"]]
+            if chosen:
+                link = rel(page, theme_page(lang, theme["id"]))
+                lines += ["", f"## [{theme['name'][lang]}]({link})", ""]
+                for question in chosen:
+                    lines += self.question(question, lang, page, full=False)
+        return "\n".join(lines)
+
     def readme(self, lang: str) -> str:
         labels, content, page = LABELS[lang], self.content, readme(lang)
         counts = {track: sum(track in q["tracks"] for q in content.questions) for track in TRACKS}
+        names = {track: self.track_names[track][lang] for track in TRACKS}
+        answered = sum(1 for q in content.questions if q.get("answer", {}).get(lang))
         lines = [
             HEADER,
             "# AI Interview Atlas",
             "",
             self.switch(lang, page, readme(other(lang))),
             "",
-            labels["tagline"],
+            f"**{labels['hero']}**",
             "",
-            "**"
-            + labels["stats"].format(
-                questions=len(content.questions),
-                companies=len(content.companies),
-                sources=len(content.sources),
-                updated=self.updated(),
-                **counts,
-            )
-            + "**",
+            labels["intro"],
             "",
-            f"## {labels['how']}",
+            f"## {labels['inside']}",
             "",
         ]
-        names = {track: self.track_names[track][lang] for track in TRACKS}
-        items = labels["how_items"] if content.radar else labels["how_items_no_radar"]
-        for index, item in enumerate(items, 1):
-            lines.append(f"{index}. " + item.format(radar=radar_page(lang), **names))
+        for item in labels["inside_items"]:
+            if "{answers}" in item and not answered:
+                lines.append(f"- {labels['answers_pending']}")
+                continue
+            lines.append(
+                "- "
+                + item.format(
+                    questions=len(content.questions),
+                    themes=len(content.taxonomy["themes"]),
+                    companies=len(content.companies),
+                    sources=len(content.sources),
+                    answers=answered,
+                    **counts,
+                )
+            )
+        lines += ["", f"## {labels['different']}", ""]
+        lines += [f"- {item}" for item in labels["different_items"]]
+        lines += ["", f"## {labels['quickstart']}", ""]
+        pages = {f"{track}_page": rel(page, start_page(lang, track)) for track in TRACKS}
+        for index, item in enumerate(labels["quickstart_items"], 1):
+            lines.append(
+                f"{index}. "
+                + item.format(
+                    engineering_name=names["engineering"],
+                    leadership_name=names["leadership"],
+                    **pages,
+                )
+            )
         lines += ["", labels["legend"], "", f"## {labels['tracks']}", ""]
         for track in content.taxonomy["tracks"]:
             roles = [
@@ -628,26 +832,9 @@ class Renderer:
             ]
             lines.append(f"- **{track['name'][lang]}.** {md(track['summary'][lang])}")
             lines.append(f"  - {', '.join(roles)}")
-        for track in TRACKS:
-            chosen = self.start_here(track)
-            if not chosen:
-                continue
-            lines += ["", f"## {labels['start'].format(track=names[track])}", ""]
-            if self.answered(lang, track):
-                link = rel(page, answers_page(lang, track))
-                lines += [labels["answers_link"].format(page=link), ""]
-            for question in chosen:
-                lines += self.question(question, lang, page, full=False, theme_link=True)
-        common = [q for q in content.questions if len(content.asked_at(q)) >= 2]
-        if common:
-            lines += ["", f"## {labels['common']}", "", labels["common_intro"]]
-            for theme in content.taxonomy["themes"]:
-                chosen = [q for q in common if q["theme"] == theme["id"]]
-                if chosen:
-                    link = rel(page, theme_page(lang, theme["id"]))
-                    lines += ["", f"### [{theme['name'][lang]}]({link})", ""]
-                    for question in chosen:
-                        lines += self.question(question, lang, page, full=False)
+        if self.common():
+            link = rel(page, common_page(lang))
+            lines += ["", f"## [{labels['common']}]({link})", "", labels["common_intro"]]
         lines += [
             "",
             f"## {labels['themes']}",
@@ -698,7 +885,7 @@ class Renderer:
                     end=radar["period"]["to"],
                     page=radar_page(lang),
                 ),
-                *[f"{line}" for line in self.ai_share(lang)],
+                *self.ai_share(lang),
                 "",
                 f"![{labels['svg_title']}]({svg_file(lang)})",
             ]

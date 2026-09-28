@@ -3,16 +3,29 @@
 
 [English](README.md) · Русский
 
-Вопросы и этапы интервью с источниками — для AI-лидерства (продакт-менеджеры, руководители разработки, директора, руководители программ) и для AI-инженерии. У каждого утверждения о компании и каждого вопроса указаны источник и дата, когда его прочитали; вопросы, выведенные из тем вакансий, помечены как сгенерированные, а ответы написаны, а не заменены ссылкой на платный курс.
+**Вопросы, которые на AI-интервью задают на самом деле — с источниками и с ответами.**
 
-**Вопросов: 255 (инженерия — 191, лидерство — 146) · компаний: 20 · источников: 107 · обновлено 2026-09-26**
+Вы готовитесь к интервью на AI-продакта, руководителя разработки, директора, руководителя программ или AI-инженера. Большинство списков вопросов в сети либо ни на что не ссылаются, либо прячут ответы за платным курсом, а руководящие роли почти никто не покрывает. Здесь бесплатно, с источниками и с написанными ответами.
 
-## Как пользоваться
+## Что внутри
 
-1. Выберите трек: **AI-инженерия** или **AI-лидерство**. Ниже перечислены роли каждого трека.
-2. Пройдите раздел «С чего начать» своего трека, затем темы, которые чаще всего требуют вакансии по [радару требований](docs/ru/radar.md).
-3. Перед интервью откройте страницу компании: этапы с основаниями, требование к кодингу и вопросы, о которых сообщали для этой компании.
-4. Отвечайте вслух. Каждый вопрос объясняет, что проверяет; у приоритетных есть чек-листы ответа и чтение. Используйте их для рассуждений, а не заучивания.
+- **255 вопросов** в 17 темах: 191 по инженерии, 146 по лидерству. У каждого указано, что он проверяет.
+- **80 написанных ответов** на приоритетные вопросы — абзац, который можно произнести вслух, а не ссылка на платный курс.
+- **20 страниц компаний**: этапы интервью по шагам, требование к кодингу и вопросы, о которых сообщали для этой компании.
+- **107 источников**, у каждого дата прочтения: любое утверждение можно проверить самому и увидеть, что устарело.
+- **Радар требований** по реальным вакансиям: что работодатели просят на самом деле, в разрезе тем.
+
+## Чем этот отличается
+
+- **У каждого утверждения есть дата и источник.** Метка показывает, подтвердила ли это компания, рассказал кандидат или гайд повторил без первоисточника.
+- **Лидерство разобрано всерьёз.** Продукт, управление инженерами, директорские роли и руководство программами здесь равноправны, а не приложение к задачам на код.
+- **Ничего не продаётся.** Apache-2.0, без курса и регистрации. Где ответу нужно внешнее чтение, ссылка ведёт на статью или документацию.
+
+## Как начать за три шага
+
+1. Выберите трек и пройдите его приоритетные вопросы: [AI-инженерия](docs/ru/start/engineering.md) · [AI-лидерство](docs/ru/start/leadership.md).
+2. Сначала отвечайте вслух и только потом читайте. У каждого вопроса написано, что он проверяет; у приоритетных есть чек-лист и материалы для чтения.
+3. Перед интервью откройте страницу работодателя и темы, которые есть в его цикле.
 
 Метки: ✅ подтверждено компанией · 🗣 отчёт кандидата · † гайд или подборка без первоисточника · 🧪 сгенерировано по темам вакансий. Этапы интервью часто меняются — смотрите дату проверки.
 
@@ -23,241 +36,9 @@
 - **AI-лидерство.** Те, кто решает, какой AI строить, и руководит командами, программами и организациями, которые его строят.
   - Продакт-менеджер (общий процесс интервью), AI-продакт-менеджер (от senior до group), Директор или руководитель продукта, Руководитель разработки (EM), Директор или руководитель инженерии, Технический руководитель программ (TPM), Руководитель AI-платформы, Руководитель внедрения AI / CAIO, Руководитель forward-deployed / solutions
 
-## С чего начать: AI-инженерия
-
-[Ответы на эти вопросы](docs/ru/answers/engineering.md)
-
-- **Выведите формулу scaled dot-product attention и объясните, как масштаб влияет на градиенты softmax.**
-  - Знания · [Основы LLM](docs/ru/themes/llm-fundamentals.md)
-- **Выведите объём памяти KV-кеша декодера в зависимости от размера батча и длины контекста.**
-  - Знания · [Основы LLM](docs/ru/themes/llm-fundamentals.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Сравните multi-head, multi-query и grouped-query attention по качеству и памяти при инференсе.**
-  - Знания · [Основы LLM](docs/ru/themes/llm-fundamentals.md) · Где спрашивали: [Meta](docs/ru/companies/meta.md) †
-- **Как результаты Chinchilla меняют выбор размера модели и числа обучающих токенов при фиксированном бюджете вычислений?**
-  - Знания · [Основы LLM](docs/ru/themes/llm-fundamentals.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †
-- **Как проверить и уменьшить склонность модели пропускать важные сведения в середине длинного контекста?**
-  - Знания · [Основы LLM](docs/ru/themes/llm-fundamentals.md)
-- **Сравните prefill и авторегрессионное декодирование: когда узким местом становятся вычисления, а когда пропускная способность памяти?**
-  - Знания · [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md)
-- **Объясните батчинг на уровне итераций: как запросы добавляются в выполняющийся батч и покидают его?**
-  - Знания · [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †
-- **Объясните точное speculative decoding, проверку предложенных токенов и случаи, когда draft-модель лишь добавляет накладные расходы.**
-  - Знания · [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md)
-- **Оцените память для обслуживания модели с 70 млрд параметров, явно задав точность, контекст и конкурентность.**
-  - Прикладной сценарий · [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md)
-- **Вам поручили снизить стоимость инференса на порядок. Расставьте меры по приоритету и объясните, как проверить достижимость цели.**
-  - Прикладной сценарий · [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Microsoft](docs/ru/companies/microsoft.md) †
-- **После релиза p99 задержки удвоился, хотя веса модели не менялись. Как локализовать причину?**
-  - Прикладной сценарий · [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Databricks](docs/ru/companies/databricks.md) †, [OpenAI](docs/ru/companies/openai.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-- **Выберите подход к разбиению технической документации на чанки, сохраняя смысл на границах разделов.**
-  - Прикладной сценарий · [RAG и поиск](docs/ru/themes/rag-retrieval.md)
-- **Когда стоит объединить лексический и векторный поиск и как свести их ранжирование?**
-  - Знания · [RAG и поиск](docs/ru/themes/rag-retrieval.md) · Где спрашивали: [Microsoft](docs/ru/companies/microsoft.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-- **Как отдельно оценить поиск документов и генерацию ответа в RAG-приложении?**
-  - Прикладной сценарий · [RAG и поиск](docs/ru/themes/rag-retrieval.md)
-- **Спроектируйте поиск с соблюдением прав исходной системы, включая изменения разрешений и общие кеши.**
-  - System design · [RAG и поиск](docs/ru/themes/rag-retrieval.md) · Где спрашивали: [Databricks](docs/ru/companies/databricks.md) †, [Microsoft](docs/ru/companies/microsoft.md) †, [Palantir](docs/ru/companies/palantir.md) †
-- **Сравните точный поиск, HNSW и IVF-PQ для индекса эмбеддингов при ограничениях памяти, полноты и задержки.**
-  - Знания · [RAG и поиск](docs/ru/themes/rag-retrieval.md)
-- **Что даёт чередование рассуждений и наблюдений от инструментов по сравнению с одними рассуждениями модели?**
-  - Знания · [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md)
-- **Спроектируйте восстановление после ошибок и тайм-аутов инструментов, включая случай, когда операция уже изменила внешнее состояние.**
-  - System design · [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **Как выбрать, назвать и описать инструменты, чтобы модель верно выбирала операцию и аргументы?**
-  - System design · [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †
-- **Задайте критерии завершения и остановки агентного цикла, исключающие бесконечные затраты на незавершённую задачу.**
-  - System design · [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md)
-- **Спроектируйте подтверждение человеком значимых действий агента, связав разрешение с конкретным исполняемым действием.**
-  - System design · [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †, [Palantir](docs/ru/companies/palantir.md) †
-- **Разберите RLHF на предпочтениях и объясните роль reward model и штрафа за отклонение от опорной политики.**
-  - Знания · [Дообучение и post-training](docs/ru/themes/post-training.md)
-- **Сравните DPO с RLHF на PPO, включая предпосылки обучения по офлайн-предпочтениям и причины собирать новые траектории.**
-  - Знания · [Дообучение и post-training](docs/ru/themes/post-training.md)
-- **Выведите низкоранговое обновление весов LoRA и предложите эксперимент для выбора ранга.**
-  - Знания · [Дообучение и post-training](docs/ru/themes/post-training.md)
-- **Как QLoRA сокращает память дообучения и какие тензоры остаются обучаемыми или требуют большей точности?**
-  - Знания · [Дообучение и post-training](docs/ru/themes/post-training.md)
-- **Выберите между изменением промпта, retrieval и дообучением для неудачной AI-функции; учтите свежесть данных, задержку и полную стоимость.**
-  - Прикладной сценарий · [Дообучение и post-training](docs/ru/themes/post-training.md) · Где спрашивали: [Databricks](docs/ru/companies/databricks.md) †, [Microsoft](docs/ru/companies/microsoft.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Спроектируйте LLM-судью и калибровку, выявляющую смещения из-за порядка, многословия и предпочтения собственных ответов.**
-  - System design · [Оценка качества и наблюдаемость](docs/ru/themes/evals-observability.md) · Где спрашивали: [Perplexity](docs/ru/companies/perplexity.md) †
-- **Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию.**
-  - System design · [Оценка качества и наблюдаемость](docs/ru/themes/evals-observability.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †
-- **Результаты бенчмарков растут, а пользователи жалуются на ухудшение продукта. Какие гипотезы проверить сначала?**
-  - Прикладной сценарий · [Оценка качества и наблюдаемость](docs/ru/themes/evals-observability.md)
-- **Спроектируйте наблюдаемость LLM-процесса в production: какие spans, версии, затраты и обратную связь нужно связать?**
-  - System design · [Оценка качества и наблюдаемость](docs/ru/themes/evals-observability.md)
-- **Чем оценка агента с инструментами должна отличаться от проверки одного сгенерированного ответа?**
-  - System design · [Оценка качества и наблюдаемость](docs/ru/themes/evals-observability.md)
-- **Сравните проекционные слои, cross-attention и токенное представление для подключения изображений к языковой модели.**
-  - Знания · [Мультимодальность и голос](docs/ru/themes/multimodal-voice.md) · Где спрашивали: [Meta](docs/ru/companies/meta.md) †
-- **Как улучшать и проверять распознавание смешанных языков в реплике и разных акцентов?**
-  - Прикладной сценарий · [Мультимодальность и голос](docs/ru/themes/multimodal-voice.md)
-- **Спроектируйте помощника по десяти миллионам корпоративных документов с индивидуальными правами и постоянно меняющимся корпусом.**
-  - System design · [Дизайн AI-систем](docs/ru/themes/ai-system-design.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Databricks](docs/ru/companies/databricks.md) †, [Microsoft](docs/ru/companies/microsoft.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Спроектируйте LLM gateway с маршрутизацией, failover, кешированием, лимитами запросов и обязательными бюджетами.**
-  - System design · [Дизайн AI-систем](docs/ru/themes/ai-system-design.md) · Где спрашивали: [Palantir](docs/ru/companies/palantir.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-- **Спроектируйте агента поддержки, который выполняет сервисные действия и при необходимости передаёт обращение человеку.**
-  - System design · [Дизайн AI-систем](docs/ru/themes/ai-system-design.md)
-- **Спроектируйте потоковый чат для сотен миллионов пользователей с планированием мощности, хранением диалогов и работой при перегрузке.**
-  - System design · [Дизайн AI-систем](docs/ru/themes/ai-system-design.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [Google и Google DeepMind](docs/ru/companies/google.md) †, [Meta](docs/ru/companies/meta.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Реализуйте scaled dot-product attention с causal mask и тестами, выявляющими доступ к будущим токенам.**
-  - Кодинг · [Практический кодинг](docs/ru/themes/coding-practical.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Anthropic](docs/ru/companies/anthropic.md) †, [Google и Google DeepMind](docs/ru/companies/google.md) †
-- **Реализуйте token-bucket limiter и объясните изменения для общего лимита, применяемого несколькими воркерами.**
-  - Кодинг · [Практический кодинг](docs/ru/themes/coding-practical.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Напишите асинхронный обработчик батча API-запросов с ограничением конкурентности, jitter повторов и изоляцией ошибок элементов.**
-  - Кодинг · [Практический кодинг](docs/ru/themes/coding-practical.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-
-## С чего начать: AI-лидерство
-
-[Ответы на эти вопросы](docs/ru/answers/leadership.md)
-
-- **Ассистент читает внешнюю почту, ищет внутренние документы и отправляет ответы. Как атакующий может изменить его поведение и как ограничить ущерб?**
-  - System design · Senior · [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †
-- **Как вы организуете безопасное внедрение AI-модели в промышленную эксплуатацию?**
-  - System design · Senior · [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †
-- **Как вы организуете безопасность потребительского продукта на основе генеративного AI?**
-  - Продуктовый кейс · Senior · [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **Какие защитные меры нужны AI-системе, действующей от имени пользователя?**
-  - System design · Senior · [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **Расскажите о ситуации, когда сроки вступили в противоречие с требованиями безопасности. Как вы приняли решение?**
-  - Поведенческий · Senior · [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) 🗣
-- **Как бы вы улучшили ChatGPT для корпоративных клиентов?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **Модель существенно мощнее, но стоит в десять раз дороже. Как решить, какой продукт на ней создавать?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **Как определить, полезна ли LLM для предложенной продуктовой задачи?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) †
-- **Спроектируйте ассистента на основе Gemini для студентов университета.**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) †
-- **Пользователи жалуются, что Gemini уверенно даёт неверные ответы. Что вы измените?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) †
-- **Как вы расставите приоритеты функций AI-ассистента для письма в Microsoft Word?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Microsoft](docs/ru/companies/microsoft.md) †
-- **Как вы измерите успех AI-функции в продукте Microsoft?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Microsoft](docs/ru/companies/microsoft.md) †
-- **Какую главную метрику вы выберете для AI-поиска и какими ограничениями её дополните?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Perplexity](docs/ru/companies/perplexity.md) †
-- **Вовлечённость в уведомления растёт, а общее время в продукте не меняется. Как вы объясните результат?**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Meta](docs/ru/companies/meta.md) 🗣
-- **Выберите AI-агента или продукт, которым пользуетесь, и предложите самое полезное улучшение.**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †
-- **Определите стратегию внутренней AI-платформы и распределите ответственность за её метрики успеха.**
-  - Продуктовый кейс · Senior · [AI-платформа и операционная модель](docs/ru/themes/ai-operating-model.md) · Где спрашивали: [Stripe](docs/ru/companies/stripe.md) †
-- **Как поддерживать несколько поставщиков моделей, если в отдельных средах разрешена только часть моделей?**
-  - System design · Senior · [AI-платформа и операционная модель](docs/ru/themes/ai-operating-model.md) · Где спрашивали: [Palantir](docs/ru/companies/palantir.md) †
-- **Расскажите, как вы работали с инженером, который не справлялся с ожиданиями.**
-  - Поведенческий · Senior · [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) 🗣
-- **Как вы работали с сильным инженером, чьё поведение вызывало конфликты с коллегами?**
-  - Поведенческий · Senior · [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) 🗣
-- **Расскажите, как развивалась карьера человека, которого вы наставляли.**
-  - Поведенческий · Senior · [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) 🗣
-- **Что вы делаете, когда команда не согласна с предложенным вами направлением?**
-  - Прикладной сценарий · Senior · [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) 🗣
-- **Как вы поступите, если сильный сотрудник собирается уйти во время реорганизации?**
-  - Прикладной сценарий · Senior · [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) 🗣
-- **Как вы стабилизируете инженерную команду после смены руководства?**
-  - Прикладной сценарий · Senior · [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) 🗣
-- **Расскажите, как вы нашли ценную возможность и убедили группу людей её реализовать.**
-  - Поведенческий · Senior · [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) · Где спрашивали: [Monzo](docs/ru/companies/monzo.md) ✅
-- **Расскажите о самом сложном продуктовом запуске, которым вы руководили.**
-  - Поведенческий · Senior · [Программы и delivery](docs/ru/themes/program-delivery.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **За три недели до запуска LLM-функции оценка выявила много галлюцинаций в пограничных сценариях. Что вы предпримете?**
-  - Прикладной сценарий · Senior · [Программы и delivery](docs/ru/themes/program-delivery.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †
-- **Расскажите о крупном межфункциональном проекте: неопределённости, препятствиях и задержках.**
-  - Поведенческий · Senior · [Программы и delivery](docs/ru/themes/program-delivery.md) · Где спрашивали: [Meta](docs/ru/companies/meta.md) 🗣
-- **Как вы организуете обновление устройств Alexa, уже установленных у пользователей дома?**
-  - System design · Senior · [Программы и delivery](docs/ru/themes/program-delivery.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †
-- **Клиент хочет автоматизировать обработку страховых требований с помощью AI. Что вы сделаете за первые две недели?**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](docs/ru/themes/applied-scenarios.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **Руководитель клиента хочет закрыть AI-пилот из-за постоянных ошибок. Что вы сделаете в ближайшие 48 часов?**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](docs/ru/themes/applied-scenarios.md) · Где спрашивали: [Palantir](docs/ru/companies/palantir.md) †
-- **Клиент настаивает на дообучении своей модели на обращениях в поддержку, а вы считаете, что хватит поиска по данным. Как действовать?**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](docs/ru/themes/applied-scenarios.md) · Где спрашивали: [Databricks](docs/ru/companies/databricks.md) †
-- **Базовую модель работающего агента отключат через 60 дней. Как вы проведёте миграцию без потери качества?**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](docs/ru/themes/applied-scenarios.md) · Где спрашивали: [Databricks](docs/ru/companies/databricks.md) †
-- **Клиент жалуется, что чат-бот на восьми GPU слишком медленный и дорогой. У вас неделя работы с ним; как её использовать?**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](docs/ru/themes/applied-scenarios.md)
-- **Компания хочет за четыре недели запустить ответы по двум миллионам внутренних файлов без вывода данных за пределы VPC. Как определить объём пилота?**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](docs/ru/themes/applied-scenarios.md)
-- **Торговый агент может инициировать платежи. Как доказать, что каждый платёж соответствует реальному разрешению пользователя?**
-  - System design · Senior · [Платежи и регулируемые отрасли](docs/ru/themes/domain-payments-fintech.md) · 🧪 сгенерировано по темам вакансий
-- **AI-агент поддержки инициировал возврат, после чего платёжный API не ответил вовремя. Как восстановить работу без двойного возврата?**
-  - System design · Senior · [Платежи и регулируемые отрасли](docs/ru/themes/domain-payments-fintech.md) · 🧪 сгенерировано по темам вакансий
-- **Банк хочет внедрить AI-ассистента, предлагающего сотрудникам решения по обращениям. Какие данные и меры контроля нужны перед расширением запуска?**
-  - Прикладной сценарий · Senior · [Платежи и регулируемые отрасли](docs/ru/themes/domain-payments-fintech.md) · 🧪 сгенерировано по темам вакансий
-- **Почему вы хотите работать в Anthropic и в чём не согласны с её подходом?**
-  - Самопрезентация · Senior · [Поведенческие вопросы и ценности](docs/ru/themes/behavioral-values.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †
-- **Расскажите о своей ошибке, её последствиях и последующих изменениях в работе.**
-  - Поведенческий · Senior · [Поведенческие вопросы и ценности](docs/ru/themes/behavioral-values.md) · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †
-- **Расскажите о случае, когда вы были не согласны с человеком, но не смогли его убедить.**
-  - Поведенческий · Senior · [Поведенческие вопросы и ценности](docs/ru/themes/behavioral-values.md) · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †
-
-## Спрашивают в нескольких компаниях
+## [Спрашивают в нескольких компаниях](docs/ru/common.md)
 
 Вопросы, о которых сообщали в двух и более компаниях; сильное основание — первым.
-
-### [Основы LLM](docs/ru/themes/llm-fundamentals.md)
-
-- **Выведите объём памяти KV-кеша декодера в зависимости от размера батча и длины контекста.**
-  - Знания · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Сравните greedy decoding, beam search, температуру, top-k и nucleus sampling; приведите ограничение каждого подхода.**
-  - Знания · Где спрашивали: [Google и Google DeepMind](docs/ru/companies/google.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-
-### [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md)
-
-- **Сравните tensor, pipeline, data, sequence и expert parallelism при развёртывании большой модели.**
-  - Знания · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Google и Google DeepMind](docs/ru/companies/google.md) †, [Meta](docs/ru/companies/meta.md) †
-- **Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса.**
-  - Знания · Где спрашивали: [Microsoft](docs/ru/companies/microsoft.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-- **Вам поручили снизить стоимость инференса на порядок. Расставьте меры по приоритету и объясните, как проверить достижимость цели.**
-  - Прикладной сценарий · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Microsoft](docs/ru/companies/microsoft.md) †
-- **После релиза p99 задержки удвоился, хотя веса модели не менялись. Как локализовать причину?**
-  - Прикладной сценарий · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Databricks](docs/ru/companies/databricks.md) †, [OpenAI](docs/ru/companies/openai.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-
-### [RAG и поиск](docs/ru/themes/rag-retrieval.md)
-
-- **Когда стоит объединить лексический и векторный поиск и как свести их ранжирование?**
-  - Знания · Где спрашивали: [Microsoft](docs/ru/companies/microsoft.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-- **Где разместить cross-encoder reranker в поисковом пайплайне и когда выигрыш качества оправдывает задержку?**
-  - Знания · Где спрашивали: [Microsoft](docs/ru/companies/microsoft.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-- **Спроектируйте поиск с соблюдением прав исходной системы, включая изменения разрешений и общие кеши.**
-  - System design · Где спрашивали: [Databricks](docs/ru/companies/databricks.md) †, [Microsoft](docs/ru/companies/microsoft.md) †, [Palantir](docs/ru/companies/palantir.md) †
-
-### [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md)
-
-- **Спроектируйте подтверждение человеком значимых действий агента, связав разрешение с конкретным исполняемым действием.**
-  - System design · Где спрашивали: [OpenAI](docs/ru/companies/openai.md) †, [Palantir](docs/ru/companies/palantir.md) †
-
-### [Дообучение и post-training](docs/ru/themes/post-training.md)
-
-- **Выберите между изменением промпта, retrieval и дообучением для неудачной AI-функции; учтите свежесть данных, задержку и полную стоимость.**
-  - Прикладной сценарий · Где спрашивали: [Databricks](docs/ru/companies/databricks.md) †, [Microsoft](docs/ru/companies/microsoft.md) †, [OpenAI](docs/ru/companies/openai.md) †
-
-### [Оценка качества и наблюдаемость](docs/ru/themes/evals-observability.md)
-
-- **Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?**
-  - System design · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [OpenAI](docs/ru/companies/openai.md) †
-
-### [Дизайн AI-систем](docs/ru/themes/ai-system-design.md)
-
-- **Спроектируйте помощника по десяти миллионам корпоративных документов с индивидуальными правами и постоянно меняющимся корпусом.**
-  - System design · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Databricks](docs/ru/companies/databricks.md) †, [Microsoft](docs/ru/companies/microsoft.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения.**
-  - System design · Где спрашивали: [Databricks](docs/ru/companies/databricks.md) †, [Palantir](docs/ru/companies/palantir.md) †
-- **Спроектируйте LLM gateway с маршрутизацией, failover, кешированием, лимитами запросов и обязательными бюджетами.**
-  - System design · Где спрашивали: [Palantir](docs/ru/companies/palantir.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
-- **Спроектируйте потоковый чат для сотен миллионов пользователей с планированием мощности, хранением диалогов и работой при перегрузке.**
-  - System design · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [Google и Google DeepMind](docs/ru/companies/google.md) †, [Meta](docs/ru/companies/meta.md) †, [OpenAI](docs/ru/companies/openai.md) †
-
-### [Практический кодинг](docs/ru/themes/coding-practical.md)
-
-- **Реализуйте scaled dot-product attention с causal mask и тестами, выявляющими доступ к будущим токенам.**
-  - Кодинг · Где спрашивали: [Amazon](docs/ru/companies/amazon.md) †, [Anthropic](docs/ru/companies/anthropic.md) †, [Google и Google DeepMind](docs/ru/companies/google.md) †
-- **Реализуйте token-bucket limiter и объясните изменения для общего лимита, применяемого несколькими воркерами.**
-  - Кодинг · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [OpenAI](docs/ru/companies/openai.md) †
-- **Напишите асинхронный обработчик батча API-запросов с ограничением конкурентности, jitter повторов и изоляцией ошибок элементов.**
-  - Кодинг · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
 
 ## Темы
 

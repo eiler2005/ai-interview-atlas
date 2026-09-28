@@ -55,12 +55,12 @@ def test_fixture_renders_deterministically_with_markers():
     pages = render(content)
     assert pages == render(load(FIXTURE, today=TODAY))
     readme = pages["README.md"]
-    assert "Questions: 4 (engineering 3, leadership 3)" in readme
-    # Asked at two companies: listed as common; the compilation-only company is marked †.
-    assert "## Asked across companies" in readme
-    common = readme.split("## Asked across companies", 1)[1].split("## Themes", 1)[0]
-    assert "[Sample Bank](docs/companies/sample-bank.md) 🗣" in common
-    assert "[Example Labs](docs/companies/example-labs.md) †" in common
+    assert "**4 questions** across 3 themes: 3 for engineering, 3 for leadership" in readme
+    assert "[Asked across companies](docs/common.md)" in readme
+    # Asked at two companies: listed on its own page, strongest basis first.
+    common = pages["docs/common.md"]
+    assert "[Sample Bank](companies/sample-bank.md) 🗣" in common
+    assert "[Example Labs](companies/example-labs.md) †" in common
     agents = pages["docs/themes/agents-tools.md"]
     assert "[Example Labs](../companies/example-labs.md) ✅" in agents
     evals = pages["docs/themes/evals-observability.md"]
@@ -161,9 +161,13 @@ def test_answers_render_only_for_the_language_that_has_them(content_dir):
     assert "### 1. Спроектируйте гейт" in page
     assert "Ответы готовы: 1 из 1." in page
     assert "answers/leadership.md)" not in page.split("\n")[3]
-    assert "[Ответы на эти вопросы](docs/ru/answers/leadership.md)" in pages["README.ru.md"]
-    # The English README links no answers page while English answers do not exist.
-    assert "answers/" not in pages["README.md"]
+    # The answers are reached from the track's start page, not from the README.
+    assert (
+        "[Ответы на эти вопросы](../answers/leadership.md)" in pages["docs/ru/start/leadership.md"]
+    )
+    assert "answers/" not in pages["docs/start/leadership.md"]
+    assert "**80 written answers**" not in pages["README.md"]
+    assert "**1 написанных ответов**" in pages["README.ru.md"]
 
 
 def test_an_answer_needs_a_priority_question_and_one_paragraph(content_dir):

@@ -2,6 +2,13 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## 2026-09-28 — A README that explains itself
+
+### Changed
+- The README is a landing page: what this is, who it is for, what is inside, why it differs from the usual question lists, and how to start in three steps. It is 103 lines instead of 322.
+- The priority questions of each track moved to `docs/{lang}/start/{track}.md`, and the questions asked at two or more companies to `docs/{lang}/common.md`. Both are linked from the README, and a track's start page links its answers.
+- Both PDF books open with the same summary as the README.
+
 ## 2026-09-28 — Written answers, in Russian first
 
 ### Added
