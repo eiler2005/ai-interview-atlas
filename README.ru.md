@@ -5,6 +5,10 @@
 
 ![Две группы тем интервью на одной карте: инженерия слева, лидерство справа, соединённые в центре](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.0/hero-banner.png)
 
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
+[![PDF editions](https://img.shields.io/badge/PDF-editions-137c80)](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
+
 **Вопросы, которые на AI-интервью задают на самом деле — с источниками и с ответами.**
 
 Вы готовитесь к интервью на AI-продакта, руководителя разработки, директора, руководителя программ или AI-инженера. Большинство списков вопросов в сети либо ни на что не ссылаются, либо прячут ответы за платным курсом, а руководящие роли почти никто не покрывает. Здесь бесплатно, с источниками и с написанными ответами.
