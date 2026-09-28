@@ -3,7 +3,7 @@
 
 [English](README.md) · Русский
 
-![Две группы тем интервью на одной карте: инженерия слева, лидерство справа, соединённые в центре](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.0/hero-banner.png)
+![AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы.](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.1/hero-banner-v2.png)
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)

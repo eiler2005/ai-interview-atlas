@@ -12,4 +12,4 @@ The [methodology](METHODOLOGY.md) explains these distinctions. The source regist
 
 ## The banner
 
-The image at the top of the README was generated with OpenAI's image model on 2026-09-28 from a prompt written for this project, and is published under the same Apache-2.0 licence as the rest of the repository. Its provenance metadata and every other ancillary chunk were removed before publication, so the file carries pixels and nothing else; this note records where it came from.
+The original README banner was generated with OpenAI’s image model on 2026-09-28 from a prompt written for this project. On the same date, it was edited with the built-in image generation tool to add the project title and descriptive text. The banner is AI-generated artwork and is published under the repository's Apache-2.0 licence.
