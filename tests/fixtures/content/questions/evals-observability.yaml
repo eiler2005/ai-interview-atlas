@@ -12,6 +12,8 @@ questions:
     outline:
       en: [A golden set from real traffic., Thresholds agreed before the change.]
       ru: [Эталонный набор из реального трафика., Пороги согласованы до изменения.]
+    answer:
+      ru: "Гейт — это политика выпуска, а не разовый отчёт: заранее фиксируется эталонный набор из реального трафика, пороги и владелец решения."
     reading: [eval-paper]
     provenance: published
     evidence:

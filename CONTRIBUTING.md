@@ -39,6 +39,21 @@ uv run --project ../app ajh privacy check --root . --scope worktree --gitleaks
 
 The hooks repeat the check for the exact staged files and for the full history before a push. Stage explicit paths and never bypass the hooks.
 
+## Answers
+
+A `start_here` question may carry a written answer:
+
+```yaml
+    answer:
+      ru: "One paragraph of 100-150 words."
+```
+
+Write one paragraph a candidate could say aloud: the point first, then the mechanism and what it costs, then what you would do or measure, then where the answer stops holding. It must agree with that question's `tests` line and its three-bullet `outline`, which it turns into speech. Ground it in the cited `reading`; use no invented numbers, benchmarks or company facts. Standard formulas are fine.
+
+For `behavioral` and `self_presentation` questions, never write a story. Describe how the candidate builds their own answer, what the interviewer is actually listening for, the usual mistake and how to close. An answer that reads like a ready-made anecdote will be rejected.
+
+A language may be added first and the other later: `answers` pages and the answers book for a language appear only once that language has answers. Keep the text plain, without Markdown or line breaks.
+
 ## Printable PDF books
 
 The same content can be printed as one book per language. The books use the [Career Copilot](https://github.com/eiler2005/career-copilot) document renderer pinned in `pyproject.toml` and its standard layout: A4 pages, 12 pt body text, a contents page, PDF bookmarks and clickable source links.

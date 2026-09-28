@@ -25,6 +25,8 @@
 
 ## С чего начать: AI-инженерия
 
+[Ответы на эти вопросы](docs/ru/answers/engineering.md)
+
 - **Выведите формулу scaled dot-product attention и объясните, как масштаб влияет на градиенты softmax.**
   - Знания · [Основы LLM](docs/ru/themes/llm-fundamentals.md)
 - **Выведите объём памяти KV-кеша декодера в зависимости от размера батча и длины контекста.**
@@ -107,6 +109,8 @@
   - Кодинг · [Практический кодинг](docs/ru/themes/coding-practical.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †, [Perplexity](docs/ru/companies/perplexity.md) †
 
 ## С чего начать: AI-лидерство
+
+[Ответы на эти вопросы](docs/ru/answers/leadership.md)
 
 - **Ассистент читает внешнюю почту, ищет внутренние документы и отправляет ответы. Как атакующий может изменить его поведение и как ограничить ущерб?**
   - System design · Senior · [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) · Где спрашивали: [Anthropic](docs/ru/companies/anthropic.md) †

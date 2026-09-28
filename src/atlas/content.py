@@ -265,6 +265,12 @@ def _check_questions(content: Content, today: date) -> list[str]:
         outline = question.get("outline")
         if outline and len(outline["en"]) != len(outline["ru"]):
             problems.append(f"{name}: English and Russian outlines differ in length")
+        answer = question.get("answer")
+        if answer and not question.get("start_here"):
+            problems.append(f"{name}: answers belong to start_here questions")
+        for language, text in (answer or {}).items():
+            if "\n" in text or text != text.strip():
+                problems.append(f"{name}: the {language} answer must be one clean paragraph")
         for source in question.get("reading", []):
             kind = content.sources.get(source, {}).get("kind")
             if kind not in READING_KINDS:

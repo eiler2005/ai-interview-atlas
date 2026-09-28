@@ -152,6 +152,28 @@ def test_start_here_needs_outline_and_matching_translations(content_dir):
     assert "start_here questions need an outline and reading" in problems(content_dir)
 
 
+def test_answers_render_only_for_the_language_that_has_them(content_dir):
+    pages = render(load(content_dir, today=TODAY))
+    assert "docs/ru/answers/leadership.md" in pages
+    assert "docs/answers/leadership.md" not in pages
+    page = pages["docs/ru/answers/leadership.md"]
+    # Numbered like Start here, and no link to a counterpart that does not exist yet.
+    assert "### 1. Спроектируйте гейт" in page
+    assert "Ответы готовы: 1 из 1." in page
+    assert "answers/leadership.md)" not in page.split("\n")[3]
+    assert "[Ответы на эти вопросы](docs/ru/answers/leadership.md)" in pages["README.ru.md"]
+    assert "answers" not in pages["README.md"]
+
+
+def test_an_answer_needs_a_priority_question_and_one_paragraph(content_dir):
+    path = content_dir / "questions" / "agents-tools.yaml"
+    edit(path, lambda data: data["questions"][0].update(answer={"ru": "Ответ."}))
+    assert "answers belong to start_here questions" in problems(content_dir)
+    path = content_dir / "questions" / "evals-observability.yaml"
+    edit(path, lambda data: data["questions"][0].update(answer={"ru": "Первый.\nВторой."}))
+    assert "the ru answer must be one clean paragraph" in problems(content_dir)
+
+
 def test_build_then_check_detects_drift_stale_pages_and_links(tmp_path):
     root = repository(tmp_path)
     assert cli.main(["--root", str(root)]) == 0

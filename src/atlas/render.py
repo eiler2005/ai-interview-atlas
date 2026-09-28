@@ -86,6 +86,15 @@ LABELS = {
         ),
         "tracks": "Tracks and roles",
         "start": "Start here: {track}",
+        "answers": "Answers: {track}",
+        "answers_intro": (
+            "Written answers to the priority questions of this track, in the same order and "
+            "numbering as *Start here*. Answer each question yourself first: what follows is one "
+            "good answer, not the only correct one, and an interviewer is listening to your "
+            "reasoning rather than checking your wording."
+        ),
+        "answers_progress": "Answers written: {done} of {total}.",
+        "answers_link": "[Answers to these questions]({page})",
         "common": "Asked across companies",
         "common_intro": "Questions reported at two or more companies, strongest basis first.",
         "themes": "Themes",
@@ -254,6 +263,15 @@ LABELS = {
         ),
         "tracks": "Треки и роли",
         "start": "С чего начать: {track}",
+        "answers": "Ответы: {track}",
+        "answers_intro": (
+            "Письменные ответы на приоритетные вопросы трека в том же порядке и нумерации, что и "
+            "в разделе «С чего начать». Сначала ответьте сами: здесь один из хороших ответов, а "
+            "не единственно верный, и интервьюер слушает ваши рассуждения, а не совпадение "
+            "формулировок."
+        ),
+        "answers_progress": "Ответы готовы: {done} из {total}.",
+        "answers_link": "[Ответы на эти вопросы]({page})",
         "common": "Спрашивают в нескольких компаниях",
         "common_intro": "Вопросы, о которых сообщали в двух и более компаниях; сильное основание — первым.",
         "themes": "Темы",
@@ -394,6 +412,10 @@ def company_page(lang: str, company: str) -> str:
     return f"{base(lang)}/companies/{company}.md"
 
 
+def answers_page(lang: str, track: str) -> str:
+    return f"{base(lang)}/answers/{track}.md"
+
+
 def radar_page(lang: str) -> str:
     return f"{base(lang)}/radar.md"
 
@@ -444,6 +466,9 @@ class Renderer:
                 pages[theme_page(lang, theme["id"])] = self.theme(lang, theme)
             for company in self.content.companies.values():
                 pages[company_page(lang, company["id"])] = self.company(lang, company)
+            for track in TRACKS:
+                if self.answered(lang, track):
+                    pages[answers_page(lang, track)] = self.answers(lang, track)
             pages[sources_page(lang)] = self.sources(lang)
             if self.content.radar:
                 pages[radar_page(lang)] = self.radar(lang)
@@ -516,7 +541,53 @@ class Renderer:
         chosen = [q for q in self.content.questions if track in q.get("start_here", [])]
         return sorted(chosen, key=lambda q: (q.get("priority", 999), self.theme_order[q["theme"]]))
 
+    def answered(self, lang: str, track: str) -> list[dict]:
+        """Priority questions of this track that already have an answer in this language."""
+        return [q for q in self.start_here(track) if q.get("answer", {}).get(lang)]
+
     # Pages
+
+    def answers(self, lang: str, track: str) -> str:
+        labels, page = LABELS[lang], answers_page(lang, track)
+        name = self.track_names[track][lang]
+        chosen, all_priority = self.answered(lang, track), self.start_here(track)
+        back = labels["back"].format(readme=rel(page, readme(lang)))
+        # The other language has its own page only once it has answers of its own.
+        counterpart = answers_page(other(lang), track)
+        header = (
+            self.switch(lang, page, counterpart) + " · " + back
+            if self.answered(other(lang), track)
+            else back
+        )
+        lines = [
+            HEADER,
+            f"# {labels['answers'].format(track=name)}",
+            "",
+            header,
+            "",
+            md(labels["answers_intro"]),
+            "",
+            labels["answers_progress"].format(done=len(chosen), total=len(all_priority)),
+        ]
+        numbers = {q["id"]: number for number, q in enumerate(all_priority, 1)}
+        for question in chosen:
+            theme = self.content.themes[question["theme"]]
+            link = rel(page, theme_page(lang, theme["id"]))
+            lines += [
+                "",
+                f"### {numbers[question['id']]}. {md(question['text'][lang])}",
+                "",
+                f"*{labels['types'][question['type']]} · [{md(theme['name'][lang])}]({link})*",
+                "",
+                md(question["answer"][lang]),
+            ]
+            if question.get("reading"):
+                links = []
+                for source_id in question["reading"]:
+                    source = self.content.sources[source_id]
+                    links.append(f"[{cell(source['title'])}]({source['url']})")
+                lines += ["", f"{labels['read']}: " + " · ".join(links)]
+        return "\n".join(lines)
 
     def readme(self, lang: str) -> str:
         labels, content, page = LABELS[lang], self.content, readme(lang)
@@ -558,6 +629,9 @@ class Renderer:
             if not chosen:
                 continue
             lines += ["", f"## {labels['start'].format(track=names[track])}", ""]
+            if self.answered(lang, track):
+                link = rel(page, answers_page(lang, track))
+                lines += [labels["answers_link"].format(page=link), ""]
             for question in chosen:
                 lines += self.question(question, lang, page, full=False, theme_link=True)
         common = [q for q in content.questions if len(content.asked_at(q)) >= 2]

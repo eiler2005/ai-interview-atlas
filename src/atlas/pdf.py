@@ -100,6 +100,26 @@ BOOK = {
         "attribution": "Attribution",
         "sources": "Sources",
         "chart_note": "Chart and table show the same shares.",
+        "answers_elsewhere": (
+            "Written answers to these questions are in the companion book "
+            "“AI Interview Atlas — Answers”."
+        ),
+        "answers_title": "AI Interview Atlas — Answers",
+        "answers_subtitle": (
+            "Written answers to the priority questions of both tracks · edition {edition}"
+        ),
+        "answers_how": [
+            "Answer the question yourself first, aloud and from memory. Only then read on.",
+            (
+                "Each answer here is one good answer, not the only correct one. An interviewer "
+                "listens to your reasoning and your real examples, so take the structure and replace "
+                "the examples with your own."
+            ),
+            (
+                "Questions are numbered as in *Start here* in the main book, where each one also has "
+                "its checklist and reading."
+            ),
+        ],
     },
     "ru": {
         "subtitle": "Вопросы и этапы интервью для AI-инженерии и AI-лидерства · выпуск {edition}",
@@ -156,6 +176,26 @@ BOOK = {
         "attribution": "Атрибуция",
         "sources": "Источники",
         "chart_note": "График и таблица показывают одни и те же доли.",
+        "answers_elsewhere": (
+            "Письменные ответы на эти вопросы собраны в отдельной книге "
+            "«AI Interview Atlas — Ответы»."
+        ),
+        "answers_title": "AI Interview Atlas — Ответы",
+        "answers_subtitle": (
+            "Письменные ответы на приоритетные вопросы обоих треков · выпуск {edition}"
+        ),
+        "answers_how": [
+            "Сначала ответьте сами, вслух и по памяти. Читайте дальше только после этого.",
+            (
+                "Каждый ответ здесь — один из хороших, а не единственно верный. Интервьюер слушает "
+                "ваши рассуждения и ваши примеры, поэтому берите структуру, а примеры подставляйте "
+                "свои."
+            ),
+            (
+                "Нумерация совпадает с разделом «С чего начать» в основной книге, где у каждого "
+                "вопроса есть чек-лист и материалы для чтения."
+            ),
+        ],
     },
 }
 
@@ -326,6 +366,8 @@ class Book:
     def start_here(self, track: str) -> tuple[str, list[str]]:
         title = self.labels["start"].format(track=self.track_name(track))
         lines = [f"# {title}", "", self.book["start_intro"], ""]
+        if self.renderer.answered(self.lang, track):
+            lines += [f"*{self.book['answers_elsewhere']}*", ""]
         for number, question in enumerate(self.renderer.start_here(track), 1):
             lines += self.question(question, f"{number}.", full=True, theme=True)
         return title, lines
@@ -530,12 +572,73 @@ class Book:
         parts.append(self.sources())
         return parts
 
+    @property
+    def has_contents(self) -> bool:
+        """A contents page earns its own page only once there are several parts."""
+        return len(self.parts()) >= 3
+
     def markdown(self, pages: list[int] | None = None) -> str:
         """The whole book; `pages` fills the contents, or placeholders on the first pass."""
         parts = self.parts()
-        titles = [title for title, _ in parts]
-        blocks = [self.intro(), self.contents(titles, pages)] + [lines for _, lines in parts]
+        blocks = [self.intro()]
+        if self.has_contents:
+            blocks.append(self.contents([title for title, _ in parts], pages))
+        blocks += [lines for _, lines in parts]
         return f"\n\n{PAGEBREAK}\n\n".join("\n".join(b).strip() for b in blocks) + "\n"
+
+
+class AnswersBook(Book):
+    """The same content, printed as answers only: one part per track."""
+
+    def intro(self) -> list[str]:
+        book = self.book
+        lines = [
+            f"# {book['answers_title']}",
+            "",
+            f"*{pdf_text(book['answers_subtitle'].format(edition=self.renderer.updated()))}*",
+            "",
+        ]
+        for index, item in enumerate(book["answers_how"], 1):
+            lines.append(f"{index}. {item}")
+        return lines
+
+    def track_answers(self, track: str) -> tuple[str, list[str]]:
+        labels, lang = self.labels, self.lang
+        title = labels["answers"].format(track=self.track_name(track))
+        priority = self.renderer.start_here(track)
+        numbers = {q["id"]: number for number, q in enumerate(priority, 1)}
+        answered = self.renderer.answered(lang, track)
+        lines = [
+            f"# {title}",
+            "",
+            pdf_text(labels["answers_intro"]),
+            "",
+            f"*{labels['answers_progress'].format(done=len(answered), total=len(priority))}*",
+        ]
+        for question in answered:
+            theme = self.content.themes[question["theme"]]
+            lines += [
+                "",
+                f"### {numbers[question['id']]}. {pdf_text(question['text'][lang])}",
+                "",
+                f"*{labels['types'][question['type']]} · {pdf_text(theme['name'][lang])}*",
+                "",
+                pdf_text(question["answer"][lang]),
+            ]
+            if question.get("reading"):
+                lines += [
+                    "",
+                    f"**{labels['read']}:** "
+                    + " · ".join(self.reading(source) for source in question["reading"]),
+                ]
+        return title, lines
+
+    def parts(self) -> list[tuple[str, list[str]]]:
+        return [
+            self.track_answers(track)
+            for track in TRACKS
+            if self.renderer.answered(self.lang, track)
+        ]
 
 
 def missing_glyphs(markdown: str, font_path: Path) -> list[str]:
@@ -645,68 +748,87 @@ def render_book(book: Book, font: str | None) -> tuple[bytes, str, dict[str, str
                 resources=resources,
             )
         found = part_pages(data)
-        # The intro and the contents are the first two top-level entries.
-        if len(found) != len(book.parts()) + 2:
+        # The intro, and the contents when present, come before the parts.
+        before = 2 if book.has_contents else 1
+        if len(found) != len(book.parts()) + before:
             raise SystemExit("Every book part needs exactly one top-level heading")
-        if found[2:] == pages:
+        if found[before:] == pages:
             return data, markdown, resources, pages
-        pages = found[2:]
+        pages = found[before:]
     raise SystemExit("Contents page numbers did not settle")
 
 
+def write_book(book: Book, name: str, out: Path, root: Path, font: str | None) -> dict:
+    """Render one book, write it with its Markdown source, and return its manifest."""
+    from job_search_agent.pdf_documents import inspect_pdf
+
+    font_path, bold_path = font_files(font)
+    data, markdown, resources, pages = render_book(book, font)
+    (out / name).write_bytes(data)
+    (out / f"{name}.md").write_text(markdown, encoding="utf-8")
+    inputs = {
+        path.relative_to(root).as_posix(): sha(path.read_bytes())
+        for path in sorted((root / "src" / "content").rglob("*.yaml"))
+    }
+    for doc in ("METHODOLOGY.md", "ATTRIBUTION.md"):
+        path = root / "docs" / ("" if book.lang == "en" else "ru") / doc
+        if path.is_file():
+            inputs[path.relative_to(root).as_posix()] = sha(path.read_bytes())
+    manifest = {
+        "output": name,
+        "language": book.lang,
+        "edition": book.renderer.updated(),
+        "font_size": FONT_SIZE,
+        "fonts": {
+            "regular": {"path": str(font_path), "sha256": sha(font_path.read_bytes())},
+            "bold": {"path": str(bold_path), "sha256": sha(bold_path.read_bytes())},
+        },
+        "renderer": renderer_version(),
+        "markdown_sha256": sha(markdown.encode("utf-8")),
+        "resources": resources,
+        "contents": [
+            {"part": re.sub(r"\\(.)", r"\1", title), "page": page}
+            for (title, _), page in zip(book.parts(), pages, strict=True)
+        ],
+        "inputs": inputs,
+        **inspect_pdf(data),
+    }
+    (out / f"{name}.manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    return manifest
+
+
 def build(root: Path, out: Path, langs: list[str], font: str | None = None) -> list[dict]:
+    """The questions book for each language, plus an answers book where answers exist."""
     try:
-        from job_search_agent.pdf_documents import inspect_pdf
+        import job_search_agent.pdf_documents  # noqa: F401
     except ImportError as error:  # pragma: no cover - depends on the optional group
         raise SystemExit("Install the PDF renderer first: uv sync --group pdf") from error
     content = load(root / "src" / "content")
     font_path, bold_path = font_files(font)
     out.mkdir(parents=True, exist_ok=True)
-    edition = Renderer(content).updated()
+    renderer = Renderer(content)
+    edition = renderer.updated()
     results = []
     for lang in langs:
         png = out / "assets" / f"radar.{lang}.png"
         chart = chart_png(root, lang, png) if content.radar else None
-        book = Book(content, root, lang, chart)
-        missing = set(missing_glyphs(book.markdown(), font_path))
-        missing |= set(missing_glyphs(book.markdown(), bold_path))
-        if missing:
-            raise SystemExit(f"The PDF font lacks glyphs for: {' '.join(sorted(missing))}")
-        data, markdown, resources, pages = render_book(book, font)
-        name = f"ai-interview-atlas-{edition}-{lang}.pdf"
-        (out / name).write_bytes(data)
-        (out / f"{name}.md").write_text(markdown, encoding="utf-8")
-        inputs = {
-            path.relative_to(root).as_posix(): sha(path.read_bytes())
-            for path in sorted((root / "src" / "content").rglob("*.yaml"))
-        }
-        for doc in ("METHODOLOGY.md", "ATTRIBUTION.md"):
-            path = root / "docs" / ("" if lang == "en" else "ru") / doc
-            if path.is_file():
-                inputs[path.relative_to(root).as_posix()] = sha(path.read_bytes())
-        manifest = {
-            "output": name,
-            "language": lang,
-            "edition": edition,
-            "font_size": FONT_SIZE,
-            "fonts": {
-                "regular": {"path": str(font_path), "sha256": sha(font_path.read_bytes())},
-                "bold": {"path": str(bold_path), "sha256": sha(bold_path.read_bytes())},
-            },
-            "renderer": renderer_version(),
-            "markdown_sha256": sha(markdown.encode("utf-8")),
-            "resources": resources,
-            "contents": [
-                {"part": re.sub(r"\\(.)", r"\1", title), "page": page}
-                for (title, _), page in zip(book.parts(), pages, strict=True)
-            ],
-            "inputs": inputs,
-            **inspect_pdf(data),
-        }
-        (out / f"{name}.manifest.json").write_text(
-            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
-        results.append(manifest)
+        editions = [(Book(content, root, lang, chart), f"ai-interview-atlas-{edition}-{lang}.pdf")]
+        if any(renderer.answered(lang, track) for track in TRACKS):
+            editions.append(
+                (
+                    AnswersBook(content, root, lang),
+                    f"ai-interview-atlas-answers-{edition}-{lang}.pdf",
+                )
+            )
+        for book, name in editions:
+            markdown = book.markdown()
+            missing = set(missing_glyphs(markdown, font_path))
+            missing |= set(missing_glyphs(markdown, bold_path))
+            if missing:
+                raise SystemExit(f"The PDF font lacks glyphs for: {' '.join(sorted(missing))}")
+            results.append(write_book(book, name, out, root, font))
     return results
 
 

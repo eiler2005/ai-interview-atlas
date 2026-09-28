@@ -2,6 +2,14 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## 2026-09-28 — Written answers, in Russian first
+
+### Added
+- A written answer for each of the 80 priority questions, 40 per track: one paragraph of 100-150 words that a candidate could say aloud — the point, the mechanism and its trade-off, what to do or measure, and where the answer stops holding. Each answer is presented as one good answer, not the reference answer.
+- For `behavioral` and `self_presentation` questions an answer describes how to build your own account and what the interviewer is listening for; no invented stories, companies or numbers.
+- Answers live in the `answer` field of the same content files and are rendered to separate pages (`docs/ru/answers/`) and a separate 42-page PDF edition, so the question pages and the main book stay unchanged for a first pass at answering yourself.
+- Answers start in one language: pages and the answers book for a language appear only once that language has answers. English answers follow in a later wave.
+
 ## 2026-09-28 — Printable PDF books
 
 ### Added

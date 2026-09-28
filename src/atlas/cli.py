@@ -10,7 +10,14 @@ from . import links
 from .content import ContentError, load
 from .render import render
 
-GENERATED_DIRS = ("docs/themes", "docs/companies", "docs/ru/themes", "docs/ru/companies")
+GENERATED_DIRS = (
+    "docs/themes",
+    "docs/companies",
+    "docs/answers",
+    "docs/ru/themes",
+    "docs/ru/companies",
+    "docs/ru/answers",
+)
 
 
 def stale_files(root: Path, pages: dict[str, str]) -> list[str]:
