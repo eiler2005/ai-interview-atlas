@@ -3,6 +3,8 @@
 
 English · [Русский](README.ru.md)
 
+![Two clusters of interview topics on one chart: engineering on the left, leadership on the right, joined in the middle](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.0/hero-banner.png)
+
 **The questions AI interviews actually ask — every one with a source you can check.**
 
 You are preparing for an interview as an AI product manager, engineering manager, director, technical programme manager or AI engineer. Most question lists online either cite nothing or hide the answers behind a course, and almost none of them cover leadership roles. This one is free, and every claim names where it came from and when it was read.

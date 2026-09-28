@@ -9,3 +9,7 @@ Atlas paraphrases and reorganizes selected material into themes and tracks, adds
 Company interview pages and candidate accounts support only the claims linked to them. Preparation guides remain secondary. Papers, technical documentation and standards listed as reading explain an answer; they do not establish that an interview question was asked. Generated practice questions are marked 🧪 and linked to aggregate requirements themes, with no claimed interview occurrence.
 
 The [methodology](METHODOLOGY.md) explains these distinctions. The source registry records publisher, URL, retrieval date and publication date when established; it does not substitute a retrieval date for an unknown publication date. Original sources retain their own licenses and notices.
+
+## The banner
+
+The image at the top of the README was generated with OpenAI's image model on 2026-09-28 from a prompt written for this project, and is published under the same Apache-2.0 licence as the rest of the repository. Its provenance metadata and every other ancillary chunk were removed before publication, so the file carries pixels and nothing else; this note records where it came from.
