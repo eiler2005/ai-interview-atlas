@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/agents-tools.md) · [AI Interview Atlas
 
 Agent loops, tool design, memory, termination, human approval and protocols such as MCP.
 
-On this page: [Both tracks (4)](#track-both) · [AI Engineering (11)](#track-engineering)
+On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -87,5 +87,14 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (11)](#track-eng
 - <a id="agt-ontology"></a>**Why might an enterprise agent operate on an ontology of business objects and actions instead of raw tables and documents?**
   - Knowledge · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-ontology&title=%5BCorrection%5D%20agt-ontology)
   - Tests: Whether semantic modelling is connected to valid operations and permissions.
+- <a id="agt-support-agent-takehome"></a>**Build a customer-support agent for a fictional company: choose two of five proposed features, justify the choice and explain how you would measure the agent in production.**
+  - Applied scenario · Asked at: [Sierra](../companies/sierra.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-support-agent-takehome&title=%5BCorrection%5D%20agt-support-agent-takehome)
+  - Tests: Whether you prioritise scope under a deadline and plan measurement for a working agent.
+- <a id="agt-mcp-long-running"></a>**Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.**
+  - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp-long-running&title=%5BCorrection%5D%20agt-mcp-long-running)
+  - Tests: Whether you manage state, failures and context budget across a long tool-driven run.
+- <a id="agt-api-level-features"></a>**What are a language model's generation parameters?**
+  - Knowledge · Asked at: [Tochka](../companies/tochka.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-api-level-features&title=%5BCorrection%5D%20agt-api-level-features)
+  - Tests: Whether you distinguish model generation settings from instructions about role, style or response structure.
 
 ← [RAG and retrieval](rag-retrieval.md) · [Fine-tuning and post-training](post-training.md) →

@@ -28,4 +28,4 @@ On this page: [Interview loop](#loop) · [Questions (0)](#questions)
 
 No company-specific questions are recorded yet.
 
-← [Avito](avito.md) · [T-Bank](t-bank.md) →
+← [MegaFon](megafon.md) · [SberDevices (Sber)](sberdevices.md) →

@@ -5,7 +5,7 @@
 
 Сквозной дизайн AI-продуктов и платформ, рассказанный вслух: требования, компромиссы и сценарии отказа.
 
-На этой странице: [Оба трека (5)](#track-both) · [AI-инженерия (9)](#track-engineering)
+На этой странице: [Оба трека (5)](#track-both) · [AI-инженерия (11)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -74,5 +74,11 @@
 - <a id="sd-webhooks"></a>**Спроектируйте надёжную доставку событий на webhook клиентов при тайм-аутах, повторах и недоступности получателей.**
   - System design · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-webhooks&title=%5BCorrection%5D%20sd-webhooks)
   - Что проверяет: Умение точно задать гарантии доставки и обязанности получателя.
+- <a id="sd-architecture-critique"></a>**Найдите слабые места архитектуры существующего продакшен-сервиса, затем спроектируйте поверх неё новую продуктовую функцию.**
+  - System design · Где спрашивали: [LangChain](../companies/langchain.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-architecture-critique&title=%5BCorrection%5D%20sd-architecture-critique)
+  - Что проверяет: Умение рассуждать о реальной несовершенной системе, а не о чистом листе.
+- <a id="sd-ml-system-end-to-end"></a>**Спроектируйте ML-систему для продуктовой функции целиком: сформулируйте задачу и требования, разбейте её на подзадачи, спланируйте сбор данных, выберите архитектуры моделей, затем выкатите и протестируйте.**
+  - System design · Где спрашивали: [Т-Банк](../companies/t-bank.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-ml-system-end-to-end&title=%5BCorrection%5D%20sd-ml-system-end-to-end)
+  - Что проверяет: Умение выстроить ML-систему от постановки задачи до выкатки, не перескакивая сразу к модели.
 
 ← [Мультимодальность и голос](multimodal-voice.md) · [Практический кодинг](coding-practical.md) →

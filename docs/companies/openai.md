@@ -7,11 +7,11 @@ Frontier AI labs · International · Loop reviewed 2026-09-26
 
 Guides describe practical coding rather than puzzles, a project presentation and, in some loops, an AI-assisted coding round. Product managers are expected to work close to general managers. The official interview guide could not be read for this edition, so every stage below is secondary.
 
-On this page: [Interview loop](#loop) · [Questions (29)](#questions)
+On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 
 ## Roles covered
 
-- **AI Engineering:** Software engineer (general interview baseline), AI / LLM engineer
+- **AI Engineering:** Software engineer (general interview baseline), AI / LLM engineer, Forward deployed engineer (FDE)
 - **AI Leadership:** Product manager (general interview baseline)
 
 ## <a id="loop"></a>Interview loop
@@ -22,6 +22,7 @@ On this page: [Interview loop](#loop) · [Questions (29)](#questions)
 | Technical screens | About an hour of practical coding, and for engineers a separate hour-long system design screen. | † prep guide or compilation<br>[OpenAI's Interview Process & Questions](https://interviewing.io/openai-interview-questions), interviewing.io, retrieved 2026-09-26 |
 | Engineering onsite | Four to six hours: coding, system design, a project presentation with slides, a behavioral conversation with a senior manager that covers AI safety, and a collaboration round. An agentic, AI-assisted coding round on an existing codebase was in beta. | † prep guide or compilation<br>[OpenAI's Interview Process & Questions](https://interviewing.io/openai-interview-questions), interviewing.io, retrieved 2026-09-26 |
 | Product manager loop | A hiring manager screen, an hour-long product sense screen and a product execution screen, then four to six final rounds across product sense, execution, go-to-market, engineering partnership, stakeholders and behavioral questions. | † prep guide or compilation<br>[OpenAI Product Manager (PM) Interview Guide](https://www.tryexponent.com/guides/openai-product-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
+| Forward deployed engineer loop<br>*Forward deployed engineer (FDE)* | A guide describes a process that varies by team: a recruiter screen, early coding and design screens or a take-home with review, followed by a virtual onsite. It estimates three to four weeks overall. | † prep guide or compilation<br>[OpenAI Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/openai-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-29 |
 
 **Coding:** unknown. Secondary guides describe coding; no company or first-hand source verifies the requirement in this edition. ([OpenAI's Interview Process & Questions](https://interviewing.io/openai-interview-questions), interviewing.io, retrieved 2026-09-26, [OpenAI Product Manager (PM) Interview Guide](https://www.tryexponent.com/guides/openai-product-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26)
 
@@ -154,6 +155,12 @@ On this page: [Interview loop](#loop) · [Questions (29)](#questions)
 - **[Refactor a small, poorly structured program with passing tests. Explain the first change and how you preserve observable behaviour.](../themes/coding-practical.md#code-refactoring)**
   - Coding · Asked at: OpenAI †
   - Tests: Whether improvements are incremental and justified by maintainability.
+- **[Build a semantic search over a product catalogue that a chat model can call as a tool.](../themes/coding-practical.md#code-catalogue-search-tool)**
+  - Coding · Asked at: OpenAI †
+  - Tests: Whether you combine retrieval with a clear, validated tool interface that a model can use reliably.
+- **[Implement a credit system in which credits carry different expiry rules and usage requirements, and extend it as follow-up requirements arrive.](../themes/coding-practical.md#code-credit-ledger)**
+  - Coding · Asked at: OpenAI †
+  - Tests: Whether your design absorbs changing business rules without a rewrite.
 
 ### [AI product strategy and metrics](../themes/ai-product-strategy.md)
 

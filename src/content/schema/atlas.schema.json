@@ -81,7 +81,15 @@
       "properties": {
         "id": {"$ref": "#/$defs/id"},
         "kind": {
-          "enum": ["official", "participant_report", "prep_guide", "secondary_compilation", "reference"]
+          "enum": [
+            "official",
+            "participant_report",
+            "prep_guide",
+            "secondary_compilation",
+            "reference",
+            "posting"
+          ],
+          "description": "A posting describes a role; it is never evidence of an interview question or stage."
         },
         "title": {"type": "string", "minLength": 1},
         "publisher": {"type": "string", "minLength": 1},
@@ -140,7 +148,13 @@
               "stage": {"$ref": "#/$defs/text"},
               "detail": {"$ref": "#/$defs/text"},
               "claim": {"$ref": "#/$defs/claim"},
-              "sources": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}
+              "sources": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+              "roles": {
+                "type": "array",
+                "items": {"$ref": "#/$defs/id"},
+                "uniqueItems": true,
+                "description": "Taxonomy roles this stage was reported for; omit when it applies to every role."
+              }
             }
           }
         },
@@ -214,6 +228,10 @@
             "properties": {
               "source": {"$ref": "#/$defs/id"},
               "company": {"$ref": "#/$defs/id"},
+              "role": {
+                "$ref": "#/$defs/id",
+                "description": "The taxonomy role the report concerns, when the source names one."
+              },
               "observed": {"$ref": "#/$defs/partialDate"}
             }
           }
@@ -233,6 +251,65 @@
       "properties": {
         "theme": {"$ref": "#/$defs/id"},
         "questions": {"type": "array", "items": {"$ref": "#/$defs/question"}}
+      }
+    },
+    "roleLink": {
+      "type": "string",
+      "description": "Plain text; links are written [label](kind:id) with kind theme, question, page or role."
+    },
+    "roleText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "ru"],
+      "properties": {"en": {"$ref": "#/$defs/roleLink"}, "ru": {"$ref": "#/$defs/roleLink"}}
+    },
+    "rolesFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checked", "intro", "families"],
+      "properties": {
+        "checked": {"$ref": "#/$defs/date"},
+        "intro": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/roleText"}},
+        "families": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "track", "name", "summary", "roles", "sections", "prep"],
+            "properties": {
+              "id": {"$ref": "#/$defs/id"},
+              "track": {"$ref": "#/$defs/track"},
+              "name": {"$ref": "#/$defs/text"},
+              "summary": {"$ref": "#/$defs/text"},
+              "roles": {
+                "type": "array",
+                "minItems": 1,
+                "items": {"$ref": "#/$defs/id"},
+                "uniqueItems": true
+              },
+              "sections": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["text"],
+                  "properties": {
+                    "text": {"$ref": "#/$defs/roleText"},
+                    "sources": {
+                      "type": "array",
+                      "items": {"$ref": "#/$defs/id"},
+                      "uniqueItems": true
+                    }
+                  }
+                }
+              },
+              "prep": {"$ref": "#/$defs/roleText"},
+              "practice": {"$ref": "#/$defs/roleText"}
+            }
+          }
+        }
       }
     },
     "radar": {

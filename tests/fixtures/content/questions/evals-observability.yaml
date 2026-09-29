@@ -18,7 +18,7 @@ questions:
     provenance: published
     evidence:
       - {source: big-compilation, company: example-labs}
-      - {source: candidate-blog, company: sample-bank, observed: 2026-07}
+      - {source: candidate-blog, company: sample-bank, role: ai-engineer, observed: 2026-07}
     added: 2026-09-20
   - id: eval-metrics-for-assistant
     tracks: [leadership]

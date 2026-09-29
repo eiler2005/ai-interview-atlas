@@ -7,11 +7,11 @@ Russian Big Tech · Russia · Loop reviewed 2026-09-26
 
 Interviewers describe a screening, live coding and a team-fit interview. A 2025 senior candidate also had a management section and system design, and received a grade before meeting teams.
 
-On this page: [Interview loop](#loop) · [Questions (0)](#questions)
+On this page: [Interview loop](#loop) · [Questions (2)](#questions)
 
 ## Roles covered
 
-- **AI Engineering:** Software engineer (general interview baseline)
+- **AI Engineering:** Software engineer (general interview baseline), ML engineer / data scientist
 - **AI Leadership:** Engineering manager
 
 ## <a id="loop"></a>Interview loop
@@ -22,11 +22,23 @@ On this page: [Interview loop](#loop) · [Questions (0)](#questions)
 | Live coding | Programming in real time, about an hour and a half in one interviewer's description; the thinking process is assessed, not only the answer. | ✅ confirmed by the company<br>[«Важно не только занять должность, но и работать на ней»: советы перед ИТ-собеседованиями](https://t-j.ru/interview-in-tinkoff/), Т—Ж (издание Т-Банка), интервьюеры Т-Банка, published 2023-06-07, retrieved 2026-09-26 |
 | Team fit | A final interview to check fit with the team and its tasks. | ✅ confirmed by the company<br>[«Важно не только занять должность, но и работать на ней»: советы перед ИТ-собеседованиями](https://t-j.ru/interview-in-tinkoff/), Т—Ж (издание Т-Банка), интервьюеры Т-Банка, published 2023-06-07, retrieved 2026-09-26 |
 | Senior and team-lead track (2025) | A conversational management section, a two-hour language section and system design (a courier-tracking service), then fit interviews with several teams after a grade was assigned. | 🗣 candidate report<br>[Как я собеседовался в Ozon, Т-Банк, Mindbox и другие крупные компании](https://habr.com/ru/articles/926214/), Хабр, пост кандидата, published 2025-07-09, retrieved 2026-09-26 |
+| ML system design section<br>*ML engineer / data scientist* | Design and decompose a complex ML system: formalise the task and requirements, split it into subtasks, collect data, choose ML architectures, then deploy and test. Published in 2022 in a repository archived in 2023. | ✅ confirmed by the company<br>[Секция по дизайну ML систем](https://github.com/Tinkoff/career/blob/main/interview/sections/system-design-ml.md), Т-Банк (Tinkoff), репозиторий career на GitHub, published 2022-08-01, retrieved 2026-09-29 |
+| ML section<br>*ML engineer / data scientist* | Data analysis questions on theory and practical cases: framing the task, choosing and justifying quality metrics, collecting and validating data, and ML algorithms. From the same 2022 archive. | ✅ confirmed by the company<br>[Секция по ML](https://github.com/Tinkoff/career/blob/main/interview/sections/platform-ml.md), Т-Банк (Tinkoff), репозиторий career на GitHub, published 2022-08-01, retrieved 2026-09-29 |
 
 **Coding:** required ([«Важно не только занять должность, но и работать на ней»: советы перед ИТ-собеседованиями](https://t-j.ru/interview-in-tinkoff/), Т—Ж (издание Т-Банка), интервьюеры Т-Банка, published 2023-06-07, retrieved 2026-09-26)
 
 ## <a id="questions"></a>Questions reported for T-Bank
 
-No company-specific questions are recorded yet.
+### [Evaluation and observability](../themes/evals-observability.md)
 
-← [Ozon](ozon.md) · [Yandex](yandex.md) →
+- **[Frame a business problem as a machine-learning task: choose and justify the quality metric, and explain how you would collect and validate the data.](../themes/evals-observability.md#eval-ml-task-framing)**
+  - Knowledge · Asked at: T-Bank ✅
+  - Tests: Whether the metric and data follow from the business goal rather than habit.
+
+### [AI system design](../themes/ai-system-design.md)
+
+- **[Design an ML system for a product feature end to end: frame the task and requirements, decompose it, plan data collection, choose model architectures, then deploy and test it.](../themes/ai-system-design.md#sd-ml-system-end-to-end)**
+  - System design · Asked at: T-Bank ✅
+  - Tests: Whether you structure an ML system from problem framing to deployment instead of jumping to a model.
+
+← [SberDevices (Sber)](sberdevices.md) · [Yandex](yandex.md) →

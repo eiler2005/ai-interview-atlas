@@ -47,4 +47,4 @@ On this page: [Interview loop](#loop) · [Questions (3)](#questions)
   - Applied scenario · Senior · Asked at: Stripe †
   - Tests: Whether standards are observable, proportionate and part of daily delivery.
 
-← [Monzo](monzo.md) · [Avito](avito.md) →
+← [Ramp](ramp.md) · [Tochka](tochka.md) →

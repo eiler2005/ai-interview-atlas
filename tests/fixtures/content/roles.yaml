@@ -1,0 +1,25 @@
+checked: 2026-09-20
+intro:
+  - en: "Pick a role by its work; see [the evaluation theme](theme:evals-observability)."
+    ru: "Выбирайте роль по работе; см. [тему оценки](theme:evals-observability)."
+families:
+  - id: builders
+    track: engineering
+    name: {en: Builders, ru: Строители}
+    summary: {en: Build AI features., ru: Строят AI-функции.}
+    roles: [ai-engineer, applied-ai-engineer]
+    sections:
+      - sources: [example-posting]
+        text:
+          en: "Builders ship **gated** changes, as in [the gate](question:regression-gate)."
+          ru: "Строители выпускают **проверенные** изменения, как в [гейте](question:regression-gate)."
+    prep: {en: "practise [the gate](question:regression-gate).", ru: "разберите [гейт](question:regression-gate)."}
+    practice: {en: build a demo., ru: соберите демо.}
+  - id: leaders
+    track: leadership
+    name: {en: Leaders, ru: Лидеры}
+    summary: {en: Lead AI products., ru: Ведут AI-продукты.}
+    roles: [ai-pm]
+    sections:
+      - text: {en: Leaders decide., ru: Лидеры решают.}
+    prep: {en: "read the [learning path](page:learning-path).", ru: "прочитайте [учебный план](page:learning-path)."}

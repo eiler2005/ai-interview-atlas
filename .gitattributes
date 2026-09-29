@@ -19,3 +19,7 @@ docs/start/** linguist-generated=true
 docs/ru/start/** linguist-generated=true
 docs/answers/** linguist-generated=true
 docs/ru/answers/** linguist-generated=true
+docs/AI_ROLES.md linguist-generated=true
+docs/ru/AI_ROLES.md linguist-generated=true
+docs/roles/** linguist-generated=true
+docs/ru/roles/** linguist-generated=true

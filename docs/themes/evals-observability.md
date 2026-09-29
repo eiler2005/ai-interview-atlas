@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/evals-observability.md) · [AI Intervie
 
 Knowing whether an AI system works: eval sets, LLM judges, regression gates, online measurement and production traces.
 
-On this page: [Both tracks (8)](#track-both) · [AI Engineering (10)](#track-engineering)
+On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -106,5 +106,14 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (10)](#track-eng
 - <a id="eval-multiple-good-answers"></a>**Two qualified clinicians produce different good notes from the same consultation. How would you evaluate a generated note fairly?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-multiple-good-answers&title=%5BCorrection%5D%20eval-multiple-good-answers)
   - Tests: Whether evaluation permits valid variation while checking omissions and unsupported content.
+- <a id="eval-behaviour-brainstorm"></a>**In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation.**
+  - Knowledge · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-behaviour-brainstorm&title=%5BCorrection%5D%20eval-behaviour-brainstorm)
+  - Tests: Whether you generate concrete, testable hypotheses about model behaviour quickly.
+- <a id="eval-ml-task-framing"></a>**Frame a business problem as a machine-learning task: choose and justify the quality metric, and explain how you would collect and validate the data.**
+  - Knowledge · Asked at: [T-Bank](../companies/t-bank.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-ml-task-framing&title=%5BCorrection%5D%20eval-ml-task-framing)
+  - Tests: Whether the metric and data follow from the business goal rather than habit.
+- <a id="eval-prompt-target-share"></a>**Modify a prompt so that a target share of the model's outputs matches the desired result, and show how you measured it.**
+  - Applied scenario · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-target-share&title=%5BCorrection%5D%20eval-prompt-target-share)
+  - Tests: Whether prompt changes are driven by measurement on a set of cases rather than single examples.
 
 ← [Fine-tuning and post-training](post-training.md) · [Safety, security and governance](safety-security-governance.md) →

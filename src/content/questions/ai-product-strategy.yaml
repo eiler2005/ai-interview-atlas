@@ -36,6 +36,7 @@ questions:
     reading: ["paper-heart","google-rules-of-ml"]
   - id: "prod-capability-cost"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "product_case"
     level: "senior"
     text:
@@ -70,6 +71,7 @@ questions:
     reading: ["google-rules-of-ml","paper-heart"]
   - id: "prod-ai-suitability"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "product_case"
     level: "senior"
     text:
@@ -138,6 +140,7 @@ questions:
     reading: ["paper-heart","nist-ai-rmf"]
   - id: "prod-confident-errors"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "product_case"
     level: "senior"
     text:
@@ -206,6 +209,7 @@ questions:
     reading: ["paper-heart","google-rules-of-ml"]
   - id: "prod-ai-feature-metrics"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "product_case"
     level: "senior"
     text:
@@ -240,6 +244,7 @@ questions:
     reading: ["paper-heart"]
   - id: "prod-search-north-star"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "product_case"
     level: "senior"
     text:
@@ -361,6 +366,7 @@ questions:
         company: "openai"
   - id: "prod-agent-use-cases"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "product_case"
     level: "senior"
     text:
@@ -380,6 +386,7 @@ questions:
         company: "microsoft"
   - id: "prod-model-choice"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "knowledge"
     level: "senior"
     text:
@@ -418,6 +425,7 @@ questions:
         company: "perplexity"
   - id: "prod-roadmap"
     tracks: ["leadership"]
+    roles: ["ai-pm"]
     type: "product_case"
     level: "senior"
     text:
@@ -530,3 +538,48 @@ questions:
     evidence:
       - source: "monzo-pm-interview"
         company: "monzo"
+  - id: "prod-enterprise-ai-pricing"
+    tracks: ["leadership"]
+    roles: ["ai-pm"]
+    type: "product_case"
+    text:
+      en: "How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?"
+      ru: "Как вы установите цену корпоративного AI-продукта, какие затраты обязательно учтёте и как кастомизация под каждого клиента влияет на маржинальность?"
+    tests:
+      en: "Whether you reason about unit economics and margin, not only product value."
+      ru: "Умение рассуждать о юнит-экономике и марже, а не только о ценности продукта."
+    provenance: "published"
+    evidence:
+      - source: "habr-ai-pm-enterprise-interviewer"
+        role: "ai-pm"
+    added: "2026-09-29"
+  - id: "prod-enterprise-discovery"
+    tracks: ["leadership"]
+    roles: ["ai-pm"]
+    type: "product_case"
+    text:
+      en: "In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?"
+      ru: "Кто в дискавери корпоративного AI-продукта является «персоной», где вы найдёте B2B-респондентов и как поймёте, что проблему стоит решать?"
+    tests:
+      en: "Whether you adapt customer research to enterprise buyers, users and decision-makers."
+      ru: "Умение адаптировать исследование клиентов к корпоративным покупателям, пользователям и лицам, принимающим решения."
+    provenance: "published"
+    evidence:
+      - source: "habr-ai-pm-enterprise-interviewer"
+        role: "ai-pm"
+    added: "2026-09-29"
+  - id: "prod-expensive-mvp"
+    tracks: ["leadership"]
+    roles: ["ai-pm"]
+    type: "product_case"
+    text:
+      en: "What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?"
+      ru: "Что вы будете делать, если MVP корпоративного AI-продукта слишком дорого или долго делать?"
+    tests:
+      en: "Whether you test the riskiest assumptions with cheaper prototypes before committing to a build."
+      ru: "Умение проверить самые рискованные гипотезы более дешёвыми прототипами до решения строить продукт."
+    provenance: "published"
+    evidence:
+      - source: "habr-ai-pm-enterprise-interviewer"
+        role: "ai-pm"
+    added: "2026-09-29"

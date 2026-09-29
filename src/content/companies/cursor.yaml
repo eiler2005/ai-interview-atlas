@@ -1,0 +1,41 @@
+id: "cursor"
+name:
+  en: "Cursor (Anysphere)"
+  ru: "Cursor (Anysphere)"
+segment: "ai-native"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer"
+summary:
+  en: "One new-graduate candidate describes rounds held in real code: a data structure from the product implemented in a cloned repository with limited AI help, and a long remote onsite shipping a self-chosen feature."
+  ru: "Кандидат-выпускник описывает раунды в реальном коде: реализовать структуру данных из продукта в клоне репозитория с ограниченной помощью AI и длинный удалённый onsite, где функцию нужно выбрать и выпустить самому."
+loop:
+- stage:
+    en: "Technical round in the product's code"
+    ru: "Технический раунд в коде продукта"
+  detail:
+    en: "Implement a hash tree the product actually uses inside a cloned repository; search, ChatGPT and Cursor were allowed for targeted syntax help, announced to the interviewer before use."
+    ru: "Реализовать hash tree, который продукт действительно использует, в клоне репозитория; поиск, ChatGPT и Cursor разрешались для точечной помощи с синтаксисом — с предупреждением интервьюера."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-cursor-engineer"
+  roles:
+  - "software-engineer"
+- stage:
+    en: "Remote onsite build"
+    ru: "Удалённый onsite со сборкой"
+  detail:
+    en: "Eight to nine hours with access to the codebase: decide what to build, build it, then explain why it was implemented that way and what the trade-offs are."
+    ru: "Восемь-девять часов с доступом к кодовой базе: решить, что построить, построить и объяснить, почему реализовано именно так и какие компромиссы."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-cursor-engineer"
+  roles:
+  - "software-engineer"
+coding:
+  value: "required"
+  sources:
+  - "exponent-report-cursor-engineer"
+reviewed: "2026-09-29"

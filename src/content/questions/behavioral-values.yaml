@@ -478,3 +478,53 @@ questions:
     evidence:
       - source: "exponent-openai-pm"
         company: "openai"
+  - id: "beh-why-forward-deployed"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "self_presentation"
+    text:
+      en: "Why this company, and why the forward deployed role rather than engineering on the core product?"
+      ru: "Почему эта компания и почему именно forward deployed, а не разработка основного продукта?"
+    tests:
+      en: "Whether your motivation fits customer-facing delivery work, not only the company's name."
+      ru: "Соответствует ли ваша мотивация работе с клиентами и внедрению, а не только имени компании."
+    provenance: "published"
+    evidence:
+      - source: "taro-palantir-fdse-2025"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+        observed: "2025-08"
+    added: "2026-09-29"
+  - id: "beh-mission-without-upside"
+    tracks: ["engineering"]
+    roles: ["solutions-architect"]
+    type: "behavioral"
+    text:
+      en: "Would you be comfortable staying if the company's stock went to zero?"
+      ru: "Остались бы вы в компании, если бы её акции обесценились до нуля?"
+    tests:
+      en: "Whether your commitment rests on the mission and the work rather than the financial upside."
+      ru: "Держится ли ваша мотивация на миссии и работе, а не на финансовой выгоде."
+    provenance: "published"
+    evidence:
+      - source: "taro-anthropic-solutions-architect-2025"
+        company: "anthropic"
+        role: "solutions-architect"
+        observed: "2025-05"
+    added: "2026-09-29"
+  - id: "beh-might-not-succeed"
+    tracks: ["leadership"]
+    roles: ["deployment-strategist"]
+    type: "self_presentation"
+    text:
+      en: "What might keep you from succeeding in this job?"
+      ru: "Что может помешать вам добиться успеха в этой работе?"
+    tests:
+      en: "Whether you assess your fit for an ambiguous, customer-facing role honestly."
+      ru: "Насколько честно вы оцениваете свою пригодность к неопределённой роли с работой на клиента."
+    provenance: "published"
+    evidence:
+      - source: "exponent-palantir-deployment-strategist"
+        company: "palantir"
+        role: "deployment-strategist"
+    added: "2026-09-29"

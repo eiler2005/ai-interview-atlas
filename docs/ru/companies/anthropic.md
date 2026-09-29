@@ -7,25 +7,31 @@
 
 Короткий цикл с раундом ценностей, который сам по себе может остановить процесс. Технические раунды практические, а не олимпиадные; в живых интервью кандидатам нельзя пользоваться AI-ассистентами.
 
-На этой странице: [Этапы интервью](#loop) · [Официальные материалы для подготовки](#prep) · [Вопросы (34)](#questions)
+На этой странице: [Этапы интервью](#loop) · [Официальные материалы для подготовки](#prep) · [Вопросы (39)](#questions)
 
 ## Роли
 
-- **AI-инженерия:** Разработчик AI-продуктов, AI/LLM-инженер, Инженер AI-платформы / MLOps
+- **AI-инженерия:** Разработчик AI-продуктов, AI/LLM-инженер, Инженер AI-платформы / MLOps, Инженер инференса и производительности, Forward deployed engineer (FDE), Архитектор AI-решений / customer engineer, Research-инженер
 - **AI-лидерство:** Руководитель разработки (EM)
 
 ## <a id="loop"></a>Этапы интервью
 
 | Этап | Что происходит | Основание |
 | --- | --- | --- |
-| Скрининг с рекрутером | 15–30 минут о бэкграунде и мотивации, включая «почему Anthropic» и интерес к безопасности AI. Рекрутер предупредил, что можно пройти техническую часть и не пройти по ценностям. | 🗣 отчёт кандидата<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
+| Скрининг с рекрутером<br>*Инженер AI-платформы / MLOps* | 15–30 минут о бэкграунде и мотивации, включая «почему Anthropic» и интерес к безопасности AI. Рекрутер предупредил, что можно пройти техническую часть и не пройти по ценностям. | 🗣 отчёт кандидата<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
 | Инструменты и правила кодинга | На технических ролях — живой кодинг в инструментах вроде Colab и CodeSignal, интервью проходят в Google Meet. Подсматривать можно, но базовый синтаксис и стандартные библиотеки не должны отнимать время. | ✅ подтверждено компанией<br>[Careers](https://www.anthropic.com/careers), Anthropic, проверено 2026-09-26 |
 | Без AI-помощи в живых интервью | AI можно использовать для подготовки и для доработки заявки, которую вы написали сами, но не во время живых интервью. Домашние задания выполняются без Claude, если компания не скажет иначе. | ✅ подтверждено компанией<br>[Guidance on Candidates' AI Usage](https://www.anthropic.com/candidate-ai-guidance), Anthropic, опубликовано 2025-07-10, проверено 2026-09-26 |
 | Кодинг с нарастающей спецификацией | Гайды описывают 60–90 минут на одну практическую задачу, которая усложняется примерно за четыре уровня, например хранилище в памяти или банковская логика; тесты открывают следующий уровень. | † гайд или подборка<br>[Anthropic's Interview Process & Questions](https://interviewing.io/anthropic-interview-questions), interviewing.io, проверено 2026-09-26<br>[Anthropic Software Engineer (SWE) Interview Guide](https://www.tryexponent.com/guides/anthropic-software-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26 |
 | Разговор с нанимающим менеджером | Около 45–60 минут о прошлых проектах, инженерных суждениях и технических решениях. | † гайд или подборка<br>[Anthropic Software Engineer (SWE) Interview Guide](https://www.tryexponent.com/guides/anthropic-software-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26<br>[Anthropic's Interview Process & Questions](https://interviewing.io/anthropic-interview-questions), interviewing.io, проверено 2026-09-26 |
-| Финальные раунды | У одного кандидата было пять раундов: system design (раздать большой файл тысячам машин), практический проект на код (конвейер обработки изображений), разбор проекта с упором на договорённости и конфликты между командами, поведенческий раунд и раунд культуры. | 🗣 отчёт кандидата<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
-| Раунд ценностей и культуры | Вопросы о случае, когда работа противоречила вашим ценностям, и о том, как вы взвешиваете давление сроков против рисков безопасности. | 🗣 отчёт кандидата<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
-| Цикл для руководителя разработки | Скрининг о миссии и безопасности AI, затем технический дизайн (сервис батчинга инференса на одном GPU), презентация крупной инициативы и вопросы о самой большой команде, развитии людей, неопределённости и несогласии. | 🗣 отчёт кандидата<br>[Anthropic Engineering Manager Interview Experience](https://www.tryexponent.com/experiences/anthropic-engineering-manager-interview-170078), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
+| Финальные раунды<br>*Инженер AI-платформы / MLOps* | У одного кандидата было пять раундов: system design (раздать большой файл тысячам машин), практический проект на код (конвейер обработки изображений), разбор проекта с упором на договорённости и конфликты между командами, поведенческий раунд и раунд культуры. | 🗣 отчёт кандидата<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
+| Раунд ценностей и культуры<br>*Инженер AI-платформы / MLOps* | Вопросы о случае, когда работа противоречила вашим ценностям, и о том, как вы взвешиваете давление сроков против рисков безопасности. | 🗣 отчёт кандидата<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
+| Цикл для руководителя разработки<br>*Руководитель разработки (EM)* | Скрининг о миссии и безопасности AI, затем технический дизайн (сервис батчинга инференса на одном GPU), презентация крупной инициативы и вопросы о самой большой команде, развитии людей, неопределённости и несогласии. | 🗣 отчёт кандидата<br>[Anthropic Engineering Manager Interview Experience](https://www.tryexponent.com/experiences/anthropic-engineering-manager-interview-170078), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
+| Первоначальное домашнее задание для инженеров производительности (больше не используется)<br>*Инженер инференса и производительности* | В первоначальном задании начала 2024 года кандидаты оптимизировали последовательную программу для симулятора ускорителя с помощью многоядерного, векторного и инструкционного параллелизма; AI-помощь разрешалась. В статье января 2026 года сказано, что задание больше не используется: во второй версии убрали многоядерность, а на смену пришли задачи с небольшим набором инструкций. | ✅ подтверждено компанией<br>[Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations), Anthropic, опубликовано 2026-01-21, проверено 2026-09-29 |
+| Процесс для forward deployed engineer<br>*Forward deployed engineer (FDE)* | Гайды описывают звонок с рекрутером, технический скрининг по сценарию — долгая задача через инструменты MCP, — прогрессивный кодинг, раунд с нанимающим менеджером, проектирование корпоративного внедрения Claude и раунд о ценностях. | † гайд или подборка<br>[Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-29 |
+| Финальный этап для solutions architect<br>*Архитектор AI-решений / customer engineer* | Кандидат в 2025 году сообщает о трёх собеседованиях за два дня, включая интервью о культуре с вопросом, устроит ли его ситуация, если акции компании обесценятся до нуля. | 🗣 отчёт кандидата<br>[Anthropic Solutions Architect Interview Experience - United Kingdom](https://www.jointaro.com/interviews/companies/anthropic/experiences/solutions-architect-united-kingdom-may-1-2025-no-offer-negative-7a9e91b7/), Taro, candidate report, проверено 2026-09-29 |
+| Процесс для product engineer<br>*Разработчик AI-продуктов* | Кандидат в 2025 году сообщает о живом кодинге, обсуждении продаж, интервью о культуре и разговоре с нанимающим менеджером. | 🗣 отчёт кандидата<br>[Anthropic Product Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/anthropic/experiences/product-engineer-new-york-ny-june-1-2025-no-offer-positive-c0c3d7ae/), Taro, candidate report, проверено 2026-09-29 |
+| Процесс для Research Fellowship | Кандидат сообщает об автоматическом 90-минутном задании по программированию из четырёх уровней, часе живого кодинга, проверке рекомендаций и 15-минутном обсуждении исследовательских идей. Пятичасовое домашнее задание с разбором и разговор о культуре были запланированы, но отменены после отказа по итогам обсуждения идей. | 🗣 отчёт кандидата<br>[I failed my Anthropic interview and came to tell you all about it so you don't have to](https://faillearnrepeat.net/blog/i-failed-my-anthropic-interview-and-came-to-tell-you-all-about-it-so-you-dont-have-to), Fail. Learn. Repeat., опубликовано 2025-02-12, проверено 2026-09-29 |
+| Собеседование prompt engineer (2023) | 30-минутное техническое собеседование: править промпты в playground на основе таблицы, чтобы заданная доля ответов совпала с нужным результатом. | 🗣 отчёт кандидата<br>[Anthropic AI Prompt Engineer Interview Experience - San Francisco, California](https://www.jointaro.com/interviews/companies/anthropic/experiences/ai-prompt-engineer-san-francisco-ca-september-1-2023-no-offer-neutral-9ceb022c/), Taro, candidate report, проверено 2026-09-29 |
 
 **Кодинг:** обязателен. Для технических ролей; интервью на нетехнические роли проходят в форме беседы ([Careers](https://www.anthropic.com/careers), Anthropic, проверено 2026-09-26)
 
@@ -60,6 +66,9 @@
     - Ограничивать токены и KV-память, а не только число запросов.
     - Измерять ожидание и голодание запросов наряду с throughput.
   - Читать: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) (Kwon et al., arXiv)
+- **[В первоначальном домашнем задании Anthropic для инженеров производительности, введённом в 2024 году и впоследствии снятом с использования, оптимизируйте последовательную программу для симулятора ускорителя с помощью многоядерного, векторного и инструкционного параллелизма.](../themes/inference-economics.md#inf-accelerator-takehome)**
+  - Кодинг · Где спрашивали: Anthropic ✅
+  - Что проверяет: Умение методично находить параллелизм и строить инструменты, чтобы измерять и отлаживать каждый шаг.
 
 ### [Агенты, инструменты и протоколы](../themes/agents-tools.md)
 
@@ -77,6 +86,9 @@
 - **[Как для coding agent отделить вклад модели от вклада harness в надёжное завершение задачи?](../themes/agents-tools.md#agt-coding-harness)**
   - System design · Где спрашивали: Anthropic †
   - Что проверяет: Умение установить источник улучшения контролируемым сравнением.
+- **[Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна.](../themes/agents-tools.md#agt-mcp-long-running)**
+  - System design · Где спрашивали: Anthropic †
+  - Что проверяет: Умение управлять состоянием, сбоями и бюджетом контекста на протяжении долгого выполнения с инструментами.
 
 ### [Дообучение и post-training](../themes/post-training.md)
 
@@ -105,6 +117,12 @@
 - **[Спроектируйте эксперимент для предполагаемой новой способности или смещения большой модели с контролем влияния формулировки задачи.](../themes/evals-observability.md#eval-emergent-capability)**
   - Прикладной сценарий · Где спрашивали: Anthropic †
   - Что проверяет: Умение проверять утверждение о способности и рассматривать альтернативные объяснения.
+- **[В коротком разговоре без подготовки предложите проверяемые идеи о поведении языковой модели, для которых нужен не внутренний доступ, а внимательное наблюдение.](../themes/evals-observability.md#eval-behaviour-brainstorm)**
+  - Знания · Где спрашивали: Anthropic 🗣
+  - Что проверяет: Умение быстро выдвигать конкретные проверяемые гипотезы о поведении модели.
+- **[Измените промпт так, чтобы заданная доля ответов модели соответствовала нужному результату, и покажите, как вы это измерили.](../themes/evals-observability.md#eval-prompt-target-share)**
+  - Прикладной сценарий · Где спрашивали: Anthropic 🗣
+  - Что проверяет: Опираются ли правки промпта на измерения по набору примеров, а не на отдельные случаи.
 
 ### [Безопасность, защита и governance](../themes/safety-security-governance.md)
 
@@ -248,5 +266,8 @@
 - **[Расскажите об обратной связи, которую было трудно услышать, и о том, как вы её использовали.](../themes/behavioral-values.md#beh-critical-feedback)**
   - Поведенческий · Senior · Где спрашивали: Anthropic †
   - Что проверяет: Умеете ли вы отвечать на критику конкретными выводами и действиями.
+- **[Остались бы вы в компании, если бы её акции обесценились до нуля?](../themes/behavioral-values.md#beh-mission-without-upside)**
+  - Поведенческий · Где спрашивали: Anthropic 🗣
+  - Что проверяет: Держится ли ваша мотивация на миссии и работе, а не на финансовой выгоде.
 
 [OpenAI](openai.md) →

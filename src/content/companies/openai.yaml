@@ -9,6 +9,7 @@ roles:
   engineering:
   - "software-engineer-general"
   - "ai-engineer"
+  - "forward-deployed-engineer"
   leadership:
   - "product-manager-general"
 summary:
@@ -52,6 +53,17 @@ loop:
   claim: "secondary"
   sources:
   - "exponent-openai-pm"
+- stage:
+    en: "Forward deployed engineer loop"
+    ru: "Процесс для forward deployed engineer"
+  detail:
+    en: "A guide describes a process that varies by team: a recruiter screen, early coding and design screens or a take-home with review, followed by a virtual onsite. It estimates three to four weeks overall."
+    ru: "Гайд описывает процесс, который зависит от команды: звонок с рекрутером, начальные скрининги по кодингу и проектированию или домашнее задание с разбором, затем виртуальный onsite. Общая длительность по оценке гайда — три-четыре недели."
+  claim: "secondary"
+  sources:
+  - "exponent-openai-fde"
+  roles:
+  - "forward-deployed-engineer"
 coding:
   value: "unknown"
   note:

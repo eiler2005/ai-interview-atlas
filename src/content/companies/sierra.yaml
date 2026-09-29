@@ -1,0 +1,91 @@
+id: "sierra"
+name:
+  en: "Sierra"
+  ru: "Sierra"
+segment: "ai-native"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "agent-engineer"
+  - "software-engineer"
+summary:
+  en: "In April 2026 Sierra rebuilt its engineering interviews around coding agents: a system design screen, then an onsite where the candidate plans, builds and defends a product in about two hours with the AI tools of their choice. Earlier loops, reported by a candidate, used a take-home agent build."
+  ru: "В апреле 2026 года Sierra перестроила инженерные собеседования под coding-агентов: скрининг по system design, затем onsite, где кандидат планирует, собирает и защищает продукт примерно за два часа с любыми AI-инструментами. Прежний процесс, по рассказу кандидата, включал домашнюю сборку агента."
+loop:
+- stage:
+    en: "System design screen"
+    ru: "Скрининг по system design"
+  detail:
+    en: "Replaced the earlier coding screen, in which candidates wrote code without AI: the company considers taking an application into production at scale the harder problem."
+    ru: "Заменил прежний скрининг по программированию без AI: компания считает более трудной задачей вывести приложение в продакшен с масштабированием."
+  claim: "confirmed"
+  sources:
+  - "sierra-ai-native-interview"
+  roles:
+  - "software-engineer"
+- stage:
+    en: "Onsite: plan"
+    ru: "Onsite: план"
+  detail:
+    en: "A working session in which the candidate drives the definition of a product in their own domain while interviewers question it."
+    ru: "Рабочая сессия: кандидат сам предлагает продукт из своей области, а интервьюеры задают вопросы, чтобы его укрепить."
+  claim: "confirmed"
+  sources:
+  - "sierra-ai-native-interview"
+  roles:
+  - "software-engineer"
+- stage:
+    en: "Onsite: build"
+    ru: "Onsite: сборка"
+  detail:
+    en: "The interviewer leaves and the candidate builds the product for about two hours with the AI tools and frameworks of their choice, free to cut or change scope."
+    ru: "Интервьюер выходит, и кандидат около двух часов собирает продукт с любыми AI-инструментами и фреймворками, свободно сокращая или меняя объём."
+  claim: "confirmed"
+  sources:
+  - "sierra-ai-native-interview"
+  roles:
+  - "software-engineer"
+- stage:
+    en: "Onsite: review"
+    ru: "Onsite: разбор"
+  detail:
+    en: "A demo and a debate of the key product flows; a code review of the data model, abstractions and extensibility; the path to production; and how AI was used."
+    ru: "Демонстрация и обсуждение ключевых сценариев; ревью кода — модель данных, абстракции, расширяемость; путь в продакшен и то, как использовался AI."
+  claim: "confirmed"
+  sources:
+  - "sierra-ai-native-interview"
+  roles:
+  - "software-engineer"
+- stage:
+    en: "Debugging interview (pilot)"
+    ru: "Раунд отладки (пилот)"
+  detail:
+    en: "A medium-sized codebase and a colleague's draft pull request that adds a cross-cutting feature: review and improve it, iterating with coding agents. How much AI is allowed was still undecided."
+    ru: "Кодовая база среднего размера и черновой pull request коллеги со сквозной функцией: нужно проверить и улучшить его, работая с coding-агентами. Допустимый объём AI на момент публикации ещё не определён."
+  claim: "confirmed"
+  sources:
+  - "sierra-ai-native-interview"
+  roles:
+  - "software-engineer"
+- stage:
+    en: "Earlier take-home and onsite"
+    ru: "Прежние домашнее задание и onsite"
+  detail:
+    en: "One candidate, about a year before retrieval: build a customer-support agent for a fictional company, choosing two of five features and explaining how to measure it in production; then a TypeScript and React debugging round and a defence of the design."
+    ru: "Один кандидат, примерно за год до проверки: собрать агента поддержки для вымышленной компании, выбрав две функции из пяти и объяснив, как измерять его в продакшене; затем раунд отладки на TypeScript и React и защита решений."
+  claim: "participant_report"
+  sources:
+  - "exponent-report-sierra-agent-engineer"
+  roles:
+  - "agent-engineer"
+coding:
+  value: "required"
+  note:
+    en: "The build round is hands-on programming with AI tools allowed."
+    ru: "Раунд сборки — практическое программирование с разрешёнными AI-инструментами."
+  sources:
+  - "sierra-ai-native-interview"
+prep:
+- "sierra-ai-native-interview"
+reviewed: "2026-09-29"

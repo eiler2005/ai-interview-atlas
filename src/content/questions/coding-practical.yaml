@@ -204,6 +204,7 @@ questions:
     added: "2026-09-26"
   - id: "code-agent-loop"
     tracks: ["engineering"]
+    roles: ["agent-engineer"]
     type: "coding"
     text:
       en: "Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit."
@@ -257,3 +258,197 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+  - id: "code-ai-assisted-build"
+    tracks: ["engineering"]
+    roles: ["software-engineer", "agent-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production."
+      ru: "Спланируйте продукт вместе с интервьюером, затем примерно за два часа соберите его с любыми AI-инструментами для программирования и защитите решения, код и путь в продакшен."
+    tests:
+      en: "Whether you scope, build and defend a working product with AI assistance under a time limit."
+      ru: "Умение ограничить задачу, собрать и защитить рабочий продукт с помощью AI за отведённое время."
+    provenance: "published"
+    evidence:
+      - source: "sierra-ai-native-interview"
+        company: "sierra"
+        role: "software-engineer"
+    added: "2026-09-29"
+  - id: "code-agent-pr-review"
+    tracks: ["engineering"]
+    roles: ["software-engineer", "agent-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents."
+      ru: "Проверьте и доработайте черновой pull request коллеги со сквозной функцией в незнакомой кодовой базе, работая вместе с coding-агентами."
+    tests:
+      en: "Whether you judge someone else's change critically instead of accepting what an agent proposes."
+      ru: "Умение критически оценить чужое изменение, а не принимать всё, что предлагает агент."
+    provenance: "published"
+    evidence:
+      - source: "sierra-ai-native-interview"
+        company: "sierra"
+        role: "software-engineer"
+    added: "2026-09-29"
+  - id: "code-product-structure"
+    tracks: ["engineering"]
+    roles: ["software-engineer"]
+    type: "coding"
+    text:
+      en: "Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions."
+      ru: "В клоне репозитория продукта реализуйте структуру данных, которую продукт действительно использует; к AI обращайтесь только с точечными вопросами по синтаксису."
+    tests:
+      en: "Whether you can read an unfamiliar real codebase and implement a core structure correctly."
+      ru: "Умение разобраться в незнакомом реальном коде и правильно реализовать ключевую структуру."
+    provenance: "published"
+    evidence:
+      - source: "exponent-report-cursor-engineer"
+        company: "cursor"
+        role: "software-engineer"
+    added: "2026-09-29"
+  - id: "code-self-scoped-onsite"
+    tracks: ["engineering"]
+    roles: ["software-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Given a real codebase for a working day, decide what to build, ship it, and explain your implementation choices and trade-offs."
+      ru: "Получив реальную кодовую базу на рабочий день, решите, что построить, выпустите это и объясните свои решения и компромиссы."
+    tests:
+      en: "Whether you scope your own work, deliver it and defend it without step-by-step direction."
+      ru: "Умение самому определить объём работы, довести её до результата и защитить без пошаговых указаний."
+    provenance: "published"
+    evidence:
+      - source: "exponent-report-cursor-engineer"
+        company: "cursor"
+        role: "software-engineer"
+    added: "2026-09-29"
+  - id: "code-spreadsheet-cycles"
+    tracks: ["engineering"]
+    roles: ["agent-engineer"]
+    type: "coding"
+    text:
+      en: "In a spreadsheet where cells can reference other cells, detect whether there is a circular reference."
+      ru: "В таблице, где ячейки могут ссылаться на другие ячейки, определите, есть ли циклическая ссылка."
+    tests:
+      en: "Whether you model dependencies as a graph and detect cycles correctly and efficiently."
+      ru: "Умение представить зависимости графом и правильно и эффективно находить циклы."
+    provenance: "published"
+    evidence:
+      - source: "exponent-report-sierra-agent-engineer"
+        company: "sierra"
+        role: "agent-engineer"
+    added: "2026-09-29"
+  - id: "code-catalogue-search-tool"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "coding"
+    text:
+      en: "Build a semantic search over a product catalogue that a chat model can call as a tool."
+      ru: "Сделайте семантический поиск по каталогу товаров, который чат-модель может вызывать как инструмент."
+    tests:
+      en: "Whether you combine retrieval with a clear, validated tool interface that a model can use reliably."
+      ru: "Умение совместить поиск с понятным, проверяемым интерфейсом инструмента, которым модель может надёжно пользоваться."
+    provenance: "published"
+    evidence:
+      - source: "exponent-openai-fde"
+        company: "openai"
+        role: "forward-deployed-engineer"
+    added: "2026-09-29"
+  - id: "code-credit-ledger"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "coding"
+    text:
+      en: "Implement a credit system in which credits carry different expiry rules and usage requirements, and extend it as follow-up requirements arrive."
+      ru: "Реализуйте систему кредитов с разными правилами сгорания и условиями использования и расширяйте её по мере поступления новых требований."
+    tests:
+      en: "Whether your design absorbs changing business rules without a rewrite."
+      ru: "Выдерживает ли ваше решение меняющиеся бизнес-правила без переписывания."
+    provenance: "published"
+    evidence:
+      - source: "exponent-openai-fde"
+        company: "openai"
+        role: "forward-deployed-engineer"
+    added: "2026-09-29"
+  - id: "code-pair-sum"
+    tracks: ["engineering"]
+    roles: ["ml-engineer"]
+    type: "coding"
+    text:
+      en: "Find a pair of numbers in an array with a given sum; clarify the conditions, test the code and discuss complexity and edge cases."
+      ru: "Найдите в массиве пару чисел с заданной суммой: уточните условия, протестируйте код и обсудите сложность и граничные случаи."
+    tests:
+      en: "Whether basic data-structure fluency, testing and edge-case discipline hold up in live coding."
+      ru: "Уверенность в базовых структурах данных, тестировании и граничных случаях при живом кодинге."
+    provenance: "published"
+    evidence:
+      - source: "yandex-ml-engineer-section"
+        company: "yandex"
+        role: "ml-engineer"
+    added: "2026-09-29"
+  - id: "code-optimise-scheduler"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "coding"
+    text:
+      en: "Optimise the implementation of a given scheduling system, keeping the code clean."
+      ru: "Оптимизируйте реализацию заданной системы расписаний, сохранив код чистым."
+    tests:
+      en: "Whether you find the real bottleneck and improve it without making the code harder to read."
+      ru: "Умение найти настоящее узкое место и ускорить код, не делая его менее понятным."
+    provenance: "published"
+    evidence:
+      - source: "taro-palantir-fdse-denver-2025"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+        observed: "2025-03"
+    added: "2026-09-29"
+  - id: "code-debug-api-service"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "coding"
+    text:
+      en: "Debug a broken API service: trace the logs, find the bottleneck and fix a memory leak."
+      ru: "Отладьте сломанный API-сервис: разберите логи, найдите узкое место и устраните утечку памяти."
+    tests:
+      en: "Whether you debug a running service systematically from evidence rather than guesses."
+      ru: "Умение системно отлаживать работающий сервис по фактам, а не по догадкам."
+    provenance: "published"
+    evidence:
+      - source: "taro-palantir-fdse-denver-2025"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+        observed: "2025-03"
+    added: "2026-09-29"
+  - id: "code-sql-by-hand"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "coding"
+    text:
+      en: "Write SQL queries to answer questions about a dataset, without being able to run them."
+      ru: "Напишите SQL-запросы, отвечающие на вопросы о наборе данных, без возможности их запустить."
+    tests:
+      en: "Whether your data-querying fundamentals hold up without tools to check them."
+      ru: "Выдерживают ли ваши базовые навыки запросов к данным проверку без инструментов."
+    provenance: "published"
+    evidence:
+      - source: "taro-palantir-fdse-sql-2025"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+        observed: "2025-11"
+    added: "2026-09-29"
+  - id: "code-agent-session-choices"
+    tracks: ["engineering"]
+    roles: ["ai-engineer", "software-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task."
+      ru: "На сессии с AI-кодингом объясните, какими моделями пользуетесь и почему, как следите за расходом токенов и как задаёте агенту контекст и задачу."
+    tests:
+      en: "Whether you direct coding agents deliberately rather than accepting their defaults."
+      ru: "Умение осознанно управлять coding-агентами, а не полагаться на их настройки по умолчанию."
+    provenance: "published"
+    evidence:
+      - source: "habr-llm-engineer-interviews-2026"
+        role: "ai-engineer"
+    added: "2026-09-29"

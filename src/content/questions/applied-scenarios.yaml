@@ -2,6 +2,7 @@ theme: "applied-scenarios"
 questions:
   - id: "app-claims-discovery"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -36,6 +37,7 @@ questions:
     reading: ["anthropic-building-effective-agents","nist-ai-rmf"]
   - id: "app-pilot-rescue"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -70,6 +72,7 @@ questions:
     reading: ["google-sre-book","anthropic-evals-for-agents"]
   - id: "app-finetuning-request"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -171,6 +174,7 @@ questions:
     reading: ["google-sre-book","google-rules-of-ml"]
   - id: "app-vpc-pilot"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -204,6 +208,7 @@ questions:
     reading: ["azure-multitenant","nist-ai-rmf"]
   - id: "app-rag-account-triage"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -223,6 +228,7 @@ questions:
         company: "anthropic"
   - id: "app-research-explanation"
     tracks: ["leadership"]
+    roles: ["deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -242,6 +248,7 @@ questions:
         company: "anthropic"
   - id: "app-rail-downtime"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -261,6 +268,7 @@ questions:
         company: "palantir"
   - id: "app-city-traffic"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "system_design"
     level: "senior"
     text:
@@ -336,6 +344,7 @@ questions:
       - source: "outcome-school-company-wise"
   - id: "app-open-model-engagement"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -426,6 +435,7 @@ questions:
       - source: "outcome-school-company-wise"
   - id: "app-contact-centre"
     tracks: ["leadership"]
+    roles: ["fde-lead"]
     type: "applied_scenario"
     level: "senior"
     text:
@@ -460,3 +470,83 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+  - id: "app-financial-crime-decomposition"
+    tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "deployment-strategist"]
+    type: "applied_scenario"
+    text:
+      en: "After an introduction to insider trading, explain how you would detect it: what data would you need, what would you ask the customer and what patterns would you look for?"
+      ru: "После вводного объяснения инсайдерской торговли расскажите, как бы вы её выявляли: какие данные вам нужны, что вы спросите у клиента и какие закономерности будете искать?"
+    tests:
+      en: "Whether you turn a vague, high-stakes problem into a scoped first system that can be tested."
+      ru: "Умение превратить размытую задачу с высокими ставками в ограниченную первую систему, которую можно проверить."
+    provenance: "published"
+    evidence:
+      - source: "firstround-hiring-fde"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+    added: "2026-09-29"
+  - id: "app-agent-product-poc"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Instead of a coding round, build a proof of concept for a customer scenario inside the company's own agent product and show how the customer would use it."
+      ru: "Вместо раунда кодинга соберите proof of concept для клиентского сценария внутри собственного агентного продукта компании и покажите, как клиент будет им пользоваться."
+    tests:
+      en: "Whether you understand how customers actually use the product, not only how to write code."
+      ru: "Понимаете ли вы, как клиенты на самом деле пользуются продуктом, а не только как писать код."
+    provenance: "published"
+    evidence:
+      - source: "exponent-cognition-fde"
+        company: "cognition"
+        role: "forward-deployed-engineer"
+    added: "2026-09-29"
+  - id: "app-customer-case-call"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Lead a timed case-study call with a simulated customer: uncover the real problem, propose an approach and agree on next steps."
+      ru: "Проведите ограниченный по времени звонок с условным клиентом: выясните настоящую проблему, предложите подход и договоритесь о следующих шагах."
+    tests:
+      en: "Whether you run a customer conversation under time pressure and leave with a concrete plan."
+      ru: "Умение вести разговор с клиентом в условиях нехватки времени и прийти к конкретному плану."
+    provenance: "published"
+    evidence:
+      - source: "exponent-cognition-fde"
+        company: "cognition"
+        role: "forward-deployed-engineer"
+    added: "2026-09-29"
+  - id: "app-learn-then-design"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures."
+      ru: "За несколько минут встройте незнакомую библиотеку в существующую систему, затем спроектируйте систему вокруг неё с учётом масштаба, хранения данных и отказов."
+    tests:
+      en: "Whether you learn an unfamiliar tool quickly and carry it into sound design decisions."
+      ru: "Умение быстро освоить незнакомый инструмент и перенести его в обоснованные проектные решения."
+    provenance: "published"
+    evidence:
+      - source: "taro-palantir-fdse-denver-2025"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+        observed: "2025-03"
+    added: "2026-09-29"
+  - id: "app-prompt-date-range"
+    tracks: ["engineering"]
+    roles: ["applied-ai-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first) and «по первое число» (through the first)."
+      ru: "Напишите промпт, который извлекает период из запроса клиента и различает почти одинаковые формулировки вроде «с первого числа», «по первое число» и «за первое число»."
+    tests:
+      en: "Whether you handle language-specific ambiguity and test a prompt on hard cases."
+      ru: "Умение учитывать неоднозначности конкретного языка и проверять промпт на трудных случаях."
+    provenance: "published"
+    evidence:
+      - source: "tochka-prompt-engineers-2025"
+        company: "tochka"
+    added: "2026-09-29"

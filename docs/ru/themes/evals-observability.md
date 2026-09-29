@@ -5,7 +5,7 @@
 
 Как понять, что AI-система работает: eval-наборы, LLM-судьи, регрессионные гейты, онлайн-измерения и трассировки.
 
-На этой странице: [Оба трека (8)](#track-both) · [AI-инженерия (10)](#track-engineering)
+На этой странице: [Оба трека (8)](#track-both) · [AI-инженерия (13)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -106,5 +106,14 @@
 - <a id="eval-multiple-good-answers"></a>**Два квалифицированных врача составляют разные, но хорошие записи одной консультации. Как корректно оценить сгенерированную запись?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-multiple-good-answers&title=%5BCorrection%5D%20eval-multiple-good-answers)
   - Что проверяет: Умение допускать корректную вариативность, проверяя пропуски и неподтверждённое содержание.
+- <a id="eval-behaviour-brainstorm"></a>**В коротком разговоре без подготовки предложите проверяемые идеи о поведении языковой модели, для которых нужен не внутренний доступ, а внимательное наблюдение.**
+  - Знания · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-behaviour-brainstorm&title=%5BCorrection%5D%20eval-behaviour-brainstorm)
+  - Что проверяет: Умение быстро выдвигать конкретные проверяемые гипотезы о поведении модели.
+- <a id="eval-ml-task-framing"></a>**Сформулируйте бизнес-задачу как задачу машинного обучения: выберите и обоснуйте метрику качества и объясните, как соберёте и проверите данные.**
+  - Знания · Где спрашивали: [Т-Банк](../companies/t-bank.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-ml-task-framing&title=%5BCorrection%5D%20eval-ml-task-framing)
+  - Что проверяет: Следуют ли метрика и данные из бизнес-цели, а не из привычки.
+- <a id="eval-prompt-target-share"></a>**Измените промпт так, чтобы заданная доля ответов модели соответствовала нужному результату, и покажите, как вы это измерили.**
+  - Прикладной сценарий · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-target-share&title=%5BCorrection%5D%20eval-prompt-target-share)
+  - Что проверяет: Опираются ли правки промпта на измерения по набору примеров, а не на отдельные случаи.
 
 ← [Дообучение и post-training](post-training.md) · [Безопасность, защита и governance](safety-security-governance.md) →

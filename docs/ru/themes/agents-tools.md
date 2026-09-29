@@ -5,7 +5,7 @@
 
 Агентные циклы, дизайн инструментов, память, завершение, одобрение человеком и протоколы вроде MCP.
 
-На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (11)](#track-engineering)
+На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (14)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -87,5 +87,14 @@
 - <a id="agt-ontology"></a>**Почему корпоративному агенту может быть полезнее работать с онтологией бизнес-объектов и действий, чем с сырыми таблицами и документами?**
   - Знания · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-ontology&title=%5BCorrection%5D%20agt-ontology)
   - Что проверяет: Умение связать семантическую модель с допустимыми операциями и правами.
+- <a id="agt-support-agent-takehome"></a>**Соберите агента поддержки для вымышленной компании: выберите две функции из пяти, обоснуйте выбор и объясните, как будете измерять агента в продакшене.**
+  - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-support-agent-takehome&title=%5BCorrection%5D%20agt-support-agent-takehome)
+  - Что проверяет: Умение расставить приоритеты при ограниченном времени и спланировать измерение работающего агента.
+- <a id="agt-mcp-long-running"></a>**Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна.**
+  - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp-long-running&title=%5BCorrection%5D%20agt-mcp-long-running)
+  - Что проверяет: Умение управлять состоянием, сбоями и бюджетом контекста на протяжении долгого выполнения с инструментами.
+- <a id="agt-api-level-features"></a>**Какие параметры управляют генерацией языковой модели?**
+  - Знания · Где спрашивали: [Точка](../companies/tochka.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-api-level-features&title=%5BCorrection%5D%20agt-api-level-features)
+  - Что проверяет: Отличаете ли вы настройки генерации модели от инструкций о роли, стиле или структуре ответа.
 
 ← [RAG и поиск](rag-retrieval.md) · [Дообучение и post-training](post-training.md) →

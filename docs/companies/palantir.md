@@ -5,22 +5,31 @@ English · [Русский](../ru/companies/palantir.md) · [AI Interview Atlas]
 
 Enterprise and forward-deployed AI · International · Loop reviewed 2026-09-26
 
-Secondary guides emphasize decomposition of an ambiguous practical problem and report restrictions on AI assistance. Confirm the current team's format and tool rules.
+Guides and a hiring-side account centre the loop on decomposition: turning an ambiguous real problem into a scoped plan. A 2025 candidate report adds a technical round judged on reasoning under ambiguity. Guides also report restrictions on AI assistance; confirm the current team's format and tool rules.
 
-On this page: [Interview loop](#loop) · [Questions (20)](#questions)
+On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 
 ## Roles covered
 
-- **AI Engineering:** Applied AI / forward-deployed engineer, Software engineer (general interview baseline)
+- **AI Engineering:** Forward deployed engineer (FDE), Software engineer (general interview baseline)
+- **AI Leadership:** Deployment strategist
 
 ## <a id="loop"></a>Interview loop
 
 | Stage | What happens | Basis |
 | --- | --- | --- |
-| Recruiter call | About 30 minutes on motivation and connection to the mission. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
-| Technical screen | Live coding or an online assessment with a coding task, a SQL query and an API task. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
-| Onsite | Three hour-long rounds drawn from decomposition, coding, learning an unfamiliar system, re-engineering a large codebase and system design. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, published 2026-09-19, retrieved 2026-09-26 |
-| Hiring manager interview | About an hour that revisits weaker areas, ownership and team fit. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, published 2026-09-19, retrieved 2026-09-26 |
+| Recruiter call<br>*Forward deployed engineer (FDE)* | About 30 minutes on motivation and connection to the mission. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
+| Technical screen<br>*Forward deployed engineer (FDE)* | Live coding or an online assessment with a coding task, a SQL query and an API task. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
+| Onsite<br>*Forward deployed engineer (FDE)* | Three hour-long rounds drawn from decomposition, coding, learning an unfamiliar system, re-engineering a large codebase and system design. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, published 2026-09-19, retrieved 2026-09-26 |
+| Hiring manager interview<br>*Forward deployed engineer (FDE)* | About an hour that revisits weaker areas, ownership and team fit. | † prep guide or compilation<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, published 2026-09-19, retrieved 2026-09-26 |
+| Decomposition round<br>*Forward deployed engineer (FDE), Deployment strategist* | Guides describe 45–60 minutes, the first 10–15 spent on questions: an ambiguous operational problem is turned into a scoped, layered plan; deployment strategists practise prompts such as detecting money laundering or fraudulent tax returns. | † prep guide or compilation<br>[The Palantir Decomposition Interview, Explained](https://fdeinterviews.com/guide/palantir-decomposition-interview), FDEInterviews.com, retrieved 2026-09-29<br>[Palantir Deployment Strategist Interview Guide](https://www.tryexponent.com/guides/palantir-deployment-strategist-interview), Aced (formerly Exponent), published 2026-08-20, retrieved 2026-09-29 |
+| Decomposition, from the hiring side<br>*Forward deployed engineer (FDE)* | A former Palantir FDE who led FDE recruiting describes explaining a domain such as insider trading and asking what data the candidate would need, what they would ask the customer and what they would look for. | 🗣 candidate report<br>[So You Want to Hire a Forward Deployed Engineer](https://review.firstround.com/so-you-want-to-hire-a-forward-deployed-engineer/), First Round Review, published 2026-02-24, retrieved 2026-09-29 |
+| Technical round, candidate report<br>*Forward deployed engineer (FDE)* | In August 2025, after a conversational recruiter screen that asked why Palantir and why this role, an algorithmic problem judged on how the candidate handled ambiguity, explained trade-offs and debugged in real time. | 🗣 candidate report<br>[Palantir Forward Deployed Software Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-new-york-ny-august-15-2025-no-offer-positive-816dddf1/), Taro, candidate report, retrieved 2026-09-29 |
+| Deployment strategist technical bar<br>*Deployment strategist* | The guide describes learning an unfamiliar SQL-like language in a live technical round; SQL fluency is recommended preparation. | † prep guide or compilation<br>[Palantir Deployment Strategist Interview Guide](https://www.tryexponent.com/guides/palantir-deployment-strategist-interview), Aced (formerly Exponent), published 2026-08-20, retrieved 2026-09-29 |
+| Phone interviews and onsite | Everyone starts with one or two phone interviews; if there is a fit, an onsite round follows. The process is structured around engineering competencies, each with a published guide. | ✅ confirmed by the company<br>[Getting Hired](https://www.palantir.com/careers/getting-hired/), Palantir Careers, retrieved 2026-09-29 |
+| Working inside existing systems | One of the published competencies: changing systems, codebases and infrastructure you did not write, for example restoring a customer's system after an outage without first reading all of its code. | ✅ confirmed by the company<br>[Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/), Palantir Careers, retrieved 2026-09-29 |
+| Onsite rounds, candidate report<br>*Forward deployed engineer (FDE)* | March 2025, offer accepted: an engineer screen on breaking down a problem, then coding (optimising a scheduling system), debugging a broken API service, a learning round that integrates an unfamiliar library before a system design, and a hiring manager round. | 🗣 candidate report<br>[Palantir Forward Deployed Software Engineer Interview Experience - Denver, Colorado](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-denver-co-march-1-2025-accepted-offer-positive-92cad6d6/), Taro, candidate report, retrieved 2026-09-29 |
+| Learning round with SQL, candidate report<br>*Forward deployed engineer (FDE)* | November 2025: a coding and decomposition interview, then a virtual onsite with a second decomposition and a learning interview that expected SQL queries without running them, although the candidate had been told no preparation was needed. | 🗣 candidate report<br>[Palantir Forward Deployed Software Engineer Interview Experience - United States](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-united-states-november-9-2025-no-offer-negative-a89581e3/), Taro, candidate report, retrieved 2026-09-29 |
 
 **Coding:** unknown. A secondary guide describes coding for FDEs; company or first-hand confirmation is absent here. ([Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26)
 
@@ -88,6 +97,15 @@ On this page: [Interview loop](#loop) · [Questions (20)](#questions)
 - **[Write a function that collects a paginated REST result while handling page size, termination and incomplete responses explicitly.](../themes/coding-practical.md#code-pagination)**
   - Coding · Asked at: Palantir †
   - Tests: Whether boundary conditions prevent missing or duplicated records.
+- **[Optimise the implementation of a given scheduling system, keeping the code clean.](../themes/coding-practical.md#code-optimise-scheduler)**
+  - Coding · Asked at: Palantir 🗣
+  - Tests: Whether you find the real bottleneck and improve it without making the code harder to read.
+- **[Debug a broken API service: trace the logs, find the bottleneck and fix a memory leak.](../themes/coding-practical.md#code-debug-api-service)**
+  - Coding · Asked at: Palantir 🗣
+  - Tests: Whether you debug a running service systematically from evidence rather than guesses.
+- **[Write SQL queries to answer questions about a dataset, without being able to run them.](../themes/coding-practical.md#code-sql-by-hand)**
+  - Coding · Asked at: Palantir 🗣
+  - Tests: Whether your data-querying fundamentals hold up without tools to check them.
 
 ### [AI platform and operating model](../themes/ai-operating-model.md)
 
@@ -125,6 +143,12 @@ On this page: [Interview loop](#loop) · [Questions (20)](#questions)
 - **[Design an application for recording species while exploring an unfamiliar environment.](../themes/applied-scenarios.md#app-field-catalogue)**
   - System design · Senior · Asked at: Palantir †
   - Tests: Whether you clarify field constraints and support trustworthy data collection.
+- **[After an introduction to insider trading, explain how you would detect it: what data would you need, what would you ask the customer and what patterns would you look for?](../themes/applied-scenarios.md#app-financial-crime-decomposition)**
+  - Applied scenario · Asked at: Palantir 🗣
+  - Tests: Whether you turn a vague, high-stakes problem into a scoped first system that can be tested.
+- **[Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures.](../themes/applied-scenarios.md#app-learn-then-design)**
+  - Applied scenario · Asked at: Palantir 🗣
+  - Tests: Whether you learn an unfamiliar tool quickly and carry it into sound design decisions.
 
 ### [Behavioral and values](../themes/behavioral-values.md)
 
@@ -134,5 +158,11 @@ On this page: [Interview loop](#loop) · [Questions (20)](#questions)
 - **[How do you think about work for defence or intelligence customers, and what would you do if a requested project conflicted with your values?](../themes/behavioral-values.md#beh-sensitive-mission)**
   - Behavioral · Senior · Asked at: Palantir †
   - Tests: Whether you reason about concrete boundaries and professional responsibility.
+- **[Why this company, and why the forward deployed role rather than engineering on the core product?](../themes/behavioral-values.md#beh-why-forward-deployed)**
+  - Self-presentation · Asked at: Palantir 🗣
+  - Tests: Whether your motivation fits customer-facing delivery work, not only the company's name.
+- **[What might keep you from succeeding in this job?](../themes/behavioral-values.md#beh-might-not-succeed)**
+  - Self-presentation · Asked at: Palantir †
+  - Tests: Whether you assess your fit for an ambiguous, customer-facing role honestly.
 
 ← [Atlassian](atlassian.md) · [Adyen](adyen.md) →

@@ -13,6 +13,7 @@ loop:
   - stage: {en: Practical coding, ru: Практический кодинг}
     claim: participant_report
     sources: [candidate-blog]
+    roles: [applied-ai-engineer]
   - stage: {en: Onsite, ru: Финальные раунды}
     claim: secondary
     sources: [big-compilation]

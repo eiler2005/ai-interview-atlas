@@ -52,4 +52,4 @@
     - Покажите выполнение и эффект, обозначив границы своего влияния.
   - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 
-← [Adyen](adyen.md) · [Stripe](stripe.md) →
+← [Adyen](adyen.md) · [Ramp](ramp.md) →

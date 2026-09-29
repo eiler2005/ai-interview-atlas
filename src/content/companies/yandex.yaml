@@ -8,6 +8,7 @@ markets:
 roles:
   engineering:
   - "software-engineer-general"
+  - "ml-engineer"
 summary:
   en: "Employer articles from 2021 and 2024 describe architecture and algorithmic interviews for general developers. They are separate documents from the same company, without independent corroboration; an AI-specific loop is not established."
   ru: "Статьи работодателя 2021 и 2024 годов описывают архитектурные и алгоритмические интервью для разработчиков. Это отдельные документы одной компании, без независимого подтверждения; специальный AI-цикл не установлен."
@@ -30,6 +31,17 @@ loop:
   claim: "confirmed"
   sources:
   - "yandex-architecture-section"
+- stage:
+    en: "ML engineer coding section"
+    ru: "Секция по коду для ML-инженеров"
+  detail:
+    en: "A recorded demonstration: find a pair of numbers with a given sum, clarify the conditions, write and test code, and discuss complexity and edge cases."
+    ru: "Запись демонстрации: найти пару чисел с заданной суммой, уточнить условия, написать и протестировать код, обсудить сложность и граничные случаи."
+  claim: "confirmed"
+  sources:
+  - "yandex-ml-engineer-section"
+  roles:
+  - "ml-engineer"
 coding:
   value: "required"
   sources:

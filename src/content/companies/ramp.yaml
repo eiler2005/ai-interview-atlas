@@ -1,0 +1,35 @@
+id: "ramp"
+name:
+  en: "Ramp"
+  ru: "Ramp"
+segment: "fintech"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "forward-deployed-engineer"
+summary:
+  en: "Ramp's engineering blog explains how it hires forward deployed engineers: drive and work ethic come first, and engineering fundamentals are a bar to pass rather than the main signal. Seven of its sixteen FDEs had founded companies."
+  ru: "Инженерный блог Ramp объясняет, как компания нанимает forward deployed engineers: на первом месте драйв и трудолюбие, а инженерная база — планка, которую нужно пройти, а не главный сигнал. Семь из шестнадцати FDE в команде раньше основывали компании."
+loop:
+- stage:
+    en: "What the FDE loop assesses"
+    ru: "Что оценивают на собеседованиях FDE"
+  detail:
+    en: "Drive and work ethic, which Ramp calls the single best predictor of real-world performance; engineering fundamentals (coding, debugging, data structures, system design) without over-weighting perfection; customer empathy, meaning reading how a customer feels and handling the interaction well; and clear communication."
+    ru: "Драйв и трудолюбие — по словам Ramp, лучший предиктор реальной работы; инженерная база (код, отладка, структуры данных, system design) без упора на безупречность; эмпатия к клиенту — понимать, что он чувствует, и выстраивать общение; ясная коммуникация."
+  claim: "confirmed"
+  sources:
+  - "ramp-fde-hiring"
+  roles:
+  - "forward-deployed-engineer"
+coding:
+  value: "required"
+  note:
+    en: "Coding and debugging are among the fundamentals Ramp validates."
+    ru: "Код и отладка входят в базовые навыки, которые проверяет Ramp."
+  sources:
+  - "ramp-fde-hiring"
+prep:
+- "ramp-fde-hiring"
+reviewed: "2026-09-29"

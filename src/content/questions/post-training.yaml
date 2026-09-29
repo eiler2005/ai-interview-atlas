@@ -2,6 +2,7 @@ theme: "post-training"
 questions:
   - id: "pt-rlhf"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "knowledge"
     text:
       en: "Walk through a preference-based RLHF pipeline and explain the roles of the reward model and reference-policy penalty."
@@ -30,6 +31,7 @@ questions:
     reading: ["paper-instructgpt"]
   - id: "pt-dpo"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "knowledge"
     text:
       en: "Compare DPO with PPO-based RLHF, including the assumptions behind offline preference learning and reasons to collect fresh rollouts."
@@ -40,6 +42,8 @@ questions:
     provenance: "published"
     evidence:
       - source: "outcome-school-company-wise"
+      - source: "habr-llm-engineer-interviews-2026"
+        role: "ai-engineer"
     added: "2026-09-26"
     start_here: ["engineering"]
     priority: 23
@@ -58,6 +62,7 @@ questions:
     reading: ["paper-dpo"]
   - id: "pt-grpo"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "knowledge"
     text:
       en: "Explain group-relative policy optimisation and the trade-offs of estimating advantages without a learned value model."
@@ -81,6 +86,7 @@ questions:
     reading: ["paper-deepseekmath-grpo"]
   - id: "pt-lora"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "knowledge"
     text:
       en: "Derive the low-rank weight update used by LoRA and propose an experiment for choosing its rank."
@@ -163,6 +169,7 @@ questions:
     added: "2026-09-26"
   - id: "pt-method-choice"
     tracks: ["engineering","leadership"]
+    roles: ["research-engineer"]
     type: "applied_scenario"
     text:
       en: "Choose between prompt changes, retrieval and finetuning for a failing AI feature; include data freshness, latency and total cost."
@@ -232,6 +239,7 @@ questions:
     added: "2026-09-26"
   - id: "pt-reward-hacking"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "applied_scenario"
     text:
       en: "Policy reward keeps rising while humans prefer its outputs less. How would you diagnose and limit reward hacking?"
@@ -292,6 +300,7 @@ questions:
     reading: ["paper-constitutional-ai"]
   - id: "pt-loss-divergence"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "applied_scenario"
     text:
       en: "A long pretraining run suddenly diverges. How do you investigate data, numerics and optimiser state before resuming from a checkpoint?"
@@ -306,6 +315,7 @@ questions:
     added: "2026-09-26"
   - id: "pt-distributed-training"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "system_design"
     text:
       en: "Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable."

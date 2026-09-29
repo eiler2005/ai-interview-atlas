@@ -7,25 +7,31 @@ Frontier AI labs · International · Loop reviewed 2026-09-26
 
 A short loop with a values round that can end the process on its own. Technical rounds are practical rather than puzzle-style, and candidates may not use AI assistants in live interviews.
 
-On this page: [Interview loop](#loop) · [Official preparation material](#prep) · [Questions (34)](#questions)
+On this page: [Interview loop](#loop) · [Official preparation material](#prep) · [Questions (39)](#questions)
 
 ## Roles covered
 
-- **AI Engineering:** Software engineer on AI products, AI / LLM engineer, AI platform / MLOps engineer
+- **AI Engineering:** Software engineer on AI products, AI / LLM engineer, AI platform / MLOps engineer, Inference and performance engineer, Forward deployed engineer (FDE), AI solutions architect / customer engineer, Research engineer
 - **AI Leadership:** Engineering manager
 
 ## <a id="loop"></a>Interview loop
 
 | Stage | What happens | Basis |
 | --- | --- | --- |
-| Recruiter screen | 15–30 minutes on background and motivation, including why Anthropic and interest in AI safety. The recruiter warned that candidates can pass technically and still fail on values. | 🗣 candidate report<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
+| Recruiter screen<br>*AI platform / MLOps engineer* | 15–30 minutes on background and motivation, including why Anthropic and interest in AI safety. The recruiter warned that candidates can pass technically and still fail on values. | 🗣 candidate report<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
 | Coding tools and rules | Technical roles use live coding in tools such as Colab and CodeSignal, and interviews run over Google Meet. You may look things up, but basic syntax and standard libraries should not slow you down. | ✅ confirmed by the company<br>[Careers](https://www.anthropic.com/careers), Anthropic, retrieved 2026-09-26 |
 | No AI help in live interviews | AI may be used to prepare and to polish an application you drafted yourself, not during live interviews. Take-home work is done without Claude unless the company says otherwise. | ✅ confirmed by the company<br>[Guidance on Candidates' AI Usage](https://www.anthropic.com/candidate-ai-guidance), Anthropic, published 2025-07-10, retrieved 2026-09-26 |
 | Progressive coding assessment | Guides describe 60–90 minutes on one practical problem that grows over about four levels, such as an in-memory store or banking logic, with tests unlocking each level. | † prep guide or compilation<br>[Anthropic's Interview Process & Questions](https://interviewing.io/anthropic-interview-questions), interviewing.io, retrieved 2026-09-26<br>[Anthropic Software Engineer (SWE) Interview Guide](https://www.tryexponent.com/guides/anthropic-software-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
 | Hiring manager screen | About 45–60 minutes on past projects, engineering judgement and technical decisions. | † prep guide or compilation<br>[Anthropic Software Engineer (SWE) Interview Guide](https://www.tryexponent.com/guides/anthropic-software-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-26<br>[Anthropic's Interview Process & Questions](https://interviewing.io/anthropic-interview-questions), interviewing.io, retrieved 2026-09-26 |
-| Onsite | One candidate had five rounds: system design (distributing a large file to thousands of machines), a practical coding project (an image-processing pipeline), a project deep dive on cross-team agreement and conflict, a behavioral round and a culture round. | 🗣 candidate report<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
-| Values and culture round | Questions about a time the work conflicted with your values and how you weigh delivery pressure against safety or security concerns. | 🗣 candidate report<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
-| Engineering manager loop | A screen on the mission and AI safety, then a technical design (an inference batching service on one GPU), a presentation of a major initiative, and questions on the largest team managed, growing people, ambiguity and disagreement. | 🗣 candidate report<br>[Anthropic Engineering Manager Interview Experience](https://www.tryexponent.com/experiences/anthropic-engineering-manager-interview-170078), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
+| Onsite<br>*AI platform / MLOps engineer* | One candidate had five rounds: system design (distributing a large file to thousands of machines), a practical coding project (an image-processing pipeline), a project deep dive on cross-team agreement and conflict, a behavioral round and a culture round. | 🗣 candidate report<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
+| Values and culture round<br>*AI platform / MLOps engineer* | Questions about a time the work conflicted with your values and how you weigh delivery pressure against safety or security concerns. | 🗣 candidate report<br>[Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
+| Engineering manager loop<br>*Engineering manager* | A screen on the mission and AI safety, then a technical design (an inference batching service on one GPU), a presentation of a major initiative, and questions on the largest team managed, growing people, ambiguity and disagreement. | 🗣 candidate report<br>[Anthropic Engineering Manager Interview Experience](https://www.tryexponent.com/experiences/anthropic-engineering-manager-interview-170078), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
+| Original performance engineering take-home (retired)<br>*Inference and performance engineer* | Introduced in early 2024, the original task asked candidates to optimise a serial program for a simulated accelerator using multicore, vector and instruction-level parallelism, with AI assistance allowed. The January 2026 account says this task was retired: a second version removed multicore, and the replacement used puzzles with a small instruction set. | ✅ confirmed by the company<br>[Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations), Anthropic, published 2026-01-21, retrieved 2026-09-29 |
+| Forward deployed engineer loop<br>*Forward deployed engineer (FDE)* | Guides describe a recruiter screen, a technical use-case screen on a long-running task through MCP tools, progressive coding, a hiring manager round, a solution-design round for an enterprise Claude deployment and a values round. | † prep guide or compilation<br>[Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-29 |
+| Solutions architect final stage<br>*AI solutions architect / customer engineer* | One candidate in 2025 reports three interviews over two days, including a culture interview that asked whether they would be comfortable if the company's stock went to zero. | 🗣 candidate report<br>[Anthropic Solutions Architect Interview Experience - United Kingdom](https://www.jointaro.com/interviews/companies/anthropic/experiences/solutions-architect-united-kingdom-may-1-2025-no-offer-negative-7a9e91b7/), Taro, candidate report, retrieved 2026-09-29 |
+| Product engineer loop<br>*Software engineer on AI products* | One candidate in 2025 reports live coding, a sales discussion, a culture interview and a hiring manager interview. | 🗣 candidate report<br>[Anthropic Product Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/anthropic/experiences/product-engineer-new-york-ny-june-1-2025-no-offer-positive-c0c3d7ae/), Taro, candidate report, retrieved 2026-09-29 |
+| Research Fellowship loop | One applicant reports an automated 90-minute coding challenge in four levels, an hour of live coding, reference checks and a 15-minute research brainstorm. A five-hour take-home with review and a culture session were planned, but cancelled after the applicant was rejected following the brainstorm. | 🗣 candidate report<br>[I failed my Anthropic interview and came to tell you all about it so you don't have to](https://faillearnrepeat.net/blog/i-failed-my-anthropic-interview-and-came-to-tell-you-all-about-it-so-you-dont-have-to), Fail. Learn. Repeat., published 2025-02-12, retrieved 2026-09-29 |
+| Prompt engineer interview (2023) | A 30-minute technical interview spent editing prompts in a spreadsheet-based playground so that a target share of outputs matched the desired result. | 🗣 candidate report<br>[Anthropic AI Prompt Engineer Interview Experience - San Francisco, California](https://www.jointaro.com/interviews/companies/anthropic/experiences/ai-prompt-engineer-san-francisco-ca-september-1-2023-no-offer-neutral-9ceb022c/), Taro, candidate report, retrieved 2026-09-29 |
 
 **Coding:** required. For technical roles; interviews for non-technical roles are conversational ([Careers](https://www.anthropic.com/careers), Anthropic, retrieved 2026-09-26)
 
@@ -60,6 +66,9 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Enforce token and KV-memory budgets rather than request count alone.
     - Measure queueing and starvation alongside throughput.
   - Read: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) (Kwon et al., arXiv)
+- **[In Anthropic's original performance-engineering take-home, introduced in 2024 and subsequently retired, optimise a serial program for a simulated accelerator using multicore, vector and instruction-level parallelism.](../themes/inference-economics.md#inf-accelerator-takehome)**
+  - Coding · Asked at: Anthropic ✅
+  - Tests: Whether you find parallelism methodically and build tooling to measure and debug each step.
 
 ### [Agents, tools and protocols](../themes/agents-tools.md)
 
@@ -77,6 +86,9 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?](../themes/agents-tools.md#agt-coding-harness)**
   - System design · Asked at: Anthropic †
   - Tests: Whether controlled comparisons can identify the source of improvements.
+- **[Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.](../themes/agents-tools.md#agt-mcp-long-running)**
+  - System design · Asked at: Anthropic †
+  - Tests: Whether you manage state, failures and context budget across a long tool-driven run.
 
 ### [Fine-tuning and post-training](../themes/post-training.md)
 
@@ -105,6 +117,12 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Design an experiment for a suspected emergent capability or bias in a large model, with controls against misleading task framing.](../themes/evals-observability.md#eval-emergent-capability)**
   - Applied scenario · Asked at: Anthropic †
   - Tests: Whether a capability claim is testable and alternative explanations are considered.
+- **[In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation.](../themes/evals-observability.md#eval-behaviour-brainstorm)**
+  - Knowledge · Asked at: Anthropic 🗣
+  - Tests: Whether you generate concrete, testable hypotheses about model behaviour quickly.
+- **[Modify a prompt so that a target share of the model's outputs matches the desired result, and show how you measured it.](../themes/evals-observability.md#eval-prompt-target-share)**
+  - Applied scenario · Asked at: Anthropic 🗣
+  - Tests: Whether prompt changes are driven by measurement on a set of cases rather than single examples.
 
 ### [Safety, security and governance](../themes/safety-security-governance.md)
 
@@ -248,5 +266,8 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Describe feedback that was difficult for you to hear and what you did with it.](../themes/behavioral-values.md#beh-critical-feedback)**
   - Behavioral · Senior · Asked at: Anthropic †
   - Tests: Whether you can respond to criticism with specific learning and action.
+- **[Would you be comfortable staying if the company's stock went to zero?](../themes/behavioral-values.md#beh-mission-without-upside)**
+  - Behavioral · Asked at: Anthropic 🗣
+  - Tests: Whether your commitment rests on the mission and the work rather than the financial upside.
 
 [OpenAI](openai.md) →

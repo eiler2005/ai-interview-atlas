@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/inference-economics.md) · [AI Intervie
 
 Serving models at scale: prefill and decode, batching, caching, quantisation, latency metrics and the levers that move cost.
 
-On this page: [Both tracks (4)](#track-both) · [AI Engineering (13)](#track-engineering)
+On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -103,5 +103,8 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="inf-disaggregation"></a>**When would you separate prefill and decode onto different workers, and how would you price the KV transfer overhead?**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-disaggregation&title=%5BCorrection%5D%20inf-disaggregation)
   - Tests: Whether independent scaling is weighed against transport and operational complexity.
+- <a id="inf-accelerator-takehome"></a>**In Anthropic's original performance-engineering take-home, introduced in 2024 and subsequently retired, optimise a serial program for a simulated accelerator using multicore, vector and instruction-level parallelism.**
+  - Coding · Asked at: [Anthropic](../companies/anthropic.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-accelerator-takehome&title=%5BCorrection%5D%20inf-accelerator-takehome)
+  - Tests: Whether you find parallelism methodically and build tooling to measure and debug each step.
 
 ← [LLM fundamentals](llm-fundamentals.md) · [RAG and retrieval](rag-retrieval.md) →

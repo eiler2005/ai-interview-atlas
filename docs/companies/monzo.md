@@ -52,4 +52,4 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Show delivery and impact, including what remained outside your control.
   - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 
-← [Adyen](adyen.md) · [Stripe](stripe.md) →
+← [Adyen](adyen.md) · [Ramp](ramp.md) →

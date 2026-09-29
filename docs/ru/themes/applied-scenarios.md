@@ -5,7 +5,7 @@
 
 Открытые ситуации с клиентами и запутанными задачами: первые 48 часов, спасение пилота, декомпозиция бизнес-задачи.
 
-На этой странице: [Оба трека (15)](#track-both) · [AI-лидерство (5)](#track-leadership)
+На этой странице: [Оба трека (16)](#track-both) · [AI-инженерия (4)](#track-engineering) · [AI-лидерство (5)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -84,6 +84,24 @@
 - <a id="app-missed-contract-clause"></a>**Юрист сообщает, что ассистент пропустил условие о смене контроля при проверке договора. Как вы разберёте случай?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-missed-contract-clause&title=%5BCorrection%5D%20app-missed-contract-clause)
   - Что проверяет: Умеете ли вы проследить ошибку от загрузки и поиска до анализа и проверки.
+- <a id="app-financial-crime-decomposition"></a>**После вводного объяснения инсайдерской торговли расскажите, как бы вы её выявляли: какие данные вам нужны, что вы спросите у клиента и какие закономерности будете искать?**
+  - Прикладной сценарий · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-financial-crime-decomposition&title=%5BCorrection%5D%20app-financial-crime-decomposition)
+  - Что проверяет: Умение превратить размытую задачу с высокими ставками в ограниченную первую систему, которую можно проверить.
+
+## <a id="track-engineering"></a>AI-инженерия
+
+- <a id="app-agent-product-poc"></a>**Вместо раунда кодинга соберите proof of concept для клиентского сценария внутри собственного агентного продукта компании и покажите, как клиент будет им пользоваться.**
+  - Прикладной сценарий · Где спрашивали: [Cognition](../companies/cognition.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-agent-product-poc&title=%5BCorrection%5D%20app-agent-product-poc)
+  - Что проверяет: Понимаете ли вы, как клиенты на самом деле пользуются продуктом, а не только как писать код.
+- <a id="app-customer-case-call"></a>**Проведите ограниченный по времени звонок с условным клиентом: выясните настоящую проблему, предложите подход и договоритесь о следующих шагах.**
+  - Прикладной сценарий · Где спрашивали: [Cognition](../companies/cognition.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-customer-case-call&title=%5BCorrection%5D%20app-customer-case-call)
+  - Что проверяет: Умение вести разговор с клиентом в условиях нехватки времени и прийти к конкретному плану.
+- <a id="app-learn-then-design"></a>**За несколько минут встройте незнакомую библиотеку в существующую систему, затем спроектируйте систему вокруг неё с учётом масштаба, хранения данных и отказов.**
+  - Прикладной сценарий · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-learn-then-design&title=%5BCorrection%5D%20app-learn-then-design)
+  - Что проверяет: Умение быстро освоить незнакомый инструмент и перенести его в обоснованные проектные решения.
+- <a id="app-prompt-date-range"></a>**Напишите промпт, который извлекает период из запроса клиента и различает почти одинаковые формулировки вроде «с первого числа», «по первое число» и «за первое число».**
+  - Прикладной сценарий · Где спрашивали: [Точка](../companies/tochka.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-prompt-date-range&title=%5BCorrection%5D%20app-prompt-date-range)
+  - Что проверяет: Умение учитывать неоднозначности конкретного языка и проверять промпт на трудных случаях.
 
 ## <a id="track-leadership"></a>AI-лидерство
 

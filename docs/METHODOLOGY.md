@@ -6,10 +6,12 @@ The atlas collects what is publicly known about interviews for AI engineering an
 
 ## Tracks and roles
 
-- **AI Engineering:** AI/LLM engineers, applied AI and forward-deployed engineers, agent engineers, AI platform and MLOps engineers, inference and performance engineers, research engineers.
-- **AI Leadership:** AI product managers, directors and heads of product, engineering managers, directors and heads of engineering, technical program managers, AI platform leads, heads of AI adoption, forward-deployed and solutions leaders.
+- **AI Engineering:** AI/LLM engineers, applied AI engineers, forward deployed engineers, AI solutions architects, agent engineers, AI evaluation engineers, AI platform and MLOps engineers, inference and performance engineers, research engineers, and ML engineers and data scientists where a company's evidence concerns them.
+- **AI Leadership:** AI product managers, directors and heads of product, engineering managers, directors and heads of engineering, technical program managers, AI platform leads, heads of AI adoption, deployment strategists, forward-deployed and solutions leaders.
 
 A question can belong to both tracks. The same topic is asked differently: an engineer implements an evaluation harness, a leader designs the release policy that uses it.
+
+The [AI roles guide](AI_ROLES.md) groups these roles into six families, each with a page. A question appears there as *reported for these roles* only when its source names the role; a role tag without such a source is an editorial choice for practice. Likewise a company loop stage is shown on a role page only when its source reports it for that role.
 
 Company pages may also include general software-engineering or product-management interview baselines, explicitly labelled as such. A general-role guide does not establish a specialist AI loop. Separate documents from one publisher count as separate sources, not independent corroboration; translated copies and mirrors do not add another source.
 
@@ -22,12 +24,13 @@ Most reported questions currently rely on secondary preparation material, with m
 | Kind | What it is | How it is used |
 | --- | --- | --- |
 | Company source | The employer's own careers pages, interview guides, engineering blogs and official talks | Confirms loop stages and coding requirements; strongest evidence for a question |
-| Candidate report | A first-hand account by someone who interviewed: blog post, public forum post, talk | Supports loop stages and questions, with the date the interview took place when reported |
+| Candidate report | A first-hand account by someone who interviewed, or by an interviewer or hiring manager describing their own interviews: blog post, public forum post, talk | Supports loop stages and questions, with the date the interview took place when reported |
 | Preparation guide | A third-party guide describing a company's process | Shown as secondary; never presented as first-hand |
 | Compilation | A list of questions compiled by others without a source per question | Paraphrased with attribution and shown as secondary (†) |
 | Reference | Papers, documentation and standards | Reading material for answers only; never evidence that a question was asked |
+| Job posting | An employer's description of an open role | Describes what a role involves on a role page; never evidence of an interview stage or question |
 
-We read sources without logging in, bypassing a CAPTCHA or scraping against a site's terms. We skip accounts from people who say they were under a non-disclosure agreement. Questions and loop descriptions are paraphrased; a source is quoted by at most one short sentence.
+We read sources without logging in, bypassing a CAPTCHA or scraping against a site's terms. We skip accounts from people who say they were under a non-disclosure agreement, including the rest of an account whose author withholds questions for that reason. We do not use programmatically generated "interview guide" sites that repeat one template across many employers and give statistics without a source. An official page from an archived or long-unchanged repository keeps its original date, and the page notes its age. Questions and loop descriptions are paraphrased; a source is quoted by at most one short sentence.
 
 ## Markers
 

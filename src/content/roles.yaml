@@ -1,0 +1,400 @@
+# AI roles guide: the source of docs/AI_ROLES.md and docs/roles/*.md.
+# Text is plain, with **bold** allowed. Links use [label](kind:id), where kind is
+# theme, question, page (learning-path, reasoning-models, methodology, roadmap, radar,
+# sources, roles) or role (a family id below). The build checks that every target exists.
+# A family's "How it is interviewed" section and its question lists are generated from
+# company loops and question evidence tagged with the family's roles.
+checked: "2026-09-29"
+intro:
+  - en: >-
+      Choose a role by the work you want to own. AI hiring combines established professions
+      with changing specialisms; these six families are not six newly invented occupations.
+      Titles overlap, and an “AI engineer” may build customer applications, operate
+      infrastructure or conduct experiments. The useful distinction is the deliverable, the
+      decision authority and the failure the person must resolve.
+    ru: >-
+      Выбирайте роль по работе, за которую хотите отвечать. В AI соединяются давно
+      существующие профессии и меняющиеся специализации; эти шесть направлений — не шесть
+      только что изобретённых профессий. Названия пересекаются: AI-инженер может создавать
+      клиентские приложения, развивать инфраструктуру или проводить эксперименты. Полезнее
+      сравнивать результат работы, полномочия и сбои, которые предстоит устранять.
+  - en: >-
+      Each role page combines three kinds of material that carry different weight. **What the
+      role involves** summarises public job postings: they describe responsibilities at a few
+      employers, mostly frontier-model developers, so they illustrate a role rather than survey
+      a market, and a posting never counts as evidence that a question was asked. **How it is
+      interviewed** and the reported questions come from company pages and question evidence,
+      with the usual markers. Practice questions and the preparation route are editorial
+      recommendations.
+    ru: >-
+      На каждой странице роли собраны материалы трёх видов, и весят они по-разному. **Чем
+      занимается роль** — сводка публичных вакансий: они описывают обязанности у нескольких
+      работодателей, в основном разработчиков передовых моделей, поэтому иллюстрируют роль, а
+      не описывают рынок, и вакансия никогда не считается доказательством того, что вопрос
+      задавали. **Как проходит собеседование** и вопросы, о которых сообщали, взяты со страниц
+      компаний и из источников вопросов, с обычными метками. Вопросы для практики и маршрут
+      подготовки — редакционные рекомендации.
+families:
+  - id: "fde"
+    track: "engineering"
+    name:
+      en: "Forward Deployed Engineer (FDE)"
+      ru: "Forward Deployed Engineer (FDE)"
+    summary:
+      en: "Gets a useful AI system working in a customer's environment, from discovery to handoff."
+      ru: "Доводит полезную AI-систему до работы в среде заказчика: от изучения задачи до передачи в сопровождение."
+    roles: ["forward-deployed-engineer", "solutions-architect", "deployment-strategist", "fde-lead"]
+    sections:
+      - sources: ["roles-openai-fde", "roles-anthropic-fde"]
+        text:
+          en: >-
+            **FDE means Forward Deployed Engineer**; “Forward Deployed AI Engineer” makes the AI
+            specialism explicit. The central responsibility is getting a useful system working in
+            a customer's environment. OpenAI's Seattle posting spans discovery, implementation and
+            production rollout, with adoption and workflow impact as outcomes. Anthropic's Munich
+            posting combines embedded customer work, production applications, reusable deployment
+            patterns and feedback to product teams. Together they support a delivery role with
+            substantial engineering and customer contact.
+          ru: >-
+            **FDE — Forward Deployed Engineer**; вариант Forward Deployed AI Engineer уточняет
+            специализацию в AI. Главная ответственность — довести полезную систему до работы в
+            среде заказчика. В описании OpenAI для Сиэтла роль охватывает изучение задачи,
+            реализацию и запуск, а результат связывается с использованием системы и эффектом для
+            рабочего процесса. Вакансия Anthropic в Мюнхене объединяет работу внутри команды
+            заказчика, production-приложения, повторяемые подходы к внедрению и обратную связь
+            продуктовым командам. Вместе они описывают роль по внедрению с существенной
+            инженерной работой и постоянным контактом с заказчиком.
+      - sources: ["roles-openai-fde", "roles-anthropic-fde"]
+        text:
+          en: >-
+            Expected evidence therefore spans both code and decisions: a scoped workflow,
+            integrated application, evaluation results, rollout plan and a supportable handoff.
+            The postings require production engineering, communication under ambiguity and
+            understanding of customer systems. Anthropic also names agent development and
+            evaluation frameworks. Travel, languages, seniority and account responsibilities
+            depend on the particular posting; a requirement in one location is not a universal FDE
+            qualification.
+          ru: >-
+            Поэтому подтверждение результата включает код и решения: согласованный процесс,
+            интегрированное приложение, результаты оценки, план запуска и передачу в
+            сопровождение. Работодатели требуют опыта production-разработки, общения в условиях
+            неопределённости и понимания клиентских систем. Anthropic также называет разработку
+            агентов и фреймворки оценки. Командировки, языки, стаж и ответственность за клиента
+            зависят от конкретной вакансии; требование одного офиса нельзя переносить на
+            профессию целиком.
+      - text:
+          en: >-
+            For preparation, distinguish four boundaries. A solutions architect may concentrate on
+            design and technical adoption; an FDE remit should be checked for implementation
+            ownership. Presales may centre on winning an evaluation; deployment work continues
+            into operational use. A product engineer usually improves a shared product; an FDE
+            also handles a customer's local integration constraints. A consultant can do
+            overlapping work: the title alone says little about who maintains the result or turns
+            it into reusable product capability. These are comparison questions, not rigid
+            employer-wide definitions.
+          ru: >-
+            При подготовке проверьте четыре границы. Архитектор решений (solutions architect)
+            может больше заниматься архитектурой и техническим внедрением; для FDE важно уточнить
+            ответственность за реализацию. Пресейл может заканчиваться успешной технической
+            оценкой, тогда как внедрение продолжается до эксплуатации. Продуктовый инженер обычно
+            развивает общий продукт, а FDE дополнительно разбирается с локальными ограничениями
+            заказчика. Работа консультанта может пересекаться с FDE: одно название не объясняет,
+            кто сопровождает результат и превращает его в повторно используемые возможности
+            продукта. Это вопросы для сравнения, а не жёсткие определения, единые для всего
+            работодателя.
+    prep:
+      en: >-
+        take the engineering [learning path](page:learning-path), deepen [customer
+        scenarios](theme:applied-scenarios), and practise [enterprise access
+        design](question:sd-enterprise-rag), [safe ERP writes](question:agt-erp-writes) and
+        [release gates](question:eval-release-gate). Add a short discovery conversation: identify
+        the user, current workaround, permitted data, useful outcome and owner after launch.
+      ru: >-
+        инженерный [учебный план](page:learning-path), углубление в [клиентские
+        сценарии](theme:applied-scenarios), затем [доступ к корпоративным
+        данным](question:sd-enterprise-rag), [безопасные записи в ERP](question:agt-erp-writes) и
+        [критерии выпуска](question:eval-release-gate). Отрепетируйте короткое обсуждение задачи:
+        пользователь, текущий способ работы, разрешённые данные, полезный результат и владелец
+        системы после запуска.
+    practice:
+      en: >-
+        build a small fictional service workflow with one external integration stub. Demonstrate a
+        denied permission, a timeout after a possible write, and a quality regression. Explain the
+        acceptance evidence and handoff. A polished demo without those checks is incomplete
+        preparation. For a target vacancy, clarify who owns implementation, production support,
+        commercial decisions and travel before choosing your strongest real examples.
+      ru: >-
+        небольшой вымышленный сервисный процесс с заглушкой внешней интеграции. Покажите отказ в
+        доступе, таймаут после возможной записи и ухудшение качества. Объясните доказательства
+        готовности и передачу в сопровождение. Красивой демонстрации без этих проверок
+        недостаточно. Перед выбором реальных примеров опыта уточните, кто отвечает за реализацию,
+        эксплуатацию, коммерческие решения и поездки.
+  - id: "applied-ai"
+    track: "engineering"
+    name:
+      en: "Applied AI / agent product engineer"
+      ru: "Applied AI / инженер агентных продуктов"
+    summary:
+      en: "Turns model capabilities into working product behaviour: interfaces, agent runtimes, tools and recoverable failures."
+      ru: "Превращает возможности модели в работающий продукт: интерфейсы, среда исполнения агентов, инструменты и восстановление после сбоев."
+    roles: ["applied-ai-engineer", "agent-engineer", "ai-engineer", "software-engineer"]
+    sections:
+      - sources: ["roles-anthropic-computer-use", "roles-openai-core-agents"]
+        text:
+          en: >-
+            This family turns model capabilities into usable workflows. Anthropic's **Product
+            Engineer, Computer Use** is one concrete variant: it combines interfaces, agent runtime
+            and backend delivery with instrumentation and robustness work. OpenAI's **Codex Core
+            Agents** posting illustrates a neighbouring infrastructure-heavy variant, including
+            orchestration, sandboxing and persistent state. “Agent engineer” alone does not
+            distinguish these scopes.
+          ru: >-
+            Это направление превращает возможности модели в рабочий пользовательский процесс.
+            **Product Engineer, Computer Use** в Anthropic — конкретный вариант: интерфейс, среда
+            исполнения агента, backend, измерения и устойчивость. **Codex Core Agents** в OpenAI
+            показывает соседнюю, более инфраструктурную специализацию: оркестрацию, изоляцию
+            исполнения и сохраняемое состояние. Название «инженер агентов» само по себе не
+            различает эти обязанности.
+      - text:
+          en: >-
+            **Deliverables and skills:** working product behaviour, tool integrations, observable
+            execution and recoverable failures; the mix of full-stack development and distributed
+            systems depends on the variant. For preparation, distinguish adapting an application
+            around a model from changing model weights, and a user-facing workflow from the shared
+            runtime beneath many workflows.
+          ru: >-
+            **Результаты и навыки:** работающий продукт, интеграции инструментов, наблюдаемое
+            выполнение и восстановление после сбоев. Соотношение full-stack-разработки и
+            распределённых систем зависит от варианта роли. В подготовке различайте изменение
+            приложения вокруг модели и изменение весов модели, а также пользовательский процесс и
+            общую среду исполнения множества таких процессов.
+    prep:
+      en: >-
+        engineering baseline, then [agents](theme:agents-tools), [retrieval](theme:rag-retrieval)
+        when external knowledge matters, and [practical coding](theme:coding-practical). Practise
+        [tool retries](question:agt-retries) and [human approval](question:agt-approval). Build a
+        bounded agent beside a simpler fixed workflow; compare task success, latency, cost and
+        failure recovery on the same cases. Defend whether the extra autonomy earns its complexity.
+      ru: >-
+        инженерная база, затем [агенты](theme:agents-tools), [поиск и RAG](theme:rag-retrieval),
+        если нужны внешние знания, и [практический код](theme:coding-practical). Разберите
+        [повторные вызовы](question:agt-retries) и [одобрение человеком](question:agt-approval).
+        Постройте ограниченного агента рядом с более простым фиксированным процессом. На одинаковых
+        примерах сравните успех задачи, задержку, стоимость и восстановление; обоснуйте,
+        оправдывает ли автономность добавленную сложность.
+  - id: "eval-reliability"
+    track: "engineering"
+    name:
+      en: "AI evaluation and reliability engineer"
+      ru: "Инженер оценки качества и надёжности AI"
+    summary:
+      en: "Produces trustworthy evidence about system behaviour: measurement strategy, regressions and release decisions."
+      ru: "Даёт достоверные данные о поведении системы: стратегия измерений, регрессии и решения о выпуске."
+    roles: ["eval-engineer"]
+    sections:
+      - sources: ["roles-anthropic-post-training-evals"]
+        text:
+          en: >-
+            The defining output is trustworthy evidence about system behaviour. Anthropic's
+            **Research Engineer, Post-Training Model Evaluations** owns measurement strategy, live
+            evaluation monitoring, regression investigation and reports that inform training and
+            release decisions. It asks for Python and evaluation experience; statistics and
+            experimental design are additional relevant strengths. This particular role concerns
+            model training, rather than every form of application reliability.
+          ru: >-
+            Основной результат — достоверные данные о поведении системы. **Research Engineer,
+            Post-Training Model Evaluations** в Anthropic отвечает за стратегию измерений,
+            наблюдение за оценками во время обучения, исследование регрессий и отчёты для решений
+            об обучении и выпуске. Нужны Python и опыт оценки моделей; статистика и планирование
+            экспериментов полезны дополнительно. Эта конкретная вакансия относится к обучению
+            моделей, а не ко всем видам надёжности приложений.
+      - text:
+          en: >-
+            Use the broader family label carefully: evaluation, quality engineering and service
+            reliability overlap but have different units of failure. A service can be available
+            while producing poor answers. An application-quality role may study real task
+            outcomes; the cited model-evaluation role studies behaviour during training. Ask what
+            decisions the measurements actually control.
+          ru: >-
+            Широкое название требует уточнения: оценка качества, инженерия качества и надёжность
+            сервисов пересекаются, но отказ в каждой из них измеряется по-своему. Сервис может
+            быть доступен и при этом давать плохие ответы. Роль, отвечающая за качество
+            приложения, может изучать реальные результаты задач; приведённая вакансия по оценке
+            моделей изучает поведение модели во время обучения. Уточняйте, на какие решения
+            влияют измерения.
+    prep:
+      en: >-
+        deepen [evaluation and observability](theme:evals-observability), especially
+        [benchmark/product mismatch](question:eval-benchmark-mismatch) and [model-upgrade
+        complaints](question:eval-upgrade-complaint). Produce a versioned test set, repeatable
+        runner and regression report. Separate sampling changes, noisy measurements and a real
+        behavioural change; show an important slice that an aggregate score could conceal. Explain
+        what additional evidence a release decision would require.
+      ru: >-
+        углублённая [оценка и наблюдаемость](theme:evals-observability), особенно [расхождение
+        бенчмарка и продукта](question:eval-benchmark-mismatch) и [жалобы после смены
+        модели](question:eval-upgrade-complaint). Создайте версионируемый тестовый набор,
+        воспроизводимый запуск и отчёт о регрессии. Отделите изменение выборки, шум измерений и
+        реальное изменение поведения. Покажите важный сегмент, который скрывается за общей
+        метрикой, и объясните, каких доказательств ещё не хватает для выпуска.
+  - id: "inference-platform"
+    track: "engineering"
+    name:
+      en: "Inference / AI platform engineer"
+      ru: "Инженер инференса / AI-платформы"
+    summary:
+      en: "Makes AI computation and shared services perform: bottlenecks, validated optimisations and telemetry."
+      ru: "Отвечает за производительность AI-вычислений и общих сервисов: узкие места, проверенные оптимизации и телеметрия."
+    roles: ["inference-engineer", "ai-platform-engineer", "ai-platform-lead"]
+    sections:
+      - sources: ["roles-anthropic-inference-systems", "roles-openai-core-agents"]
+        text:
+          en: >-
+            This family makes AI computation and shared services usable under performance and
+            operating constraints. Anthropic's **Performance Engineer, Inference Systems**
+            investigates across serving layers, measures throughput and latency, and checks output
+            correctness across hardware and configurations. It explicitly works with component
+            owners rather than owning every component. OpenAI's agent-platform example adds shared
+            execution and rollout infrastructure.
+          ru: >-
+            Эта группа обеспечивает AI-вычисления и общие сервисы при ограничениях
+            производительности и эксплуатации. **Performance Engineer, Inference Systems** в
+            Anthropic исследует разные уровни serving-системы, пропускную способность и задержку,
+            проверяет корректность результатов на разных устройствах и конфигурациях. Роль
+            взаимодействует с владельцами компонентов, а не владеет каждым из них. Пример OpenAI
+            добавляет общую инфраструктуру исполнения агентов и выпуска изменений.
+      - text:
+          en: >-
+            **Deliverables and skills:** a diagnosed bottleneck, validated optimization, useful
+            telemetry and reliable shared interfaces. Profiling, numerical reasoning and
+            distributed-systems knowledge matter; writing accelerator kernels is one specialism,
+            not a requirement to infer from every platform title. Distinguish model-serving
+            performance from application orchestration when reading the remit.
+          ru: >-
+            **Результаты и навыки:** найденное узкое место, проверенная оптимизация, полезная
+            телеметрия и надёжные общие интерфейсы. Важны профилирование, количественный анализ и
+            распределённые системы. Разработка ядер ускорителей — отдельная специализация; её
+            нельзя автоматически приписывать любой платформенной вакансии. При чтении обязанностей
+            различайте производительность исполнения модели и оркестрацию приложения.
+    prep:
+      en: >-
+        engineering baseline with extra [inference depth](theme:inference-economics), [latency
+        metrics](question:inf-latency-metrics) and [runtime comparison](question:inf-runtime-choice).
+        Produce a load-test report that fixes workload and quality requirements, separates queueing
+        from execution, and tests a tail-latency regression. A platform-lead variant also needs
+        [operating ownership](theme:ai-operating-model); a cost worksheet alone does not prove
+        serving performance.
+      ru: >-
+        инженерная база с углублением в [инференс](theme:inference-economics), [метрики
+        задержки](question:inf-latency-metrics) и [сравнение runtime](question:inf-runtime-choice).
+        Подготовьте нагрузочный отчёт: фиксированные запросы и требования к качеству, разделение
+        ожидания и исполнения, проверка регрессии хвостовой задержки. Для руководителя платформы
+        добавьте [эксплуатационную ответственность](theme:ai-operating-model). Расчёт стоимости сам
+        по себе не доказывает производительность serving-системы.
+  - id: "product-leadership"
+    track: "leadership"
+    name:
+      en: "AI product leadership"
+      ru: "Продуктовое лидерство в AI"
+    summary:
+      en: "Owns defensible product decisions and measurable customer value for AI products."
+      ru: "Отвечает за обоснованные продуктовые решения и измеримую пользу AI-продуктов для клиентов."
+    roles: ["ai-pm", "product-director", "product-manager-general"]
+    sections:
+      - sources: ["roles-anthropic-product-monetization"]
+        text:
+          en: >-
+            The output is a defensible product decision and measurable customer value. Anthropic's
+            **Product Manager, New Markets and Monetization** provides a platform-oriented example:
+            market choices, commercial design, instrumentation and outcome ownership, with technical
+            fluency and direct analysis. Its scope includes several alternative focus areas, not a
+            requirement that one person own them all.
+          ru: >-
+            Результат — обоснованное продуктовое решение и измеримая польза. **Product Manager, New
+            Markets and Monetization** в Anthropic показывает платформенный вариант: выбор рынков,
+            коммерческие условия, измерения и ответственность за результат, техническое понимание
+            и самостоятельный анализ. В описании перечислены альтернативные направления работы, а
+            не требование одному человеку владеть ими всеми.
+      - text:
+          en: >-
+            Product leadership can be senior individual-contributor work; a PM title does not
+            establish people management. Engineering leadership separately owns technical and team
+            decisions. For preparation, identify the actual authority over priorities, launch
+            criteria and resources, and distinguish product outcomes from model benchmark progress.
+          ru: >-
+            Продуктовое лидерство возможно на позиции старшего индивидуального специалиста:
+            название PM не подтверждает управление сотрудниками. У инженерного руководителя своя
+            ответственность за технические и командные решения. В подготовке определите реальные
+            полномочия по приоритетам, условиям запуска и ресурсам; различайте результаты продукта
+            и улучшение модельного бенчмарка.
+    prep:
+      en: >-
+        the leadership [learning path](page:learning-path), [AI product
+        strategy](theme:ai-product-strategy), [capability versus cost](question:prod-capability-cost)
+        and [feature metrics](question:prod-ai-feature-metrics). Write an opportunity brief and
+        decision memo covering a non-AI alternative, user outcome, evaluation, economics, rollout
+        and stop condition. Defend a priority change when quality improves but task completion
+        falls. Add people-management practice only when the role actually includes it.
+      ru: >-
+        [план для руководителей](page:learning-path), [AI-продуктовая
+        стратегия](theme:ai-product-strategy), [возможности против
+        стоимости](question:prod-capability-cost) и [метрики функции](question:prod-ai-feature-metrics).
+        Напишите описание возможности и записку с решением: альтернатива без AI, результат
+        пользователя, оценка, экономика, запуск и условие остановки. Защитите изменение
+        приоритета, если качество выросло, а завершение задач упало. Практику управления людьми
+        добавляйте, когда она входит в обязанности.
+  - id: "research-engineering"
+    track: "engineering"
+    name:
+      en: "Research engineer"
+      ru: "Research engineer (исследовательский инженер)"
+    summary:
+      en: "Combines experiments with the software that runs them: architectures, data, training and analysis."
+      ru: "Соединяет эксперименты с программными системами для их проведения: архитектуры, данные, обучение и анализ."
+    roles: ["research-engineer"]
+    sections:
+      - sources: ["roles-anthropic-pretraining"]
+        text:
+          en: >-
+            Research engineering combines experiments with the software that makes them possible.
+            Anthropic's **Research Engineer, Pretraining** covers architecture, algorithms, data and
+            optimization, scientific experiments and training infrastructure. It includes
+            independent research projects, so “engineer implements, scientist thinks” is a
+            misleading division. This posting names advanced education; requirements should be
+            checked per team, not generalized to all research-engineering roles.
+          ru: >-
+            Исследовательский инженер соединяет эксперименты с программными системами для их
+            проведения. **Research Engineer, Pretraining** в Anthropic охватывает архитектуры,
+            алгоритмы, данные, оптимизацию, научные эксперименты и инфраструктуру обучения.
+            Предусмотрены самостоятельные исследовательские проекты: разделение «инженер
+            реализует, учёный думает» здесь вводит в заблуждение. В этой вакансии указано
+            продвинутое образование; требования надо проверять по команде, а не переносить на все
+            исследовательские роли.
+      - text:
+          en: >-
+            **Deliverables and skills:** reproducible experiments, training or data code and an
+            analysis of what changed and why. The key distinction from applied product work is
+            investigating or improving model capabilities and training methods, although teams
+            overlap.
+          ru: >-
+            **Результаты и навыки:** воспроизводимый эксперимент, код обучения или обработки
+            данных и анализ причин изменения результата. Основное отличие от прикладной разработки
+            — исследование или улучшение возможностей модели и способов обучения, хотя работа
+            команд пересекается.
+    prep:
+      en: >-
+        strengthen mathematics, ML and [LLM fundamentals](theme:llm-fundamentals), then the
+        learning path's advanced branch and [post-training](theme:post-training) where relevant.
+        Practise [method selection](question:pt-method-choice) and [LoRA
+        experiments](question:pt-lora). Reproduce a small result with a baseline, controlled
+        ablation and held-out check. State compute limits and failed hypotheses. The atlas is a
+        starting map; eight weeks of application exercises do not establish frontier research
+        readiness.
+      ru: >-
+        математика, ML и [основы LLM](theme:llm-fundamentals), затем продвинутая ветка учебного
+        плана и [дообучение](theme:post-training), если оно соответствует роли. Разберите [выбор
+        метода](question:pt-method-choice) и [эксперименты с LoRA](question:pt-lora). Воспроизведите
+        небольшой результат с базовым вариантом, контролируемой абляцией и проверкой на отложенных
+        данных. Укажите ограничения вычислений и неподтвердившиеся гипотезы. Атлас даёт стартовую
+        карту: восемь недель прикладных упражнений не доказывают готовность к передовым
+        исследованиям.

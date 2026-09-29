@@ -30,6 +30,7 @@ questions:
     reading: ["paper-react"]
   - id: "agt-retries"
     tracks: ["engineering"]
+    roles: ["agent-engineer"]
     type: "system_design"
     text:
       en: "Design recovery from tool errors and timeouts, including cases where a timed-out call may already have changed external state."
@@ -72,6 +73,7 @@ questions:
     added: "2026-09-26"
   - id: "agt-mcp"
     tracks: ["engineering"]
+    roles: ["agent-engineer"]
     type: "knowledge"
     text:
       en: "What does MCP standardise between an AI application and an external service that a model's function-call format does not?"
@@ -86,6 +88,7 @@ questions:
     added: "2026-09-26"
   - id: "agt-tool-surface"
     tracks: ["engineering"]
+    roles: ["agent-engineer"]
     type: "system_design"
     text:
       en: "How would you select, name and document tools so that a model chooses the right operation and arguments?"
@@ -138,6 +141,7 @@ questions:
     reading: ["anthropic-multi-agent-research"]
   - id: "agt-memory"
     tracks: ["engineering"]
+    roles: ["agent-engineer"]
     type: "system_design"
     text:
       en: "Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?"
@@ -165,6 +169,7 @@ questions:
     added: "2026-09-26"
   - id: "agt-termination"
     tracks: ["engineering"]
+    roles: ["agent-engineer"]
     type: "system_design"
     text:
       en: "Define completion and stopping conditions for an agent loop so it cannot spend indefinitely on an unfinished task."
@@ -207,6 +212,7 @@ questions:
     added: "2026-09-26"
   - id: "agt-approval"
     tracks: ["engineering","leadership"]
+    roles: ["agent-engineer"]
     type: "system_design"
     text:
       en: "Design human approval for consequential agent actions, including how approval remains bound to the exact action being executed."
@@ -238,6 +244,7 @@ questions:
     reading: ["anthropic-building-effective-agents","stripe-idempotency"]
   - id: "agt-goal-drift"
     tracks: ["engineering"]
+    roles: ["agent-engineer"]
     type: "applied_scenario"
     text:
       en: "A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?"
@@ -265,6 +272,7 @@ questions:
     added: "2026-09-26"
   - id: "agt-erp-writes"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer"]
     type: "system_design"
     text:
       en: "Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations."
@@ -291,3 +299,50 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+  - id: "agt-support-agent-takehome"
+    tracks: ["engineering"]
+    roles: ["agent-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Build a customer-support agent for a fictional company: choose two of five proposed features, justify the choice and explain how you would measure the agent in production."
+      ru: "Соберите агента поддержки для вымышленной компании: выберите две функции из пяти, обоснуйте выбор и объясните, как будете измерять агента в продакшене."
+    tests:
+      en: "Whether you prioritise scope under a deadline and plan measurement for a working agent."
+      ru: "Умение расставить приоритеты при ограниченном времени и спланировать измерение работающего агента."
+    provenance: "published"
+    evidence:
+      - source: "exponent-report-sierra-agent-engineer"
+        company: "sierra"
+        role: "agent-engineer"
+    added: "2026-09-29"
+  - id: "agt-mcp-long-running"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer", "agent-engineer"]
+    type: "system_design"
+    text:
+      en: "Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits."
+      ru: "Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна."
+    tests:
+      en: "Whether you manage state, failures and context budget across a long tool-driven run."
+      ru: "Умение управлять состоянием, сбоями и бюджетом контекста на протяжении долгого выполнения с инструментами."
+    provenance: "published"
+    evidence:
+      - source: "exponent-anthropic-fde"
+        company: "anthropic"
+        role: "forward-deployed-engineer"
+    added: "2026-09-29"
+  - id: "agt-api-level-features"
+    tracks: ["engineering"]
+    roles: ["applied-ai-engineer"]
+    type: "knowledge"
+    text:
+      en: "What are a language model's generation parameters?"
+      ru: "Какие параметры управляют генерацией языковой модели?"
+    tests:
+      en: "Whether you distinguish model generation settings from instructions about role, style or response structure."
+      ru: "Отличаете ли вы настройки генерации модели от инструкций о роли, стиле или структуре ответа."
+    provenance: "published"
+    evidence:
+      - source: "tochka-prompt-engineers-2024"
+        company: "tochka"
+    added: "2026-09-29"

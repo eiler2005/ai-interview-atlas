@@ -1,0 +1,53 @@
+id: "cognition"
+name:
+  en: "Cognition"
+  ru: "Cognition"
+segment: "ai-native"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "forward-deployed-engineer"
+summary:
+  en: "A preparation guide describes a forward deployed engineer loop without a coding or system design round: a hands-on exercise inside Devin, a project presentation and a timed call with a simulated customer. No first-hand account was found."
+  ru: "Гайд по подготовке описывает собеседования на forward deployed engineer без раундов кодинга и system design: практическое задание внутри Devin, презентация проекта и ограниченный по времени звонок с условным клиентом. Рассказов из первых рук не найдено."
+loop:
+- stage:
+    en: "Exercise inside Devin"
+    ru: "Задание внутри Devin"
+  detail:
+    en: "A hands-on exercise with minimal coding that tests whether the candidate understands how customers use the product."
+    ru: "Практическое задание с минимумом кода: проверяют, понимает ли кандидат, как клиенты пользуются продуктом."
+  claim: "secondary"
+  sources:
+  - "exponent-cognition-fde"
+  roles:
+  - "forward-deployed-engineer"
+- stage:
+    en: "Project presentation"
+    ru: "Презентация проекта"
+  detail:
+    en: "About 45 minutes on a past technical project, opening with its impact."
+    ru: "Около 45 минут о прошлом техническом проекте, начиная с его эффекта."
+  claim: "secondary"
+  sources:
+  - "exponent-cognition-fde"
+  roles:
+  - "forward-deployed-engineer"
+- stage:
+    en: "Customer case call"
+    ru: "Звонок с клиентом"
+  detail:
+    en: "A timed, simulated call with a fictional customer, in place of coding and system design rounds."
+    ru: "Ограниченный по времени звонок с вымышленным клиентом вместо раундов кодинга и system design."
+  claim: "secondary"
+  sources:
+  - "exponent-cognition-fde"
+  roles:
+  - "forward-deployed-engineer"
+coding:
+  value: "unknown"
+  note:
+    en: "The guide reports no traditional coding round for this role; a guide cannot establish the requirement."
+    ru: "Гайд сообщает, что классического раунда кодинга для этой роли нет; гайд не может подтвердить требование."
+reviewed: "2026-09-29"

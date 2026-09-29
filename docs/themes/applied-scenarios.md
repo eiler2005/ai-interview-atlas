@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/applied-scenarios.md) · [AI Interview 
 
 Open-ended situations with customers and messy problems: the first 48 hours, rescuing a pilot, decomposing a business problem.
 
-On this page: [Both tracks (15)](#track-both) · [AI Leadership (5)](#track-leadership)
+On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-engineering) · [AI Leadership (5)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -84,6 +84,24 @@ On this page: [Both tracks (15)](#track-both) · [AI Leadership (5)](#track-lead
 - <a id="app-missed-contract-clause"></a>**A lawyer reports that the assistant missed a change-of-control clause during contract review. How would you investigate?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-missed-contract-clause&title=%5BCorrection%5D%20app-missed-contract-clause)
   - Tests: Whether you trace the failure through ingestion, retrieval, reasoning and review.
+- <a id="app-financial-crime-decomposition"></a>**After an introduction to insider trading, explain how you would detect it: what data would you need, what would you ask the customer and what patterns would you look for?**
+  - Applied scenario · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-financial-crime-decomposition&title=%5BCorrection%5D%20app-financial-crime-decomposition)
+  - Tests: Whether you turn a vague, high-stakes problem into a scoped first system that can be tested.
+
+## <a id="track-engineering"></a>AI Engineering
+
+- <a id="app-agent-product-poc"></a>**Instead of a coding round, build a proof of concept for a customer scenario inside the company's own agent product and show how the customer would use it.**
+  - Applied scenario · Asked at: [Cognition](../companies/cognition.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-agent-product-poc&title=%5BCorrection%5D%20app-agent-product-poc)
+  - Tests: Whether you understand how customers actually use the product, not only how to write code.
+- <a id="app-customer-case-call"></a>**Lead a timed case-study call with a simulated customer: uncover the real problem, propose an approach and agree on next steps.**
+  - Applied scenario · Asked at: [Cognition](../companies/cognition.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-customer-case-call&title=%5BCorrection%5D%20app-customer-case-call)
+  - Tests: Whether you run a customer conversation under time pressure and leave with a concrete plan.
+- <a id="app-learn-then-design"></a>**Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures.**
+  - Applied scenario · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-learn-then-design&title=%5BCorrection%5D%20app-learn-then-design)
+  - Tests: Whether you learn an unfamiliar tool quickly and carry it into sound design decisions.
+- <a id="app-prompt-date-range"></a>**Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first) and «по первое число» (through the first).**
+  - Applied scenario · Asked at: [Tochka](../companies/tochka.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-prompt-date-range&title=%5BCorrection%5D%20app-prompt-date-range)
+  - Tests: Whether you handle language-specific ambiguity and test a prompt on hard cases.
 
 ## <a id="track-leadership"></a>AI Leadership
 

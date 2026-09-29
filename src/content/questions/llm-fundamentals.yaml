@@ -2,6 +2,7 @@ theme: "llm-fundamentals"
 questions:
   - id: "llm-attention"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "knowledge"
     text:
       en: "Derive scaled dot-product attention and explain how its scale affects softmax gradients."
@@ -166,6 +167,7 @@ questions:
     added: "2026-09-26"
   - id: "llm-compute-optimal"
     tracks: ["engineering","leadership"]
+    roles: ["research-engineer"]
     type: "knowledge"
     text:
       en: "Under a fixed training compute budget, how do Chinchilla-style scaling results change the balance between model size and training tokens?"

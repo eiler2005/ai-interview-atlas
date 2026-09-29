@@ -42,6 +42,7 @@ SOURCE_KINDS = (
     "prep_guide",
     "secondary_compilation",
     "reference",
+    "posting",
 )
 BOOK = {
     "en": {
@@ -450,7 +451,14 @@ class Book:
         lines += ["", f"### {book['loop']}", ""]
         for stage in company["loop"]:
             detail = f" {pdf_text(stage['detail'][lang])}" if stage.get("detail") else ""
-            lines += [f"**{pdf_text(stage['stage'][lang])}.**{detail}", ""]
+            title = pdf_text(stage["stage"][lang])
+            if stage.get("roles"):
+                title += (
+                    " ("
+                    + ", ".join(pdf_text(content.roles[r]["name"][lang]) for r in stage["roles"])
+                    + ")"
+                )
+            lines += [f"**{title}.**{detail}", ""]
             lines += [f"*{book['basis']}: {pdf_text(labels['claims'][stage['claim']])}*", ""]
             if stage.get("sources"):
                 lines += [f"- {self.source_line(source)}" for source in stage["sources"]]

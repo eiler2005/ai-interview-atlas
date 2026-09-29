@@ -34,4 +34,4 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 
 No company-specific questions are recorded yet.
 
-← [Perplexity](perplexity.md) · [Palantir](palantir.md) →
+← [Sierra](sierra.md) · [Palantir](palantir.md) →

@@ -5,7 +5,7 @@
 
 Кодинг, похожий на работу: конкурентность, лимиты, повторы, растущая спецификация, отладка и code review.
 
-На этой странице: [Оба трека (1)](#track-both) · [AI-инженерия (14)](#track-engineering)
+На этой странице: [Оба трека (1)](#track-both) · [AI-инженерия (26)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -72,5 +72,41 @@
 - <a id="code-pagination"></a>**Напишите функцию сбора постраничного REST-ответа с явной обработкой размера страницы, завершения и неполных ответов.**
   - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pagination&title=%5BCorrection%5D%20code-pagination)
   - Что проверяет: Умение предотвратить пропуски и дублирование записей на границах страниц.
+- <a id="code-ai-assisted-build"></a>**Спланируйте продукт вместе с интервьюером, затем примерно за два часа соберите его с любыми AI-инструментами для программирования и защитите решения, код и путь в продакшен.**
+  - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-build&title=%5BCorrection%5D%20code-ai-assisted-build)
+  - Что проверяет: Умение ограничить задачу, собрать и защитить рабочий продукт с помощью AI за отведённое время.
+- <a id="code-agent-pr-review"></a>**Проверьте и доработайте черновой pull request коллеги со сквозной функцией в незнакомой кодовой базе, работая вместе с coding-агентами.**
+  - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-pr-review&title=%5BCorrection%5D%20code-agent-pr-review)
+  - Что проверяет: Умение критически оценить чужое изменение, а не принимать всё, что предлагает агент.
+- <a id="code-product-structure"></a>**В клоне репозитория продукта реализуйте структуру данных, которую продукт действительно использует; к AI обращайтесь только с точечными вопросами по синтаксису.**
+  - Кодинг · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-product-structure&title=%5BCorrection%5D%20code-product-structure)
+  - Что проверяет: Умение разобраться в незнакомом реальном коде и правильно реализовать ключевую структуру.
+- <a id="code-self-scoped-onsite"></a>**Получив реальную кодовую базу на рабочий день, решите, что построить, выпустите это и объясните свои решения и компромиссы.**
+  - Прикладной сценарий · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-self-scoped-onsite&title=%5BCorrection%5D%20code-self-scoped-onsite)
+  - Что проверяет: Умение самому определить объём работы, довести её до результата и защитить без пошаговых указаний.
+- <a id="code-spreadsheet-cycles"></a>**В таблице, где ячейки могут ссылаться на другие ячейки, определите, есть ли циклическая ссылка.**
+  - Кодинг · Где спрашивали: [Sierra](../companies/sierra.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-spreadsheet-cycles&title=%5BCorrection%5D%20code-spreadsheet-cycles)
+  - Что проверяет: Умение представить зависимости графом и правильно и эффективно находить циклы.
+- <a id="code-catalogue-search-tool"></a>**Сделайте семантический поиск по каталогу товаров, который чат-модель может вызывать как инструмент.**
+  - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-catalogue-search-tool&title=%5BCorrection%5D%20code-catalogue-search-tool)
+  - Что проверяет: Умение совместить поиск с понятным, проверяемым интерфейсом инструмента, которым модель может надёжно пользоваться.
+- <a id="code-credit-ledger"></a>**Реализуйте систему кредитов с разными правилами сгорания и условиями использования и расширяйте её по мере поступления новых требований.**
+  - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-credit-ledger&title=%5BCorrection%5D%20code-credit-ledger)
+  - Что проверяет: Выдерживает ли ваше решение меняющиеся бизнес-правила без переписывания.
+- <a id="code-pair-sum"></a>**Найдите в массиве пару чисел с заданной суммой: уточните условия, протестируйте код и обсудите сложность и граничные случаи.**
+  - Кодинг · Где спрашивали: [Яндекс](../companies/yandex.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pair-sum&title=%5BCorrection%5D%20code-pair-sum)
+  - Что проверяет: Уверенность в базовых структурах данных, тестировании и граничных случаях при живом кодинге.
+- <a id="code-optimise-scheduler"></a>**Оптимизируйте реализацию заданной системы расписаний, сохранив код чистым.**
+  - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-optimise-scheduler&title=%5BCorrection%5D%20code-optimise-scheduler)
+  - Что проверяет: Умение найти настоящее узкое место и ускорить код, не делая его менее понятным.
+- <a id="code-debug-api-service"></a>**Отладьте сломанный API-сервис: разберите логи, найдите узкое место и устраните утечку памяти.**
+  - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-debug-api-service&title=%5BCorrection%5D%20code-debug-api-service)
+  - Что проверяет: Умение системно отлаживать работающий сервис по фактам, а не по догадкам.
+- <a id="code-sql-by-hand"></a>**Напишите SQL-запросы, отвечающие на вопросы о наборе данных, без возможности их запустить.**
+  - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-sql-by-hand&title=%5BCorrection%5D%20code-sql-by-hand)
+  - Что проверяет: Выдерживают ли ваши базовые навыки запросов к данным проверку без инструментов.
+- <a id="code-agent-session-choices"></a>**На сессии с AI-кодингом объясните, какими моделями пользуетесь и почему, как следите за расходом токенов и как задаёте агенту контекст и задачу.**
+  - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
+  - Что проверяет: Умение осознанно управлять coding-агентами, а не полагаться на их настройки по умолчанию.
 
 ← [Дизайн AI-систем](ai-system-design.md) · [Стратегия и метрики AI-продукта](ai-product-strategy.md) →

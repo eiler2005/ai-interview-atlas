@@ -11,7 +11,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 
 ## Roles covered
 
-- **AI Engineering:** Software engineer (general interview baseline)
+- **AI Engineering:** Software engineer (general interview baseline), ML engineer / data scientist
 
 ## <a id="loop"></a>Interview loop
 
@@ -20,6 +20,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 | Remote technical interview | Forty-five minutes of programming and technical questions to decide whether to continue in person. | ✅ confirmed by the company<br>[Как мы переделали структуру собеседований, и что из этого вышло](https://habr.com/ru/companies/avito/articles/443700/), Авито, блог на Хабре, published 2019-03-20, retrieved 2026-09-26 |
 | Four sections (2019) | One hour each: programming, architecture and experience with large applications, platform skills, and a final with HR and the hiring manager. | ✅ confirmed by the company<br>[Как мы переделали структуру собеседований, и что из этого вышло](https://habr.com/ru/companies/avito/articles/443700/), Авито, блог на Хабре, published 2019-03-20, retrieved 2026-09-26 |
 | Analyst and project roles (2025) | Phone screen, HR interview, hiring manager interview, a take-home task presented to the team and department head, and a decision within three to seven days. | 🗣 candidate report<br>[Как принимает на работу Авито и почему это лучшее, что я видела на рынке? (часть 2)](https://vc.ru/id2007100/2062408-kak-avito-provodit-sobesedovaniya), vc.ru, пост кандидата, published 2025-06-25, retrieved 2026-09-26 |
+| Public DS interview: ML system design<br>*ML engineer / data scientist* | A public mock interview in October 2025: an ML system design case with real questions, goal-setting and user impact, and feedback against Avito's competency matrix. | ✅ confirmed by the company<br>[Собеседование DS-специалиста в Авито 13 октября: ML system design](https://avito.tech/events/j0m3z4j2f1-sobesedovanie-ds-spetsialista-v-avito-13), Avito Tech, published 2025-10-07, retrieved 2026-09-29 |
 
 **Coding:** varies by role. Engineers code; the analyst loop used a take-home task instead ([Как мы переделали структуру собеседований, и что из этого вышло](https://habr.com/ru/companies/avito/articles/443700/), Авито, блог на Хабре, published 2019-03-20, retrieved 2026-09-26, [Как принимает на работу Авито и почему это лучшее, что я видела на рынке? (часть 2)](https://vc.ru/id2007100/2062408-kak-avito-provodit-sobesedovaniya), vc.ru, пост кандидата, published 2025-06-25, retrieved 2026-09-26)
 
@@ -31,4 +32,4 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 
 No company-specific questions are recorded yet.
 
-← [Stripe](stripe.md) · [Ozon](ozon.md) →
+← [Tochka](tochka.md) · [MegaFon](megafon.md) →

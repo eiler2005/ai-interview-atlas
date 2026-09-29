@@ -2,6 +2,7 @@ theme: "ai-operating-model"
 questions:
   - id: "ops-platform-ownership"
     tracks: ["leadership"]
+    roles: ["ai-platform-lead"]
     type: "product_case"
     level: "senior"
     text:
@@ -36,6 +37,7 @@ questions:
     reading: ["google-sre-book","paper-heart"]
   - id: "ops-restricted-models"
     tracks: ["engineering","leadership"]
+    roles: ["ai-platform-engineer"]
     type: "system_design"
     level: "senior"
     text:
@@ -70,6 +72,7 @@ questions:
     reading: ["azure-multitenant","nist-ai-rmf"]
   - id: "ops-private-evaluation"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer"]
     type: "system_design"
     level: "senior"
     text:

@@ -34,4 +34,4 @@
 
 Вопросов по этой компании пока нет.
 
-← [Perplexity](perplexity.md) · [Palantir](palantir.md) →
+← [Sierra](sierra.md) · [Palantir](palantir.md) →
