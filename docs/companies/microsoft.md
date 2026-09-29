@@ -58,6 +58,11 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?](../themes/rag-retrieval.md#rag-reranking)**
   - Knowledge · Asked at: Microsoft †, [Perplexity](perplexity.md) †
   - Tests: Whether candidate count, recall and reranking cost are balanced.
+  - A strong answer covers:
+    - Retrieve a broad candidate set first, then score query-document pairs with the reranker.
+    - Measure initial recall separately: a reranker cannot recover a document missing from its input.
+    - Sweep candidate and final-context counts against held-out answer quality and end-to-end latency.
+  - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - **[Design retrieval that enforces the source system's access rights, including permission changes and shared caches.](../themes/rag-retrieval.md#rag-permissions)**
   - System design · Asked at: [Databricks](databricks.md) †, Microsoft †, [Palantir](palantir.md) † · ✍ [Answer](../answers/engineering.md#rag-permissions)
   - Tests: Whether access checks cover the full path to generated output.

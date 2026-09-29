@@ -1,5 +1,49 @@
 theme: "inference-economics"
 questions:
+  - id: "inf-reasoning-budget"
+    tracks: ["engineering", "leadership"]
+    type: "applied_scenario"
+    text:
+      en: "A service can spend more on one reasoning run or generate several candidates and verify them. How would you allocate compute under a latency deadline?"
+      ru: "Сервис может потратить больше вычислений на один reasoning-запуск или получить несколько кандидатов и проверить их. Как распределить бюджет при ограничении задержки?"
+    tests:
+      en: "Whether compute allocation follows measured task value and includes verification overhead."
+      ru: "Умение распределять вычисления по измеренной пользе для задачи с учётом расходов на проверку."
+    provenance: "generated"
+    basis: ["radar:inference-economics"]
+    added: "2026-09-29"
+    outline:
+      en:
+        - "Compare strategies on the same held-out tasks, including verifier cost and wall-clock latency."
+        - "Measure success by task difficulty and deploy a routing rule that does not require knowing the correct answer."
+        - "Set stopping and fallback rules; report total spend per successful task and deadline misses."
+      ru:
+        - "Сравнить стратегии на одинаковых отложенных задачах, включая стоимость проверяющего и полную задержку."
+        - "Измерить успех по сложности задач и выбрать правило маршрутизации, которому не нужен правильный ответ."
+        - "Задать остановку и резервный сценарий; показать все расходы на успешную задачу и нарушения срока."
+    reading: ["paper-test-time-compute", "openai-evaluation-best-practices"]
+  - id: "inf-reasoning-incomplete"
+    tracks: ["engineering"]
+    type: "applied_scenario"
+    text:
+      en: "A reasoning API request consumes tokens but returns no usable answer. How would you diagnose it and design a bounded recovery policy?"
+      ru: "Запрос к reasoning API расходует токены, но не возвращает пригодный ответ. Как найти причину и организовать восстановление с ограниченным бюджетом?"
+    tests:
+      en: "Whether token accounting, completion status and retry budgets are treated separately."
+      ru: "Умение различать учёт токенов, статус завершения и бюджет повторов."
+    provenance: "generated"
+    basis: ["radar:inference-economics"]
+    added: "2026-09-29"
+    outline:
+      en:
+        - "Inspect completion status, token usage, context size and the provider's output-limit semantics."
+        - "Distinguish exhaustion from tool errors, refusal and timeout before choosing recovery."
+        - "Bound total attempts, spend and elapsed time; measure recovery success and avoid duplicate tool actions."
+      ru:
+        - "Проверить статус, расход токенов, размер контекста и смысл выходного лимита у провайдера."
+        - "До восстановления отличить исчерпание лимита от ошибки инструмента, отказа и таймаута."
+        - "Ограничить попытки, расходы и полное время; измерять успех восстановления и исключать повторные действия инструментов."
+    reading: ["openai-reasoning-models"]
   - id: "inf-prefill-decode"
     tracks: ["engineering"]
     type: "knowledge"

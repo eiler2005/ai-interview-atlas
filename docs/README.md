@@ -5,6 +5,8 @@ English · [Русский](ru/README.md) · ← [AI Interview Atlas](../README.
 
 Every page of the atlas in one place. Start with the priority questions of your track, then go deeper by theme or by employer.
 
+Of 245 questions attributed to published sources, 224 rely only on preparation guides or compilations (†). Another 15 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+
 Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide or compilation without a first-hand source · 🧪 generated from job-posting themes. Interview loops change often, so check the retrieval date.
 
 ## <a id="tracks"></a>Tracks and roles
@@ -23,11 +25,11 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 | Theme | What it covers | AI Engineering | AI Leadership |
 | --- | --- | ---: | ---: |
 | [LLM fundamentals](themes/llm-fundamentals.md) | How transformers and LLMs work: attention, tokens, context, sampling, scaling. Engineers derive and implement; leaders need the intuition behind cost, quality and limits. | 18 | 2 |
-| [Inference, serving and cost](themes/inference-economics.md) | Serving models at scale: prefill and decode, batching, caching, quantisation, latency metrics and the levers that move cost. | 15 | 3 |
+| [Inference, serving and cost](themes/inference-economics.md) | Serving models at scale: prefill and decode, batching, caching, quantisation, latency metrics and the levers that move cost. | 17 | 4 |
 | [RAG and retrieval](themes/rag-retrieval.md) | Grounding answers in documents: chunking, hybrid search, reranking, permissions, freshness and citation. | 14 | 2 |
 | [Agents, tools and protocols](themes/agents-tools.md) | Agent loops, tool design, memory, termination, human approval and protocols such as MCP. | 15 | 4 |
 | [Fine-tuning and post-training](themes/post-training.md) | Supervised fine-tuning, preference optimisation, reinforcement learning, parameter-efficient methods and distillation. | 15 | 2 |
-| [Evaluation and observability](themes/evals-observability.md) | Knowing whether an AI system works: eval sets, LLM judges, regression gates, online measurement and production traces. | 15 | 6 |
+| [Evaluation and observability](themes/evals-observability.md) | Knowing whether an AI system works: eval sets, LLM judges, regression gates, online measurement and production traces. | 18 | 8 |
 | [Safety, security and governance](themes/safety-security-governance.md) | Prompt injection, data exfiltration, guardrails, privacy, red-teaming, and the regulation and risk frameworks leaders are accountable for. | 10 | 18 |
 | [Multimodal and voice](themes/multimodal-voice.md) | Vision-language models, real-time voice agents, speech quality and multimodal retrieval. | 14 | 1 |
 | [AI system design](themes/ai-system-design.md) | End-to-end design of AI products and platforms, explained aloud with requirements, trade-offs and failure modes. | 14 | 5 |
@@ -55,6 +57,8 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 - [Asked across companies](common.md): questions reported at two or more companies.
 - [Requirements radar](radar.md): what job postings ask for, by theme.
 - [Learning path](LEARNING_PATH.md): a study curriculum with weekly practice.
+- [Reasoning models](REASONING_MODELS.md): compute budgets, evaluation and the limits of reasoning traces.
+- [AI roles](AI_ROLES.md): six role families, their responsibilities and preparation routes.
 - [Methodology](METHODOLOGY.md): what counts as a source and what the markers mean.
 - [Sources](sources.md): every cited page with its retrieval date.
 - [Attribution](ATTRIBUTION.md): upstream material, adaptations and licensing.

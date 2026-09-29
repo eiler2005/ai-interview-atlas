@@ -197,8 +197,13 @@ def _check_taxonomy(content: Content) -> list[str]:
 
 def _check_sources(content: Content, today: date) -> list[str]:
     problems = []
+    seen_urls: dict[str, str] = {}
     for source in content.sources.values():
         name = f"sources.yaml {source['id']}"
+        url = source["url"].rstrip("/")
+        if url in seen_urls:
+            problems.append(f"{name}: duplicate source URL; reuse {seen_urls[url]}")
+        seen_urls[url] = source["id"]
         problems += _not_future(name, source.get("published"), today)
         problems += _not_future(name, source["retrieved"], today)
         if source["kind"] == "secondary_compilation" and not source.get("license"):
@@ -253,6 +258,7 @@ def _check_companies(content: Content, today: date) -> list[str]:
 def _check_questions(content: Content, today: date) -> list[str]:
     problems = []
     seen: set[str] = set()
+    seen_text: dict[tuple[str, str], str] = {}
     themes, roles = content.themes, content.roles
     radar_themes = {row["theme"] for row in (content.radar or {}).get("rows", [])}
     for question in content.questions:
@@ -262,6 +268,13 @@ def _check_questions(content: Content, today: date) -> list[str]:
         if question["id"] in RESERVED_IDS or question["id"].startswith("track-"):
             problems.append(f"{name}: id is reserved for a page section anchor")
         seen.add(question["id"])
+        for language, text in question["text"].items():
+            key = (language, " ".join(text.casefold().split()))
+            if key in seen_text:
+                problems.append(
+                    f"{name}: duplicate {language} question text; reuse {seen_text[key]}"
+                )
+            seen_text[key] = question["id"]
         if question["theme"] not in themes:
             problems.append(f"{name}: unknown theme")
         for role in question.get("roles", []):

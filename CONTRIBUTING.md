@@ -23,6 +23,8 @@ Personal data or confidential material that reached the repository is a privacy 
 
 Quote every YAML string and use block style for long text. Dates are ISO strings (`"2026-09-27"`, `"2026-09"` or `"2026"`).
 
+Reuse the existing source ID when a URL is already registered. Merge evidence for a repeated question into its existing entry and preserve published question IDs. Validation rejects duplicate source URLs after removing trailing slashes and duplicate question text within each language after normalising case and whitespace. Different URL fragments remain distinct; this check does not detect semantic duplicates, so review wording and scope before adding an entry.
+
 ## What we cannot accept
 
 - Material behind a login, paywall bypass or CAPTCHA, or content scraped against a site's terms.

@@ -45,6 +45,11 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
 - **[Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable.](../themes/post-training.md#pt-distributed-training)**
   - System design · Asked at: Google and Google DeepMind †
   - Tests: Whether model state, activations and network topology determine the parallel plan.
+  - A strong answer covers:
+    - Separate parameters, gradients, optimiser state and activations before choosing a partitioning plan.
+    - Explain ZeRO state sharding and its communication trade-offs; distinguish it from splitting layer computation.
+    - Measure peak memory, communication and throughput on the target topology before scaling the run.
+  - Read: [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) (Rajbhandari et al., arXiv)
 
 ### [Evaluation and observability](../themes/evals-observability.md)
 

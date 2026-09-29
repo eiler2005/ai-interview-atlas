@@ -12,6 +12,11 @@
 - <a id="agt-multi-agent"></a>**Когда разделение работы между агентами улучшает результат, а когда преобладают затраты на координацию?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-multi-agent&title=%5BCorrection%5D%20agt-multi-agent)
   - Что проверяет: Умение учитывать независимость задач и конфликты общего состояния.
+  - Сильный ответ покрывает:
+    - Выделить независимые подзадачи, результаты которых объединяются без частого обновления общего состояния.
+    - Задать границы делегирования, критерии готовности и синтез с проверкой противоречащих выводов.
+    - Сравнить с одним агентом при сопоставимом общем бюджете; учесть повторы работы, ошибки координации, стоимость и задержку.
+  - Читать: [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Anthropic)
 - <a id="agt-reversibility"></a>**Как сделать действия агента в production обратимыми там, где это возможно, и проверяемыми там, где откат невозможен?**
   - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-reversibility&title=%5BCorrection%5D%20agt-reversibility)
   - Что проверяет: Умение заранее продумать компенсационные действия и журнал исполнения.

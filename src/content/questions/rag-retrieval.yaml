@@ -75,6 +75,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "perplexity"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Retrieve a broad candidate set first, then score query-document pairs with the reranker."
+        - "Measure initial recall separately: a reranker cannot recover a document missing from its input."
+        - "Sweep candidate and final-context counts against held-out answer quality and end-to-end latency."
+      ru:
+        - "Сначала получить широкий набор кандидатов, затем оценить пары запроса и документа reranker-ом."
+        - "Отдельно измерить полноту первого поиска: reranker не вернёт документ, которого нет на входе."
+        - "Сравнить число кандидатов и размер итогового контекста по качеству на отложенных вопросах и полной задержке."
+    reading: ["anthropic-contextual-retrieval"]
   - id: "rag-stage-evaluation"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -116,6 +126,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Generate a hypothetical document, embed it and retrieve real corpus documents near that embedding."
+        - "Treat the generated document as a search aid, never as a factual source for the answer."
+        - "Compare with direct-query retrieval on representative queries, measuring relevance, answer quality and added latency."
+      ru:
+        - "Сгенерировать гипотетический документ, получить его embedding и найти близкие реальные документы корпуса."
+        - "Считать сгенерированный документ средством поиска, но не фактическим источником ответа."
+        - "Сравнить с поиском по исходному запросу на характерной выборке: релевантность, качество ответа и добавленная задержка."
+    reading: ["paper-hyde"]
   - id: "rag-agentic"
     tracks: ["engineering","leadership"]
     type: "knowledge"

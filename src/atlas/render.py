@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import posixpath
+from collections import Counter
 from datetime import date, timedelta
 from urllib.parse import quote
 from xml.sax.saxutils import escape
@@ -56,18 +57,31 @@ LABELS = {
         "banner_alt": (
             "AI Interview Atlas — Engineering & Leadership. Questions, answers and learning paths."
         ),
-        "hero": "The questions AI interviews actually ask — every one with a source you can check.",
+        "hero": (
+            "Prepare for AI interviews with attributed questions, practice prompts and primary "
+            "reading."
+        ),
         "intro": (
-            "You are preparing for an interview as an AI product manager, engineering manager, "
-            "director, technical programme manager or AI engineer. Most question lists online "
-            "either cite nothing or hide the answers behind a course, and almost none of them "
-            "cover leadership roles. This one is free, and every claim names where it came from "
-            "and when it was read."
+            "Two tracks — AI Engineering and AI Leadership — with company interview guides and "
+            "answer checklists. Each reported question cites its evidence; the markers distinguish "
+            "company confirmation, candidate reports and secondary compilations. Generated practice "
+            "questions are labelled separately."
+        ),
+        "source_mix": (
+            "Of {published} questions attributed to published sources, {secondary_only} rely only "
+            "on preparation guides or compilations (†). Another {generated} are generated practice "
+            "questions (🧪). Primary reading supports technical understanding; it does not prove "
+            "that an employer asked a question."
+        ),
+        "source_concentration": (
+            "{largest_source_questions} questions cite the same compilation: {largest_source_link}. "
+            "This concentration limits independent corroboration; company tags from that "
+            "compilation remain secondary evidence."
         ),
         "offline": (
-            "Prefer paper or a tablet? The same content is a printable book: "
-            "[PDF editions]({releases}) — the atlas in English and in Russian, and the written "
-            "answers as a separate volume."
+            "Released PDF books are dated snapshots for offline reading. The website may contain "
+            "newer questions and guides; check the release date before using a book as the current "
+            "edition."
         ),
         "inside": "What is inside",
         "inside_items": [
@@ -239,6 +253,16 @@ LABELS = {
             ("common", "Asked across companies", "questions reported at two or more companies"),
             ("radar", "Requirements radar", "what job postings ask for, by theme"),
             ("learning_path", "Learning path", "a study curriculum with weekly practice"),
+            (
+                "reasoning_models",
+                "Reasoning models",
+                "compute budgets, evaluation and the limits of reasoning traces",
+            ),
+            (
+                "ai_roles",
+                "AI roles",
+                "six role families, their responsibilities and preparation routes",
+            ),
             ("methodology", "Methodology", "what counts as a source and what the markers mean"),
             ("sources", "Sources", "every cited page with its retrieval date"),
             ("attribution", "Attribution", "upstream material, adaptations and licensing"),
@@ -350,17 +374,32 @@ LABELS = {
         "banner_alt": (
             "AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы."
         ),
-        "hero": "Вопросы, которые на AI-интервью задают на самом деле — с источниками и с ответами.",
+        "hero": (
+            "Готовьтесь к AI-интервью: вопросы с указанием источников, учебные задачи и "
+            "первоисточники для изучения."
+        ),
         "intro": (
-            "Вы готовитесь к интервью на AI-продакта, руководителя разработки, директора, "
-            "руководителя программ или AI-инженера. Большинство списков вопросов в сети либо "
-            "ни на что не ссылаются, либо прячут ответы за платным курсом, а руководящие роли "
-            "почти никто не покрывает. Здесь бесплатно, с источниками и с написанными ответами."
+            "Два трека — AI Engineering и AI Leadership, процессы интервью в компаниях и планы "
+            "ответов. У каждого вопроса из публикаций указано основание; метки различают "
+            "подтверждение компании, отчёт кандидата и вторичную подборку. Сгенерированные учебные "
+            "вопросы отмечены отдельно."
+        ),
+        "source_mix": (
+            "Из {published} вопросов с опубликованными источниками {secondary_only} опираются "
+            "только на подготовительные гайды или подборки (†). Ещё {generated} — сгенерированные "
+            "учебные вопросы (🧪). Первоисточники для чтения помогают разобраться в теме, но не "
+            "доказывают, что работодатель задавал вопрос."
+        ),
+        "source_concentration": (
+            "Число вопросов, ссылающихся на одну подборку: {largest_source_questions} — "
+            "{largest_source_link}. "
+            "Это ограничивает независимое подтверждение; указания компаний из этой подборки "
+            "остаются вторичными свидетельствами."
         ),
         "offline": (
-            "Удобнее на бумаге или планшете? Тот же материал собран в книгу: "
-            "[PDF-издания]({releases}) — атлас на английском и на русском, а написанные ответы "
-            "отдельным томом."
+            "Опубликованные PDF-книги — снимки атласа на дату выпуска для чтения офлайн. На сайте "
+            "могут быть более новые вопросы и гайды; сверяйте дату релиза, прежде чем считать книгу "
+            "текущей редакцией."
         ),
         "inside": "Что внутри",
         "inside_items": [
@@ -538,6 +577,12 @@ LABELS = {
             ),
             ("radar", "Радар требований", "что требуют вакансии, по темам"),
             ("learning_path", "Учебный план", "программа подготовки с еженедельной практикой"),
+            (
+                "reasoning_models",
+                "Reasoning-модели",
+                "вычислительный бюджет, оценка и ограничения трасс рассуждений",
+            ),
+            ("ai_roles", "Профессии в AI", "шесть направлений, их задачи и маршруты подготовки"),
             ("methodology", "Методика", "что считается источником и что означают метки"),
             (
                 "sources",
@@ -1038,6 +1083,8 @@ class Renderer:
             "",
             labels["intro"],
             "",
+            self._source_mix(lang),
+            "",
             labels["offline"].format(releases=RELEASES),
             "",
             f"## {labels['inside']}",
@@ -1157,6 +1204,39 @@ class Renderer:
             )
         return "\n".join(lines)
 
+    def _source_mix(self, lang: str) -> str:
+        """Count question provenance independently from technical reading links."""
+        content, labels = self.content, LABELS[lang]
+        published = [q for q in content.questions if q["provenance"] == "published"]
+        secondary_only = sum(
+            all(
+                content.sources[e["source"]]["kind"] in {"prep_guide", "secondary_compilation"}
+                for e in q["evidence"]
+            )
+            for q in published
+        )
+        text = labels["source_mix"].format(
+            published=len(published),
+            secondary_only=secondary_only,
+            generated=len(content.questions) - len(published),
+        )
+        compilations = Counter(
+            source
+            for q in published
+            for source in {
+                e["source"]
+                for e in q["evidence"]
+                if content.sources[e["source"]]["kind"] == "secondary_compilation"
+            }
+        )
+        if compilations:
+            source, count = min(compilations.items(), key=lambda item: (-item[1], item[0]))
+            link = f"[{content.sources[source]['title']}]({content.sources[source]['url']})"
+            text += " " + labels["source_concentration"].format(
+                largest_source_questions=count, largest_source_link=link
+            )
+        return text
+
     def navigation(self, lang: str) -> str:
         """The README's one-line menu: the map, both start pages and the main sections."""
         labels, page = LABELS[lang], readme(lang)
@@ -1169,10 +1249,10 @@ class Renderer:
         items.append(f"[{labels['themes']}](#{self.slug(labels['themes'])})")
         if self.content.companies:
             items.append(f"[{labels['companies']}](#{self.slug(labels['companies'])})")
-        items.append(
-            f"[{reference_name(lang, 'learning_path')}]"
-            f"({rel(page, f'{base(lang)}/LEARNING_PATH.md')})"
-        )
+        for key in ("learning_path", "ai_roles", "reasoning_models"):
+            items.append(
+                f"[{reference_name(lang, key)}]({rel(page, f'{base(lang)}/{key.upper()}.md')})"
+            )
         items.append(f"[PDF]({RELEASES})")
         return f"{labels['navigate']} " + " · ".join(items)
 
@@ -1193,6 +1273,8 @@ class Renderer:
             + labels["back"].format(readme=rel(page, readme(lang))),
             "",
             labels["map_intro"],
+            "",
+            self._source_mix(lang),
             "",
             labels["legend"],
             "",
@@ -1252,6 +1334,8 @@ class Renderer:
             "common": common_page(lang) if self.common() else None,
             "radar": radar_page(lang) if content.radar else None,
             "learning_path": f"{base(lang)}/LEARNING_PATH.md",
+            "ai_roles": f"{base(lang)}/AI_ROLES.md",
+            "reasoning_models": f"{base(lang)}/REASONING_MODELS.md",
             "methodology": methodology_page(lang),
             "sources": sources_page(lang),
             "attribution": f"{base(lang)}/ATTRIBUTION.md",

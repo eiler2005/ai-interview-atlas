@@ -5,10 +5,26 @@ English · [Русский](../ru/themes/evals-observability.md) · [AI Intervie
 
 Knowing whether an AI system works: eval sets, LLM judges, regression gates, online measurement and production traces.
 
-On this page: [Both tracks (6)](#track-both) · [AI Engineering (9)](#track-engineering)
+On this page: [Both tracks (8)](#track-both) · [AI Engineering (10)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
+- <a id="eval-reasoning-counterfactual"></a>**A team attributes better results to a reasoning model, but it also changed prompts, tools and compute budget. Design a comparison that identifies what improved.**
+  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-counterfactual&title=%5BCorrection%5D%20eval-reasoning-counterfactual)
+  - Tests: Whether a model claim is separated from changes to the surrounding system.
+  - A strong answer covers:
+    - Freeze task inputs, scoring and tool state; vary model, prompt and budget in controlled comparisons.
+    - Repeat trials and report uncertainty, difficult slices and failures rather than only aggregate wins.
+    - Compare both a matched-budget baseline and the deployable system under its actual cost and latency limits.
+  - Read: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv)
+- <a id="eval-reasoning-trace-faithfulness"></a>**A reasoning summary looks sound, but the answer follows a misleading hint. What should an evaluation and monitoring system conclude?**
+  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-trace-faithfulness&title=%5BCorrection%5D%20eval-reasoning-trace-faithfulness)
+  - Tests: Whether observable explanations are distinguished from correctness and faithful accounts of computation.
+  - A strong answer covers:
+    - Score final results and observable actions independently of explanation quality.
+    - Compare otherwise identical tasks with and without misleading hints; measure answer changes and disclosures separately.
+    - Treat summaries and available traces as incomplete diagnostic signals, not access to hidden reasoning or a safety guarantee.
+  - Read: [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) (Chen et al., arXiv)
 - <a id="eval-scarce-labels"></a>**How would you build a useful evaluation set when reference answers are missing and expert time is scarce?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
   - Tests: Whether sampling and annotation effort target consequential uncertainty.
@@ -40,6 +56,14 @@ On this page: [Both tracks (6)](#track-both) · [AI Engineering (9)](#track-engi
 
 ## <a id="track-engineering"></a>AI Engineering
 
+- <a id="eval-reasoning-supervision"></a>**Distinguish outcome rewards, process supervision and inference-time verification. What evidence would justify each for a new reasoning task?**
+  - Knowledge · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-supervision&title=%5BCorrection%5D%20eval-reasoning-supervision)
+  - Tests: Whether training signals are distinguished from deployment-time selection and independently measured quality.
+  - A strong answer covers:
+    - Explain which feedback changes model weights and which selects among outputs at inference.
+    - Assess label availability, verifier errors and ways to exploit the reward or selection rule.
+    - Use independent held-out outcome checks; do not generalise mathematics results to every workflow.
+  - Read: [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (v1)](https://arxiv.org/html/2501.12948v1) (DeepSeek-AI, arXiv) · [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) (Lightman et al., arXiv)
 - <a id="eval-judge"></a>**Design an LLM judge and a calibration process that exposes order, verbosity and self-preference biases.**
   - System design · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#eval-judge) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-judge&title=%5BCorrection%5D%20eval-judge)
   - Tests: Whether model judgements are validated against independent labels.

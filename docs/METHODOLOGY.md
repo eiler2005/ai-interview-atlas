@@ -17,6 +17,8 @@ Company pages may also include general software-engineering or product-managemen
 
 Every source records the page, its publisher, the publication date when known and the date it was read (`retrieved`).
 
+Most reported questions currently rely on secondary preparation material, with many drawn from one compilation. The home page shows these counts separately from generated practice questions. This is a preparation collection with visible evidence limits, not a verified inventory of questions used by employers. Adding a paper or technical document to a question's reading improves its learning support; it does not upgrade the interview-evidence marker or corroborate a company attribution.
+
 | Kind | What it is | How it is used |
 | --- | --- | --- |
 | Company source | The employer's own careers pages, interview guides, engineering blogs and official talks | Confirms loop stages and coding requirements; strongest evidence for a question |

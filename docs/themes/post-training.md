@@ -20,6 +20,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="pt-constitutional"></a>**Explain how Constitutional AI uses principles, self-revision and AI-generated preferences, and identify what human judgement it still depends on.**
   - Knowledge · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-constitutional&title=%5BCorrection%5D%20pt-constitutional)
   - Tests: Whether reduced labelling effort is distinguished from removing human value choices.
+  - A strong answer covers:
+    - Separate supervised self-critique and revision from reinforcement learning on AI-generated preferences.
+    - Explain how the selected principles shape critiques, comparisons and the learned preference model.
+    - Identify human choices in the constitution and evaluation; reduced harmfulness labelling does not remove value judgements.
+  - Read: [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) (Bai et al., arXiv)
 
 ## <a id="track-engineering"></a>AI Engineering
 
@@ -42,6 +47,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="pt-grpo"></a>**Explain group-relative policy optimisation and the trade-offs of estimating advantages without a learned value model.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-grpo&title=%5BCorrection%5D%20pt-grpo)
   - Tests: Whether relative rewards and variance are connected to sample groups.
+  - A strong answer covers:
+    - Sample several completions per prompt and estimate advantages relative to their group rewards.
+    - Explain the avoided value-model memory and the remaining rollout and reward-computation costs.
+    - Inspect groups with little reward variation; compare held-out task success and training stability.
+  - Read: [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) (Shao et al., arXiv)
 - <a id="pt-lora"></a>**Derive the low-rank weight update used by LoRA and propose an experiment for choosing its rank.**
   - Knowledge · ✍ [Answer](../answers/engineering.md#pt-lora) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-lora&title=%5BCorrection%5D%20pt-lora)
   - Tests: Whether parameter savings are linked to adaptation capacity and validation.
@@ -67,12 +77,22 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="pt-training-memory"></a>**Budget memory for full bf16 finetuning of a 7B model with Adam, then recalculate for LoRA and explain your optimiser assumptions.**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-training-memory&title=%5BCorrection%5D%20pt-training-memory)
   - Tests: Whether gradients, optimiser state, master weights and activations are all considered.
+  - A strong answer covers:
+    - State the precision and bytes for weights, gradients, Adam moments and any master-weight copy.
+    - For LoRA, separate frozen base weights from trainable adapters and their optimiser state.
+    - Budget activations, temporary buffers and headroom separately; validate peak memory on a representative batch.
+  - Read: [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) (Rajbhandari et al., arXiv) · [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) (Hu et al., arXiv)
 - <a id="pt-verifiable-reward"></a>**When is a programmatically verifiable reward preferable to a learned reward model, and where can the verifier still be exploited?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-verifiable-reward&title=%5BCorrection%5D%20pt-verifiable-reward)
   - Tests: Whether verification is treated as a specification with blind spots.
 - <a id="pt-reward-hacking"></a>**Policy reward keeps rising while humans prefer its outputs less. How would you diagnose and limit reward hacking?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-reward-hacking&title=%5BCorrection%5D%20pt-reward-hacking)
   - Tests: Whether optimisation of the proxy is distinguished from improvement in the real goal.
+  - A strong answer covers:
+    - Compare proxy reward with blinded held-out human preferences and inspect newly rewarded behaviours.
+    - Test earlier checkpoints and reduced optimisation strength; improve preference coverage before retraining.
+    - Treat KL control and early stopping as mitigations, not guarantees; distinguish synthetic gold-model evidence from human evaluation.
+  - Read: [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv)
 - <a id="pt-distillation"></a>**Design a teacher-to-student distillation process and explain how you would detect capabilities the smaller model fails to retain.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distillation&title=%5BCorrection%5D%20pt-distillation)
   - Tests: Whether data coverage and independent evaluation constrain teacher imitation.
@@ -82,5 +102,10 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="pt-distributed-training"></a>**Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable.**
   - System design · Asked at: [Google and Google DeepMind](../companies/google.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distributed-training&title=%5BCorrection%5D%20pt-distributed-training)
   - Tests: Whether model state, activations and network topology determine the parallel plan.
+  - A strong answer covers:
+    - Separate parameters, gradients, optimiser state and activations before choosing a partitioning plan.
+    - Explain ZeRO state sharding and its communication trade-offs; distinguish it from splitting layer computation.
+    - Measure peak memory, communication and throughput on the target topology before scaling the run.
+  - Read: [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) (Rajbhandari et al., arXiv)
 
 ← [Agents, tools and protocols](agents-tools.md) · [Evaluation and observability](evals-observability.md) →

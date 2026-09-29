@@ -12,6 +12,11 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (11)](#track-eng
 - <a id="agt-multi-agent"></a>**When does splitting work among agents improve results, and when do coordination costs dominate?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-multi-agent&title=%5BCorrection%5D%20agt-multi-agent)
   - Tests: Whether task independence and shared-state conflicts guide orchestration.
+  - A strong answer covers:
+    - Identify independent subtasks whose results can be combined without frequent shared-state updates.
+    - Define delegation boundaries, completion criteria and a synthesis step that checks conflicting findings.
+    - Compare with one agent at a comparable total budget; count duplicate work, coordination failures, cost and latency.
+  - Read: [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Anthropic)
 - <a id="agt-reversibility"></a>**How would you make an agent's production actions reversible where possible and auditable where reversal is impossible?**
   - System design · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-reversibility&title=%5BCorrection%5D%20agt-reversibility)
   - Tests: Whether compensating actions and durable evidence are planned before execution.

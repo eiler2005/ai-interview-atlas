@@ -53,6 +53,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
 - <a id="llm-flashattention"></a>**Why can an exact attention kernel run faster without changing the quadratic attention computation?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
   - Tests: Whether memory traffic is separated from arithmetic complexity.
+  - A strong answer covers:
+    - Explain tiled attention and the reduction in reads and writes between accelerator memory levels.
+    - Distinguish exact attention with floating-point differences from sparse or approximate attention.
+    - Separate quadratic arithmetic from memory traffic; benchmark the relevant shapes and hardware.
+  - Read: [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) (Dao et al., arXiv)
 - <a id="llm-tokenization"></a>**Explain BPE training and why numbers, source code and different writing systems can tokenize unevenly.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-tokenization&title=%5BCorrection%5D%20llm-tokenization)
   - Tests: Whether tokenisation choices are connected to context use and representation.

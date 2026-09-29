@@ -48,6 +48,10 @@ def repository(tmp_path: Path) -> Path:
         "docs/ru/ROADMAP.md",
         "docs/LEARNING_PATH.md",
         "docs/ru/LEARNING_PATH.md",
+        "docs/AI_ROLES.md",
+        "docs/ru/AI_ROLES.md",
+        "docs/REASONING_MODELS.md",
+        "docs/ru/REASONING_MODELS.md",
         "CHANGELOG.md",
         "docs/ru/CHANGELOG.md",
     ):
@@ -82,12 +86,61 @@ def test_dates_stay_strings_and_future_dates_are_rejected(content_dir):
     assert "in the future" in problems(content_dir)
 
 
+def test_source_disclosure_counts_questions_and_ignores_reading():
+    content = load(FIXTURE, today=TODAY)
+    question = next(q for q in content.questions if q["theme"] == "agents-tools")
+    # The same compilation attached to two employers still backs one question.
+    question["evidence"].append({"source": "big-compilation", "company": "sample-bank"})
+    for question in content.questions:
+        question["reading"] = ["eval-paper", "example-labs-careers"]
+    pages = render(content)
+    for path in ("README.md", "docs/README.md"):
+        assert "Of 3 questions attributed to published sources, 1 rely only" in pages[path]
+        assert "Another 1 are generated practice questions" in pages[path]
+        assert "2 questions cite the same compilation" in pages[path]
+    for path in ("README.ru.md", "docs/ru/README.md"):
+        assert "Из 3 вопросов с опубликованными источниками 1 опираются только" in pages[path]
+        assert "Число вопросов, ссылающихся на одну подборку: 2 — " in pages[path]
+    # Technical reading above did not strengthen the weak question; interview evidence does.
+    weak = next(q for q in content.questions if q["theme"] == "behavioral-values")
+    weak["evidence"].append({"source": "example-labs-careers"})
+    assert (
+        "3 questions attributed to published sources, 0 rely only" in render(content)["README.md"]
+    )
+    for question in content.questions:
+        question["evidence"] = [
+            e for e in question.get("evidence", []) if e["source"] != "big-compilation"
+        ]
+    assert "questions cite the same compilation" not in render(content)["README.md"]
+
+
 def test_published_question_needs_interview_evidence(content_dir):
     path = content_dir / "questions" / "agents-tools.yaml"
     edit(path, lambda data: data["questions"][0].update(evidence=[]))
     assert "published needs evidence" in problems(content_dir)
     edit(path, lambda data: data["questions"][0].update(evidence=[{"source": "eval-paper"}]))
     assert "evidence must be an interview source" in problems(content_dir)
+
+
+def test_source_url_reuse_is_required_even_with_a_trailing_slash(content_dir):
+    def duplicate(data):
+        data.append({**data[0], "id": "duplicate-source", "url": data[0]["url"] + "/"})
+
+    edit(content_dir / "sources.yaml", duplicate)
+    assert "duplicate source URL; reuse example-labs-careers" in problems(content_dir)
+
+
+@pytest.mark.parametrize("language", ["en", "ru"])
+def test_repeated_question_text_is_rejected_across_themes(content_dir, language):
+    original = read_yaml(content_dir / "questions" / "agents-tools.yaml")["questions"][0]
+
+    def duplicate(data):
+        data["questions"][0]["text"][language] = (
+            "  " + "   ".join(original["text"][language].upper().split()) + "  "
+        )
+
+    edit(content_dir / "questions" / "evals-observability.yaml", duplicate)
+    assert f"duplicate {language} question text; reuse {original['id']}" in problems(content_dir)
 
 
 def test_generated_question_needs_published_radar_theme(content_dir):

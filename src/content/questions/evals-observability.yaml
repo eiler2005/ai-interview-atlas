@@ -1,5 +1,71 @@
 theme: "evals-observability"
 questions:
+  - id: "eval-reasoning-counterfactual"
+    tracks: ["engineering", "leadership"]
+    type: "applied_scenario"
+    text:
+      en: "A team attributes better results to a reasoning model, but it also changed prompts, tools and compute budget. Design a comparison that identifies what improved."
+      ru: "Команда связывает улучшение результатов с reasoning-моделью, но одновременно изменила промпты, инструменты и вычислительный бюджет. Как выяснить, что именно помогло?"
+    tests:
+      en: "Whether a model claim is separated from changes to the surrounding system."
+      ru: "Умение отделить эффект модели от изменений окружающей системы."
+    provenance: "generated"
+    basis: ["radar:evals-observability"]
+    added: "2026-09-29"
+    outline:
+      en:
+        - "Freeze task inputs, scoring and tool state; vary model, prompt and budget in controlled comparisons."
+        - "Repeat trials and report uncertainty, difficult slices and failures rather than only aggregate wins."
+        - "Compare both a matched-budget baseline and the deployable system under its actual cost and latency limits."
+      ru:
+        - "Зафиксировать задания, оценку и состояние инструментов; менять модель, промпт и бюджет в контролируемых сравнениях."
+        - "Повторить прогоны и показать неопределённость, сложные срезы и ошибки, а не только общую долю побед."
+        - "Сравнить и базовый вариант при равном бюджете, и рабочую систему с её реальными ограничениями цены и задержки."
+    reading: ["openai-evaluation-best-practices", "paper-test-time-compute"]
+  - id: "eval-reasoning-supervision"
+    tracks: ["engineering"]
+    type: "knowledge"
+    text:
+      en: "Distinguish outcome rewards, process supervision and inference-time verification. What evidence would justify each for a new reasoning task?"
+      ru: "Различите награду за результат, process supervision и проверку при инференсе. Какие данные обоснуют выбор каждого подхода для новой reasoning-задачи?"
+    tests:
+      en: "Whether training signals are distinguished from deployment-time selection and independently measured quality."
+      ru: "Умение отличать обучающий сигнал от отбора при инференсе и независимой оценки качества."
+    provenance: "generated"
+    basis: ["radar:evals-observability"]
+    added: "2026-09-29"
+    outline:
+      en:
+        - "Explain which feedback changes model weights and which selects among outputs at inference."
+        - "Assess label availability, verifier errors and ways to exploit the reward or selection rule."
+        - "Use independent held-out outcome checks; do not generalise mathematics results to every workflow."
+      ru:
+        - "Объяснить, какая обратная связь меняет веса, а какая выбирает результат при инференсе."
+        - "Оценить доступность разметки, ошибки проверяющего и способы обмануть награду или правило отбора."
+        - "Проверять результат независимо на отложенных данных; не переносить выводы по математике на все процессы."
+    reading: ["paper-deepseek-r1", "paper-process-supervision"]
+  - id: "eval-reasoning-trace-faithfulness"
+    tracks: ["engineering", "leadership"]
+    type: "applied_scenario"
+    text:
+      en: "A reasoning summary looks sound, but the answer follows a misleading hint. What should an evaluation and monitoring system conclude?"
+      ru: "Краткое объяснение reasoning-модели выглядит убедительно, но ответ следует ложной подсказке. Какие выводы должны сделать оценка и мониторинг?"
+    tests:
+      en: "Whether observable explanations are distinguished from correctness and faithful accounts of computation."
+      ru: "Умение отличать наблюдаемое объяснение от правильности и достоверного описания вычислений."
+    provenance: "generated"
+    basis: ["radar:evals-observability"]
+    added: "2026-09-29"
+    outline:
+      en:
+        - "Score final results and observable actions independently of explanation quality."
+        - "Compare otherwise identical tasks with and without misleading hints; measure answer changes and disclosures separately."
+        - "Treat summaries and available traces as incomplete diagnostic signals, not access to hidden reasoning or a safety guarantee."
+      ru:
+        - "Оценивать итог и наблюдаемые действия независимо от качества объяснения."
+        - "Сравнить одинаковые задачи с ложной подсказкой и без неё; отдельно измерять изменение ответа и признание влияния подсказки."
+        - "Считать резюме и доступные трассы неполными диагностическими сигналами, а не доступом к скрытым рассуждениям или гарантией безопасности."
+    reading: ["paper-reasoning-faithfulness"]
   - id: "eval-judge"
     tracks: ["engineering"]
     type: "system_design"

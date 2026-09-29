@@ -42,6 +42,11 @@
 - <a id="rag-reranking"></a>**Где разместить cross-encoder reranker в поисковом пайплайне и когда выигрыш качества оправдывает задержку?**
   - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-reranking&title=%5BCorrection%5D%20rag-reranking)
   - Что проверяет: Умение сбалансировать число кандидатов, полноту поиска и стоимость переранжирования.
+  - Сильный ответ покрывает:
+    - Сначала получить широкий набор кандидатов, затем оценить пары запроса и документа reranker-ом.
+    - Отдельно измерить полноту первого поиска: reranker не вернёт документ, которого нет на входе.
+    - Сравнить число кандидатов и размер итогового контекста по качеству на отложенных вопросах и полной задержке.
+  - Читать: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="rag-stage-evaluation"></a>**Как отдельно оценить поиск документов и генерацию ответа в RAG-приложении?**
   - Прикладной сценарий · ✍ [Ответ](../answers/engineering.md#rag-stage-evaluation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-stage-evaluation&title=%5BCorrection%5D%20rag-stage-evaluation)
   - Что проверяет: Умение локализовать ошибки на правильном этапе.
@@ -53,6 +58,11 @@
 - <a id="rag-hyde"></a>**Объясните поиск через гипотетический документ и способ проверить пользу на вашем распределении запросов.**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-hyde&title=%5BCorrection%5D%20rag-hyde)
   - Что проверяет: Умение проверять полезность генерируемого расширения запроса.
+  - Сильный ответ покрывает:
+    - Сгенерировать гипотетический документ, получить его embedding и найти близкие реальные документы корпуса.
+    - Считать сгенерированный документ средством поиска, но не фактическим источником ответа.
+    - Сравнить с поиском по исходному запросу на характерной выборке: релевантность, качество ответа и добавленная задержка.
+  - Читать: [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) (Gao et al., arXiv)
 - <a id="rag-embedding-drift"></a>**Качество поиска падает по мере изменения корпуса. Как выявить дрейф эмбеддингов и отличить его от ошибок индексации?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-embedding-drift&title=%5BCorrection%5D%20rag-embedding-drift)
   - Что проверяет: Умение диагностировать по стабильным наборам релевантности и срезам трафика.

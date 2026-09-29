@@ -114,6 +114,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Explain tiled attention and the reduction in reads and writes between accelerator memory levels."
+        - "Distinguish exact attention with floating-point differences from sparse or approximate attention."
+        - "Separate quadratic arithmetic from memory traffic; benchmark the relevant shapes and hardware."
+      ru:
+        - "Объяснить блочное вычисление attention и сокращение обмена между уровнями памяти ускорителя."
+        - "Отличить точный attention с различиями округления от разреженного или приближённого attention."
+        - "Разделить квадратичную арифметику и обмен с памятью; измерить нужные размерности на целевом оборудовании."
+    reading: ["paper-flashattention"]
   - id: "llm-tokenization"
     tracks: ["engineering"]
     type: "knowledge"

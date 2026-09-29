@@ -20,6 +20,11 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
 - <a id="pt-constitutional"></a>**Объясните использование принципов, самокоррекции и AI-предпочтений в Constitutional AI и сохранённую зависимость от человеческих решений.**
   - Знания · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-constitutional&title=%5BCorrection%5D%20pt-constitutional)
   - Что проверяет: Умение отличать сокращение разметки от устранения человеческого выбора ценностей.
+  - Сильный ответ покрывает:
+    - Разделить обучение на самокритике и исправлениях и RL по предпочтениям, сгенерированным AI.
+    - Объяснить влияние выбранных принципов на критику, сравнения и обученную модель предпочтений.
+    - Указать человеческий выбор принципов и оценки; сокращение разметки вредности не устраняет ценностные решения.
+  - Читать: [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) (Bai et al., arXiv)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
@@ -42,6 +47,11 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
 - <a id="pt-grpo"></a>**Объясните GRPO и компромиссы оценки advantage без обученной value model.**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-grpo&title=%5BCorrection%5D%20pt-grpo)
   - Что проверяет: Понимание связи относительных наград и дисперсии с группами ответов.
+  - Сильный ответ покрывает:
+    - Получить несколько ответов на промпт и оценить advantage относительно наград внутри группы.
+    - Объяснить экономию памяти value model и оставшиеся затраты на генерацию и вычисление наград.
+    - Проверить группы с малым разбросом наград; сравнить успех на отложенных задачах и устойчивость обучения.
+  - Читать: [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) (Shao et al., arXiv)
 - <a id="pt-lora"></a>**Выведите низкоранговое обновление весов LoRA и предложите эксперимент для выбора ранга.**
   - Знания · ✍ [Ответ](../answers/engineering.md#pt-lora) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-lora&title=%5BCorrection%5D%20pt-lora)
   - Что проверяет: Умение связать экономию параметров с выразительностью адаптации и проверкой качества.
@@ -67,12 +77,22 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
 - <a id="pt-training-memory"></a>**Рассчитайте память полного bf16-дообучения модели 7B с Adam, затем для LoRA; явно задайте предположения об оптимизаторе.**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-training-memory&title=%5BCorrection%5D%20pt-training-memory)
   - Что проверяет: Учёт градиентов, состояния оптимизатора, мастер-весов и активаций.
+  - Сильный ответ покрывает:
+    - Задать точность и объём весов, градиентов, моментов Adam и мастер-копии весов, если она есть.
+    - Для LoRA разделить замороженные базовые веса, обучаемые адаптеры и состояние их оптимизатора.
+    - Отдельно учесть активации, временные буферы и запас; измерить пиковую память на характерном батче.
+  - Читать: [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) (Rajbhandari et al., arXiv) · [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) (Hu et al., arXiv)
 - <a id="pt-verifiable-reward"></a>**Когда программно проверяемая награда предпочтительнее обученной модели награды и как можно обмануть саму проверку?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-verifiable-reward&title=%5BCorrection%5D%20pt-verifiable-reward)
   - Что проверяет: Понимание ограничений проверки как спецификации.
 - <a id="pt-reward-hacking"></a>**Награда политики растёт, а людям ответы нравятся всё меньше. Как выявить и ограничить reward hacking?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-reward-hacking&title=%5BCorrection%5D%20pt-reward-hacking)
   - Что проверяет: Умение отличать оптимизацию прокси от достижения реальной цели.
+  - Сильный ответ покрывает:
+    - Сопоставить прокси-награду со слепой оценкой людьми на отложенных данных и изучить новые поощряемые признаки.
+    - Проверить ранние checkpoint и меньшую интенсивность оптимизации; расширить покрытие предпочтений до переобучения.
+    - Считать контроль KL и раннюю остановку мерами снижения риска, не гарантией; отличать синтетическую эталонную модель от оценки людьми.
+  - Читать: [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv)
 - <a id="pt-distillation"></a>**Спроектируйте дистилляцию учителя в малую модель и проверку способностей, которые ученик не сохранил.**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distillation&title=%5BCorrection%5D%20pt-distillation)
   - Что проверяет: Учёт покрытия данных и независимой оценки при подражании учителю.
@@ -82,5 +102,10 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
 - <a id="pt-distributed-training"></a>**Спроектируйте обучение модели, не помещающейся на одном ускорителе: как разделить состояние и ограничить стоимость коммуникаций?**
   - System design · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distributed-training&title=%5BCorrection%5D%20pt-distributed-training)
   - Что проверяет: Умение выбирать параллелизм по состоянию модели, активациям и топологии сети.
+  - Сильный ответ покрывает:
+    - Разделить параметры, градиенты, состояние оптимизатора и активации до выбора схемы разбиения.
+    - Объяснить шардинг состояния ZeRO и затраты на обмен; отличать его от разделения вычислений слоя.
+    - Измерить пиковую память, обмен и пропускную способность на целевой топологии до масштабирования.
+  - Читать: [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) (Rajbhandari et al., arXiv)
 
 ← [Агенты, инструменты и протоколы](agents-tools.md) · [Оценка качества и наблюдаемость](evals-observability.md) →

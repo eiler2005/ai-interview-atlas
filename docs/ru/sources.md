@@ -10,7 +10,13 @@
 - [How we hire](https://careers.adyen.com/faqs) · Adyen · проверено 2026-09-26
 - [Interview tips from our Global Recruitment team](https://www.adyen.com/knowledge-hub/interview-tips-from-our-global-recruitment-team) · Adyen · опубликовано 2025-09-01 · проверено 2026-09-26
 - [Careers](https://www.anthropic.com/careers) · Anthropic · проверено 2026-09-26
+- [Forward Deployed Engineer](https://job-boards.greenhouse.io/anthropic/jobs/5391016008) · Anthropic · проверено 2026-09-29
 - [Guidance on Candidates' AI Usage](https://www.anthropic.com/candidate-ai-guidance) · Anthropic · опубликовано 2025-07-10 · проверено 2026-09-26
+- [Performance Engineer, Inference Systems](https://job-boards.greenhouse.io/anthropic/jobs/5224564008) · Anthropic · проверено 2026-09-29
+- [Product Engineer, Computer Use](https://job-boards.greenhouse.io/anthropic/jobs/5238637008) · Anthropic · проверено 2026-09-29
+- [Product Manager, New Markets and Monetization](https://job-boards.greenhouse.io/anthropic/jobs/5386182008) · Anthropic · проверено 2026-09-29
+- [Research Engineer, Post-Training Model Evaluations](https://job-boards.greenhouse.io/anthropic/jobs/5198255008) · Anthropic · проверено 2026-09-29
+- [Research Engineer, Pretraining](https://job-boards.greenhouse.io/anthropic/jobs/5119713008) · Anthropic · проверено 2026-09-29
 - [Atlassian engineering interview handbook](https://www.atlassian.com/company/careers/resources/interviewing/engineering) · Atlassian · проверено 2026-09-26
 - [Atlassian product interview handbook](https://www.atlassian.com/company/careers/resources/career-growth/product-managers) · Atlassian · проверено 2026-09-26
 - [Preparing for Your Initial Interview (software engineering managers)](https://www.metacareers.com/SWE-L-prep-initial/) · Meta Careers · проверено 2026-09-26
@@ -21,6 +27,8 @@
 - [Demystifying the Senior Staff+ Engineering interview process](https://monzo.com/blog/demystifying-the-senior-staff-engineering-interview-process) · Monzo · опубликовано 2025-05-02 · проверено 2026-09-26
 - [Product Management at Monzo: The interview process](https://monzo.com/blog/2022/10/04/product-management-at-monzo-the-interview-process) · Monzo · опубликовано 2022-10-04 · проверено 2026-09-26
 - [How We Hire](https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/) · NVIDIA · проверено 2026-09-26
+- [Forward Deployed Engineer (FDE) - Seattle](https://openai.com/careers/forward-deployed-engineer-%28fde%29-seattle-seattle/) · OpenAI · проверено 2026-09-29
+- [Software Engineer, Codex Core Agents](https://openai.com/careers/software-engineer-codex-core-agents-san-francisco/) · OpenAI · проверено 2026-09-29
 - [Start Your Journey](https://www.lifeatspotify.com/start-your-journey) · Spotify · проверено 2026-09-26
 - [How we hire](https://jobs.uber.com/en/what-moves-us/how-we-hire/) · Uber · проверено 2026-09-26
 - [Navigating our engineering interview process: coding](https://www.uber.com/en-NG/blog/engineering-interview-process/) · Uber · опубликовано 2021-07-27 · проверено 2026-09-26
@@ -75,14 +83,17 @@
 - [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) · Anthropic · опубликовано 2024-09 · проверено 2026-09-26
 - [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) · Anthropic · проверено 2026-09-26
 - [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) · Anthropic · проверено 2026-09-26
+- [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) · Anthropic · опубликовано 2025-06-13 · проверено 2026-09-29. Описание исследовательского продукта его разработчиками, включая координацию и расход токенов. Внутренние результаты зависят от задач; это не свидетельство вопросов на интервью.
 - [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) · Anthropic · проверено 2026-09-26
 - [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) · AP2 project · проверено 2026-09-26
 - [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) · Bai et al., arXiv · опубликовано 2022-12 · проверено 2026-09-26
 - [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) · Board of Governors of the Federal Reserve System · опубликовано 2011-04-04 · проверено 2026-09-26
+- [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) · Chen et al., arXiv · опубликовано 2025-05-08 · проверено 2026-09-29
 - [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) · Claude Platform Docs · проверено 2026-09-26
 - [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) · Claude Platform Docs · проверено 2026-09-26
 - [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) · Dao et al., arXiv · опубликовано 2022-05 · проверено 2026-09-26
 - [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/) · Dean and Barroso, Google Research · опубликовано 2013 · проверено 2026-09-26
+- [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (v1)](https://arxiv.org/html/2501.12948v1) · DeepSeek-AI, arXiv · опубликовано 2025-01-22 · проверено 2026-09-29
 - [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) · DeepSeek-AI, arXiv · опубликовано 2024-05 · проверено 2026-09-26
 - [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314) · Dettmers et al., arXiv · опубликовано 2023-05 · проверено 2026-09-26
 - [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/) · Eugene Yan · опубликовано 2023-07 · проверено 2026-09-26
@@ -90,6 +101,7 @@
 - [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) · Faiss maintainers · проверено 2026-09-28. Первичная документация реализации HNSW, IVF и product quantisation; материал для изучения, не свидетельство вопроса на интервью.
 - [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) · Fedus et al., arXiv · опубликовано 2021-01 · проверено 2026-09-26
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) · Gao et al., arXiv · опубликовано 2022-12 · проверено 2026-09-26
+- [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) · Gao, Schulman and Hilton, arXiv · опубликовано 2022-10-19 · проверено 2026-09-29. Исследование переоптимизации с синтетической эталонной моделью награды; техническое чтение, не свидетельство интервью и не прямое измерение человеческих предпочтений.
 - [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) · GitLab Handbook · проверено 2026-09-26
 - [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) · Google · проверено 2026-09-26
 - [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · Google · опубликовано 2016 · проверено 2026-09-26
@@ -103,6 +115,7 @@
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) · Kwon et al., arXiv · опубликовано 2023-09 · проверено 2026-09-26
 - [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192) · Leviathan et al., arXiv · опубликовано 2022-11 · проверено 2026-09-26
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) · Lewis et al., arXiv · опубликовано 2020-05 · проверено 2026-09-26
+- [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) · Lightman et al., arXiv · опубликовано 2023-05-31 · проверено 2026-09-29
 - [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) · Liu et al., arXiv · опубликовано 2023-07 · проверено 2026-09-26
 - [Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs](https://arxiv.org/abs/1603.09320) · Malkov and Yashunin, arXiv · опубликовано 2016-03 · проверено 2026-09-26
 - [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) · Microsoft Learn · проверено 2026-09-26
@@ -110,14 +123,18 @@
 - [Model Context Protocol specification](https://modelcontextprotocol.io/specification) · Model Context Protocol · проверено 2026-09-26
 - [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · NIST · опубликовано 2023-01 · проверено 2026-09-26
 - [What We Learned from a Year of Building with LLMs (Part I)](https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/) · O'Reilly Radar · опубликовано 2024-05 · проверено 2026-09-26
+- [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) · OpenAI API documentation · проверено 2026-09-29
+- [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) · OpenAI API documentation · проверено 2026-09-29
 - [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) · Ouyang et al., arXiv · опубликовано 2022-03 · проверено 2026-09-26
 - [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) · OWASP Gen AI Security Project · проверено 2026-09-26
 - [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) · Radford et al., arXiv · опубликовано 2022-12 · проверено 2026-09-26
 - [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) · Rafailov et al., arXiv · опубликовано 2023-05 · проверено 2026-09-26
+- [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) · Rajbhandari et al., arXiv · опубликовано 2019-10-04 · проверено 2026-09-29. Технический материал о памяти состояния обучения и её разбиении. Дата публикации — первая подача; в записи также указаны поздние редакции. Не свидетельство интервью.
 - [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) · Rodden, Hutchinson and Fu, Google Research · опубликовано 2010 · проверено 2026-09-26
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) · Shao et al., arXiv · опубликовано 2024-02 · проверено 2026-09-26
 - [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) · Simon Willison · проверено 2026-09-26
 - [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) · Simon Willison · опубликовано 2025-06-16 · проверено 2026-09-26
+- [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) · Snell et al., arXiv · опубликовано 2024-08-06 · проверено 2026-09-29
 - [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) · Stripe · опубликовано 2017 · проверено 2026-09-26
 - [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) · Stripe · опубликовано 2017 · проверено 2026-09-26
 - [Agentic Commerce Protocol](https://docs.stripe.com/agentic-commerce/acp) · Stripe Documentation · проверено 2026-09-26

@@ -9,20 +9,22 @@ English · [Русский](README.ru.md)
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
 [![PDF editions](https://img.shields.io/badge/PDF-editions-137c80)](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
 
-**Navigate:** [Map of the atlas](docs/README.md) · [Start: AI Engineering](docs/start/engineering.md) · [Start: AI Leadership](docs/start/leadership.md) · [Themes](#themes) · [Companies](#companies) · [Learning path](docs/LEARNING_PATH.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
+**Navigate:** [Map of the atlas](docs/README.md) · [Start: AI Engineering](docs/start/engineering.md) · [Start: AI Leadership](docs/start/leadership.md) · [Themes](#themes) · [Companies](#companies) · [Learning path](docs/LEARNING_PATH.md) · [AI roles](docs/AI_ROLES.md) · [Reasoning models](docs/REASONING_MODELS.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
 
-**The questions AI interviews actually ask — every one with a source you can check.**
+**Prepare for AI interviews with attributed questions, practice prompts and primary reading.**
 
-You are preparing for an interview as an AI product manager, engineering manager, director, technical programme manager or AI engineer. Most question lists online either cite nothing or hide the answers behind a course, and almost none of them cover leadership roles. This one is free, and every claim names where it came from and when it was read.
+Two tracks — AI Engineering and AI Leadership — with company interview guides and answer checklists. Each reported question cites its evidence; the markers distinguish company confirmation, candidate reports and secondary compilations. Generated practice questions are labelled separately.
 
-Prefer paper or a tablet? The same content is a printable book: [PDF editions](https://github.com/eiler2005/ai-interview-atlas/releases/latest) — the atlas in English and in Russian, and the written answers as a separate volume.
+Of 245 questions attributed to published sources, 224 rely only on preparation guides or compilations (†). Another 15 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+
+Released PDF books are dated snapshots for offline reading. The website may contain newer questions and guides; check the release date before using a book as the current edition.
 
 ## What is inside
 
-- **255 questions** across 17 themes: 191 for engineering, 146 for leadership. Each says what it tests.
+- **260 questions** across 17 themes: 196 for engineering, 149 for leadership. Each says what it tests.
 - **80 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
 - **20 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
-- **108 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
+- **125 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
 - **A requirements radar** built from real job postings: what employers actually ask for, by theme.
 
 ## Why this one
@@ -57,11 +59,11 @@ Questions reported at two or more companies, strongest basis first.
 | Theme | AI Engineering | AI Leadership |
 | --- | ---: | ---: |
 | [LLM fundamentals](docs/themes/llm-fundamentals.md) | 18 | 2 |
-| [Inference, serving and cost](docs/themes/inference-economics.md) | 15 | 3 |
+| [Inference, serving and cost](docs/themes/inference-economics.md) | 17 | 4 |
 | [RAG and retrieval](docs/themes/rag-retrieval.md) | 14 | 2 |
 | [Agents, tools and protocols](docs/themes/agents-tools.md) | 15 | 4 |
 | [Fine-tuning and post-training](docs/themes/post-training.md) | 15 | 2 |
-| [Evaluation and observability](docs/themes/evals-observability.md) | 15 | 6 |
+| [Evaluation and observability](docs/themes/evals-observability.md) | 18 | 8 |
 | [Safety, security and governance](docs/themes/safety-security-governance.md) | 10 | 18 |
 | [Multimodal and voice](docs/themes/multimodal-voice.md) | 14 | 1 |
 | [AI system design](docs/themes/ai-system-design.md) | 14 | 5 |

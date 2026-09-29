@@ -126,6 +126,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Identify independent subtasks whose results can be combined without frequent shared-state updates."
+        - "Define delegation boundaries, completion criteria and a synthesis step that checks conflicting findings."
+        - "Compare with one agent at a comparable total budget; count duplicate work, coordination failures, cost and latency."
+      ru:
+        - "Выделить независимые подзадачи, результаты которых объединяются без частого обновления общего состояния."
+        - "Задать границы делегирования, критерии готовности и синтез с проверкой противоречащих выводов."
+        - "Сравнить с одним агентом при сопоставимом общем бюджете; учесть повторы работы, ошибки координации, стоимость и задержку."
+    reading: ["anthropic-multi-agent-research"]
   - id: "agt-memory"
     tracks: ["engineering"]
     type: "system_design"

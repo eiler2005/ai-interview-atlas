@@ -53,6 +53,11 @@
 - <a id="llm-flashattention"></a>**Почему точный attention может работать быстрее без изменения квадратичного характера вычислений?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
   - Что проверяет: Понимание различия между обменом с памятью и вычислительной сложностью.
+  - Сильный ответ покрывает:
+    - Объяснить блочное вычисление attention и сокращение обмена между уровнями памяти ускорителя.
+    - Отличить точный attention с различиями округления от разреженного или приближённого attention.
+    - Разделить квадратичную арифметику и обмен с памятью; измерить нужные размерности на целевом оборудовании.
+  - Читать: [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) (Dao et al., arXiv)
 - <a id="llm-tokenization"></a>**Объясните обучение BPE и причины неодинаковой токенизации чисел, кода и разных письменностей.**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-tokenization&title=%5BCorrection%5D%20llm-tokenization)
   - Что проверяет: Понимание влияния токенизации на расход контекста и представление текста.

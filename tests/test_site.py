@@ -34,6 +34,9 @@ def test_menu_lists_every_generated_page_in_both_languages_once():
     russian = next(entry["Русский"] for entry in menu if "Русский" in entry)
     assert paths(russian)[0] == "ru/README.md"
     assert all(path.startswith("ru/") for path in paths(russian))
+    for guide in ("AI_ROLES.md", "REASONING_MODELS.md", "LEARNING_PATH.md"):
+        assert guide in listed
+        assert f"ru/{guide}" in listed
 
 
 def test_links_outside_docs_go_to_the_map_or_to_github():

@@ -5,10 +5,18 @@ English · [Русский](../ru/themes/inference-economics.md) · [AI Intervie
 
 Serving models at scale: prefill and decode, batching, caching, quantisation, latency metrics and the levers that move cost.
 
-On this page: [Both tracks (3)](#track-both) · [AI Engineering (12)](#track-engineering)
+On this page: [Both tracks (4)](#track-both) · [AI Engineering (13)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
+- <a id="inf-reasoning-budget"></a>**A service can spend more on one reasoning run or generate several candidates and verify them. How would you allocate compute under a latency deadline?**
+  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-budget&title=%5BCorrection%5D%20inf-reasoning-budget)
+  - Tests: Whether compute allocation follows measured task value and includes verification overhead.
+  - A strong answer covers:
+    - Compare strategies on the same held-out tasks, including verifier cost and wall-clock latency.
+    - Measure success by task difficulty and deploy a routing rule that does not require knowing the correct answer.
+    - Set stopping and fallback rules; report total spend per successful task and deadline misses.
+  - Read: [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 - <a id="inf-latency-metrics"></a>**Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems.**
   - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-latency-metrics&title=%5BCorrection%5D%20inf-latency-metrics)
   - Tests: Whether user-visible delay is separated from aggregate capacity.
@@ -26,6 +34,14 @@ On this page: [Both tracks (3)](#track-both) · [AI Engineering (12)](#track-eng
 
 ## <a id="track-engineering"></a>AI Engineering
 
+- <a id="inf-reasoning-incomplete"></a>**A reasoning API request consumes tokens but returns no usable answer. How would you diagnose it and design a bounded recovery policy?**
+  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-incomplete&title=%5BCorrection%5D%20inf-reasoning-incomplete)
+  - Tests: Whether token accounting, completion status and retry budgets are treated separately.
+  - A strong answer covers:
+    - Inspect completion status, token usage, context size and the provider's output-limit semantics.
+    - Distinguish exhaustion from tool errors, refusal and timeout before choosing recovery.
+    - Bound total attempts, spend and elapsed time; measure recovery success and avoid duplicate tool actions.
+  - Read: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) (OpenAI API documentation)
 - <a id="inf-prefill-decode"></a>**Contrast prefill with autoregressive decode and explain when compute or memory bandwidth becomes the bottleneck.**
   - Knowledge · ✍ [Answer](../answers/engineering.md#inf-prefill-decode) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-prefill-decode&title=%5BCorrection%5D%20inf-prefill-decode)
   - Tests: Whether bottlenecks are conditioned on workload and batch size.

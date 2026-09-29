@@ -42,6 +42,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
 - <a id="rag-reranking"></a>**Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?**
   - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-reranking&title=%5BCorrection%5D%20rag-reranking)
   - Tests: Whether candidate count, recall and reranking cost are balanced.
+  - A strong answer covers:
+    - Retrieve a broad candidate set first, then score query-document pairs with the reranker.
+    - Measure initial recall separately: a reranker cannot recover a document missing from its input.
+    - Sweep candidate and final-context counts against held-out answer quality and end-to-end latency.
+  - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="rag-stage-evaluation"></a>**How would you separately evaluate document retrieval and answer generation in a RAG application?**
   - Applied scenario · ✍ [Answer](../answers/engineering.md#rag-stage-evaluation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-stage-evaluation&title=%5BCorrection%5D%20rag-stage-evaluation)
   - Tests: Whether failures can be attributed to the correct stage.
@@ -53,6 +58,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
 - <a id="rag-hyde"></a>**Explain hypothetical-document retrieval and how you would establish whether it improves your query distribution.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-hyde&title=%5BCorrection%5D%20rag-hyde)
   - Tests: Whether generated query expansion is treated as a testable hypothesis.
+  - A strong answer covers:
+    - Generate a hypothetical document, embed it and retrieve real corpus documents near that embedding.
+    - Treat the generated document as a search aid, never as a factual source for the answer.
+    - Compare with direct-query retrieval on representative queries, measuring relevance, answer quality and added latency.
+  - Read: [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) (Gao et al., arXiv)
 - <a id="rag-embedding-drift"></a>**Search quality declines as the corpus changes. How would you detect embedding drift and separate it from indexing defects?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-embedding-drift&title=%5BCorrection%5D%20rag-embedding-drift)
   - Tests: Whether diagnosis uses stable relevance sets and production slices.

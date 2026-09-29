@@ -5,10 +5,18 @@
 
 Обслуживание моделей в масштабе: prefill и decode, батчинг, кэширование, квантизация, метрики задержки и рычаги стоимости.
 
-На этой странице: [Оба трека (3)](#track-both) · [AI-инженерия (12)](#track-engineering)
+На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (13)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
+- <a id="inf-reasoning-budget"></a>**Сервис может потратить больше вычислений на один reasoning-запуск или получить несколько кандидатов и проверить их. Как распределить бюджет при ограничении задержки?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-budget&title=%5BCorrection%5D%20inf-reasoning-budget)
+  - Что проверяет: Умение распределять вычисления по измеренной пользе для задачи с учётом расходов на проверку.
+  - Сильный ответ покрывает:
+    - Сравнить стратегии на одинаковых отложенных задачах, включая стоимость проверяющего и полную задержку.
+    - Измерить успех по сложности задач и выбрать правило маршрутизации, которому не нужен правильный ответ.
+    - Задать остановку и резервный сценарий; показать все расходы на успешную задачу и нарушения срока.
+  - Читать: [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 - <a id="inf-latency-metrics"></a>**Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса.**
   - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-latency-metrics&title=%5BCorrection%5D%20inf-latency-metrics)
   - Что проверяет: Умение отличать задержку для пользователя от совокупной пропускной способности.
@@ -26,6 +34,14 @@
 
 ## <a id="track-engineering"></a>AI-инженерия
 
+- <a id="inf-reasoning-incomplete"></a>**Запрос к reasoning API расходует токены, но не возвращает пригодный ответ. Как найти причину и организовать восстановление с ограниченным бюджетом?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-incomplete&title=%5BCorrection%5D%20inf-reasoning-incomplete)
+  - Что проверяет: Умение различать учёт токенов, статус завершения и бюджет повторов.
+  - Сильный ответ покрывает:
+    - Проверить статус, расход токенов, размер контекста и смысл выходного лимита у провайдера.
+    - До восстановления отличить исчерпание лимита от ошибки инструмента, отказа и таймаута.
+    - Ограничить попытки, расходы и полное время; измерять успех восстановления и исключать повторные действия инструментов.
+  - Читать: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) (OpenAI API documentation)
 - <a id="inf-prefill-decode"></a>**Сравните prefill и авторегрессионное декодирование: когда узким местом становятся вычисления, а когда пропускная способность памяти?**
   - Знания · ✍ [Ответ](../answers/engineering.md#inf-prefill-decode) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-prefill-decode&title=%5BCorrection%5D%20inf-prefill-decode)
   - Что проверяет: Умение определять узкое место с учётом нагрузки и батча.

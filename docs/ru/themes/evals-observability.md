@@ -5,10 +5,26 @@
 
 Как понять, что AI-система работает: eval-наборы, LLM-судьи, регрессионные гейты, онлайн-измерения и трассировки.
 
-На этой странице: [Оба трека (6)](#track-both) · [AI-инженерия (9)](#track-engineering)
+На этой странице: [Оба трека (8)](#track-both) · [AI-инженерия (10)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
+- <a id="eval-reasoning-counterfactual"></a>**Команда связывает улучшение результатов с reasoning-моделью, но одновременно изменила промпты, инструменты и вычислительный бюджет. Как выяснить, что именно помогло?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-counterfactual&title=%5BCorrection%5D%20eval-reasoning-counterfactual)
+  - Что проверяет: Умение отделить эффект модели от изменений окружающей системы.
+  - Сильный ответ покрывает:
+    - Зафиксировать задания, оценку и состояние инструментов; менять модель, промпт и бюджет в контролируемых сравнениях.
+    - Повторить прогоны и показать неопределённость, сложные срезы и ошибки, а не только общую долю побед.
+    - Сравнить и базовый вариант при равном бюджете, и рабочую систему с её реальными ограничениями цены и задержки.
+  - Читать: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv)
+- <a id="eval-reasoning-trace-faithfulness"></a>**Краткое объяснение reasoning-модели выглядит убедительно, но ответ следует ложной подсказке. Какие выводы должны сделать оценка и мониторинг?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-trace-faithfulness&title=%5BCorrection%5D%20eval-reasoning-trace-faithfulness)
+  - Что проверяет: Умение отличать наблюдаемое объяснение от правильности и достоверного описания вычислений.
+  - Сильный ответ покрывает:
+    - Оценивать итог и наблюдаемые действия независимо от качества объяснения.
+    - Сравнить одинаковые задачи с ложной подсказкой и без неё; отдельно измерять изменение ответа и признание влияния подсказки.
+    - Считать резюме и доступные трассы неполными диагностическими сигналами, а не доступом к скрытым рассуждениям или гарантией безопасности.
+  - Читать: [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) (Chen et al., arXiv)
 - <a id="eval-scarce-labels"></a>**Как собрать полезный eval-набор без эталонных ответов и при дефиците экспертного времени?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
   - Что проверяет: Умение направить выборку и разметку на значимую неопределённость.
@@ -40,6 +56,14 @@
 
 ## <a id="track-engineering"></a>AI-инженерия
 
+- <a id="eval-reasoning-supervision"></a>**Различите награду за результат, process supervision и проверку при инференсе. Какие данные обоснуют выбор каждого подхода для новой reasoning-задачи?**
+  - Знания · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-supervision&title=%5BCorrection%5D%20eval-reasoning-supervision)
+  - Что проверяет: Умение отличать обучающий сигнал от отбора при инференсе и независимой оценки качества.
+  - Сильный ответ покрывает:
+    - Объяснить, какая обратная связь меняет веса, а какая выбирает результат при инференсе.
+    - Оценить доступность разметки, ошибки проверяющего и способы обмануть награду или правило отбора.
+    - Проверять результат независимо на отложенных данных; не переносить выводы по математике на все процессы.
+  - Читать: [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (v1)](https://arxiv.org/html/2501.12948v1) (DeepSeek-AI, arXiv) · [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) (Lightman et al., arXiv)
 - <a id="eval-judge"></a>**Спроектируйте LLM-судью и калибровку, выявляющую смещения из-за порядка, многословия и предпочтения собственных ответов.**
   - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#eval-judge) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-judge&title=%5BCorrection%5D%20eval-judge)
   - Что проверяет: Умение проверять решения модели по независимой разметке.

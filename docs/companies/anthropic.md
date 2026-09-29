@@ -83,6 +83,11 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Explain how Constitutional AI uses principles, self-revision and AI-generated preferences, and identify what human judgement it still depends on.](../themes/post-training.md#pt-constitutional)**
   - Knowledge · Asked at: Anthropic †
   - Tests: Whether reduced labelling effort is distinguished from removing human value choices.
+  - A strong answer covers:
+    - Separate supervised self-critique and revision from reinforcement learning on AI-generated preferences.
+    - Explain how the selected principles shape critiques, comparisons and the learned preference model.
+    - Identify human choices in the constitution and evaluation; reduced harmfulness labelling does not remove value judgements.
+  - Read: [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) (Bai et al., arXiv)
 
 ### [Evaluation and observability](../themes/evals-observability.md)
 

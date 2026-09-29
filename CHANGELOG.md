@@ -2,6 +2,18 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-09-29 reasoning, roles and source transparency
+
+### Added
+- Bilingual guides to reasoning models and six AI role families, with preparation priorities and links into the atlas.
+- Five reasoning-model practice questions, explicitly marked as generated rather than reported interview questions.
+- Primary reading and bilingual answer checklists for nine existing questions on post-training, retrieval, attention and multi-agent systems. Their secondary interview-evidence markers are unchanged.
+
+### Changed
+- The home pages disclose reliance on secondary guides and the concentration of questions in one compilation. Technical reading is distinguished from evidence that an employer asked a question.
+- Contribution rules and validation reject repeated source URLs and identical question text, while preserving existing question IDs and combining evidence in one entry.
+- Released PDF books are described as dated snapshots; they are not regenerated for this update.
+
 ## Unreleased — 2026-09-29 navigation, site and repository
 
 ### Added
