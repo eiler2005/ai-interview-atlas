@@ -8,6 +8,7 @@ markets:
 roles:
   engineering:
   - "software-engineer-general"
+  - "ml-engineer"
   leadership:
   - "engineering-manager"
 summary:
@@ -50,6 +51,28 @@ loop:
   claim: "participant_report"
   sources:
   - "habr-ozon-tbank-candidate"
+- stage:
+    en: "ML system design section"
+    ru: "Секция по дизайну ML-систем"
+  detail:
+    en: "Design and decompose a complex ML system: formalise the task and requirements, split it into subtasks, collect data, choose ML architectures, then deploy and test. Published in 2022 in a repository archived in 2023."
+    ru: "Спроектировать и декомпозировать сложную ML-систему: формализовать задачу и требования, разбить на подзадачи, собрать данные, выбрать ML-архитектуры, затем выкатить и протестировать. Опубликовано в 2022 году в репозитории, который в 2023 году переведён в архив."
+  claim: "confirmed"
+  sources:
+  - "tbank-career-system-design-ml"
+  roles:
+  - "ml-engineer"
+- stage:
+    en: "ML section"
+    ru: "Секция по ML"
+  detail:
+    en: "Data analysis questions on theory and practical cases: framing the task, choosing and justifying quality metrics, collecting and validating data, and ML algorithms. From the same 2022 archive."
+    ru: "Вопросы по анализу данных на теоретических и практических кейсах: постановка задачи, выбор и обоснование метрик качества, сбор и валидация данных, ML-алгоритмы. Из того же архива 2022 года."
+  claim: "confirmed"
+  sources:
+  - "tbank-career-platform-ml"
+  roles:
+  - "ml-engineer"
 coding:
   value: "required"
   sources:

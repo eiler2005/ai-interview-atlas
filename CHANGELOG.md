@@ -2,6 +2,19 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-09-29 role pages with interview evidence
+
+### Added
+- The AI roles guide is generated from `src/content/roles.yaml`. Each of the six role families has its own page with what the role involves, how it is interviewed and the questions for it. Stages and questions count as reported for a role only when their source names the role; everything else is listed as practice.
+- New taxonomy roles: forward deployed engineer, AI solutions architect, deployment strategist, AI evaluation engineer, and ML engineer or data scientist. The applied AI role no longer doubles as the forward deployed one.
+- 32 questions from newly verified sources. They cover the AI-assisted build and review rounds Sierra introduced in 2026, Cursor's rounds in its own repository, and Anthropic's historical performance take-home and Research Fellowship brainstorm. They also cover Palantir's decomposition, learning and SQL rounds, forward deployed interviews at OpenAI, Anthropic and Cognition, and Russian ML and prompt-engineering interviews at Yandex, T-Bank and Tochka. Company pages separately describe interview stages and preparation guidance from Avito, SberDevices and MegaFon.
+- Company pages for Sierra, Cursor, Ramp, Cognition, LangChain, MegaFon, SberDevices and Tochka. Palantir, Anthropic, OpenAI, Yandex, T-Bank and Avito gain role-specific stages. 33 sources added.
+
+### Changed
+- Job postings are a separate source kind, `posting`: they describe a role and can no longer be cited as evidence of an interview question or stage.
+- The README names the largest compilation but links to its attribution on the sources page instead of the external repository.
+- The methodology covers hiring-side accounts, archived official pages and generated "interview guide" sites. The Russian translation of the reasoning-models guide was corrected.
+
 ## Unreleased — 2026-09-29 reasoning, roles and source transparency
 
 ### Added

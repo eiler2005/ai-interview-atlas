@@ -5,22 +5,31 @@
 
 Корпоративный и forward-deployed AI · Международный · Этапы проверены 2026-09-26
 
-Вторичные гайды выделяют декомпозицию неоднозначной практической задачи и сообщают об ограничениях AI-помощи. Уточните актуальный формат и правила инструментов у команды.
+Гайды и рассказ нанимающей стороны строят процесс вокруг декомпозиции: превратить размытую реальную задачу в ограниченный план. Рассказ кандидата 2025 года добавляет технический раунд, где оценивают рассуждения в условиях неопределённости. Гайды также сообщают об ограничениях AI-помощи; уточните актуальный формат и правила инструментов у команды.
 
-На этой странице: [Этапы интервью](#loop) · [Вопросы (20)](#questions)
+На этой странице: [Этапы интервью](#loop) · [Вопросы (27)](#questions)
 
 ## Роли
 
-- **AI-инженерия:** Прикладной / forward-deployed инженер, Разработчик ПО (общий процесс интервью)
+- **AI-инженерия:** Forward deployed engineer (FDE), Разработчик ПО (общий процесс интервью)
+- **AI-лидерство:** Deployment strategist (стратег по внедрению)
 
 ## <a id="loop"></a>Этапы интервью
 
 | Этап | Что происходит | Основание |
 | --- | --- | --- |
-| Звонок с рекрутером | Около 30 минут о мотивации и связи с миссией компании. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26 |
-| Технический скрининг | Живой кодинг или онлайн-тест: задача на код, SQL-запрос и задача с API. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26 |
-| Финальные раунды | Три часовых раунда из набора: декомпозиция, кодинг, освоение незнакомой системы, переработка большого кода и system design. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, опубликовано 2026-09-19, проверено 2026-09-26 |
-| Интервью с нанимающим менеджером | Около часа: возврат к слабым местам, ответственность и соответствие команде. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, опубликовано 2026-09-19, проверено 2026-09-26 |
+| Звонок с рекрутером<br>*Forward deployed engineer (FDE)* | Около 30 минут о мотивации и связи с миссией компании. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26 |
+| Технический скрининг<br>*Forward deployed engineer (FDE)* | Живой кодинг или онлайн-тест: задача на код, SQL-запрос и задача с API. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26 |
+| Финальные раунды<br>*Forward deployed engineer (FDE)* | Три часовых раунда из набора: декомпозиция, кодинг, освоение незнакомой системы, переработка большого кода и system design. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, опубликовано 2026-09-19, проверено 2026-09-26 |
+| Интервью с нанимающим менеджером<br>*Forward deployed engineer (FDE)* | Около часа: возврат к слабым местам, ответственность и соответствие команде. | † гайд или подборка<br>[Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, опубликовано 2026-09-19, проверено 2026-09-26 |
+| Раунд декомпозиции<br>*Forward deployed engineer (FDE), Deployment strategist (стратег по внедрению)* | Гайды описывают 45–60 минут, из них первые 10–15 — на вопросы: размытую операционную задачу превращают в ограниченный план по слоям; кандидатам в deployment strategist советуют разбирать, например, выявление отмывания денег или налогового мошенничества. | † гайд или подборка<br>[The Palantir Decomposition Interview, Explained](https://fdeinterviews.com/guide/palantir-decomposition-interview), FDEInterviews.com, проверено 2026-09-29<br>[Palantir Deployment Strategist Interview Guide](https://www.tryexponent.com/guides/palantir-deployment-strategist-interview), Aced (formerly Exponent), опубликовано 2026-08-20, проверено 2026-09-29 |
+| Декомпозиция глазами нанимающей стороны<br>*Forward deployed engineer (FDE)* | Бывший FDE Palantir, руководивший наймом FDE, рассказывает: кандидату объясняли предметную область, например инсайдерскую торговлю, и спрашивали, какие данные ему нужны, что он спросит у клиента и что будет искать. | 🗣 отчёт кандидата<br>[So You Want to Hire a Forward Deployed Engineer](https://review.firstround.com/so-you-want-to-hire-a-forward-deployed-engineer/), First Round Review, опубликовано 2026-02-24, проверено 2026-09-29 |
+| Технический раунд, рассказ кандидата<br>*Forward deployed engineer (FDE)* | Август 2025 года: после беседы с рекрутером о том, почему Palantir и почему эта роль, — алгоритмическая задача, где оценивали, как кандидат справляется с неопределённостью, объясняет компромиссы и отлаживает решение на ходу. | 🗣 отчёт кандидата<br>[Palantir Forward Deployed Software Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-new-york-ny-august-15-2025-no-offer-positive-816dddf1/), Taro, candidate report, проверено 2026-09-29 |
+| Техническая планка deployment strategist<br>*Deployment strategist (стратег по внедрению)* | Гайд описывает освоение незнакомого языка, похожего на SQL, на техническом собеседовании в реальном времени; уверенное владение SQL рекомендуется для подготовки. | † гайд или подборка<br>[Palantir Deployment Strategist Interview Guide](https://www.tryexponent.com/guides/palantir-deployment-strategist-interview), Aced (formerly Exponent), опубликовано 2026-08-20, проверено 2026-09-29 |
+| Телефонные интервью и onsite | Все начинают с одного-двух телефонных интервью; если есть совпадение, следует onsite. Процесс построен вокруг инженерных компетенций, по каждой опубликовано руководство. | ✅ подтверждено компанией<br>[Getting Hired](https://www.palantir.com/careers/getting-hired/), Palantir Careers, проверено 2026-09-29 |
+| Работа внутри существующих систем | Одна из опубликованных компетенций: менять системы, код и инфраструктуру, написанные не вами, например восстановить систему клиента после сбоя, не читая сначала весь её код. | ✅ подтверждено компанией<br>[Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/), Palantir Careers, проверено 2026-09-29 |
+| Раунды onsite, рассказ кандидата<br>*Forward deployed engineer (FDE)* | Март 2025 года, оффер принят: скрининг с инженером о разборе задачи, затем кодинг (оптимизация системы расписаний), отладка сломанного API-сервиса, раунд на обучаемость — встроить незнакомую библиотеку перед system design — и разговор с нанимающим менеджером. | 🗣 отчёт кандидата<br>[Palantir Forward Deployed Software Engineer Interview Experience - Denver, Colorado](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-denver-co-march-1-2025-accepted-offer-positive-92cad6d6/), Taro, candidate report, проверено 2026-09-29 |
+| Раунд на обучаемость с SQL, рассказ кандидата<br>*Forward deployed engineer (FDE)* | Ноябрь 2025 года: интервью по кодингу и декомпозиции, затем виртуальный onsite со второй декомпозицией и раундом на обучаемость, где ждали SQL-запросы без запуска, хотя кандидату сказали, что готовиться не нужно. | 🗣 отчёт кандидата<br>[Palantir Forward Deployed Software Engineer Interview Experience - United States](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-united-states-november-9-2025-no-offer-negative-a89581e3/), Taro, candidate report, проверено 2026-09-29 |
 
 **Кодинг:** неизвестно. Вторичный гайд описывает кодинг для FDE; подтверждения компанией или участником интервью здесь нет. ([Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-26)
 
@@ -88,6 +97,15 @@
 - **[Напишите функцию сбора постраничного REST-ответа с явной обработкой размера страницы, завершения и неполных ответов.](../themes/coding-practical.md#code-pagination)**
   - Кодинг · Где спрашивали: Palantir †
   - Что проверяет: Умение предотвратить пропуски и дублирование записей на границах страниц.
+- **[Оптимизируйте реализацию заданной системы расписаний, сохранив код чистым.](../themes/coding-practical.md#code-optimise-scheduler)**
+  - Кодинг · Где спрашивали: Palantir 🗣
+  - Что проверяет: Умение найти настоящее узкое место и ускорить код, не делая его менее понятным.
+- **[Отладьте сломанный API-сервис: разберите логи, найдите узкое место и устраните утечку памяти.](../themes/coding-practical.md#code-debug-api-service)**
+  - Кодинг · Где спрашивали: Palantir 🗣
+  - Что проверяет: Умение системно отлаживать работающий сервис по фактам, а не по догадкам.
+- **[Напишите SQL-запросы, отвечающие на вопросы о наборе данных, без возможности их запустить.](../themes/coding-practical.md#code-sql-by-hand)**
+  - Кодинг · Где спрашивали: Palantir 🗣
+  - Что проверяет: Выдерживают ли ваши базовые навыки запросов к данным проверку без инструментов.
 
 ### [AI-платформа и операционная модель](../themes/ai-operating-model.md)
 
@@ -125,6 +143,12 @@
 - **[Спроектируйте приложение для регистрации видов при исследовании незнакомой местности.](../themes/applied-scenarios.md#app-field-catalogue)**
   - System design · Senior · Где спрашивали: Palantir †
   - Что проверяет: Умеете ли вы выяснить полевые ограничения и обеспечить надёжный сбор данных.
+- **[После вводного объяснения инсайдерской торговли расскажите, как бы вы её выявляли: какие данные вам нужны, что вы спросите у клиента и какие закономерности будете искать?](../themes/applied-scenarios.md#app-financial-crime-decomposition)**
+  - Прикладной сценарий · Где спрашивали: Palantir 🗣
+  - Что проверяет: Умение превратить размытую задачу с высокими ставками в ограниченную первую систему, которую можно проверить.
+- **[За несколько минут встройте незнакомую библиотеку в существующую систему, затем спроектируйте систему вокруг неё с учётом масштаба, хранения данных и отказов.](../themes/applied-scenarios.md#app-learn-then-design)**
+  - Прикладной сценарий · Где спрашивали: Palantir 🗣
+  - Что проверяет: Умение быстро освоить незнакомый инструмент и перенести его в обоснованные проектные решения.
 
 ### [Поведенческие вопросы и ценности](../themes/behavioral-values.md)
 
@@ -134,5 +158,11 @@
 - **[Как вы относитесь к работе для оборонных или разведывательных заказчиков и что сделаете, если проект противоречит вашим ценностям?](../themes/behavioral-values.md#beh-sensitive-mission)**
   - Поведенческий · Senior · Где спрашивали: Palantir †
   - Что проверяет: Умеете ли вы рассуждать о конкретных границах и профессиональной ответственности.
+- **[Почему эта компания и почему именно forward deployed, а не разработка основного продукта?](../themes/behavioral-values.md#beh-why-forward-deployed)**
+  - Самопрезентация · Где спрашивали: Palantir 🗣
+  - Что проверяет: Соответствует ли ваша мотивация работе с клиентами и внедрению, а не только имени компании.
+- **[Что может помешать вам добиться успеха в этой работе?](../themes/behavioral-values.md#beh-might-not-succeed)**
+  - Самопрезентация · Где спрашивали: Palantir †
+  - Что проверяет: Насколько честно вы оцениваете свою пригодность к неопределённой роли с работой на клиента.
 
 ← [Atlassian](atlassian.md) · [Adyen](adyen.md) →

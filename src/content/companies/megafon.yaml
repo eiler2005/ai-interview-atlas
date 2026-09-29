@@ -1,0 +1,58 @@
+id: "megafon"
+name:
+  en: "MegaFon"
+  ru: "МегаФон"
+segment: "ru-big-tech"
+markets:
+- "ru"
+roles:
+  engineering:
+  - "ml-engineer"
+summary:
+  en: "In 2024 MegaFon's data science team published preparation material for each section of its data scientist interview. The specialised section's reading covers language models, instruction tuning and RLHF; the material lists topics to prepare, not questions asked."
+  ru: "В 2024 году команда data science МегаФона опубликовала материалы для подготовки к каждой секции собеседования на data scientist. Материалы специализированной секции охватывают языковые модели, instruction tuning и RLHF; это список тем для подготовки, а не вопросы, которые задавали."
+loop:
+- stage:
+    en: "Interview sections"
+    ru: "Секции собеседования"
+  detail:
+    en: "Live coding, classical machine learning, specialised machine or deep learning, ML system design for middle and senior candidates, and a behavioural interview."
+    ru: "Live coding, классическое машинное обучение, специализированное машинное или глубокое обучение, дизайн ML-систем для middle и senior и поведенческое интервью."
+  claim: "confirmed"
+  sources:
+  - "megafon-ds-prep-ml-system-design"
+  roles:
+  - "ml-engineer"
+- stage:
+    en: "Specialised machine learning"
+    ru: "Специализированное машинное обучение"
+  detail:
+    en: "Preparation material for NLP candidates covers transformers, the GPT family, prompting, instruction tuning, RLHF, distillation and multimodal models such as CLIP."
+    ru: "Материалы для кандидатов в NLP охватывают трансформеры, семейство GPT, промптинг, instruction tuning, RLHF, дистилляцию и мультимодальные модели вроде CLIP."
+  claim: "confirmed"
+  sources:
+  - "megafon-ds-prep-specialised-ml"
+  roles:
+  - "ml-engineer"
+- stage:
+    en: "ML system design"
+    ru: "Дизайн ML-систем"
+  detail:
+    en: "The preparation guide recommends a framework covering problem definition, quality assessment, data analysis, feature engineering, model development, deployment, monitoring and troubleshooting."
+    ru: "Материалы для подготовки рекомендуют схему разбора: постановка задачи, оценка качества, анализ данных, feature engineering, разработка модели, выкатка, мониторинг и разбор проблем."
+  claim: "confirmed"
+  sources:
+  - "megafon-ds-prep-ml-system-design"
+  roles:
+  - "ml-engineer"
+coding:
+  value: "required"
+  note:
+    en: "The first section is live coding."
+    ru: "Первая секция — live coding."
+  sources:
+  - "megafon-ds-prep-ml-system-design"
+prep:
+- "megafon-ds-prep-specialised-ml"
+- "megafon-ds-prep-ml-system-design"
+reviewed: "2026-09-29"

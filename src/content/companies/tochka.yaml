@@ -1,0 +1,57 @@
+id: "tochka"
+name:
+  en: "Tochka"
+  ru: "Точка"
+segment: "fintech"
+markets:
+- "ru"
+roles:
+  engineering:
+  - "applied-ai-engineer"
+summary:
+  en: "The bank's prompt-engineering team describes how it hires prompt engineers: a questionnaire, an HR call, a week-long prompt-writing test, a technical interview and an interview with the internal client. In 2024, more than 96% of candidates first heard of function calling at the interview."
+  ru: "Команда prompt-инженеров банка рассказывает, как нанимает prompt-инженеров: анкета, звонок с HR, недельное тестовое задание на промпты, техническое собеседование и интервью с заказчиком. В 2024 году более 96% кандидатов впервые услышали о function calling на собеседовании."
+loop:
+- stage:
+    en: "Questionnaire and HR call"
+    ru: "Анкета и звонок с HR"
+  detail:
+    en: "A questionnaire, then an HR call about experience with simple questions about OpenAI tools."
+    ru: "Анкета, затем звонок с HR об опыте и простые вопросы о мире OpenAI."
+  claim: "confirmed"
+  sources:
+  - "tochka-prompt-engineers-2024"
+- stage:
+    en: "Test assignment"
+    ru: "Тестовое задание"
+  detail:
+    en: "A week to write prompts for each type of task the team handles; one example is extracting a date range from a request in Russian, where near-identical phrasings mean different periods."
+    ru: "Неделя на промпты для каждого типа задач команды; например, извлечь период из запроса, где почти одинаковые формулировки означают разные периоды."
+  claim: "confirmed"
+  sources:
+  - "tochka-prompt-engineers-2024"
+  - "tochka-prompt-engineers-2025"
+- stage:
+    en: "Technical interview"
+    ru: "Техническое собеседование"
+  detail:
+    en: "With the lead of the prompt engineers, HR, a data scientist and a team lead: technical questions and a conversation about experience."
+    ru: "С руководителем prompt-инженеров, HR, data scientist и тимлидом: технические вопросы и разговор об опыте."
+  claim: "confirmed"
+  sources:
+  - "tochka-prompt-engineers-2024"
+- stage:
+    en: "Client interview"
+    ru: "Интервью с заказчиком"
+  detail:
+    en: "An interview with the internal client. In 2024, 23 of 219 candidates reached it and 15 received and accepted offers."
+    ru: "Интервью с внутренним заказчиком. В 2024 году до него дошли 23 из 219 кандидатов, 15 получили и приняли оффер."
+  claim: "confirmed"
+  sources:
+  - "tochka-prompt-engineers-2025"
+coding:
+  value: "unknown"
+prep:
+- "tochka-prompt-engineers-2024"
+- "tochka-prompt-engineers-2025"
+reviewed: "2026-09-29"

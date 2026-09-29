@@ -99,4 +99,4 @@ On this page: [Interview loop](#loop) · [Questions (8)](#questions)
     - Plan staged migration, rollback within the available window and customer communication.
   - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 
-← [Uber](uber.md) · [NVIDIA](nvidia.md) →
+← [Uber](uber.md) · [LangChain](langchain.md) →

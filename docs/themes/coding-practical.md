@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/coding-practical.md) · [AI Interview A
 
 Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review.
 
-On this page: [Both tracks (1)](#track-both) · [AI Engineering (14)](#track-engineering)
+On this page: [Both tracks (1)](#track-both) · [AI Engineering (26)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -72,5 +72,41 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="code-pagination"></a>**Write a function that collects a paginated REST result while handling page size, termination and incomplete responses explicitly.**
   - Coding · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pagination&title=%5BCorrection%5D%20code-pagination)
   - Tests: Whether boundary conditions prevent missing or duplicated records.
+- <a id="code-ai-assisted-build"></a>**Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production.**
+  - Applied scenario · Asked at: [Sierra](../companies/sierra.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-build&title=%5BCorrection%5D%20code-ai-assisted-build)
+  - Tests: Whether you scope, build and defend a working product with AI assistance under a time limit.
+- <a id="code-agent-pr-review"></a>**Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.**
+  - Applied scenario · Asked at: [Sierra](../companies/sierra.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-pr-review&title=%5BCorrection%5D%20code-agent-pr-review)
+  - Tests: Whether you judge someone else's change critically instead of accepting what an agent proposes.
+- <a id="code-product-structure"></a>**Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.**
+  - Coding · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-product-structure&title=%5BCorrection%5D%20code-product-structure)
+  - Tests: Whether you can read an unfamiliar real codebase and implement a core structure correctly.
+- <a id="code-self-scoped-onsite"></a>**Given a real codebase for a working day, decide what to build, ship it, and explain your implementation choices and trade-offs.**
+  - Applied scenario · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-self-scoped-onsite&title=%5BCorrection%5D%20code-self-scoped-onsite)
+  - Tests: Whether you scope your own work, deliver it and defend it without step-by-step direction.
+- <a id="code-spreadsheet-cycles"></a>**In a spreadsheet where cells can reference other cells, detect whether there is a circular reference.**
+  - Coding · Asked at: [Sierra](../companies/sierra.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-spreadsheet-cycles&title=%5BCorrection%5D%20code-spreadsheet-cycles)
+  - Tests: Whether you model dependencies as a graph and detect cycles correctly and efficiently.
+- <a id="code-catalogue-search-tool"></a>**Build a semantic search over a product catalogue that a chat model can call as a tool.**
+  - Coding · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-catalogue-search-tool&title=%5BCorrection%5D%20code-catalogue-search-tool)
+  - Tests: Whether you combine retrieval with a clear, validated tool interface that a model can use reliably.
+- <a id="code-credit-ledger"></a>**Implement a credit system in which credits carry different expiry rules and usage requirements, and extend it as follow-up requirements arrive.**
+  - Coding · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-credit-ledger&title=%5BCorrection%5D%20code-credit-ledger)
+  - Tests: Whether your design absorbs changing business rules without a rewrite.
+- <a id="code-pair-sum"></a>**Find a pair of numbers in an array with a given sum; clarify the conditions, test the code and discuss complexity and edge cases.**
+  - Coding · Asked at: [Yandex](../companies/yandex.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pair-sum&title=%5BCorrection%5D%20code-pair-sum)
+  - Tests: Whether basic data-structure fluency, testing and edge-case discipline hold up in live coding.
+- <a id="code-optimise-scheduler"></a>**Optimise the implementation of a given scheduling system, keeping the code clean.**
+  - Coding · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-optimise-scheduler&title=%5BCorrection%5D%20code-optimise-scheduler)
+  - Tests: Whether you find the real bottleneck and improve it without making the code harder to read.
+- <a id="code-debug-api-service"></a>**Debug a broken API service: trace the logs, find the bottleneck and fix a memory leak.**
+  - Coding · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-debug-api-service&title=%5BCorrection%5D%20code-debug-api-service)
+  - Tests: Whether you debug a running service systematically from evidence rather than guesses.
+- <a id="code-sql-by-hand"></a>**Write SQL queries to answer questions about a dataset, without being able to run them.**
+  - Coding · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-sql-by-hand&title=%5BCorrection%5D%20code-sql-by-hand)
+  - Tests: Whether your data-querying fundamentals hold up without tools to check them.
+- <a id="code-agent-session-choices"></a>**In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.**
+  - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
+  - Tests: Whether you direct coding agents deliberately rather than accepting their defaults.
 
 ← [AI system design](ai-system-design.md) · [AI product strategy and metrics](ai-product-strategy.md) →

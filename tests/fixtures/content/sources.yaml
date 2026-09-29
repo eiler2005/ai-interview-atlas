@@ -37,3 +37,10 @@
   published: "2025"
   retrieved: 2026-09-20
   lang: en
+- id: example-posting
+  kind: posting
+  title: AI engineer, applied team
+  publisher: Example Labs
+  url: https://example.com/careers/ai-engineer
+  retrieved: 2026-09-20
+  lang: en

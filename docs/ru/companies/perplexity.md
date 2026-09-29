@@ -129,4 +129,4 @@ AI-native продукты · Международный · Этапы пров�
   - Прикладной сценарий · Senior · Где спрашивали: Perplexity †
   - Что проверяет: Учитываете ли вы технические возражения и формируете ли общее обоснование работы.
 
-← [NVIDIA](nvidia.md) · [Atlassian](atlassian.md) →
+← [Cursor (Anysphere)](cursor.md) · [Sierra](sierra.md) →

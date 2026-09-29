@@ -7,11 +7,11 @@ Russian Big Tech · Russia · Loop reviewed 2026-09-26
 
 Employer articles from 2021 and 2024 describe architecture and algorithmic interviews for general developers. They are separate documents from the same company, without independent corroboration; an AI-specific loop is not established.
 
-On this page: [Interview loop](#loop) · [Official preparation material](#prep) · [Questions (0)](#questions)
+On this page: [Interview loop](#loop) · [Official preparation material](#prep) · [Questions (1)](#questions)
 
 ## Roles covered
 
-- **AI Engineering:** Software engineer (general interview baseline)
+- **AI Engineering:** Software engineer (general interview baseline), ML engineer / data scientist
 
 ## <a id="loop"></a>Interview loop
 
@@ -19,6 +19,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 | --- | --- | --- |
 | Algorithmic section | Sixty minutes with two problems and 30–40 minutes of coding; assessed on clear explanation, complexity analysis and bugs in the code. | ✅ confirmed by the company<br>[Алгоритмические собеседования в Яндексе: как подготовиться и чего ожидать](https://education.yandex.ru/journal/algoritmicheskie-sobesedovaniya-v-yandekse-kak-podgotovitsya-i-chego-ozhidat), Яндекс Образование, published 2024-12-19, retrieved 2026-09-26 |
 | Architecture section (senior) | Design a high-load, fault-tolerant system modelled on a real service; assessed on requirements, data flows and APIs, the architecture, capacity estimates and bottlenecks, and operations. | ✅ confirmed by the company<br>[Как проходят архитектурные секции собеседования в Яндексе: практика дизайна распределённых систем](https://habr.com/ru/companies/yandex/articles/564132/), Яндекс, блог на Хабре, published 2021-06-24, retrieved 2026-09-26 |
+| ML engineer coding section<br>*ML engineer / data scientist* | A recorded demonstration: find a pair of numbers with a given sum, clarify the conditions, write and test code, and discuss complexity and edge cases. | ✅ confirmed by the company<br>[Секция на проверку базовых технических навыков ML-инженеров](https://education.yandex.ru/knowledge/sektsiia-na-proverku-bazovikh-tekhnicheskikh-navikov-ml-inzhenerov), Яндекс Образование, published 2025-11-30, retrieved 2026-09-29 |
 
 **Coding:** required ([Алгоритмические собеседования в Яндексе: как подготовиться и чего ожидать](https://education.yandex.ru/journal/algoritmicheskie-sobesedovaniya-v-yandekse-kak-podgotovitsya-i-chego-ozhidat), Яндекс Образование, published 2024-12-19, retrieved 2026-09-26)
 
@@ -29,6 +30,10 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 
 ## <a id="questions"></a>Questions reported for Yandex
 
-No company-specific questions are recorded yet.
+### [Practical coding](../themes/coding-practical.md)
+
+- **[Find a pair of numbers in an array with a given sum; clarify the conditions, test the code and discuss complexity and edge cases.](../themes/coding-practical.md#code-pair-sum)**
+  - Coding · Asked at: Yandex ✅
+  - Tests: Whether basic data-structure fluency, testing and edge-case discipline hold up in live coding.
 
 ← [T-Bank](t-bank.md)

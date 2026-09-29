@@ -50,6 +50,16 @@ def test_start_here_checklists_print_once_and_themes_point_to_them():
     assert "Чек-лист ответа — в части «С чего начать: AI-лидерство», вопрос 1." in russian
 
 
+@pytest.mark.parametrize("lang", ["en", "ru"])
+def test_pdf_preserves_role_scope_of_company_stages(lang):
+    rendered = book(lang)
+    company = rendered.content.companies["example-labs"]
+    stage = next(s for s in company["loop"] if s.get("roles"))
+    role = rendered.content.roles[stage["roles"][0]]["name"][lang]
+    expected = f"**{pdf_text(stage['stage'][lang])} ({pdf_text(role)}).**"
+    assert expected in "\n".join(rendered.company(company))
+
+
 def test_answers_book_uses_only_the_selected_language():
     content = load(FIXTURE, today=TODAY)
     question = next(q for q in content.questions if q.get("answer"))

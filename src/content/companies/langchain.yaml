@@ -1,0 +1,39 @@
+id: "langchain"
+name:
+  en: "LangChain"
+  ru: "LangChain"
+segment: "ai-infra"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer"
+summary:
+  en: "A preparation guide describes work on the company's own code: a feature built on an older branch of its repository with a specification and tests, and a design round that starts by critiquing the production architecture. No first-hand account was found."
+  ru: "Гайд по подготовке описывает работу с собственным кодом компании: функция в старой ветке её репозитория по спецификации и с тестами и раунд проектирования, который начинается с критики продакшен-архитектуры. Рассказов из первых рук не найдено."
+loop:
+- stage:
+    en: "Coding assignment in the repository"
+    ru: "Задание в репозитории компании"
+  detail:
+    en: "Build a real feature on an older branch of the company's repository, with a full specification and test cases."
+    ru: "Сделать реальную функцию в старой ветке репозитория компании по полной спецификации и с тестами."
+  claim: "secondary"
+  sources:
+  - "exponent-langchain-engineer"
+  roles:
+  - "software-engineer"
+- stage:
+    en: "System design: critique, then extend"
+    ru: "System design: критика, затем развитие"
+  detail:
+    en: "About thirty minutes evaluating the service architecture for weaknesses, then designing a product feature on the platform."
+    ru: "Около получаса — поиск слабых мест в архитектуре сервиса, затем проектирование новой функции для платформы."
+  claim: "secondary"
+  sources:
+  - "exponent-langchain-engineer"
+  roles:
+  - "software-engineer"
+coding:
+  value: "unknown"
+reviewed: "2026-09-29"

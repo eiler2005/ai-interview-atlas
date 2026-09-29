@@ -8,6 +8,7 @@ markets:
 roles:
   engineering:
   - "software-engineer-general"
+  - "ml-engineer"
 summary:
   en: "The engineering loop published in 2019 has four one-hour sections. A 2025 candidate for analyst and project roles describes a take-home task presented to the team."
   ru: "Инженерный цикл, описанный в 2019 году, состоит из четырёх секций по часу. Кандидатка 2025 года на аналитические и проектные роли описывает домашнее задание с презентацией команде."
@@ -39,6 +40,17 @@ loop:
   claim: "participant_report"
   sources:
   - "vc-avito-candidate"
+- stage:
+    en: "Public DS interview: ML system design"
+    ru: "Публичное DS-собеседование: ML system design"
+  detail:
+    en: "A public mock interview in October 2025: an ML system design case with real questions, goal-setting and user impact, and feedback against Avito's competency matrix."
+    ru: "Публичное собеседование в октябре 2025 года: кейс по ML system design с реальными вопросами, целеполагание и влияние на пользователей, развёрнутый фидбек по матрице компетенций Авито."
+  claim: "confirmed"
+  sources:
+  - "avito-ds-public-interview"
+  roles:
+  - "ml-engineer"
 coding:
   value: "varies"
   note:

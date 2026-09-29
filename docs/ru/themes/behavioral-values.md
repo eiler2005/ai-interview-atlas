@@ -5,7 +5,7 @@
 
 Ваши реальные истории, мотивация и суждения: ответственность, конфликты, ошибки и почему именно эта компания.
 
-На этой странице: [Оба трека (19)](#track-both) · [AI-лидерство (4)](#track-leadership)
+На этой странице: [Оба трека (19)](#track-both) · [AI-инженерия (2)](#track-engineering) · [AI-лидерство (5)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -82,6 +82,15 @@
   - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
   - Что проверяет: Умеете ли вы отвечать на критику конкретными выводами и действиями.
 
+## <a id="track-engineering"></a>AI-инженерия
+
+- <a id="beh-why-forward-deployed"></a>**Почему эта компания и почему именно forward deployed, а не разработка основного продукта?**
+  - Самопрезентация · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-why-forward-deployed&title=%5BCorrection%5D%20beh-why-forward-deployed)
+  - Что проверяет: Соответствует ли ваша мотивация работе с клиентами и внедрению, а не только имени компании.
+- <a id="beh-mission-without-upside"></a>**Остались бы вы в компании, если бы её акции обесценились до нуля?**
+  - Поведенческий · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-mission-without-upside&title=%5BCorrection%5D%20beh-mission-without-upside)
+  - Что проверяет: Держится ли ваша мотивация на миссии и работе, а не на финансовой выгоде.
+
 ## <a id="track-leadership"></a>AI-лидерство
 
 - <a id="beh-stakeholder-priorities"></a>**Расскажите о противоречащих приоритетах участников проекта и о том, как вы согласовали действия.**
@@ -96,5 +105,8 @@
 - <a id="beh-product-failure"></a>**Какую самую крупную неудачу вы пережили как продакт-менеджер?**
   - Поведенческий · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-product-failure&title=%5BCorrection%5D%20beh-product-failure)
   - Что проверяет: Умеете ли вы честно разобрать продуктовое решение, последствия и изменение практики.
+- <a id="beh-might-not-succeed"></a>**Что может помешать вам добиться успеха в этой работе?**
+  - Самопрезентация · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-might-not-succeed&title=%5BCorrection%5D%20beh-might-not-succeed)
+  - Что проверяет: Насколько честно вы оцениваете свою пригодность к неопределённой роли с работой на клиента.
 
 ← [Платежи и регулируемые отрасли](domain-payments-fintech.md)

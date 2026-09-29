@@ -5,7 +5,7 @@
 
 Обслуживание моделей в масштабе: prefill и decode, батчинг, кэширование, квантизация, метрики задержки и рычаги стоимости.
 
-На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (13)](#track-engineering)
+На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (14)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -103,5 +103,8 @@
 - <a id="inf-disaggregation"></a>**Когда стоит разделить prefill и decode между воркерами и как оценить накладные расходы передачи KV?**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-disaggregation&title=%5BCorrection%5D%20inf-disaggregation)
   - Что проверяет: Умение сопоставить независимое масштабирование со стоимостью передачи и эксплуатации.
+- <a id="inf-accelerator-takehome"></a>**В первоначальном домашнем задании Anthropic для инженеров производительности, введённом в 2024 году и впоследствии снятом с использования, оптимизируйте последовательную программу для симулятора ускорителя с помощью многоядерного, векторного и инструкционного параллелизма.**
+  - Кодинг · Где спрашивали: [Anthropic](../companies/anthropic.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-accelerator-takehome&title=%5BCorrection%5D%20inf-accelerator-takehome)
+  - Что проверяет: Умение методично находить параллелизм и строить инструменты, чтобы измерять и отлаживать каждый шаг.
 
 ← [Основы LLM](llm-fundamentals.md) · [RAG и поиск](rag-retrieval.md) →

@@ -117,5 +117,14 @@ When AI is worth it, how to design AI features, measure them and build the busin
 - <a id="prod-impactful-product"></a>**Walk through the product you built that had the greatest impact, including the business case and evidence of results.**
   - Self-presentation · Senior · Asked at: [Monzo](../companies/monzo.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-impactful-product&title=%5BCorrection%5D%20prod-impactful-product)
   - Tests: Whether you can connect personal decisions, experiments and realised impact.
+- <a id="prod-enterprise-ai-pricing"></a>**How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?**
+  - Product case · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
+  - Tests: Whether you reason about unit economics and margin, not only product value.
+- <a id="prod-enterprise-discovery"></a>**In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?**
+  - Product case · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
+  - Tests: Whether you adapt customer research to enterprise buyers, users and decision-makers.
+- <a id="prod-expensive-mvp"></a>**What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?**
+  - Product case · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-expensive-mvp&title=%5BCorrection%5D%20prod-expensive-mvp)
+  - Tests: Whether you test the riskiest assumptions with cheaper prototypes before committing to a build.
 
 ← [Practical coding](coding-practical.md) · [AI platform and operating model](ai-operating-model.md) →

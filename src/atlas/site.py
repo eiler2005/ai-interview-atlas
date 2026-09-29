@@ -27,6 +27,8 @@ from .render import (
     methodology_page,
     radar_page,
     reference_name,
+    role_page,
+    roles_page,
     sources_page,
     start_page,
     theme_page,
@@ -52,7 +54,12 @@ def section(lang: str, renderer: Renderer) -> list[dict]:
     menu: list[dict] = [{labels["map"]: in_docs(hub_page(lang))}]
     start = [{names[t]: in_docs(start_page(lang, t))} for t in TRACKS]
     start.append({reference_name(lang, "learning_path"): in_docs(f"{base(lang)}/LEARNING_PATH.md")})
-    start.append({reference_name(lang, "ai_roles"): in_docs(f"{base(lang)}/AI_ROLES.md")})
+    if content.families:
+        roles = [{labels["roles_overview"]: in_docs(roles_page(lang))}]
+        roles += [{f["name"][lang]: in_docs(role_page(lang, f["id"]))} for f in content.families]
+        start.append({reference_name(lang, "ai_roles"): roles})
+    else:
+        start.append({reference_name(lang, "ai_roles"): in_docs(roles_page(lang))})
     start.append(
         {reference_name(lang, "reasoning_models"): in_docs(f"{base(lang)}/REASONING_MODELS.md")}
     )

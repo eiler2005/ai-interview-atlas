@@ -1,0 +1,75 @@
+id: "sberdevices"
+name:
+  en: "SberDevices (Sber)"
+  ru: "SberDevices (Сбер)"
+segment: "ru-big-tech"
+markets:
+- "ru"
+roles:
+  engineering:
+  - "ml-engineer"
+summary:
+  en: "SberDevices publishes its ML developer loop: an HR introduction, then code, classical ML and deep learning sections that can run on one day, an HR interview and meetings with teams. A 2023 candidate account adds an ML system design case and an A/B-testing task."
+  ru: "SberDevices публикует процесс собеседований ML-разработчиков: знакомство с HR, затем секции по коду, классическому ML и глубокому обучению, которые можно пройти за один день, интервью с HR и встречи с командами. Рассказ кандидата 2023 года добавляет кейс по ML system design и задачу на A/B-тест."
+loop:
+- stage:
+    en: "HR introduction"
+    ru: "Знакомство с HR"
+  detail:
+    en: "Interests, experience and motivation, then an introduction to SberDevices and its teams."
+    ru: "Интересы, опыт и мотивация, затем рассказ о SberDevices и командах."
+  claim: "confirmed"
+  sources:
+  - "sberdevices-ml-interview"
+- stage:
+    en: "Code section"
+    ru: "Секция по коду"
+  detail:
+    en: "About an hour: questions on the main programming language and one to three practical tasks in an online editor."
+    ru: "Около часа: вопросы по основному языку программирования и одна-три практические задачи в онлайн-редакторе."
+  claim: "confirmed"
+  sources:
+  - "sberdevices-ml-interview"
+- stage:
+    en: "Classical ML section"
+    ru: "Секция по классическому ML"
+  detail:
+    en: "Metrics, model evaluation, data splitting and optimisation methods; linear regression, trees, random forests and boosting; theory and practice."
+    ru: "Метрики, оценка моделей, разбиение данных и методы оптимизации; линейная регрессия, деревья, random forest и бустинг; теория и практика."
+  claim: "confirmed"
+  sources:
+  - "sberdevices-ml-interview"
+- stage:
+    en: "Deep learning section"
+    ru: "Секция по глубокому обучению"
+  detail:
+    en: "NLP, computer vision and search; layers, activations and modern architectures; data preparation, preprocessing, tokenisation and training strategies; design decisions for neural networks, distributed training, frameworks and faster inference."
+    ru: "NLP, компьютерное зрение и поиск; слои, активации и современные архитектуры; подготовка данных, препроцессинг, токенизация и стратегии обучения; дизайн-решения на нейросетях, распределённое обучение, фреймворки и ускорение инференса."
+  claim: "confirmed"
+  sources:
+  - "sberdevices-ml-interview"
+- stage:
+    en: "HR interview and team meetings"
+    ru: "Интервью с HR и встречи с командами"
+  detail:
+    en: "Experience, values and approach to work, then final meetings with teams."
+    ru: "Опыт, ценности и подход к работе, затем финальные встречи с командами."
+  claim: "confirmed"
+  sources:
+  - "sberdevices-ml-interview"
+- stage:
+    en: "Candidate account, 2023"
+    ru: "Рассказ кандидата, 2023"
+  detail:
+    en: "An HR screen with a mini-test on probability and Python, an hour for three algorithm problems, a 90-minute ML round with probability tasks, an ML system design case and an A/B-testing task, then a team interview."
+    ru: "HR-скрининг с мини-тестом по теории вероятностей и Python, час на три алгоритмические задачи, 90-минутная ML-секция с задачами по вероятностям, кейсом по ML system design и заданием на A/B-тест, затем собеседование с командой."
+  claim: "participant_report"
+  sources:
+  - "tj-sberdevices-interview-2023"
+coding:
+  value: "required"
+  sources:
+  - "sberdevices-ml-interview"
+prep:
+- "sberdevices-ml-interview"
+reviewed: "2026-09-29"

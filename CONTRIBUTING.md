@@ -19,7 +19,8 @@ Personal data or confidential material that reached the repository is a privacy 
 1. Add the source to `src/content/sources.yaml`: `id`, `kind`, `title`, `publisher`, `url`, `retrieved` (the date you read it), `lang`, plus `published` when known and `license` for a reused compilation.
 2. Add a question to `src/content/questions/<theme>.yaml`, or a loop stage to `src/content/companies/<company>.yaml`. Write in your own words and fill both `en` and `ru`.
 3. Mark provenance honestly. A `published` question cites the source that reports it, with `company` when the report names one. A `generated` question cites only `radar:<theme>`. A loop stage is `confirmed` only by a company source, `participant_report` only by a first-hand account, `secondary` by a guide or compilation, and `assumption` when there is no source.
-4. Run `uv run python scripts/build.py` to regenerate the README and pages. Do not edit generated files by hand.
+4. Link roles where the source supports it. Give an evidence item `role:` when its source names the role the interview was for, and give a loop stage `roles:` when the stage was reported for particular roles; both feed the role pages. A question's own `roles` list only marks it as useful practice for those roles. A job posting is a source of kind `posting` and describes a role; it never backs a question or a stage. Role-family prose lives in `src/content/roles.yaml`.
+5. Run `uv run python scripts/build.py` to regenerate the README and pages. Do not edit generated files by hand.
 
 Quote every YAML string and use block style for long text. Dates are ISO strings (`"2026-09-27"`, `"2026-09"` or `"2026"`).
 
@@ -28,7 +29,8 @@ Reuse the existing source ID when a URL is already registered. Merge evidence fo
 ## What we cannot accept
 
 - Material behind a login, paywall bypass or CAPTCHA, or content scraped against a site's terms.
-- Questions from anyone who says they were under a non-disclosure agreement.
+- Questions from anyone who says they were under a non-disclosure agreement, or any part of an account whose author withholds questions for that reason.
+- Programmatically generated "interview guide" sites that repeat one template across many employers and give statistics without a source.
 - Personal data: contact details, private paths, private channel links, CV text or anything that identifies a candidate.
 - Answers that only link to a paid course.
 

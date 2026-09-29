@@ -7,11 +7,13 @@ markets:
 - "intl"
 roles:
   engineering:
-  - "applied-ai-engineer"
+  - "forward-deployed-engineer"
   - "software-engineer-general"
+  leadership:
+  - "deployment-strategist"
 summary:
-  en: "Secondary guides emphasize decomposition of an ambiguous practical problem and report restrictions on AI assistance. Confirm the current team's format and tool rules."
-  ru: "Вторичные гайды выделяют декомпозицию неоднозначной практической задачи и сообщают об ограничениях AI-помощи. Уточните актуальный формат и правила инструментов у команды."
+  en: "Guides and a hiring-side account centre the loop on decomposition: turning an ambiguous real problem into a scoped plan. A 2025 candidate report adds a technical round judged on reasoning under ambiguity. Guides also report restrictions on AI assistance; confirm the current team's format and tool rules."
+  ru: "Гайды и рассказ нанимающей стороны строят процесс вокруг декомпозиции: превратить размытую реальную задачу в ограниченный план. Рассказ кандидата 2025 года добавляет технический раунд, где оценивают рассуждения в условиях неопределённости. Гайды также сообщают об ограничениях AI-помощи; уточните актуальный формат и правила инструментов у команды."
 loop:
 - stage:
     en: "Recruiter call"
@@ -20,6 +22,8 @@ loop:
     en: "About 30 minutes on motivation and connection to the mission."
     ru: "Около 30 минут о мотивации и связи с миссией компании."
   claim: "secondary"
+  roles:
+  - "forward-deployed-engineer"
   sources:
   - "exponent-palantir-fde"
 - stage:
@@ -29,6 +33,8 @@ loop:
     en: "Live coding or an online assessment with a coding task, a SQL query and an API task."
     ru: "Живой кодинг или онлайн-тест: задача на код, SQL-запрос и задача с API."
   claim: "secondary"
+  roles:
+  - "forward-deployed-engineer"
   sources:
   - "exponent-palantir-fde"
 - stage:
@@ -38,6 +44,8 @@ loop:
     en: "Three hour-long rounds drawn from decomposition, coding, learning an unfamiliar system, re-engineering a large codebase and system design."
     ru: "Три часовых раунда из набора: декомпозиция, кодинг, освоение незнакомой системы, переработка большого кода и system design."
   claim: "secondary"
+  roles:
+  - "forward-deployed-engineer"
   sources:
   - "exponent-palantir-fde"
   - "outcome-school-company-wise"
@@ -48,9 +56,97 @@ loop:
     en: "About an hour that revisits weaker areas, ownership and team fit."
     ru: "Около часа: возврат к слабым местам, ответственность и соответствие команде."
   claim: "secondary"
+  roles:
+  - "forward-deployed-engineer"
   sources:
   - "exponent-palantir-fde"
   - "outcome-school-company-wise"
+- stage:
+    en: "Decomposition round"
+    ru: "Раунд декомпозиции"
+  detail:
+    en: "Guides describe 45–60 minutes, the first 10–15 spent on questions: an ambiguous operational problem is turned into a scoped, layered plan; deployment strategists practise prompts such as detecting money laundering or fraudulent tax returns."
+    ru: "Гайды описывают 45–60 минут, из них первые 10–15 — на вопросы: размытую операционную задачу превращают в ограниченный план по слоям; кандидатам в deployment strategist советуют разбирать, например, выявление отмывания денег или налогового мошенничества."
+  claim: "secondary"
+  sources:
+  - "fdeinterviews-palantir-decomposition"
+  - "exponent-palantir-deployment-strategist"
+  roles:
+  - "forward-deployed-engineer"
+  - "deployment-strategist"
+- stage:
+    en: "Decomposition, from the hiring side"
+    ru: "Декомпозиция глазами нанимающей стороны"
+  detail:
+    en: "A former Palantir FDE who led FDE recruiting describes explaining a domain such as insider trading and asking what data the candidate would need, what they would ask the customer and what they would look for."
+    ru: "Бывший FDE Palantir, руководивший наймом FDE, рассказывает: кандидату объясняли предметную область, например инсайдерскую торговлю, и спрашивали, какие данные ему нужны, что он спросит у клиента и что будет искать."
+  claim: "participant_report"
+  sources:
+  - "firstround-hiring-fde"
+  roles:
+  - "forward-deployed-engineer"
+- stage:
+    en: "Technical round, candidate report"
+    ru: "Технический раунд, рассказ кандидата"
+  detail:
+    en: "In August 2025, after a conversational recruiter screen that asked why Palantir and why this role, an algorithmic problem judged on how the candidate handled ambiguity, explained trade-offs and debugged in real time."
+    ru: "Август 2025 года: после беседы с рекрутером о том, почему Palantir и почему эта роль, — алгоритмическая задача, где оценивали, как кандидат справляется с неопределённостью, объясняет компромиссы и отлаживает решение на ходу."
+  claim: "participant_report"
+  sources:
+  - "taro-palantir-fdse-2025"
+  roles:
+  - "forward-deployed-engineer"
+- stage:
+    en: "Deployment strategist technical bar"
+    ru: "Техническая планка deployment strategist"
+  detail:
+    en: "The guide describes learning an unfamiliar SQL-like language in a live technical round; SQL fluency is recommended preparation."
+    ru: "Гайд описывает освоение незнакомого языка, похожего на SQL, на техническом собеседовании в реальном времени; уверенное владение SQL рекомендуется для подготовки."
+  claim: "secondary"
+  sources:
+  - "exponent-palantir-deployment-strategist"
+  roles:
+  - "deployment-strategist"
+- stage:
+    en: "Phone interviews and onsite"
+    ru: "Телефонные интервью и onsite"
+  detail:
+    en: "Everyone starts with one or two phone interviews; if there is a fit, an onsite round follows. The process is structured around engineering competencies, each with a published guide."
+    ru: "Все начинают с одного-двух телефонных интервью; если есть совпадение, следует onsite. Процесс построен вокруг инженерных компетенций, по каждой опубликовано руководство."
+  claim: "confirmed"
+  sources:
+  - "palantir-getting-hired"
+- stage:
+    en: "Working inside existing systems"
+    ru: "Работа внутри существующих систем"
+  detail:
+    en: "One of the published competencies: changing systems, codebases and infrastructure you did not write, for example restoring a customer's system after an outage without first reading all of its code."
+    ru: "Одна из опубликованных компетенций: менять системы, код и инфраструктуру, написанные не вами, например восстановить систему клиента после сбоя, не читая сначала весь её код."
+  claim: "confirmed"
+  sources:
+  - "palantir-existing-systems"
+- stage:
+    en: "Onsite rounds, candidate report"
+    ru: "Раунды onsite, рассказ кандидата"
+  detail:
+    en: "March 2025, offer accepted: an engineer screen on breaking down a problem, then coding (optimising a scheduling system), debugging a broken API service, a learning round that integrates an unfamiliar library before a system design, and a hiring manager round."
+    ru: "Март 2025 года, оффер принят: скрининг с инженером о разборе задачи, затем кодинг (оптимизация системы расписаний), отладка сломанного API-сервиса, раунд на обучаемость — встроить незнакомую библиотеку перед system design — и разговор с нанимающим менеджером."
+  claim: "participant_report"
+  sources:
+  - "taro-palantir-fdse-denver-2025"
+  roles:
+  - "forward-deployed-engineer"
+- stage:
+    en: "Learning round with SQL, candidate report"
+    ru: "Раунд на обучаемость с SQL, рассказ кандидата"
+  detail:
+    en: "November 2025: a coding and decomposition interview, then a virtual onsite with a second decomposition and a learning interview that expected SQL queries without running them, although the candidate had been told no preparation was needed."
+    ru: "Ноябрь 2025 года: интервью по кодингу и декомпозиции, затем виртуальный onsite со второй декомпозицией и раундом на обучаемость, где ждали SQL-запросы без запуска, хотя кандидату сказали, что готовиться не нужно."
+  claim: "participant_report"
+  sources:
+  - "taro-palantir-fdse-sql-2025"
+  roles:
+  - "forward-deployed-engineer"
 coding:
   value: "unknown"
   note:

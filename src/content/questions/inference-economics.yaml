@@ -46,6 +46,7 @@ questions:
     reading: ["openai-reasoning-models"]
   - id: "inf-prefill-decode"
     tracks: ["engineering"]
+    roles: ["inference-engineer"]
     type: "knowledge"
     text:
       en: "Contrast prefill with autoregressive decode and explain when compute or memory bandwidth becomes the bottleneck."
@@ -74,6 +75,7 @@ questions:
     reading: ["hf-llm-optims"]
   - id: "inf-continuous-batching"
     tracks: ["engineering"]
+    roles: ["inference-engineer"]
     type: "knowledge"
     text:
       en: "Explain iteration-level batching and how requests enter and leave a running inference batch."
@@ -188,6 +190,7 @@ questions:
     added: "2026-09-26"
   - id: "inf-memory-budget"
     tracks: ["engineering"]
+    roles: ["inference-engineer"]
     type: "applied_scenario"
     text:
       en: "Estimate a serving memory budget for a 70-billion-parameter model, explicitly choosing precision, context and concurrency assumptions."
@@ -216,6 +219,7 @@ questions:
     reading: ["paper-pagedattention"]
   - id: "inf-latency-metrics"
     tracks: ["engineering","leadership"]
+    roles: ["inference-engineer"]
     type: "knowledge"
     text:
       en: "Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems."
@@ -232,6 +236,7 @@ questions:
     added: "2026-09-26"
   - id: "inf-roofline"
     tracks: ["engineering"]
+    roles: ["inference-engineer"]
     type: "applied_scenario"
     text:
       en: "Build a roofline estimate for single-request decoding of a 70B model on an H100; check first whether the chosen representation fits."
@@ -245,6 +250,7 @@ questions:
     added: "2026-09-26"
   - id: "inf-runtime-choice"
     tracks: ["engineering","leadership"]
+    roles: ["inference-engineer"]
     type: "applied_scenario"
     text:
       en: "How would you benchmark vLLM, SGLang, TensorRT-LLM and a custom runtime for a specific workload?"
@@ -258,6 +264,7 @@ questions:
     added: "2026-09-26"
   - id: "inf-cost-reduction"
     tracks: ["engineering","leadership"]
+    roles: ["inference-engineer"]
     type: "applied_scenario"
     text:
       en: "You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable."
@@ -289,6 +296,7 @@ questions:
     reading: ["hf-llm-optims","google-sre-book"]
   - id: "inf-tail-regression"
     tracks: ["engineering"]
+    roles: ["inference-engineer"]
     type: "applied_scenario"
     text:
       en: "After a deployment, p99 latency doubles although model weights are unchanged. How do you isolate the cause?"
@@ -348,3 +356,19 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+  - id: "inf-accelerator-takehome"
+    tracks: ["engineering"]
+    roles: ["inference-engineer"]
+    type: "coding"
+    text:
+      en: "In Anthropic's original performance-engineering take-home, introduced in 2024 and subsequently retired, optimise a serial program for a simulated accelerator using multicore, vector and instruction-level parallelism."
+      ru: "В первоначальном домашнем задании Anthropic для инженеров производительности, введённом в 2024 году и впоследствии снятом с использования, оптимизируйте последовательную программу для симулятора ускорителя с помощью многоядерного, векторного и инструкционного параллелизма."
+    tests:
+      en: "Whether you find parallelism methodically and build tooling to measure and debug each step."
+      ru: "Умение методично находить параллелизм и строить инструменты, чтобы измерять и отлаживать каждый шаг."
+    provenance: "published"
+    evidence:
+      - source: "anthropic-ai-resistant-evaluations"
+        company: "anthropic"
+        role: "inference-engineer"
+    added: "2026-09-29"

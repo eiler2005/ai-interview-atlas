@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/ai-system-design.md) · [AI Interview A
 
 End-to-end design of AI products and platforms, explained aloud with requirements, trade-offs and failure modes.
 
-On this page: [Both tracks (5)](#track-both) · [AI Engineering (9)](#track-engineering)
+On this page: [Both tracks (5)](#track-both) · [AI Engineering (11)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -74,5 +74,11 @@ On this page: [Both tracks (5)](#track-both) · [AI Engineering (9)](#track-engi
 - <a id="sd-webhooks"></a>**Design reliable delivery of events to customer webhook endpoints despite timeouts, duplicate attempts and unavailable receivers.**
   - System design · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-webhooks&title=%5BCorrection%5D%20sd-webhooks)
   - Tests: Whether delivery guarantees and consumer responsibilities are stated precisely.
+- <a id="sd-architecture-critique"></a>**Critique the weaknesses of an existing production service architecture, then design a new product feature on top of it.**
+  - System design · Asked at: [LangChain](../companies/langchain.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-architecture-critique&title=%5BCorrection%5D%20sd-architecture-critique)
+  - Tests: Whether you reason about a real, imperfect system rather than a blank page.
+- <a id="sd-ml-system-end-to-end"></a>**Design an ML system for a product feature end to end: frame the task and requirements, decompose it, plan data collection, choose model architectures, then deploy and test it.**
+  - System design · Asked at: [T-Bank](../companies/t-bank.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-ml-system-end-to-end&title=%5BCorrection%5D%20sd-ml-system-end-to-end)
+  - Tests: Whether you structure an ML system from problem framing to deployment instead of jumping to a model.
 
 ← [Multimodal and voice](multimodal-voice.md) · [Practical coding](coding-practical.md) →

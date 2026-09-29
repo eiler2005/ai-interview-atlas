@@ -68,6 +68,7 @@ questions:
     reading: ["paper-reasoning-faithfulness"]
   - id: "eval-judge"
     tracks: ["engineering"]
+    roles: ["eval-engineer"]
     type: "system_design"
     text:
       en: "Design an LLM judge and a calibration process that exposes order, verbosity and self-preference biases."
@@ -97,6 +98,7 @@ questions:
     reading: ["paper-llm-as-judge"]
   - id: "eval-scarce-labels"
     tracks: ["engineering","leadership"]
+    roles: ["eval-engineer"]
     type: "applied_scenario"
     text:
       en: "How would you build a useful evaluation set when reference answers are missing and expert time is scarce?"
@@ -110,6 +112,7 @@ questions:
     added: "2026-09-26"
   - id: "eval-hallucination"
     tracks: ["engineering"]
+    roles: ["eval-engineer"]
     type: "system_design"
     text:
       en: "How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?"
@@ -126,6 +129,7 @@ questions:
     added: "2026-09-26"
   - id: "eval-release-gate"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer", "eval-engineer"]
     type: "system_design"
     text:
       en: "Design a release gate for prompt and model updates, including what happens when aggregate gains hide a critical regression."
@@ -155,6 +159,7 @@ questions:
     reading: ["anthropic-evals-for-agents"]
   - id: "eval-benchmark-mismatch"
     tracks: ["engineering","leadership"]
+    roles: ["eval-engineer"]
     type: "applied_scenario"
     text:
       en: "Benchmark results improve but users report a worse product. What hypotheses would you test first?"
@@ -183,6 +188,7 @@ questions:
     reading: ["google-rules-of-ml"]
   - id: "eval-contamination"
     tracks: ["engineering"]
+    roles: ["eval-engineer"]
     type: "knowledge"
     text:
       en: "How does benchmark contamination distort evaluation, and how would you reduce leakage into training or model selection?"
@@ -196,6 +202,7 @@ questions:
     added: "2026-09-26"
   - id: "eval-traces"
     tracks: ["engineering"]
+    roles: ["eval-engineer"]
     type: "system_design"
     text:
       en: "Design observability for a production LLM workflow: which spans, versions, costs and feedback should be linked?"
@@ -237,6 +244,7 @@ questions:
     added: "2026-09-26"
   - id: "eval-online"
     tracks: ["engineering","leadership"]
+    roles: ["eval-engineer"]
     type: "system_design"
     text:
       en: "Design online evaluation for an AI feature: choose what to log, review manually and compare in an experiment."
@@ -251,6 +259,7 @@ questions:
     added: "2026-09-26"
   - id: "eval-agent-outcomes"
     tracks: ["engineering"]
+    roles: ["eval-engineer"]
     type: "system_design"
     text:
       en: "How should evaluation of a tool-using agent differ from grading one generated response?"
@@ -279,6 +288,7 @@ questions:
     reading: ["anthropic-evals-for-agents"]
   - id: "eval-emergent-capability"
     tracks: ["engineering"]
+    roles: ["research-engineer"]
     type: "applied_scenario"
     text:
       en: "Design an experiment for a suspected emergent capability or bias in a large model, with controls against misleading task framing."
@@ -293,6 +303,7 @@ questions:
     added: "2026-09-26"
   - id: "eval-upgrade-complaint"
     tracks: ["engineering","leadership"]
+    roles: ["eval-engineer"]
     type: "applied_scenario"
     text:
       en: "A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?"
@@ -307,6 +318,7 @@ questions:
     added: "2026-09-26"
   - id: "eval-frontier-harness"
     tracks: ["engineering"]
+    roles: ["eval-engineer"]
     type: "system_design"
     text:
       en: "Build the evaluation harness for a new model release, covering reproducibility, execution isolation and comparable results."
@@ -346,3 +358,50 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+  - id: "eval-behaviour-brainstorm"
+    tracks: ["engineering"]
+    roles: ["research-engineer", "eval-engineer"]
+    type: "knowledge"
+    text:
+      en: "In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation."
+      ru: "В коротком разговоре без подготовки предложите проверяемые идеи о поведении языковой модели, для которых нужен не внутренний доступ, а внимательное наблюдение."
+    tests:
+      en: "Whether you generate concrete, testable hypotheses about model behaviour quickly."
+      ru: "Умение быстро выдвигать конкретные проверяемые гипотезы о поведении модели."
+    provenance: "published"
+    evidence:
+      - source: "goncharov-anthropic-fellowship"
+        company: "anthropic"
+    added: "2026-09-29"
+  - id: "eval-ml-task-framing"
+    tracks: ["engineering"]
+    roles: ["ml-engineer"]
+    type: "knowledge"
+    text:
+      en: "Frame a business problem as a machine-learning task: choose and justify the quality metric, and explain how you would collect and validate the data."
+      ru: "Сформулируйте бизнес-задачу как задачу машинного обучения: выберите и обоснуйте метрику качества и объясните, как соберёте и проверите данные."
+    tests:
+      en: "Whether the metric and data follow from the business goal rather than habit."
+      ru: "Следуют ли метрика и данные из бизнес-цели, а не из привычки."
+    provenance: "published"
+    evidence:
+      - source: "tbank-career-platform-ml"
+        company: "t-bank"
+        role: "ml-engineer"
+    added: "2026-09-29"
+  - id: "eval-prompt-target-share"
+    tracks: ["engineering"]
+    roles: ["applied-ai-engineer", "eval-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Modify a prompt so that a target share of the model's outputs matches the desired result, and show how you measured it."
+      ru: "Измените промпт так, чтобы заданная доля ответов модели соответствовала нужному результату, и покажите, как вы это измерили."
+    tests:
+      en: "Whether prompt changes are driven by measurement on a set of cases rather than single examples."
+      ru: "Опираются ли правки промпта на измерения по набору примеров, а не на отдельные случаи."
+    provenance: "published"
+    evidence:
+      - source: "taro-anthropic-prompt-engineer-2023"
+        company: "anthropic"
+        observed: "2023-09"
+    added: "2026-09-29"

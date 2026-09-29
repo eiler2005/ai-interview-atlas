@@ -25,7 +25,19 @@ roles:
     name: {en: "Software engineer on AI products", ru: "Разработчик AI-продуктов"}
   - id: "applied-ai-engineer"
     track: "engineering"
-    name: {en: "Applied AI / forward-deployed engineer", ru: "Прикладной / forward-deployed инженер"}
+    name: {en: "Applied AI engineer", ru: "Прикладной AI-инженер"}
+  - id: "forward-deployed-engineer"
+    track: "engineering"
+    name: {en: "Forward deployed engineer (FDE)", ru: "Forward deployed engineer (FDE)"}
+  - id: "solutions-architect"
+    track: "engineering"
+    name: {en: "AI solutions architect / customer engineer", ru: "Архитектор AI-решений / customer engineer"}
+  - id: "eval-engineer"
+    track: "engineering"
+    name: {en: "AI evaluation engineer", ru: "Инженер оценки качества AI"}
+  - id: "ml-engineer"
+    track: "engineering"
+    name: {en: "ML engineer / data scientist", ru: "ML-инженер / data scientist"}
   - id: "agent-engineer"
     track: "engineering"
     name: {en: "Agent engineer", ru: "Инженер агентов"}
@@ -59,6 +71,9 @@ roles:
   - id: "ai-transformation-lead"
     track: "leadership"
     name: {en: "Head of AI adoption / chief AI officer", ru: "Руководитель внедрения AI / CAIO"}
+  - id: "deployment-strategist"
+    track: "leadership"
+    name: {en: "Deployment strategist", ru: "Deployment strategist (стратег по внедрению)"}
   - id: "fde-lead"
     track: "leadership"
     name: {en: "Forward-deployed or solutions leader", ru: "Руководитель forward-deployed / solutions"}

@@ -5,20 +5,16 @@ English · [Русский](ru/sources.md) · [AI Interview Atlas](../README.md)
 
 Questions marked † that come from [AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) (Outcome School) are paraphrased and attributed to it; that compilation is licensed under Apache-2.0.
 
-## Company sources
+## <a id="kind-official"></a>Company sources
 
 - [How we hire](https://careers.adyen.com/faqs) · Adyen · retrieved 2026-09-26
 - [Interview tips from our Global Recruitment team](https://www.adyen.com/knowledge-hub/interview-tips-from-our-global-recruitment-team) · Adyen · published 2025-09-01 · retrieved 2026-09-26
 - [Careers](https://www.anthropic.com/careers) · Anthropic · retrieved 2026-09-26
-- [Forward Deployed Engineer](https://job-boards.greenhouse.io/anthropic/jobs/5391016008) · Anthropic · retrieved 2026-09-29
+- [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) · Anthropic · published 2026-01-21 · retrieved 2026-09-29. Historical account of performance-engineering take-homes introduced in early 2024 and subsequently retired or replaced; not a description of the current interview.
 - [Guidance on Candidates' AI Usage](https://www.anthropic.com/candidate-ai-guidance) · Anthropic · published 2025-07-10 · retrieved 2026-09-26
-- [Performance Engineer, Inference Systems](https://job-boards.greenhouse.io/anthropic/jobs/5224564008) · Anthropic · retrieved 2026-09-29
-- [Product Engineer, Computer Use](https://job-boards.greenhouse.io/anthropic/jobs/5238637008) · Anthropic · retrieved 2026-09-29
-- [Product Manager, New Markets and Monetization](https://job-boards.greenhouse.io/anthropic/jobs/5386182008) · Anthropic · retrieved 2026-09-29
-- [Research Engineer, Post-Training Model Evaluations](https://job-boards.greenhouse.io/anthropic/jobs/5198255008) · Anthropic · retrieved 2026-09-29
-- [Research Engineer, Pretraining](https://job-boards.greenhouse.io/anthropic/jobs/5119713008) · Anthropic · retrieved 2026-09-29
 - [Atlassian engineering interview handbook](https://www.atlassian.com/company/careers/resources/interviewing/engineering) · Atlassian · retrieved 2026-09-26
 - [Atlassian product interview handbook](https://www.atlassian.com/company/careers/resources/career-growth/product-managers) · Atlassian · retrieved 2026-09-26
+- [Собеседование DS-специалиста в Авито 13 октября: ML system design](https://avito.tech/events/j0m3z4j2f1-sobesedovanie-ds-spetsialista-v-avito-13) · Avito Tech · published 2025-10-07 · retrieved 2026-09-29. A public mock interview on 13 October 2025, ahead of a DS Weekend Offer on 18–19 October; the year comes from the page metadata.
 - [Preparing for Your Initial Interview (software engineering managers)](https://www.metacareers.com/SWE-L-prep-initial/) · Meta Careers · retrieved 2026-09-26
 - [Preparing for Your Interviews at Meta (technical program managers)](https://www.metacareers.com/tpm-prep-onsite/) · Meta Careers · retrieved 2026-09-26
 - [How we hire](https://careers.microsoft.com/v2/global/en/hiring-tips.html) · Microsoft Careers · retrieved 2026-09-26
@@ -27,53 +23,82 @@ Questions marked † that come from [AI Engineering Interview Questions Company 
 - [Demystifying the Senior Staff+ Engineering interview process](https://monzo.com/blog/demystifying-the-senior-staff-engineering-interview-process) · Monzo · published 2025-05-02 · retrieved 2026-09-26
 - [Product Management at Monzo: The interview process](https://monzo.com/blog/2022/10/04/product-management-at-monzo-the-interview-process) · Monzo · published 2022-10-04 · retrieved 2026-09-26
 - [How We Hire](https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/) · NVIDIA · retrieved 2026-09-26
-- [Forward Deployed Engineer (FDE) - Seattle](https://openai.com/careers/forward-deployed-engineer-%28fde%29-seattle-seattle/) · OpenAI · retrieved 2026-09-29
-- [Software Engineer, Codex Core Agents](https://openai.com/careers/software-engineer-codex-core-agents-san-francisco/) · OpenAI · retrieved 2026-09-29
+- [Getting Hired](https://www.palantir.com/careers/getting-hired/) · Palantir Careers · retrieved 2026-09-29. Includes guides to the competencies interviews assess, such as working inside existing systems and navigating open-ended questions.
+- [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) · Palantir Careers · retrieved 2026-09-29
+- [Forward Deployed Engineering](https://builders.ramp.com/post/forward-deployed-engineering) · Ramp Builders · published 2025-08-05 · retrieved 2026-09-29
+- [Как проходят интервью](https://sberdevices.ru/career/ML/interview/) · SberDevices, страница для ML-разработчиков · retrieved 2026-09-29
+- [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) · Sierra · published 2026-04-22 · retrieved 2026-09-29
 - [Start Your Journey](https://www.lifeatspotify.com/start-your-journey) · Spotify · retrieved 2026-09-26
 - [How we hire](https://jobs.uber.com/en/what-moves-us/how-we-hire/) · Uber · retrieved 2026-09-26
 - [Navigating our engineering interview process: coding](https://www.uber.com/en-NG/blog/engineering-interview-process/) · Uber · published 2021-07-27 · retrieved 2026-09-26
 - [Как мы переделали структуру собеседований, и что из этого вышло](https://habr.com/ru/companies/avito/articles/443700/) · Авито, блог на Хабре · published 2019-03-20 · retrieved 2026-09-26
+- [Материалы для подготовки к собеседованию на позицию Data Scientist. Часть 3: Специализированное машинное обучение](https://habr.com/ru/companies/megafon/articles/808585/) · МегаФон, блог на Хабре · published 2024-04-19 · retrieved 2026-09-29
+- [Материалы для подготовки к собеседованию на позицию Data Scientist. Часть 4: Дизайн систем машинного обучения](https://habr.com/ru/companies/megafon/articles/821557/) · МегаФон, блог на Хабре · published 2024-06-26 · retrieved 2026-09-29
+- [Секция по ML](https://github.com/Tinkoff/career/blob/main/interview/sections/platform-ml.md) · Т-Банк (Tinkoff), репозиторий career на GitHub · published 2022-08-01 · retrieved 2026-09-29. The repository was archived in 2023; the section text dates from 2022-08-01.
+- [Секция по дизайну ML систем](https://github.com/Tinkoff/career/blob/main/interview/sections/system-design-ml.md) · Т-Банк (Tinkoff), репозиторий career на GitHub · published 2022-08-01 · retrieved 2026-09-29. The repository was archived in 2023; the section text dates from 2022-08-01.
+- [Бесполезные курсы и помешательство на GPTs: как мы искали prompt-инженеров](https://habr.com/ru/companies/tochka/articles/853990/) · Точка, блог на Хабре · published 2024-10-31 · retrieved 2026-09-29
+- [Как нанимаем, грейдируем и решаем типовые задачи prompt-инженеров в Точке](https://habr.com/ru/companies/tochka/articles/920126/) · Точка, блог на Хабре · published 2025-06-26 · retrieved 2026-09-29
 - [«Важно не только занять должность, но и работать на ней»: советы перед ИТ-собеседованиями](https://t-j.ru/interview-in-tinkoff/) · Т—Ж (издание Т-Банка), интервьюеры Т-Банка · published 2023-06-07 · retrieved 2026-09-26
 - [Алгоритмические собеседования в Яндексе: как подготовиться и чего ожидать](https://education.yandex.ru/journal/algoritmicheskie-sobesedovaniya-v-yandekse-kak-podgotovitsya-i-chego-ozhidat) · Яндекс Образование · published 2024-12-19 · retrieved 2026-09-26
+- [Секция на проверку базовых технических навыков ML-инженеров](https://education.yandex.ru/knowledge/sektsiia-na-proverku-bazovikh-tekhnicheskikh-navikov-ml-inzhenerov) · Яндекс Образование · published 2025-11-30 · retrieved 2026-09-29. A recorded demonstration of the section.
 - [Как проходят архитектурные секции собеседования в Яндексе: практика дизайна распределённых систем](https://habr.com/ru/companies/yandex/articles/564132/) · Яндекс, блог на Хабре · published 2021-06-24 · retrieved 2026-09-26
 
-## Candidate reports
+## <a id="kind-participant-report"></a>Candidate reports
 
 - [Anthropic Engineering Manager Interview Experience](https://www.tryexponent.com/experiences/anthropic-engineering-manager-interview-170078) · Aced (formerly Exponent), candidate report · retrieved 2026-09-26. Relative labels on retrieval: interview six months earlier, submission five months earlier. These are approximate, separate dates.
 - [Anthropic Staff Software Engineer, Infrastructure Interview Experience](https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-6ecf1d) · Aced (formerly Exponent), candidate report · retrieved 2026-09-26. Relative labels on retrieval: interview about one year earlier, submission five months earlier. These are approximate, separate dates.
+- [Cursor Software Engineer (New Grad) Interview Experience](https://www.tryexponent.com/experiences/cursor-software-engineer-interview-a9c32f) · Aced (formerly Exponent), candidate report · retrieved 2026-09-29. A new-graduate candidate; the page dates the interview only relatively, about a year before retrieval.
 - [Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1) · Aced (formerly Exponent), candidate report · retrieved 2026-09-26. The retained digest gives submission four months earlier and interview six months prior, with an ambiguous reference point for the latter. No exact interview or publication date is established.
 - [Meta Engineering Manager (M1) Interview Experience](https://www.tryexponent.com/experiences/meta-facebook-engineering-manager-interview-916dc8) · Aced (formerly Exponent), candidate report · retrieved 2026-09-26. The retained digest gives a report date five months earlier and interview six months prior, with an ambiguous reference point for the latter. No exact interview or publication date is established.
 - [Meta Product Manager, AI Interview Experience (level unverified)](https://www.tryexponent.com/experiences/meta-facebook-product-manager-interview-618bfd) · Aced (formerly Exponent), candidate report · retrieved 2026-09-26. Relative labels: interview eight months earlier, submission four months earlier. The retained metadata says L4, conflicting with the earlier L5 title; level is unverified.
+- [Sierra AI Agent Engineer Interview Experience](https://www.tryexponent.com/experiences/sierra-ai-machine-learning-engineer-interview-8549fc) · Aced (formerly Exponent), candidate report · retrieved 2026-09-29. The page dates the interview only relatively, about a year before retrieval, so before Sierra's April 2026 redesign.
+- [I failed my Anthropic interview and came to tell you all about it so you don't have to](https://faillearnrepeat.net/blog/i-failed-my-anthropic-interview-and-came-to-tell-you-all-about-it-so-you-dont-have-to) · Fail. Learn. Repeat. · published 2025-02-12 · retrieved 2026-09-29. A Research Fellowship candidate's account; the author added an update in September 2025.
+- [So You Want to Hire a Forward Deployed Engineer](https://review.firstround.com/so-you-want-to-hire-a-forward-deployed-engineer/) · First Round Review · published 2026-02-24 · retrieved 2026-09-29. Hiring-side accounts, including a former Palantir FDE who led FDE recruiting there and a former head of legal engineering at Ironclad.
 - [Adyen Technical Test](https://www.reddit.com/r/cscareerquestionsEU/comments/1hpv3ei/adyen_technical_test/) · Reddit, r/cscareerquestionsEU, applicant report · retrieved 2026-09-26. Historical test invitation for a Java software-engineering role. Exact interview date is not supplied; not evidence of a current universal process.
+- [Anthropic AI Prompt Engineer Interview Experience - San Francisco, California](https://www.jointaro.com/interviews/companies/anthropic/experiences/ai-prompt-engineer-san-francisco-ca-september-1-2023-no-offer-neutral-9ceb022c/) · Taro, candidate report · retrieved 2026-09-29. The interview is dated September 2023; the role title may no longer exist.
+- [Anthropic Product Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/anthropic/experiences/product-engineer-new-york-ny-june-1-2025-no-offer-positive-c0c3d7ae/) · Taro, candidate report · retrieved 2026-09-29. The interview is dated June 2025.
+- [Anthropic Solutions Architect Interview Experience - United Kingdom](https://www.jointaro.com/interviews/companies/anthropic/experiences/solutions-architect-united-kingdom-may-1-2025-no-offer-negative-7a9e91b7/) · Taro, candidate report · retrieved 2026-09-29. The interview is dated May 2025.
+- [Palantir Forward Deployed Software Engineer Interview Experience - Denver, Colorado](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-denver-co-march-1-2025-accepted-offer-positive-92cad6d6/) · Taro, candidate report · retrieved 2026-09-29. The interview is dated March 2025; the candidate accepted an offer.
+- [Palantir Forward Deployed Software Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-new-york-ny-august-15-2025-no-offer-positive-816dddf1/) · Taro, candidate report · retrieved 2026-09-29. The interview is dated 2025-08-15.
+- [Palantir Forward Deployed Software Engineer Interview Experience - United States](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-united-states-november-9-2025-no-offer-negative-a89581e3/) · Taro, candidate report · retrieved 2026-09-29. The interview is dated November 2025.
 - [Как принимает на работу Авито и почему это лучшее, что я видела на рынке? (часть 2)](https://vc.ru/id2007100/2062408-kak-avito-provodit-sobesedovaniya) · vc.ru, пост кандидата · published 2025-06-25 · retrieved 2026-09-26
+- [Как я проходил собеседование в SberDevices](https://t-j.ru/job-interwiev-sberdevices/) · Т—Ж, рассказ кандидата · published 2023-05-29 · retrieved 2026-09-29
 - [Как я отказался от миллионных RSU или опыт собеседования в Ozon](https://habr.com/ru/articles/649631/) · Хабр, пост кандидата · published 2022-02-03 · retrieved 2026-09-26
 - [Как я собеседовался в Ozon, Т-Банк, Mindbox и другие крупные компании](https://habr.com/ru/articles/926214/) · Хабр, пост кандидата · published 2025-07-09 · retrieved 2026-09-26
+- [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/) · Хабр, рассказ интервьюера · published 2026-05-23 · retrieved 2026-09-29. An interviewer's first-hand account; the company is not named.
+- [Что теперь нужно знать современному LLM-инженеру](https://habr.com/ru/articles/1074242/) · Хабр, рассказ кандидата · published 2026-08-25 · retrieved 2026-09-29. An engineer's account after a round of job interviews at Russian and foreign companies, which are not named.
 
-## Preparation guides
+## <a id="kind-prep-guide"></a>Preparation guides
 
 - [Amazon AI Product Manager Interview Guide](https://www.tryexponent.com/guides/amazon-ai-product-manager-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated 11 days earlier; publication date unknown.
+- [Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview) · Aced (formerly Exponent) · retrieved 2026-09-29
 - [Anthropic Software Engineer (SWE) Interview Guide](https://www.tryexponent.com/guides/anthropic-software-engineer-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated 12 days earlier; this relative update label is not a publication date.
+- [Cognition Forward Deployed Engineer Interview Guide](https://www.tryexponent.com/guides/cognition-forward-deployed-engineer-interview) · Aced (formerly Exponent) · retrieved 2026-09-29
 - [Gemini Product Manager Interview Guide](https://www.tryexponent.com/guides/gemini-product-manager-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated four months earlier; publication date unknown.
 - [Get a Job at Databricks: Interview Process and Top Questions](https://www.tryexponent.com/blog/databricks-interview-process) · Aced (formerly Exponent) · retrieved 2026-09-26. The retained page digest says published two years earlier, approximately 2024; the exact date is unknown. Treat the process as historical.
 - [Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated two months earlier; publication date unknown.
 - [Google Engineering Manager (EM) Interview Guide](https://www.tryexponent.com/guides/google-engineering-manager-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated 10 days earlier; publication date unknown.
 - [Interviewing at Stripe](https://www.tryexponent.com/companies/stripe) · Aced (formerly Exponent) · retrieved 2026-09-26. Community-submitted questions, including a strategy question on an internal AI platform with metric ownership.
+- [LangChain Software Engineer Interview Guide](https://www.tryexponent.com/guides/langchain-software-engineer-interview-guide) · Aced (formerly Exponent) · retrieved 2026-09-29
 - [Microsoft AI Product Manager Interview Guide](https://www.tryexponent.com/guides/microsoft-ai-product-manager-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated 15 days earlier; publication date unknown.
+- [OpenAI Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/openai-forward-deployed-engineer-interview) · Aced (formerly Exponent) · retrieved 2026-09-29
 - [OpenAI Product Manager (PM) Interview Guide](https://www.tryexponent.com/guides/openai-product-manager-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated 18 days earlier; publication date unknown.
+- [Palantir Deployment Strategist Interview Guide](https://www.tryexponent.com/guides/palantir-deployment-strategist-interview) · Aced (formerly Exponent) · published 2026-08-20 · retrieved 2026-09-29
 - [Palantir Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated 19 days earlier; publication date unknown.
 - [Perplexity AI Product Manager (PM) Interview Guide](https://www.tryexponent.com/guides/perplexity-ai-product-manager-interview) · Aced (formerly Exponent) · retrieved 2026-09-26. On retrieval, the page said updated five months earlier; publication date unknown.
 - [Stripe SWE Interview: Bug Squash Guide](https://www.coditioning.com/blog/804/stripe-swe-bug-squash-interview) · Coditioning · published 2026-06-25 · retrieved 2026-09-26
+- [The Palantir Decomposition Interview, Explained](https://fdeinterviews.com/guide/palantir-decomposition-interview) · FDEInterviews.com · retrieved 2026-09-29. The page says it was updated on 12 August 2026; its example prompts are suggestions for practice, not reported questions.
 - [Anthropic's Interview Process & Questions](https://interviewing.io/anthropic-interview-questions) · interviewing.io · retrieved 2026-09-26. Based partly on engineer conversations in 2026; no publication or update date was stated.
 - [Nvidia’s Interview Process & Questions](https://interviewing.io/nvidia-interview-questions) · interviewing.io · retrieved 2026-09-26. Based on conversations with engineers in 2024; that is the evidence period, not an established publication date.
 - [OpenAI's Interview Process & Questions](https://interviewing.io/openai-interview-questions) · interviewing.io · retrieved 2026-09-26
 - [Spotify’s Interview Process & Questions](https://interviewing.io/spotify-interview-questions) · interviewing.io · retrieved 2026-09-26. Undated guide; conflicting team-matching descriptions are not adopted here.
 - [Uber’s Interview Process & Questions](https://interviewing.io/uber-interview-questions) · interviewing.io · retrieved 2026-09-26
 
-## Compilations
+## <a id="kind-secondary-compilation"></a>Compilations
 
 - [AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) · Outcome School · published 2026-09-19 · retrieved 2026-09-26 · license Apache-2.0. A compilation of publicly reported questions without a source or date per question; its company tags are shown as secondary (†).
 
-## Reference material
+## <a id="kind-reference"></a>Reference material
 
 - [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) · Ainslie et al., arXiv · published 2023-05 · retrieved 2026-09-26
 - [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) · Alayrac et al., arXiv · published 2022-04 · retrieved 2026-09-26
@@ -144,3 +169,14 @@ Questions marked † that come from [AI Engineering Interview Questions Company 
 - [vLLM documentation](https://docs.vllm.ai/) · vLLM project · retrieved 2026-09-26
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) · Yao et al., arXiv · published 2022-10 · retrieved 2026-09-26
 - [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) · Zheng et al., arXiv · published 2023-06 · retrieved 2026-09-26
+
+## <a id="kind-posting"></a>Job postings (role scope only)
+
+- [Forward Deployed Engineer](https://job-boards.greenhouse.io/anthropic/jobs/5391016008) · Anthropic · retrieved 2026-09-29
+- [Performance Engineer, Inference Systems](https://job-boards.greenhouse.io/anthropic/jobs/5224564008) · Anthropic · retrieved 2026-09-29
+- [Product Engineer, Computer Use](https://job-boards.greenhouse.io/anthropic/jobs/5238637008) · Anthropic · retrieved 2026-09-29
+- [Product Manager, New Markets and Monetization](https://job-boards.greenhouse.io/anthropic/jobs/5386182008) · Anthropic · retrieved 2026-09-29
+- [Research Engineer, Post-Training Model Evaluations](https://job-boards.greenhouse.io/anthropic/jobs/5198255008) · Anthropic · retrieved 2026-09-29
+- [Research Engineer, Pretraining](https://job-boards.greenhouse.io/anthropic/jobs/5119713008) · Anthropic · retrieved 2026-09-29
+- [Forward Deployed Engineer (FDE) - Seattle](https://openai.com/careers/forward-deployed-engineer-%28fde%29-seattle-seattle/) · OpenAI · retrieved 2026-09-29
+- [Software Engineer, Codex Core Agents](https://openai.com/careers/software-engineer-codex-core-agents-san-francisco/) · OpenAI · retrieved 2026-09-29

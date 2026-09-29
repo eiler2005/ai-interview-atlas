@@ -99,4 +99,4 @@ AI-инфраструктура · Международный · Этапы пр
     - Спланируйте поэтапный переход, откат в доступное время и информирование клиентов.
   - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 
-← [Uber](uber.md) · [NVIDIA](nvidia.md) →
+← [Uber](uber.md) · [LangChain](langchain.md) →

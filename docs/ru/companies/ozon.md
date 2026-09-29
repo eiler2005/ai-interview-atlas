@@ -28,4 +28,4 @@
 
 Вопросов по этой компании пока нет.
 
-← [Stripe](stripe.md) · [Авито](avito.md) →
+← [Точка](tochka.md) · [SberDevices (Сбер)](sberdevices.md) →

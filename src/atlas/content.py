@@ -23,6 +23,20 @@ CLAIM_SOURCES = {
 # Lower is stronger. References explain topics; they never show where a question was asked.
 STRENGTH = {"official": 0, "participant_report": 1, "prep_guide": 2, "secondary_compilation": 2}
 READING_KINDS = {"official", "reference", "prep_guide"}
+# Kinds that never show where or whether a question was asked: a reference explains a topic,
+# a job posting describes a role.
+NOT_INTERVIEW_EVIDENCE = {"reference", "posting"}
+# Links inside role-guide prose: [label](kind:id). Page keys name the hand-written guides.
+ROLE_LINK = re.compile(r"\[([^\]\n]+)\]\((theme|question|page|role):([a-z0-9-]+)\)")
+ROLE_PAGE_KEYS = {
+    "learning-path",
+    "reasoning-models",
+    "methodology",
+    "roadmap",
+    "radar",
+    "sources",
+    "roles",
+}
 FORBIDDEN = {
     "private-path": re.compile(r"/(?:Users|home)/[A-Za-z]"),
     "private-telegram-link": re.compile(r"t\.me/c/"),
@@ -71,6 +85,15 @@ class Content:
     companies: dict[str, dict]
     questions: list[dict]
     radar: dict | None
+    guide: dict | None = None
+
+    @property
+    def families(self) -> list[dict]:
+        """Role families of the AI roles guide, in reading order."""
+        return (self.guide or {}).get("families", [])
+
+    def family_of(self, role: str) -> dict | None:
+        return next((f for f in self.families if role in f["roles"]), None)
 
     @property
     def themes(self) -> dict[str, dict]:
@@ -143,6 +166,8 @@ def load(content_dir: Path, *, today: date | None = None) -> Content:
     }
     radar_path = content_dir / "radar.yaml"
     radar = document(radar_path, "radar") if radar_path.is_file() else None
+    guide_path = content_dir / "roles.yaml"
+    guide = document(guide_path, "rolesFile") if guide_path.is_file() else None
     for name, text in raw.items():
         problems.extend(_scan_text(name, text))
     if problems:
@@ -154,13 +179,15 @@ def load(content_dir: Path, *, today: date | None = None) -> Content:
         if data["theme"] != stem:
             problems.append(f"questions/{stem}.yaml: theme must match the file name")
         questions += [{**question, "theme": data["theme"]} for question in data["questions"]]
-    content = Content(taxonomy, sources, companies, questions, radar)
+    content = Content(taxonomy, sources, companies, questions, radar, guide)
     problems += _check_taxonomy(content)
     problems += _check_sources(content, today)
     problems += _check_companies(content, today)
     problems += _check_questions(content, today)
     if radar:
         problems += _check_radar(content)
+    if guide:
+        problems += _check_guide(content, today)
     if problems:
         raise ContentError(problems)
     return content
@@ -223,6 +250,12 @@ def _check_companies(content: Content, today: date) -> list[str]:
                 if roles.get(role, {}).get("track") != track:
                     problems.append(f"{name}: role {role} is not a {track} role")
         for index, stage in enumerate(company["loop"]):
+            company_roles = {role for ids in company["roles"].values() for role in ids}
+            for role in stage.get("roles", []):
+                if role not in roles:
+                    problems.append(f"{name}: loop/{index}: unknown role {role}")
+                elif role not in company_roles:
+                    problems.append(f"{name}: loop/{index}: role {role} is outside company roles")
             cited = stage.get("sources", [])
             allowed = CLAIM_SOURCES[stage["claim"]]
             if stage["claim"] == "assumption":
@@ -307,10 +340,17 @@ def _check_questions(content: Content, today: date) -> list[str]:
                 problems.append(f"{name}: published needs evidence and no generated basis")
             for item in evidence:
                 kind = content.sources.get(item["source"], {}).get("kind")
-                if kind is None or kind == "reference":
+                if kind is None or kind in NOT_INTERVIEW_EVIDENCE:
                     problems.append(f"{name}: evidence must be an interview source")
                 if item.get("company") and item["company"] not in content.companies:
                     problems.append(f"{name}: unknown company {item['company']}")
+                role = item.get("role")
+                if role and role not in roles:
+                    problems.append(f"{name}: evidence names unknown role {role}")
+                elif role and roles[role]["track"] not in question["tracks"]:
+                    problems.append(
+                        f"{name}: evidence role {role} is outside the question's tracks"
+                    )
                 problems += _not_future(name, item.get("observed"), today)
         else:
             if evidence or not basis:
@@ -319,6 +359,54 @@ def _check_questions(content: Content, today: date) -> list[str]:
                 if item.removeprefix("radar:") not in radar_themes:
                     problems.append(f"{name}: basis {item} has no published radar row")
         problems += _not_future(name, question["added"], today)
+    return problems
+
+
+def _check_guide(content: Content, today: date) -> list[str]:
+    """The AI roles guide: known roles, one family per role, and links that resolve."""
+    problems: list[str] = []
+    name = "roles.yaml"
+    problems += _not_future(name, content.guide["checked"], today)
+    families = _unique(f"{name} families", content.families, problems)
+    owner: dict[str, str] = {}
+    question_ids = {q["id"] for q in content.questions}
+    targets = {
+        "theme": set(content.themes),
+        "question": question_ids,
+        "page": ROLE_PAGE_KEYS,
+        "role": set(families),
+    }
+
+    def check_text(where: str, text: dict) -> None:
+        for language, value in text.items():
+            for _, kind, target in ROLE_LINK.findall(value):
+                if target not in targets[kind]:
+                    problems.append(f"{where}: {language} link to unknown {kind} {target}")
+            leftover = ROLE_LINK.sub("", value)
+            if "](" in leftover:
+                problems.append(f"{where}: {language} text has a link that is not kind:id")
+
+    for index, text in enumerate(content.guide["intro"]):
+        check_text(f"{name} intro/{index}", text)
+    for family in content.families:
+        where = f"{name} {family['id']}"
+        tracks = {content.roles[r]["track"] for r in family["roles"] if r in content.roles}
+        if family["track"] not in tracks:
+            problems.append(f"{where}: primary track must be represented by a family role")
+        for role in family["roles"]:
+            if role not in content.roles:
+                problems.append(f"{where}: unknown role {role}")
+            elif role in owner:
+                problems.append(f"{where}: role {role} already belongs to {owner[role]}")
+            owner.setdefault(role, family["id"])
+        for index, section in enumerate(family["sections"]):
+            check_text(f"{where} sections/{index}", section["text"])
+            for source in section.get("sources", []):
+                if source not in content.sources:
+                    problems.append(f"{where} sections/{index}: unknown source {source}")
+        check_text(f"{where} prep", family["prep"])
+        if family.get("practice"):
+            check_text(f"{where} practice", family["practice"])
     return problems
 
 

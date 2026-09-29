@@ -345,3 +345,128 @@ def test_question_ids_cannot_take_a_section_anchor(content_dir, reserved):
     path = content_dir / "questions" / "agents-tools.yaml"
     edit(path, lambda data: data["questions"][0].update(id=reserved))
     assert "id is reserved for a page section anchor" in problems(content_dir)
+
+
+def test_role_pages_separate_reported_questions_from_practice():
+    pages = render(load(FIXTURE, today=TODAY))
+    builders, leaders = pages["docs/roles/builders.md"], pages["docs/roles/leaders.md"]
+    # The candidate report names the AI engineer role, so the question counts as reported.
+    reported = builders.split("### Reported for these roles", 1)[1]
+    assert "(../themes/evals-observability.md#regression-gate)" in reported
+    # For the product manager it is only tagged, so it is practice, not a reported question.
+    assert "### Reported for these roles" not in leaders
+    assert "### Also practise" in leaders and "#regression-gate)" in leaders
+    # Symbolic links in the guide resolve relative to each page.
+    assert "[the gate](../themes/evals-observability.md#regression-gate)" in builders
+    assert "[learning path](../LEARNING_PATH.md)" in leaders
+    assert "**Practice deliverable:** build a demo." in builders
+    assert "**Practice deliverable:**" not in leaders
+
+
+def test_role_page_shows_stages_reported_for_its_roles_or_says_there_are_none():
+    pages = render(load(FIXTURE, today=TODAY))
+    builders = pages["docs/roles/builders.md"]
+    assert "| [Example Labs](../companies/example-labs.md) | Practical coding<br>*Applied AI" in (
+        builders
+    )
+    assert "🗣 candidate report" in builders
+    assert "Recruiter screen" not in builders  # untagged stages stay on the company page only
+    leaders = pages["docs/ru/roles/leaders.md"]
+    assert "Публичных данных о собеседованиях на эти роли пока нет." in leaders
+    overview = pages["docs/AI_ROLES.md"]
+    assert "| [Builders](roles/builders.md) | Build AI features. | 1 | 1 | 1 | 0 |" in overview
+    assert "| [Leaders](roles/leaders.md) | Lead AI products. | 0 | 0 | 0 | 1 |" in overview
+    company = pages["docs/companies/example-labs.md"]
+    assert "| Practical coding<br>*Applied AI engineer* |" in company
+
+
+def test_a_job_posting_never_counts_as_interview_evidence(content_dir):
+    path = content_dir / "questions" / "agents-tools.yaml"
+    edit(path, lambda data: data["questions"][0].update(evidence=[{"source": "example-posting"}]))
+    assert "evidence must be an interview source" in problems(content_dir)
+    path = content_dir / "companies" / "example-labs.yaml"
+    edit(path, lambda data: data["loop"][0].update(sources=["example-posting"]))
+    assert "confirmed cannot rest on posting" in problems(content_dir)
+
+
+def test_roles_guide_links_and_role_ownership_are_checked(content_dir):
+    path = content_dir / "roles.yaml"
+
+    def break_guide(data):
+        data["families"][1]["roles"].append("ai-engineer")
+        data["families"][0]["prep"]["en"] = "see [a gap](question:no-such-question)"
+        data["families"][0]["sections"][0]["text"]["ru"] = "см. [внешнюю](https://example.com)"
+
+    edit(path, break_guide)
+    found = problems(content_dir)
+    assert "role ai-engineer already belongs to builders" in found
+    assert "en link to unknown question no-such-question" in found
+    assert "ru text has a link that is not kind:id" in found
+
+
+def test_evidence_role_must_exist_and_fit_the_question(content_dir):
+    path = content_dir / "questions" / "evals-observability.yaml"
+    edit(path, lambda data: data["questions"][0]["evidence"][1].update(role="no-such-role"))
+    assert "evidence names unknown role no-such-role" in problems(content_dir)
+    edit(path, lambda data: data["questions"][0].update(tracks=["leadership"], roles=["ai-pm"]))
+    edit(path, lambda data: data["questions"][0]["evidence"][1].update(role="ai-engineer"))
+    assert "evidence role ai-engineer is outside the question's tracks" in problems(content_dir)
+
+
+def test_compilation_is_named_but_linked_to_its_attribution_not_the_external_repository():
+    pages = render(load(FIXTURE, today=TODAY))
+    readme = pages["README.md"]
+    assert "[Interview question compilation](docs/sources.md#kind-secondary-compilation)" in readme
+    assert "https://example.com/compilation" not in readme
+    assert '<a id="kind-secondary-compilation"></a>' in pages["docs/sources.md"]
+
+
+def test_role_guide_rejects_future_dates_and_unrepresented_primary_track(content_dir):
+    edit(content_dir / "roles.yaml", lambda data: data.update(checked="2026-10-01"))
+    assert "roles.yaml: date 2026-10-01 is in the future" in problems(content_dir)
+    edit(content_dir / "roles.yaml", lambda data: data["families"][0].update(track="leadership"))
+    assert "primary track must be represented by a family role" in problems(content_dir)
+
+
+def test_company_stage_role_must_be_covered_by_company(content_dir):
+    path = content_dir / "companies" / "example-labs.yaml"
+    edit(path, lambda data: data["roles"]["engineering"].remove("applied-ai-engineer"))
+    assert "role applied-ai-engineer is outside company roles" in problems(content_dir)
+
+
+def test_role_assumptions_stay_on_company_page_and_do_not_count_as_reported():
+    content = load(FIXTURE, today=TODAY)
+    stage = content.companies["example-labs"]["loop"][1]
+    stage.update(claim="assumption", sources=[])
+    pages = render(content)
+    assert "Practical coding" not in pages["docs/roles/builders.md"]
+    assert "Practical coding" in pages["docs/companies/example-labs.md"]
+    assert (
+        "| [Builders](roles/builders.md) | Build AI features. | 0 | 0 | 1 | 0 |"
+        in (pages["docs/AI_ROLES.md"])
+    )
+
+
+def test_mixed_role_family_is_reachable_from_both_tracks_in_both_languages():
+    content = load(FIXTURE, today=TODAY)
+    content.families[0]["roles"].append("ai-pm")
+    content.guide["families"].pop()
+    pages = render(content)
+    for lang, root, prefix, names in (
+        ("en", "README.md", "docs", "AI Engineering / AI Leadership"),
+        ("ru", "README.ru.md", "docs/ru", "AI-инженерия / AI-лидерство"),
+    ):
+        assert names in pages[f"{prefix}/roles/builders.md"]
+        assert pages[root].count(f"({prefix}/roles/builders.md)") == 2
+        assert pages[f"{prefix}/README.md"].count("(roles/builders.md)") == 2
+
+
+def test_role_reported_question_shows_matching_evidence_not_unrelated_companies():
+    pages = render(load(FIXTURE, today=TODAY))
+    section = pages["docs/roles/builders.md"].split("### Reported for these roles", 1)[1]
+    assert "https://example.org/blog/interview" in section
+    assert "Sample Bank" in section
+    assert "Example Labs" not in section
+    assert "https://example.com/compilation" not in section
+    assert '<a id="role-questions"></a>Questions' in pages["docs/roles/builders.md"]
+    assert '<a id="questions"></a>Questions' not in pages["docs/roles/builders.md"]

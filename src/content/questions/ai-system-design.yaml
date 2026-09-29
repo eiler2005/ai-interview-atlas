@@ -2,6 +2,7 @@ theme: "ai-system-design"
 questions:
   - id: "sd-enterprise-rag"
     tracks: ["engineering","leadership"]
+    roles: ["forward-deployed-engineer"]
     type: "system_design"
     text:
       en: "Design a knowledge assistant over ten million enterprise documents with per-user permissions and a continuously changing corpus."
@@ -37,6 +38,7 @@ questions:
     reading: ["azure-search-document-access","anthropic-contextual-retrieval"]
   - id: "sd-code-assistant"
     tracks: ["engineering"]
+    roles: ["software-engineer"]
     type: "system_design"
     text:
       en: "Design a repository-aware coding assistant, from indexing and context assembly to applying edits and checking results."
@@ -50,6 +52,7 @@ questions:
     added: "2026-09-26"
   - id: "sd-support-agent"
     tracks: ["engineering","leadership"]
+    roles: ["applied-ai-engineer"]
     type: "system_design"
     text:
       en: "Design a customer-support agent that can execute service actions and transfer the case to a human when needed."
@@ -119,6 +122,7 @@ questions:
     added: "2026-09-26"
   - id: "sd-text-to-sql"
     tracks: ["engineering"]
+    roles: ["applied-ai-engineer"]
     type: "system_design"
     text:
       en: "Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution."
@@ -149,6 +153,7 @@ questions:
     added: "2026-09-26"
   - id: "sd-gateway"
     tracks: ["engineering","leadership"]
+    roles: ["ai-platform-engineer"]
     type: "system_design"
     text:
       en: "Design an LLM gateway with provider routing, failover, caching, rate limits and enforceable spending budgets."
@@ -254,6 +259,9 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "anthropic"
+      - source: "exponent-anthropic-fde"
+        company: "anthropic"
+        role: "forward-deployed-engineer"
     added: "2026-09-26"
   - id: "sd-webhooks"
     tracks: ["engineering"]
@@ -269,3 +277,35 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+  - id: "sd-architecture-critique"
+    tracks: ["engineering"]
+    roles: ["software-engineer"]
+    type: "system_design"
+    text:
+      en: "Critique the weaknesses of an existing production service architecture, then design a new product feature on top of it."
+      ru: "Найдите слабые места архитектуры существующего продакшен-сервиса, затем спроектируйте поверх неё новую продуктовую функцию."
+    tests:
+      en: "Whether you reason about a real, imperfect system rather than a blank page."
+      ru: "Умение рассуждать о реальной несовершенной системе, а не о чистом листе."
+    provenance: "published"
+    evidence:
+      - source: "exponent-langchain-engineer"
+        company: "langchain"
+        role: "software-engineer"
+    added: "2026-09-29"
+  - id: "sd-ml-system-end-to-end"
+    tracks: ["engineering"]
+    roles: ["ml-engineer"]
+    type: "system_design"
+    text:
+      en: "Design an ML system for a product feature end to end: frame the task and requirements, decompose it, plan data collection, choose model architectures, then deploy and test it."
+      ru: "Спроектируйте ML-систему для продуктовой функции целиком: сформулируйте задачу и требования, разбейте её на подзадачи, спланируйте сбор данных, выберите архитектуры моделей, затем выкатите и протестируйте."
+    tests:
+      en: "Whether you structure an ML system from problem framing to deployment instead of jumping to a model."
+      ru: "Умение выстроить ML-систему от постановки задачи до выкатки, не перескакивая сразу к модели."
+    provenance: "published"
+    evidence:
+      - source: "tbank-career-system-design-ml"
+        company: "t-bank"
+        role: "ml-engineer"
+    added: "2026-09-29"

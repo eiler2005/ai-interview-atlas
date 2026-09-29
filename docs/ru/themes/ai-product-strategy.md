@@ -117,5 +117,14 @@
 - <a id="prod-impactful-product"></a>**Расскажите о созданном вами продукте с наибольшим влиянием: бизнес-обосновании и данных о результате.**
   - Самопрезентация · Senior · Где спрашивали: [Monzo](../companies/monzo.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-impactful-product&title=%5BCorrection%5D%20prod-impactful-product)
   - Что проверяет: Умеете ли вы связать собственные решения, эксперименты и достигнутый результат.
+- <a id="prod-enterprise-ai-pricing"></a>**Как вы установите цену корпоративного AI-продукта, какие затраты обязательно учтёте и как кастомизация под каждого клиента влияет на маржинальность?**
+  - Продуктовый кейс · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
+  - Что проверяет: Умение рассуждать о юнит-экономике и марже, а не только о ценности продукта.
+- <a id="prod-enterprise-discovery"></a>**Кто в дискавери корпоративного AI-продукта является «персоной», где вы найдёте B2B-респондентов и как поймёте, что проблему стоит решать?**
+  - Продуктовый кейс · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
+  - Что проверяет: Умение адаптировать исследование клиентов к корпоративным покупателям, пользователям и лицам, принимающим решения.
+- <a id="prod-expensive-mvp"></a>**Что вы будете делать, если MVP корпоративного AI-продукта слишком дорого или долго делать?**
+  - Продуктовый кейс · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-expensive-mvp&title=%5BCorrection%5D%20prod-expensive-mvp)
+  - Что проверяет: Умение проверить самые рискованные гипотезы более дешёвыми прототипами до решения строить продукт.
 
 ← [Практический кодинг](coding-practical.md) · [AI-платформа и операционная модель](ai-operating-model.md) →

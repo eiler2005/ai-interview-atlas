@@ -31,4 +31,4 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 
 No company-specific questions are recorded yet.
 
-← [Databricks](databricks.md) · [Perplexity](perplexity.md) →
+← [LangChain](langchain.md) · [Cognition](cognition.md) →

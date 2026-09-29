@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/behavioral-values.md) · [AI Interview 
 
 Your real stories, motivation and judgement: ownership, conflict, mistakes, and why this company.
 
-On this page: [Both tracks (19)](#track-both) · [AI Leadership (4)](#track-leadership)
+On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-engineering) · [AI Leadership (5)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -82,6 +82,15 @@ On this page: [Both tracks (19)](#track-both) · [AI Leadership (4)](#track-lead
   - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
   - Tests: Whether you can respond to criticism with specific learning and action.
 
+## <a id="track-engineering"></a>AI Engineering
+
+- <a id="beh-why-forward-deployed"></a>**Why this company, and why the forward deployed role rather than engineering on the core product?**
+  - Self-presentation · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-why-forward-deployed&title=%5BCorrection%5D%20beh-why-forward-deployed)
+  - Tests: Whether your motivation fits customer-facing delivery work, not only the company's name.
+- <a id="beh-mission-without-upside"></a>**Would you be comfortable staying if the company's stock went to zero?**
+  - Behavioral · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-mission-without-upside&title=%5BCorrection%5D%20beh-mission-without-upside)
+  - Tests: Whether your commitment rests on the mission and the work rather than the financial upside.
+
 ## <a id="track-leadership"></a>AI Leadership
 
 - <a id="beh-stakeholder-priorities"></a>**Tell me about conflicting stakeholder priorities and how you established alignment.**
@@ -96,5 +105,8 @@ On this page: [Both tracks (19)](#track-both) · [AI Leadership (4)](#track-lead
 - <a id="beh-product-failure"></a>**What is the largest failure you have experienced as a product manager?**
   - Behavioral · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-product-failure&title=%5BCorrection%5D%20beh-product-failure)
   - Tests: Whether you can discuss product judgement, consequences and changed practice honestly.
+- <a id="beh-might-not-succeed"></a>**What might keep you from succeeding in this job?**
+  - Self-presentation · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-might-not-succeed&title=%5BCorrection%5D%20beh-might-not-succeed)
+  - Tests: Whether you assess your fit for an ambiguous, customer-facing role honestly.
 
 ← [Payments and regulated domains](domain-payments-fintech.md)

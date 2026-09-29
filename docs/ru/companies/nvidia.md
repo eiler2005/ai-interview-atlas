@@ -31,4 +31,4 @@ AI-инфраструктура · Международный · Этапы пр
 
 Вопросов по этой компании пока нет.
 
-← [Databricks](databricks.md) · [Perplexity](perplexity.md) →
+← [LangChain](langchain.md) · [Cognition](cognition.md) →

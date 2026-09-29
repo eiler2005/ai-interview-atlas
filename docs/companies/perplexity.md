@@ -129,4 +129,4 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
   - Applied scenario · Senior · Asked at: Perplexity †
   - Tests: Whether you engage technical concerns and establish a shared reason to invest.
 
-← [NVIDIA](nvidia.md) · [Atlassian](atlassian.md) →
+← [Cursor (Anysphere)](cursor.md) · [Sierra](sierra.md) →

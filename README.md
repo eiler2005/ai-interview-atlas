@@ -15,16 +15,17 @@ English · [Русский](README.ru.md)
 
 Two tracks — AI Engineering and AI Leadership — with company interview guides and answer checklists. Each reported question cites its evidence; the markers distinguish company confirmation, candidate reports and secondary compilations. Generated practice questions are labelled separately.
 
-Of 245 questions attributed to published sources, 224 rely only on preparation guides or compilations (†). Another 15 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+Of 277 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 15 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](docs/sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
 
 Released PDF books are dated snapshots for offline reading. The website may contain newer questions and guides; check the release date before using a book as the current edition.
 
 ## What is inside
 
-- **260 questions** across 17 themes: 196 for engineering, 149 for leadership. Each says what it tests.
+- **292 questions** across 17 themes: 224 for engineering, 154 for leadership. Each says what it tests.
 - **80 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
-- **20 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
-- **125 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
+- **28 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
+- **6 role pages** in the [AI roles guide](docs/AI_ROLES.md): what each role involves, how it is interviewed and which questions to practise.
+- **158 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
 - **A requirements radar** built from real job postings: what employers actually ask for, by theme.
 
 ## Why this one
@@ -46,9 +47,11 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 ## Tracks and roles
 
 - **AI Engineering.** Engineers who build, ship and run AI systems: applications, agents, platforms, inference and research code.
-  - Software engineer (general interview baseline), AI / LLM engineer, Software engineer on AI products, Applied AI / forward-deployed engineer, Agent engineer, AI platform / MLOps engineer, Inference and performance engineer, Research engineer
+  - Software engineer (general interview baseline), AI / LLM engineer, Software engineer on AI products, Applied AI engineer, Forward deployed engineer (FDE), AI solutions architect / customer engineer, AI evaluation engineer, ML engineer / data scientist, Agent engineer, AI platform / MLOps engineer, Inference and performance engineer, Research engineer
+  - Role pages: [Forward Deployed Engineer (FDE)](docs/roles/fde.md) · [Applied AI / agent product engineer](docs/roles/applied-ai.md) · [AI evaluation and reliability engineer](docs/roles/eval-reliability.md) · [Inference / AI platform engineer](docs/roles/inference-platform.md) · [Research engineer](docs/roles/research-engineering.md)
 - **AI Leadership.** People who decide what AI to build and lead the teams, programmes and organisations that build it.
-  - Product manager (general interview baseline), AI product manager (senior to group), Director or head of product, Engineering manager, Director or head of engineering, Technical program manager, AI platform lead, Head of AI adoption / chief AI officer, Forward-deployed or solutions leader
+  - Product manager (general interview baseline), AI product manager (senior to group), Director or head of product, Engineering manager, Director or head of engineering, Technical program manager, AI platform lead, Head of AI adoption / chief AI officer, Deployment strategist, Forward-deployed or solutions leader
+  - Role pages: [Forward Deployed Engineer (FDE)](docs/roles/fde.md) · [Inference / AI platform engineer](docs/roles/inference-platform.md) · [AI product leadership](docs/roles/product-leadership.md)
 
 ## [Asked across companies](docs/common.md)
 
@@ -59,29 +62,29 @@ Questions reported at two or more companies, strongest basis first.
 | Theme | AI Engineering | AI Leadership |
 | --- | ---: | ---: |
 | [LLM fundamentals](docs/themes/llm-fundamentals.md) | 18 | 2 |
-| [Inference, serving and cost](docs/themes/inference-economics.md) | 17 | 4 |
+| [Inference, serving and cost](docs/themes/inference-economics.md) | 18 | 4 |
 | [RAG and retrieval](docs/themes/rag-retrieval.md) | 14 | 2 |
-| [Agents, tools and protocols](docs/themes/agents-tools.md) | 15 | 4 |
+| [Agents, tools and protocols](docs/themes/agents-tools.md) | 18 | 4 |
 | [Fine-tuning and post-training](docs/themes/post-training.md) | 15 | 2 |
-| [Evaluation and observability](docs/themes/evals-observability.md) | 18 | 8 |
+| [Evaluation and observability](docs/themes/evals-observability.md) | 21 | 8 |
 | [Safety, security and governance](docs/themes/safety-security-governance.md) | 10 | 18 |
 | [Multimodal and voice](docs/themes/multimodal-voice.md) | 14 | 1 |
-| [AI system design](docs/themes/ai-system-design.md) | 14 | 5 |
-| [Practical coding](docs/themes/coding-practical.md) | 15 | 1 |
-| [AI product strategy and metrics](docs/themes/ai-product-strategy.md) | 0 | 20 |
+| [AI system design](docs/themes/ai-system-design.md) | 16 | 5 |
+| [Practical coding](docs/themes/coding-practical.md) | 27 | 1 |
+| [AI product strategy and metrics](docs/themes/ai-product-strategy.md) | 0 | 23 |
 | [AI platform and operating model](docs/themes/ai-operating-model.md) | 3 | 4 |
 | [Leading engineering teams](docs/themes/engineering-leadership.md) | 1 | 18 |
 | [Programmes and delivery](docs/themes/program-delivery.md) | 4 | 12 |
-| [Applied and customer scenarios](docs/themes/applied-scenarios.md) | 15 | 20 |
+| [Applied and customer scenarios](docs/themes/applied-scenarios.md) | 20 | 21 |
 | [Payments and regulated domains](docs/themes/domain-payments-fintech.md) | 4 | 5 |
-| [Behavioral and values](docs/themes/behavioral-values.md) | 19 | 23 |
+| [Behavioral and values](docs/themes/behavioral-values.md) | 21 | 24 |
 
 ## Companies
 
 | Company | Segment | Markets | Coding | Questions | Reviewed |
 | --- | --- | --- | --- | ---: | --- |
-| [Anthropic](docs/companies/anthropic.md) | Frontier AI labs | International | required | 34 | 2026-09-26 |
-| [OpenAI](docs/companies/openai.md) | Frontier AI labs | International | unknown | 29 | 2026-09-26 |
+| [Anthropic](docs/companies/anthropic.md) | Frontier AI labs | International | required | 39 | 2026-09-26 |
+| [OpenAI](docs/companies/openai.md) | Frontier AI labs | International | unknown | 31 | 2026-09-26 |
 | [Amazon](docs/companies/amazon.md) | Big Tech | International | unknown | 12 | 2026-09-26 |
 | [Google and Google DeepMind](docs/companies/google.md) | Big Tech | International | varies by role | 18 | 2026-09-26 |
 | [Meta](docs/companies/meta.md) | Big Tech | International | varies by role | 20 | 2026-09-26 |
@@ -89,17 +92,25 @@ Questions reported at two or more companies, strongest basis first.
 | [Spotify](docs/companies/spotify.md) | Big Tech | International | varies by role | 0 | 2026-09-26 |
 | [Uber](docs/companies/uber.md) | Big Tech | International | required | 0 | 2026-09-26 |
 | [Databricks](docs/companies/databricks.md) | AI infrastructure | International | unknown | 8 | 2026-09-26 |
+| [LangChain](docs/companies/langchain.md) | AI infrastructure | International | unknown | 1 | 2026-09-29 |
 | [NVIDIA](docs/companies/nvidia.md) | AI infrastructure | International | varies by role | 0 | 2026-09-26 |
+| [Cognition](docs/companies/cognition.md) | AI-native products | International | unknown | 2 | 2026-09-29 |
+| [Cursor (Anysphere)](docs/companies/cursor.md) | AI-native products | International | required | 2 | 2026-09-29 |
 | [Perplexity](docs/companies/perplexity.md) | AI-native products | International | unknown | 15 | 2026-09-26 |
+| [Sierra](docs/companies/sierra.md) | AI-native products | International | required | 4 | 2026-09-29 |
 | [Atlassian](docs/companies/atlassian.md) | Enterprise and forward-deployed AI | International | varies by role | 0 | 2026-09-26 |
-| [Palantir](docs/companies/palantir.md) | Enterprise and forward-deployed AI | International | unknown | 20 | 2026-09-26 |
+| [Palantir](docs/companies/palantir.md) | Enterprise and forward-deployed AI | International | unknown | 27 | 2026-09-26 |
 | [Adyen](docs/companies/adyen.md) | Fintech and payments | International | varies by role | 0 | 2026-09-26 |
 | [Monzo](docs/companies/monzo.md) | Fintech and payments | International | varies by role | 2 | 2026-09-26 |
+| [Ramp](docs/companies/ramp.md) | Fintech and payments | International | required | 0 | 2026-09-29 |
 | [Stripe](docs/companies/stripe.md) | Fintech and payments | International | unknown | 3 | 2026-09-26 |
+| [Tochka](docs/companies/tochka.md) | Fintech and payments | Russia | unknown | 2 | 2026-09-29 |
 | [Avito](docs/companies/avito.md) | Russian Big Tech | Russia | varies by role | 0 | 2026-09-26 |
+| [MegaFon](docs/companies/megafon.md) | Russian Big Tech | Russia | required | 0 | 2026-09-29 |
 | [Ozon](docs/companies/ozon.md) | Russian Big Tech | Russia | required | 0 | 2026-09-26 |
-| [T-Bank](docs/companies/t-bank.md) | Russian Big Tech | Russia | required | 0 | 2026-09-26 |
-| [Yandex](docs/companies/yandex.md) | Russian Big Tech | Russia | required | 0 | 2026-09-26 |
+| [SberDevices (Sber)](docs/companies/sberdevices.md) | Russian Big Tech | Russia | required | 0 | 2026-09-29 |
+| [T-Bank](docs/companies/t-bank.md) | Russian Big Tech | Russia | required | 2 | 2026-09-26 |
+| [Yandex](docs/companies/yandex.md) | Russian Big Tech | Russia | required | 1 | 2026-09-26 |
 
 ## What job postings ask for
 
