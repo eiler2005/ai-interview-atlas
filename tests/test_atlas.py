@@ -48,6 +48,8 @@ def repository(tmp_path: Path) -> Path:
         "docs/ru/ROADMAP.md",
         "docs/LEARNING_PATH.md",
         "docs/ru/LEARNING_PATH.md",
+        "CHANGELOG.md",
+        "docs/ru/CHANGELOG.md",
     ):
         (root / name).parent.mkdir(parents=True, exist_ok=True)
         (root / name).write_text("# Synthetic\n", encoding="utf-8")
@@ -162,7 +164,7 @@ def test_answers_render_only_for_the_language_that_has_them(content_dir):
     assert "docs/answers/leadership.md" not in pages
     page = pages["docs/ru/answers/leadership.md"]
     # Numbered like Start here, and no link to a counterpart that does not exist yet.
-    assert "### 1. Спроектируйте гейт" in page
+    assert '### <a id="regression-gate"></a>1. Спроектируйте гейт' in page
     assert "Ответы готовы: 1 из 1." in page
     assert "answers/leadership.md)" not in page.split("\n")[3]
     # The answers are reached from the track's start page, not from the README.
@@ -213,3 +215,80 @@ def test_build_then_check_detects_drift_stale_pages_and_links(tmp_path):
     (root / "docs" / "ru" / "METHODOLOGY.md").unlink()
     errors = links.check(root)
     assert any("missing METHODOLOGY.md" in e or "Missing Russian page" in e for e in errors)
+
+
+def test_every_question_has_one_anchor_on_its_theme_page_and_links_to_it_elsewhere():
+    pages = render(load(FIXTURE, today=TODAY))
+    theme = pages["docs/themes/evals-observability.md"]
+    assert theme.count('<a id="regression-gate"></a>') == 1
+    assert "question=regression-gate" in theme  # a correction form with the id filled in
+    # Other pages point at the canonical entry instead of repeating the anchor.
+    common = pages["docs/common.md"]
+    assert "(themes/evals-observability.md#regression-gate)" in common
+    assert '<a id="regression-gate">' not in common
+    start = pages["docs/ru/start/leadership.md"]
+    assert "(../themes/evals-observability.md#regression-gate)" in start
+    assert "✍ [Ответ](../answers/leadership.md#regression-gate)" in start
+    # The answer links back to the checklist and to the contents of its page.
+    answers = pages["docs/ru/answers/leadership.md"]
+    assert "[Чек-лист](../themes/evals-observability.md#regression-gate)" in answers
+    assert "[1. Спроектируйте гейт, который решает, выпускать ли изменение промпта.]" in answers
+    assert "[↑ К содержанию](#contents)" in answers
+
+
+def test_answer_links_appear_only_in_the_language_that_has_the_answer():
+    pages = render(load(FIXTURE, today=TODAY))
+    assert "✍" not in pages["docs/themes/evals-observability.md"]
+    assert (
+        "✍ [Ответ](../answers/leadership.md#regression-gate)"
+        in (pages["docs/ru/themes/evals-observability.md"])
+    )
+
+
+def test_company_page_does_not_link_to_itself_and_pages_through_companies():
+    pages = render(load(FIXTURE, today=TODAY))
+    labs = pages["docs/companies/example-labs.md"]
+    assert "Asked at: Example Labs ✅" in labs
+    assert "(example-labs.md)" not in labs
+    assert "[Sample Bank](sample-bank.md) →" in labs
+    assert "← [Example Labs](example-labs.md)" in pages["docs/companies/sample-bank.md"]
+    assert "On this page: [Interview loop](#loop)" in labs
+
+
+def test_themes_page_forward_and_back_in_taxonomy_order():
+    pages = render(load(FIXTURE, today=TODAY))
+    first = pages["docs/themes/evals-observability.md"]
+    assert "← [" not in first
+    assert "[Agents and tools](agents-tools.md) →" in first
+    middle = pages["docs/themes/agents-tools.md"]
+    assert "← [Evaluation and observability](evals-observability.md)" in middle
+    assert "[Behavioral and values](behavioral-values.md) →" in middle
+    assert "[AI Interview Atlas](../../README.md) › [Themes](../README.md#themes)" in middle
+
+
+def test_map_of_the_atlas_links_every_section_in_both_languages():
+    pages = render(load(FIXTURE, today=TODAY))
+    hub, russian = pages["docs/README.md"], pages["docs/ru/README.md"]
+    for anchor in ("tracks", "themes", "companies", "reference"):
+        assert f'<a id="{anchor}"></a>' in hub and f'<a id="{anchor}"></a>' in russian
+    assert "[Start here](start/leadership.md)" in hub
+    assert "[Ответы](answers/leadership.md): готово 1 из 1" in russian
+    assert "answers/" not in hub  # English has no answers in the fixture yet
+    assert "[Changelog](../CHANGELOG.md)" in hub and "[Журнал изменений](CHANGELOG.md)" in russian
+    readme = pages["README.md"]
+    assert "**Navigate:** [Map of the atlas](docs/README.md)" in readme
+    assert "[Themes](#themes) · [Companies](#companies)" in pages["README.md"]
+    assert "[Темы](#темы) · [Компании](#компании)" in pages["README.ru.md"]
+
+
+def test_generated_navigation_passes_the_link_and_anchor_check(tmp_path):
+    root = repository(tmp_path)
+    assert cli.main(["--root", str(root)]) == 0
+    assert links.check(root) == []
+
+
+@pytest.mark.parametrize("reserved", ["contents", "questions", "track-both"])
+def test_question_ids_cannot_take_a_section_anchor(content_dir, reserved):
+    path = content_dir / "questions" / "agents-tools.yaml"
+    edit(path, lambda data: data["questions"][0].update(id=reserved))
+    assert "id is reserved for a page section anchor" in problems(content_dir)

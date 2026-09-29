@@ -33,6 +33,17 @@ FORBIDDEN = {
 }
 EMAIL = re.compile(r"[\w.+-]+@([\w.-]+\.[A-Za-z]{2,})")
 EXAMPLE_DOMAINS = {"example.com", "example.org", "example.net", "example.invalid"}
+# Section anchors on generated pages; a question id is an anchor too and must not collide.
+RESERVED_IDS = {
+    "contents",
+    "tracks",
+    "themes",
+    "companies",
+    "reference",
+    "loop",
+    "prep",
+    "questions",
+}
 
 
 class ContentError(ValueError):
@@ -248,6 +259,8 @@ def _check_questions(content: Content, today: date) -> list[str]:
         name = f"questions/{question['theme']}.yaml {question['id']}"
         if question["id"] in seen:
             problems.append(f"{name}: duplicate question id")
+        if question["id"] in RESERVED_IDS or question["id"].startswith("track-"):
+            problems.append(f"{name}: id is reserved for a page section anchor")
         seen.add(question["id"])
         if question["theme"] not in themes:
             problems.append(f"{name}: unknown theme")

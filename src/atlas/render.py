@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import posixpath
 from datetime import date, timedelta
+from urllib.parse import quote
 from xml.sax.saxutils import escape
 
 from .content import STRENGTH, TRACKS, Content
@@ -220,6 +221,43 @@ LABELS = {
             ),
         ],
         "back": "← [AI Interview Atlas]({readme})",
+        "crumbs": "[AI Interview Atlas]({readme}) › [{section}]({hub})",
+        "navigate": "**Navigate:**",
+        "map": "Map of the atlas",
+        "map_intro": (
+            "Every page of the atlas in one place. Start with the priority questions of your "
+            "track, then go deeper by theme or by employer."
+        ),
+        "start_short": "Start: {track}",
+        "start_name": "Start here",
+        "answers_name": "Answers",
+        "start_summary": "{count} priority questions in study order",
+        "answers_summary": "{done} of {total} written",
+        "theme_summary": "What it covers",
+        "reference": "Reference",
+        "reference_items": [
+            ("common", "Asked across companies", "questions reported at two or more companies"),
+            ("radar", "Requirements radar", "what job postings ask for, by theme"),
+            ("learning_path", "Learning path", "a study curriculum with weekly practice"),
+            ("methodology", "Methodology", "what counts as a source and what the markers mean"),
+            ("sources", "Sources", "every cited page with its retrieval date"),
+            ("attribution", "Attribution", "upstream material, adaptations and licensing"),
+            ("roadmap", "Roadmap", "what comes next, and what this project will not do"),
+            ("changelog", "Changelog", "what changed in each edition"),
+            (
+                "contributing",
+                "Contributing",
+                "report a problem or add a question with a dated public source",
+            ),
+            ("pdf", "PDF editions", "the same content as printable books"),
+        ],
+        "on_page": "On this page",
+        "checklist": "Checklist",
+        "answer_link": "✍ [Answer]({page})",
+        "fix": "Suggest a fix",
+        "fix_title": "[Correction] {id}",
+        "contents": "Contents",
+        "to_contents": "[↑ Contents](#contents)",
         "asked_at": "Asked at",
         "tests": "Tests",
         "covers": "A strong answer covers",
@@ -478,6 +516,51 @@ LABELS = {
             ),
         ],
         "back": "← [AI Interview Atlas]({readme})",
+        "crumbs": "[AI Interview Atlas]({readme}) › [{section}]({hub})",
+        "navigate": "**Навигация:**",
+        "map": "Карта атласа",
+        "map_intro": (
+            "Все страницы атласа в одном месте. Начните с приоритетных вопросов своего трека, "
+            "затем углубляйтесь по темам или по работодателям."
+        ),
+        "start_short": "С чего начать: {track}",
+        "start_name": "С чего начать",
+        "answers_name": "Ответы",
+        "start_summary": "приоритетные вопросы в порядке изучения: {count}",
+        "answers_summary": "готово {done} из {total}",
+        "theme_summary": "О чём",
+        "reference": "Справка",
+        "reference_items": [
+            (
+                "common",
+                "Спрашивают в нескольких компаниях",
+                "вопросы, о которых сообщали в двух и более компаниях",
+            ),
+            ("radar", "Радар требований", "что требуют вакансии, по темам"),
+            ("learning_path", "Учебный план", "программа подготовки с еженедельной практикой"),
+            ("methodology", "Методика", "что считается источником и что означают метки"),
+            (
+                "sources",
+                "Источники",
+                "все страницы, на которые ссылается атлас, с датой проверки",
+            ),
+            ("attribution", "Атрибуция", "исходные материалы, переработка и лицензии"),
+            ("roadmap", "Дорожная карта", "что будет дальше и чего проект делать не будет"),
+            ("changelog", "Журнал изменений", "что менялось в каждом издании"),
+            (
+                "contributing",
+                "Как участвовать",
+                "сообщить о проблеме или добавить вопрос с датированным публичным источником",
+            ),
+            ("pdf", "PDF-издания", "тот же материал в виде книг для печати"),
+        ],
+        "on_page": "На этой странице",
+        "checklist": "Чек-лист",
+        "answer_link": "✍ [Ответ]({page})",
+        "fix": "Предложить правку",
+        "fix_title": "[Correction] {id}",
+        "contents": "Содержание",
+        "to_contents": "[↑ К содержанию](#contents)",
         "asked_at": "Где спрашивали",
         "tests": "Что проверяет",
         "covers": "Сильный ответ покрывает",
@@ -606,6 +689,34 @@ def methodology_page(lang: str) -> str:
     return f"{base(lang)}/METHODOLOGY.md"
 
 
+def hub_page(lang: str) -> str:
+    return f"{base(lang)}/README.md"
+
+
+def changelog_page(lang: str) -> str:
+    return "CHANGELOG.md" if lang == "en" else "docs/ru/CHANGELOG.md"
+
+
+def contributing_page(lang: str) -> str:
+    return "CONTRIBUTING.md" if lang == "en" else "CONTRIBUTING.ru.md"
+
+
+def fix_url(question_id: str, lang: str) -> str:
+    """A correction issue form with the question id filled in."""
+    title = quote(LABELS[lang]["fix_title"].format(id=question_id))
+    return f"{REPO}/issues/new?template=correction.yml&question={question_id}&title={title}"
+
+
+def reference_name(lang: str, key: str) -> str:
+    """The display name of a reference page on the map of the atlas."""
+    return next(name for item, name, _ in LABELS[lang]["reference_items"] if item == key)
+
+
+def anchor(name: str) -> str:
+    """An explicit anchor: stable on GitHub and the site, unlike heading slugs in Cyrillic."""
+    return f'<a id="{name}"></a>'
+
+
 def svg_file(lang: str) -> str:
     return f"docs/assets/radar.{lang}.svg"
 
@@ -640,6 +751,7 @@ class Renderer:
         pages: dict[str, str] = {}
         for lang in LANGS:
             pages[readme(lang)] = self.readme(lang)
+            pages[hub_page(lang)] = self.hub(lang)
             for theme in self.content.taxonomy["themes"]:
                 pages[theme_page(lang, theme["id"])] = self.theme(lang, theme)
             for company in self.content.companies.values():
@@ -662,19 +774,71 @@ class Renderer:
     def switch(self, lang: str, page: str, counterpart: str) -> str:
         return LABELS[lang]["switch"].format(other=rel(page, counterpart))
 
+    def crumbs(self, lang: str, page: str, section: str | None = None) -> str:
+        """Where a page sits: the atlas, then its section on the map of the atlas."""
+        labels, hub = LABELS[lang], rel(page, hub_page(lang))
+        names = {
+            "tracks": labels["tracks"],
+            "themes": labels["themes"],
+            "companies": labels["companies"],
+            "reference": labels["reference"],
+        }
+        return labels["crumbs"].format(
+            readme=rel(page, readme(lang)),
+            section=names[section] if section else labels["map"],
+            hub=f"{hub}#{section}" if section else hub,
+        )
+
+    def header(
+        self, lang: str, page: str, counterpart: str | None, section: str | None = None
+    ) -> str:
+        crumbs = self.crumbs(lang, page, section)
+        return self.switch(lang, page, counterpart) + " · " + crumbs if counterpart else crumbs
+
+    @staticmethod
+    def pager(page: str, items: list[tuple[str, str]], current: str) -> list[str]:
+        """Previous and next page in a fixed order, as a footer line."""
+        paths = [path for _, path in items]
+        index = paths.index(current)
+        parts = []
+        if index > 0:
+            name, path = items[index - 1]
+            parts.append(f"← [{name}]({rel(page, path)})")
+        if index < len(items) - 1:
+            name, path = items[index + 1]
+            parts.append(f"[{name}]({rel(page, path)}) →")
+        return ["", " · ".join(parts)] if parts else []
+
     def company_name(self, company: str, lang: str) -> str:
         return self.content.companies[company]["name"][lang]
 
-    def asked_at(self, question: dict, lang: str, page: str) -> str:
+    def asked_at(self, question: dict, lang: str, page: str, current: str | None = None) -> str:
+        """Companies that asked, strongest basis first; the page's own company is not a link."""
         found = self.content.asked_at(question)
         ordered = sorted(
             found.items(), key=lambda item: (STRENGTH[item[1]], self.company_name(item[0], lang))
         )
         return ", ".join(
-            f"[{self.company_name(company, lang)}]({rel(page, company_page(lang, company))})"
-            f" {MARKERS[kind]}"
+            (
+                self.company_name(company, lang)
+                if company == current
+                else f"[{self.company_name(company, lang)}]"
+                f"({rel(page, company_page(lang, company))})"
+            )
+            + f" {MARKERS[kind]}"
             for company, kind in ordered
         )
+
+    def answer_link(self, question: dict, lang: str, page: str, track: str | None = None) -> str:
+        """Link to the written answer, on the given track's answers page when it has one."""
+        if not question.get("answer", {}).get(lang):
+            return ""
+        tracks = question.get("start_here", [])
+        chosen = track if track in tracks else next((t for t in TRACKS if t in tracks), None)
+        if not chosen:
+            return ""
+        target = f"{rel(page, answers_page(lang, chosen))}#{question['id']}"
+        return LABELS[lang]["answer_link"].format(page=target)
 
     def question(
         self,
@@ -685,7 +849,11 @@ class Renderer:
         full: bool = True,
         theme_link: bool = False,
         number: int | None = None,
+        canonical: bool = False,
+        track: str | None = None,
+        company: str | None = None,
     ) -> list[str]:
+        """One question. Its theme page holds the anchor; every other page links to it."""
         labels = LABELS[lang]
         meta = [labels["types"][question["type"]]]
         if question.get("level"):
@@ -693,13 +861,24 @@ class Renderer:
         if theme_link:
             theme = self.content.themes[question["theme"]]
             meta.append(f"[{theme['name'][lang]}]({rel(page, theme_page(lang, theme['id']))})")
-        asked = self.asked_at(question, lang, page)
+        asked = self.asked_at(question, lang, page, current=company)
         if asked:
             meta.append(f"{labels['asked_at']}: {asked}")
         if question["provenance"] == "generated":
             meta.append(f"🧪 {labels['generated']}")
+        answer = self.answer_link(question, lang, page, track)
+        if answer:
+            meta.append(answer)
+        if canonical:
+            meta.append(f"[{labels['fix']}]({fix_url(question['id'], lang)})")
         label = f"{number}. " if number else ""
-        lines = [f"- **{label}{md(question['text'][lang])}**", f"  - {' · '.join(meta)}"]
+        text = md(question["text"][lang])
+        if canonical:
+            head = f"- {anchor(question['id'])}**{label}{text}**"
+        else:
+            home = rel(page, theme_page(lang, question["theme"]))
+            head = f"- **{label}[{text}]({home}#{question['id']})**"
+        lines = [head, f"  - {' · '.join(meta)}"]
         if not full:
             return lines
         lines.append(f"  - {labels['tests']}: {md(question['tests'][lang])}")
@@ -741,33 +920,45 @@ class Renderer:
         labels, page = LABELS[lang], answers_page(lang, track)
         name = self.track_names[track][lang]
         chosen, all_priority = self.answered(lang, track), self.start_here(track)
-        back = labels["back"].format(readme=rel(page, readme(lang)))
         # The other language has its own page only once it has answers of its own.
         counterpart = answers_page(other(lang), track)
-        header = (
-            self.switch(lang, page, counterpart) + " · " + back
-            if self.answered(other(lang), track)
-            else back
-        )
         lines = [
             HEADER,
             f"# {labels['answers'].format(track=name)}",
             "",
-            header,
+            self.header(
+                lang, page, counterpart if self.answered(other(lang), track) else None, "tracks"
+            ),
             "",
             md(labels["answers_intro"]),
             "",
             labels["answers_progress"].format(done=len(chosen), total=len(all_priority)),
         ]
         numbers = {q["id"]: number for number, q in enumerate(all_priority, 1)}
+        # Contents grouped by theme, in the order the themes first appear.
+        lines += ["", f"## {anchor('contents')}{labels['contents']}", ""]
+        themes: dict[str, list[dict]] = {}
+        for question in chosen:
+            themes.setdefault(question["theme"], []).append(question)
+        for theme_id, grouped in themes.items():
+            lines.append(f"- **{md(self.content.themes[theme_id]['name'][lang])}**")
+            lines += [
+                f"  - [{numbers[q['id']]}. {md(q['text'][lang])}](#{q['id']})" for q in grouped
+            ]
         for question in chosen:
             theme = self.content.themes[question["theme"]]
             link = rel(page, theme_page(lang, theme["id"]))
             lines += [
                 "",
-                f"### {numbers[question['id']]}. {md(question['text'][lang])}",
+                (
+                    f"### {anchor(question['id'])}{numbers[question['id']]}. "
+                    f"{md(question['text'][lang])}"
+                ),
                 "",
-                f"*{labels['types'][question['type']]} · [{md(theme['name'][lang])}]({link})*",
+                (
+                    f"*{labels['types'][question['type']]} · [{md(theme['name'][lang])}]({link}) · "
+                    f"[{labels['checklist']}]({link}#{question['id']})*"
+                ),
                 "",
                 md(question["answer"][lang]),
             ]
@@ -777,6 +968,7 @@ class Renderer:
                     source = self.content.sources[source_id]
                     links.append(f"[{cell(source['title'])}]({source['url']})")
                 lines += ["", f"{labels['read']}: " + " · ".join(links)]
+            lines += ["", labels["to_contents"]]
         return "\n".join(lines)
 
     def common(self) -> list[dict]:
@@ -790,9 +982,7 @@ class Renderer:
             HEADER,
             f"# {labels['start'].format(track=name)}",
             "",
-            self.switch(lang, page, start_page(other(lang), track))
-            + " · "
-            + labels["back"].format(readme=rel(page, readme(lang))),
+            self.header(lang, page, start_page(other(lang), track), "tracks"),
             "",
             md(labels["start_intro"]),
             "",
@@ -803,7 +993,9 @@ class Renderer:
             lines += ["", labels["answers_link"].format(page=link)]
         lines.append("")
         for number, question in enumerate(self.start_here(track), 1):
-            lines += self.question(question, lang, page, full=False, theme_link=True, number=number)
+            lines += self.question(
+                question, lang, page, full=False, theme_link=True, number=number, track=track
+            )
         return "\n".join(lines)
 
     def common_questions(self, lang: str) -> str:
@@ -812,9 +1004,7 @@ class Renderer:
             HEADER,
             f"# {labels['common']}",
             "",
-            self.switch(lang, page, common_page(other(lang)))
-            + " · "
-            + labels["back"].format(readme=rel(page, readme(lang))),
+            self.header(lang, page, common_page(other(lang)), "reference"),
             "",
             labels["common_intro"],
         ]
@@ -841,6 +1031,8 @@ class Renderer:
             f"![{labels['banner_alt']}]({BANNER})",
             "",
             BADGES,
+            "",
+            self.navigation(lang),
             "",
             f"**{labels['hero']}**",
             "",
@@ -965,6 +1157,116 @@ class Renderer:
             )
         return "\n".join(lines)
 
+    def navigation(self, lang: str) -> str:
+        """The README's one-line menu: the map, both start pages and the main sections."""
+        labels, page = LABELS[lang], readme(lang)
+        items = [f"[{labels['map']}]({hub_page(lang)})"]
+        items += [
+            f"[{labels['start_short'].format(track=self.track_names[track][lang])}]"
+            f"({start_page(lang, track)})"
+            for track in TRACKS
+        ]
+        items.append(f"[{labels['themes']}](#{self.slug(labels['themes'])})")
+        if self.content.companies:
+            items.append(f"[{labels['companies']}](#{self.slug(labels['companies'])})")
+        items.append(
+            f"[{reference_name(lang, 'learning_path')}]"
+            f"({rel(page, f'{base(lang)}/LEARNING_PATH.md')})"
+        )
+        items.append(f"[PDF]({RELEASES})")
+        return f"{labels['navigate']} " + " · ".join(items)
+
+    @staticmethod
+    def slug(heading: str) -> str:
+        """GitHub's anchor for a plain heading without punctuation."""
+        return heading.strip().lower().replace(" ", "-")
+
+    def hub(self, lang: str) -> str:
+        """Map of the atlas: every generated and hand-written page, grouped by purpose."""
+        labels, content, page = LABELS[lang], self.content, hub_page(lang)
+        lines = [
+            HEADER,
+            f"# {labels['map']}",
+            "",
+            self.switch(lang, page, hub_page(other(lang)))
+            + " · "
+            + labels["back"].format(readme=rel(page, readme(lang))),
+            "",
+            labels["map_intro"],
+            "",
+            labels["legend"],
+            "",
+            f"## {anchor('tracks')}{labels['tracks']}",
+            "",
+        ]
+        for track in content.taxonomy["tracks"]:
+            priority = self.start_here(track["id"])
+            lines.append(f"- **{track['name'][lang]}.** {md(track['summary'][lang])}")
+            roles = [
+                r["name"][lang] for r in content.taxonomy["roles"] if r["track"] == track["id"]
+            ]
+            if roles:
+                lines.append(f"  - {labels['roles']}: {', '.join(roles)}")
+            start = rel(page, start_page(lang, track["id"]))
+            lines.append(
+                f"  - [{labels['start_name']}]({start}): "
+                + labels["start_summary"].format(count=len(priority))
+            )
+            done = self.answered(lang, track["id"])
+            if done:
+                answers = rel(page, answers_page(lang, track["id"]))
+                lines.append(
+                    f"  - [{labels['answers_name']}]({answers}): "
+                    + labels["answers_summary"].format(done=len(done), total=len(priority))
+                )
+        names = {track: self.track_names[track][lang] for track in TRACKS}
+        lines += [
+            "",
+            f"## {anchor('themes')}{labels['themes']}",
+            "",
+            (
+                f"| {labels['theme']} | {labels['theme_summary']} "
+                f"| {names['engineering']} | {names['leadership']} |"
+            ),
+            "| --- | --- | ---: | ---: |",
+        ]
+        for theme in content.taxonomy["themes"]:
+            in_theme = [q for q in content.questions if q["theme"] == theme["id"]]
+            per_track = [sum(track in q["tracks"] for q in in_theme) for track in TRACKS]
+            link = rel(page, theme_page(lang, theme["id"]))
+            lines.append(
+                f"| [{cell(theme['name'][lang])}]({link}) | {cell(theme['summary'][lang])} "
+                f"| {per_track[0]} | {per_track[1]} |"
+            )
+        if content.companies:
+            lines += ["", f"## {anchor('companies')}{labels['companies']}", ""]
+            for segment in SEGMENTS:
+                chosen = [c for c in self.companies_in_order(lang) if c["segment"] == segment]
+                if chosen:
+                    links = " · ".join(
+                        f"[{c['name'][lang]}]({rel(page, company_page(lang, c['id']))})"
+                        for c in chosen
+                    )
+                    lines.append(f"- **{labels['segments'][segment]}:** {links}")
+        targets = {
+            "common": common_page(lang) if self.common() else None,
+            "radar": radar_page(lang) if content.radar else None,
+            "learning_path": f"{base(lang)}/LEARNING_PATH.md",
+            "methodology": methodology_page(lang),
+            "sources": sources_page(lang),
+            "attribution": f"{base(lang)}/ATTRIBUTION.md",
+            "roadmap": f"{base(lang)}/ROADMAP.md",
+            "changelog": changelog_page(lang),
+            "contributing": contributing_page(lang),
+        }
+        lines += ["", f"## {anchor('reference')}{labels['reference']}", ""]
+        for key, name, summary in labels["reference_items"]:
+            if key == "pdf":
+                lines.append(f"- [{name}]({RELEASES}): {summary}.")
+            elif targets[key]:
+                lines.append(f"- [{name}]({rel(page, targets[key])}): {summary}.")
+        return "\n".join(lines)
+
     def companies_in_order(self, lang: str) -> list[dict]:
         return sorted(
             self.content.companies.values(),
@@ -978,23 +1280,40 @@ class Renderer:
             HEADER,
             f"# {theme['name'][lang]}",
             "",
-            self.switch(lang, page, theme_page(other(lang), theme["id"]))
-            + " · "
-            + labels["back"].format(readme=rel(page, readme(lang))),
+            self.header(lang, page, theme_page(other(lang), theme["id"]), "themes"),
             "",
             md(theme["summary"][lang]),
         ]
         groups = [
-            (labels["both"], lambda q: set(q["tracks"]) == set(TRACKS)),
-            (self.track_names["engineering"][lang], lambda q: q["tracks"] == ["engineering"]),
-            (self.track_names["leadership"][lang], lambda q: q["tracks"] == ["leadership"]),
+            ("both", labels["both"], lambda q: set(q["tracks"]) == set(TRACKS)),
+            (
+                "engineering",
+                self.track_names["engineering"][lang],
+                lambda q: q["tracks"] == ["engineering"],
+            ),
+            (
+                "leadership",
+                self.track_names["leadership"][lang],
+                lambda q: q["tracks"] == ["leadership"],
+            ),
         ]
-        for title, belongs in groups:
-            chosen = [q for q in questions if belongs(q)]
-            if chosen:
-                lines += ["", f"## {title}", ""]
-                for question in chosen:
-                    lines += self.question(question, lang, page)
+        sections = [
+            (key, title, [q for q in questions if belongs(q)]) for key, title, belongs in groups
+        ]
+        sections = [section for section in sections if section[2]]
+        if len(sections) > 1:
+            contents = " · ".join(
+                f"[{title} ({len(chosen)})](#track-{key})" for key, title, chosen in sections
+            )
+            lines += ["", f"{labels['on_page']}: {contents}"]
+        for key, title, chosen in sections:
+            lines += ["", f"## {anchor(f'track-{key}')}{title}", ""]
+            for question in chosen:
+                lines += self.question(question, lang, page, canonical=True)
+        order = [
+            (t["name"][lang], theme_page(lang, t["id"])) for t in self.content.taxonomy["themes"]
+        ]
+        lines += self.pager(page, order, page)
         return "\n".join(lines)
 
     def company(self, lang: str, company: dict) -> str:
@@ -1006,15 +1325,19 @@ class Renderer:
             HEADER,
             f"# {name}",
             "",
-            self.switch(lang, page, company_page(other(lang), company["id"]))
-            + " · "
-            + labels["back"].format(readme=rel(page, readme(lang))),
+            self.header(lang, page, company_page(other(lang), company["id"]), "companies"),
             "",
             f"{labels['segments'][company['segment']]} · {markets} · "
             + labels["last_reviewed"].format(date=self.reviewed(company, lang)),
         ]
         if company.get("summary"):
             lines += ["", md(company["summary"][lang])]
+        reported = [q for q in content.questions if company["id"] in content.asked_at(q)]
+        contents = [f"[{labels['loop']}](#loop)"]
+        if company.get("prep"):
+            contents.append(f"[{labels['prep']}](#prep)")
+        contents.append(f"[{labels['questions']} ({len(reported)})](#questions)")
+        lines += ["", f"{labels['on_page']}: " + " · ".join(contents)]
         lines += ["", f"## {labels['roles']}", ""]
         for track in TRACKS:
             roles = [content.roles[r]["name"][lang] for r in company["roles"].get(track, [])]
@@ -1022,7 +1345,7 @@ class Renderer:
                 lines.append(f"- **{self.track_names[track][lang]}:** {', '.join(roles)}")
         lines += [
             "",
-            f"## {labels['loop']}",
+            f"## {anchor('loop')}{labels['loop']}",
             "",
             f"| {labels['stage']} | {labels['what']} | {labels['basis']} |",
             "| --- | --- | --- |",
@@ -1042,10 +1365,9 @@ class Renderer:
             )
         lines += ["", coding_line]
         if company.get("prep"):
-            lines += ["", f"## {labels['prep']}", ""]
+            lines += ["", f"## {anchor('prep')}{labels['prep']}", ""]
             lines += [f"- {self.source_link(s, lang)}" for s in company["prep"]]
-        reported = [q for q in content.questions if company["id"] in content.asked_at(q)]
-        lines += ["", f"## {labels['reported'].format(company=name)}"]
+        lines += ["", f"## {anchor('questions')}{labels['reported'].format(company=name)}"]
         if not reported:
             lines += ["", labels["none_reported"]]
         for theme in content.taxonomy["themes"]:
@@ -1054,7 +1376,11 @@ class Renderer:
                 link = rel(page, theme_page(lang, theme["id"]))
                 lines += ["", f"### [{theme['name'][lang]}]({link})", ""]
                 for question in chosen:
-                    lines += self.question(question, lang, page)
+                    lines += self.question(question, lang, page, company=company["id"])
+        order = [
+            (c["name"][lang], company_page(lang, c["id"])) for c in self.companies_in_order(lang)
+        ]
+        lines += self.pager(page, order, page)
         return "\n".join(lines)
 
     def source_link(self, source_id: str, lang: str) -> str:
@@ -1071,9 +1397,7 @@ class Renderer:
             HEADER,
             f"# {labels['sources_title']}",
             "",
-            self.switch(lang, page, sources_page(other(lang)))
-            + " · "
-            + labels["back"].format(readme=rel(page, readme(lang))),
+            self.header(lang, page, sources_page(other(lang)), "reference"),
         ]
         by_kind = {kind: [] for kind in SOURCE_KINDS}
         for source in self.content.sources.values():
@@ -1146,9 +1470,7 @@ class Renderer:
             HEADER,
             f"# {labels['radar_title']}",
             "",
-            self.switch(lang, page, radar_page(other(lang)))
-            + " · "
-            + labels["back"].format(readme=rel(page, readme(lang))),
+            self.header(lang, page, radar_page(other(lang)), "reference"),
             "",
             f"- **{labels['period']}:** {radar['period']['from']} — {radar['period']['to']}",
             f"- **{labels['sample']}:** "
