@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/eiler2005/ai-interview-atlas/blob/main/CONTRIBUTING.md
+    about: How to add a source, a question, a company loop or a correction.
+  - name: Methodology
+    url: https://github.com/eiler2005/ai-interview-atlas/blob/main/docs/METHODOLOGY.md
+    about: What counts as a source, a marker and an answer here.

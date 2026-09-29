@@ -1,0 +1,44 @@
+name: Report an outdated or broken source
+description: Flag a cited source that is now dead, changed or superseded.
+title: "[Source] "
+labels: ["source-freshness"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report a cited source whose link is dead or whose content has changed
+        since it was cited.
+
+        Можно писать по-русски.
+  - type: input
+    id: source
+    attributes:
+      label: Source URL or id
+      description: The URL, or the source id in src/content/sources.yaml.
+      placeholder: https://... or a source id
+    validations:
+      required: true
+  - type: dropdown
+    id: change
+    attributes:
+      label: What changed
+      options:
+        - "Dead link"
+        - "Content changed"
+        - "Process changed"
+    validations:
+      required: true
+  - type: input
+    id: replacement
+    attributes:
+      label: Replacement source (if known)
+    validations:
+      required: false
+  - type: input
+    id: checked
+    attributes:
+      label: Date checked
+      description: ISO date.
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true

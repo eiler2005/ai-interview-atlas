@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    ignore:
+      # The Career Copilot renderer is pinned to a reviewed commit; move it deliberately.
+      - dependency-name: "job-search-agent"
+    groups:
+      uv:
+        patterns: ["*"]
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 5

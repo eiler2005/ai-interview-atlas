@@ -1,0 +1,113 @@
+name: Propose a question
+description: Suggest a new interview question with a dated, public source.
+title: "[Question] "
+labels: ["content", "question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose one interview question backed by a dated, public source. Read
+        CONTRIBUTING.md and docs/METHODOLOGY.md first for what we can accept.
+
+        Можно писать по-русски.
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      description: Closest theme in src/content/taxonomy.yaml. Pick "Not sure" if none fits well.
+      options:
+        - "LLM fundamentals"
+        - "Inference, serving and cost"
+        - "RAG and retrieval"
+        - "Agents, tools and protocols"
+        - "Fine-tuning and post-training"
+        - "Evaluation and observability"
+        - "Safety, security and governance"
+        - "Multimodal and voice"
+        - "AI system design"
+        - "Practical coding"
+        - "AI product strategy and metrics"
+        - "AI platform and operating model"
+        - "Leading engineering teams"
+        - "Programmes and delivery"
+        - "Applied and customer scenarios"
+        - "Payments and regulated domains"
+        - "Behavioral and values"
+        - "Not sure"
+    validations:
+      required: true
+  - type: checkboxes
+    id: track
+    attributes:
+      label: Track
+      description: Which track does this question belong to? Select both if it fits both.
+      options:
+        - label: Engineering
+        - label: Leadership
+  - type: input
+    id: company
+    attributes:
+      label: Company (optional)
+      description: Name the company only if the source reports this question for that company.
+      placeholder: e.g. Stripe
+    validations:
+      required: false
+  - type: textarea
+    id: question-en
+    attributes:
+      label: Question text (English)
+      description: Write the question in your own words, not a verbatim quote from the source.
+    validations:
+      required: true
+  - type: textarea
+    id: question-ru
+    attributes:
+      label: Question text (Russian)
+      description: Optional — a maintainer can translate it if you leave this blank.
+    validations:
+      required: false
+  - type: input
+    id: tests
+    attributes:
+      label: What it tests
+      description: One short line on the skill or judgement this question probes.
+    validations:
+      required: false
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: Public URL of the source that reports this question.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: source-date
+    attributes:
+      label: Date you read the source
+      description: ISO date.
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+  - type: dropdown
+    id: source-kind
+    attributes:
+      label: Source kind
+      options:
+        - "Company page or official material"
+        - "First-hand candidate report"
+        - "Prep guide or compilation"
+        - "Other"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: The source is public and not behind a login.
+          required: true
+        - label: The source does not come from anyone who says they were under a non-disclosure agreement.
+          required: true
+        - label: This report includes no personal data — no contact details, private paths or links, and nothing that identifies a candidate.
+          required: true

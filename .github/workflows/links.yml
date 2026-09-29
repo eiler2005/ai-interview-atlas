@@ -1,0 +1,63 @@
+# Weekly check that cited sources and documentation links are still reachable.
+# Never fails a PR: this workflow does not run on pull_request, and the link
+# check itself is configured not to fail the job (fail: false below). Broken
+# links are instead reported as a single, reused GitHub issue labelled link-check
+# (the outdated-source issue form uses its own label, source-freshness).
+name: Source freshness
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --config .github/lychee.toml
+            src/content/sources.yaml
+            "docs/**/*.md"
+            README.md
+            README.ru.md
+          format: markdown
+          output: lychee/out.md
+          fail: false
+
+      - name: Find the open link-check report
+        id: existing
+        if: steps.lychee.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          number=$(gh issue list --label link-check --state open --json number --jq '.[0].number // empty')
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update the source freshness report
+        if: steps.lychee.outputs.exit_code != '0'
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6.0.0
+        with:
+          title: "Source freshness report"
+          content-filepath: lychee/out.md
+          issue-number: ${{ steps.existing.outputs.number }}
+          labels: link-check
+
+      - name: Close the report once every link resolves again
+        if: steps.lychee.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in $(gh issue list --label link-check --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "All checked links resolve as of $(date -u +%F)."
+          done

@@ -1,0 +1,19 @@
+# Lychee link checker configuration.
+# Used by the weekly source-freshness workflow: .github/workflows/links.yml
+
+max_concurrency = 8
+timeout = 20
+max_retries = 2
+accept = ["200..=299", "429"]
+user_agent = "ai-interview-atlas link check (+https://github.com/eiler2005/ai-interview-atlas)"
+exclude_all_private = true
+no_progress = true
+
+# Domains that block automated link checks, or that require a signed-in
+# session to load a page. Add more here when the weekly "Source freshness
+# report" issue shows a link that opens fine in a browser.
+exclude = [
+  "linkedin\\.com",
+  "glassdoor\\.",
+  "localhost",
+]
