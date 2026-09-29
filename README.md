@@ -9,6 +9,8 @@ English · [Русский](README.ru.md)
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
 [![PDF editions](https://img.shields.io/badge/PDF-editions-137c80)](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
 
+**Navigate:** [Map of the atlas](docs/README.md) · [Start: AI Engineering](docs/start/engineering.md) · [Start: AI Leadership](docs/start/leadership.md) · [Themes](#themes) · [Companies](#companies) · [Learning path](docs/LEARNING_PATH.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
+
 **The questions AI interviews actually ask — every one with a source you can check.**
 
 You are preparing for an interview as an AI product manager, engineering manager, director, technical programme manager or AI engineer. Most question lists online either cite nothing or hide the answers behind a course, and almost none of them cover leadership roles. This one is free, and every claim names where it came from and when it was read.

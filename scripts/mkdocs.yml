@@ -1,0 +1,86 @@
+# The documentation site, built from the same generated pages as the repository.
+# The menu is built from src/content by mkdocs_hooks.py next to this file; do not add a nav here.
+# This file sits in scripts/ because the privacy checker's path allowlist does not admit it at
+# the repository root. Run from the repository root:
+#   uv run --group site mkdocs serve -f scripts/mkdocs.yml
+#   uv run --group site mkdocs build --strict -f scripts/mkdocs.yml
+site_name: AI Interview Atlas
+site_description: >-
+  Sourced interview questions and interview loops for AI leadership and AI engineering,
+  with written answers, in English and Russian.
+site_url: https://eiler2005.github.io/ai-interview-atlas/
+repo_url: https://github.com/eiler2005/ai-interview-atlas
+repo_name: eiler2005/ai-interview-atlas
+edit_uri: ""
+copyright: © 2026 ai-interview-atlas contributors · Apache-2.0
+
+docs_dir: ../docs
+# build/ is git-ignored and skipped by the privacy checker's worktree scan.
+site_dir: ../build/site
+hooks:
+  - mkdocs_hooks.py
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Dark theme
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Light theme
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: [en, ru]
+
+extra:
+  alternate:
+    - name: English
+      link: /ai-interview-atlas/
+      lang: en
+    - name: Русский
+      link: /ai-interview-atlas/ru/
+      lang: ru
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      # Unicode-aware heading ids, so Russian headings get readable anchors.
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn

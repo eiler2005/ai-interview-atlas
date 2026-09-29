@@ -1,0 +1,58 @@
+# Builds the MkDocs Material documentation site defined by scripts/mkdocs.yml.
+# (The configuration lives in scripts/ because the privacy checker's path allowlist does not
+# admit it at the repository root.)
+#
+# Deployment stays OFF until the maintainer enables GitHub Pages with source
+# "GitHub Actions" (repository Settings > Pages) and sets the repository
+# variable DEPLOY_PAGES to "true" (repository Settings > Secrets and
+# variables > Actions > Variables). Until then this workflow only builds the
+# site, to catch broken links and configuration errors early; it never
+# publishes anything.
+name: pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  # Superseded pull-request builds are cancelled; a deployment from main is never interrupted.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
+        with:
+          version: "0.11.6"
+      - run: uv sync --frozen --group site
+      - run: uv run --group site mkdocs build --strict -f scripts/mkdocs.yml
+      - name: Upload the built site
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_PAGES == 'true'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: build/site
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_PAGES == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

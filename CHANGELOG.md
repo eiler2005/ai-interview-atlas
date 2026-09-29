@@ -2,6 +2,20 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-09-29 navigation, site and repository
+
+### Added
+- Every question has a stable anchor on its theme page. Start pages, answers, company pages and *Asked across companies* link each question to that entry, and a priority question also to its written answer.
+- A generated map of the atlas (`docs/README.md`, `docs/ru/README.md`): tracks, themes, companies by segment and reference pages in one place. The README opens with a one-line menu.
+- Answers pages open with contents grouped by theme; each answer links back to its checklist and to the contents. Theme and company pages have a breadcrumb to their section of the map and links to the previous and next page; company pages, and theme pages with more than one track section, have an *On this page* line.
+- A searchable site built with MkDocs Material from the same pages, with an English menu and a Russian tab. The menu is built from the content, and the strict build fails if a page is missing from it. Deployment to GitHub Pages stays off until the maintainer enables it.
+- Issue forms for proposing a question, reporting a correction and reporting an outdated source; every question on a theme page links to the correction form with its id filled in. A pull request template, code owners, a security policy and a code of conduct.
+- A weekly source-freshness job that checks that cited URLs still resolve (sites that block automated checks are skipped) and keeps one issue listing the failures, and a release workflow that builds the PDF books into a draft release for the maintainer to inspect and publish.
+
+### Changed
+- CI runs on pull requests and on pushes to `main` rather than on every push, so a pull-request branch is no longer checked twice; superseded pull-request runs are cancelled and every action is pinned to a commit. Dependabot proposes monthly updates for actions and Python dependencies.
+- A company page no longer links to itself in *Asked at*.
+
 ## Unreleased — 2026-09-28 continuation
 
 ### Changed

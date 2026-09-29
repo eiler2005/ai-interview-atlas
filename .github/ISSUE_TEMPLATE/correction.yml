@@ -1,0 +1,51 @@
+name: Report a correction
+description: Report an error in an existing question, answer, checklist, company loop or translation.
+title: "[Correction] "
+labels: ["content", "correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report an error in content that is already published. A fix that changes a
+        fact needs a dated public source; see CONTRIBUTING.md.
+
+        Можно писать по-русски.
+  - type: input
+    id: question
+    attributes:
+      label: Question or page id
+      description: >
+        The id of the affected question, such as "rag-chunking", or the path of the
+        page, such as "docs/companies/stripe.md". The "Suggest a fix" link next to
+        every question on a theme page fills this in for you.
+      placeholder: e.g. rag-chunking
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+    validations:
+      required: false
+  - type: input
+    id: evidence
+    attributes:
+      label: Evidence or source URL
+    validations:
+      required: false
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language affected
+      options:
+        - English
+        - Russian
+        - Both
+    validations:
+      required: true

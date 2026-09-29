@@ -4,6 +4,16 @@
 
 Corrections and new questions are welcome when they come with a dated public source. Read the [methodology](docs/METHODOLOGY.md) first.
 
+## Report something
+
+You do not need to edit YAML to help. Open an issue with one of the forms:
+
+- **Propose a question**: the question, what it tests, and the dated public source that reports it.
+- **Report a correction**: every question on a theme page has a *Suggest a fix* link that opens this form with the question's id filled in.
+- **Report an outdated or broken source**: a dead link, or a page whose content or process has changed.
+
+Personal data or confidential material that reached the repository is a privacy issue, not a normal bug: follow [SECURITY.md](SECURITY.md) and do not repeat it in a public issue.
+
 ## Add or correct content
 
 1. Add the source to `src/content/sources.yaml`: `id`, `kind`, `title`, `publisher`, `url`, `retrieved` (the date you read it), `lang`, plus `published` when known and `license` for a reused compilation.
@@ -27,6 +37,8 @@ uv sync
 uv run ruff check . && uv run ruff format --check .
 uv run pytest -q
 uv run python scripts/build.py --check
+# when docs/, scripts/ or src/atlas change:
+uv run --group site mkdocs build --strict -f scripts/mkdocs.yml
 ```
 
 Maintainers also run a publication check: the path allowlist, content rules and [Gitleaks](https://github.com/gitleaks/gitleaks), plus a private dictionary of strings that must never appear here. The checker is the [Career Copilot](https://github.com/eiler2005/career-copilot) CLI, used from this repository without checking that project out:
@@ -54,6 +66,16 @@ Write one paragraph a candidate could say aloud: the point first, then the mecha
 For `behavioral` and `self_presentation` questions, never write a story. Describe how the candidate builds their own answer, what the interviewer is actually listening for, the usual mistake and how to close. An answer that reads like a ready-made anecdote will be rejected.
 
 A language may be added first and the other later: `answers` pages and the answers book for a language appear only once that language has answers. Keep the text plain, without Markdown or line breaks.
+
+## Preview the site
+
+The same pages can be published as a searchable site with an English and a Russian menu; deployment to GitHub Pages stays off until the maintainer enables it. MkDocs builds it from `docs/` with the configuration in `scripts/mkdocs.yml`; `scripts/mkdocs_hooks.py` builds the menu from `src/content` and points links that leave `docs/` at the map of the atlas or at GitHub, so there is no menu to maintain by hand.
+
+```sh
+uv sync --group site
+uv run --group site mkdocs serve -f scripts/mkdocs.yml            # http://127.0.0.1:8000/ai-interview-atlas/
+uv run --group site mkdocs build --strict -f scripts/mkdocs.yml   # into build/site, as CI runs it
+```
 
 ## Printable PDF books
 
