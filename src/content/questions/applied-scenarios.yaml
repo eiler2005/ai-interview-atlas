@@ -452,6 +452,21 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    start_here: ["leadership"]
+    priority: 52
+    outline:
+      en:
+        - "Take the highest-volume intents first and define containment honestly, counting transfers."
+        - "Design the handoff to a human as a first-class path that carries context and never loops."
+        - "Plan operational readiness: latency targets, interruption handling, monitoring and a rollback."
+      ru:
+        - "Начать с самых частых обращений и честно определить долю самостоятельных решений с учётом переводов."
+        - "Сделать перевод на человека полноценным путём, который несёт контекст и не зацикливается."
+        - "Спланировать готовность эксплуатации: цели по задержке, перебивание, мониторинг и откат."
+    answer:
+      en: "I would scope by intent rather than replace the menu wholesale. Pull the call-reason distribution and take the few intents carrying most volume with a verifiable resolution; leave the long tail on the existing path, because a voice agent that handles everything badly is worse than a menu. The success measure has to be honest containment — calls genuinely resolved without a human, not calls that ended — and I would track repeat calls within a day, where fake containment shows up. Transfer to a human is a first-class design problem, not a failure branch: it carries the transcript and what was attempted, and never loops the caller back. Then operational readiness before launch: latency targets, interruption handling, monitoring on abandonment, and a rollback to the menu. I would pilot on one intent in one region and expand on evidence."
+      ru: "Я бы определял охват по типам обращений, а не заменял меню целиком. Взять распределение причин звонков и выбрать несколько обращений, которые дают основной объём и имеют проверяемое разрешение; длинный хвост оставить на прежнем пути, потому что голосовой агент, плохо делающий всё, хуже меню. Мерой успеха должна быть честная доля самостоятельных решений — звонки, действительно закрытые без человека, а не просто завершённые, — и я бы отслеживал повторные звонки в течение суток: именно там проявляется фиктивная автономность. Перевод на оператора — полноценная проектная задача, а не ветка отказа: он несёт расшифровку и то, что уже было предпринято, и никогда не возвращает звонящего в цикл. Дальше готовность эксплуатации до запуска: цели по задержке, обработка перебиваний, мониторинг брошенных звонков и откат к меню. Пилот я бы сделал на одном обращении в одном регионе и расширял по данным."
+    reading: ["anthropic-building-effective-agents"]
   - id: "app-public-service-language"
     tracks: ["leadership"]
     type: "applied_scenario"

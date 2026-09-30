@@ -156,4 +156,4 @@
   - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind †
   - Что проверяет: Умеете ли вы учитывать различия мотивации исследователей и инженеров.
 
-← [Amazon](amazon.md) · [Meta](meta.md) →
+← [Canva](canva.md) · [Meta](meta.md) →

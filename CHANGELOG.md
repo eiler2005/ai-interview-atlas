@@ -2,6 +2,15 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-09-30 second batch of answers
+
+### Added
+- 30 written answers, in English and Russian, for the next 15 priority questions on each track. On the engineering track they cover sparse expert routing and latent attention, prefix and paged KV caching, allocating a reasoning budget under a deadline, reranking and claim-level citations, MCP, agent memory and when to split work between agents, measuring unsupported claims and the faithfulness of a reasoning trace, a model-access API, a voice-agent latency budget and a minimal agent runner. On the leadership track they cover model choice, agent use cases, enterprise pricing, answer engines against search, evaluating an assistant without access to customer data, reviewing AI-written code, hiring and quality standards, the research-to-production boundary, research milestones, launch-readiness disputes, a voice contact-centre engagement, exceptions to a safety control, stakeholder conflict and difficult feedback. Each of those questions also gained a three-point checklist and primary reading, so priority questions per track rise from 40 to 55.
+- Canva's interview policy as a company page, from two dated posts on its engineering blog, and two questions: staying accountable for code the model wrote, and redesigning a loop so that AI assistance still produces a hiring signal. The second is marked as generated, because no source shows it being asked.
+
+### Changed
+- Every source defined in the atlas is now referenced by content. The 18 sources that were defined but unused are wired into the reading of the questions they belong to, among them the EU AI Act, the supervisory letter on model risk management, the Model Context Protocol specification, the prompt-injection and lethal-trifecta write-ups, and the RoPE, Switch Transformer and DeepSeek-V2 papers.
+
 ## Unreleased — 2026-09-29 role pages with interview evidence
 
 ### Added

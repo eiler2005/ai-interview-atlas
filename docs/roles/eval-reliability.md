@@ -32,7 +32,7 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[How would you build a useful evaluation set when reference answers are missing and expert time is scarce?](../themes/evals-observability.md#eval-scarce-labels)**
   - Applied scenario · [Evaluation and observability](../themes/evals-observability.md)
 - **[How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?](../themes/evals-observability.md#eval-hallucination)**
-  - System design · [Evaluation and observability](../themes/evals-observability.md)
+  - System design · [Evaluation and observability](../themes/evals-observability.md) · ✍ [Answer](../answers/engineering.md#eval-hallucination)
 - **[Design a release gate for prompt and model updates, including what happens when aggregate gains hide a critical regression.](../themes/evals-observability.md#eval-release-gate)**
   - System design · [Evaluation and observability](../themes/evals-observability.md) · ✍ [Answer](../answers/engineering.md#eval-release-gate)
 - **[Benchmark results improve but users report a worse product. What hypotheses would you test first?](../themes/evals-observability.md#eval-benchmark-mismatch)**

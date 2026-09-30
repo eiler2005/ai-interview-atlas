@@ -10,7 +10,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 ## <a id="track-both"></a>Both tracks
 
 - <a id="agt-multi-agent"></a>**When does splitting work among agents improve results, and when do coordination costs dominate?**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-multi-agent&title=%5BCorrection%5D%20agt-multi-agent)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#agt-multi-agent) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-multi-agent&title=%5BCorrection%5D%20agt-multi-agent)
   - Tests: Whether task independence and shared-state conflicts guide orchestration.
   - A strong answer covers:
     - Identify independent subtasks whose results can be combined without frequent shared-state updates.
@@ -53,9 +53,15 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="agt-structured-output"></a>**How do schema-constrained responses differ from function calls, and which component actually executes an action?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-structured-output&title=%5BCorrection%5D%20agt-structured-output)
   - Tests: Whether valid syntax is distinguished from authorised execution.
+  - Read: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - <a id="agt-mcp"></a>**What does MCP standardise between an AI application and an external service that a model's function-call format does not?**
-  - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp&title=%5BCorrection%5D%20agt-mcp)
+  - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/engineering.md#agt-mcp) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp&title=%5BCorrection%5D%20agt-mcp)
   - Tests: Whether protocol transport and capabilities are separated from model decisions.
+  - A strong answer covers:
+    - Separate the model's choice of a call from how a client discovers and reaches a server.
+    - Name what the protocol fixes: transport, capability discovery, and typed tools, resources and prompts.
+    - Discuss the trust boundary: a connected server supplies both capabilities and untrusted content.
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 - <a id="agt-tool-surface"></a>**How would you select, name and document tools so that a model chooses the right operation and arguments?**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#agt-tool-surface) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-tool-surface&title=%5BCorrection%5D%20agt-tool-surface)
   - Tests: Whether tool design reduces ambiguity and measurable misuse.
@@ -65,8 +71,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Evaluate tool selection and arguments on realistic tasks, then remove confusing overlap.
   - Read: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - <a id="agt-memory"></a>**Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?**
-  - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-memory&title=%5BCorrection%5D%20agt-memory)
+  - System design · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#agt-memory) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-memory&title=%5BCorrection%5D%20agt-memory)
   - Tests: Whether durable state is distinguished from transient context.
+  - A strong answer covers:
+    - Separate the working context of one session from state that must outlive it.
+    - Write memory from confirmed outcomes, with provenance and a revision path, not from every utterance.
+    - Retrieve by relevance to the current task and expire or supersede stale entries.
+  - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-tool-choice"></a>**How should an agent decide whether to answer directly or obtain fresh information with a tool?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-tool-choice&title=%5BCorrection%5D%20agt-tool-choice)
   - Tests: Whether uncertainty, freshness and tool cost influence the decision.
@@ -93,6 +104,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="agt-mcp-long-running"></a>**Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp-long-running&title=%5BCorrection%5D%20agt-mcp-long-running)
   - Tests: Whether you manage state, failures and context budget across a long tool-driven run.
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 - <a id="agt-api-level-features"></a>**What are a language model's generation parameters?**
   - Knowledge · Asked at: [Tochka](../companies/tochka.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-api-level-features&title=%5BCorrection%5D%20agt-api-level-features)
   - Tests: Whether you distinguish model generation settings from instructions about role, style or response structure.

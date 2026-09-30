@@ -27,8 +27,13 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
   - Knowledge · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-video&title=%5BCorrection%5D%20mm-video)
   - Tests: Whether temporal information and sampling cost are addressed.
 - <a id="mm-latency"></a>**Build an end-to-end latency budget for a voice agent, from detecting the end of speech to playing its reply.**
-  - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-latency&title=%5BCorrection%5D%20mm-latency)
+  - System design · ✍ [Answer](../answers/engineering.md#mm-latency) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-latency&title=%5BCorrection%5D%20mm-latency)
   - Tests: Whether turn detection, ASR, generation, synthesis and transport all appear in the budget.
+  - A strong answer covers:
+    - List every stage before sound: turn detection, transcription, generation, synthesis, transport and playback.
+    - Budget to the first audible sound and overlap stages by streaming instead of queueing them.
+    - Separate a median target from the tail, and define what the agent does when a stage overruns.
+  - Read: [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/) (Dean and Barroso, Google Research)
 - <a id="mm-barge-in"></a>**Design interruption handling when a user starts speaking while the agent's audio is still playing.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-barge-in&title=%5BCorrection%5D%20mm-barge-in)
   - Tests: Whether playback cancellation and conversational state remain consistent.

@@ -71,6 +71,7 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    reading: ["claude-tool-use"]
   - id: "agt-mcp"
     tracks: ["engineering"]
     roles: ["agent-engineer"]
@@ -86,6 +87,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "microsoft"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 48
+    outline:
+      en:
+        - "Separate the model's choice of a call from how a client discovers and reaches a server."
+        - "Name what the protocol fixes: transport, capability discovery, and typed tools, resources and prompts."
+        - "Discuss the trust boundary: a connected server supplies both capabilities and untrusted content."
+      ru:
+        - "Отделить выбор вызова моделью от того, как клиент находит сервер и обращается к нему."
+        - "Назвать, что фиксирует протокол: транспорт, обнаружение возможностей и типизированные инструменты, ресурсы и промпты."
+        - "Обсудить границу доверия: подключённый сервер поставляет и возможности, и недоверенный контент."
+    answer:
+      en: "A function-call format describes only the shape of the arguments a model emits. It says nothing about where the tool lives, how the application learns the tool exists, or how the result comes back. MCP standardises that surrounding layer — a client-server handshake, capability discovery, and typed primitives for tools, resources and prompts over a defined transport — so the same server works with any compliant application and a tool can be added without changing the model or redeploying the client. Execution and authority stay outside the model: the client still decides which servers are connected and what each may do. I would judge it by how much integration code disappears per new tool. The trade-off is the trust boundary it creates: a connected server contributes tool descriptions and returns content, both of which reach the context as untrusted input, so a third-party server is a supply-chain and prompt-injection surface."
+      ru: "Формат function call описывает одно: форму аргументов, которые выдаёт модель. Он ничего не говорит о том, где живёт инструмент, как приложение узнаёт о его существовании и как возвращается результат. MCP стандартизирует именно этот окружающий слой — рукопожатие клиента и сервера, обнаружение возможностей и типизированные примитивы для инструментов, ресурсов и промптов поверх заданного транспорта, — поэтому один и тот же сервер работает с любым совместимым приложением, а инструмент добавляется без изменения модели и переразвёртывания клиента. Исполнение и полномочия остаются вне модели: клиент по-прежнему решает, какие серверы подключены и что каждому разрешено. Пользу я бы оценивал тем, сколько интеграционного кода исчезает на каждый новый инструмент. Плата — возникающая граница доверия: подключённый сервер даёт и описания инструментов, и возвращаемый контент, а это попадает в контекст как недоверенный ввод, поэтому сторонний сервер — поверхность и цепочки поставок, и prompt injection."
+    reading: ["mcp-specification"]
   - id: "agt-tool-surface"
     tracks: ["engineering"]
     roles: ["agent-engineer"]
@@ -129,6 +145,8 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 50
     outline:
       en:
         - "Identify independent subtasks whose results can be combined without frequent shared-state updates."
@@ -138,6 +156,9 @@ questions:
         - "Выделить независимые подзадачи, результаты которых объединяются без частого обновления общего состояния."
         - "Задать границы делегирования, критерии готовности и синтез с проверкой противоречащих выводов."
         - "Сравнить с одним агентом при сопоставимом общем бюджете; учесть повторы работы, ошибки координации, стоимость и задержку."
+    answer:
+      en: "Splitting helps when the work genuinely decomposes: subtasks that can run without seeing each other's intermediate state, and whose results a synthesis step can combine — broad search over many sources is the clean case, because breadth is parallel and each branch is independent. It stops helping when agents must agree as they go. Every handoff is a lossy summary through natural language, so shared mutable state produces conflicting edits, duplicated effort and contradictory findings that someone has to reconcile. I would define delegation boundaries and completion criteria per subagent, then make synthesis an explicit step that surfaces disagreement rather than averaging it away. The honest comparison is against one agent given the same total token budget, counting duplicate work, coordination failures, cost and wall-clock latency. Multi-agent often wins latency and loses cost, and if a task is inherently sequential, coordination overhead is pure loss."
+      ru: "Разделение помогает, когда работа действительно декомпозируется: подзадачи выполняются, не видя промежуточного состояния друг друга, а их результаты способен собрать шаг синтеза. Чистый случай — широкий поиск по множеству источников: широта параллельна, и каждая ветка независима. Помогать перестаёт там, где агенты обязаны согласовываться по ходу. Любая передача — это сжатие с потерями через естественный язык, поэтому общее изменяемое состояние даёт конфликтующие правки, повторную работу и противоречивые выводы, которые кому-то придётся сводить. Я бы задал границы делегирования и критерии готовности для каждого подагента, а синтез сделал отдельным шагом, который показывает расхождения, а не усредняет их. Честное сравнение — против одного агента с тем же общим бюджетом токенов, с подсчётом повторов работы, сбоев координации, стоимости и полного времени. Мультиагентность часто выигрывает по задержке и проигрывает по стоимости, а на последовательной по своей природе задаче накладные расходы координации — чистый убыток."
     reading: ["anthropic-multi-agent-research"]
   - id: "agt-memory"
     tracks: ["engineering"]
@@ -154,6 +175,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "anthropic"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 49
+    outline:
+      en:
+        - "Separate the working context of one session from state that must outlive it."
+        - "Write memory from confirmed outcomes, with provenance and a revision path, not from every utterance."
+        - "Retrieve by relevance to the current task and expire or supersede stale entries."
+      ru:
+        - "Отделить рабочий контекст одной сессии от состояния, которое должно её пережить."
+        - "Записывать в память подтверждённые итоги с происхождением и возможностью правки, а не каждую реплику."
+        - "Извлекать по релевантности текущей задаче, удаляя или замещая устаревшие записи."
+    answer:
+      en: "I start by separating two things that get conflated: the working context of one session, which is a window I fill and discard, and durable state, which is a store with its own lifecycle. Only a small, deliberate subset should graduate — stable user preferences, decisions and their rationale, confirmed task outcomes — each written with provenance and a timestamp so it can be corrected or superseded rather than silently accumulated. Retrieval is then a query against the current task, not a dump of everything remembered, because injecting all history recreates the context problem it was meant to solve. Forgetting is a feature: expiry for time-sensitive facts, supersession when a newer statement contradicts an older one. I would measure whether recalled items were actually used, and how often stale memory causes an error. The danger is a confident wrong memory, which is harder to notice than no memory at all."
+      ru: "Я начинаю с разделения двух вещей, которые обычно смешивают: рабочего контекста одной сессии — окна, которое я наполняю и выбрасываю, — и долговременного состояния, то есть хранилища со своим жизненным циклом. Переходить во второе должно лишь небольшое осознанно выбранное подмножество: устойчивые предпочтения пользователя, решения и их обоснования, подтверждённые итоги задач, — каждая запись с происхождением и временем, чтобы её можно было исправить или заместить, а не молча накапливать. Извлечение тогда становится запросом под текущую задачу, а не выгрузкой всего запомненного: подмешивание всей истории воспроизводит ту самую проблему контекста, которую память должна была снять. Забывание — это функция: срок жизни для чувствительных ко времени фактов и замещение, когда новое утверждение противоречит старому. Я бы измерял, использовались ли извлечённые записи на самом деле, и как часто устаревшая память приводит к ошибке. Опасность — уверенная неверная память: её заметить труднее, чем отсутствие памяти вообще."
+    reading: ["anthropic-context-engineering"]
   - id: "agt-tool-choice"
     tracks: ["engineering"]
     type: "knowledge"
@@ -331,6 +367,7 @@ questions:
         company: "anthropic"
         role: "forward-deployed-engineer"
     added: "2026-09-29"
+    reading: ["mcp-specification"]
   - id: "agt-api-level-features"
     tracks: ["engineering"]
     roles: ["applied-ai-engineer"]

@@ -18,7 +18,7 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
     - Compare both a matched-budget baseline and the deployable system under its actual cost and latency limits.
   - Read: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv)
 - <a id="eval-reasoning-trace-faithfulness"></a>**A reasoning summary looks sound, but the answer follows a misleading hint. What should an evaluation and monitoring system conclude?**
-  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-trace-faithfulness&title=%5BCorrection%5D%20eval-reasoning-trace-faithfulness)
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#eval-reasoning-trace-faithfulness) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-trace-faithfulness&title=%5BCorrection%5D%20eval-reasoning-trace-faithfulness)
   - Tests: Whether observable explanations are distinguished from correctness and faithful accounts of computation.
   - A strong answer covers:
     - Score final results and observable actions independently of explanation quality.
@@ -73,8 +73,13 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
     - Measure disagreements and use expert review where automated judgement is unreliable.
   - Read: [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) (Zheng et al., arXiv)
 - <a id="eval-hallucination"></a>**How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?**
-  - System design · Asked at: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-hallucination&title=%5BCorrection%5D%20eval-hallucination)
+  - System design · Asked at: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/engineering.md#eval-hallucination) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-hallucination&title=%5BCorrection%5D%20eval-hallucination)
   - Tests: Whether faithfulness to evidence is separated from fluency and general plausibility.
+  - A strong answer covers:
+    - Make the unit a claim checked against the passages actually retrieved for that answer.
+    - Scale labelling with a judge calibrated against a human-labelled sample.
+    - Separate a retrieval failure from an unfaithful generation when attributing the error.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-contamination"></a>**How does benchmark contamination distort evaluation, and how would you reduce leakage into training or model selection?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-contamination&title=%5BCorrection%5D%20eval-contamination)
   - Tests: Whether repeated tuning on test data is recognised as leakage.

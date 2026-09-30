@@ -156,4 +156,4 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
   - Behavioral · Senior · Asked at: Google and Google DeepMind †
   - Tests: Whether you can reason across research and engineering incentives.
 
-← [Amazon](amazon.md) · [Meta](meta.md) →
+← [Canva](canva.md) · [Meta](meta.md) →

@@ -216,6 +216,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 55
+    outline:
+      en:
+        - "Hold loop state explicitly: messages, step count, deadline, budget and a termination reason."
+        - "Validate tool name and arguments against a schema before dispatch; never execute an unregistered tool."
+        - "Return tool errors to the model as observations while keeping a hard step and time ceiling."
+      ru:
+        - "Держать состояние цикла явно: сообщения, счётчик шагов, дедлайн, бюджет и причину остановки."
+        - "Проверять имя инструмента и аргументы по схеме до вызова; никогда не исполнять незарегистрированный инструмент."
+        - "Возвращать ошибки инструментов модели как наблюдения, сохраняя жёсткий предел шагов и времени."
+    answer:
+      en: "I would make the loop's state an explicit object — message history, step counter, deadline, budget and a termination reason — because agent-runner bugs are almost always implicit state in control flow. Each iteration asks the model for one action, and dispatch goes through a registry: resolve the tool by name, reject anything unregistered, validate arguments against its schema, then call it. An unknown tool or bad argument is not a crash but an observation returned to the model so it can correct itself, while genuine infrastructure failures retry under a bounded policy. Termination must be reachable several ways — a final answer, the step limit, the deadline, the budget, an unrecoverable error — and the runner records which one fired. I would test the limit path and an always-failing tool: an agent that cannot stop is the expensive failure. It omits approval for consequential actions and persistence across restarts."
+      ru: "Состояние цикла я бы сделал явным объектом: история сообщений, счётчик шагов, дедлайн, бюджет и причина остановки, — потому что ошибки агентных runner-ов почти всегда прячутся в неявном состоянии внутри управляющего потока. Каждая итерация спрашивает у модели одно действие, а вызов идёт через реестр: разрешить инструмент по имени, отвергнуть незарегистрированный, проверить аргументы по схеме и только затем вызвать. Неизвестный инструмент или неверный аргумент — не падение, а наблюдение, возвращённое модели, чтобы она исправилась; настоящие инфраструктурные сбои повторяются по ограниченной политике. Остановка должна достигаться с нескольких сторон — финальный ответ, предел шагов, дедлайн, бюджет, неустранимая ошибка, — и runner записывает, какая именно сработала. Я бы протестировал путь через предел и всегда падающий инструмент: агент, который не умеет останавливаться, и есть дорогая поломка. Одобрение значимых действий и сохранение состояния между перезапусками здесь сознательно не покрыты."
+    reading: ["anthropic-building-effective-agents"]
   - id: "code-transactions"
     tracks: ["engineering"]
     type: "coding"
@@ -452,3 +467,21 @@ questions:
       - source: "habr-llm-engineer-interviews-2026"
         role: "ai-engineer"
     added: "2026-09-29"
+  - id: "code-ai-assisted-ownership"
+    tracks: ["engineering"]
+    roles: ["software-engineer", "ml-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?"
+      ru: "На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?"
+    tests:
+      en: "Whether ownership and verification survive delegation to a model under time pressure."
+      ru: "Сохраняются ли ответственность и проверка при делегировании модели в условиях нехватки времени."
+    provenance: "published"
+    evidence:
+      - source: "canva-ai-interview-success"
+        company: "canva"
+      - source: "canva-ai-in-interviews"
+        company: "canva"
+    added: "2026-09-30"
+    reading: ["anthropic-ai-resistant-evaluations"]

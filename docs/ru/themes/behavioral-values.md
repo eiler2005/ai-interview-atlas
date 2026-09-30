@@ -79,8 +79,13 @@
   - Поведенческий · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-sensitive-mission&title=%5BCorrection%5D%20beh-sensitive-mission)
   - Что проверяет: Умеете ли вы рассуждать о конкретных границах и профессиональной ответственности.
 - <a id="beh-critical-feedback"></a>**Расскажите об обратной связи, которую было трудно услышать, и о том, как вы её использовали.**
-  - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
+  - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#beh-critical-feedback) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
   - Что проверяет: Умеете ли вы отвечать на критику конкретными выводами и действиями.
+  - Сильный ответ покрывает:
+    - Изложить обратную связь прямо, в тех словах, в которых её дали, не смягчая.
+    - Отделить первую реакцию от вывода, сделанного после проверки.
+    - Назвать изменение и более поздний случай, показывающий, что оно закрепилось.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
@@ -94,8 +99,13 @@
 ## <a id="track-leadership"></a>AI-лидерство
 
 - <a id="beh-stakeholder-priorities"></a>**Расскажите о противоречащих приоритетах участников проекта и о том, как вы согласовали действия.**
-  - Поведенческий · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-stakeholder-priorities&title=%5BCorrection%5D%20beh-stakeholder-priorities)
+  - Поведенческий · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#beh-stakeholder-priorities) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-stakeholder-priorities&title=%5BCorrection%5D%20beh-stakeholder-priorities)
   - Что проверяет: Умеете ли вы явно обсудить конкурирующие цели и договориться о действиях.
+  - Сильный ответ покрывает:
+    - Назвать участников и цель, по которой каждого действительно оценивали.
+    - Показать, как вы вывели конфликт в плоскость компромисса, а не столкновения характеров.
+    - Закончить договорённостью, тем, чем пожертвовали, и свидетельством, что она держалась.
+  - Читать: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - <a id="beh-ai-decision-ownership"></a>**Расскажите об AI-решении, за которое вы отвечали и которое имело существенные последующие последствия.**
   - Поведенческий · Senior · Где спрашивали: [Amazon](../companies/amazon.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ai-decision-ownership&title=%5BCorrection%5D%20beh-ai-decision-ownership)
   - Что проверяет: Учитываете ли вы последствия за пределами собственного результата работы.

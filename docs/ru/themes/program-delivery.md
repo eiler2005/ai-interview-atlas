@@ -63,10 +63,20 @@
   - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-dependency-slip&title=%5BCorrection%5D%20prog-dependency-slip)
   - Что проверяет: Умеете ли вы оценить влияние зависимости и предложить варианты действий.
 - <a id="prog-research-milestones"></a>**Как вы спланируете AI-программу, если её основная исследовательская гипотеза может не подтвердиться?**
-  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-research-milestones&title=%5BCorrection%5D%20prog-research-milestones)
+  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-research-milestones) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-research-milestones&title=%5BCorrection%5D%20prog-research-milestones)
   - Что проверяет: Снижают ли контрольные точки неопределённость и позволяют ли обоснованно остановить работу.
+  - Сильный ответ покрывает:
+    - Назвать гипотезу и самый дешёвый эксперимент, способный её опровергнуть.
+    - Сделать каждую контрольную точку снятием конкретной неизвестности с заранее согласованным правилом решения.
+    - Финансировать резервный путь и договориться об условии остановки до того, как все вложились.
+  - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="prog-multi-owner-readiness"></a>**Инженерная команда, эксплуатация и риск-функция расходятся в оценке готовности запуска. Как принять решение, основания которого можно проверить?**
-  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-multi-owner-readiness&title=%5BCorrection%5D%20prog-multi-owner-readiness)
+  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-multi-owner-readiness) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-multi-owner-readiness&title=%5BCorrection%5D%20prog-multi-owner-readiness)
   - Что проверяет: Уточняете ли вы критерии и полномочия, а не просто собираете согласования.
+  - Сильный ответ покрывает:
+    - Превратить каждое возражение в названный проверяемый критерий с приложенными данными.
+    - До встречи определить, кто решает, с кем советуются и у кого есть право вето.
+    - Зафиксировать решение, принятый остаточный риск, его владельца и дату пересмотра.
+  - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 
 ← [Руководство инженерными командами](engineering-leadership.md) · [Прикладные и клиентские сценарии](applied-scenarios.md) →

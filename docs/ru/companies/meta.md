@@ -44,6 +44,7 @@
 - **[Объясните RoPE и компромиссы интерполяции при расширении контекста за пределы обучающей длины.](../themes/llm-fundamentals.md#llm-rope-extension)**
   - Знания · Где спрашивали: Meta †
   - Что проверяет: Умение отличать допустимую длину входа от надёжной работы с длинным контекстом.
+  - Читать: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv)
 - **[Чем отличаются цели и данные предобучения, instruction tuning и оптимизации по предпочтениям?](../themes/llm-fundamentals.md#llm-training-stages)**
   - Знания · Где спрашивали: Meta †
   - Что проверяет: Понимание возможностей и ограничений каждого этапа.

@@ -18,8 +18,13 @@
     - Проверьте допустимые резервные варианты и отказывайте, если разрешённого маршрута нет.
   - Читать: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="ops-private-evaluation"></a>**Как оценивать корпоративного AI-ассистента, если ваша команда не может просматривать данные клиента?**
-  - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-private-evaluation&title=%5BCorrection%5D%20ops-private-evaluation)
+  - System design · Senior · ✍ [Ответ](../answers/leadership.md#ops-private-evaluation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-private-evaluation&title=%5BCorrection%5D%20ops-private-evaluation)
   - Что проверяет: Умеете ли вы получать полезные данные о качестве в рамках ограниченного доступа.
+  - Сильный ответ покрывает:
+    - Перенести измерение в среду клиента и возвращать агрегаты, а не их содержимое.
+    - Поручить разметку выборки ревьюерам клиента по рубрике, которую вы даёте и проверяете.
+    - Собрать публичный или синтетический прокси-набор под их задачи и назвать его ограничения.
+  - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="ops-shared-data-access"></a>**Спроектируйте сервис, в котором несколько команд запрашивают общий набор данных без доступа к исходным записям.**
   - System design · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-shared-data-access&title=%5BCorrection%5D%20ops-shared-data-access)
   - Что проверяет: Умеете ли вы определить допустимые результаты и обеспечить разграничение доступа на общей платформе.

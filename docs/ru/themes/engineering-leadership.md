@@ -5,7 +5,7 @@
 
 Найм, развитие, работа с результативностью, устройство команд и доставка для команд, которые строят AI.
 
-На этой странице: [Оба трека (1)](#track-both) · [AI-лидерство (17)](#track-leadership)
+На этой странице: [Оба трека (1)](#track-both) · [AI-лидерство (18)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -81,11 +81,21 @@
   - Поведенческий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-two-valid-views&title=%5BCorrection%5D%20lead-two-valid-views)
   - Что проверяет: Выявляете ли вы реальные потребности вместо поверхностного компромисса.
 - <a id="lead-strategic-hiring"></a>**Как вы определяете, какие инженерные компетенции нужно нанимать?**
-  - Прикладной сценарий · Senior · Где спрашивали: [Stripe](../companies/stripe.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
+  - Прикладной сценарий · Senior · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-strategic-hiring) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
   - Что проверяет: Следуют ли кадровые решения из стратегии и пробелов в компетенциях.
+  - Сильный ответ покрывает:
+    - Начать с обязательств следующего периода и требуемых для них компетенций.
+    - Отличить пробел, который стоит закрывать найм, от решаемого обучением, заимствованием или отказом от работы.
+    - Писать роль из пробела и определить, какие доказательства должно дать интервью.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-quality-standard"></a>**Как вы задаёте стандарты инженерного качества в команде?**
-  - Прикладной сценарий · Senior · Где спрашивали: [Stripe](../companies/stripe.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-quality-standard&title=%5BCorrection%5D%20lead-quality-standard)
+  - Прикладной сценарий · Senior · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-quality-standard) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-quality-standard&title=%5BCorrection%5D%20lead-quality-standard)
   - Что проверяет: Являются ли стандарты проверяемыми, соразмерными риску и встроенными в работу.
+  - Сильный ответ покрывает:
+    - Определить качество через наблюдаемые результаты, а не через вкус или документ, который никто не читает.
+    - Соразмерить требование риску изменения, чтобы не тормозить малорисковую работу.
+    - Встроить стандарт в путь по умолчанию — инструменты, шаблоны, CI — и пересматривать его по данным.
+  - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="lead-engineering-persuasion"></a>**Как вы убедите инженеров, что предложенную продуктовую функцию стоит делать?**
   - Прикладной сценарий · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-engineering-persuasion&title=%5BCorrection%5D%20lead-engineering-persuasion)
   - Что проверяет: Учитываете ли вы технические возражения и формируете ли общее обоснование работы.
@@ -93,13 +103,27 @@
   - Поведенческий · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-personal-growth&title=%5BCorrection%5D%20lead-personal-growth)
   - Что проверяет: Приводит ли рефлексия к конкретным изменениям в руководстве.
 - <a id="lead-research-product-boundary"></a>**Исследователям нужно продолжать эксперименты, а продуктовым инженерам — выпустить надёжный сервис. Как вы распределите ответственность и передачу работы?**
-  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-research-product-boundary&title=%5BCorrection%5D%20lead-research-product-boundary)
+  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-research-product-boundary) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-research-product-boundary&title=%5BCorrection%5D%20lead-research-product-boundary)
   - Что проверяет: Учитываете ли вы неопределённость исследований, сохраняя ответственность за эксплуатацию.
+  - Сильный ответ покрывает:
+    - Разделить то, что исследуется, и то, что эксплуатируется, задав каждому свою планку.
+    - Оформить передачу как контракт: интерфейс, свидетельства оценки и владелец на дежурстве.
+    - Защитить релиз версионированием и путём отката, чтобы исследование не расшатывало его.
+  - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="lead-ai-review-skills"></a>**Команда внедрила AI-инструменты программирования, но ревьюерам трудно проверять изменения. Как вы разовьёте недостающие навыки?**
-  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-review-skills&title=%5BCorrection%5D%20lead-ai-review-skills)
+  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-ai-review-skills) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-review-skills&title=%5BCorrection%5D%20lead-ai-review-skills)
   - Что проверяет: Связываете ли вы развитие навыков с проверкой и ответственностью, а не числом использований инструмента.
+  - Сильный ответ покрывает:
+    - Назвать настоящий пробел: ревью крупного изменения, которого никто не писал руками, а не владение инструментом.
+    - Оставить автора ответственным за объяснение и тестирование изменения, чем бы оно ни было создано.
+    - Учить ревью навыкам проверки и измерять пропущенные дефекты, а не число внедрений.
+  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 - <a id="lead-platform-team-charter"></a>**Двум продуктовым командам нужна общая AI-инфраструктура, но ни одна не может выделить инженера. Как организовать работу без обещаний платформы, под которые нет людей?**
   - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-platform-team-charter&title=%5BCorrection%5D%20lead-platform-team-charter)
   - Что проверяет: Решаете ли вы вопросы ресурсов и ответственности до создания новой командной структуры.
+- <a id="lead-ai-interview-redesign"></a>**Кандидаты используют AI-ассистентов на технических интервью. Как вы перестроите процесс, чтобы он по-прежнему давал пригодный сигнал для найма?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-interview-redesign&title=%5BCorrection%5D%20lead-ai-interview-redesign)
+  - Что проверяет: Измеряет ли процесс суждение и ответственность вместо запрета или игнорирования инструментов.
+  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 
 ← [AI-платформа и операционная модель](ai-operating-model.md) · [Программы и delivery](program-delivery.md) →

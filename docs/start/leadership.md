@@ -89,3 +89,33 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - Behavioral · Senior · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/leadership.md#beh-mistake-learning)
 - **40. [Tell me about a time you disagreed with someone and could not persuade them.](../themes/behavioral-values.md#beh-unresolved-disagreement)**
   - Behavioral · Senior · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [Amazon](../companies/amazon.md) † · ✍ [Answer](../answers/leadership.md#beh-unresolved-disagreement)
+- **41. [Explain the product trade-offs in choosing a model.](../themes/ai-product-strategy.md#prod-model-choice)**
+  - Knowledge · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md) · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/leadership.md#prod-model-choice)
+- **42. [Which business use cases suit AI agents, and how would you compare them?](../themes/ai-product-strategy.md#prod-agent-use-cases)**
+  - Product case · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md) · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/leadership.md#prod-agent-use-cases)
+- **43. [How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?](../themes/ai-product-strategy.md#prod-enterprise-ai-pricing)**
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-enterprise-ai-pricing)
+- **44. [Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?](../themes/ai-product-strategy.md#prod-search-versus-answer)**
+  - Product case · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md) · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/leadership.md#prod-search-versus-answer)
+- **45. [How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?](../themes/ai-operating-model.md#ops-private-evaluation)**
+  - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · ✍ [Answer](../answers/leadership.md#ops-private-evaluation)
+- **46. [An engineering team adopts AI coding tools, but reviewers struggle to verify the resulting changes. How would you build the missing capability?](../themes/engineering-leadership.md#lead-ai-review-skills)**
+  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-review-skills)
+- **47. [How do you decide which engineering capabilities to hire for?](../themes/engineering-leadership.md#lead-strategic-hiring)**
+  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring)
+- **48. [How do you establish engineering quality standards across a team?](../themes/engineering-leadership.md#lead-quality-standard)**
+  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-quality-standard)
+- **49. [Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?](../themes/engineering-leadership.md#lead-research-product-boundary)**
+  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-research-product-boundary)
+- **50. [How would you plan an AI programme whose central research hypothesis may fail?](../themes/program-delivery.md#prog-research-milestones)**
+  - Applied scenario · Senior · [Programmes and delivery](../themes/program-delivery.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-research-milestones)
+- **51. [Engineering, operations and risk teams disagree about launch readiness. How would you reach a traceable decision?](../themes/program-delivery.md#prog-multi-owner-readiness)**
+  - Applied scenario · Senior · [Programmes and delivery](../themes/program-delivery.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-multi-owner-readiness)
+- **52. [A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?](../themes/applied-scenarios.md#app-contact-centre)**
+  - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md) · ✍ [Answer](../answers/leadership.md#app-contact-centre)
+- **53. [A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?](../themes/safety-security-governance.md#sec-guardrail-exception)**
+  - Applied scenario · Senior · [Safety, security and governance](../themes/safety-security-governance.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#sec-guardrail-exception)
+- **54. [Tell me about conflicting stakeholder priorities and how you established alignment.](../themes/behavioral-values.md#beh-stakeholder-priorities)**
+  - Behavioral · Senior · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/leadership.md#beh-stakeholder-priorities)
+- **55. [Describe feedback that was difficult for you to hear and what you did with it.](../themes/behavioral-values.md#beh-critical-feedback)**
+  - Behavioral · Senior · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#beh-critical-feedback)

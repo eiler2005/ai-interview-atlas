@@ -5,7 +5,7 @@ English · [Русский](../ru/answers/leadership.md) · [AI Interview Atlas]
 
 Written answers to the priority questions of this track, in the same order and numbering as *Start here*. Answer each question yourself first: what follows is one good answer, not the only correct one, and an interviewer is listening to your reasoning rather than checking your wording.
 
-Answers written: 40 of 40.
+Answers written: 55 of 55.
 
 ## <a id="contents"></a>Contents
 
@@ -15,6 +15,7 @@ Answers written: 40 of 40.
   - [3. How would you approach safety for a generative-AI consumer product?](#sec-consumer-safety)
   - [4. What safeguards should surround an AI system that acts on a user's behalf?](#sec-action-authorisation)
   - [5. Describe a situation where delivery pressure conflicted with security or safety concerns. How did you decide what to do?](#sec-delivery-pressure)
+  - [53. A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?](#sec-guardrail-exception)
 - **AI product strategy and metrics**
   - [6. How would you improve ChatGPT for enterprise customers?](#prod-enterprise-assistant)
   - [7. A model offers much greater capability but costs ten times as much. How would you decide what product to build with it?](#prod-capability-cost)
@@ -26,9 +27,14 @@ Answers written: 40 of 40.
   - [13. What North Star metric would you choose for an AI search product, and what would constrain it?](#prod-search-north-star)
   - [14. Notification engagement rises while total time spent remains flat. How would you interpret that result?](#prod-notification-paradox)
   - [15. Choose an AI agent or product you use and propose its most valuable improvement.](#prod-favorite-agent)
+  - [41. Explain the product trade-offs in choosing a model.](#prod-model-choice)
+  - [42. Which business use cases suit AI agents, and how would you compare them?](#prod-agent-use-cases)
+  - [43. How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?](#prod-enterprise-ai-pricing)
+  - [44. Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?](#prod-search-versus-answer)
 - **AI platform and operating model**
   - [16. Define a strategy for an internal AI platform, including who owns its success metrics.](#ops-platform-ownership)
   - [17. How would you support multiple model providers when some deployment environments permit only a subset of models?](#ops-restricted-models)
+  - [45. How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?](#ops-private-evaluation)
 - **Leading engineering teams**
   - [18. Tell me how you handled an engineer who was not meeting expectations.](#lead-low-performance)
   - [19. How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?](#lead-disruptive-star)
@@ -37,11 +43,17 @@ Answers written: 40 of 40.
   - [22. How would you respond when a high performer considers leaving during a reorganisation?](#lead-reorganisation-retention)
   - [23. How would you stabilise an engineering team after a change in management?](#lead-team-after-change)
   - [24. Describe how you identified a valuable opportunity and persuaded a group to deliver it.](#lead-opportunity-coalition)
+  - [46. An engineering team adopts AI coding tools, but reviewers struggle to verify the resulting changes. How would you build the missing capability?](#lead-ai-review-skills)
+  - [47. How do you decide which engineering capabilities to hire for?](#lead-strategic-hiring)
+  - [48. How do you establish engineering quality standards across a team?](#lead-quality-standard)
+  - [49. Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?](#lead-research-product-boundary)
 - **Programmes and delivery**
   - [25. Walk through the most difficult product launch you led.](#prog-difficult-launch)
   - [26. Three weeks before launching an LLM feature, evaluation reveals substantial hallucinations on edge cases. What happens next?](#prog-prelaunch-hallucinations)
   - [27. Describe a large cross-functional project, including ambiguity, roadblocks and delays.](#prog-cross-team-delivery)
   - [28. How would you roll out updates to Alexa devices already deployed in people's homes?](#prog-device-update)
+  - [50. How would you plan an AI programme whose central research hypothesis may fail?](#prog-research-milestones)
+  - [51. Engineering, operations and risk teams disagree about launch readiness. How would you reach a traceable decision?](#prog-multi-owner-readiness)
 - **Applied and customer scenarios**
   - [29. A customer wants to automate claims processing with AI. What would you do in the first two weeks?](#app-claims-discovery)
   - [30. A customer executive wants to cancel an AI pilot because it keeps producing wrong results. What would you do over the next 48 hours?](#app-pilot-rescue)
@@ -49,6 +61,7 @@ Answers written: 40 of 40.
   - [32. A deployed agent's base model will be retired in 60 days. How would you migrate it without losing quality?](#app-model-retirement)
   - [33. A customer says their eight-GPU chatbot is too slow and too expensive. You have a week with them; how do you use it?](#app-slow-expensive)
   - [34. An enterprise wants document Q&A over two million internal files within four weeks, with no data leaving its VPC. How would you scope the pilot?](#app-vpc-pilot)
+  - [52. A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?](#app-contact-centre)
 - **Payments and regulated domains**
   - [35. A shopping agent can initiate payments. How would you prove that each payment matches the user's actual authorisation?](#pay-agent-authority)
   - [36. An AI support agent initiates a refund, then the payment API times out. How should the system recover without issuing the refund twice?](#pay-ambiguous-timeout)
@@ -57,6 +70,8 @@ Answers written: 40 of 40.
   - [38. Why do you want to work at Anthropic, and where do you disagree with its approach?](#beh-motivation-and-disagreement)
   - [39. Describe a mistake you made, its consequences and what you changed afterward.](#beh-mistake-learning)
   - [40. Tell me about a time you disagreed with someone and could not persuade them.](#beh-unresolved-disagreement)
+  - [54. Tell me about conflicting stakeholder priorities and how you established alignment.](#beh-stakeholder-priorities)
+  - [55. Describe feedback that was difficult for you to hear and what you did with it.](#beh-critical-feedback)
 
 ### <a id="sec-mail-agent-boundaries"></a>1. An assistant reads external email, searches internal documents and sends replies. Where could an attacker redirect it, and how would you constrain the damage?
 
@@ -64,7 +79,7 @@ Answers written: 40 of 40.
 
 Incoming mail lands in the same context as instructions, while the assistant's authority is wider than the sender's rights: a message asks it to find an internal document and forward it outside, and the model obliges. You do not fix that with prompt wording, you fix it by separating levels. Untrusted mail content stays data, and the authority to search or send lives in a tool layer that never reads a message as a command. I would narrow the tool set, restrict recipients to the current thread and known addresses, and require explicit human approval to go beyond that or to attach files. I would test against a corpus of indirect injections and exfiltration attempts, measuring the share of outbound messages carrying data above the requester's access level. The risk does not disappear: injection filters miss things, and data can still leak through an allowed channel.
 
-Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
+Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) · [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/)
 
 [↑ Contents](#contents)
 
@@ -74,7 +89,7 @@ Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
 
 A release starts with intended use: its task, affected users and unacceptable outcomes. Then risk becomes a shared artifact rather than a team opinion. Threats are written down, an assessment is done, and every role has a name on it: who evaluates, who accepts the residual risk, who is on call during an incident. The cost is obvious, the release goes slower and some of the work does not look like development. In practice I would expose the system in stages, from internal users to a share of traffic, hold thresholds on an eval set together with production signals like complaints, harmful responses, latency and cost, and rehearse rollback in advance with a clear trigger and a named owner who can stop it. The limit is simple: a procedure cannot anticipate every risk, so the assessment is repeated when the model, the data or the load changes.
 
-Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
+Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy)
 
 [↑ Contents](#contents)
 
@@ -404,7 +419,7 @@ Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-
 
 A payment has to rest on a separate verifiable authorisation, not on what the agent understood the user to mean. Intent is expressed as an explicit object with constraints, amount or limit, payee, currency, validity period and conditions, and it's signed so it can be produced later; that's what AP2 is built on, where signed mandates tie the user's consent to a specific purchase and payment and give a consistent trail. Authority is validated at execution time on the payment side: if the amount or the payee falls outside the grant, you need a new confirmation, not the agent's guess. The audit trail keeps what the user approved, what the agent proposed and what executed. Authorisation evidence and settlement are different things: an authorisation doesn't mean the money arrived. A signature authenticates a signer and unchanged mandate; genuine consent also requires a trusted approval flow. Limits and revocation still matter.
 
-Read: [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/)
+Read: [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) · [Agentic Commerce Protocol](https://docs.stripe.com/agentic-commerce/acp) · [Universal Commerce Protocol (UCP)](https://ucp.dev/)
 
 [↑ Contents](#contents)
 
@@ -424,7 +439,7 @@ Read: [Designing robust and predictable APIs with idempotency](https://stripe.co
 
 Before expanding you have to fix which decisions the assistant touches, which customers they affect, and where its authority ends: it proposes, the employee decides, and that has to be true in the interface, not just in a document. I would collect two kinds of evidence: a set of real cases with known correct outcomes, including rare and expensive errors, and the behaviour of employees, the share of suggestions accepted and rejected, and reversals and corrections after acceptance. The mechanism is uncomfortable: a suggestion shifts attention, and agreement quickly becomes a formality, so suggestion quality is measured together with the quality of human decisions. Then you name owners, monitoring, the escalation path and a staged expansion by segment with a stop ready, and the applicable jurisdiction requirements are verified separately with lawyers. Quality on historical cases does not predict behaviour with new products and unfamiliar fraud schemes.
 
-Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm)
 
 [↑ Contents](#contents)
 
@@ -455,5 +470,155 @@ Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/po
 What matters in this answer is what happened after the argument, not the argument itself. Put both positions fairly and in their strongest form: if the other side sounds stupid, the interviewer decides you were listening badly. Give your own evidence and how you put it across, in conversation, in a written document, through data. Then say clearly who made the decision and why it was theirs to make, and describe how you backed the agreed action: you object before the decision, and after it you deliver, without quiet sabotage. Name the result, even if it proved you right, but without any triumph. Mark the limit as well: what you would not have done, and in what situation you would escalate. Finish with the conclusion, usually about what your argument was missing or who you should have gone to earlier.
 
 Read: [Leadership Principles](https://amazon.jobs/content/en/our-workplace/leadership-principles)
+
+[↑ Contents](#contents)
+
+### <a id="prod-model-choice"></a>41. Explain the product trade-offs in choosing a model.
+
+*Knowledge · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-model-choice)*
+
+The choice only means something once the task and a quality bar are fixed and then measured on our own examples, not on public leaderboards that rarely resemble the product. With that in place the comparison has four axes that trade against each other: quality on the task, cost, latency, and the constraints that simply disqualify a candidate — where it may be deployed, what may be sent to it, whether the provider retains data. Cost belongs per successful outcome rather than per token, because a cheaper model that needs retries or human correction is often the expensive one, and latency matters as the user feels it, including retrieval and tool calls. The decision is also not permanent: models and prices move, so keeping the evaluation runnable and the integration swappable is worth more than picking this quarter's best model.
+
+Read: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning)
+
+[↑ Contents](#contents)
+
+### <a id="prod-agent-use-cases"></a>42. Which business use cases suit AI agents, and how would you compare them?
+
+*Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-agent-use-cases)*
+
+I rank candidates on a few properties rather than on enthusiasm. Volume and repetition, because the payoff is per execution; a verifiable outcome, so success can be checked without a human reading everything; tolerance for error, since an agent will be wrong sometimes and the question is what that costs; and whether the actions are reversible. Support triage, back-office data work and research-and-summarise tasks usually score well; anything irreversible and regulated usually does not. The comparison I insist on is against the cheaper thing: a single prompt, a fixed workflow, or ordinary automation. Autonomy is worth paying for only when the path genuinely varies per case, because agents cost more per task and add supervision, audit and incident work that never appears in the demo. So I would pilot with the hardest measurable slice, and count the human minutes spent correcting it, not just the tasks completed.
+
+Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents)
+
+[↑ Contents](#contents)
+
+### <a id="prod-enterprise-ai-pricing"></a>43. How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?
+
+*Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-enterprise-ai-pricing)*
+
+Enterprise AI pricing is a margin question disguised as a value question, so I start with the cost stack per account: inference, including retries and evaluation tokens; retrieval, indexing and storage of their corpus; the human cost of onboarding, support and incidents; and engineering time spent keeping their configuration alive. Then the price metric: seats are predictable for the buyer but decouple revenue from usage, while consumption tracks cost and frightens procurement, so a common answer is a platform fee plus metered usage with a committed floor. Customisation is where margin actually disappears. A bespoke integration or a client-specific eval set is not a one-off but a recurring obligation that every model upgrade reopens, so I would price it separately or refuse it until it can be productised. I would watch gross margin per account rather than blended, because averages hide the accounts that lose money.
+
+Read: [What We Learned from a Year of Building with LLMs (Part I)](https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/)
+
+[↑ Contents](#contents)
+
+### <a id="prod-search-versus-answer"></a>44. Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?
+
+*Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-search-versus-answer)*
+
+The comparison only works per task. An answer engine wins where the user's job is synthesis: a question whose answer is spread across several sources, a comparison, an unfamiliar topic they cannot yet phrase as keywords; one pass replaces five tabs. Classic search still wins navigation, where the user knows the destination and a link is faster than a paragraph; queries needing the freshest state; and anything where the user must judge the source themselves, because an answer flattens away who said it and when. The failure mode is confident synthesis over weak evidence, which search never claimed to do. So I would improve attribution first: claim-level citations the user can verify at a glance, and visible recency, measured by how often people open a cited source and how often they reformulate instead. If the answer is right but unverifiable, enterprise and research users will not trust it.
+
+Read: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)
+
+[↑ Contents](#contents)
+
+### <a id="ops-private-evaluation"></a>45. How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?
+
+*System design · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-private-evaluation)*
+
+If I cannot see the data, I move the measurement to where the data lives and bring back numbers. The evaluation harness runs inside the customer's environment, computing scores, failure categories and counts, and exports aggregates with a minimum cell size — never examples or transcripts. Labels come from their people, not mine: I supply the rubric and the sampling plan, and I audit agreement between their reviewers, because a rubric applied inconsistently is worse than no rubric. Alongside that I build a proxy set from public or synthetic documents shaped like their corpus, which is what I iterate against daily. The trade-off is honest: proxy data misses exactly the distribution that breaks in production, and aggregates tell me a category is failing without showing me why. So I also negotiate a narrow escalation path — a redacted or customer-approved example when a defect needs diagnosis, rather than standing access.
+
+Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
+
+[↑ Contents](#contents)
+
+### <a id="lead-ai-review-skills"></a>46. An engineering team adopts AI coding tools, but reviewers struggle to verify the resulting changes. How would you build the missing capability?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-ai-review-skills)*
+
+The gap is not tool operation, it is that review was designed for changes a human drafted incrementally and now receives large, plausible diffs nobody wrote by hand. So I would fix ownership first: the author is accountable for the change regardless of what produced it, and a pull request nobody can explain does not get reviewed. Concretely the author states intent, the tests that pin the behaviour, and what they verified themselves; reviewers are trained to read tests before implementation, to check edge cases and error paths where generated code is weakest, and to reject a change too large to reason about. I would keep changes small and invest in tests as the durable check, since a human cannot out-read the generator. I would measure escaped defects, revert rate and review latency, never tool adoption, which says nothing about understanding.
+
+Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations)
+
+[↑ Contents](#contents)
+
+### <a id="lead-strategic-hiring"></a>47. How do you decide which engineering capabilities to hire for?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-strategic-hiring)*
+
+I work backwards from commitments, not from granted headcount. What has the team promised for the next few quarters, which capabilities that requires, and where is the team thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to.
+
+Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
+
+[↑ Contents](#contents)
+
+### <a id="lead-quality-standard"></a>48. How do you establish engineering quality standards across a team?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-quality-standard)*
+
+A standard that lives in a wiki page is a preference; a standard that lives in the default path is real. So I start from outcomes the team can observe — escaped defects, revert rate, time to restore, review latency, test coverage of the risky paths — and agree what good looks like, otherwise review becomes an argument about style. Then I make the requirement proportionate to risk: a copy change and a change to the payments path should not face the same gate, or people will route around the gate. Whatever we agree goes into tooling, templates, linters and CI, so the easy path is the correct one. I would write it with the senior engineers rather than for them, since an imposed standard gets performed rather than followed, and revisit it against the numbers: a gate that never catches anything is pure cost.
+
+Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
+
+[↑ Contents](#contents)
+
+### <a id="lead-research-product-boundary"></a>49. Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-research-product-boundary)*
+
+These are two different bars, not two levels of rigour, so I separate them structurally. Exploration is judged on learning rate and may be messy, undocumented and abandoned; production is judged on reliability and has an owner who is paged. The boundary is a handoff contract: a stable interface, evaluation evidence on an agreed set, and a named owner who accepts it; nothing enters the release path by being interesting. Behind that boundary the product team keeps versioning, gating and a rollback path, so a research change is a candidate, never a fait accompli. I would keep one shared evaluation suite both sides trust, because these arguments are usually about evidence. The pattern I watch for is researchers on permanent call for their own prototype, which quietly ends exploration; that is the signal to productionise it or retire it.
+
+Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml)
+
+[↑ Contents](#contents)
+
+### <a id="prog-research-milestones"></a>50. How would you plan an AI programme whose central research hypothesis may fail?
+
+*Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · [Checklist](../themes/program-delivery.md#prog-research-milestones)*
+
+I plan the uncertainty, not the timeline. The first step is to write the hypothesis down precisely enough that it could be false, then order the work so the cheapest falsifying experiment comes first, because a programme that learns its core assumption is wrong in month nine has spent eight months buying nothing. Milestones are therefore defined by which unknown they retire, not by artefacts delivered, and each carries a decision rule agreed in advance: what result continues, what pivots, what stops. Agreeing the stop condition before anyone is invested is the whole trick, since afterwards it becomes a referendum on people's judgement. I would also fund a fallback path in parallel, so there is something to ship if the hypothesis fails, and report progress as uncertainty removed. A programme that reports only percentage complete is not being managed.
+
+Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
+
+[↑ Contents](#contents)
+
+### <a id="prog-multi-owner-readiness"></a>51. Engineering, operations and risk teams disagree about launch readiness. How would you reach a traceable decision?
+
+*Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · [Checklist](../themes/program-delivery.md#prog-multi-owner-readiness)*
+
+Disagreement about readiness is usually disagreement about criteria that were never written down, so I stop collecting approvals and start converting objections into testable statements. Each team names what must be true to launch — an error rate below a stated threshold, a runbook exercised, an audit trail retrievable — with the evidence that shows it. Most conflict dissolves here, because operations and risk are not disputing the numbers, they are worried about different failure modes. Then I make decision rights explicit before the room meets: who decides, who must be consulted, and who genuinely holds a veto — one bounded by policy, not by discomfort. Whatever remains unresolved is written as accepted residual risk with a named owner, a mitigation and a review date, so the decision is traceable. A veto with no criterion behind it is the thing to resolve.
+
+Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+
+[↑ Contents](#contents)
+
+### <a id="app-contact-centre"></a>52. A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?
+
+*Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · [Checklist](../themes/applied-scenarios.md#app-contact-centre)*
+
+I would scope by intent rather than replace the menu wholesale. Pull the call-reason distribution and take the few intents carrying most volume with a verifiable resolution; leave the long tail on the existing path, because a voice agent that handles everything badly is worse than a menu. The success measure has to be honest containment — calls genuinely resolved without a human, not calls that ended — and I would track repeat calls within a day, where fake containment shows up. Transfer to a human is a first-class design problem, not a failure branch: it carries the transcript and what was attempted, and never loops the caller back. Then operational readiness before launch: latency targets, interruption handling, monitoring on abandonment, and a rollback to the menu. I would pilot on one intent in one region and expand on evidence.
+
+Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents)
+
+[↑ Contents](#contents)
+
+### <a id="sec-guardrail-exception"></a>53. A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?
+
+*Applied scenario · [Safety, security and governance](../themes/safety-security-governance.md) · [Checklist](../themes/safety-security-governance.md#sec-guardrail-exception)*
+
+First I ask what the control actually protects against, because some requests target a control whose purpose nobody remembers, and some are reasonable asks blocked by a clumsy implementation. If the underlying risk is real, the answer is usually not a binary exception but a narrower path: a compensating control, a tighter scope, human review in place of the automated block, logging that makes the residual risk observable. Whatever is granted is scoped to that customer and that use, never to the code path generally, because an exception in shared code silently becomes the new default. It gets a named owner on the business side rather than the engineer who implemented it, an expiry date, and a review able to refuse renewal. The failure mode to avoid is the permanent temporary exception, so I would report open exceptions as a standing number.
+
+Read: [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+
+[↑ Contents](#contents)
+
+### <a id="beh-stakeholder-priorities"></a>54. Tell me about conflicting stakeholder priorities and how you established alignment.
+
+*Behavioral · [Behavioral and values](../themes/behavioral-values.md) · [Checklist](../themes/behavioral-values.md#beh-stakeholder-priorities)*
+
+Choose a conflict where the parties were both right, because a story where one side was simply wrong tests judgement about people, not alignment. Name what each stakeholder was measured on — that is usually the real source of the disagreement, and saying it aloud is most of the work: a sales commitment, a reliability target and a compliance deadline can be genuinely incompatible without anyone behaving badly. Then show how you made the trade-off visible: the options, their costs, and whose goal each damaged, rather than hunting for a compromise nobody asked for. Be concrete about the decision and what was given up, including your own priority if that happened. Finish with evidence it held — a written agreement people referred to later, a metric both sides accepted — and avoid the ending where everyone simply agreed once you explained.
+
+Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/)
+
+[↑ Contents](#contents)
+
+### <a id="beh-critical-feedback"></a>55. Describe feedback that was difficult for you to hear and what you did with it.
+
+*Behavioral · [Behavioral and values](../themes/behavioral-values.md) · [Checklist](../themes/behavioral-values.md#beh-critical-feedback)*
+
+The test is whether you can still hear it, so state the feedback in the words it was actually given. Softened versions — I was told to communicate more — signal that you have not really accepted it. Admitting your first reaction is fine and makes the answer credible, because most people are defensive before they are reflective. What matters is the next step: that you went and checked, by asking others whether they saw the same thing or looking for it in your own record, instead of accepting or rejecting it on one person's word. Then name the specific change, the narrower the better, and a later situation where you can tell it stuck. Avoid two endings — the one where the feedback turned out to be unfair after all, and the one where you simply tried harder — because neither shows anything changed.
+
+Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
 
 [↑ Contents](#contents)

@@ -127,4 +127,4 @@ On this page: [Interview loop](#loop) · [Questions (12)](#questions)
   - Behavioral · Senior · Asked at: Amazon †
   - Tests: Whether you consider impact beyond your immediate deliverable.
 
-← [OpenAI](openai.md) · [Google and Google DeepMind](google.md) →
+← [OpenAI](openai.md) · [Canva](canva.md) →

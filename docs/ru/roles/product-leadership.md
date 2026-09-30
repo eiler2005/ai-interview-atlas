@@ -30,7 +30,7 @@ AI-лидерство · Роли: AI-продакт-менеджер (от seni
 Вопросы, источник которых указывает, что их задавали на одну из этих ролей.
 
 - **[Как вы установите цену корпоративного AI-продукта, какие затраты обязательно учтёте и как кастомизация под каждого клиента влияет на маржинальность?](../themes/ai-product-strategy.md#prod-enterprise-ai-pricing)**
-  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
+  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-enterprise-ai-pricing)
   - Источники (AI-продакт-менеджер (от senior до group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, опубликовано 2026-05-23, проверено 2026-09-29
 - **[Кто в дискавери корпоративного AI-продукта является «персоной», где вы найдёте B2B-респондентов и как поймёте, что проблему стоит решать?](../themes/ai-product-strategy.md#prod-enterprise-discovery)**
   - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
@@ -54,9 +54,9 @@ AI-лидерство · Роли: AI-продакт-менеджер (от seni
 - **[Какую главную метрику вы выберете для AI-поиска и какими ограничениями её дополните?](../themes/ai-product-strategy.md#prod-search-north-star)**
   - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-search-north-star)
 - **[Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?](../themes/ai-product-strategy.md#prod-agent-use-cases)**
-  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
+  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-agent-use-cases)
 - **[Объясните продуктовые компромиссы при выборе модели.](../themes/ai-product-strategy.md#prod-model-choice)**
-  - Знания · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
+  - Знания · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-model-choice)
 - **[Как вы расставляете приоритеты дорожной карты, когда конкурируют несколько ценных возможностей?](../themes/ai-product-strategy.md#prod-roadmap)**
   - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
 

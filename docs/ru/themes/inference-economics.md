@@ -10,7 +10,7 @@
 ## <a id="track-both"></a>Оба трека
 
 - <a id="inf-reasoning-budget"></a>**Сервис может потратить больше вычислений на один reasoning-запуск или получить несколько кандидатов и проверить их. Как распределить бюджет при ограничении задержки?**
-  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-budget&title=%5BCorrection%5D%20inf-reasoning-budget)
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#inf-reasoning-budget) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-budget&title=%5BCorrection%5D%20inf-reasoning-budget)
   - Что проверяет: Умение распределять вычисления по измеренной пользе для задачи с учётом расходов на проверку.
   - Сильный ответ покрывает:
     - Сравнить стратегии на одинаковых отложенных задачах, включая стоимость проверяющего и полную задержку.
@@ -23,6 +23,7 @@
 - <a id="inf-runtime-choice"></a>**Как сравнить vLLM, SGLang, TensorRT-LLM и собственный runtime на конкретной нагрузке?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-runtime-choice&title=%5BCorrection%5D%20inf-runtime-choice)
   - Что проверяет: Умение выбирать по воспроизводимой нагрузке, а не общему рейтингу.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - <a id="inf-cost-reduction"></a>**Вам поручили снизить стоимость инференса на порядок. Расставьте меры по приоритету и объясните, как проверить достижимость цели.**
   - Прикладной сценарий · Где спрашивали: [Amazon](../companies/amazon.md) †, [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/engineering.md#inf-cost-reduction) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-cost-reduction&title=%5BCorrection%5D%20inf-cost-reduction)
   - Что проверяет: Умение оценить экономию при явных ограничениях качества и задержки.
@@ -59,8 +60,13 @@
     - Измерять ожидание и голодание запросов наряду с throughput.
   - Читать: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) (Kwon et al., arXiv)
 - <a id="inf-paged-cache"></a>**Как страничная организация KV-кеша сокращает потери памяти и какие задачи остаются планировщику?**
-  - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-paged-cache&title=%5BCorrection%5D%20inf-paged-cache)
+  - Знания · ✍ [Ответ](../answers/engineering.md#inf-paged-cache) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-paged-cache&title=%5BCorrection%5D%20inf-paged-cache)
   - Что проверяет: Умение отличать управление памятью от планирования запросов.
+  - Сильный ответ покрывает:
+    - Объяснить фрагментацию при непрерывном выделении памяти под самый длинный возможный ответ.
+    - Описать блоки фиксированного размера с таблицей косвенности и общие блоки между запросами.
+    - Назвать нерешённое: приём, вытеснение и справедливость остаются политикой планировщика.
+  - Читать: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) (Kwon et al., arXiv)
 - <a id="inf-speculation"></a>**Объясните точное speculative decoding, проверку предложенных токенов и случаи, когда draft-модель лишь добавляет накладные расходы.**
   - Знания · ✍ [Ответ](../answers/engineering.md#inf-speculation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-speculation&title=%5BCorrection%5D%20inf-speculation)
   - Что проверяет: Понимание условий ускорения без универсальных обещаний.
@@ -70,8 +76,13 @@
     - Оценить долю принятых токенов, стоимость draft и доступные параллельные вычисления.
   - Читать: [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192) (Leviathan et al., arXiv)
 - <a id="inf-prefix-cache"></a>**Когда префикс промпта можно переиспользовать и какие изменения обесценивают или инвалидируют кеш?**
-  - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-prefix-cache&title=%5BCorrection%5D%20inf-prefix-cache)
+  - Знания · ✍ [Ответ](../answers/engineering.md#inf-prefix-cache) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-prefix-cache&title=%5BCorrection%5D%20inf-prefix-cache)
   - Что проверяет: Учёт точного совпадения, срока жизни кеша и изоляции клиентов.
+  - Сильный ответ покрывает:
+    - Сформулировать условие переиспользования: одинаковый префикс токенов при той же модели и конфигурации.
+    - Расположить промпт так, чтобы стабильная часть шла первой, а изменчивая — последней.
+    - Ограничить срок жизни кеша и область записей, чтобы один клиент не читал префикс другого.
+  - Читать: [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) (Claude Platform Docs)
 - <a id="inf-precision"></a>**Сравните форматы с плавающей точкой и целочисленные форматы вплоть до четырёх бит: как проверить допустимость снижения точности?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-precision&title=%5BCorrection%5D%20inf-precision)
   - Что проверяет: Умение сопоставить экономию памяти с качеством, ядрами и поддержкой оборудования.

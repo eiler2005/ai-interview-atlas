@@ -5,7 +5,7 @@
 
 Все страницы атласа в одном месте. Начните с приоритетных вопросов своего трека, затем углубляйтесь по темам или по работодателям.
 
-Из 277 вопросов с опубликованными источниками 230 опираются только на подготовительные гайды или подборки (†). Ещё 15 — сгенерированные учебные вопросы (🧪). Первоисточники для чтения помогают разобраться в теме, но не доказывают, что работодатель задавал вопрос. Число вопросов, ссылающихся на одну подборку: 194 — [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). Это ограничивает независимое подтверждение; указания компаний из этой подборки остаются вторичными свидетельствами.
+Из 278 вопросов с опубликованными источниками 230 опираются только на подготовительные гайды или подборки (†). Ещё 16 — сгенерированные учебные вопросы (🧪). Первоисточники для чтения помогают разобраться в теме, но не доказывают, что работодатель задавал вопрос. Число вопросов, ссылающихся на одну подборку: 194 — [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). Это ограничивает независимое подтверждение; указания компаний из этой подборки остаются вторичными свидетельствами.
 
 Метки: ✅ подтверждено компанией · 🗣 отчёт кандидата · † гайд или подборка без первоисточника · 🧪 сгенерировано по темам вакансий. Этапы интервью часто меняются — смотрите дату проверки.
 
@@ -14,13 +14,13 @@
 - **AI-инженерия.** Инженеры, которые строят, выпускают и эксплуатируют AI-системы: приложения, агентов, платформы, инференс и исследовательский код.
   - Роли: Разработчик ПО (общий процесс интервью), AI/LLM-инженер, Разработчик AI-продуктов, Прикладной AI-инженер, Forward deployed engineer (FDE), Архитектор AI-решений / customer engineer, Инженер оценки качества AI, ML-инженер / data scientist, Инженер агентов, Инженер AI-платформы / MLOps, Инженер инференса и производительности, Research-инженер
   - Страницы профессий: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Applied AI / инженер агентных продуктов](roles/applied-ai.md) · [Инженер оценки качества и надёжности AI](roles/eval-reliability.md) · [Инженер инференса / AI-платформы](roles/inference-platform.md) · [Research engineer (исследовательский инженер)](roles/research-engineering.md)
-  - [С чего начать](start/engineering.md): приоритетные вопросы в порядке изучения: 40
-  - [Ответы](answers/engineering.md): готово 40 из 40
+  - [С чего начать](start/engineering.md): приоритетные вопросы в порядке изучения: 55
+  - [Ответы](answers/engineering.md): готово 55 из 55
 - **AI-лидерство.** Те, кто решает, какой AI строить, и руководит командами, программами и организациями, которые его строят.
   - Роли: Продакт-менеджер (общий процесс интервью), AI-продакт-менеджер (от senior до group), Директор или руководитель продукта, Руководитель разработки (EM), Директор или руководитель инженерии, Технический руководитель программ (TPM), Руководитель AI-платформы, Руководитель внедрения AI / CAIO, Deployment strategist (стратег по внедрению), Руководитель forward-deployed / solutions
   - Страницы профессий: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Инженер инференса / AI-платформы](roles/inference-platform.md) · [Продуктовое лидерство в AI](roles/product-leadership.md)
-  - [С чего начать](start/leadership.md): приоритетные вопросы в порядке изучения: 40
-  - [Ответы](answers/leadership.md): готово 40 из 40
+  - [С чего начать](start/leadership.md): приоритетные вопросы в порядке изучения: 55
+  - [Ответы](answers/leadership.md): готово 55 из 55
 
 ## <a id="themes"></a>Темы
 
@@ -35,10 +35,10 @@
 | [Безопасность, защита и governance](themes/safety-security-governance.md) | Prompt injection, утечка данных, guardrails, приватность, red-teaming, а также регулирование и риск-фреймворки, за которые отвечают руководители. | 10 | 18 |
 | [Мультимодальность и голос](themes/multimodal-voice.md) | Vision-language модели, голосовые агенты в реальном времени, качество речи и мультимодальный поиск. | 14 | 1 |
 | [Дизайн AI-систем](themes/ai-system-design.md) | Сквозной дизайн AI-продуктов и платформ, рассказанный вслух: требования, компромиссы и сценарии отказа. | 16 | 5 |
-| [Практический кодинг](themes/coding-practical.md) | Кодинг, похожий на работу: конкурентность, лимиты, повторы, растущая спецификация, отладка и code review. | 27 | 1 |
+| [Практический кодинг](themes/coding-practical.md) | Кодинг, похожий на работу: конкурентность, лимиты, повторы, растущая спецификация, отладка и code review. | 28 | 1 |
 | [Стратегия и метрики AI-продукта](themes/ai-product-strategy.md) | Когда AI оправдан, как проектировать AI-функции, измерять их и строить бизнес-кейс. | 0 | 23 |
 | [AI-платформа и операционная модель](themes/ai-operating-model.md) | Внутренние AI-платформы, внедрение AI в организации, обучение людей, управление затратами и центры компетенций. | 3 | 4 |
-| [Руководство инженерными командами](themes/engineering-leadership.md) | Найм, развитие, работа с результативностью, устройство команд и доставка для команд, которые строят AI. | 1 | 18 |
+| [Руководство инженерными командами](themes/engineering-leadership.md) | Найм, развитие, работа с результативностью, устройство команд и доставка для команд, которые строят AI. | 1 | 19 |
 | [Программы и delivery](themes/program-delivery.md) | Планирование и ведение межкомандной работы: зависимости, запуски, риски и коммуникация. | 4 | 12 |
 | [Прикладные и клиентские сценарии](themes/applied-scenarios.md) | Открытые ситуации с клиентами и запутанными задачами: первые 48 часов, спасение пилота, декомпозиция бизнес-задачи. | 20 | 21 |
 | [Платежи и регулируемые отрасли](themes/domain-payments-fintech.md) | AI в платежах, банках и других регулируемых отраслях, включая агентную коммерцию. | 4 | 5 |
@@ -47,7 +47,7 @@
 ## <a id="companies"></a>Компании
 
 - **Лаборатории frontier-AI:** [Anthropic](companies/anthropic.md) · [OpenAI](companies/openai.md)
-- **Бигтех:** [Amazon](companies/amazon.md) · [Google и Google DeepMind](companies/google.md) · [Meta](companies/meta.md) · [Microsoft](companies/microsoft.md) · [Spotify](companies/spotify.md) · [Uber](companies/uber.md)
+- **Бигтех:** [Amazon](companies/amazon.md) · [Canva](companies/canva.md) · [Google и Google DeepMind](companies/google.md) · [Meta](companies/meta.md) · [Microsoft](companies/microsoft.md) · [Spotify](companies/spotify.md) · [Uber](companies/uber.md)
 - **AI-инфраструктура:** [Databricks](companies/databricks.md) · [LangChain](companies/langchain.md) · [NVIDIA](companies/nvidia.md)
 - **AI-native продукты:** [Cognition](companies/cognition.md) · [Cursor (Anysphere)](companies/cursor.md) · [Perplexity](companies/perplexity.md) · [Sierra](companies/sierra.md)
 - **Корпоративный и forward-deployed AI:** [Atlassian](companies/atlassian.md) · [Palantir](companies/palantir.md)

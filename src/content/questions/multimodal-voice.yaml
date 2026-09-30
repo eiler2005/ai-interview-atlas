@@ -56,6 +56,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 54
+    outline:
+      en:
+        - "List every stage before sound: turn detection, transcription, generation, synthesis, transport and playback."
+        - "Budget to the first audible sound and overlap stages by streaming instead of queueing them."
+        - "Separate a median target from the tail, and define what the agent does when a stage overruns."
+      ru:
+        - "Перечислить все этапы до звука: определение конца реплики, распознавание, генерацию, синтез, сеть и воспроизведение."
+        - "Считать бюджет до первого слышимого звука и совмещать этапы потоком вместо очереди."
+        - "Отделить медианную цель от хвоста и определить поведение агента при превышении этапа."
+    answer:
+      en: "I budget to the first audible sound, because that is what a caller perceives as responsiveness, and I enumerate every stage before it: end-of-turn detection, final transcription, model time to first token, enough text to synthesise a first chunk, synthesis, network transport and client buffering. The largest and least obvious term is usually turn detection — waiting for silence to be confident the user finished — and it trades directly against interruptions: shorten it and the agent talks over people, lengthen it and the agent feels slow. Streaming is what makes the sum survivable, since transcription, generation and synthesis overlap instead of queueing, so I track each stage's contribution separately and set a median and a p95 target, because the tail is what callers remember. A budget only holds under load, so I also define degradation: a shorter reply, a filler acknowledgement, or a cheaper voice when a stage overruns."
+      ru: "Бюджет я считаю до первого слышимого звука, потому что именно это воспринимается как отзывчивость, и перечисляю все этапы до него: определение конца реплики, финальную расшифровку, время модели до первого токена, накопление текста на первый синтезируемый фрагмент, сам синтез, сетевой транспорт и буферизацию у клиента. Самое крупное и наименее очевидное слагаемое — обычно определение конца реплики: ожидание тишины, чтобы убедиться, что человек закончил. Оно напрямую обменивается на перебивания: сократишь — агент говорит поверх людей, удлинишь — кажется медленным. Выносимой сумму делает потоковость: расшифровка, генерация и синтез перекрываются, а не выстраиваются в очередь, поэтому вклад каждого этапа я отслеживаю отдельно и задаю цель по медиане и по p95, ведь запоминается именно хвост. Бюджет держится только под нагрузкой, поэтому я описываю и деградацию: короткий ответ, короткое подтверждение-заполнитель или более дешёвый голос, когда этап выбивается."
+    reading: ["paper-tail-at-scale"]
   - id: "mm-barge-in"
     tracks: ["engineering"]
     type: "system_design"

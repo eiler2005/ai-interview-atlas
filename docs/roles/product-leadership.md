@@ -30,7 +30,7 @@ Company pages that cover these roles: [OpenAI](../companies/openai.md), [Amazon]
 Questions whose source says they were asked for one of these roles.
 
 - **[How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?](../themes/ai-product-strategy.md#prod-enterprise-ai-pricing)**
-  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md)
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-enterprise-ai-pricing)
   - Sources (AI product manager (senior to group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, published 2026-05-23, retrieved 2026-09-29
 - **[In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?](../themes/ai-product-strategy.md#prod-enterprise-discovery)**
   - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md)
@@ -54,9 +54,9 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[What North Star metric would you choose for an AI search product, and what would constrain it?](../themes/ai-product-strategy.md#prod-search-north-star)**
   - Product case · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-search-north-star)
 - **[Which business use cases suit AI agents, and how would you compare them?](../themes/ai-product-strategy.md#prod-agent-use-cases)**
-  - Product case · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md)
+  - Product case · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-agent-use-cases)
 - **[Explain the product trade-offs in choosing a model.](../themes/ai-product-strategy.md#prod-model-choice)**
-  - Knowledge · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md)
+  - Knowledge · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-model-choice)
 - **[How do you prioritise a product roadmap when several valuable opportunities compete?](../themes/ai-product-strategy.md#prod-roadmap)**
   - Product case · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md)
 

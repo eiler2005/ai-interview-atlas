@@ -89,3 +89,33 @@
   - Поведенческий · Senior · [Поведенческие вопросы и ценности](../themes/behavioral-values.md) · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#beh-mistake-learning)
 - **40. [Расскажите о случае, когда вы были не согласны с человеком, но не смогли его убедить.](../themes/behavioral-values.md#beh-unresolved-disagreement)**
   - Поведенческий · Senior · [Поведенческие вопросы и ценности](../themes/behavioral-values.md) · Где спрашивали: [Amazon](../companies/amazon.md) † · ✍ [Ответ](../answers/leadership.md#beh-unresolved-disagreement)
+- **41. [Объясните продуктовые компромиссы при выборе модели.](../themes/ai-product-strategy.md#prod-model-choice)**
+  - Знания · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-model-choice)
+- **42. [Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?](../themes/ai-product-strategy.md#prod-agent-use-cases)**
+  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-agent-use-cases)
+- **43. [Как вы установите цену корпоративного AI-продукта, какие затраты обязательно учтёте и как кастомизация под каждого клиента влияет на маржинальность?](../themes/ai-product-strategy.md#prod-enterprise-ai-pricing)**
+  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-enterprise-ai-pricing)
+- **44. [В чём AI-сервис ответов лучше обычного поиска, а в чём уступает? Что вы улучшите первым?](../themes/ai-product-strategy.md#prod-search-versus-answer)**
+  - Продуктовый кейс · Senior · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/leadership.md#prod-search-versus-answer)
+- **45. [Как оценивать корпоративного AI-ассистента, если ваша команда не может просматривать данные клиента?](../themes/ai-operating-model.md#ops-private-evaluation)**
+  - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · ✍ [Ответ](../answers/leadership.md#ops-private-evaluation)
+- **46. [Команда внедрила AI-инструменты программирования, но ревьюерам трудно проверять изменения. Как вы разовьёте недостающие навыки?](../themes/engineering-leadership.md#lead-ai-review-skills)**
+  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-ai-review-skills)
+- **47. [Как вы определяете, какие инженерные компетенции нужно нанимать?](../themes/engineering-leadership.md#lead-strategic-hiring)**
+  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-strategic-hiring)
+- **48. [Как вы задаёте стандарты инженерного качества в команде?](../themes/engineering-leadership.md#lead-quality-standard)**
+  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-quality-standard)
+- **49. [Исследователям нужно продолжать эксперименты, а продуктовым инженерам — выпустить надёжный сервис. Как вы распределите ответственность и передачу работы?](../themes/engineering-leadership.md#lead-research-product-boundary)**
+  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-research-product-boundary)
+- **50. [Как вы спланируете AI-программу, если её основная исследовательская гипотеза может не подтвердиться?](../themes/program-delivery.md#prog-research-milestones)**
+  - Прикладной сценарий · Senior · [Программы и delivery](../themes/program-delivery.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-research-milestones)
+- **51. [Инженерная команда, эксплуатация и риск-функция расходятся в оценке готовности запуска. Как принять решение, основания которого можно проверить?](../themes/program-delivery.md#prog-multi-owner-readiness)**
+  - Прикладной сценарий · Senior · [Программы и delivery](../themes/program-delivery.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-multi-owner-readiness)
+- **52. [Контакт-центр хочет заменить телефонное меню голосовыми агентами. Как вы проведёте проект?](../themes/applied-scenarios.md#app-contact-centre)**
+  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md) · ✍ [Ответ](../answers/leadership.md#app-contact-centre)
+- **53. [Продуктовая команда просит исключение из правила безопасности AI для одного корпоративного клиента. Как оценить, согласовать и ограничить срок такого исключения?](../themes/safety-security-governance.md#sec-guardrail-exception)**
+  - Прикладной сценарий · Senior · [Безопасность, защита и governance](../themes/safety-security-governance.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#sec-guardrail-exception)
+- **54. [Расскажите о противоречащих приоритетах участников проекта и о том, как вы согласовали действия.](../themes/behavioral-values.md#beh-stakeholder-priorities)**
+  - Поведенческий · Senior · [Поведенческие вопросы и ценности](../themes/behavioral-values.md) · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#beh-stakeholder-priorities)
+- **55. [Расскажите об обратной связи, которую было трудно услышать, и о том, как вы её использовали.](../themes/behavioral-values.md#beh-critical-feedback)**
+  - Поведенческий · Senior · [Поведенческие вопросы и ценности](../themes/behavioral-values.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#beh-critical-feedback)

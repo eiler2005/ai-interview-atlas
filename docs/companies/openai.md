@@ -89,8 +89,13 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 ### [Evaluation and observability](../themes/evals-observability.md)
 
 - **[How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?](../themes/evals-observability.md#eval-hallucination)**
-  - System design · Asked at: [Anthropic](anthropic.md) †, OpenAI †
+  - System design · Asked at: [Anthropic](anthropic.md) †, OpenAI † · ✍ [Answer](../answers/engineering.md#eval-hallucination)
   - Tests: Whether faithfulness to evidence is separated from fluency and general plausibility.
+  - A strong answer covers:
+    - Make the unit a claim checked against the passages actually retrieved for that answer.
+    - Scale labelling with a judge calibrated against a human-labelled sample.
+    - Separate a retrieval failure from an unfaithful generation when attributing the error.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - **[A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?](../themes/evals-observability.md#eval-upgrade-complaint)**
   - Applied scenario · Asked at: OpenAI †
   - Tests: Whether concrete customer failures drive reproduction and remediation.
@@ -223,8 +228,13 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
   - Behavioral · Senior · Asked at: OpenAI †
   - Tests: Whether you understand the other person's perspective and your own part in the conflict.
 - **[Tell me about conflicting stakeholder priorities and how you established alignment.](../themes/behavioral-values.md#beh-stakeholder-priorities)**
-  - Behavioral · Senior · Asked at: OpenAI †
+  - Behavioral · Senior · Asked at: OpenAI † · ✍ [Answer](../answers/leadership.md#beh-stakeholder-priorities)
   - Tests: Whether you make competing objectives explicit and build an actionable agreement.
+  - A strong answer covers:
+    - Name the stakeholders and the objective each was actually measured on.
+    - Show how you surfaced the conflict as a trade-off rather than a personality clash.
+    - End with the agreement, what was given up, and evidence that it held.
+  - Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - **[How do you manage conflict when the situation is urgent?](../themes/behavioral-values.md#beh-conflict-under-urgency)**
   - Applied scenario · Senior · Asked at: OpenAI †
   - Tests: Whether urgency changes the decision process without eliminating respect and accountability.

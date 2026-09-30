@@ -40,7 +40,7 @@
     - Проверить вклад каждого поиска и переранжирования на фиксированном наборе релевантности.
   - Читать: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="rag-reranking"></a>**Где разместить cross-encoder reranker в поисковом пайплайне и когда выигрыш качества оправдывает задержку?**
-  - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-reranking&title=%5BCorrection%5D%20rag-reranking)
+  - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-reranking) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-reranking&title=%5BCorrection%5D%20rag-reranking)
   - Что проверяет: Умение сбалансировать число кандидатов, полноту поиска и стоимость переранжирования.
   - Сильный ответ покрывает:
     - Сначала получить широкий набор кандидатов, затем оценить пары запроса и документа reranker-ом.
@@ -81,8 +81,13 @@
   - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-freshness&title=%5BCorrection%5D%20rag-freshness)
   - Что проверяет: Умение задать гарантии согласованности и измеримый лаг свежести.
 - <a id="rag-citations"></a>**Как связать каждое фактическое утверждение ответа с подтверждающим найденным фрагментом?**
-  - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-citations&title=%5BCorrection%5D%20rag-citations)
+  - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-citations) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-citations&title=%5BCorrection%5D%20rag-citations)
   - Что проверяет: Умение проверять, подтверждает ли ссылка утверждение.
+  - Сильный ответ покрывает:
+    - Привязывать каждое утверждение к идентификатору фрагмента при генерации, а не добавлять ссылки в конце.
+    - Проверять, что процитированный фрагмент влечёт утверждение, до показа ответа.
+    - Определить поведение, когда подтверждения нет: убрать утверждение, помечать как неподтверждённое или отказаться отвечать.
+  - Читать: [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/) (Eugene Yan)
 - <a id="rag-structured-queries"></a>**Пользователь спрашивает число открытых заказов, заблокированных проблемами поставщика. Почему поиск документов может ошибиться и какой механизм должен отвечать?**
   - Прикладной сценарий · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-structured-queries&title=%5BCorrection%5D%20rag-structured-queries)
   - Что проверяет: Умение отличать структурированную агрегацию от семантического поиска.

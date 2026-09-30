@@ -5,7 +5,7 @@
 
 Кодинг, похожий на работу: конкурентность, лимиты, повторы, растущая спецификация, отладка и code review.
 
-На этой странице: [Оба трека (1)](#track-both) · [AI-инженерия (26)](#track-engineering)
+На этой странице: [Оба трека (1)](#track-both) · [AI-инженерия (27)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -64,8 +64,13 @@
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-cosine-search&title=%5BCorrection%5D%20code-cosine-search)
   - Что проверяет: Умение отличать корректный baseline от масштабируемого сервиса.
 - <a id="code-agent-loop"></a>**Реализуйте минимальный агентный runner с проверяемой диспетчеризацией инструментов, обработкой ошибок и жёстким лимитом шагов.**
-  - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-loop&title=%5BCorrection%5D%20code-agent-loop)
+  - Кодинг · ✍ [Ответ](../answers/engineering.md#code-agent-loop) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-loop&title=%5BCorrection%5D%20code-agent-loop)
   - Что проверяет: Умение явно задать состояние цикла и условия завершения.
+  - Сильный ответ покрывает:
+    - Держать состояние цикла явно: сообщения, счётчик шагов, дедлайн, бюджет и причину остановки.
+    - Проверять имя инструмента и аргументы по схеме до вызова; никогда не исполнять незарегистрированный инструмент.
+    - Возвращать ошибки инструментов модели как наблюдения, сохраняя жёсткий предел шагов и времени.
+  - Читать: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="code-transactions"></a>**Реализуйте key-value хранилище в памяти с begin, commit и abort, явно задав поддерживаемую семантику транзакций.**
   - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-transactions&title=%5BCorrection%5D%20code-transactions)
   - Что проверяет: Соответствие отката и видимости чёткому контракту.
@@ -108,5 +113,9 @@
 - <a id="code-agent-session-choices"></a>**На сессии с AI-кодингом объясните, какими моделями пользуетесь и почему, как следите за расходом токенов и как задаёте агенту контекст и задачу.**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
   - Что проверяет: Умение осознанно управлять coding-агентами, а не полагаться на их настройки по умолчанию.
+- <a id="code-ai-assisted-ownership"></a>**На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?**
+  - Прикладной сценарий · Где спрашивали: [Canva](../companies/canva.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-ownership&title=%5BCorrection%5D%20code-ai-assisted-ownership)
+  - Что проверяет: Сохраняются ли ответственность и проверка при делегировании модели в условиях нехватки времени.
+  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 
 ← [Дизайн AI-систем](ai-system-design.md) · [Стратегия и метрики AI-продукта](ai-product-strategy.md) →

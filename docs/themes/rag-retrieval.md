@@ -40,7 +40,7 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
     - Ablate each retriever and reranking on a fixed relevance set.
   - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="rag-reranking"></a>**Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?**
-  - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-reranking&title=%5BCorrection%5D%20rag-reranking)
+  - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-reranking) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-reranking&title=%5BCorrection%5D%20rag-reranking)
   - Tests: Whether candidate count, recall and reranking cost are balanced.
   - A strong answer covers:
     - Retrieve a broad candidate set first, then score query-document pairs with the reranker.
@@ -81,8 +81,13 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
   - System design · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-freshness&title=%5BCorrection%5D%20rag-freshness)
   - Tests: Whether freshness has consistency guarantees and an observable lag.
 - <a id="rag-citations"></a>**How would you connect each factual claim in an answer to the retrieved passage that supports it?**
-  - System design · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-citations&title=%5BCorrection%5D%20rag-citations)
+  - System design · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-citations) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-citations&title=%5BCorrection%5D%20rag-citations)
   - Tests: Whether a citation is checked for support rather than merely attached.
+  - A strong answer covers:
+    - Bind each claim to a passage identifier during generation instead of appending links at the end.
+    - Verify that the cited passage entails the claim before the answer is shown.
+    - Define behaviour when nothing supports a claim: drop it, mark it unsupported or abstain.
+  - Read: [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/) (Eugene Yan)
 - <a id="rag-structured-queries"></a>**A user asks for the count of open orders blocked by supplier issues. Why might document retrieval fail, and what should answer the query?**
   - Applied scenario · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-structured-queries&title=%5BCorrection%5D%20rag-structured-queries)
   - Tests: Whether structured aggregation is separated from semantic retrieval.

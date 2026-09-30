@@ -18,7 +18,7 @@
     - Сравнить и базовый вариант при равном бюджете, и рабочую систему с её реальными ограничениями цены и задержки.
   - Читать: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv)
 - <a id="eval-reasoning-trace-faithfulness"></a>**Краткое объяснение reasoning-модели выглядит убедительно, но ответ следует ложной подсказке. Какие выводы должны сделать оценка и мониторинг?**
-  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-trace-faithfulness&title=%5BCorrection%5D%20eval-reasoning-trace-faithfulness)
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#eval-reasoning-trace-faithfulness) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-trace-faithfulness&title=%5BCorrection%5D%20eval-reasoning-trace-faithfulness)
   - Что проверяет: Умение отличать наблюдаемое объяснение от правильности и достоверного описания вычислений.
   - Сильный ответ покрывает:
     - Оценивать итог и наблюдаемые действия независимо от качества объяснения.
@@ -73,8 +73,13 @@
     - Измерять расхождения и передавать экспертам ненадёжные случаи.
   - Читать: [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) (Zheng et al., arXiv)
 - <a id="eval-hallucination"></a>**Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?**
-  - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-hallucination&title=%5BCorrection%5D%20eval-hallucination)
+  - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#eval-hallucination) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-hallucination&title=%5BCorrection%5D%20eval-hallucination)
   - Что проверяет: Умение отличать опору на источники от беглости и правдоподобия.
+  - Сильный ответ покрывает:
+    - Сделать единицей измерения утверждение, проверенное против фрагментов, реально найденных для этого ответа.
+    - Масштабировать разметку судьёй, откалиброванным на размеченной людьми выборке.
+    - Разделять ошибку поиска и недостоверную генерацию при отнесении причины.
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-contamination"></a>**Как загрязнение бенчмарка искажает оценку и как уменьшить утечку в обучение или подбор модели?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-contamination&title=%5BCorrection%5D%20eval-contamination)
   - Что проверяет: Понимание того, что повторная настройка по тестовому набору создаёт утечку.

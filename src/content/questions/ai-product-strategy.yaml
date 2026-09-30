@@ -384,6 +384,21 @@ questions:
     evidence:
       - source: "exponent-microsoft-ai-pm"
         company: "microsoft"
+    start_here: ["leadership"]
+    priority: 42
+    outline:
+      en:
+        - "Score candidates on volume, a verifiable outcome, tolerance for error and reversibility."
+        - "Separate the value of the action taken from the cost of supervising and correcting it."
+        - "Compare against the cheaper option: a prompt, a fixed workflow or ordinary automation."
+      ru:
+        - "Оценивать сценарии по объёму, проверяемости результата, допустимости ошибки и обратимости."
+        - "Отделять пользу совершённого действия от стоимости надзора и исправлений."
+        - "Сравнивать с более дешёвым вариантом: промптом, фиксированным процессом или обычной автоматизацией."
+    answer:
+      en: "I rank candidates on a few properties rather than on enthusiasm. Volume and repetition, because the payoff is per execution; a verifiable outcome, so success can be checked without a human reading everything; tolerance for error, since an agent will be wrong sometimes and the question is what that costs; and whether the actions are reversible. Support triage, back-office data work and research-and-summarise tasks usually score well; anything irreversible and regulated usually does not. The comparison I insist on is against the cheaper thing: a single prompt, a fixed workflow, or ordinary automation. Autonomy is worth paying for only when the path genuinely varies per case, because agents cost more per task and add supervision, audit and incident work that never appears in the demo. So I would pilot with the hardest measurable slice, and count the human minutes spent correcting it, not just the tasks completed."
+      ru: "Я ранжирую сценарии по нескольким свойствам, а не по энтузиазму. Объём и повторяемость, потому что выгода возникает на каждом исполнении; проверяемый результат, чтобы успех можно было подтвердить без человека, читающего всё; допустимость ошибки, поскольку агент иногда будет неправ и вопрос в цене этого; и обратимость действий. Триаж поддержки, бэк-офисная работа с данными и задачи «найти и обобщить» обычно проходят хорошо; необратимое и регулируемое — обычно нет. Сравнение, на котором я настаиваю, — против более дешёвого варианта: одного промпта, фиксированного процесса или обычной автоматизации. Автономия стоит своих денег лишь тогда, когда путь действительно различается от случая к случаю: агенты дороже на задачу и добавляют надзор, аудит и разбор инцидентов, которых не видно в демо. Поэтому пилот я бы начал с самого трудного измеримого куска и считал минуты человека, ушедшие на исправления, а не только выполненные задачи."
+    reading: ["anthropic-building-effective-agents"]
   - id: "prod-model-choice"
     tracks: ["leadership"]
     roles: ["ai-pm"]
@@ -404,6 +419,21 @@ questions:
     evidence:
       - source: "exponent-microsoft-ai-pm"
         company: "microsoft"
+    start_here: ["leadership"]
+    priority: 41
+    outline:
+      en:
+        - "Fix the task and a quality bar first, then measure candidate models on your own data."
+        - "Compare cost per successful outcome and latency as the user experiences it."
+        - "Add the constraints that disqualify a model: deployment region, data handling, change over time."
+      ru:
+        - "Сначала зафиксировать задачу и планку качества, затем измерить модели-кандидаты на своих данных."
+        - "Сравнить стоимость успешного результата и задержку в том виде, в каком её чувствует пользователь."
+        - "Добавить ограничения, отсекающие модель: регион развёртывания, обращение с данными, изменения со временем."
+    answer:
+      en: "The choice only means something once the task and a quality bar are fixed and then measured on our own examples, not on public leaderboards that rarely resemble the product. With that in place the comparison has four axes that trade against each other: quality on the task, cost, latency, and the constraints that simply disqualify a candidate — where it may be deployed, what may be sent to it, whether the provider retains data. Cost belongs per successful outcome rather than per token, because a cheaper model that needs retries or human correction is often the expensive one, and latency matters as the user feels it, including retrieval and tool calls. The decision is also not permanent: models and prices move, so keeping the evaluation runnable and the integration swappable is worth more than picking this quarter's best model."
+      ru: "Выбор обретает смысл только когда зафиксированы задача и планка качества, а затем измерены на наших собственных примерах, а не на публичных лидербордах, которые редко похожи на продукт. Дальше сравнение идёт по четырём осям, которые конфликтуют между собой: качество на задаче, стоимость, задержка и ограничения, просто отсекающие кандидата, — где его разрешено развернуть, что ему можно отправлять, сохраняет ли провайдер данные. Стоимость считается на успешный результат, а не на токен: более дешёвая модель, требующая повторов или правки человеком, часто и оказывается дорогой. Задержку важно мерить так, как её чувствует пользователь, включая поиск и вызовы инструментов. Решение к тому же не навсегда: модели и цены меняются, поэтому поддерживать оценку воспроизводимой, а интеграцию заменяемой ценнее, чем выбрать лучшую модель этого квартала."
+    reading: ["openai-reasoning-models"]
   - id: "prod-new-search-feature"
     tracks: ["leadership"]
     type: "product_case"
@@ -519,6 +549,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "perplexity"
+    start_here: ["leadership"]
+    priority: 44
+    outline:
+      en:
+        - "Split queries by task: navigation, a single fact, comparison across sources, open exploration."
+        - "Judge an answer by whether its evidence is checkable, current and correctly attributed."
+        - "Name the first improvement and the metric that would show it worked."
+      ru:
+        - "Разделить запросы по задачам: навигация, один факт, сравнение источников, открытое исследование."
+        - "Оценивать ответ по проверяемости, свежести и правильной атрибуции доказательств."
+        - "Назвать первое улучшение и метрику, которая покажет его результат."
+    answer:
+      en: "The comparison only works per task. An answer engine wins where the user's job is synthesis: a question whose answer is spread across several sources, a comparison, an unfamiliar topic they cannot yet phrase as keywords; one pass replaces five tabs. Classic search still wins navigation, where the user knows the destination and a link is faster than a paragraph; queries needing the freshest state; and anything where the user must judge the source themselves, because an answer flattens away who said it and when. The failure mode is confident synthesis over weak evidence, which search never claimed to do. So I would improve attribution first: claim-level citations the user can verify at a glance, and visible recency, measured by how often people open a cited source and how often they reformulate instead. If the answer is right but unverifiable, enterprise and research users will not trust it."
+      ru: "Сравнивать имеет смысл только по задачам. Сервис ответов выигрывает там, где работа пользователя — синтез: ответ размазан по нескольким источникам, нужно сравнение, тема незнакома и её пока не выразить ключевыми словами; один проход заменяет пять вкладок. Обычный поиск по-прежнему выигрывает навигацию, где пользователь знает адрес и ссылка быстрее абзаца; запросы, требующие самого свежего состояния; и всё, где источник человек должен оценить сам, потому что ответ стирает, кто это сказал и когда. Характерный провал — уверенный синтез на слабых доказательствах, чего поиск никогда и не обещал. Поэтому первым я бы улучшал атрибуцию: ссылки на уровне утверждений, проверяемые одним взглядом, и видимую свежесть, с метриками — как часто открывают процитированный источник и как часто вместо этого переформулируют запрос. Если ответ верен, но непроверяем, корпоративные и исследовательские пользователи ему не поверят."
+    reading: ["paper-rag"]
   - id: "prod-impactful-product"
     tracks: ["leadership"]
     type: "self_presentation"
@@ -553,6 +598,21 @@ questions:
       - source: "habr-ai-pm-enterprise-interviewer"
         role: "ai-pm"
     added: "2026-09-29"
+    start_here: ["leadership"]
+    priority: 43
+    outline:
+      en:
+        - "Name the cost stack per account: inference, retrieval and storage, evaluation, human support."
+        - "Choose a price metric the customer can predict and you can defend as volume grows."
+        - "Treat per-client customisation as recurring cost, and price or productise it deliberately."
+      ru:
+        - "Назвать структуру затрат на аккаунт: инференс, поиск и хранение, оценку качества, поддержку людьми."
+        - "Выбрать метрику цены, предсказуемую для клиента и защитимую при росте объёма."
+        - "Считать кастомизацию под клиента повторяющимися затратами и осознанно продавать её или продуктизировать."
+    answer:
+      en: "Enterprise AI pricing is a margin question disguised as a value question, so I start with the cost stack per account: inference, including retries and evaluation tokens; retrieval, indexing and storage of their corpus; the human cost of onboarding, support and incidents; and engineering time spent keeping their configuration alive. Then the price metric: seats are predictable for the buyer but decouple revenue from usage, while consumption tracks cost and frightens procurement, so a common answer is a platform fee plus metered usage with a committed floor. Customisation is where margin actually disappears. A bespoke integration or a client-specific eval set is not a one-off but a recurring obligation that every model upgrade reopens, so I would price it separately or refuse it until it can be productised. I would watch gross margin per account rather than blended, because averages hide the accounts that lose money."
+      ru: "Цена корпоративного AI-продукта — вопрос маржи, замаскированный под вопрос ценности, поэтому я начинаю со структуры затрат на аккаунт: инференс, включая повторы и токены самой оценки качества; поиск, индексация и хранение их корпуса; человеческая стоимость внедрения, поддержки и разбора инцидентов; инженерное время на поддержание их конфигурации. Затем метрика цены: места предсказуемы для покупателя, но отвязывают выручку от использования, а потребление следует за затратами и пугает закупки, поэтому частый ответ — платформенный платёж плюс тарифицируемое использование с обязательным минимумом. Маржа же по-настоящему исчезает в кастомизации. Индивидуальная интеграция или набор оценок под клиента — не разовая работа, а повторяющееся обязательство, которое заново вскрывается при каждом обновлении модели, поэтому я бы продавал её отдельно или отказывался до продуктизации. Смотреть я бы стал на валовую маржу по каждому аккаунту, а не на смешанную: средние скрывают убыточных клиентов."
+    reading: ["oreilly-year-of-llms"]
   - id: "prod-enterprise-discovery"
     tracks: ["leadership"]
     roles: ["ai-pm"]

@@ -263,6 +263,21 @@ questions:
         company: "anthropic"
         role: "forward-deployed-engineer"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 53
+    outline:
+      en:
+        - "Authenticate per key with scopes, and meter tokens and concurrency rather than requests alone."
+        - "Stream incrementally with request ids, and define client behaviour on mid-stream failure."
+        - "Evolve the contract additively, with versioning, deprecation windows and published limits."
+      ru:
+        - "Аутентифицировать по ключу с областями доступа и считать токены и параллельность, а не только запросы."
+        - "Отдавать поток инкрементально с идентификаторами запроса и определить поведение клиента при обрыве."
+        - "Развивать контракт аддитивно: версионирование, окна устаревания и опубликованные лимиты."
+    answer:
+      en: "This endpoint is a contract other people build on, so every decision must survive clients I cannot upgrade. Authentication is per key with scopes and rotation; quotas meter tokens and concurrency, not just request counts, because one long generation costs more than a thousand short ones, and a rejection returns remaining budget and a retry hint rather than a bare error. Streaming needs its own contract: incremental events carrying a request id, an explicit terminal event, and defined behaviour when the stream dies mid-answer, since a truncated reply is not safe to retry blindly. Compatibility comes from additive change — new optional fields, versioned model names, deprecation windows backed by usage telemetry. The hard part is that model behaviour is not versionable the way a schema is: identical requests drift over time, so the promise must cover the interface and documented limits, never identical output."
+      ru: "Этот endpoint — контракт, на котором строят другие, поэтому каждое решение должно пережить клиентов, которых я не могу обновить. Аутентификация — по ключу с областями доступа и ротацией; квоты считают токены и параллельность, а не только число запросов, потому что одна длинная генерация дороже тысячи коротких, а отказ возвращает остаток бюджета и подсказку о повторе, а не сухую ошибку. Потоку нужен свой контракт: инкрементальные события с идентификатором запроса, явное завершающее событие и описанное поведение при обрыве посреди ответа, поскольку усечённый ответ нельзя слепо повторять. Совместимость даёт аддитивность: новые необязательные поля, версионированные имена моделей, окна устаревания с телеметрией использования. Трудность в том, что поведение модели не версионируется так, как схема: одинаковые запросы со временем дрейфуют, поэтому обещание должно покрывать интерфейс и описанные лимиты, но никогда не идентичный вывод."
+    reading: ["stripe-rate-limiters"]
   - id: "sd-webhooks"
     tracks: ["engineering"]
     type: "system_design"

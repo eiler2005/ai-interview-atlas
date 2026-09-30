@@ -89,6 +89,21 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    start_here: ["leadership"]
+    priority: 45
+    outline:
+      en:
+        - "Move measurement into the customer's environment and return aggregates, not their content."
+        - "Have the customer's own reviewers label a sample against a rubric you supply and audit."
+        - "Build a public or synthetic proxy set shaped like their tasks, and state what it cannot show."
+      ru:
+        - "Перенести измерение в среду клиента и возвращать агрегаты, а не их содержимое."
+        - "Поручить разметку выборки ревьюерам клиента по рубрике, которую вы даёте и проверяете."
+        - "Собрать публичный или синтетический прокси-набор под их задачи и назвать его ограничения."
+    answer:
+      en: "If I cannot see the data, I move the measurement to where the data lives and bring back numbers. The evaluation harness runs inside the customer's environment, computing scores, failure categories and counts, and exports aggregates with a minimum cell size — never examples or transcripts. Labels come from their people, not mine: I supply the rubric and the sampling plan, and I audit agreement between their reviewers, because a rubric applied inconsistently is worse than no rubric. Alongside that I build a proxy set from public or synthetic documents shaped like their corpus, which is what I iterate against daily. The trade-off is honest: proxy data misses exactly the distribution that breaks in production, and aggregates tell me a category is failing without showing me why. So I also negotiate a narrow escalation path — a redacted or customer-approved example when a defect needs diagnosis, rather than standing access."
+      ru: "Если я не вижу данные, я переношу измерение туда, где они живут, и забираю оттуда только числа. Харнесс оценки работает внутри среды клиента, считает оценки, категории сбоев и количества, а наружу отдаёт агрегаты с минимальным размером ячейки — никогда примеры и расшифровки. Разметку делают их люди, а не мои: я даю рубрику и план выборки, а затем проверяю согласованность между их ревьюерами, потому что рубрика, применяемая по-разному, хуже отсутствия рубрики. Рядом я собираю прокси-набор из публичных или синтетических документов, похожих на их корпус, — именно на нём идёт ежедневная работа. Компромисс честный: прокси-данные упускают ровно то распределение, которое ломается в продакшене, а агрегаты сообщают, что категория сбоит, не показывая почему. Поэтому я отдельно договариваюсь об узком канале эскалации: обезличенный или согласованный клиентом пример, когда дефект требует диагностики, вместо постоянного доступа."
+    reading: ["anthropic-evals-for-agents"]
   - id: "ops-shared-data-access"
     tracks: ["engineering","leadership"]
     type: "system_design"

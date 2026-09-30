@@ -16,7 +16,7 @@ AI в платежах, банках и других регулируемых о
     - Явно представьте намерение пользователя и ограничения операции, включая сумму и получателя.
     - Проверяйте полномочия при выполнении; запрашивайте новое подтверждение изменений за пределами разрешения.
     - Сохраняйте аудиторский след и различайте подтверждение полномочий и успешное завершение расчётов.
-  - Читать: [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) (AP2 project)
+  - Читать: [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) (AP2 project) · [Agentic Commerce Protocol](https://docs.stripe.com/agentic-commerce/acp) (Stripe Documentation) · [Universal Commerce Protocol (UCP)](https://ucp.dev/) (UCP project)
 - <a id="pay-ambiguous-timeout"></a>**AI-агент поддержки инициировал возврат, после чего платёжный API не ответил вовремя. Как восстановить работу без двойного возврата?**
   - System design · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#pay-ambiguous-timeout) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-ambiguous-timeout&title=%5BCorrection%5D%20pay-ambiguous-timeout)
   - Что проверяет: Рассматриваете ли вы неизвестный исход как задачу сверки, а не повод бездумно повторить операцию.
@@ -41,6 +41,6 @@ AI в платежах, банках и других регулируемых о
     - Определите решения, затронутых клиентов и границы полномочий ассистента.
     - Оцените типичные случаи и опасные ошибки, включая принятие и отмену рекомендаций сотрудниками.
     - Зафиксируйте владельцев, мониторинг, эскалацию и контролируемое расширение; отдельно проверьте применимые требования юрисдикции.
-  - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
+  - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) (Board of Governors of the Federal Reserve System)
 
 ← [Прикладные и клиентские сценарии](applied-scenarios.md) · [Поведенческие вопросы и ценности](behavioral-values.md) →

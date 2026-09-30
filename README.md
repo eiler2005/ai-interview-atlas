@@ -15,17 +15,17 @@ English · [Русский](README.ru.md)
 
 Two tracks — AI Engineering and AI Leadership — with company interview guides and answer checklists. Each reported question cites its evidence; the markers distinguish company confirmation, candidate reports and secondary compilations. Generated practice questions are labelled separately.
 
-Of 277 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 15 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](docs/sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 16 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](docs/sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
 
 Released PDF books are dated snapshots for offline reading. The website may contain newer questions and guides; check the release date before using a book as the current edition.
 
 ## What is inside
 
-- **292 questions** across 17 themes: 224 for engineering, 154 for leadership. Each says what it tests.
-- **80 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
-- **28 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
+- **294 questions** across 17 themes: 225 for engineering, 155 for leadership. Each says what it tests.
+- **110 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
+- **29 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
 - **6 role pages** in the [AI roles guide](docs/AI_ROLES.md): what each role involves, how it is interviewed and which questions to practise.
-- **158 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
+- **160 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
 - **A requirements radar** built from real job postings: what employers actually ask for, by theme.
 
 ## Why this one
@@ -70,10 +70,10 @@ Questions reported at two or more companies, strongest basis first.
 | [Safety, security and governance](docs/themes/safety-security-governance.md) | 10 | 18 |
 | [Multimodal and voice](docs/themes/multimodal-voice.md) | 14 | 1 |
 | [AI system design](docs/themes/ai-system-design.md) | 16 | 5 |
-| [Practical coding](docs/themes/coding-practical.md) | 27 | 1 |
+| [Practical coding](docs/themes/coding-practical.md) | 28 | 1 |
 | [AI product strategy and metrics](docs/themes/ai-product-strategy.md) | 0 | 23 |
 | [AI platform and operating model](docs/themes/ai-operating-model.md) | 3 | 4 |
-| [Leading engineering teams](docs/themes/engineering-leadership.md) | 1 | 18 |
+| [Leading engineering teams](docs/themes/engineering-leadership.md) | 1 | 19 |
 | [Programmes and delivery](docs/themes/program-delivery.md) | 4 | 12 |
 | [Applied and customer scenarios](docs/themes/applied-scenarios.md) | 20 | 21 |
 | [Payments and regulated domains](docs/themes/domain-payments-fintech.md) | 4 | 5 |
@@ -86,6 +86,7 @@ Questions reported at two or more companies, strongest basis first.
 | [Anthropic](docs/companies/anthropic.md) | Frontier AI labs | International | required | 39 | 2026-09-26 |
 | [OpenAI](docs/companies/openai.md) | Frontier AI labs | International | unknown | 31 | 2026-09-26 |
 | [Amazon](docs/companies/amazon.md) | Big Tech | International | unknown | 12 | 2026-09-26 |
+| [Canva](docs/companies/canva.md) | Big Tech | International | required | 1 | 2026-09-30 |
 | [Google and Google DeepMind](docs/companies/google.md) | Big Tech | International | varies by role | 18 | 2026-09-26 |
 | [Meta](docs/companies/meta.md) | Big Tech | International | varies by role | 20 | 2026-09-26 |
 | [Microsoft](docs/companies/microsoft.md) | Big Tech | International | varies by role | 15 | 2026-09-26 |

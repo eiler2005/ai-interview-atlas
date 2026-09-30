@@ -127,4 +127,4 @@
   - Поведенческий · Senior · Где спрашивали: Amazon †
   - Что проверяет: Учитываете ли вы последствия за пределами собственного результата работы.
 
-← [OpenAI](openai.md) · [Google и Google DeepMind](google.md) →
+← [OpenAI](openai.md) · [Canva](canva.md) →

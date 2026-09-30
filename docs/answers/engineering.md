@@ -5,7 +5,7 @@ English · [Русский](../ru/answers/engineering.md) · [AI Interview Atlas
 
 Written answers to the priority questions of this track, in the same order and numbering as *Start here*. Answer each question yourself first: what follows is one good answer, not the only correct one, and an interviewer is listening to your reasoning rather than checking your wording.
 
-Answers written: 40 of 40.
+Answers written: 55 of 55.
 
 ## <a id="contents"></a>Contents
 
@@ -15,6 +15,8 @@ Answers written: 40 of 40.
   - [3. Compare multi-head, multi-query and grouped-query attention in quality and serving memory.](#llm-grouped-query)
   - [4. Under a fixed training compute budget, how do Chinchilla-style scaling results change the balance between model size and training tokens?](#llm-compute-optimal)
   - [5. How would you test and reduce a model's tendency to miss relevant evidence in the middle of a long context?](#llm-context-position)
+  - [41. How does sparse expert routing increase parameter capacity, and what costs remain despite activating only some experts?](#llm-experts)
+  - [42. Explain how latent attention compresses the KV representation and what must be reconstructed at inference.](#llm-latent-attention)
 - **Inference, serving and cost**
   - [6. Contrast prefill with autoregressive decode and explain when compute or memory bandwidth becomes the bottleneck.](#inf-prefill-decode)
   - [7. Explain iteration-level batching and how requests enter and leave a running inference batch.](#inf-continuous-batching)
@@ -22,18 +24,26 @@ Answers written: 40 of 40.
   - [9. Estimate a serving memory budget for a 70-billion-parameter model, explicitly choosing precision, context and concurrency assumptions.](#inf-memory-budget)
   - [10. You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable.](#inf-cost-reduction)
   - [11. After a deployment, p99 latency doubles although model weights are unchanged. How do you isolate the cause?](#inf-tail-regression)
+  - [43. What makes a prompt prefix reusable, and which changes invalidate or reduce the value of a prefix cache?](#inf-prefix-cache)
+  - [44. How does paging the KV cache reduce waste, and what remains for the scheduler to solve?](#inf-paged-cache)
+  - [45. A service can spend more on one reasoning run or generate several candidates and verify them. How would you allocate compute under a latency deadline?](#inf-reasoning-budget)
 - **RAG and retrieval**
   - [12. Choose a chunking approach for technical documentation, including how you preserve meaning across section boundaries.](#rag-chunking)
   - [13. When would you combine lexical and dense retrieval, and how would you merge their rankings?](#rag-hybrid)
   - [14. How would you separately evaluate document retrieval and answer generation in a RAG application?](#rag-stage-evaluation)
   - [15. Design retrieval that enforces the source system's access rights, including permission changes and shared caches.](#rag-permissions)
   - [16. Compare exact search, HNSW and IVF-PQ for an embedding index under memory, recall and latency constraints.](#rag-ann-index)
+  - [46. Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?](#rag-reranking)
+  - [47. How would you connect each factual claim in an answer to the retrieved passage that supports it?](#rag-citations)
 - **Agents, tools and protocols**
   - [17. What does interleaving reasoning with tool observations add to a language-model agent compared with reasoning alone?](#agt-react)
   - [18. Design recovery from tool errors and timeouts, including cases where a timed-out call may already have changed external state.](#agt-retries)
   - [19. How would you select, name and document tools so that a model chooses the right operation and arguments?](#agt-tool-surface)
   - [20. Define completion and stopping conditions for an agent loop so it cannot spend indefinitely on an unfinished task.](#agt-termination)
   - [21. Design human approval for consequential agent actions, including how approval remains bound to the exact action being executed.](#agt-approval)
+  - [48. What does MCP standardise between an AI application and an external service that a model's function-call format does not?](#agt-mcp)
+  - [49. Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?](#agt-memory)
+  - [50. When does splitting work among agents improve results, and when do coordination costs dominate?](#agt-multi-agent)
 - **Fine-tuning and post-training**
   - [22. Walk through a preference-based RLHF pipeline and explain the roles of the reward model and reference-policy penalty.](#pt-rlhf)
   - [23. Compare DPO with PPO-based RLHF, including the assumptions behind offline preference learning and reasons to collect fresh rollouts.](#pt-dpo)
@@ -46,18 +56,23 @@ Answers written: 40 of 40.
   - [29. Benchmark results improve but users report a worse product. What hypotheses would you test first?](#eval-benchmark-mismatch)
   - [30. Design observability for a production LLM workflow: which spans, versions, costs and feedback should be linked?](#eval-traces)
   - [31. How should evaluation of a tool-using agent differ from grading one generated response?](#eval-agent-outcomes)
+  - [51. How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?](#eval-hallucination)
+  - [52. A reasoning summary looks sound, but the answer follows a misleading hint. What should an evaluation and monitoring system conclude?](#eval-reasoning-trace-faithfulness)
 - **Multimodal and voice**
   - [32. Compare projection layers, cross-attention and token-based integration for giving a language model access to images.](#mm-visual-input)
   - [33. How would you improve and evaluate speech recognition for mixed-language utterances and different accents?](#mm-accents)
+  - [54. Build an end-to-end latency budget for a voice agent, from detecting the end of speech to playing its reply.](#mm-latency)
 - **AI system design**
   - [34. Design a knowledge assistant over ten million enterprise documents with per-user permissions and a continuously changing corpus.](#sd-enterprise-rag)
   - [35. Design an LLM gateway with provider routing, failover, caching, rate limits and enforceable spending budgets.](#sd-gateway)
   - [36. Design a customer-support agent that can execute service actions and transfer the case to a human when needed.](#sd-support-agent)
   - [37. Design a streaming chat service for hundreds of millions of users, including capacity, conversation storage and graceful overload behaviour.](#sd-consumer-chat)
+  - [53. Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.](#sd-model-api)
 - **Practical coding**
   - [38. Implement scaled dot-product attention with a causal mask and tests that would expose attention to future tokens.](#code-causal-attention)
   - [39. Implement a token-bucket limiter and explain what must change when several workers enforce the same limit.](#code-token-bucket)
   - [40. Write an asynchronous API batch processor with bounded concurrency, retry jitter and isolated per-item failures.](#code-async-batches)
+  - [55. Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.](#code-agent-loop)
 
 ### <a id="llm-attention"></a>1. Derive scaled dot-product attention and explain how its scale affects softmax gradients.
 
@@ -456,5 +471,155 @@ Read: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiter
 I use an input queue, a semaphore on the number of concurrent requests, a wrapper around each item that catches its own exceptions and returns either a result or an error, and collection of all outcomes in input order. Cancellation and an overall deadline are passed inward, so that when time runs out the in-flight requests are cancelled too, not only those waiting in the queue. Retry only what is sensible to retry: timeouts, network failures, rate limit responses and server errors, with bounded attempts, exponential backoff and jitter, since without spread the clients synchronise and hit in a wave. For unsafe methods a retry needs an idempotency key, otherwise you get duplicates. One item's failure must not sink the batch, so I return a status per input. I'd test partial success, a permanent error, the deadline firing, and cancellation halfway. Client retries amplify overload, so the cap is mandatory.
 
 Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
+
+[↑ Contents](#contents)
+
+### <a id="llm-experts"></a>41. How does sparse expert routing increase parameter capacity, and what costs remain despite activating only some experts?
+
+*Knowledge · [LLM fundamentals](../themes/llm-fundamentals.md) · [Checklist](../themes/llm-fundamentals.md#llm-experts)*
+
+Routing buys capacity, not free scale: the model holds far more parameters while any one token is computed by only a few of them. A router scores experts per token and sends it to the top few, so arithmetic grows with the experts activated rather than the total, and quality improves as experts specialise. Memory does not shrink: every expert's weights stay resident, and in distributed serving tokens travel to the device holding their expert, putting an all-to-all exchange on the critical path. I would measure tokens per expert to expose imbalance, the share dropped when an expert hits its capacity limit, and the all-to-all share of step time, judging quality against a dense model of the same active size. The argument holds only while routing stays balanced and batches are large enough to amortise that exchange.
+
+Read: [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961)
+
+[↑ Contents](#contents)
+
+### <a id="llm-latent-attention"></a>42. Explain how latent attention compresses the KV representation and what must be reconstructed at inference.
+
+*Knowledge · [LLM fundamentals](../themes/llm-fundamentals.md) · [Checklist](../themes/llm-fundamentals.md#llm-latent-attention)*
+
+Latent attention changes what you store, not how precisely you store it. Keys and values are projected down to a single low-rank latent vector per token, and that latent is what the cache holds; during attention it is projected back up to per-head keys and values, with the positional part handled separately. Cache bytes per token therefore fall by about the compression ratio, paid for with extra projection work on every decode step and more intricate kernels. I would measure cache bytes per token, the context length and batch size reachable within the same memory, decode throughput, and quality against a grouped-query baseline at an equal cache budget. The distinction matters because quantisation lowers the precision of the same tensors: the two compose, and treating them as one saving counts it twice. The gain is real only when the KV cache, not the weights, is what bounds you.
+
+Read: [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434)
+
+[↑ Contents](#contents)
+
+### <a id="inf-prefix-cache"></a>43. What makes a prompt prefix reusable, and which changes invalidate or reduce the value of a prefix cache?
+
+*Knowledge · [Inference, serving and cost](../themes/inference-economics.md) · [Checklist](../themes/inference-economics.md#inf-prefix-cache)*
+
+Reuse is exact and token-level, not semantic: the cache holds attention state for a prefix, and a request reuses it only while its tokens match from position zero under the same model version, precision and parallel layout. One changed character near the start invalidates everything after it, which dictates prompt layout — system rules, tool definitions and long documents first; the user turn, timestamps, retrieved snippets and per-request identifiers last. Cache memory competes with the KV cache of live requests, and entries expire, so I would measure hit rate, the share of prefill tokens served from cache, time to first token with and without it, and cost per request. Two limits: caching removes prefill work only, so a short-prompt long-answer workload gains almost nothing, and entries must be scoped per tenant, because a prefix shared across tenants leaks their content.
+
+Read: [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+
+[↑ Contents](#contents)
+
+### <a id="inf-paged-cache"></a>44. How does paging the KV cache reduce waste, and what remains for the scheduler to solve?
+
+*Knowledge · [Inference, serving and cost](../themes/inference-economics.md) · [Checklist](../themes/inference-economics.md#inf-paged-cache)*
+
+Paging attacks fragmentation, not scarcity. If each request reserves one contiguous span sized for the longest answer it might produce, most of that reservation sits idle, and the free memory left over is unusable because it is scattered, so concurrency collapses well before the device is full. Paging stores the cache in fixed-size blocks with a per-request table mapping logical positions to physical blocks, so growth is incremental, internal waste is bounded by one partly filled block, and identical prefixes or parallel samples can point at shared blocks copied only on write. What it leaves untouched is policy: who is admitted when blocks run out, whose blocks are evicted or recomputed, and how long a request may wait. I would measure achieved batch size, the share of memory actually holding live tokens, preemption rate and p99 latency — paging widens the pipe, and a poor scheduler can still starve requests.
+
+Read: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
+
+[↑ Contents](#contents)
+
+### <a id="inf-reasoning-budget"></a>45. A service can spend more on one reasoning run or generate several candidates and verify them. How would you allocate compute under a latency deadline?
+
+*Applied scenario · [Inference, serving and cost](../themes/inference-economics.md) · [Checklist](../themes/inference-economics.md#inf-reasoning-budget)*
+
+I would treat this as an empirical allocation question, not a preference. On the same held-out tasks I would run one long reasoning pass and a sample-and-verify strategy at several budgets, then compare success per unit of spend and per unit of wall-clock time, counting the verifier's own tokens and latency as part of the cost: a verifier that doubles latency can lose on a deadline it would win on cost. Sampling parallelises, so it often fits a deadline that a single long pass misses, but it only helps when a cheap check can tell candidates apart; without that, extra candidates add spend and no accuracy. Because gains concentrate in harder tasks, I would route by an observable feature available before the answer exists, never by correctness. Then a hard token and time ceiling with a defined fallback, reporting spend per successful task and deadline misses.
+
+Read: [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices)
+
+[↑ Contents](#contents)
+
+### <a id="rag-reranking"></a>46. Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?
+
+*Knowledge · [RAG and retrieval](../themes/rag-retrieval.md) · [Checklist](../themes/rag-retrieval.md#rag-reranking)*
+
+A cross-encoder belongs after a cheap retriever and before generation, scoring query-document pairs for a shortlist rather than the corpus: it reads the query and passage together, which is what makes it more accurate than comparing two independent embeddings, and also what makes it too slow to run over everything. The pipeline's ceiling is therefore the first stage's recall — a reranker cannot promote a document that was never fetched, so I measure recall at the candidate depth separately from final answer quality, otherwise a first-stage miss looks like a reranker failure. Tuning is a sweep: candidate count and final context size against held-out answer quality and end-to-end latency, watching the point where extra candidates stop changing the top results. The gain justifies the latency when relevance is genuinely the bottleneck; if answers fail because the corpus lacks the fact, reranking buys nothing.
+
+Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval)
+
+[↑ Contents](#contents)
+
+### <a id="rag-citations"></a>47. How would you connect each factual claim in an answer to the retrieved passage that supports it?
+
+*System design · [RAG and retrieval](../themes/rag-retrieval.md) · [Checklist](../themes/rag-retrieval.md#rag-citations)*
+
+The point is that attaching a source is not evidence of support, so I design for claim-level attribution and then verify it. Generation emits each factual sentence with the identifier of the passage it used, ideally with character offsets, which keeps the binding checkable instead of a bibliography appended at the end. A separate verification step then asks whether the cited passage actually entails the claim — an entailment model or a second-pass judge, calibrated against a human-labelled sample, because a judge that rubber-stamps is worse than no check. Claims that fail get dropped, marked unsupported, or trigger abstention, and I measure the share of sentences with a verified citation, precision of citations on a labelled set, and how often the system abstains. The limit is that entailment only proves the passage says it; if retrieval surfaced a stale document, a perfectly supported claim can still be false.
+
+Read: [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/)
+
+[↑ Contents](#contents)
+
+### <a id="agt-mcp"></a>48. What does MCP standardise between an AI application and an external service that a model's function-call format does not?
+
+*Knowledge · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-mcp)*
+
+A function-call format describes only the shape of the arguments a model emits. It says nothing about where the tool lives, how the application learns the tool exists, or how the result comes back. MCP standardises that surrounding layer — a client-server handshake, capability discovery, and typed primitives for tools, resources and prompts over a defined transport — so the same server works with any compliant application and a tool can be added without changing the model or redeploying the client. Execution and authority stay outside the model: the client still decides which servers are connected and what each may do. I would judge it by how much integration code disappears per new tool. The trade-off is the trust boundary it creates: a connected server contributes tool descriptions and returns content, both of which reach the context as untrusted input, so a third-party server is a supply-chain and prompt-injection surface.
+
+Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification)
+
+[↑ Contents](#contents)
+
+### <a id="agt-memory"></a>49. Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?
+
+*System design · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-memory)*
+
+I start by separating two things that get conflated: the working context of one session, which is a window I fill and discard, and durable state, which is a store with its own lifecycle. Only a small, deliberate subset should graduate — stable user preferences, decisions and their rationale, confirmed task outcomes — each written with provenance and a timestamp so it can be corrected or superseded rather than silently accumulated. Retrieval is then a query against the current task, not a dump of everything remembered, because injecting all history recreates the context problem it was meant to solve. Forgetting is a feature: expiry for time-sensitive facts, supersession when a newer statement contradicts an older one. I would measure whether recalled items were actually used, and how often stale memory causes an error. The danger is a confident wrong memory, which is harder to notice than no memory at all.
+
+Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+
+[↑ Contents](#contents)
+
+### <a id="agt-multi-agent"></a>50. When does splitting work among agents improve results, and when do coordination costs dominate?
+
+*Knowledge · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-multi-agent)*
+
+Splitting helps when the work genuinely decomposes: subtasks that can run without seeing each other's intermediate state, and whose results a synthesis step can combine — broad search over many sources is the clean case, because breadth is parallel and each branch is independent. It stops helping when agents must agree as they go. Every handoff is a lossy summary through natural language, so shared mutable state produces conflicting edits, duplicated effort and contradictory findings that someone has to reconcile. I would define delegation boundaries and completion criteria per subagent, then make synthesis an explicit step that surfaces disagreement rather than averaging it away. The honest comparison is against one agent given the same total token budget, counting duplicate work, coordination failures, cost and wall-clock latency. Multi-agent often wins latency and loses cost, and if a task is inherently sequential, coordination overhead is pure loss.
+
+Read: [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
+
+[↑ Contents](#contents)
+
+### <a id="eval-hallucination"></a>51. How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?
+
+*System design · [Evaluation and observability](../themes/evals-observability.md) · [Checklist](../themes/evals-observability.md#eval-hallucination)*
+
+Fluency is not the signal, so I measure faithfulness against the evidence the system actually retrieved, not against the world. The unit is a claim: decompose the answer into separate statements and label each supported, contradicted or unsupported by the retrieved passages. That judgement scales with an LLM judge, but only after I calibrate it against a human-labelled sample, because an uncalibrated judge inherits the same plausibility bias I am trying to detect. Attribution matters as much as the rate: if the supporting passage was never retrieved, that is a retrieval defect, and improving the prompt will not fix it. On live traffic I would sample by segment rather than uniformly, since failures cluster in thin or ambiguous parts of the corpus. The limit is that a claim faithful to a retrieved passage can still be wrong if the source is stale, so faithfulness bounds but does not prove correctness.
+
+Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/)
+
+[↑ Contents](#contents)
+
+### <a id="eval-reasoning-trace-faithfulness"></a>52. A reasoning summary looks sound, but the answer follows a misleading hint. What should an evaluation and monitoring system conclude?
+
+*Applied scenario · [Evaluation and observability](../themes/evals-observability.md) · [Checklist](../themes/evals-observability.md#eval-reasoning-trace-faithfulness)*
+
+The conclusion is that the explanation is not evidence about the computation. A summary that reads well while the answer tracks a planted hint tells you the account is unfaithful, not that the model reasoned well and slipped. So the system should score what it can observe — final answers, tool calls, actions taken — independently of how coherent the narration looks, and never let a plausible summary raise confidence in a wrong result. The diagnostic I would build is paired: run otherwise identical tasks with and without the misleading hint, then measure two things separately, how often the answer moves with the hint, and how often the explanation admits the hint influenced it. A wide gap is the faithfulness signal. In monitoring, treat traces and summaries as useful, incomplete hints for triage. They are not a window into hidden reasoning, so a clean trace is not a safety guarantee.
+
+Read: [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410)
+
+[↑ Contents](#contents)
+
+### <a id="sd-model-api"></a>53. Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.
+
+*System design · [AI system design](../themes/ai-system-design.md) · [Checklist](../themes/ai-system-design.md#sd-model-api)*
+
+This endpoint is a contract other people build on, so every decision must survive clients I cannot upgrade. Authentication is per key with scopes and rotation; quotas meter tokens and concurrency, not just request counts, because one long generation costs more than a thousand short ones, and a rejection returns remaining budget and a retry hint rather than a bare error. Streaming needs its own contract: incremental events carrying a request id, an explicit terminal event, and defined behaviour when the stream dies mid-answer, since a truncated reply is not safe to retry blindly. Compatibility comes from additive change — new optional fields, versioned model names, deprecation windows backed by usage telemetry. The hard part is that model behaviour is not versionable the way a schema is: identical requests drift over time, so the promise must cover the interface and documented limits, never identical output.
+
+Read: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters)
+
+[↑ Contents](#contents)
+
+### <a id="mm-latency"></a>54. Build an end-to-end latency budget for a voice agent, from detecting the end of speech to playing its reply.
+
+*System design · [Multimodal and voice](../themes/multimodal-voice.md) · [Checklist](../themes/multimodal-voice.md#mm-latency)*
+
+I budget to the first audible sound, because that is what a caller perceives as responsiveness, and I enumerate every stage before it: end-of-turn detection, final transcription, model time to first token, enough text to synthesise a first chunk, synthesis, network transport and client buffering. The largest and least obvious term is usually turn detection — waiting for silence to be confident the user finished — and it trades directly against interruptions: shorten it and the agent talks over people, lengthen it and the agent feels slow. Streaming is what makes the sum survivable, since transcription, generation and synthesis overlap instead of queueing, so I track each stage's contribution separately and set a median and a p95 target, because the tail is what callers remember. A budget only holds under load, so I also define degradation: a shorter reply, a filler acknowledgement, or a cheaper voice when a stage overruns.
+
+Read: [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/)
+
+[↑ Contents](#contents)
+
+### <a id="code-agent-loop"></a>55. Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.
+
+*Coding · [Practical coding](../themes/coding-practical.md) · [Checklist](../themes/coding-practical.md#code-agent-loop)*
+
+I would make the loop's state an explicit object — message history, step counter, deadline, budget and a termination reason — because agent-runner bugs are almost always implicit state in control flow. Each iteration asks the model for one action, and dispatch goes through a registry: resolve the tool by name, reject anything unregistered, validate arguments against its schema, then call it. An unknown tool or bad argument is not a crash but an observation returned to the model so it can correct itself, while genuine infrastructure failures retry under a bounded policy. Termination must be reachable several ways — a final answer, the step limit, the deadline, the budget, an unrecoverable error — and the runner records which one fired. I would test the limit path and an always-failing tool: an agent that cannot stop is the expensive failure. It omits approval for consequential actions and persistence across restarts.
+
+Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents)
 
 [↑ Contents](#contents)

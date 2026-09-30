@@ -63,10 +63,20 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (8)](#track-leade
   - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-dependency-slip&title=%5BCorrection%5D%20prog-dependency-slip)
   - Tests: Whether you quantify dependency impact and present actionable alternatives.
 - <a id="prog-research-milestones"></a>**How would you plan an AI programme whose central research hypothesis may fail?**
-  - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-research-milestones&title=%5BCorrection%5D%20prog-research-milestones)
+  - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-research-milestones) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-research-milestones&title=%5BCorrection%5D%20prog-research-milestones)
   - Tests: Whether milestones retire uncertainty and support explicit stop decisions.
+  - A strong answer covers:
+    - Name the hypothesis and the cheapest experiment that could falsify it.
+    - Make each milestone retire a specific unknown, with a decision rule agreed in advance.
+    - Fund a fallback and agree the stop condition before anyone is invested.
+  - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="prog-multi-owner-readiness"></a>**Engineering, operations and risk teams disagree about launch readiness. How would you reach a traceable decision?**
-  - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-multi-owner-readiness&title=%5BCorrection%5D%20prog-multi-owner-readiness)
+  - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-multi-owner-readiness) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-multi-owner-readiness&title=%5BCorrection%5D%20prog-multi-owner-readiness)
   - Tests: Whether you clarify criteria and decision authority instead of counting approvals.
+  - A strong answer covers:
+    - Convert each objection into a named, testable criterion with evidence attached.
+    - State who decides, who must be consulted and who holds a veto, before the room meets.
+    - Record the decision, the accepted residual risk, its owner and a review date.
+  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 
 ← [Leading engineering teams](engineering-leadership.md) · [Applied and customer scenarios](applied-scenarios.md) →

@@ -89,3 +89,33 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/engineering.md#code-token-bucket)
 - **40. [Write an asynchronous API batch processor with bounded concurrency, retry jitter and isolated per-item failures.](../themes/coding-practical.md#code-async-batches)**
   - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Anthropic](../companies/anthropic.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#code-async-batches)
+- **41. [How does sparse expert routing increase parameter capacity, and what costs remain despite activating only some experts?](../themes/llm-fundamentals.md#llm-experts)**
+  - Knowledge · [LLM fundamentals](../themes/llm-fundamentals.md) · ✍ [Answer](../answers/engineering.md#llm-experts)
+- **42. [Explain how latent attention compresses the KV representation and what must be reconstructed at inference.](../themes/llm-fundamentals.md#llm-latent-attention)**
+  - Knowledge · [LLM fundamentals](../themes/llm-fundamentals.md) · ✍ [Answer](../answers/engineering.md#llm-latent-attention)
+- **43. [What makes a prompt prefix reusable, and which changes invalidate or reduce the value of a prefix cache?](../themes/inference-economics.md#inf-prefix-cache)**
+  - Knowledge · [Inference, serving and cost](../themes/inference-economics.md) · ✍ [Answer](../answers/engineering.md#inf-prefix-cache)
+- **44. [How does paging the KV cache reduce waste, and what remains for the scheduler to solve?](../themes/inference-economics.md#inf-paged-cache)**
+  - Knowledge · [Inference, serving and cost](../themes/inference-economics.md) · ✍ [Answer](../answers/engineering.md#inf-paged-cache)
+- **45. [A service can spend more on one reasoning run or generate several candidates and verify them. How would you allocate compute under a latency deadline?](../themes/inference-economics.md#inf-reasoning-budget)**
+  - Applied scenario · [Inference, serving and cost](../themes/inference-economics.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#inf-reasoning-budget)
+- **46. [Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?](../themes/rag-retrieval.md#rag-reranking)**
+  - Knowledge · [RAG and retrieval](../themes/rag-retrieval.md) · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-reranking)
+- **47. [How would you connect each factual claim in an answer to the retrieved passage that supports it?](../themes/rag-retrieval.md#rag-citations)**
+  - System design · [RAG and retrieval](../themes/rag-retrieval.md) · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-citations)
+- **48. [What does MCP standardise between an AI application and an external service that a model's function-call format does not?](../themes/agents-tools.md#agt-mcp)**
+  - Knowledge · [Agents, tools and protocols](../themes/agents-tools.md) · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/engineering.md#agt-mcp)
+- **49. [Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?](../themes/agents-tools.md#agt-memory)**
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#agt-memory)
+- **50. [When does splitting work among agents improve results, and when do coordination costs dominate?](../themes/agents-tools.md#agt-multi-agent)**
+  - Knowledge · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-multi-agent)
+- **51. [How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?](../themes/evals-observability.md#eval-hallucination)**
+  - System design · [Evaluation and observability](../themes/evals-observability.md) · Asked at: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/engineering.md#eval-hallucination)
+- **52. [A reasoning summary looks sound, but the answer follows a misleading hint. What should an evaluation and monitoring system conclude?](../themes/evals-observability.md#eval-reasoning-trace-faithfulness)**
+  - Applied scenario · [Evaluation and observability](../themes/evals-observability.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#eval-reasoning-trace-faithfulness)
+- **53. [Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.](../themes/ai-system-design.md#sd-model-api)**
+  - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#sd-model-api)
+- **54. [Build an end-to-end latency budget for a voice agent, from detecting the end of speech to playing its reply.](../themes/multimodal-voice.md#mm-latency)**
+  - System design · [Multimodal and voice](../themes/multimodal-voice.md) · ✍ [Answer](../answers/engineering.md#mm-latency)
+- **55. [Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.](../themes/coding-practical.md#code-agent-loop)**
+  - Coding · [Practical coding](../themes/coding-practical.md) · ✍ [Answer](../answers/engineering.md#code-agent-loop)

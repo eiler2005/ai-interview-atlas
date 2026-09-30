@@ -27,8 +27,13 @@ Vision-language модели, голосовые агенты в реально�
   - Знания · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-video&title=%5BCorrection%5D%20mm-video)
   - Что проверяет: Учёт временной информации и стоимости выборки кадров.
 - <a id="mm-latency"></a>**Составьте сквозной бюджет задержки голосового агента от определения конца реплики до воспроизведения ответа.**
-  - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-latency&title=%5BCorrection%5D%20mm-latency)
+  - System design · ✍ [Ответ](../answers/engineering.md#mm-latency) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-latency&title=%5BCorrection%5D%20mm-latency)
   - Что проверяет: Учёт определения конца реплики, ASR, генерации, синтеза и сети.
+  - Сильный ответ покрывает:
+    - Перечислить все этапы до звука: определение конца реплики, распознавание, генерацию, синтез, сеть и воспроизведение.
+    - Считать бюджет до первого слышимого звука и совмещать этапы потоком вместо очереди.
+    - Отделить медианную цель от хвоста и определить поведение агента при превышении этапа.
+  - Читать: [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/) (Dean and Barroso, Google Research)
 - <a id="mm-barge-in"></a>**Спроектируйте обработку перебивания, когда пользователь начинает говорить во время ответа агента.**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-barge-in&title=%5BCorrection%5D%20mm-barge-in)
   - Что проверяет: Умение согласовать остановку воспроизведения с состоянием диалога.

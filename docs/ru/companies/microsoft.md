@@ -56,7 +56,7 @@
     - Проверить вклад каждого поиска и переранжирования на фиксированном наборе релевантности.
   - Читать: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - **[Где разместить cross-encoder reranker в поисковом пайплайне и когда выигрыш качества оправдывает задержку?](../themes/rag-retrieval.md#rag-reranking)**
-  - Знания · Где спрашивали: Microsoft †, [Perplexity](perplexity.md) †
+  - Знания · Где спрашивали: Microsoft †, [Perplexity](perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-reranking)
   - Что проверяет: Умение сбалансировать число кандидатов, полноту поиска и стоимость переранжирования.
   - Сильный ответ покрывает:
     - Сначала получить широкий набор кандидатов, затем оценить пары запроса и документа reranker-ом.
@@ -75,8 +75,13 @@
 ### [Агенты, инструменты и протоколы](../themes/agents-tools.md)
 
 - **[Что MCP стандартизирует между AI-приложением и внешним сервисом сверх формата function call модели?](../themes/agents-tools.md#agt-mcp)**
-  - Знания · Где спрашивали: Microsoft †
+  - Знания · Где спрашивали: Microsoft † · ✍ [Ответ](../answers/engineering.md#agt-mcp)
   - Что проверяет: Умение отличать транспорт и возможности протокола от решений модели.
+  - Сильный ответ покрывает:
+    - Отделить выбор вызова моделью от того, как клиент находит сервер и обращается к нему.
+    - Назвать, что фиксирует протокол: транспорт, обнаружение возможностей и типизированные инструменты, ресурсы и промпты.
+    - Обсудить границу доверия: подключённый сервер поставляет и возможности, и недоверенный контент.
+  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 
 ### [Дообучение и post-training](../themes/post-training.md)
 
@@ -122,11 +127,21 @@
     - Используйте базовую линию или эксперимент и учитывайте манипулирование метриками.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?](../themes/ai-product-strategy.md#prod-agent-use-cases)**
-  - Продуктовый кейс · Senior · Где спрашивали: Microsoft †
+  - Продуктовый кейс · Senior · Где спрашивали: Microsoft † · ✍ [Ответ](../answers/leadership.md#prod-agent-use-cases)
   - Что проверяет: Различаете ли вы пользу автономных действий и их эксплуатационную цену.
+  - Сильный ответ покрывает:
+    - Оценивать сценарии по объёму, проверяемости результата, допустимости ошибки и обратимости.
+    - Отделять пользу совершённого действия от стоимости надзора и исправлений.
+    - Сравнивать с более дешёвым вариантом: промптом, фиксированным процессом или обычной автоматизацией.
+  - Читать: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - **[Объясните продуктовые компромиссы при выборе модели.](../themes/ai-product-strategy.md#prod-model-choice)**
-  - Знания · Senior · Где спрашивали: Microsoft †
+  - Знания · Senior · Где спрашивали: Microsoft † · ✍ [Ответ](../answers/leadership.md#prod-model-choice)
   - Что проверяет: Учитываете ли вы одновременно качество на задаче, цену, задержку и ограничения.
+  - Сильный ответ покрывает:
+    - Сначала зафиксировать задачу и планку качества, затем измерить модели-кандидаты на своих данных.
+    - Сравнить стоимость успешного результата и задержку в том виде, в каком её чувствует пользователь.
+    - Добавить ограничения, отсекающие модель: регион развёртывания, обращение с данными, изменения со временем.
+  - Читать: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) (OpenAI API documentation)
 
 ### [Программы и delivery](../themes/program-delivery.md)
 

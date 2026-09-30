@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/coding-practical.md) · [AI Interview A
 
 Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review.
 
-On this page: [Both tracks (1)](#track-both) · [AI Engineering (26)](#track-engineering)
+On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -64,8 +64,13 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (26)](#track-eng
   - Coding · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-cosine-search&title=%5BCorrection%5D%20code-cosine-search)
   - Tests: Whether a correct baseline is separated from a scalable serving system.
 - <a id="code-agent-loop"></a>**Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.**
-  - Coding · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-loop&title=%5BCorrection%5D%20code-agent-loop)
+  - Coding · ✍ [Answer](../answers/engineering.md#code-agent-loop) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-loop&title=%5BCorrection%5D%20code-agent-loop)
   - Tests: Whether loop state and terminal conditions are explicit in code.
+  - A strong answer covers:
+    - Hold loop state explicitly: messages, step count, deadline, budget and a termination reason.
+    - Validate tool name and arguments against a schema before dispatch; never execute an unregistered tool.
+    - Return tool errors to the model as observations while keeping a hard step and time ceiling.
+  - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="code-transactions"></a>**Implement an in-memory key-value store with begin, commit and abort, stating the transaction semantics you support.**
   - Coding · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-transactions&title=%5BCorrection%5D%20code-transactions)
   - Tests: Whether rollback and visibility match a precise contract.
@@ -108,5 +113,9 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (26)](#track-eng
 - <a id="code-agent-session-choices"></a>**In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
   - Tests: Whether you direct coding agents deliberately rather than accepting their defaults.
+- <a id="code-ai-assisted-ownership"></a>**In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?**
+  - Applied scenario · Asked at: [Canva](../companies/canva.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-ownership&title=%5BCorrection%5D%20code-ai-assisted-ownership)
+  - Tests: Whether ownership and verification survive delegation to a model under time pressure.
+  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 
 ← [AI system design](ai-system-design.md) · [AI product strategy and metrics](ai-product-strategy.md) →

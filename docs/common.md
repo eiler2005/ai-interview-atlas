@@ -28,7 +28,7 @@ Questions reported at two or more companies, strongest basis first.
 - **[When would you combine lexical and dense retrieval, and how would you merge their rankings?](themes/rag-retrieval.md#rag-hybrid)**
   - Knowledge · Asked at: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Answer](answers/engineering.md#rag-hybrid)
 - **[Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?](themes/rag-retrieval.md#rag-reranking)**
-  - Knowledge · Asked at: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) †
+  - Knowledge · Asked at: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Answer](answers/engineering.md#rag-reranking)
 - **[Design retrieval that enforces the source system's access rights, including permission changes and shared caches.](themes/rag-retrieval.md#rag-permissions)**
   - System design · Asked at: [Databricks](companies/databricks.md) †, [Microsoft](companies/microsoft.md) †, [Palantir](companies/palantir.md) † · ✍ [Answer](answers/engineering.md#rag-permissions)
 
@@ -45,7 +45,7 @@ Questions reported at two or more companies, strongest basis first.
 ## [Evaluation and observability](themes/evals-observability.md)
 
 - **[How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?](themes/evals-observability.md#eval-hallucination)**
-  - System design · Asked at: [Anthropic](companies/anthropic.md) †, [OpenAI](companies/openai.md) †
+  - System design · Asked at: [Anthropic](companies/anthropic.md) †, [OpenAI](companies/openai.md) † · ✍ [Answer](answers/engineering.md#eval-hallucination)
 
 ## [AI system design](themes/ai-system-design.md)
 

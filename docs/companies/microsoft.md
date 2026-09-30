@@ -56,7 +56,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Ablate each retriever and reranking on a fixed relevance set.
   - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - **[Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?](../themes/rag-retrieval.md#rag-reranking)**
-  - Knowledge · Asked at: Microsoft †, [Perplexity](perplexity.md) †
+  - Knowledge · Asked at: Microsoft †, [Perplexity](perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-reranking)
   - Tests: Whether candidate count, recall and reranking cost are balanced.
   - A strong answer covers:
     - Retrieve a broad candidate set first, then score query-document pairs with the reranker.
@@ -75,8 +75,13 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 ### [Agents, tools and protocols](../themes/agents-tools.md)
 
 - **[What does MCP standardise between an AI application and an external service that a model's function-call format does not?](../themes/agents-tools.md#agt-mcp)**
-  - Knowledge · Asked at: Microsoft †
+  - Knowledge · Asked at: Microsoft † · ✍ [Answer](../answers/engineering.md#agt-mcp)
   - Tests: Whether protocol transport and capabilities are separated from model decisions.
+  - A strong answer covers:
+    - Separate the model's choice of a call from how a client discovers and reaches a server.
+    - Name what the protocol fixes: transport, capability discovery, and typed tools, resources and prompts.
+    - Discuss the trust boundary: a connected server supplies both capabilities and untrusted content.
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 
 ### [Fine-tuning and post-training](../themes/post-training.md)
 
@@ -122,11 +127,21 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Use a baseline or experiment and guard against metric gaming.
   - Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Which business use cases suit AI agents, and how would you compare them?](../themes/ai-product-strategy.md#prod-agent-use-cases)**
-  - Product case · Senior · Asked at: Microsoft †
+  - Product case · Senior · Asked at: Microsoft † · ✍ [Answer](../answers/leadership.md#prod-agent-use-cases)
   - Tests: Whether you distinguish the value of autonomous action from its operational cost.
+  - A strong answer covers:
+    - Score candidates on volume, a verifiable outcome, tolerance for error and reversibility.
+    - Separate the value of the action taken from the cost of supervising and correcting it.
+    - Compare against the cheaper option: a prompt, a fixed workflow or ordinary automation.
+  - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - **[Explain the product trade-offs in choosing a model.](../themes/ai-product-strategy.md#prod-model-choice)**
-  - Knowledge · Senior · Asked at: Microsoft †
+  - Knowledge · Senior · Asked at: Microsoft † · ✍ [Answer](../answers/leadership.md#prod-model-choice)
   - Tests: Whether model selection considers task quality, cost, latency and constraints together.
+  - A strong answer covers:
+    - Fix the task and a quality bar first, then measure candidate models on your own data.
+    - Compare cost per successful outcome and latency as the user experiences it.
+    - Add the constraints that disqualify a model: deployment region, data handling, change over time.
+  - Read: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) (OpenAI API documentation)
 
 ### [Programmes and delivery](../themes/program-delivery.md)
 

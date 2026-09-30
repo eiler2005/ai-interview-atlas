@@ -32,7 +32,7 @@ AI-инженерия · Роли: Инженер оценки качества 
 - **[Как собрать полезный eval-набор без эталонных ответов и при дефиците экспертного времени?](../themes/evals-observability.md#eval-scarce-labels)**
   - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md)
 - **[Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?](../themes/evals-observability.md#eval-hallucination)**
-  - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md)
+  - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-hallucination)
 - **[Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию.](../themes/evals-observability.md#eval-release-gate)**
   - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-release-gate)
 - **[Результаты бенчмарков растут, а пользователи жалуются на ухудшение продукта. Какие гипотезы проверить сначала?](../themes/evals-observability.md#eval-benchmark-mismatch)**

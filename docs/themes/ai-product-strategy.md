@@ -91,11 +91,21 @@ When AI is worth it, how to design AI features, measure them and build the busin
   - Product case · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-memory-machine-launch&title=%5BCorrection%5D%20prod-memory-machine-launch)
   - Tests: Whether you turn an unfamiliar capability into a focused market entry.
 - <a id="prod-agent-use-cases"></a>**Which business use cases suit AI agents, and how would you compare them?**
-  - Product case · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-agent-use-cases&title=%5BCorrection%5D%20prod-agent-use-cases)
+  - Product case · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/leadership.md#prod-agent-use-cases) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-agent-use-cases&title=%5BCorrection%5D%20prod-agent-use-cases)
   - Tests: Whether you distinguish the value of autonomous action from its operational cost.
+  - A strong answer covers:
+    - Score candidates on volume, a verifiable outcome, tolerance for error and reversibility.
+    - Separate the value of the action taken from the cost of supervising and correcting it.
+    - Compare against the cheaper option: a prompt, a fixed workflow or ordinary automation.
+  - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="prod-model-choice"></a>**Explain the product trade-offs in choosing a model.**
-  - Knowledge · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-model-choice&title=%5BCorrection%5D%20prod-model-choice)
+  - Knowledge · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/leadership.md#prod-model-choice) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-model-choice&title=%5BCorrection%5D%20prod-model-choice)
   - Tests: Whether model selection considers task quality, cost, latency and constraints together.
+  - A strong answer covers:
+    - Fix the task and a quality bar first, then measure candidate models on your own data.
+    - Compare cost per successful outcome and latency as the user experiences it.
+    - Add the constraints that disqualify a model: deployment region, data handling, change over time.
+  - Read: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) (OpenAI API documentation)
 - <a id="prod-new-search-feature"></a>**Propose a new feature for Perplexity and explain whom it serves.**
   - Product case · Senior · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-new-search-feature&title=%5BCorrection%5D%20prod-new-search-feature)
   - Tests: Whether you can make a differentiated, evidence-seeking product proposal.
@@ -112,14 +122,24 @@ When AI is worth it, how to design AI features, measure them and build the busin
   - Product case · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-volunteer-cold-start&title=%5BCorrection%5D%20prod-volunteer-cold-start)
   - Tests: Whether you make the first useful matches possible before scale arrives.
 - <a id="prod-search-versus-answer"></a>**Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?**
-  - Product case · Senior · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-versus-answer&title=%5BCorrection%5D%20prod-search-versus-answer)
+  - Product case · Senior · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/leadership.md#prod-search-versus-answer) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-versus-answer&title=%5BCorrection%5D%20prod-search-versus-answer)
   - Tests: Whether you compare products through user tasks and evidence quality.
+  - A strong answer covers:
+    - Split queries by task: navigation, a single fact, comparison across sources, open exploration.
+    - Judge an answer by whether its evidence is checkable, current and correctly attributed.
+    - Name the first improvement and the metric that would show it worked.
+  - Read: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) (Lewis et al., arXiv)
 - <a id="prod-impactful-product"></a>**Walk through the product you built that had the greatest impact, including the business case and evidence of results.**
   - Self-presentation · Senior · Asked at: [Monzo](../companies/monzo.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-impactful-product&title=%5BCorrection%5D%20prod-impactful-product)
   - Tests: Whether you can connect personal decisions, experiments and realised impact.
 - <a id="prod-enterprise-ai-pricing"></a>**How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?**
-  - Product case · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
+  - Product case · ✍ [Answer](../answers/leadership.md#prod-enterprise-ai-pricing) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
   - Tests: Whether you reason about unit economics and margin, not only product value.
+  - A strong answer covers:
+    - Name the cost stack per account: inference, retrieval and storage, evaluation, human support.
+    - Choose a price metric the customer can predict and you can defend as volume grows.
+    - Treat per-client customisation as recurring cost, and price or productise it deliberately.
+  - Read: [What We Learned from a Year of Building with LLMs (Part I)](https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/) (O'Reilly Radar)
 - <a id="prod-enterprise-discovery"></a>**In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?**
   - Product case · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
   - Tests: Whether you adapt customer research to enterprise buyers, users and decision-makers.

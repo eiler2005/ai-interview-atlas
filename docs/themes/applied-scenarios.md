@@ -115,8 +115,13 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-hospital-scheduling&title=%5BCorrection%5D%20app-hospital-scheduling)
   - Tests: Whether you design around workflow, integration and safe exception handling.
 - <a id="app-contact-centre"></a>**A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?**
-  - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-contact-centre&title=%5BCorrection%5D%20app-contact-centre)
+  - Applied scenario · Senior · ✍ [Answer](../answers/leadership.md#app-contact-centre) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-contact-centre&title=%5BCorrection%5D%20app-contact-centre)
   - Tests: Whether you scope user journeys, handoff and operational readiness together.
+  - A strong answer covers:
+    - Take the highest-volume intents first and define containment honestly, counting transfers.
+    - Design the handoff to a human as a first-class path that carries context and never loops.
+    - Plan operational readiness: latency targets, interruption handling, monitoring and a rollback.
+  - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="app-public-service-language"></a>**A public agency wants a multilingual assistant for a paper-and-call-centre welfare service, hosted on premises. How would you scope delivery?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-public-service-language&title=%5BCorrection%5D%20app-public-service-language)
   - Tests: Whether access, language coverage and deployment constraints shape the service.

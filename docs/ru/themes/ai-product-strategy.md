@@ -91,11 +91,21 @@
   - Продуктовый кейс · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-memory-machine-launch&title=%5BCorrection%5D%20prod-memory-machine-launch)
   - Что проверяет: Умеете ли вы превратить непривычную возможность в конкретную стратегию выхода на рынок.
 - <a id="prod-agent-use-cases"></a>**Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?**
-  - Продуктовый кейс · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-agent-use-cases&title=%5BCorrection%5D%20prod-agent-use-cases)
+  - Продуктовый кейс · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-agent-use-cases) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-agent-use-cases&title=%5BCorrection%5D%20prod-agent-use-cases)
   - Что проверяет: Различаете ли вы пользу автономных действий и их эксплуатационную цену.
+  - Сильный ответ покрывает:
+    - Оценивать сценарии по объёму, проверяемости результата, допустимости ошибки и обратимости.
+    - Отделять пользу совершённого действия от стоимости надзора и исправлений.
+    - Сравнивать с более дешёвым вариантом: промптом, фиксированным процессом или обычной автоматизацией.
+  - Читать: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="prod-model-choice"></a>**Объясните продуктовые компромиссы при выборе модели.**
-  - Знания · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-model-choice&title=%5BCorrection%5D%20prod-model-choice)
+  - Знания · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-model-choice) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-model-choice&title=%5BCorrection%5D%20prod-model-choice)
   - Что проверяет: Учитываете ли вы одновременно качество на задаче, цену, задержку и ограничения.
+  - Сильный ответ покрывает:
+    - Сначала зафиксировать задачу и планку качества, затем измерить модели-кандидаты на своих данных.
+    - Сравнить стоимость успешного результата и задержку в том виде, в каком её чувствует пользователь.
+    - Добавить ограничения, отсекающие модель: регион развёртывания, обращение с данными, изменения со временем.
+  - Читать: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) (OpenAI API documentation)
 - <a id="prod-new-search-feature"></a>**Предложите новую функцию для Perplexity и объясните, для кого она нужна.**
   - Продуктовый кейс · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-new-search-feature&title=%5BCorrection%5D%20prod-new-search-feature)
   - Что проверяет: Умеете ли вы сформулировать отличающееся от существующих решений предложение и способ его проверить.
@@ -112,14 +122,24 @@
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-volunteer-cold-start&title=%5BCorrection%5D%20prod-volunteer-cold-start)
   - Что проверяет: Умеете ли вы обеспечить первые полезные совпадения до появления масштаба.
 - <a id="prod-search-versus-answer"></a>**В чём AI-сервис ответов лучше обычного поиска, а в чём уступает? Что вы улучшите первым?**
-  - Продуктовый кейс · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-versus-answer&title=%5BCorrection%5D%20prod-search-versus-answer)
+  - Продуктовый кейс · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/leadership.md#prod-search-versus-answer) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-versus-answer&title=%5BCorrection%5D%20prod-search-versus-answer)
   - Что проверяет: Сравниваете ли вы продукты через задачи пользователя и качество доказательств.
+  - Сильный ответ покрывает:
+    - Разделить запросы по задачам: навигация, один факт, сравнение источников, открытое исследование.
+    - Оценивать ответ по проверяемости, свежести и правильной атрибуции доказательств.
+    - Назвать первое улучшение и метрику, которая покажет его результат.
+  - Читать: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) (Lewis et al., arXiv)
 - <a id="prod-impactful-product"></a>**Расскажите о созданном вами продукте с наибольшим влиянием: бизнес-обосновании и данных о результате.**
   - Самопрезентация · Senior · Где спрашивали: [Monzo](../companies/monzo.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-impactful-product&title=%5BCorrection%5D%20prod-impactful-product)
   - Что проверяет: Умеете ли вы связать собственные решения, эксперименты и достигнутый результат.
 - <a id="prod-enterprise-ai-pricing"></a>**Как вы установите цену корпоративного AI-продукта, какие затраты обязательно учтёте и как кастомизация под каждого клиента влияет на маржинальность?**
-  - Продуктовый кейс · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
+  - Продуктовый кейс · ✍ [Ответ](../answers/leadership.md#prod-enterprise-ai-pricing) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
   - Что проверяет: Умение рассуждать о юнит-экономике и марже, а не только о ценности продукта.
+  - Сильный ответ покрывает:
+    - Назвать структуру затрат на аккаунт: инференс, поиск и хранение, оценку качества, поддержку людьми.
+    - Выбрать метрику цены, предсказуемую для клиента и защитимую при росте объёма.
+    - Считать кастомизацию под клиента повторяющимися затратами и осознанно продавать её или продуктизировать.
+  - Читать: [What We Learned from a Year of Building with LLMs (Part I)](https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/) (O'Reilly Radar)
 - <a id="prod-enterprise-discovery"></a>**Кто в дискавери корпоративного AI-продукта является «персоной», где вы найдёте B2B-респондентов и как поймёте, что проблему стоит решать?**
   - Продуктовый кейс · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
   - Что проверяет: Умение адаптировать исследование клиентов к корпоративным покупателям, пользователям и лицам, принимающим решения.

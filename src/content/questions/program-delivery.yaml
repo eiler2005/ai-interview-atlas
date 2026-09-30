@@ -264,6 +264,21 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:program-delivery"]
+    start_here: ["leadership"]
+    priority: 50
+    outline:
+      en:
+        - "Name the hypothesis and the cheapest experiment that could falsify it."
+        - "Make each milestone retire a specific unknown, with a decision rule agreed in advance."
+        - "Fund a fallback and agree the stop condition before anyone is invested."
+      ru:
+        - "Назвать гипотезу и самый дешёвый эксперимент, способный её опровергнуть."
+        - "Сделать каждую контрольную точку снятием конкретной неизвестности с заранее согласованным правилом решения."
+        - "Финансировать резервный путь и договориться об условии остановки до того, как все вложились."
+    answer:
+      en: "I plan the uncertainty, not the timeline. The first step is to write the hypothesis down precisely enough that it could be false, then order the work so the cheapest falsifying experiment comes first, because a programme that learns its core assumption is wrong in month nine has spent eight months buying nothing. Milestones are therefore defined by which unknown they retire, not by artefacts delivered, and each carries a decision rule agreed in advance: what result continues, what pivots, what stops. Agreeing the stop condition before anyone is invested is the whole trick, since afterwards it becomes a referendum on people's judgement. I would also fund a fallback path in parallel, so there is something to ship if the hypothesis fails, and report progress as uncertainty removed. A programme that reports only percentage complete is not being managed."
+      ru: "Я планирую неопределённость, а не сроки. Первый шаг — записать гипотезу настолько точно, чтобы она могла оказаться ложной, и выстроить работу так, чтобы самый дешёвый опровергающий эксперимент шёл первым: программа, узнавшая на девятом месяце, что её основное допущение неверно, восемь месяцев покупала пустоту. Контрольные точки поэтому определяются тем, какую неизвестность они снимают, а не сданными артефактами, и к каждой прилагается заранее согласованное правило решения: какой результат продолжает работу, какой разворачивает её, какой останавливает. Договориться об условии остановки до того, как все вложились, — и есть главный приём: потом это превращается в референдум о чьей-то компетентности. Я бы параллельно финансировал резервный путь, чтобы было что выпустить при неподтверждении гипотезы, и докладывал прогресс как снятую неопределённость. Программа, отчитывающаяся только процентом готовности, не управляется."
+    reading: ["design-docs-at-google"]
   - id: "prog-multi-owner-readiness"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -281,3 +296,18 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:program-delivery"]
+    start_here: ["leadership"]
+    priority: 51
+    outline:
+      en:
+        - "Convert each objection into a named, testable criterion with evidence attached."
+        - "State who decides, who must be consulted and who holds a veto, before the room meets."
+        - "Record the decision, the accepted residual risk, its owner and a review date."
+      ru:
+        - "Превратить каждое возражение в названный проверяемый критерий с приложенными данными."
+        - "До встречи определить, кто решает, с кем советуются и у кого есть право вето."
+        - "Зафиксировать решение, принятый остаточный риск, его владельца и дату пересмотра."
+    answer:
+      en: "Disagreement about readiness is usually disagreement about criteria that were never written down, so I stop collecting approvals and start converting objections into testable statements. Each team names what must be true to launch — an error rate below a stated threshold, a runbook exercised, an audit trail retrievable — with the evidence that shows it. Most conflict dissolves here, because operations and risk are not disputing the numbers, they are worried about different failure modes. Then I make decision rights explicit before the room meets: who decides, who must be consulted, and who genuinely holds a veto — one bounded by policy, not by discomfort. Whatever remains unresolved is written as accepted residual risk with a named owner, a mitigation and a review date, so the decision is traceable. A veto with no criterion behind it is the thing to resolve."
+      ru: "Расхождение в оценке готовности почти всегда есть расхождение в критериях, которые никто не записал, поэтому я перестаю собирать согласования и начинаю переводить возражения в проверяемые утверждения. Каждая команда называет, что должно быть верно для запуска: доля ошибок ниже заявленного порога, отработанный runbook, извлекаемый аудиторский след — и прилагает подтверждающие данные. Большая часть конфликта растворяется уже здесь: эксплуатация и риск-функция спорят не о цифрах, а беспокоятся о разных режимах отказа. Затем я до встречи явно фиксирую права решения: кто решает, с кем обязательно советуются и у кого действительно есть право вето — ограниченное политикой, а не общим дискомфортом. Всё нерешённое оформляется как принятый остаточный риск с названным владельцем, мерой снижения и датой пересмотра, чтобы решение можно было проверить. Вето, за которым нет критерия, — и есть то, что нужно разрешить."
+    reading: ["nist-ai-rmf"]

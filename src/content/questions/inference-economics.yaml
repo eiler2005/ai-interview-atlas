@@ -12,6 +12,8 @@ questions:
     provenance: "generated"
     basis: ["radar:inference-economics"]
     added: "2026-09-29"
+    start_here: ["engineering"]
+    priority: 45
     outline:
       en:
         - "Compare strategies on the same held-out tasks, including verifier cost and wall-clock latency."
@@ -21,6 +23,9 @@ questions:
         - "Сравнить стратегии на одинаковых отложенных задачах, включая стоимость проверяющего и полную задержку."
         - "Измерить успех по сложности задач и выбрать правило маршрутизации, которому не нужен правильный ответ."
         - "Задать остановку и резервный сценарий; показать все расходы на успешную задачу и нарушения срока."
+    answer:
+      en: "I would treat this as an empirical allocation question, not a preference. On the same held-out tasks I would run one long reasoning pass and a sample-and-verify strategy at several budgets, then compare success per unit of spend and per unit of wall-clock time, counting the verifier's own tokens and latency as part of the cost: a verifier that doubles latency can lose on a deadline it would win on cost. Sampling parallelises, so it often fits a deadline that a single long pass misses, but it only helps when a cheap check can tell candidates apart; without that, extra candidates add spend and no accuracy. Because gains concentrate in harder tasks, I would route by an observable feature available before the answer exists, never by correctness. Then a hard token and time ceiling with a defined fallback, reporting spend per successful task and deadline misses."
+      ru: "Я бы решал это измерением, а не предпочтением. На одних и тех же отложенных задачах я бы прогнал один длинный reasoning-проход и стратегию «несколько кандидатов плюс проверка» на нескольких бюджетах, а затем сравнил успех на единицу расходов и на единицу полного времени, считая токены и задержку проверяющего частью стоимости: проверяющий, удваивающий задержку, проигрывает по сроку там, где выиграл бы по деньгам. Сэмплирование распараллеливается и потому часто укладывается в срок, который один длинный проход не выдерживает, но помогает лишь тогда, когда дешёвая проверка действительно различает кандидатов; иначе лишние кандидаты добавляют расход и не добавляют точности. Так как выигрыш сосредоточен в сложных задачах, я бы маршрутизировал по наблюдаемому признаку, доступному до появления ответа, а никогда по правильности. Дальше жёсткий предел по токенам и времени с описанным резервным сценарием и отчёт: расходы на успешную задачу и нарушения срока."
     reading: ["paper-test-time-compute", "openai-evaluation-best-practices"]
   - id: "inf-reasoning-incomplete"
     tracks: ["engineering"]
@@ -116,6 +121,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 44
+    outline:
+      en:
+        - "Explain fragmentation from contiguous allocation sized for the longest possible answer."
+        - "Describe fixed-size blocks with an indirection table and blocks shared between requests."
+        - "Name what paging leaves open: admission, preemption and fairness remain scheduling policy."
+      ru:
+        - "Объяснить фрагментацию при непрерывном выделении памяти под самый длинный возможный ответ."
+        - "Описать блоки фиксированного размера с таблицей косвенности и общие блоки между запросами."
+        - "Назвать нерешённое: приём, вытеснение и справедливость остаются политикой планировщика."
+    answer:
+      en: "Paging attacks fragmentation, not scarcity. If each request reserves one contiguous span sized for the longest answer it might produce, most of that reservation sits idle, and the free memory left over is unusable because it is scattered, so concurrency collapses well before the device is full. Paging stores the cache in fixed-size blocks with a per-request table mapping logical positions to physical blocks, so growth is incremental, internal waste is bounded by one partly filled block, and identical prefixes or parallel samples can point at shared blocks copied only on write. What it leaves untouched is policy: who is admitted when blocks run out, whose blocks are evicted or recomputed, and how long a request may wait. I would measure achieved batch size, the share of memory actually holding live tokens, preemption rate and p99 latency — paging widens the pipe, and a poor scheduler can still starve requests."
+      ru: "Страничная организация борется с фрагментацией, а не с нехваткой памяти. Если каждый запрос резервирует один непрерывный отрезок под самый длинный возможный ответ, большая часть резерва простаивает, а оставшаяся свободная память непригодна, потому что разбросана, — и параллелизм падает задолго до реального заполнения устройства. Страницы хранят кеш блоками фиксированного размера с таблицей на запрос, отображающей логические позиции в физические блоки: рост идёт постепенно, внутренние потери ограничены одним неполным блоком, а одинаковые префиксы или параллельные сэмплы могут ссылаться на общие блоки, копируемые только при записи. Нетронутой остаётся политика: кого принимать, когда блоки закончились, чьи блоки вытеснять или пересчитывать и сколько запрос может ждать. Я бы измерял достигнутый размер батча, долю памяти, реально занятой живыми токенами, частоту вытеснений и p99 задержки: страницы расширяют трубу, но плохой планировщик всё равно способен морить запросы голодом."
+    reading: ["paper-pagedattention"]
   - id: "inf-speculation"
     tracks: ["engineering"]
     type: "knowledge"
@@ -157,6 +177,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 43
+    outline:
+      en:
+        - "State the condition for reuse: an identical token prefix under the same model and serving configuration."
+        - "Order the prompt so the stable part comes first and volatile content comes last."
+        - "Bound cache lifetime and scope entries so one tenant cannot read another's prefix."
+      ru:
+        - "Сформулировать условие переиспользования: одинаковый префикс токенов при той же модели и конфигурации."
+        - "Расположить промпт так, чтобы стабильная часть шла первой, а изменчивая — последней."
+        - "Ограничить срок жизни кеша и область записей, чтобы один клиент не читал префикс другого."
+    answer:
+      en: "Reuse is exact and token-level, not semantic: the cache holds attention state for a prefix, and a request reuses it only while its tokens match from position zero under the same model version, precision and parallel layout. One changed character near the start invalidates everything after it, which dictates prompt layout — system rules, tool definitions and long documents first; the user turn, timestamps, retrieved snippets and per-request identifiers last. Cache memory competes with the KV cache of live requests, and entries expire, so I would measure hit rate, the share of prefill tokens served from cache, time to first token with and without it, and cost per request. Two limits: caching removes prefill work only, so a short-prompt long-answer workload gains almost nothing, and entries must be scoped per tenant, because a prefix shared across tenants leaks their content."
+      ru: "Переиспользование точное и на уровне токенов, а не семантическое: кеш хранит состояние внимания для префикса, и запрос использует его лишь пока его токены совпадают с нулевой позиции при той же версии модели, точности и схеме параллелизма. Один изменённый символ в начале обесценивает всё, что идёт после, — отсюда порядок промпта: системные правила, описания инструментов и длинные документы вперёд; реплика пользователя, метки времени, найденные фрагменты и идентификаторы запроса в конец. Память кеша конкурирует с KV-кешем живых запросов, а записи истекают, поэтому я бы измерял долю попаданий, долю токенов prefill, отданных из кеша, время до первого токена с ним и без него и стоимость запроса. Два ограничения: кеш убирает только prefill, поэтому короткий промпт с длинным ответом почти ничего не выигрывает, а записи обязаны быть в области одного клиента, иначе общий префикс раскрывает его содержимое."
+    reading: ["claude-prompt-caching"]
   - id: "inf-precision"
     tracks: ["engineering"]
     type: "knowledge"
@@ -262,6 +297,7 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    reading: ["vllm-docs"]
   - id: "inf-cost-reduction"
     tracks: ["engineering","leadership"]
     roles: ["inference-engineer"]

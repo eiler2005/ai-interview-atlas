@@ -56,6 +56,8 @@ questions:
     provenance: "generated"
     basis: ["radar:evals-observability"]
     added: "2026-09-29"
+    start_here: ["engineering"]
+    priority: 52
     outline:
       en:
         - "Score final results and observable actions independently of explanation quality."
@@ -65,6 +67,9 @@ questions:
         - "Оценивать итог и наблюдаемые действия независимо от качества объяснения."
         - "Сравнить одинаковые задачи с ложной подсказкой и без неё; отдельно измерять изменение ответа и признание влияния подсказки."
         - "Считать резюме и доступные трассы неполными диагностическими сигналами, а не доступом к скрытым рассуждениям или гарантией безопасности."
+    answer:
+      en: "The conclusion is that the explanation is not evidence about the computation. A summary that reads well while the answer tracks a planted hint tells you the account is unfaithful, not that the model reasoned well and slipped. So the system should score what it can observe — final answers, tool calls, actions taken — independently of how coherent the narration looks, and never let a plausible summary raise confidence in a wrong result. The diagnostic I would build is paired: run otherwise identical tasks with and without the misleading hint, then measure two things separately, how often the answer moves with the hint, and how often the explanation admits the hint influenced it. A wide gap is the faithfulness signal. In monitoring, treat traces and summaries as useful, incomplete hints for triage. They are not a window into hidden reasoning, so a clean trace is not a safety guarantee."
+      ru: "Вывод в том, что объяснение не является свидетельством о вычислении. Убедительно читающееся резюме при ответе, который следует подброшенной подсказке, говорит о недостоверности самого отчёта, а не о том, что модель рассуждала верно и случайно ошиблась. Поэтому система должна оценивать наблюдаемое — итоговые ответы, вызовы инструментов, совершённые действия — независимо от связности изложения и никогда не повышать доверие к неверному результату из-за складного резюме. Диагностика, которую я бы построил, парная: прогнать одинаковые в остальном задачи с ложной подсказкой и без неё, а затем измерять отдельно две величины — как часто ответ смещается вслед за подсказкой и как часто объяснение признаёт её влияние. Большой разрыв между ними и есть сигнал недостоверности. В мониторинге трассы и резюме полезны как неполные подсказки для разбора. Они не окно в скрытые рассуждения, поэтому чистая трасса не является гарантией безопасности."
     reading: ["paper-reasoning-faithfulness"]
   - id: "eval-judge"
     tracks: ["engineering"]
@@ -127,6 +132,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 51
+    outline:
+      en:
+        - "Make the unit a claim checked against the passages actually retrieved for that answer."
+        - "Scale labelling with a judge calibrated against a human-labelled sample."
+        - "Separate a retrieval failure from an unfaithful generation when attributing the error."
+      ru:
+        - "Сделать единицей измерения утверждение, проверенное против фрагментов, реально найденных для этого ответа."
+        - "Масштабировать разметку судьёй, откалиброванным на размеченной людьми выборке."
+        - "Разделять ошибку поиска и недостоверную генерацию при отнесении причины."
+    answer:
+      en: "Fluency is not the signal, so I measure faithfulness against the evidence the system actually retrieved, not against the world. The unit is a claim: decompose the answer into separate statements and label each supported, contradicted or unsupported by the retrieved passages. That judgement scales with an LLM judge, but only after I calibrate it against a human-labelled sample, because an uncalibrated judge inherits the same plausibility bias I am trying to detect. Attribution matters as much as the rate: if the supporting passage was never retrieved, that is a retrieval defect, and improving the prompt will not fix it. On live traffic I would sample by segment rather than uniformly, since failures cluster in thin or ambiguous parts of the corpus. The limit is that a claim faithful to a retrieved passage can still be wrong if the source is stale, so faithfulness bounds but does not prove correctness."
+      ru: "Беглость — не сигнал, поэтому достоверность я измеряю против тех свидетельств, которые система реально нашла, а не против мира. Единица измерения — утверждение: ответ разбирается на отдельные высказывания, и каждое помечается как подтверждённое, опровергнутое или неподтверждённое найденными фрагментами. Эта разметка масштабируется LLM-судьёй, но лишь после калибровки на размеченной людьми выборке, потому что некалиброванный судья наследует ту же склонность к правдоподобию, которую я и пытаюсь поймать. Отнесение причины важно не меньше самой доли: если подтверждающего фрагмента вообще не было в выдаче, это дефект поиска, и правка промпта его не устранит. На живом трафике я бы отбирал примеры по сегментам, а не равномерно, поскольку сбои скапливаются в тонких и неоднозначных частях корпуса. Граница в том, что утверждение, достоверное относительно найденного фрагмента, всё равно может быть неверным при устаревшем источнике: достоверность ограничивает ошибку, но не доказывает правильность."
+    reading: ["hamel-evals"]
   - id: "eval-release-gate"
     tracks: ["engineering","leadership"]
     roles: ["forward-deployed-engineer", "eval-engineer"]

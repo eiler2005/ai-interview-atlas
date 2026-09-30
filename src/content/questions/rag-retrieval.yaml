@@ -75,6 +75,8 @@ questions:
       - source: "outcome-school-company-wise"
         company: "perplexity"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 46
     outline:
       en:
         - "Retrieve a broad candidate set first, then score query-document pairs with the reranker."
@@ -84,6 +86,9 @@ questions:
         - "Сначала получить широкий набор кандидатов, затем оценить пары запроса и документа reranker-ом."
         - "Отдельно измерить полноту первого поиска: reranker не вернёт документ, которого нет на входе."
         - "Сравнить число кандидатов и размер итогового контекста по качеству на отложенных вопросах и полной задержке."
+    answer:
+      en: "A cross-encoder belongs after a cheap retriever and before generation, scoring query-document pairs for a shortlist rather than the corpus: it reads the query and passage together, which is what makes it more accurate than comparing two independent embeddings, and also what makes it too slow to run over everything. The pipeline's ceiling is therefore the first stage's recall — a reranker cannot promote a document that was never fetched, so I measure recall at the candidate depth separately from final answer quality, otherwise a first-stage miss looks like a reranker failure. Tuning is a sweep: candidate count and final context size against held-out answer quality and end-to-end latency, watching the point where extra candidates stop changing the top results. The gain justifies the latency when relevance is genuinely the bottleneck; if answers fail because the corpus lacks the fact, reranking buys nothing."
+      ru: "Cross-encoder стоит после дешёвого поиска и до генерации: он оценивает пары «запрос — документ» для короткого списка, а не для всего корпуса. Он читает запрос и фрагмент вместе — именно это делает его точнее сравнения двух независимых эмбеддингов и одновременно слишком медленным, чтобы прогонять по всему. Потолок пайплайна поэтому задаёт полнота первой ступени: reranker не поднимет документ, которого не было в выдаче, поэтому полноту на глубине кандидатов я измеряю отдельно от итогового качества ответа, иначе промах первой ступени выглядит как ошибка reranker-а. Настройка — это перебор: число кандидатов и размер итогового контекста против качества на отложенных вопросах и полной задержки, с поиском точки, где новые кандидаты перестают менять верх списка. Выигрыш оправдывает задержку, когда узкое место действительно в релевантности; если ответы плохи потому, что факта нет в корпусе, переранжирование не даёт ничего."
     reading: ["anthropic-contextual-retrieval"]
   - id: "rag-stage-evaluation"
     tracks: ["engineering"]
@@ -264,6 +269,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "perplexity"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 47
+    outline:
+      en:
+        - "Bind each claim to a passage identifier during generation instead of appending links at the end."
+        - "Verify that the cited passage entails the claim before the answer is shown."
+        - "Define behaviour when nothing supports a claim: drop it, mark it unsupported or abstain."
+      ru:
+        - "Привязывать каждое утверждение к идентификатору фрагмента при генерации, а не добавлять ссылки в конце."
+        - "Проверять, что процитированный фрагмент влечёт утверждение, до показа ответа."
+        - "Определить поведение, когда подтверждения нет: убрать утверждение, помечать как неподтверждённое или отказаться отвечать."
+    answer:
+      en: "The point is that attaching a source is not evidence of support, so I design for claim-level attribution and then verify it. Generation emits each factual sentence with the identifier of the passage it used, ideally with character offsets, which keeps the binding checkable instead of a bibliography appended at the end. A separate verification step then asks whether the cited passage actually entails the claim — an entailment model or a second-pass judge, calibrated against a human-labelled sample, because a judge that rubber-stamps is worse than no check. Claims that fail get dropped, marked unsupported, or trigger abstention, and I measure the share of sentences with a verified citation, precision of citations on a labelled set, and how often the system abstains. The limit is that entailment only proves the passage says it; if retrieval surfaced a stale document, a perfectly supported claim can still be false."
+      ru: "Смысл в том, что приложенная ссылка ещё не доказывает подтверждение, поэтому я проектирую привязку на уровне утверждений и затем её проверяю. Генерация помечает каждое фактическое предложение идентификатором использованного фрагмента, желательно со смещениями в символах, — тогда связь можно проверить, а не получить список литературы в конце. Отдельный шаг проверки спрашивает, действительно ли процитированный фрагмент влечёт утверждение: модель следования или второй проход-судья, откалиброванный на размеченной людьми выборке, потому что судья, штампующий «подтверждено», хуже отсутствия проверки. Непрошедшие утверждения убираются, помечаются как неподтверждённые или приводят к отказу отвечать, а я измеряю долю предложений с проверенной ссылкой, точность ссылок на размеченном наборе и частоту отказов. Граница в том, что следование доказывает лишь то, что так написано во фрагменте: если поиск вернул устаревший документ, безупречно подтверждённое утверждение всё равно может быть ложным."
+    reading: ["eugeneyan-llm-patterns"]
   - id: "rag-structured-queries"
     tracks: ["engineering"]
     type: "applied_scenario"

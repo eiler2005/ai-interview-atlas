@@ -81,14 +81,20 @@
     - Проверять выбор инструмента и аргументов на реальных задачах и устранять неоднозначное дублирование.
   - Читать: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - **[Спроектируйте память агента, работающего в нескольких сессиях: что сохранять, извлекать, пересматривать и забывать?](../themes/agents-tools.md#agt-memory)**
-  - System design · Где спрашивали: Anthropic †
+  - System design · Где спрашивали: Anthropic † · ✍ [Ответ](../answers/engineering.md#agt-memory)
   - Что проверяет: Умение различать долговременное состояние и текущий контекст.
+  - Сильный ответ покрывает:
+    - Отделить рабочий контекст одной сессии от состояния, которое должно её пережить.
+    - Записывать в память подтверждённые итоги с происхождением и возможностью правки, а не каждую реплику.
+    - Извлекать по релевантности текущей задаче, удаляя или замещая устаревшие записи.
+  - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - **[Как для coding agent отделить вклад модели от вклада harness в надёжное завершение задачи?](../themes/agents-tools.md#agt-coding-harness)**
   - System design · Где спрашивали: Anthropic †
   - Что проверяет: Умение установить источник улучшения контролируемым сравнением.
 - **[Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна.](../themes/agents-tools.md#agt-mcp-long-running)**
   - System design · Где спрашивали: Anthropic †
   - Что проверяет: Умение управлять состоянием, сбоями и бюджетом контекста на протяжении долгого выполнения с инструментами.
+  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 
 ### [Дообучение и post-training](../themes/post-training.md)
 
@@ -104,8 +110,13 @@
 ### [Оценка качества и наблюдаемость](../themes/evals-observability.md)
 
 - **[Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?](../themes/evals-observability.md#eval-hallucination)**
-  - System design · Где спрашивали: Anthropic †, [OpenAI](openai.md) †
+  - System design · Где спрашивали: Anthropic †, [OpenAI](openai.md) † · ✍ [Ответ](../answers/engineering.md#eval-hallucination)
   - Что проверяет: Умение отличать опору на источники от беглости и правдоподобия.
+  - Сильный ответ покрывает:
+    - Сделать единицей измерения утверждение, проверенное против фрагментов, реально найденных для этого ответа.
+    - Масштабировать разметку судьёй, откалиброванным на размеченной людьми выборке.
+    - Разделять ошибку поиска и недостоверную генерацию при отнесении причины.
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - **[Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию.](../themes/evals-observability.md#eval-release-gate)**
   - System design · Где спрашивали: Anthropic † · ✍ [Ответ](../answers/engineering.md#eval-release-gate)
   - Что проверяет: Учёт тяжести ошибок и неопределённости при выпуске.
@@ -133,7 +144,7 @@
     - Разделите содержимое недоверенного письма и полномочия на чтение или отправку.
     - Ограничьте инструменты и адресатов; требуйте явного подтверждения передачи чувствительных данных.
     - Проверяйте косвенную инъекцию и попытки утечки; одного промпта недостаточно.
-  - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
+  - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) (Simon Willison) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) (Simon Willison)
 - **[Как вы организуете безопасное внедрение AI-модели в промышленную эксплуатацию?](../themes/safety-security-governance.md#sec-safe-deployment)**
   - System design · Senior · Где спрашивали: Anthropic † · ✍ [Ответ](../answers/leadership.md#sec-safe-deployment)
   - Что проверяет: Связываете ли вы оценку рисков с ответственностью за решение о выпуске.
@@ -141,7 +152,7 @@
     - Определите назначение, затронутые группы и недопустимые последствия.
     - Назначьте ответственных за оценку, принятие остаточного риска и инциденты.
     - Предусмотрите постепенный запуск, мониторинг и проверенный откат или остановку.
-  - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
+  - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) (Anthropic)
 - **[Расскажите о ситуации, когда сроки вступили в противоречие с требованиями безопасности. Как вы приняли решение?](../themes/safety-security-governance.md#sec-delivery-pressure)**
   - Поведенческий · Senior · Где спрашивали: Anthropic 🗣 · ✍ [Ответ](../answers/leadership.md#sec-delivery-pressure)
   - Что проверяет: Умеете ли вы явно обсуждать риски и ответственность под давлением сроков.
@@ -174,8 +185,13 @@
   - System design · Где спрашивали: Anthropic †
   - Что проверяет: Умение обосновать индексацию, fan-out и хвостовую задержку расчётами.
 - **[Спроектируйте безопасный API доступа к моделям для разработчиков: аутентификация, квоты, потоковые ответы и обратная совместимость.](../themes/ai-system-design.md#sd-model-api)**
-  - System design · Где спрашивали: Anthropic †
+  - System design · Где спрашивали: Anthropic † · ✍ [Ответ](../answers/engineering.md#sd-model-api)
   - Что проверяет: Понимание endpoint модели как долгосрочного платформенного контракта.
+  - Сильный ответ покрывает:
+    - Аутентифицировать по ключу с областями доступа и считать токены и параллельность, а не только запросы.
+    - Отдавать поток инкрементально с идентификаторами запроса и определить поведение клиента при обрыве.
+    - Развивать контракт аддитивно: версионирование, окна устаревания и опубликованные лимиты.
+  - Читать: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
 
 ### [Практический кодинг](../themes/coding-practical.md)
 
@@ -264,8 +280,13 @@
   - Знания · Senior · Где спрашивали: Anthropic †
   - Что проверяет: Умеете ли вы последовательно изложить позицию о рисках AI и её основания.
 - **[Расскажите об обратной связи, которую было трудно услышать, и о том, как вы её использовали.](../themes/behavioral-values.md#beh-critical-feedback)**
-  - Поведенческий · Senior · Где спрашивали: Anthropic †
+  - Поведенческий · Senior · Где спрашивали: Anthropic † · ✍ [Ответ](../answers/leadership.md#beh-critical-feedback)
   - Что проверяет: Умеете ли вы отвечать на критику конкретными выводами и действиями.
+  - Сильный ответ покрывает:
+    - Изложить обратную связь прямо, в тех словах, в которых её дали, не смягчая.
+    - Отделить первую реакцию от вывода, сделанного после проверки.
+    - Назвать изменение и более поздний случай, показывающий, что оно закрепилось.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[Остались бы вы в компании, если бы её акции обесценились до нуля?](../themes/behavioral-values.md#beh-mission-without-upside)**
   - Поведенческий · Где спрашивали: Anthropic 🗣
   - Что проверяет: Держится ли ваша мотивация на миссии и работе, а не на финансовой выгоде.

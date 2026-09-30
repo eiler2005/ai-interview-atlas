@@ -57,7 +57,7 @@ Questions whose source says they were asked for one of these roles.
   - System design · [Agents, tools and protocols](../themes/agents-tools.md) · Asked at: [Anthropic](../companies/anthropic.md) †
   - Sources (Forward deployed engineer (FDE)): † [Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-29
 - **[Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.](../themes/ai-system-design.md#sd-model-api)**
-  - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Anthropic](../companies/anthropic.md) †
+  - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#sd-model-api)
   - Sources (Forward deployed engineer (FDE)): † [Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-29
 - **[Build a semantic search over a product catalogue that a chat model can call as a tool.](../themes/coding-practical.md#code-catalogue-search-tool)**
   - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [OpenAI](../companies/openai.md) †
@@ -107,7 +107,7 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[Design a knowledge assistant over ten million enterprise documents with per-user permissions and a continuously changing corpus.](../themes/ai-system-design.md#sd-enterprise-rag)**
   - System design · [AI system design](../themes/ai-system-design.md) · ✍ [Answer](../answers/engineering.md#sd-enterprise-rag)
 - **[How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?](../themes/ai-operating-model.md#ops-private-evaluation)**
-  - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md)
+  - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · ✍ [Answer](../answers/leadership.md#ops-private-evaluation)
 - **[A customer wants to automate claims processing with AI. What would you do in the first two weeks?](../themes/applied-scenarios.md#app-claims-discovery)**
   - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md) · ✍ [Answer](../answers/leadership.md#app-claims-discovery)
 - **[A customer executive wants to cancel an AI pilot because it keeps producing wrong results. What would you do over the next 48 hours?](../themes/applied-scenarios.md#app-pilot-rescue)**
@@ -127,7 +127,7 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[A customer wants to replace a proprietary frontier-model API with an open model. How would you run the engagement?](../themes/applied-scenarios.md#app-open-model-engagement)**
   - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md)
 - **[A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?](../themes/applied-scenarios.md#app-contact-centre)**
-  - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md)
+  - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md) · ✍ [Answer](../answers/leadership.md#app-contact-centre)
 
 ## <a id="prep"></a>Preparation
 

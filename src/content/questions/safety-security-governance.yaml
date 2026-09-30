@@ -33,7 +33,7 @@ questions:
     answer:
       en: "Incoming mail lands in the same context as instructions, while the assistant's authority is wider than the sender's rights: a message asks it to find an internal document and forward it outside, and the model obliges. You do not fix that with prompt wording, you fix it by separating levels. Untrusted mail content stays data, and the authority to search or send lives in a tool layer that never reads a message as a command. I would narrow the tool set, restrict recipients to the current thread and known addresses, and require explicit human approval to go beyond that or to attach files. I would test against a corpus of indirect injections and exfiltration attempts, measuring the share of outbound messages carrying data above the requester's access level. The risk does not disappear: injection filters miss things, and data can still leak through an allowed channel."
       ru: "Главная уязвимость здесь в том, что текст входящего письма попадает в тот же контекст, что и инструкции, а полномочия ассистента шире, чем права отправителя: письмо просит найти внутренний документ и переслать его наружу, и модель послушно выполняет. Лечится это не формулировкой промпта, а разделением уровней: содержимое недоверенной почты остаётся данными, а права на поиск и отправку живут в слое инструментов, который не читает письмо как команду. Я бы сузил набор инструментов, ограничил получателей текущим тредом и известными адресами, потребовал явного подтверждения человеком при выходе за них и вложениях. Проверял бы корпусом писем с косвенными инъекциями и попытками утечки, считая долю исходящих сообщений с данными выше уровня доступа. Полностью риск не снимается: фильтры инъекций ошибаются, а утечка возможна и через разрешённый канал."
-    reading: ["owasp-llm-top-10"]
+    reading: ["owasp-llm-top-10","willison-lethal-trifecta","willison-prompt-injection"]
   - id: "sec-safe-deployment"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -67,7 +67,7 @@ questions:
     answer:
       en: "A release starts with intended use: its task, affected users and unacceptable outcomes. Then risk becomes a shared artifact rather than a team opinion. Threats are written down, an assessment is done, and every role has a name on it: who evaluates, who accepts the residual risk, who is on call during an incident. The cost is obvious, the release goes slower and some of the work does not look like development. In practice I would expose the system in stages, from internal users to a share of traffic, hold thresholds on an eval set together with production signals like complaints, harmful responses, latency and cost, and rehearse rollback in advance with a clear trigger and a named owner who can stop it. The limit is simple: a procedure cannot anticipate every risk, so the assessment is repeated when the model, the data or the load changes."
       ru: "Выпуск начинается не с модели, а с назначения: какую задачу система решает, кого затрагивает и какие последствия мы считаем недопустимыми. Дальше риск становится общим артефактом, а не мнением команды: угрозы описаны, оценка проведена, и у каждой роли есть имя — кто оценивает, кто принимает остаточный риск, кто дежурит при инциденте. Плата за это очевидна: релиз идёт медленнее и появляется работа, которая не выглядит как разработка. Практически я бы запускал ступенями, от внутренних пользователей к доле трафика, держал пороги на eval-наборе и продовые сигналы вроде жалоб, вредных ответов, задержки и стоимости, и заранее репетировал откат с понятным условием срабатывания и ответственным за остановку. Граница простая: процедура не может предвидеть все риски, поэтому оценку приходится повторять при смене модели, данных и характера нагрузки."
-    reading: ["nist-ai-rmf","google-sre-book"]
+    reading: ["nist-ai-rmf","google-sre-book","anthropic-rsp"]
   - id: "sec-consumer-safety"
     tracks: ["leadership"]
     type: "product_case"
@@ -262,6 +262,21 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:safety-security-governance"]
+    start_here: ["leadership"]
+    priority: 53
+    outline:
+      en:
+        - "Establish what the control protects against and who bears the risk if it is relaxed."
+        - "Prefer a narrower compensating control to a blanket exception, scoped to that customer."
+        - "Give the exception a named owner, an expiry date and a review that can refuse renewal."
+      ru:
+        - "Установить, от чего защищает правило и кто несёт риск при его ослаблении."
+        - "Предпочесть узкую компенсирующую меру общему исключению и ограничить её этим клиентом."
+        - "Дать исключению названного владельца, дату истечения и пересмотр, способный отказать в продлении."
+    answer:
+      en: "First I ask what the control actually protects against, because some requests target a control whose purpose nobody remembers, and some are reasonable asks blocked by a clumsy implementation. If the underlying risk is real, the answer is usually not a binary exception but a narrower path: a compensating control, a tighter scope, human review in place of the automated block, logging that makes the residual risk observable. Whatever is granted is scoped to that customer and that use, never to the code path generally, because an exception in shared code silently becomes the new default. It gets a named owner on the business side rather than the engineer who implemented it, an expiry date, and a review able to refuse renewal. The failure mode to avoid is the permanent temporary exception, so I would report open exceptions as a standing number."
+      ru: "Сначала я спрашиваю, от чего это правило вообще защищает: часть просьб направлена на снятие контроля, чьё назначение никто уже не помнит, а часть — разумные запросы, заблокированные неудачной реализацией. Если риск реален, ответом обычно оказывается не бинарное исключение, а более узкий путь: компенсирующая мера, суженная область, проверка человеком вместо автоматической блокировки, журналирование, делающее остаточный риск наблюдаемым. Всё, что выдаётся, ограничивается этим клиентом и этим применением, а не участком кода в целом: исключение в общем коде незаметно становится новым поведением по умолчанию. У него появляется названный ответственный владелец со стороны бизнеса, а не инженер, который это реализовал, дата истечения и пересмотр, способный отказать в продлении. Режим отказа, которого надо избегать, — вечное временное исключение, поэтому число открытых исключений я бы показывал руководству постоянно."
+    reading: ["eu-ai-act"]
   - id: "sec-matter-isolation"
     tracks: ["engineering","leadership"]
     type: "system_design"

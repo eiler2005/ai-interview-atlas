@@ -16,7 +16,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Разделите содержимое недоверенного письма и полномочия на чтение или отправку.
     - Ограничьте инструменты и адресатов; требуйте явного подтверждения передачи чувствительных данных.
     - Проверяйте косвенную инъекцию и попытки утечки; одного промпта недостаточно.
-  - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
+  - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) (Simon Willison) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) (Simon Willison)
 - <a id="sec-safe-deployment"></a>**Как вы организуете безопасное внедрение AI-модели в промышленную эксплуатацию?**
   - System design · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#sec-safe-deployment) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-safe-deployment&title=%5BCorrection%5D%20sec-safe-deployment)
   - Что проверяет: Связываете ли вы оценку рисков с ответственностью за решение о выпуске.
@@ -24,7 +24,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Определите назначение, затронутые группы и недопустимые последствия.
     - Назначьте ответственных за оценку, принятие остаточного риска и инциденты.
     - Предусмотрите постепенный запуск, мониторинг и проверенный откат или остановку.
-  - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
+  - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) (Anthropic)
 - <a id="sec-action-authorisation"></a>**Какие защитные меры нужны AI-системе, действующей от имени пользователя?**
   - System design · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#sec-action-authorisation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-action-authorisation&title=%5BCorrection%5D%20sec-action-authorisation)
   - Что проверяет: Различаете ли вы предложенное моделью действие и разрешённое выполнение.
@@ -45,8 +45,13 @@ Prompt injection, утечка данных, guardrails, приватность,
   - System design · Senior · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-upload-moderation&title=%5BCorrection%5D%20sec-upload-moderation)
   - Что проверяет: Умеете ли вы объединить выявление нарушений, проверку и апелляции в нужном масштабе.
 - <a id="sec-guardrail-exception"></a>**Продуктовая команда просит исключение из правила безопасности AI для одного корпоративного клиента. Как оценить, согласовать и ограничить срок такого исключения?**
-  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
+  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#sec-guardrail-exception) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
   - Что проверяет: Есть ли у исключения ответственный владелец, компенсирующие меры и решение о прекращении его действия.
+  - Сильный ответ покрывает:
+    - Установить, от чего защищает правило и кто несёт риск при его ослаблении.
+    - Предпочесть узкую компенсирующую меру общему исключению и ограничить её этим клиентом.
+    - Дать исключению названного владельца, дату истечения и пересмотр, способный отказать в продлении.
+  - Читать: [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) (European Commission)
 - <a id="sec-matter-isolation"></a>**Два партнёра одной юридической фирмы консультируют разные стороны сделки. Как изолировать их AI-рабочие пространства?**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-matter-isolation&title=%5BCorrection%5D%20sec-matter-isolation)
   - Что проверяет: Понимаете ли вы, что границы доступа могут проходить внутри одного клиента.

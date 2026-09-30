@@ -102,6 +102,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 42
+    outline:
+      en:
+        - "Cache one low-rank latent vector per token instead of full keys and values for every head."
+        - "Reconstruct per-head keys and values from that latent during attention, paying extra compute."
+        - "Separate this architectural compression from quantising the same cache."
+      ru:
+        - "Кешировать один низкоранговый латентный вектор на токен вместо полных key и value для каждой головы."
+        - "Восстанавливать key и value по головам из латента во время внимания, платя дополнительными вычислениями."
+        - "Отделить архитектурное сжатие от квантования того же кеша."
+    answer:
+      en: "Latent attention changes what you store, not how precisely you store it. Keys and values are projected down to a single low-rank latent vector per token, and that latent is what the cache holds; during attention it is projected back up to per-head keys and values, with the positional part handled separately. Cache bytes per token therefore fall by about the compression ratio, paid for with extra projection work on every decode step and more intricate kernels. I would measure cache bytes per token, the context length and batch size reachable within the same memory, decode throughput, and quality against a grouped-query baseline at an equal cache budget. The distinction matters because quantisation lowers the precision of the same tensors: the two compose, and treating them as one saving counts it twice. The gain is real only when the KV cache, not the weights, is what bounds you."
+      ru: "Латентное внимание меняет то, что вы храните, а не точность хранения. Key и value проецируются вниз в один низкоранговый латентный вектор на токен, и именно латент лежит в кеше; во время внимания он проецируется обратно в key и value по головам, а позиционная часть обрабатывается отдельно. Байты кеша на токен поэтому падают примерно во столько раз, каково сжатие, а платой становятся дополнительные проекции на каждом шаге декодирования и более сложные ядра. Я бы измерил байты кеша на токен, достижимые в той же памяти длину контекста и размер батча, пропускную способность декодирования и качество против grouped-query при равном бюджете кеша. Различение важно, потому что квантование снижает точность тех же тензоров: одно с другим сочетается, и объединение их в одну экономию считает её дважды. Выигрыш реален лишь тогда, когда вас ограничивает KV-кеш, а не веса."
+    reading: ["paper-deepseek-v2"]
   - id: "llm-flashattention"
     tracks: ["engineering"]
     type: "knowledge"
@@ -165,6 +180,7 @@ questions:
       - source: "outcome-school-company-wise"
         company: "meta"
     added: "2026-09-26"
+    reading: ["paper-rope"]
   - id: "llm-compute-optimal"
     tracks: ["engineering","leadership"]
     roles: ["research-engineer"]
@@ -208,6 +224,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 41
+    outline:
+      en:
+        - "Separate the total parameter count from the parameters activated for one token."
+        - "Account for memory that must hold every expert and for routing traffic between devices."
+        - "Discuss load imbalance, expert capacity and dropped tokens."
+      ru:
+        - "Отделить общее число параметров от параметров, активируемых для одного токена."
+        - "Учесть память, в которой лежат все эксперты, и трафик маршрутизации между устройствами."
+        - "Обсудить перекос нагрузки, ёмкость экспертов и отброшенные токены."
+    answer:
+      en: "Routing buys capacity, not free scale: the model holds far more parameters while any one token is computed by only a few of them. A router scores experts per token and sends it to the top few, so arithmetic grows with the experts activated rather than the total, and quality improves as experts specialise. Memory does not shrink: every expert's weights stay resident, and in distributed serving tokens travel to the device holding their expert, putting an all-to-all exchange on the critical path. I would measure tokens per expert to expose imbalance, the share dropped when an expert hits its capacity limit, and the all-to-all share of step time, judging quality against a dense model of the same active size. The argument holds only while routing stays balanced and batches are large enough to amortise that exchange."
+      ru: "Маршрутизация покупает ёмкость, а не бесплатный масштаб: модель хранит намного больше параметров, но любой отдельный токен считается лишь небольшой их частью. Маршрутизатор оценивает экспертов для каждого токена и отправляет его к нескольким лучшим, поэтому арифметика растёт с числом активированных экспертов, а не с общим, а качество выигрывает от их специализации. Память при этом не уменьшается: веса всех экспертов остаются размещёнными, а при распределённом обслуживании сами токены едут к устройству со своим экспертом, и обмен all-to-all оказывается на критическом пути. Я бы измерил число токенов на эксперта, чтобы увидеть перекос, долю отброшенных при достижении ёмкости эксперта и долю all-to-all во времени шага, сравнивая качество с плотной моделью того же активного размера. Рассуждение верно лишь пока маршрутизация сбалансирована, а батчи достаточно велики, чтобы этот обмен амортизировался."
+    reading: ["paper-switch-transformers"]
   - id: "llm-training-stages"
     tracks: ["engineering","leadership"]
     type: "knowledge"

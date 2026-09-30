@@ -7,7 +7,7 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
 
 Превращает возможности модели в работающий продукт: интерфейсы, среда исполнения агентов, инструменты и восстановление после сбоев.
 
-На этой странице: [Чем занимается роль](#scope) · [Как проходит собеседование (11)](#interviews) · [Вопросы (24)](#role-questions) · [Подготовка](#prep)
+На этой странице: [Чем занимается роль](#scope) · [Как проходит собеседование (12)](#interviews) · [Вопросы (25)](#role-questions) · [Подготовка](#prep)
 
 ## <a id="scope"></a>Чем занимается роль
 
@@ -24,6 +24,7 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
 | Компания | Этап | Что происходит | Основание |
 | --- | --- | --- | --- |
 | [Anthropic](../companies/anthropic.md) | Процесс для product engineer<br>*Разработчик AI-продуктов* | Кандидат в 2025 году сообщает о живом кодинге, обсуждении продаж, интервью о культуре и разговоре с нанимающим менеджером. | 🗣 отчёт кандидата<br>[Anthropic Product Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/anthropic/experiences/product-engineer-new-york-ny-june-1-2025-no-offer-positive-c0c3d7ae/), Taro, candidate report, проверено 2026-09-29 |
+| [Canva](../companies/canva.md) | Раунд AI-ассистированного программирования<br>*Разработчик AI-продуктов, ML-инженер / data scientist* | Заменил скрининг по основам computer science. Реалистичная продуктовая задача с собственными AI-инструментами кандидата, о чём сообщают заранее и советуют потренироваться. Компания указывает, что оценивает разбор неоднозначных требований, поиск и исправление проблем в сгенерированном коде и соответствие результата продакшен-стандартам. | ✅ подтверждено компанией<br>[Yes, You Can Use AI in Our Interviews. In fact, we insist](https://www.canva.dev/blog/engineering/yes-you-can-use-ai-in-our-interviews/), Canva Engineering Blog, опубликовано 2025-06-11, проверено 2026-09-30<br>[AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/), Canva Engineering Blog, опубликовано 2025-10-20, проверено 2026-09-30 |
 | [LangChain](../companies/langchain.md) | Задание в репозитории компании<br>*Разработчик AI-продуктов* | Сделать реальную функцию в старой ветке репозитория компании по полной спецификации и с тестами. | † гайд или подборка<br>[LangChain Software Engineer Interview Guide](https://www.tryexponent.com/guides/langchain-software-engineer-interview-guide), Aced (formerly Exponent), проверено 2026-09-29 |
 | [LangChain](../companies/langchain.md) | System design: критика, затем развитие<br>*Разработчик AI-продуктов* | Около получаса — поиск слабых мест в архитектуре сервиса, затем проектирование новой функции для платформы. | † гайд или подборка<br>[LangChain Software Engineer Interview Guide](https://www.tryexponent.com/guides/langchain-software-engineer-interview-guide), Aced (formerly Exponent), проверено 2026-09-29 |
 | [Cursor (Anysphere)](../companies/cursor.md) | Технический раунд в коде продукта<br>*Разработчик AI-продуктов* | Реализовать hash tree, который продукт действительно использует, в клоне репозитория; поиск, ChatGPT и Cursor разрешались для точечной помощи с синтаксисом — с предупреждением интервьюера. | 🗣 отчёт кандидата<br>[Cursor Software Engineer (New Grad) Interview Experience](https://www.tryexponent.com/experiences/cursor-software-engineer-interview-a9c32f), Aced (formerly Exponent), candidate report, проверено 2026-09-29 |
@@ -35,7 +36,7 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
 | [Sierra](../companies/sierra.md) | Раунд отладки (пилот)<br>*Разработчик AI-продуктов* | Кодовая база среднего размера и черновой pull request коллеги со сквозной функцией: нужно проверить и улучшить его, работая с coding-агентами. Допустимый объём AI на момент публикации ещё не определён. | ✅ подтверждено компанией<br>[The AI-native interview](https://sierra.ai/blog/the-ai-native-interview), Sierra, опубликовано 2026-04-22, проверено 2026-09-29 |
 | [Sierra](../companies/sierra.md) | Прежние домашнее задание и onsite<br>*Инженер агентов* | Один кандидат, примерно за год до проверки: собрать агента поддержки для вымышленной компании, выбрав две функции из пяти и объяснив, как измерять его в продакшене; затем раунд отладки на TypeScript и React и защита решений. | 🗣 отчёт кандидата<br>[Sierra AI Agent Engineer Interview Experience](https://www.tryexponent.com/experiences/sierra-ai-machine-learning-engineer-interview-8549fc), Aced (formerly Exponent), candidate report, проверено 2026-09-29 |
 
-Страницы компаний, где есть эти роли: [Anthropic](../companies/anthropic.md), [OpenAI](../companies/openai.md), [Amazon](../companies/amazon.md), [Databricks](../companies/databricks.md), [LangChain](../companies/langchain.md), [NVIDIA](../companies/nvidia.md), [Cursor (Anysphere)](../companies/cursor.md), [Perplexity](../companies/perplexity.md), [Sierra](../companies/sierra.md), [Точка](../companies/tochka.md).
+Страницы компаний, где есть эти роли: [Anthropic](../companies/anthropic.md), [OpenAI](../companies/openai.md), [Amazon](../companies/amazon.md), [Canva](../companies/canva.md), [Databricks](../companies/databricks.md), [LangChain](../companies/langchain.md), [NVIDIA](../companies/nvidia.md), [Cursor (Anysphere)](../companies/cursor.md), [Perplexity](../companies/perplexity.md), [Sierra](../companies/sierra.md), [Точка](../companies/tochka.md).
 
 ## <a id="role-questions"></a>Вопросы
 
@@ -78,11 +79,11 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
 - **[Спроектируйте восстановление после ошибок и тайм-аутов инструментов, включая случай, когда операция уже изменила внешнее состояние.](../themes/agents-tools.md#agt-retries)**
   - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-retries)
 - **[Что MCP стандартизирует между AI-приложением и внешним сервисом сверх формата function call модели?](../themes/agents-tools.md#agt-mcp)**
-  - Знания · [Агенты, инструменты и протоколы](../themes/agents-tools.md)
+  - Знания · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-mcp)
 - **[Как выбрать, назвать и описать инструменты, чтобы модель верно выбирала операцию и аргументы?](../themes/agents-tools.md#agt-tool-surface)**
   - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-tool-surface)
 - **[Спроектируйте память агента, работающего в нескольких сессиях: что сохранять, извлекать, пересматривать и забывать?](../themes/agents-tools.md#agt-memory)**
-  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md)
+  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-memory)
 - **[Задайте критерии завершения и остановки агентного цикла, исключающие бесконечные затраты на незавершённую задачу.](../themes/agents-tools.md#agt-termination)**
   - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-termination)
 - **[Спроектируйте подтверждение человеком значимых действий агента, связав разрешение с конкретным исполняемым действием.](../themes/agents-tools.md#agt-approval)**
@@ -102,7 +103,9 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
 - **[Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения.](../themes/ai-system-design.md#sd-text-to-sql)**
   - System design · [Дизайн AI-систем](../themes/ai-system-design.md)
 - **[Реализуйте минимальный агентный runner с проверяемой диспетчеризацией инструментов, обработкой ошибок и жёстким лимитом шагов.](../themes/coding-practical.md#code-agent-loop)**
-  - Кодинг · [Практический кодинг](../themes/coding-practical.md)
+  - Кодинг · [Практический кодинг](../themes/coding-practical.md) · ✍ [Ответ](../answers/engineering.md#code-agent-loop)
+- **[На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?](../themes/coding-practical.md#code-ai-assisted-ownership)**
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md)
 - **[Напишите промпт, который извлекает период из запроса клиента и различает почти одинаковые формулировки вроде «с первого числа», «по первое число» и «за первое число».](../themes/applied-scenarios.md#app-prompt-date-range)**
   - Прикладной сценарий · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md)
 

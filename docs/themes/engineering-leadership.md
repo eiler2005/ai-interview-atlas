@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/engineering-leadership.md) · [AI Inter
 
 Hiring, coaching, performance, team design and delivery for teams that build AI.
 
-On this page: [Both tracks (1)](#track-both) · [AI Leadership (17)](#track-leadership)
+On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -81,11 +81,21 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (17)](#track-lead
   - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-two-valid-views&title=%5BCorrection%5D%20lead-two-valid-views)
   - Tests: Whether you uncover underlying needs instead of forcing a superficial compromise.
 - <a id="lead-strategic-hiring"></a>**How do you decide which engineering capabilities to hire for?**
-  - Applied scenario · Senior · Asked at: [Stripe](../companies/stripe.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
+  - Applied scenario · Senior · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
   - Tests: Whether staffing choices follow strategy and gaps in team capability.
+  - A strong answer covers:
+    - Start from the next period's commitments and the capabilities they require.
+    - Separate a gap worth hiring for from one solved by training, borrowing or not doing the work.
+    - Write the role from the gap, and define what evidence the loop must produce.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-quality-standard"></a>**How do you establish engineering quality standards across a team?**
-  - Applied scenario · Senior · Asked at: [Stripe](../companies/stripe.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-quality-standard&title=%5BCorrection%5D%20lead-quality-standard)
+  - Applied scenario · Senior · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-quality-standard) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-quality-standard&title=%5BCorrection%5D%20lead-quality-standard)
   - Tests: Whether standards are observable, proportionate and part of daily delivery.
+  - A strong answer covers:
+    - Define quality by observable outcomes, not by taste or a document nobody reads.
+    - Scale the requirement to the risk of the change, so low-risk work is not slowed.
+    - Put the standard in the default path — tooling, templates, CI — and revisit it with data.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="lead-engineering-persuasion"></a>**How would you convince engineers that a proposed product feature is worth building?**
   - Applied scenario · Senior · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-engineering-persuasion&title=%5BCorrection%5D%20lead-engineering-persuasion)
   - Tests: Whether you engage technical concerns and establish a shared reason to invest.
@@ -93,13 +103,27 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (17)](#track-lead
   - Behavioral · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-personal-growth&title=%5BCorrection%5D%20lead-personal-growth)
   - Tests: Whether reflection produces concrete changes in how you lead.
 - <a id="lead-research-product-boundary"></a>**Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?**
-  - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-research-product-boundary&title=%5BCorrection%5D%20lead-research-product-boundary)
+  - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-research-product-boundary) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-research-product-boundary&title=%5BCorrection%5D%20lead-research-product-boundary)
   - Tests: Whether team design accommodates uncertainty without abandoning production ownership.
+  - A strong answer covers:
+    - Separate what is being explored from what is being operated, and give each a different bar.
+    - Define the handoff as a contract: an interface, evaluation evidence and an owner on call.
+    - Protect the release with versioning and a rollback path, so exploration cannot destabilise it.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="lead-ai-review-skills"></a>**An engineering team adopts AI coding tools, but reviewers struggle to verify the resulting changes. How would you build the missing capability?**
-  - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-review-skills&title=%5BCorrection%5D%20lead-ai-review-skills)
+  - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-review-skills) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-review-skills&title=%5BCorrection%5D%20lead-ai-review-skills)
   - Tests: Whether enablement is tied to verification and ownership rather than tool usage counts.
+  - A strong answer covers:
+    - Name the real gap: reviewing a large change nobody drafted by hand, not tool operation.
+    - Keep the author accountable for explaining and testing the change, whatever produced it.
+    - Train review on verification habits and measure escaped defects, not adoption counts.
+  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 - <a id="lead-platform-team-charter"></a>**Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?**
   - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-platform-team-charter&title=%5BCorrection%5D%20lead-platform-team-charter)
   - Tests: Whether you resolve capacity and accountability before creating a new team boundary.
+- <a id="lead-ai-interview-redesign"></a>**Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?**
+  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-interview-redesign&title=%5BCorrection%5D%20lead-ai-interview-redesign)
+  - Tests: Whether the loop measures judgement and ownership instead of banning or ignoring the tools.
+  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 
 ← [AI platform and operating model](ai-operating-model.md) · [Programmes and delivery](program-delivery.md) →

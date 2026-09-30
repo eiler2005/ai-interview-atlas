@@ -197,6 +197,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "openai"
+    start_here: ["leadership"]
+    priority: 54
+    outline:
+      en:
+        - "Name the stakeholders and the objective each was actually measured on."
+        - "Show how you surfaced the conflict as a trade-off rather than a personality clash."
+        - "End with the agreement, what was given up, and evidence that it held."
+      ru:
+        - "Назвать участников и цель, по которой каждого действительно оценивали."
+        - "Показать, как вы вывели конфликт в плоскость компромисса, а не столкновения характеров."
+        - "Закончить договорённостью, тем, чем пожертвовали, и свидетельством, что она держалась."
+    answer:
+      en: "Choose a conflict where the parties were both right, because a story where one side was simply wrong tests judgement about people, not alignment. Name what each stakeholder was measured on — that is usually the real source of the disagreement, and saying it aloud is most of the work: a sales commitment, a reliability target and a compliance deadline can be genuinely incompatible without anyone behaving badly. Then show how you made the trade-off visible: the options, their costs, and whose goal each damaged, rather than hunting for a compromise nobody asked for. Be concrete about the decision and what was given up, including your own priority if that happened. Finish with evidence it held — a written agreement people referred to later, a metric both sides accepted — and avoid the ending where everyone simply agreed once you explained."
+      ru: "Берите конфликт, где обе стороны были правы: история, в которой одна сторона просто ошибалась, проверяет ваши суждения о людях, а не умение согласовывать. Назовите, по какой цели оценивали каждого участника, — обычно именно там и лежит источник расхождения, и произнести это вслух означает сделать большую часть работы: обязательство перед клиентом, цель по надёжности и срок по комплаенсу бывают действительно несовместимы, и никто при этом не ведёт себя плохо. Затем покажите, как вы сделали компромисс видимым: варианты, их цену и то, чью цель каждый из них повреждал, вместо поиска компромисса, о котором никто не просил. Будьте конкретны в решении и в том, чем пожертвовали, включая собственный приоритет, если так и было. Завершите свидетельством, что договорённость держалась: письменная фиксация, к которой потом возвращались, метрика, принятая обеими сторонами, — и избегайте финала, где все просто согласились после ваших объяснений."
+    reading: ["gitlab-organizational-change"]
   - id: "beh-research-priorities"
     tracks: ["engineering","leadership"]
     type: "behavioral"
@@ -440,6 +455,21 @@ questions:
     evidence:
       - source: "exponent-anthropic-swe"
         company: "anthropic"
+    start_here: ["leadership"]
+    priority: 55
+    outline:
+      en:
+        - "State the feedback plainly, in the words it was given, without softening it."
+        - "Separate your first reaction from what you concluded once you checked it."
+        - "Name the change you made and a later situation that shows it stuck."
+      ru:
+        - "Изложить обратную связь прямо, в тех словах, в которых её дали, не смягчая."
+        - "Отделить первую реакцию от вывода, сделанного после проверки."
+        - "Назвать изменение и более поздний случай, показывающий, что оно закрепилось."
+    answer:
+      en: "The test is whether you can still hear it, so state the feedback in the words it was actually given. Softened versions — I was told to communicate more — signal that you have not really accepted it. Admitting your first reaction is fine and makes the answer credible, because most people are defensive before they are reflective. What matters is the next step: that you went and checked, by asking others whether they saw the same thing or looking for it in your own record, instead of accepting or rejecting it on one person's word. Then name the specific change, the narrower the better, and a later situation where you can tell it stuck. Avoid two endings — the one where the feedback turned out to be unfair after all, and the one where you simply tried harder — because neither shows anything changed."
+      ru: "Проверяют, способны ли вы услышать это до сих пор, поэтому изложите обратную связь в тех словах, в которых её действительно дали. Смягчённые версии вроде «мне сказали больше коммуницировать» выдают, что вы её так и не приняли. Признать первую реакцию — нормально и делает ответ достоверным: большинство сначала защищается и только потом размышляет. Важен следующий шаг: что вы пошли и проверили — спросили других, видят ли они то же самое, или поискали подтверждение в собственных результатах, — вместо того чтобы принять или отвергнуть на основании слов одного человека. Затем назовите конкретное изменение, чем оно уже, тем лучше, и более поздний случай, по которому видно, что оно закрепилось. Избегайте двух финалов: где обратная связь в итоге оказалась несправедливой и где вы просто стали больше стараться, — ни один из них не показывает, что что-то изменилось."
+    reading: ["google-manager-training"]
   - id: "beh-conflict-under-urgency"
     tracks: ["leadership"]
     type: "applied_scenario"

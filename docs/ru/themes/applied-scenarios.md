@@ -115,8 +115,13 @@
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-hospital-scheduling&title=%5BCorrection%5D%20app-hospital-scheduling)
   - Что проверяет: Учитываете ли вы рабочий процесс, интеграцию и безопасную обработку исключений.
 - <a id="app-contact-centre"></a>**Контакт-центр хочет заменить телефонное меню голосовыми агентами. Как вы проведёте проект?**
-  - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-contact-centre&title=%5BCorrection%5D%20app-contact-centre)
+  - Прикладной сценарий · Senior · ✍ [Ответ](../answers/leadership.md#app-contact-centre) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-contact-centre&title=%5BCorrection%5D%20app-contact-centre)
   - Что проверяет: Умеете ли вы одновременно проработать сценарии, перевод на оператора и готовность эксплуатации.
+  - Сильный ответ покрывает:
+    - Начать с самых частых обращений и честно определить долю самостоятельных решений с учётом переводов.
+    - Сделать перевод на человека полноценным путём, который несёт контекст и не зацикливается.
+    - Спланировать готовность эксплуатации: цели по задержке, перебивание, мониторинг и откат.
+  - Читать: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="app-public-service-language"></a>**Государственное ведомство хочет перевести социальную услугу с бумаги и колл-центра на многоязычного ассистента в своём контуре. Как определить объём работ?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-public-service-language&title=%5BCorrection%5D%20app-public-service-language)
   - Что проверяет: Учитываете ли вы доступность услуги, покрытие языков и ограничения размещения.

@@ -10,7 +10,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 ## <a id="track-both"></a>Both tracks
 
 - <a id="inf-reasoning-budget"></a>**A service can spend more on one reasoning run or generate several candidates and verify them. How would you allocate compute under a latency deadline?**
-  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-budget&title=%5BCorrection%5D%20inf-reasoning-budget)
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#inf-reasoning-budget) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-budget&title=%5BCorrection%5D%20inf-reasoning-budget)
   - Tests: Whether compute allocation follows measured task value and includes verification overhead.
   - A strong answer covers:
     - Compare strategies on the same held-out tasks, including verifier cost and wall-clock latency.
@@ -23,6 +23,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="inf-runtime-choice"></a>**How would you benchmark vLLM, SGLang, TensorRT-LLM and a custom runtime for a specific workload?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-runtime-choice&title=%5BCorrection%5D%20inf-runtime-choice)
   - Tests: Whether a reproducible workload drives the choice instead of a generic ranking.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - <a id="inf-cost-reduction"></a>**You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable.**
   - Applied scenario · Asked at: [Amazon](../companies/amazon.md) †, [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/engineering.md#inf-cost-reduction) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-cost-reduction&title=%5BCorrection%5D%20inf-cost-reduction)
   - Tests: Whether savings are measured under explicit quality and latency constraints.
@@ -59,8 +60,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Measure queueing and starvation alongside throughput.
   - Read: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) (Kwon et al., arXiv)
 - <a id="inf-paged-cache"></a>**How does paging the KV cache reduce waste, and what remains for the scheduler to solve?**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-paged-cache&title=%5BCorrection%5D%20inf-paged-cache)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#inf-paged-cache) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-paged-cache&title=%5BCorrection%5D%20inf-paged-cache)
   - Tests: Whether memory management is distinguished from request scheduling.
+  - A strong answer covers:
+    - Explain fragmentation from contiguous allocation sized for the longest possible answer.
+    - Describe fixed-size blocks with an indirection table and blocks shared between requests.
+    - Name what paging leaves open: admission, preemption and fairness remain scheduling policy.
+  - Read: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) (Kwon et al., arXiv)
 - <a id="inf-speculation"></a>**Explain exact speculative decoding, its acceptance step and workloads where the draft model adds overhead instead of speed.**
   - Knowledge · ✍ [Answer](../answers/engineering.md#inf-speculation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-speculation&title=%5BCorrection%5D%20inf-speculation)
   - Tests: Whether speedup is explained without promising a universal quality or latency benefit.
@@ -70,8 +76,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Evaluate acceptance rate, draft cost and available parallel compute.
   - Read: [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192) (Leviathan et al., arXiv)
 - <a id="inf-prefix-cache"></a>**What makes a prompt prefix reusable, and which changes invalidate or reduce the value of a prefix cache?**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-prefix-cache&title=%5BCorrection%5D%20inf-prefix-cache)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#inf-prefix-cache) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-prefix-cache&title=%5BCorrection%5D%20inf-prefix-cache)
   - Tests: Whether exact reuse, cache lifetime and tenant isolation are considered.
+  - A strong answer covers:
+    - State the condition for reuse: an identical token prefix under the same model and serving configuration.
+    - Order the prompt so the stable part comes first and volatile content comes last.
+    - Bound cache lifetime and scope entries so one tenant cannot read another's prefix.
+  - Read: [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) (Claude Platform Docs)
 - <a id="inf-precision"></a>**Compare floating-point and integer serving formats down to four bits; how would you validate an acceptable reduction in precision?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-precision&title=%5BCorrection%5D%20inf-precision)
   - Tests: Whether memory savings are checked against quality, kernels and hardware support.

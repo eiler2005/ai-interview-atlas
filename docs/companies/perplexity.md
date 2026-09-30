@@ -56,7 +56,7 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
     - Ablate each retriever and reranking on a fixed relevance set.
   - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - **[Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?](../themes/rag-retrieval.md#rag-reranking)**
-  - Knowledge · Asked at: [Microsoft](microsoft.md) †, Perplexity †
+  - Knowledge · Asked at: [Microsoft](microsoft.md) †, Perplexity † · ✍ [Answer](../answers/engineering.md#rag-reranking)
   - Tests: Whether candidate count, recall and reranking cost are balanced.
   - A strong answer covers:
     - Retrieve a broad candidate set first, then score query-document pairs with the reranker.
@@ -67,8 +67,13 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
   - System design · Asked at: Perplexity †
   - Tests: Whether freshness has consistency guarantees and an observable lag.
 - **[How would you connect each factual claim in an answer to the retrieved passage that supports it?](../themes/rag-retrieval.md#rag-citations)**
-  - System design · Asked at: Perplexity †
+  - System design · Asked at: Perplexity † · ✍ [Answer](../answers/engineering.md#rag-citations)
   - Tests: Whether a citation is checked for support rather than merely attached.
+  - A strong answer covers:
+    - Bind each claim to a passage identifier during generation instead of appending links at the end.
+    - Verify that the cited passage entails the claim before the answer is shown.
+    - Define behaviour when nothing supports a claim: drop it, mark it unsupported or abstain.
+  - Read: [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/) (Eugene Yan)
 
 ### [Evaluation and observability](../themes/evals-observability.md)
 
@@ -120,8 +125,13 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
   - Product case · Senior · Asked at: Perplexity †
   - Tests: Whether you can make a differentiated, evidence-seeking product proposal.
 - **[Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?](../themes/ai-product-strategy.md#prod-search-versus-answer)**
-  - Product case · Senior · Asked at: Perplexity †
+  - Product case · Senior · Asked at: Perplexity † · ✍ [Answer](../answers/leadership.md#prod-search-versus-answer)
   - Tests: Whether you compare products through user tasks and evidence quality.
+  - A strong answer covers:
+    - Split queries by task: navigation, a single fact, comparison across sources, open exploration.
+    - Judge an answer by whether its evidence is checkable, current and correctly attributed.
+    - Name the first improvement and the metric that would show it worked.
+  - Read: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) (Lewis et al., arXiv)
 
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 

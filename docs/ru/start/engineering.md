@@ -89,3 +89,33 @@
   - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#code-token-bucket)
 - **40. [Напишите асинхронный обработчик батча API-запросов с ограничением конкурентности, jitter повторов и изоляцией ошибок элементов.](../themes/coding-practical.md#code-async-batches)**
   - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#code-async-batches)
+- **41. [Как разреженная маршрутизация по экспертам увеличивает число параметров и какие затраты сохраняются при активации части экспертов?](../themes/llm-fundamentals.md#llm-experts)**
+  - Знания · [Основы LLM](../themes/llm-fundamentals.md) · ✍ [Ответ](../answers/engineering.md#llm-experts)
+- **42. [Объясните, как latent attention сжимает представление KV и что приходится восстанавливать при инференсе.](../themes/llm-fundamentals.md#llm-latent-attention)**
+  - Знания · [Основы LLM](../themes/llm-fundamentals.md) · ✍ [Ответ](../answers/engineering.md#llm-latent-attention)
+- **43. [Когда префикс промпта можно переиспользовать и какие изменения обесценивают или инвалидируют кеш?](../themes/inference-economics.md#inf-prefix-cache)**
+  - Знания · [Инференс, serving и стоимость](../themes/inference-economics.md) · ✍ [Ответ](../answers/engineering.md#inf-prefix-cache)
+- **44. [Как страничная организация KV-кеша сокращает потери памяти и какие задачи остаются планировщику?](../themes/inference-economics.md#inf-paged-cache)**
+  - Знания · [Инференс, serving и стоимость](../themes/inference-economics.md) · ✍ [Ответ](../answers/engineering.md#inf-paged-cache)
+- **45. [Сервис может потратить больше вычислений на один reasoning-запуск или получить несколько кандидатов и проверить их. Как распределить бюджет при ограничении задержки?](../themes/inference-economics.md#inf-reasoning-budget)**
+  - Прикладной сценарий · [Инференс, serving и стоимость](../themes/inference-economics.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#inf-reasoning-budget)
+- **46. [Где разместить cross-encoder reranker в поисковом пайплайне и когда выигрыш качества оправдывает задержку?](../themes/rag-retrieval.md#rag-reranking)**
+  - Знания · [RAG и поиск](../themes/rag-retrieval.md) · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-reranking)
+- **47. [Как связать каждое фактическое утверждение ответа с подтверждающим найденным фрагментом?](../themes/rag-retrieval.md#rag-citations)**
+  - System design · [RAG и поиск](../themes/rag-retrieval.md) · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-citations)
+- **48. [Что MCP стандартизирует между AI-приложением и внешним сервисом сверх формата function call модели?](../themes/agents-tools.md#agt-mcp)**
+  - Знания · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/engineering.md#agt-mcp)
+- **49. [Спроектируйте память агента, работающего в нескольких сессиях: что сохранять, извлекать, пересматривать и забывать?](../themes/agents-tools.md#agt-memory)**
+  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#agt-memory)
+- **50. [Когда разделение работы между агентами улучшает результат, а когда преобладают затраты на координацию?](../themes/agents-tools.md#agt-multi-agent)**
+  - Знания · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-multi-agent)
+- **51. [Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?](../themes/evals-observability.md#eval-hallucination)**
+  - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#eval-hallucination)
+- **52. [Краткое объяснение reasoning-модели выглядит убедительно, но ответ следует ложной подсказке. Какие выводы должны сделать оценка и мониторинг?](../themes/evals-observability.md#eval-reasoning-trace-faithfulness)**
+  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#eval-reasoning-trace-faithfulness)
+- **53. [Спроектируйте безопасный API доступа к моделям для разработчиков: аутентификация, квоты, потоковые ответы и обратная совместимость.](../themes/ai-system-design.md#sd-model-api)**
+  - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#sd-model-api)
+- **54. [Составьте сквозной бюджет задержки голосового агента от определения конца реплики до воспроизведения ответа.](../themes/multimodal-voice.md#mm-latency)**
+  - System design · [Мультимодальность и голос](../themes/multimodal-voice.md) · ✍ [Ответ](../answers/engineering.md#mm-latency)
+- **55. [Реализуйте минимальный агентный runner с проверяемой диспетчеризацией инструментов, обработкой ошибок и жёстким лимитом шагов.](../themes/coding-practical.md#code-agent-loop)**
+  - Кодинг · [Практический кодинг](../themes/coding-practical.md) · ✍ [Ответ](../answers/engineering.md#code-agent-loop)

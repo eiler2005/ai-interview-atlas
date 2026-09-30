@@ -44,6 +44,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Explain rotary position encoding and the trade-offs of interpolation when extending context beyond training lengths.](../themes/llm-fundamentals.md#llm-rope-extension)**
   - Knowledge · Asked at: Meta †
   - Tests: Whether a longer accepted input is distinguished from reliable long-context reasoning.
+  - Read: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv)
 - **[What objectives and data distinguish pretraining, instruction tuning and preference optimisation?](../themes/llm-fundamentals.md#llm-training-stages)**
   - Knowledge · Asked at: Meta †
   - Tests: Whether the candidate can identify what each stage can and cannot change.

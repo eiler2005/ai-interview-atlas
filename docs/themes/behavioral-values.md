@@ -79,8 +79,13 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
   - Behavioral · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-sensitive-mission&title=%5BCorrection%5D%20beh-sensitive-mission)
   - Tests: Whether you reason about concrete boundaries and professional responsibility.
 - <a id="beh-critical-feedback"></a>**Describe feedback that was difficult for you to hear and what you did with it.**
-  - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
+  - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#beh-critical-feedback) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
   - Tests: Whether you can respond to criticism with specific learning and action.
+  - A strong answer covers:
+    - State the feedback plainly, in the words it was given, without softening it.
+    - Separate your first reaction from what you concluded once you checked it.
+    - Name the change you made and a later situation that shows it stuck.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ## <a id="track-engineering"></a>AI Engineering
 
@@ -94,8 +99,13 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
 ## <a id="track-leadership"></a>AI Leadership
 
 - <a id="beh-stakeholder-priorities"></a>**Tell me about conflicting stakeholder priorities and how you established alignment.**
-  - Behavioral · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-stakeholder-priorities&title=%5BCorrection%5D%20beh-stakeholder-priorities)
+  - Behavioral · Senior · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/leadership.md#beh-stakeholder-priorities) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-stakeholder-priorities&title=%5BCorrection%5D%20beh-stakeholder-priorities)
   - Tests: Whether you make competing objectives explicit and build an actionable agreement.
+  - A strong answer covers:
+    - Name the stakeholders and the objective each was actually measured on.
+    - Show how you surfaced the conflict as a trade-off rather than a personality clash.
+    - End with the agreement, what was given up, and evidence that it held.
+  - Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - <a id="beh-ai-decision-ownership"></a>**Tell me about an AI decision you owned that had significant downstream consequences.**
   - Behavioral · Senior · Asked at: [Amazon](../companies/amazon.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ai-decision-ownership&title=%5BCorrection%5D%20beh-ai-decision-ownership)
   - Tests: Whether you consider impact beyond your immediate deliverable.

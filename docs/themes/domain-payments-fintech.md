@@ -16,7 +16,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (1)](#track-leade
     - Represent user intent and transaction constraints explicitly, including amount and payee.
     - Validate authority at execution; require new confirmation for changes outside the grant.
     - Preserve an audit trail and distinguish authorisation evidence from settlement success.
-  - Read: [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) (AP2 project)
+  - Read: [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) (AP2 project) · [Agentic Commerce Protocol](https://docs.stripe.com/agentic-commerce/acp) (Stripe Documentation) · [Universal Commerce Protocol (UCP)](https://ucp.dev/) (UCP project)
 - <a id="pay-ambiguous-timeout"></a>**An AI support agent initiates a refund, then the payment API times out. How should the system recover without issuing the refund twice?**
   - System design · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#pay-ambiguous-timeout) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-ambiguous-timeout&title=%5BCorrection%5D%20pay-ambiguous-timeout)
   - Tests: Whether you treat an unknown outcome as a reconciliation problem rather than blindly repeating a side effect.
@@ -41,6 +41,6 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (1)](#track-leade
     - Define the decisions, affected customers and limits of the assistant's authority.
     - Evaluate representative cases and harmful errors, including how employees use or override suggestions.
     - Document owners, monitoring, escalation and a controlled expansion; verify applicable jurisdiction-specific obligations separately.
-  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
+  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) (Board of Governors of the Federal Reserve System)
 
 ← [Applied and customer scenarios](applied-scenarios.md) · [Behavioral and values](behavioral-values.md) →

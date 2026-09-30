@@ -10,7 +10,7 @@
 ## <a id="track-both"></a>Оба трека
 
 - <a id="agt-multi-agent"></a>**Когда разделение работы между агентами улучшает результат, а когда преобладают затраты на координацию?**
-  - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-multi-agent&title=%5BCorrection%5D%20agt-multi-agent)
+  - Знания · ✍ [Ответ](../answers/engineering.md#agt-multi-agent) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-multi-agent&title=%5BCorrection%5D%20agt-multi-agent)
   - Что проверяет: Умение учитывать независимость задач и конфликты общего состояния.
   - Сильный ответ покрывает:
     - Выделить независимые подзадачи, результаты которых объединяются без частого обновления общего состояния.
@@ -53,9 +53,15 @@
 - <a id="agt-structured-output"></a>**Чем ответ по схеме отличается от function calling и какой компонент действительно исполняет действие?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-structured-output&title=%5BCorrection%5D%20agt-structured-output)
   - Что проверяет: Умение отличать валидный формат от разрешённого исполнения.
+  - Читать: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - <a id="agt-mcp"></a>**Что MCP стандартизирует между AI-приложением и внешним сервисом сверх формата function call модели?**
-  - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp&title=%5BCorrection%5D%20agt-mcp)
+  - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/engineering.md#agt-mcp) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp&title=%5BCorrection%5D%20agt-mcp)
   - Что проверяет: Умение отличать транспорт и возможности протокола от решений модели.
+  - Сильный ответ покрывает:
+    - Отделить выбор вызова моделью от того, как клиент находит сервер и обращается к нему.
+    - Назвать, что фиксирует протокол: транспорт, обнаружение возможностей и типизированные инструменты, ресурсы и промпты.
+    - Обсудить границу доверия: подключённый сервер поставляет и возможности, и недоверенный контент.
+  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 - <a id="agt-tool-surface"></a>**Как выбрать, назвать и описать инструменты, чтобы модель верно выбирала операцию и аргументы?**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#agt-tool-surface) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-tool-surface&title=%5BCorrection%5D%20agt-tool-surface)
   - Что проверяет: Умение уменьшать неоднозначность и измеримые ошибки вызовов.
@@ -65,8 +71,13 @@
     - Проверять выбор инструмента и аргументов на реальных задачах и устранять неоднозначное дублирование.
   - Читать: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - <a id="agt-memory"></a>**Спроектируйте память агента, работающего в нескольких сессиях: что сохранять, извлекать, пересматривать и забывать?**
-  - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-memory&title=%5BCorrection%5D%20agt-memory)
+  - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#agt-memory) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-memory&title=%5BCorrection%5D%20agt-memory)
   - Что проверяет: Умение различать долговременное состояние и текущий контекст.
+  - Сильный ответ покрывает:
+    - Отделить рабочий контекст одной сессии от состояния, которое должно её пережить.
+    - Записывать в память подтверждённые итоги с происхождением и возможностью правки, а не каждую реплику.
+    - Извлекать по релевантности текущей задаче, удаляя или замещая устаревшие записи.
+  - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-tool-choice"></a>**Как агент должен решать, ответить сразу или получить свежие сведения через инструмент?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-tool-choice&title=%5BCorrection%5D%20agt-tool-choice)
   - Что проверяет: Учёт неопределённости, свежести и стоимости вызова.
@@ -93,6 +104,7 @@
 - <a id="agt-mcp-long-running"></a>**Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна.**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp-long-running&title=%5BCorrection%5D%20agt-mcp-long-running)
   - Что проверяет: Умение управлять состоянием, сбоями и бюджетом контекста на протяжении долгого выполнения с инструментами.
+  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 - <a id="agt-api-level-features"></a>**Какие параметры управляют генерацией языковой модели?**
   - Знания · Где спрашивали: [Точка](../companies/tochka.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-api-level-features&title=%5BCorrection%5D%20agt-api-level-features)
   - Что проверяет: Отличаете ли вы настройки генерации модели от инструкций о роли, стиле или структуре ответа.

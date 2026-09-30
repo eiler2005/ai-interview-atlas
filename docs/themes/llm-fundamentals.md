@@ -48,8 +48,13 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
     - Discuss quality evaluation and the need to train or adapt the checkpoint.
   - Read: [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv)
 - <a id="llm-latent-attention"></a>**Explain how latent attention compresses the KV representation and what must be reconstructed at inference.**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-latent-attention&title=%5BCorrection%5D%20llm-latent-attention)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#llm-latent-attention) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-latent-attention&title=%5BCorrection%5D%20llm-latent-attention)
   - Tests: Whether architectural compression is distinguished from lower numeric precision.
+  - A strong answer covers:
+    - Cache one low-rank latent vector per token instead of full keys and values for every head.
+    - Reconstruct per-head keys and values from that latent during attention, paying extra compute.
+    - Separate this architectural compression from quantising the same cache.
+  - Read: [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) (DeepSeek-AI, arXiv)
 - <a id="llm-flashattention"></a>**Why can an exact attention kernel run faster without changing the quadratic attention computation?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
   - Tests: Whether memory traffic is separated from arithmetic complexity.
@@ -67,9 +72,15 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
 - <a id="llm-rope-extension"></a>**Explain rotary position encoding and the trade-offs of interpolation when extending context beyond training lengths.**
   - Knowledge · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-rope-extension&title=%5BCorrection%5D%20llm-rope-extension)
   - Tests: Whether a longer accepted input is distinguished from reliable long-context reasoning.
+  - Read: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv)
 - <a id="llm-experts"></a>**How does sparse expert routing increase parameter capacity, and what costs remain despite activating only some experts?**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-experts&title=%5BCorrection%5D%20llm-experts)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#llm-experts) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-experts&title=%5BCorrection%5D%20llm-experts)
   - Tests: Whether active computation, total memory and communication are separated.
+  - A strong answer covers:
+    - Separate the total parameter count from the parameters activated for one token.
+    - Account for memory that must hold every expert and for routing traffic between devices.
+    - Discuss load imbalance, expert capacity and dropped tokens.
+  - Read: [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv)
 - <a id="llm-decoding"></a>**Compare greedy decoding, beam search and temperature, top-k and nucleus sampling; give a failure mode for each.**
   - Knowledge · Asked at: [Google and Google DeepMind](../companies/google.md) †, [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-decoding&title=%5BCorrection%5D%20llm-decoding)
   - Tests: Whether probability manipulation is connected to output diversity and quality.

@@ -57,7 +57,7 @@ AI-инженерия / AI-лидерство · Роли: Forward deployed engi
   - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) †
   - Источники (Forward deployed engineer (FDE)): † [Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-29
 - **[Спроектируйте безопасный API доступа к моделям для разработчиков: аутентификация, квоты, потоковые ответы и обратная совместимость.](../themes/ai-system-design.md#sd-model-api)**
-  - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) †
+  - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#sd-model-api)
   - Источники (Forward deployed engineer (FDE)): † [Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview), Aced (formerly Exponent), проверено 2026-09-29
 - **[Сделайте семантический поиск по каталогу товаров, который чат-модель может вызывать как инструмент.](../themes/coding-practical.md#code-catalogue-search-tool)**
   - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [OpenAI](../companies/openai.md) †
@@ -107,7 +107,7 @@ AI-инженерия / AI-лидерство · Роли: Forward deployed engi
 - **[Спроектируйте помощника по десяти миллионам корпоративных документов с индивидуальными правами и постоянно меняющимся корпусом.](../themes/ai-system-design.md#sd-enterprise-rag)**
   - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · ✍ [Ответ](../answers/engineering.md#sd-enterprise-rag)
 - **[Как оценивать корпоративного AI-ассистента, если ваша команда не может просматривать данные клиента?](../themes/ai-operating-model.md#ops-private-evaluation)**
-  - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md)
+  - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · ✍ [Ответ](../answers/leadership.md#ops-private-evaluation)
 - **[Клиент хочет автоматизировать обработку страховых требований с помощью AI. Что вы сделаете за первые две недели?](../themes/applied-scenarios.md#app-claims-discovery)**
   - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md) · ✍ [Ответ](../answers/leadership.md#app-claims-discovery)
 - **[Руководитель клиента хочет закрыть AI-пилот из-за постоянных ошибок. Что вы сделаете в ближайшие 48 часов?](../themes/applied-scenarios.md#app-pilot-rescue)**
@@ -127,7 +127,7 @@ AI-инженерия / AI-лидерство · Роли: Forward deployed engi
 - **[Клиент хочет заменить API закрытой передовой модели открытой моделью. Как вы организуете проект?](../themes/applied-scenarios.md#app-open-model-engagement)**
   - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md)
 - **[Контакт-центр хочет заменить телефонное меню голосовыми агентами. Как вы проведёте проект?](../themes/applied-scenarios.md#app-contact-centre)**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md)
+  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md) · ✍ [Ответ](../answers/leadership.md#app-contact-centre)
 
 ## <a id="prep"></a>Подготовка
 

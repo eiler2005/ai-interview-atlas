@@ -41,10 +41,20 @@ On this page: [Interview loop](#loop) · [Questions (3)](#questions)
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 
 - **[How do you decide which engineering capabilities to hire for?](../themes/engineering-leadership.md#lead-strategic-hiring)**
-  - Applied scenario · Senior · Asked at: Stripe †
+  - Applied scenario · Senior · Asked at: Stripe † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring)
   - Tests: Whether staffing choices follow strategy and gaps in team capability.
+  - A strong answer covers:
+    - Start from the next period's commitments and the capabilities they require.
+    - Separate a gap worth hiring for from one solved by training, borrowing or not doing the work.
+    - Write the role from the gap, and define what evidence the loop must produce.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[How do you establish engineering quality standards across a team?](../themes/engineering-leadership.md#lead-quality-standard)**
-  - Applied scenario · Senior · Asked at: Stripe †
+  - Applied scenario · Senior · Asked at: Stripe † · ✍ [Answer](../answers/leadership.md#lead-quality-standard)
   - Tests: Whether standards are observable, proportionate and part of daily delivery.
+  - A strong answer covers:
+    - Define quality by observable outcomes, not by taste or a document nobody reads.
+    - Scale the requirement to the risk of the change, so low-risk work is not slowed.
+    - Put the standard in the default path — tooling, templates, CI — and revisit it with data.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 
 ← [Ramp](ramp.md) · [Tochka](tochka.md) →

@@ -37,8 +37,13 @@ On this page: [Both tracks (5)](#track-both) · [AI Engineering (11)](#track-eng
     - Specify failover boundaries for partially streamed responses and side-effecting tool calls.
   - Read: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="sd-model-api"></a>**Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.**
-  - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-model-api&title=%5BCorrection%5D%20sd-model-api)
+  - System design · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#sd-model-api) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-model-api&title=%5BCorrection%5D%20sd-model-api)
   - Tests: Whether a model endpoint is treated as a durable platform contract.
+  - A strong answer covers:
+    - Authenticate per key with scopes, and meter tokens and concurrency rather than requests alone.
+    - Stream incrementally with request ids, and define client behaviour on mid-stream failure.
+    - Evolve the contract additively, with versioning, deprecation windows and published limits.
+  - Read: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
 
 ## <a id="track-engineering"></a>AI Engineering
 

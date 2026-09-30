@@ -7,7 +7,7 @@ AI Engineering · Roles covered: Applied AI engineer, Agent engineer, AI / LLM e
 
 Turns model capabilities into working product behaviour: interfaces, agent runtimes, tools and recoverable failures.
 
-On this page: [What the role involves](#scope) · [How it is interviewed (11)](#interviews) · [Questions (24)](#role-questions) · [Preparation](#prep)
+On this page: [What the role involves](#scope) · [How it is interviewed (12)](#interviews) · [Questions (25)](#role-questions) · [Preparation](#prep)
 
 ## <a id="scope"></a>What the role involves
 
@@ -24,6 +24,7 @@ Stages that sources report for these roles, taken from the company pages. Marker
 | Company | Stage | What happens | Basis |
 | --- | --- | --- | --- |
 | [Anthropic](../companies/anthropic.md) | Product engineer loop<br>*Software engineer on AI products* | One candidate in 2025 reports live coding, a sales discussion, a culture interview and a hiring manager interview. | 🗣 candidate report<br>[Anthropic Product Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/anthropic/experiences/product-engineer-new-york-ny-june-1-2025-no-offer-positive-c0c3d7ae/), Taro, candidate report, retrieved 2026-09-29 |
+| [Canva](../companies/canva.md) | AI-assisted coding interview<br>*Software engineer on AI products, ML engineer / data scientist* | Replaced the computer-science fundamentals screen. A realistic product task worked through with the candidate's own AI tools, which candidates are told about in advance and advised to practise with. The company states it assesses how ambiguous requirements are broken down, whether problems in generated code are found and fixed, and whether the result meets production standards. | ✅ confirmed by the company<br>[Yes, You Can Use AI in Our Interviews. In fact, we insist](https://www.canva.dev/blog/engineering/yes-you-can-use-ai-in-our-interviews/), Canva Engineering Blog, published 2025-06-11, retrieved 2026-09-30<br>[AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/), Canva Engineering Blog, published 2025-10-20, retrieved 2026-09-30 |
 | [LangChain](../companies/langchain.md) | Coding assignment in the repository<br>*Software engineer on AI products* | Build a real feature on an older branch of the company's repository, with a full specification and test cases. | † prep guide or compilation<br>[LangChain Software Engineer Interview Guide](https://www.tryexponent.com/guides/langchain-software-engineer-interview-guide), Aced (formerly Exponent), retrieved 2026-09-29 |
 | [LangChain](../companies/langchain.md) | System design: critique, then extend<br>*Software engineer on AI products* | About thirty minutes evaluating the service architecture for weaknesses, then designing a product feature on the platform. | † prep guide or compilation<br>[LangChain Software Engineer Interview Guide](https://www.tryexponent.com/guides/langchain-software-engineer-interview-guide), Aced (formerly Exponent), retrieved 2026-09-29 |
 | [Cursor (Anysphere)](../companies/cursor.md) | Technical round in the product's code<br>*Software engineer on AI products* | Implement a hash tree the product actually uses inside a cloned repository; search, ChatGPT and Cursor were allowed for targeted syntax help, announced to the interviewer before use. | 🗣 candidate report<br>[Cursor Software Engineer (New Grad) Interview Experience](https://www.tryexponent.com/experiences/cursor-software-engineer-interview-a9c32f), Aced (formerly Exponent), candidate report, retrieved 2026-09-29 |
@@ -35,7 +36,7 @@ Stages that sources report for these roles, taken from the company pages. Marker
 | [Sierra](../companies/sierra.md) | Debugging interview (pilot)<br>*Software engineer on AI products* | A medium-sized codebase and a colleague's draft pull request that adds a cross-cutting feature: review and improve it, iterating with coding agents. How much AI is allowed was still undecided. | ✅ confirmed by the company<br>[The AI-native interview](https://sierra.ai/blog/the-ai-native-interview), Sierra, published 2026-04-22, retrieved 2026-09-29 |
 | [Sierra](../companies/sierra.md) | Earlier take-home and onsite<br>*Agent engineer* | One candidate, about a year before retrieval: build a customer-support agent for a fictional company, choosing two of five features and explaining how to measure it in production; then a TypeScript and React debugging round and a defence of the design. | 🗣 candidate report<br>[Sierra AI Agent Engineer Interview Experience](https://www.tryexponent.com/experiences/sierra-ai-machine-learning-engineer-interview-8549fc), Aced (formerly Exponent), candidate report, retrieved 2026-09-29 |
 
-Company pages that cover these roles: [Anthropic](../companies/anthropic.md), [OpenAI](../companies/openai.md), [Amazon](../companies/amazon.md), [Databricks](../companies/databricks.md), [LangChain](../companies/langchain.md), [NVIDIA](../companies/nvidia.md), [Cursor (Anysphere)](../companies/cursor.md), [Perplexity](../companies/perplexity.md), [Sierra](../companies/sierra.md), [Tochka](../companies/tochka.md).
+Company pages that cover these roles: [Anthropic](../companies/anthropic.md), [OpenAI](../companies/openai.md), [Amazon](../companies/amazon.md), [Canva](../companies/canva.md), [Databricks](../companies/databricks.md), [LangChain](../companies/langchain.md), [NVIDIA](../companies/nvidia.md), [Cursor (Anysphere)](../companies/cursor.md), [Perplexity](../companies/perplexity.md), [Sierra](../companies/sierra.md), [Tochka](../companies/tochka.md).
 
 ## <a id="role-questions"></a>Questions
 
@@ -78,11 +79,11 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[Design recovery from tool errors and timeouts, including cases where a timed-out call may already have changed external state.](../themes/agents-tools.md#agt-retries)**
   - System design · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-retries)
 - **[What does MCP standardise between an AI application and an external service that a model's function-call format does not?](../themes/agents-tools.md#agt-mcp)**
-  - Knowledge · [Agents, tools and protocols](../themes/agents-tools.md)
+  - Knowledge · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-mcp)
 - **[How would you select, name and document tools so that a model chooses the right operation and arguments?](../themes/agents-tools.md#agt-tool-surface)**
   - System design · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-tool-surface)
 - **[Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?](../themes/agents-tools.md#agt-memory)**
-  - System design · [Agents, tools and protocols](../themes/agents-tools.md)
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-memory)
 - **[Define completion and stopping conditions for an agent loop so it cannot spend indefinitely on an unfinished task.](../themes/agents-tools.md#agt-termination)**
   - System design · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-termination)
 - **[Design human approval for consequential agent actions, including how approval remains bound to the exact action being executed.](../themes/agents-tools.md#agt-approval)**
@@ -102,7 +103,9 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](../themes/ai-system-design.md#sd-text-to-sql)**
   - System design · [AI system design](../themes/ai-system-design.md)
 - **[Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.](../themes/coding-practical.md#code-agent-loop)**
-  - Coding · [Practical coding](../themes/coding-practical.md)
+  - Coding · [Practical coding](../themes/coding-practical.md) · ✍ [Answer](../answers/engineering.md#code-agent-loop)
+- **[In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?](../themes/coding-practical.md#code-ai-assisted-ownership)**
+  - Applied scenario · [Practical coding](../themes/coding-practical.md)
 - **[Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first) and «по первое число» (through the first).](../themes/applied-scenarios.md#app-prompt-date-range)**
   - Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md)
 

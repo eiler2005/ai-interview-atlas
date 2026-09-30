@@ -28,7 +28,7 @@
 - **[Когда стоит объединить лексический и векторный поиск и как свести их ранжирование?](themes/rag-retrieval.md#rag-hybrid)**
   - Знания · Где спрашивали: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Ответ](answers/engineering.md#rag-hybrid)
 - **[Где разместить cross-encoder reranker в поисковом пайплайне и когда выигрыш качества оправдывает задержку?](themes/rag-retrieval.md#rag-reranking)**
-  - Знания · Где спрашивали: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) †
+  - Знания · Где спрашивали: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Ответ](answers/engineering.md#rag-reranking)
 - **[Спроектируйте поиск с соблюдением прав исходной системы, включая изменения разрешений и общие кеши.](themes/rag-retrieval.md#rag-permissions)**
   - System design · Где спрашивали: [Databricks](companies/databricks.md) †, [Microsoft](companies/microsoft.md) †, [Palantir](companies/palantir.md) † · ✍ [Ответ](answers/engineering.md#rag-permissions)
 
@@ -45,7 +45,7 @@
 ## [Оценка качества и наблюдаемость](themes/evals-observability.md)
 
 - **[Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?](themes/evals-observability.md#eval-hallucination)**
-  - System design · Где спрашивали: [Anthropic](companies/anthropic.md) †, [OpenAI](companies/openai.md) †
+  - System design · Где спрашивали: [Anthropic](companies/anthropic.md) †, [OpenAI](companies/openai.md) † · ✍ [Ответ](answers/engineering.md#eval-hallucination)
 
 ## [Дизайн AI-систем](themes/ai-system-design.md)
 

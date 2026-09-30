@@ -37,8 +37,13 @@
     - Задать границы failover при частично переданном ответе и вызовах с побочными эффектами.
   - Читать: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="sd-model-api"></a>**Спроектируйте безопасный API доступа к моделям для разработчиков: аутентификация, квоты, потоковые ответы и обратная совместимость.**
-  - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-model-api&title=%5BCorrection%5D%20sd-model-api)
+  - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#sd-model-api) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-model-api&title=%5BCorrection%5D%20sd-model-api)
   - Что проверяет: Понимание endpoint модели как долгосрочного платформенного контракта.
+  - Сильный ответ покрывает:
+    - Аутентифицировать по ключу с областями доступа и считать токены и параллельность, а не только запросы.
+    - Отдавать поток инкрементально с идентификаторами запроса и определить поведение клиента при обрыве.
+    - Развивать контракт аддитивно: версионирование, окна устаревания и опубликованные лимиты.
+  - Читать: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
 
 ## <a id="track-engineering"></a>AI-инженерия
 

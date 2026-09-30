@@ -16,7 +16,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Separate untrusted message content from authority to read or send.
     - Restrict tools and destinations; require explicit approval for sensitive disclosure.
     - Test indirect injection and monitor attempted exfiltration; prompts alone are insufficient.
-  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
+  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) (Simon Willison) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) (Simon Willison)
 - <a id="sec-safe-deployment"></a>**How would you organise safe deployment of an AI model into production?**
   - System design · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#sec-safe-deployment) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-safe-deployment&title=%5BCorrection%5D%20sec-safe-deployment)
   - Tests: Whether you connect risk assessment to accountable release decisions.
@@ -24,7 +24,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Define intended use, affected groups and unacceptable outcomes.
     - Assign owners to evaluation, residual-risk acceptance and incident handling.
     - Use staged exposure, monitoring and a tested rollback or shutdown path.
-  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
+  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) (Anthropic)
 - <a id="sec-action-authorisation"></a>**What safeguards should surround an AI system that acts on a user's behalf?**
   - System design · Senior · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/leadership.md#sec-action-authorisation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-action-authorisation&title=%5BCorrection%5D%20sec-action-authorisation)
   - Tests: Whether you distinguish generated intent from authorised execution.
@@ -45,8 +45,13 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
   - System design · Senior · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-upload-moderation&title=%5BCorrection%5D%20sec-upload-moderation)
   - Tests: Whether you combine detection, review and appeals at the required scale.
 - <a id="sec-guardrail-exception"></a>**A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?**
-  - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
+  - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#sec-guardrail-exception) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
   - Tests: Whether exceptions retain an accountable owner, compensating controls and an expiry decision.
+  - A strong answer covers:
+    - Establish what the control protects against and who bears the risk if it is relaxed.
+    - Prefer a narrower compensating control to a blanket exception, scoped to that customer.
+    - Give the exception a named owner, an expiry date and a review that can refuse renewal.
+  - Read: [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) (European Commission)
 - <a id="sec-matter-isolation"></a>**Two partners at one law firm advise opposing sides of a deal. How would you isolate their AI workspaces?**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-matter-isolation&title=%5BCorrection%5D%20sec-matter-isolation)
   - Tests: Whether access boundaries can be narrower than a customer tenant.

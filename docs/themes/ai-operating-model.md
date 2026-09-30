@@ -18,8 +18,13 @@ On this page: [Both tracks (3)](#track-both) · [AI Leadership (1)](#track-leade
     - Evaluate allowed fallbacks and fail closed when no compliant route exists.
   - Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="ops-private-evaluation"></a>**How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?**
-  - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-private-evaluation&title=%5BCorrection%5D%20ops-private-evaluation)
+  - System design · Senior · ✍ [Answer](../answers/leadership.md#ops-private-evaluation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-private-evaluation&title=%5BCorrection%5D%20ops-private-evaluation)
   - Tests: Whether you can obtain useful quality evidence within data-access restrictions.
+  - A strong answer covers:
+    - Move measurement into the customer's environment and return aggregates, not their content.
+    - Have the customer's own reviewers label a sample against a rubric you supply and audit.
+    - Build a public or synthetic proxy set shaped like their tasks, and state what it cannot show.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="ops-shared-data-access"></a>**Design a service that lets several teams query a shared dataset without exposing the underlying raw records.**
   - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-shared-data-access&title=%5BCorrection%5D%20ops-shared-data-access)
   - Tests: Whether you define permissible results and enforce access across a shared platform.

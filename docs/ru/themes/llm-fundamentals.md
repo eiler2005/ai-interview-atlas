@@ -48,8 +48,13 @@
     - Обсудить проверку качества и необходимость обучения или адаптации весов.
   - Читать: [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv)
 - <a id="llm-latent-attention"></a>**Объясните, как latent attention сжимает представление KV и что приходится восстанавливать при инференсе.**
-  - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-latent-attention&title=%5BCorrection%5D%20llm-latent-attention)
+  - Знания · ✍ [Ответ](../answers/engineering.md#llm-latent-attention) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-latent-attention&title=%5BCorrection%5D%20llm-latent-attention)
   - Что проверяет: Понимание отличия архитектурного сжатия от снижения численной точности.
+  - Сильный ответ покрывает:
+    - Кешировать один низкоранговый латентный вектор на токен вместо полных key и value для каждой головы.
+    - Восстанавливать key и value по головам из латента во время внимания, платя дополнительными вычислениями.
+    - Отделить архитектурное сжатие от квантования того же кеша.
+  - Читать: [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) (DeepSeek-AI, arXiv)
 - <a id="llm-flashattention"></a>**Почему точный attention может работать быстрее без изменения квадратичного характера вычислений?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
   - Что проверяет: Понимание различия между обменом с памятью и вычислительной сложностью.
@@ -67,9 +72,15 @@
 - <a id="llm-rope-extension"></a>**Объясните RoPE и компромиссы интерполяции при расширении контекста за пределы обучающей длины.**
   - Знания · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-rope-extension&title=%5BCorrection%5D%20llm-rope-extension)
   - Что проверяет: Умение отличать допустимую длину входа от надёжной работы с длинным контекстом.
+  - Читать: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv)
 - <a id="llm-experts"></a>**Как разреженная маршрутизация по экспертам увеличивает число параметров и какие затраты сохраняются при активации части экспертов?**
-  - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-experts&title=%5BCorrection%5D%20llm-experts)
+  - Знания · ✍ [Ответ](../answers/engineering.md#llm-experts) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-experts&title=%5BCorrection%5D%20llm-experts)
   - Что проверяет: Умение различать активные вычисления, общую память и коммуникации.
+  - Сильный ответ покрывает:
+    - Отделить общее число параметров от параметров, активируемых для одного токена.
+    - Учесть память, в которой лежат все эксперты, и трафик маршрутизации между устройствами.
+    - Обсудить перекос нагрузки, ёмкость экспертов и отброшенные токены.
+  - Читать: [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv)
 - <a id="llm-decoding"></a>**Сравните greedy decoding, beam search, температуру, top-k и nucleus sampling; приведите ограничение каждого подхода.**
   - Знания · Где спрашивали: [Google и Google DeepMind](../companies/google.md) †, [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-decoding&title=%5BCorrection%5D%20llm-decoding)
   - Что проверяет: Понимание связи преобразований вероятностей с разнообразием и качеством ответов.

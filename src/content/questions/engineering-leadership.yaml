@@ -333,6 +333,21 @@ questions:
     evidence:
       - source: "exponent-stripe"
         company: "stripe"
+    start_here: ["leadership"]
+    priority: 47
+    outline:
+      en:
+        - "Start from the next period's commitments and the capabilities they require."
+        - "Separate a gap worth hiring for from one solved by training, borrowing or not doing the work."
+        - "Write the role from the gap, and define what evidence the loop must produce."
+      ru:
+        - "Начать с обязательств следующего периода и требуемых для них компетенций."
+        - "Отличить пробел, который стоит закрывать найм, от решаемого обучением, заимствованием или отказом от работы."
+        - "Писать роль из пробела и определить, какие доказательства должно дать интервью."
+    answer:
+      en: "I work backwards from commitments, not from granted headcount. What has the team promised for the next few quarters, which capabilities that requires, and where is the team thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to."
+      ru: "Я иду от обязательств, а не от выделенной численности. Что команда обещала на ближайшие кварталы, какие компетенции для этого нужны и где она тонка именно по компетенциям, а не по числу людей. Дальше по каждому пробелу спрашиваю, вообще ли найм — подходящий инструмент: часть закрывается быстрее обучением человека, который уже знает предметную область, часть — временным заимствованием специалиста, а часть должна закрыться решением эту работу не делать. Остальное оправдывает роль, и роль я пишу из пробела, а не из общей карьерной лестницы, затем определяю, какие доказательства должно дать интервью, чтобы оно проверяло сам пробел, а не его подобие. Я взвешиваю и долговечность: компетенция, нужная стратегии годами, заслуживает найма, а полугодовой всплеск — обычно нет. Провал, от которого я страхуюсь, — найм под ту архитектуру, которая есть, а не под ту, к которой мы идём."
+    reading: ["google-manager-training"]
   - id: "lead-quality-standard"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -352,6 +367,21 @@ questions:
     evidence:
       - source: "exponent-stripe"
         company: "stripe"
+    start_here: ["leadership"]
+    priority: 48
+    outline:
+      en:
+        - "Define quality by observable outcomes, not by taste or a document nobody reads."
+        - "Scale the requirement to the risk of the change, so low-risk work is not slowed."
+        - "Put the standard in the default path — tooling, templates, CI — and revisit it with data."
+      ru:
+        - "Определить качество через наблюдаемые результаты, а не через вкус или документ, который никто не читает."
+        - "Соразмерить требование риску изменения, чтобы не тормозить малорисковую работу."
+        - "Встроить стандарт в путь по умолчанию — инструменты, шаблоны, CI — и пересматривать его по данным."
+    answer:
+      en: "A standard that lives in a wiki page is a preference; a standard that lives in the default path is real. So I start from outcomes the team can observe — escaped defects, revert rate, time to restore, review latency, test coverage of the risky paths — and agree what good looks like, otherwise review becomes an argument about style. Then I make the requirement proportionate to risk: a copy change and a change to the payments path should not face the same gate, or people will route around the gate. Whatever we agree goes into tooling, templates, linters and CI, so the easy path is the correct one. I would write it with the senior engineers rather than for them, since an imposed standard gets performed rather than followed, and revisit it against the numbers: a gate that never catches anything is pure cost."
+      ru: "Стандарт, живущий на вики-странице, — это предпочтение; стандарт, живущий в пути по умолчанию, — реальность. Поэтому я начинаю с наблюдаемых результатов: пропущенные дефекты, доля откатов, время восстановления, задержка ревью, покрытие тестами рискованных участков — и договариваюсь, что считается хорошим, иначе ревью превращается в спор о стиле. Затем соразмеряю требование риску: правка текста и изменение платёжного пути не должны проходить один и тот же барьер, иначе барьер начнут обходить. Всё, о чём договорились, уходит в инструменты, шаблоны, линтеры и CI, чтобы простой путь был и правильным. Писал бы я это вместе с сильными инженерами, а не за них: навязанный извне стандарт исполняют для вида, а не соблюдают, — и пересматривал бы его по цифрам: барьер, который никогда ничего не ловит, — чистые издержки."
+    reading: ["google-sre-book"]
   - id: "lead-engineering-persuasion"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -407,6 +437,21 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:engineering-leadership"]
+    start_here: ["leadership"]
+    priority: 49
+    outline:
+      en:
+        - "Separate what is being explored from what is being operated, and give each a different bar."
+        - "Define the handoff as a contract: an interface, evaluation evidence and an owner on call."
+        - "Protect the release with versioning and a rollback path, so exploration cannot destabilise it."
+      ru:
+        - "Разделить то, что исследуется, и то, что эксплуатируется, задав каждому свою планку."
+        - "Оформить передачу как контракт: интерфейс, свидетельства оценки и владелец на дежурстве."
+        - "Защитить релиз версионированием и путём отката, чтобы исследование не расшатывало его."
+    answer:
+      en: "These are two different bars, not two levels of rigour, so I separate them structurally. Exploration is judged on learning rate and may be messy, undocumented and abandoned; production is judged on reliability and has an owner who is paged. The boundary is a handoff contract: a stable interface, evaluation evidence on an agreed set, and a named owner who accepts it; nothing enters the release path by being interesting. Behind that boundary the product team keeps versioning, gating and a rollback path, so a research change is a candidate, never a fait accompli. I would keep one shared evaluation suite both sides trust, because these arguments are usually about evidence. The pattern I watch for is researchers on permanent call for their own prototype, which quietly ends exploration; that is the signal to productionise it or retire it."
+      ru: "Это две разные планки, а не две степени строгости, поэтому я разделяю их структурно. Исследование оценивается по скорости получения знаний и может быть неаккуратным, недокументированным и брошенным; эксплуатация оценивается по надёжности и имеет владельца, которого будят. Границей становится контракт передачи: стабильный интерфейс, свидетельства оценки на согласованном наборе и названный владелец, который её принимает; ничто не попадает в релизный путь просто потому, что интересно. За этой границей продуктовая команда держит версионирование, гейты и путь отката, поэтому исследовательское изменение — кандидат, а не свершившийся факт. Я бы сохранил один общий набор оценок, которому доверяют обе стороны: такие споры обычно идут именно о доказательствах. Настораживает меня картина, когда исследователи бессрочно дежурят по собственному прототипу: это тихо заканчивает исследования и служит сигналом либо довести прототип до продакшена, либо от него отказаться."
+    reading: ["google-rules-of-ml"]
   - id: "lead-ai-review-skills"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -424,6 +469,21 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:engineering-leadership"]
+    start_here: ["leadership"]
+    priority: 46
+    outline:
+      en:
+        - "Name the real gap: reviewing a large change nobody drafted by hand, not tool operation."
+        - "Keep the author accountable for explaining and testing the change, whatever produced it."
+        - "Train review on verification habits and measure escaped defects, not adoption counts."
+      ru:
+        - "Назвать настоящий пробел: ревью крупного изменения, которого никто не писал руками, а не владение инструментом."
+        - "Оставить автора ответственным за объяснение и тестирование изменения, чем бы оно ни было создано."
+        - "Учить ревью навыкам проверки и измерять пропущенные дефекты, а не число внедрений."
+    answer:
+      en: "The gap is not tool operation, it is that review was designed for changes a human drafted incrementally and now receives large, plausible diffs nobody wrote by hand. So I would fix ownership first: the author is accountable for the change regardless of what produced it, and a pull request nobody can explain does not get reviewed. Concretely the author states intent, the tests that pin the behaviour, and what they verified themselves; reviewers are trained to read tests before implementation, to check edge cases and error paths where generated code is weakest, and to reject a change too large to reason about. I would keep changes small and invest in tests as the durable check, since a human cannot out-read the generator. I would measure escaped defects, revert rate and review latency, never tool adoption, which says nothing about understanding."
+      ru: "Пробел не в умении пользоваться инструментом: ревью проектировалось под изменения, которые человек писал постепенно, а теперь получает большие правдоподобные диффы, которых никто не набирал руками. Поэтому я бы сначала починил ответственность: автор отвечает за изменение независимо от того, чем оно создано, а pull request, который никто не может объяснить, не идёт на ревью. Конкретно: автор формулирует замысел, тесты, закрепляющие поведение, и что проверил сам; ревьюеров учат читать тесты раньше реализации, смотреть граничные случаи и ветки ошибок, где сгенерированный код слабее всего, и отклонять изменение, слишком большое для осмысления. Я бы держал изменения небольшими и вкладывался в тесты как в устойчивую проверку: человек не в состоянии перечитать генератор. Измерял бы пропущенные дефекты, долю откатов и время ревью, но никогда не число внедрений инструмента — оно ничего не говорит о понимании."
+    reading: ["anthropic-ai-resistant-evaluations"]
   - id: "lead-platform-team-charter"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -441,3 +501,17 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:engineering-leadership"]
+  - id: "lead-ai-interview-redesign"
+    tracks: ["leadership"]
+    roles: ["engineering-manager"]
+    type: "applied_scenario"
+    text:
+      en: "Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?"
+      ru: "Кандидаты используют AI-ассистентов на технических интервью. Как вы перестроите процесс, чтобы он по-прежнему давал пригодный сигнал для найма?"
+    tests:
+      en: "Whether the loop measures judgement and ownership instead of banning or ignoring the tools."
+      ru: "Измеряет ли процесс суждение и ответственность вместо запрета или игнорирования инструментов."
+    provenance: "generated"
+    added: "2026-09-30"
+    basis: ["radar:engineering-leadership"]
+    reading: ["anthropic-ai-resistant-evaluations"]

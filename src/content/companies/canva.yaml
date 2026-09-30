@@ -1,0 +1,39 @@
+id: "canva"
+name:
+  en: "Canva"
+  ru: "Canva"
+segment: "big-tech"
+markets:
+- "intl"
+roles:
+  engineering:
+  - "software-engineer"
+  - "ml-engineer"
+summary:
+  en: "In June 2025 Canva replaced its computer-science fundamentals screen with an AI-assisted coding interview, and now expects backend, machine learning and frontend candidates to use their preferred AI tools rather than merely permitting them. An interviewer's guide published in October 2025 describes what the round looks for: breaking down an ambiguous requirement, keeping ownership of the resulting code, and judgement about where the model helps."
+  ru: "В июне 2025 года Canva заменила скрининг по основам computer science раундом AI-ассистированного программирования и теперь не просто разрешает, а ожидает, что кандидаты на backend, machine learning и frontend будут работать с привычными им AI-инструментами. Руководство интервьюера, опубликованное в октябре 2025 года, описывает, что проверяет раунд: разбор неоднозначного требования, сохранение ответственности за получившийся код и понимание, где модель действительно помогает."
+loop:
+- stage:
+    en: "AI-assisted coding interview"
+    ru: "Раунд AI-ассистированного программирования"
+  detail:
+    en: "Replaced the computer-science fundamentals screen. A realistic product task worked through with the candidate's own AI tools, which candidates are told about in advance and advised to practise with. The company states it assesses how ambiguous requirements are broken down, whether problems in generated code are found and fixed, and whether the result meets production standards."
+    ru: "Заменил скрининг по основам computer science. Реалистичная продуктовая задача с собственными AI-инструментами кандидата, о чём сообщают заранее и советуют потренироваться. Компания указывает, что оценивает разбор неоднозначных требований, поиск и исправление проблем в сгенерированном коде и соответствие результата продакшен-стандартам."
+  claim: "confirmed"
+  sources:
+  - "canva-ai-in-interviews"
+  - "canva-ai-interview-success"
+  roles:
+  - "software-engineer"
+  - "ml-engineer"
+coding:
+  value: "required"
+  note:
+    en: "The round is hands-on programming, and AI assistance is expected rather than merely allowed."
+    ru: "Раунд — практическое программирование, причём помощь AI не просто разрешена, а ожидается."
+  sources:
+  - "canva-ai-in-interviews"
+prep:
+- "canva-ai-in-interviews"
+- "canva-ai-interview-success"
+reviewed: "2026-09-30"

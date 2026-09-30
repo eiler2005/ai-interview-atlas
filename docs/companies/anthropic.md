@@ -81,14 +81,20 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Evaluate tool selection and arguments on realistic tasks, then remove confusing overlap.
   - Read: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - **[Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?](../themes/agents-tools.md#agt-memory)**
-  - System design · Asked at: Anthropic †
+  - System design · Asked at: Anthropic † · ✍ [Answer](../answers/engineering.md#agt-memory)
   - Tests: Whether durable state is distinguished from transient context.
+  - A strong answer covers:
+    - Separate the working context of one session from state that must outlive it.
+    - Write memory from confirmed outcomes, with provenance and a revision path, not from every utterance.
+    - Retrieve by relevance to the current task and expire or supersede stale entries.
+  - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - **[For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?](../themes/agents-tools.md#agt-coding-harness)**
   - System design · Asked at: Anthropic †
   - Tests: Whether controlled comparisons can identify the source of improvements.
 - **[Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.](../themes/agents-tools.md#agt-mcp-long-running)**
   - System design · Asked at: Anthropic †
   - Tests: Whether you manage state, failures and context budget across a long tool-driven run.
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
 
 ### [Fine-tuning and post-training](../themes/post-training.md)
 
@@ -104,8 +110,13 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 ### [Evaluation and observability](../themes/evals-observability.md)
 
 - **[How would you measure unsupported claims in a deployed RAG application without treating every fluent answer as correct?](../themes/evals-observability.md#eval-hallucination)**
-  - System design · Asked at: Anthropic †, [OpenAI](openai.md) †
+  - System design · Asked at: Anthropic †, [OpenAI](openai.md) † · ✍ [Answer](../answers/engineering.md#eval-hallucination)
   - Tests: Whether faithfulness to evidence is separated from fluency and general plausibility.
+  - A strong answer covers:
+    - Make the unit a claim checked against the passages actually retrieved for that answer.
+    - Scale labelling with a judge calibrated against a human-labelled sample.
+    - Separate a retrieval failure from an unfaithful generation when attributing the error.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - **[Design a release gate for prompt and model updates, including what happens when aggregate gains hide a critical regression.](../themes/evals-observability.md#eval-release-gate)**
   - System design · Asked at: Anthropic † · ✍ [Answer](../answers/engineering.md#eval-release-gate)
   - Tests: Whether release decisions account for failure severity and uncertainty.
@@ -133,7 +144,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Separate untrusted message content from authority to read or send.
     - Restrict tools and destinations; require explicit approval for sensitive disclosure.
     - Test indirect injection and monitor attempted exfiltration; prompts alone are insufficient.
-  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
+  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) (Simon Willison) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) (Simon Willison)
 - **[How would you organise safe deployment of an AI model into production?](../themes/safety-security-governance.md#sec-safe-deployment)**
   - System design · Senior · Asked at: Anthropic † · ✍ [Answer](../answers/leadership.md#sec-safe-deployment)
   - Tests: Whether you connect risk assessment to accountable release decisions.
@@ -141,7 +152,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Define intended use, affected groups and unacceptable outcomes.
     - Assign owners to evaluation, residual-risk acceptance and incident handling.
     - Use staged exposure, monitoring and a tested rollback or shutdown path.
-  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
+  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) (Anthropic)
 - **[Describe a situation where delivery pressure conflicted with security or safety concerns. How did you decide what to do?](../themes/safety-security-governance.md#sec-delivery-pressure)**
   - Behavioral · Senior · Asked at: Anthropic 🗣 · ✍ [Answer](../answers/leadership.md#sec-delivery-pressure)
   - Tests: Whether you make risk and accountability explicit under pressure.
@@ -174,8 +185,13 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
   - System design · Asked at: Anthropic †
   - Tests: Whether indexing, fan-out and tail latency are grounded in estimates.
 - **[Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.](../themes/ai-system-design.md#sd-model-api)**
-  - System design · Asked at: Anthropic †
+  - System design · Asked at: Anthropic † · ✍ [Answer](../answers/engineering.md#sd-model-api)
   - Tests: Whether a model endpoint is treated as a durable platform contract.
+  - A strong answer covers:
+    - Authenticate per key with scopes, and meter tokens and concurrency rather than requests alone.
+    - Stream incrementally with request ids, and define client behaviour on mid-stream failure.
+    - Evolve the contract additively, with versioning, deprecation windows and published limits.
+  - Read: [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
 
 ### [Practical coding](../themes/coding-practical.md)
 
@@ -264,8 +280,13 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
   - Knowledge · Senior · Asked at: Anthropic †
   - Tests: Whether you articulate a coherent, evidence-sensitive view of AI risk.
 - **[Describe feedback that was difficult for you to hear and what you did with it.](../themes/behavioral-values.md#beh-critical-feedback)**
-  - Behavioral · Senior · Asked at: Anthropic †
+  - Behavioral · Senior · Asked at: Anthropic † · ✍ [Answer](../answers/leadership.md#beh-critical-feedback)
   - Tests: Whether you can respond to criticism with specific learning and action.
+  - A strong answer covers:
+    - State the feedback plainly, in the words it was given, without softening it.
+    - Separate your first reaction from what you concluded once you checked it.
+    - Name the change you made and a later situation that shows it stuck.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[Would you be comfortable staying if the company's stock went to zero?](../themes/behavioral-values.md#beh-mission-without-upside)**
   - Behavioral · Asked at: Anthropic 🗣
   - Tests: Whether your commitment rests on the mission and the work rather than the financial upside.

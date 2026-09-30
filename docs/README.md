@@ -5,7 +5,7 @@ English · [Русский](ru/README.md) · ← [AI Interview Atlas](../README.
 
 Every page of the atlas in one place. Start with the priority questions of your track, then go deeper by theme or by employer.
 
-Of 277 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 15 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 16 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
 
 Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide or compilation without a first-hand source · 🧪 generated from job-posting themes. Interview loops change often, so check the retrieval date.
 
@@ -14,13 +14,13 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 - **AI Engineering.** Engineers who build, ship and run AI systems: applications, agents, platforms, inference and research code.
   - Roles covered: Software engineer (general interview baseline), AI / LLM engineer, Software engineer on AI products, Applied AI engineer, Forward deployed engineer (FDE), AI solutions architect / customer engineer, AI evaluation engineer, ML engineer / data scientist, Agent engineer, AI platform / MLOps engineer, Inference and performance engineer, Research engineer
   - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Applied AI / agent product engineer](roles/applied-ai.md) · [AI evaluation and reliability engineer](roles/eval-reliability.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [Research engineer](roles/research-engineering.md)
-  - [Start here](start/engineering.md): 40 priority questions in study order
-  - [Answers](answers/engineering.md): 40 of 40 written
+  - [Start here](start/engineering.md): 55 priority questions in study order
+  - [Answers](answers/engineering.md): 55 of 55 written
 - **AI Leadership.** People who decide what AI to build and lead the teams, programmes and organisations that build it.
   - Roles covered: Product manager (general interview baseline), AI product manager (senior to group), Director or head of product, Engineering manager, Director or head of engineering, Technical program manager, AI platform lead, Head of AI adoption / chief AI officer, Deployment strategist, Forward-deployed or solutions leader
   - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [AI product leadership](roles/product-leadership.md)
-  - [Start here](start/leadership.md): 40 priority questions in study order
-  - [Answers](answers/leadership.md): 40 of 40 written
+  - [Start here](start/leadership.md): 55 priority questions in study order
+  - [Answers](answers/leadership.md): 55 of 55 written
 
 ## <a id="themes"></a>Themes
 
@@ -35,10 +35,10 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 | [Safety, security and governance](themes/safety-security-governance.md) | Prompt injection, data exfiltration, guardrails, privacy, red-teaming, and the regulation and risk frameworks leaders are accountable for. | 10 | 18 |
 | [Multimodal and voice](themes/multimodal-voice.md) | Vision-language models, real-time voice agents, speech quality and multimodal retrieval. | 14 | 1 |
 | [AI system design](themes/ai-system-design.md) | End-to-end design of AI products and platforms, explained aloud with requirements, trade-offs and failure modes. | 16 | 5 |
-| [Practical coding](themes/coding-practical.md) | Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review. | 27 | 1 |
+| [Practical coding](themes/coding-practical.md) | Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review. | 28 | 1 |
 | [AI product strategy and metrics](themes/ai-product-strategy.md) | When AI is worth it, how to design AI features, measure them and build the business case. | 0 | 23 |
 | [AI platform and operating model](themes/ai-operating-model.md) | Internal AI platforms, adoption across an organisation, enablement, cost governance and centres of excellence. | 3 | 4 |
-| [Leading engineering teams](themes/engineering-leadership.md) | Hiring, coaching, performance, team design and delivery for teams that build AI. | 1 | 18 |
+| [Leading engineering teams](themes/engineering-leadership.md) | Hiring, coaching, performance, team design and delivery for teams that build AI. | 1 | 19 |
 | [Programmes and delivery](themes/program-delivery.md) | Planning and running cross-team work: dependencies, launches, risk and communication. | 4 | 12 |
 | [Applied and customer scenarios](themes/applied-scenarios.md) | Open-ended situations with customers and messy problems: the first 48 hours, rescuing a pilot, decomposing a business problem. | 20 | 21 |
 | [Payments and regulated domains](themes/domain-payments-fintech.md) | AI in payments, banking and other regulated industries, including agentic commerce. | 4 | 5 |
@@ -47,7 +47,7 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 ## <a id="companies"></a>Companies
 
 - **Frontier AI labs:** [Anthropic](companies/anthropic.md) · [OpenAI](companies/openai.md)
-- **Big Tech:** [Amazon](companies/amazon.md) · [Google and Google DeepMind](companies/google.md) · [Meta](companies/meta.md) · [Microsoft](companies/microsoft.md) · [Spotify](companies/spotify.md) · [Uber](companies/uber.md)
+- **Big Tech:** [Amazon](companies/amazon.md) · [Canva](companies/canva.md) · [Google and Google DeepMind](companies/google.md) · [Meta](companies/meta.md) · [Microsoft](companies/microsoft.md) · [Spotify](companies/spotify.md) · [Uber](companies/uber.md)
 - **AI infrastructure:** [Databricks](companies/databricks.md) · [LangChain](companies/langchain.md) · [NVIDIA](companies/nvidia.md)
 - **AI-native products:** [Cognition](companies/cognition.md) · [Cursor (Anysphere)](companies/cursor.md) · [Perplexity](companies/perplexity.md) · [Sierra](companies/sierra.md)
 - **Enterprise and forward-deployed AI:** [Atlassian](companies/atlassian.md) · [Palantir](companies/palantir.md)
