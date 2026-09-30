@@ -2,6 +2,11 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-09-30 Russian numeral agreement in generated counts
+
+### Changed
+- The Russian home pages now inflect the noun after a count instead of always printing the genitive plural, so they read "294 вопроса" and "162 источника" rather than "294 вопросов" and "162 источников". The forms are chosen from the numeral, including the 11–14 exception, and a test pins them; the counts change on every build, so the wrong form would have returned.
+
 ## Unreleased — 2026-09-30 verified machine-learning loops at Spotify and GigaChat
 
 ### Added

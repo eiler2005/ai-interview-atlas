@@ -25,7 +25,7 @@ Released PDF books are dated snapshots for offline reading. The website may cont
 - **110 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
 - **29 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
 - **6 role pages** in the [AI roles guide](docs/AI_ROLES.md): what each role involves, how it is interviewed and which questions to practise.
-- **160 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
+- **162 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
 - **A requirements radar** built from real job postings: what employers actually ask for, by theme.
 
 ## Why this one
@@ -90,7 +90,7 @@ Questions reported at two or more companies, strongest basis first.
 | [Google and Google DeepMind](docs/companies/google.md) | Big Tech | International | varies by role | 18 | 2026-09-26 |
 | [Meta](docs/companies/meta.md) | Big Tech | International | varies by role | 20 | 2026-09-26 |
 | [Microsoft](docs/companies/microsoft.md) | Big Tech | International | varies by role | 15 | 2026-09-26 |
-| [Spotify](docs/companies/spotify.md) | Big Tech | International | varies by role | 0 | 2026-09-26 |
+| [Spotify](docs/companies/spotify.md) | Big Tech | International | varies by role | 0 | 2026-09-30 |
 | [Uber](docs/companies/uber.md) | Big Tech | International | required | 0 | 2026-09-26 |
 | [Databricks](docs/companies/databricks.md) | AI infrastructure | International | unknown | 8 | 2026-09-26 |
 | [LangChain](docs/companies/langchain.md) | AI infrastructure | International | unknown | 1 | 2026-09-29 |
@@ -109,7 +109,7 @@ Questions reported at two or more companies, strongest basis first.
 | [Avito](docs/companies/avito.md) | Russian Big Tech | Russia | varies by role | 0 | 2026-09-26 |
 | [MegaFon](docs/companies/megafon.md) | Russian Big Tech | Russia | required | 0 | 2026-09-29 |
 | [Ozon](docs/companies/ozon.md) | Russian Big Tech | Russia | required | 0 | 2026-09-26 |
-| [SberDevices (Sber)](docs/companies/sberdevices.md) | Russian Big Tech | Russia | required | 0 | 2026-09-29 |
+| [SberDevices (Sber)](docs/companies/sberdevices.md) | Russian Big Tech | Russia | required | 0 | 2026-09-30 |
 | [T-Bank](docs/companies/t-bank.md) | Russian Big Tech | Russia | required | 2 | 2026-09-26 |
 | [Yandex](docs/companies/yandex.md) | Russian Big Tech | Russia | required | 1 | 2026-09-26 |
 

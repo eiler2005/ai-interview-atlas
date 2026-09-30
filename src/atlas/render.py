@@ -48,6 +48,20 @@ SOURCE_KINDS = (
     "posting",
 )
 COLORS = {"engineering": "#1f6feb", "leadership": "#bc4c00"}
+
+
+def ru_count(count: int, one: str, few: str, many: str) -> str:
+    """Pick the Russian noun form a numeral governs: 1 вопрос, 2 вопроса, 5 вопросов."""
+    if 11 <= count % 100 <= 14:
+        return many
+    last = count % 10
+    if last == 1:
+        return one
+    if 2 <= last <= 4:
+        return few
+    return many
+
+
 LABELS = {
     "en": {
         "switch": "English · [Русский]({other})",
@@ -443,23 +457,23 @@ LABELS = {
         "inside": "Что внутри",
         "inside_items": [
             (
-                "**{questions} вопросов** в {themes} темах: {engineering} по инженерии, "
+                "**{questions} {questions_word}** в {themes} темах: {engineering} по инженерии, "
                 "{leadership} по лидерству. У каждого указано, что он проверяет."
             ),
             (
-                "**{answers} написанных ответов** на приоритетные вопросы — абзац, который можно "
+                "**{answers} {answers_word}** на приоритетные вопросы — абзац, который можно "
                 "произнести вслух, а не ссылка на платный курс."
             ),
             (
-                "**{companies} страниц компаний**: этапы интервью по шагам, требование к кодингу и "
-                "вопросы, о которых сообщали для этой компании."
+                "**{companies} {companies_word} компаний**: этапы интервью по шагам, требование "
+                "к кодингу и вопросы, о которых сообщали для этой компании."
             ),
             (
-                "**{families} страниц профессий** в [путеводителе]({roles_page}): чем занимается "
-                "каждая AI-роль, как проходит собеседование и какие вопросы готовить."
+                "**{families} {families_word} профессий** в [путеводителе]({roles_page}): чем "
+                "занимается каждая AI-роль, как проходит собеседование и какие вопросы готовить."
             ),
             (
-                "**{sources} источников**, у каждого дата прочтения: любое утверждение можно "
+                "**{sources} {sources_word}**, у каждого дата прочтения: любое утверждение можно "
                 "проверить самому и увидеть, что устарело."
             ),
             (
@@ -1222,6 +1236,24 @@ class Renderer:
                     answers=answered,
                     families=len(content.families),
                     roles_page=roles_page(lang),
+                    questions_word=ru_count(
+                        len(content.questions), "вопрос", "вопроса", "вопросов"
+                    ),
+                    answers_word=ru_count(
+                        answered,
+                        "написанный ответ",
+                        "написанных ответа",
+                        "написанных ответов",
+                    ),
+                    companies_word=ru_count(
+                        len(content.companies), "страница", "страницы", "страниц"
+                    ),
+                    families_word=ru_count(
+                        len(content.families), "страница", "страницы", "страниц"
+                    ),
+                    sources_word=ru_count(
+                        len(content.sources), "источник", "источника", "источников"
+                    ),
                     **counts,
                 )
             )

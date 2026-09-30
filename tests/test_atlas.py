@@ -9,7 +9,7 @@ import yaml
 
 from atlas import cli, links
 from atlas.content import ContentError, load, read_yaml
-from atlas.render import render
+from atlas.render import render, ru_count
 
 FIXTURE = Path(__file__).parent / "fixtures" / "content"
 TODAY = date(2026, 9, 27)
@@ -226,7 +226,7 @@ def test_answers_render_only_for_the_language_that_has_them(content_dir):
     )
     assert "answers/" not in pages["docs/start/leadership.md"]
     assert "**80 written answers**" not in pages["README.md"]
-    assert "**1 написанных ответов**" in pages["README.ru.md"]
+    assert "**1 написанный ответ**" in pages["README.ru.md"]
 
 
 def test_adding_english_answer_preserves_russian_and_links_both_editions(content_dir):
@@ -470,3 +470,24 @@ def test_role_reported_question_shows_matching_evidence_not_unrelated_companies(
     assert "https://example.com/compilation" not in section
     assert '<a id="role-questions"></a>Questions' in pages["docs/roles/builders.md"]
     assert '<a id="questions"></a>Questions' not in pages["docs/roles/builders.md"]
+
+
+@pytest.mark.parametrize(
+    ("count", "expected"),
+    [
+        (1, "источник"),
+        (2, "источника"),
+        (4, "источника"),
+        (5, "источников"),
+        (11, "источников"),
+        (14, "источников"),
+        (21, "источник"),
+        (22, "источника"),
+        (100, "источников"),
+        (111, "источников"),
+        (162, "источника"),
+        (294, "источника"),
+    ],
+)
+def test_russian_counts_agree_with_the_numeral(count, expected):
+    assert ru_count(count, "источник", "источника", "источников") == expected
