@@ -3,10 +3,10 @@ name: {en: "Spotify", ru: "Spotify"}
 segment: "big-tech"
 markets: ["intl"]
 roles:
-  engineering: ["software-engineer-general"]
+  engineering: ["software-engineer-general", "ml-engineer"]
 summary:
-  en: "The official page establishes broad stages. Engineering detail is secondary; these sources do not establish a dedicated AI interview loop."
-  ru: "Официальная страница подтверждает общие этапы. Инженерные детали вторичны; отдельный AI-цикл эти источники не устанавливают."
+  en: "The official page establishes broad stages and a third-party guide describes the engineering rounds. A candidate's 2025 account of a machine-learning loop that ended in an offer adds the ML-specific path: a one-hour machine-learning screen, then an assessment day of data, values, system design and depth interviews. That author deliberately publishes no questions, so no public source records what Spotify asks."
+  ru: "Официальная страница подтверждает общие этапы, сторонний гайд описывает инженерные раунды. Рассказ кандидата 2025 года о ML-цикле, закончившемся офером, добавляет специфичный для ML путь: часовой ML-скрининг, затем день оценки с секциями по данным, ценностям, system design и глубине. Вопросов тот автор сознательно не публикует, поэтому публичных источников с самими вопросами Spotify нет."
 loop:
   - stage: {en: "Recruiter, team and final interviews", ru: "Рекрутер, команда и финальные встречи"}
     detail:
@@ -26,6 +26,20 @@ loop:
       ru: "Гайд описывает кодинг, system design, диагностический кейс и беседы о ценностях. Это ориентир для подготовки."
     claim: "secondary"
     sources: ["interviewing-io-spotify"]
+  - stage: {en: "Machine-learning tech screen", ru: "ML-скрининг"}
+    detail:
+      en: "A candidate who received an offer in 2025 describes a one-hour machine-learning screen after the recruiter call."
+      ru: "Кандидат, получивший офер в 2025 году, описывает часовой ML-скрининг после звонка рекрутера."
+    claim: "participant_report"
+    sources: ["njordy-spotify-mle-2025"]
+    roles: ["ml-engineer"]
+  - stage: {en: "Assessment day for machine-learning roles", ru: "День оценки для ML-роли"}
+    detail:
+      en: "Four interviews in one day: machine-learning data, values, machine-learning system design and machine-learning depth. The same account describes the depth interview as additional to the standard process and shares no questions from any round."
+      ru: "Четыре интервью в один день: данные в ML, ценности, ML system design и глубина ML. Тот же рассказ описывает секцию по глубине как дополнительную к стандартному процессу и не приводит вопросов ни из одного раунда."
+    claim: "participant_report"
+    sources: ["njordy-spotify-mle-2025"]
+    roles: ["ml-engineer"]
 coding:
   value: "varies"
   note:
@@ -33,4 +47,4 @@ coding:
     ru: "Официальный гайд называет CoderPad для технических интервью, но не требует кодинга для каждой роли."
   sources: ["spotify-start-your-journey"]
 prep: ["spotify-start-your-journey"]
-reviewed: "2026-09-26"
+reviewed: "2026-09-30"

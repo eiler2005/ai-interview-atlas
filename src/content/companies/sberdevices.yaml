@@ -9,8 +9,8 @@ roles:
   engineering:
   - "ml-engineer"
 summary:
-  en: "SberDevices publishes its ML developer loop: an HR introduction, then code, classical ML and deep learning sections that can run on one day, an HR interview and meetings with teams. A 2023 candidate account adds an ML system design case and an A/B-testing task."
-  ru: "SberDevices публикует процесс собеседований ML-разработчиков: знакомство с HR, затем секции по коду, классическому ML и глубокому обучению, которые можно пройти за один день, интервью с HR и встречи с командами. Рассказ кандидата 2023 года добавляет кейс по ML system design и задачу на A/B-тест."
+  en: "SberDevices publishes its ML developer loop: an HR introduction, then code, classical ML and deep learning sections that can run on one day, an HR interview and meetings with teams. A separate official page for the senior NLP role on GigaChat adds a generative-AI section covering supervised finetuning, retrieval-augmented generation and RLHF. A 2023 candidate account adds an ML system design case and an A/B-testing task."
+  ru: "SberDevices публикует процесс собеседований ML-разработчиков: знакомство с HR, затем секции по коду, классическому ML и глубокому обучению, которые можно пройти за один день, интервью с HR и встречи с командами. Отдельная официальная страница для senior NLP-роли в GigaChat добавляет секцию по генеративному AI: SFT, RAG и RLHF. Рассказ кандидата 2023 года добавляет кейс по ML system design и задачу на A/B-тест."
 loop:
 - stage:
     en: "HR introduction"
@@ -49,6 +49,17 @@ loop:
   sources:
   - "sberdevices-ml-interview"
 - stage:
+    en: "NLP section, GigaChat track"
+    ru: "Секция по NLP, направление GigaChat"
+  detail:
+    en: "A separate official page for the senior NLP role on GigaChat names this section's topics: transformer architecture, supervised finetuning, pretraining, retrieval-augmented generation and RLHF, examined through theory questions and practical tasks in an online editor. The stages around it mirror the published ML loop. The page lists topics rather than questions and carries no date."
+    ru: "Отдельная официальная страница для senior NLP-роли в GigaChat называет темы этой секции: архитектура трансформера, SFT, pretrain, RAG и RLHF — теоретические вопросы и практические задачи в онлайн-редакторе. Окружающие этапы повторяют опубликованный ML-процесс. Страница перечисляет темы, а не вопросы, и не датирована."
+  claim: "confirmed"
+  sources:
+  - "sberdevices-nlp-gigachat"
+  roles:
+  - "ml-engineer"
+- stage:
     en: "HR interview and team meetings"
     ru: "Интервью с HR и встречи с командами"
   detail:
@@ -72,4 +83,4 @@ coding:
   - "sberdevices-ml-interview"
 prep:
 - "sberdevices-ml-interview"
-reviewed: "2026-09-29"
+reviewed: "2026-09-30"

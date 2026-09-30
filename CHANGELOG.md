@@ -2,6 +2,16 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-09-30 verified machine-learning loops at Spotify and GigaChat
+
+### Added
+- Spotify gains a machine-learning path, from a candidate's first-hand account of a loop that ended in an offer: a one-hour machine-learning screen, then an assessment day of data, values, system design and depth interviews. That author deliberately publishes no questions, so the company page still records none.
+- SberDevices gains the generative-AI section of the senior NLP loop on GigaChat, from Sber's own preparation page: transformer architecture, supervised finetuning, pretraining, retrieval-augmented generation and RLHF. The page lists topics rather than questions and shows no date, which its source note states.
+
+### Changed
+- Spotify's summary no longer claims that its sources establish no dedicated loop, because the machine-learning path is now sourced.
+- Four candidate reports on a preparation site, which would have upgraded four product questions to first-hand evidence, were examined and left out: those pages assemble their content in the browser, so the questions attributed to them could not be read and confirmed.
+
 ## Unreleased — 2026-09-30 second batch of answers
 
 ### Added

@@ -3,15 +3,15 @@
 
 English · [Русский](../ru/companies/spotify.md) · [AI Interview Atlas](../../README.md) › [Companies](../README.md#companies)
 
-Big Tech · International · Loop reviewed 2026-09-26
+Big Tech · International · Loop reviewed 2026-09-30
 
-The official page establishes broad stages. Engineering detail is secondary; these sources do not establish a dedicated AI interview loop.
+The official page establishes broad stages and a third-party guide describes the engineering rounds. A candidate's 2025 account of a machine-learning loop that ended in an offer adds the ML-specific path: a one-hour machine-learning screen, then an assessment day of data, values, system design and depth interviews. That author deliberately publishes no questions, so no public source records what Spotify asks.
 
 On this page: [Interview loop](#loop) · [Official preparation material](#prep) · [Questions (0)](#questions)
 
 ## Roles covered
 
-- **AI Engineering:** Software engineer (general interview baseline)
+- **AI Engineering:** Software engineer (general interview baseline), ML engineer / data scientist
 
 ## <a id="loop"></a>Interview loop
 
@@ -20,6 +20,8 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 | Recruiter, team and final interviews | An initial conversation is followed by team members and a broader final panel. The recruiter explains who you will meet. | ✅ confirmed by the company<br>[Start Your Journey](https://www.lifeatspotify.com/start-your-journey), Spotify, retrieved 2026-09-26 |
 | Engineering screen | A third-party guide describes technical discussion, coding and sometimes a past-project discussion; tools vary. | † prep guide or compilation<br>[Spotify’s Interview Process & Questions](https://interviewing.io/spotify-interview-questions), interviewing.io, retrieved 2026-09-26 |
 | Engineering final rounds | The guide reports coding, system design, a diagnostic case study and values discussions. Treat this as a preparation baseline. | † prep guide or compilation<br>[Spotify’s Interview Process & Questions](https://interviewing.io/spotify-interview-questions), interviewing.io, retrieved 2026-09-26 |
+| Machine-learning tech screen<br>*ML engineer / data scientist* | A candidate who received an offer in 2025 describes a one-hour machine-learning screen after the recruiter call. | 🗣 candidate report<br>[How I Prepared for and Got a Spotify ML Engineer Offer](https://www.njordy.com/2025/08/31/ml_engineer_spotify/), Njord tech blog, post by a candidate, published 2025-08-30, retrieved 2026-09-30 |
+| Assessment day for machine-learning roles<br>*ML engineer / data scientist* | Four interviews in one day: machine-learning data, values, machine-learning system design and machine-learning depth. The same account describes the depth interview as additional to the standard process and shares no questions from any round. | 🗣 candidate report<br>[How I Prepared for and Got a Spotify ML Engineer Offer](https://www.njordy.com/2025/08/31/ml_engineer_spotify/), Njord tech blog, post by a candidate, published 2025-08-30, retrieved 2026-09-30 |
 
 **Coding:** varies by role. Official guidance names CoderPad for technical interviews but does not require coding for every role. ([Start Your Journey](https://www.lifeatspotify.com/start-your-journey), Spotify, retrieved 2026-09-26)
 

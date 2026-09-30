@@ -3,9 +3,9 @@
 
 English · [Русский](../ru/companies/sberdevices.md) · [AI Interview Atlas](../../README.md) › [Companies](../README.md#companies)
 
-Russian Big Tech · Russia · Loop reviewed 2026-09-29
+Russian Big Tech · Russia · Loop reviewed 2026-09-30
 
-SberDevices publishes its ML developer loop: an HR introduction, then code, classical ML and deep learning sections that can run on one day, an HR interview and meetings with teams. A 2023 candidate account adds an ML system design case and an A/B-testing task.
+SberDevices publishes its ML developer loop: an HR introduction, then code, classical ML and deep learning sections that can run on one day, an HR interview and meetings with teams. A separate official page for the senior NLP role on GigaChat adds a generative-AI section covering supervised finetuning, retrieval-augmented generation and RLHF. A 2023 candidate account adds an ML system design case and an A/B-testing task.
 
 On this page: [Interview loop](#loop) · [Official preparation material](#prep) · [Questions (0)](#questions)
 
@@ -21,6 +21,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 | Code section | About an hour: questions on the main programming language and one to three practical tasks in an online editor. | ✅ confirmed by the company<br>[Как проходят интервью](https://sberdevices.ru/career/ML/interview/), SberDevices, страница для ML-разработчиков, retrieved 2026-09-29 |
 | Classical ML section | Metrics, model evaluation, data splitting and optimisation methods; linear regression, trees, random forests and boosting; theory and practice. | ✅ confirmed by the company<br>[Как проходят интервью](https://sberdevices.ru/career/ML/interview/), SberDevices, страница для ML-разработчиков, retrieved 2026-09-29 |
 | Deep learning section | NLP, computer vision and search; layers, activations and modern architectures; data preparation, preprocessing, tokenisation and training strategies; design decisions for neural networks, distributed training, frameworks and faster inference. | ✅ confirmed by the company<br>[Как проходят интервью](https://sberdevices.ru/career/ML/interview/), SberDevices, страница для ML-разработчиков, retrieved 2026-09-29 |
+| NLP section, GigaChat track<br>*ML engineer / data scientist* | A separate official page for the senior NLP role on GigaChat names this section's topics: transformer architecture, supervised finetuning, pretraining, retrieval-augmented generation and RLHF, examined through theory questions and practical tasks in an online editor. The stages around it mirror the published ML loop. The page lists topics rather than questions and carries no date. | ✅ confirmed by the company<br>[Как подготовиться к техническому интервью Senior NLP GigaChat](https://developers.sber.ru/kak-v-sbere/interview/nlp-gigachat), Sber, developers.sber.ru, retrieved 2026-09-30 |
 | HR interview and team meetings | Experience, values and approach to work, then final meetings with teams. | ✅ confirmed by the company<br>[Как проходят интервью](https://sberdevices.ru/career/ML/interview/), SberDevices, страница для ML-разработчиков, retrieved 2026-09-29 |
 | Candidate account, 2023 | An HR screen with a mini-test on probability and Python, an hour for three algorithm problems, a 90-minute ML round with probability tasks, an ML system design case and an A/B-testing task, then a team interview. | 🗣 candidate report<br>[Как я проходил собеседование в SberDevices](https://t-j.ru/job-interwiev-sberdevices/), Т—Ж, рассказ кандидата, published 2023-05-29, retrieved 2026-09-29 |
 
