@@ -44,6 +44,10 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
 - <a id="sec-upload-moderation"></a>**Design a system for detecting harmful content in Facebook and Instagram uploads.**
   - System design · Senior · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-upload-moderation&title=%5BCorrection%5D%20sec-upload-moderation)
   - Tests: Whether you combine detection, review and appeals at the required scale.
+  - A strong answer covers:
+    - Tier harms by severity and choose per tier: block at upload, limit distribution or queue review.
+    - Combine hash matching for known content with classifiers for new content, routing uncertain cases to reviewers.
+    - Measure prevalence, per-policy precision and appeal overturn rate, weighing wrongful removals against missed harm.
 - <a id="sec-guardrail-exception"></a>**A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?**
   - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#sec-guardrail-exception) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
   - Tests: Whether exceptions retain an accountable owner, compensating controls and an expiry decision.
@@ -55,15 +59,32 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
 - <a id="sec-matter-isolation"></a>**Two partners at one law firm advise opposing sides of a deal. How would you isolate their AI workspaces?**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-matter-isolation&title=%5BCorrection%5D%20sec-matter-isolation)
   - Tests: Whether access boundaries can be narrower than a customer tenant.
+  - A strong answer covers:
+    - Treat the matter, not the tenant, as the boundary: leakage across sides breaches client confidentiality.
+    - Enforce it at retrieval time, and keep memory, caches, logs and tuning data per matter.
+    - Probe for cross-matter leakage, audit every access, and track over-blocking of shared firm knowledge.
+  - Read: [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview) (Microsoft Learn) · [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn)
 - <a id="sec-chat-safety"></a>**Design safeguards for an open-ended character-chat service.**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-chat-safety&title=%5BCorrection%5D%20sec-chat-safety)
   - Tests: Whether controls cover long conversations and escalation rather than isolated replies.
+  - A strong answer covers:
+    - Name harms that build over many turns: self-harm, sexualised content involving minors, emotional dependency.
+    - Score the trajectory of the whole conversation, not single replies, and escalate to crisis resources or review.
+    - Evaluate on long scripted conversations, counting missed escalations and needless interruptions of benign roleplay.
 - <a id="sec-generation-intervention"></a>**When would you intervene during token generation rather than filter the completed answer?**
   - Knowledge · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-generation-intervention&title=%5BCorrection%5D%20sec-generation-intervention)
   - Tests: Whether you weigh exposure, latency and partial-output risks.
+  - A strong answer covers:
+    - Intervene mid-stream when showing the text is itself the harm, such as leaked secrets or dangerous instructions.
+    - Weigh latency against exposure: buffering delays the stream, while retracting shown text cannot undo it.
+    - Measure harmful text shown before cutoff, false truncations of benign answers and added latency.
 - <a id="sec-robot-safety"></a>**Design the safety architecture for a learned robot policy operating close to people.**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-robot-safety&title=%5BCorrection%5D%20sec-robot-safety)
   - Tests: Whether safety depends on independent constraints and a safe fallback.
+  - A strong answer covers:
+    - Name the hazards near people: contact force, speed, pinch points and unexpected motion.
+    - Put an independent safety layer under the policy that enforces speed, force and zone limits.
+    - Make a safe stop the fallback, verify it by fault injection, and count needless stops as cost.
 
 ## <a id="track-leadership"></a>AI Leadership
 
@@ -78,23 +99,53 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
 - <a id="sec-alignment-open-problem"></a>**Which unresolved alignment problem deserves the most attention, and why?**
   - Knowledge · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-alignment-open-problem&title=%5BCorrection%5D%20sec-alignment-open-problem)
   - Tests: Whether you separate an argument from speculation and identify useful evidence.
+  - A strong answer covers:
+    - Pick one concrete problem, such as reward hacking or unfaithful reasoning, and state its harm.
+    - Separate what current evidence shows from extrapolation, and name the assumption the argument rests on.
+    - Name the evidence that would change your priority, and a measurable research step toward it.
+  - Read: [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv) · [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) (Chen et al., arXiv) · [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., arXiv)
 - <a id="sec-interpretability-tradeoff"></a>**How would you weigh a performance improvement against reduced model interpretability?**
-  - Applied scenario · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-interpretability-tradeoff&title=%5BCorrection%5D%20sec-interpretability-tradeoff)
+  - Applied scenario · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#sec-interpretability-tradeoff) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-interpretability-tradeoff&title=%5BCorrection%5D%20sec-interpretability-tradeoff)
   - Tests: Whether the trade-off depends on use, consequences and available controls.
+  - A strong answer covers:
+    - Ask what interpretability serves here: explaining decisions to those affected, contesting outcomes, validation or debugging.
+    - Weigh the gain against error consequences and against controls that do not depend on model internals.
+    - Verify the gain on the slices that matter, with outcome monitoring and a simpler fallback model.
+  - Read: [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) (Board of Governors of the Federal Reserve System) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="sec-annotation-outsourcing"></a>**Some annotators submit answers produced by a chatbot instead of doing the assigned work. How would you detect and address this?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-annotation-outsourcing&title=%5BCorrection%5D%20sec-annotation-outsourcing)
   - Tests: Whether you investigate annotation quality without assuming an infallible AI detector.
+  - A strong answer covers:
+    - Name the harm: labels stop reflecting human judgement and contaminate training and evaluation data.
+    - Rely on gold questions, agreement and timing signals, not a detector whose false positives punish honest annotators.
+    - Confirm cases before sanctions, re-label affected data, and fix incentives and task design that invite shortcuts.
 - <a id="sec-stale-legal-authority"></a>**An AI research memo relies on a court decision that has been overruled. Where should the workflow catch this?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-stale-legal-authority&title=%5BCorrection%5D%20sec-stale-legal-authority)
   - Tests: Whether you address source validity as well as faithful citation.
+  - A strong answer covers:
+    - Separate two checks: the memo states the decision faithfully, and the decision is still good law.
+    - Check each authority's later treatment with a citator at retrieval and again before sign-off.
+    - Seed test memos with overruled cases to measure catch rate, and track flags lawyers learn to ignore.
 - <a id="sec-age-assurance"></a>**How would you design age assurance when minors receive a substantially different product experience?**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-age-assurance&title=%5BCorrection%5D%20sec-age-assurance)
   - Tests: Whether you consider privacy, evasion and the consequences of classification errors.
+  - A strong answer covers:
+    - State what each error costs: a minor in the adult product versus an adult wrongly restricted.
+    - Layer signals by risk, escalating to verification only when needed and keeping as little data as possible.
+    - Measure errors by age band, evasion attempts and drop-off from friction, and offer an appeal path.
 - <a id="sec-voice-consent"></a>**Design safeguards for voice cloning, including consent, provenance and abuse response.**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-voice-consent&title=%5BCorrection%5D%20sec-voice-consent)
   - Tests: Whether you treat consent as a verifiable lifecycle requirement.
+  - A strong answer covers:
+    - Verify the speaker's own consent, for example with a live spoken phrase, before creating a voice.
+    - Bind consent to the voice model so revocation disables it, and watermark or log generated audio.
+    - Review impersonation reports and takedown requests fast, measuring abuse caught and wrongful blocks.
 - <a id="sec-clinical-invention"></a>**A generated clinical note includes a medication never mentioned during the visit. How would you detect and contain this safety incident?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-clinical-invention&title=%5BCorrection%5D%20sec-clinical-invention)
   - Tests: Whether you prioritise patient harm and verification over average text quality.
+  - A strong answer covers:
+    - Treat it as a patient-safety incident: find affected signed notes and whether care relied on them.
+    - Contain it with a check that flags medications absent from the transcript, requiring clinician confirmation before signing.
+    - Measure unsupported medication mentions on audited samples, and track alert fatigue from false flags.
 
 ← [Evaluation and observability](evals-observability.md) · [Multimodal and voice](multimodal-voice.md) →

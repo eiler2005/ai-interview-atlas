@@ -12,6 +12,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
 - <a id="rag-agentic"></a>**When should a retrieval application plan multiple searches instead of making one fixed retrieval call?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-agentic&title=%5BCorrection%5D%20rag-agentic)
   - Tests: Whether iterative retrieval earns its extra cost and failure modes.
+  - A strong answer covers:
+    - Iterate when later queries depend on earlier findings: multi-hop questions, cross-entity comparisons or underspecified requests.
+    - Weigh added latency, tokens and compounding errors such as query drift and loops against the measured recall gain.
+    - Compare single-shot and iterative retrieval per question type on accuracy, evidence recall, calls per answer and cost.
+  - Read: [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) (Yao et al., arXiv) · [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Anthropic)
 - <a id="rag-permissions"></a>**Design retrieval that enforces the source system's access rights, including permission changes and shared caches.**
   - System design · Asked at: [Databricks](../companies/databricks.md) †, [Microsoft](../companies/microsoft.md) †, [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#rag-permissions) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-permissions&title=%5BCorrection%5D%20rag-permissions)
   - Tests: Whether access checks cover the full path to generated output.
@@ -56,7 +61,7 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
     - Use oracle passages to distinguish retrieval failures from generation failures.
   - Read: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) (Lewis et al., arXiv) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="rag-hyde"></a>**Explain hypothetical-document retrieval and how you would establish whether it improves your query distribution.**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-hyde&title=%5BCorrection%5D%20rag-hyde)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#rag-hyde) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-hyde&title=%5BCorrection%5D%20rag-hyde)
   - Tests: Whether generated query expansion is treated as a testable hypothesis.
   - A strong answer covers:
     - Generate a hypothetical document, embed it and retrieve real corpus documents near that embedding.
@@ -66,6 +71,10 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
 - <a id="rag-embedding-drift"></a>**Search quality declines as the corpus changes. How would you detect embedding drift and separate it from indexing defects?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-embedding-drift&title=%5BCorrection%5D%20rag-embedding-drift)
   - Tests: Whether diagnosis uses stable relevance sets and production slices.
+  - A strong answer covers:
+    - Hold a frozen relevance set and corpus snapshot; stable scores there clear the model and point to new content or indexing.
+    - Check indexing directly: document counts against the source, embedding model version per vector, parse failures, ANN recall against exact search.
+    - Slice production queries by document age and topic; new-term misses that lexical search catches signal genuine drift.
 - <a id="rag-ann-index"></a>**Compare exact search, HNSW and IVF-PQ for an embedding index under memory, recall and latency constraints.**
   - Knowledge · ✍ [Answer](../answers/engineering.md#rag-ann-index) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-ann-index&title=%5BCorrection%5D%20rag-ann-index)
   - Tests: Whether approximation is evaluated against a measurable exact baseline.
@@ -77,9 +86,18 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
 - <a id="rag-document-layout"></a>**How would you index tables, diagrams and multi-column pages without losing their relationships to surrounding text?**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-document-layout&title=%5BCorrection%5D%20rag-document-layout)
   - Tests: Whether parsing errors and layout structure are considered before embedding.
+  - A strong answer covers:
+    - Recover layout before embedding: reading order across columns, table structure with headers, figure captions with page coordinates.
+    - Index tables and figures as linked units with header context and generated descriptions, tied to the paragraphs that cite them.
+    - Audit parsing on sampled pages against the rendered originals, then evaluate retrieval on questions answerable only from tables or figures.
+  - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="rag-freshness"></a>**Design continuous index updates, including changed documents, deletions and queries during a rebuild.**
   - System design · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-freshness&title=%5BCorrection%5D%20rag-freshness)
   - Tests: Whether freshness has consistency guarantees and an observable lag.
+  - A strong answer covers:
+    - Drive updates from change events, upserting by document id and version and replacing all its chunks atomically.
+    - Honour deletions at query time through tombstones; rebuild into a new index with dual writes, then switch an alias.
+    - Measure lag from source change to searchable with canary documents, and reconcile document counts between source and index.
 - <a id="rag-citations"></a>**How would you connect each factual claim in an answer to the retrieved passage that supports it?**
   - System design · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-citations) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-citations&title=%5BCorrection%5D%20rag-citations)
   - Tests: Whether a citation is checked for support rather than merely attached.
@@ -91,8 +109,16 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
 - <a id="rag-structured-queries"></a>**A user asks for the count of open orders blocked by supplier issues. Why might document retrieval fail, and what should answer the query?**
   - Applied scenario · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-structured-queries&title=%5BCorrection%5D%20rag-structured-queries)
   - Tests: Whether structured aggregation is separated from semantic retrieval.
+  - A strong answer covers:
+    - Explain why top-k retrieval fails: it returns similar passages, not a complete filtered set, so any count is a sample.
+    - Route to the system of record: a governed query over order status and block reason, with the model only translating intent.
+    - Pin down what counts as blocked by a supplier, show the query and data timestamp, and test against known counts.
 - <a id="rag-clinical-context"></a>**How can a patient's existing medication list help transcribe drug names without causing the recogniser to insert drugs that were never spoken?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-clinical-context&title=%5BCorrection%5D%20rag-clinical-context)
   - Tests: Whether contextual retrieval is balanced against confirmation bias.
+  - A strong answer covers:
+    - Use the list as a bounded decoding bias toward acoustically plausible matches, never as text to insert.
+    - Guard against confirmation bias: compare biased and unbiased hypotheses, and flag listed drugs with weak acoustic evidence for review.
+    - Test listed, new unlisted and unmentioned drugs; tune bias strength on recall against false insertions and substitutions.
 
 ← [Inference, serving and cost](inference-economics.md) · [Agents, tools and protocols](agents-tools.md) →

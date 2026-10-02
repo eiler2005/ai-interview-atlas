@@ -48,12 +48,21 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 - **[A user asks for the count of open orders blocked by supplier issues. Why might document retrieval fail, and what should answer the query?](../themes/rag-retrieval.md#rag-structured-queries)**
   - Applied scenario · Asked at: Palantir †
   - Tests: Whether structured aggregation is separated from semantic retrieval.
+  - A strong answer covers:
+    - Explain why top-k retrieval fails: it returns similar passages, not a complete filtered set, so any count is a sample.
+    - Route to the system of record: a governed query over order status and block reason, with the model only translating intent.
+    - Pin down what counts as blocked by a supplier, show the query and data timestamp, and test against known counts.
 
 ### [Agents, tools and protocols](../themes/agents-tools.md)
 
 - **[How would you make an agent's production actions reversible where possible and auditable where reversal is impossible?](../themes/agents-tools.md#agt-reversibility)**
-  - System design · Asked at: Palantir †
+  - System design · Asked at: Palantir † · ✍ [Answer](../answers/engineering.md#agt-reversibility)
   - Tests: Whether compensating actions and durable evidence are planned before execution.
+  - A strong answer covers:
+    - Classify each tool action before release as reversible, compensable within a window, or irreversible.
+    - Prefer native undo such as drafts, soft deletes and delayed sends; register a tested compensation for the rest.
+    - Write intent, exact arguments and authoriser to an append-only log before acting; rehearse reconstruction from it.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe) · [Compensating Transaction pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/compensating-transaction) (Microsoft Learn)
 - **[Design human approval for consequential agent actions, including how approval remains bound to the exact action being executed.](../themes/agents-tools.md#agt-approval)**
   - System design · Asked at: [OpenAI](openai.md) †, Palantir † · ✍ [Answer](../answers/engineering.md#agt-approval)
   - Tests: Whether approval controls are enforced outside the model.
@@ -63,26 +72,50 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Record the decision and execution result; expire approval after material changes.
   - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - **[Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations.](../themes/agents-tools.md#agt-erp-writes)**
-  - System design · Asked at: Palantir †
+  - System design · Asked at: Palantir † · ✍ [Answer](../answers/leadership.md#agt-erp-writes)
   - Tests: Whether business invariants survive uncertain model and network behaviour.
+  - A strong answer covers:
+    - Keep the model on proposals: a typed command validated against ERP business rules before any write.
+    - Derive a stable business key for idempotent creation, and update with a version check, never last-write-wins.
+    - Reconcile ambiguous outcomes before retrying, log proposal against effect, and test duplicate events and concurrent edits.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - **[Why might an enterprise agent operate on an ontology of business objects and actions instead of raw tables and documents?](../themes/agents-tools.md#agt-ontology)**
   - Knowledge · Asked at: Palantir †
   - Tests: Whether semantic modelling is connected to valid operations and permissions.
+  - A strong answer covers:
+    - Explain that business objects carry meaning, relationships and identity that raw tables leave implicit.
+    - Expose typed actions with preconditions and permissions instead of free-form queries and writes.
+    - Weigh the modelling and upkeep cost, and test what happens when a task falls outside the ontology.
+  - Read: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 
 ### [Evaluation and observability](../themes/evals-observability.md)
 
 - **[How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?](../themes/evals-observability.md#eval-production-actions)**
   - System design · Asked at: Palantir †
   - Tests: Whether action consequences change the acceptance criteria.
+  - A strong answer covers:
+    - Grade outcomes in the environment, not the proposal text: what changed, and was it permitted.
+    - Weight errors by consequence and reversibility; irreversible actions need near-zero tolerance or human approval.
+    - Test in sandboxed replicas, then use shadow mode and staged rollout with action logs and a kill switch.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
 
 ### [AI system design](../themes/ai-system-design.md)
 
 - **[Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable.](../themes/ai-system-design.md#sd-document-intelligence)**
   - System design · Asked at: Palantir †
   - Tests: Whether extraction quality, provenance and scalable processing are planned together.
+  - A strong answer covers:
+    - Process documents as idempotent jobs, storing each field with page, region, model version and confidence.
+    - Route fields with low calibrated confidence or failed validation rules to review, sized to reviewer capacity.
+    - Measure per-field accuracy on a stratified audit sample, and feed reviewer corrections back into evaluation.
 - **[Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](../themes/ai-system-design.md#sd-text-to-sql)**
-  - System design · Asked at: [Databricks](databricks.md) †, Palantir †
+  - System design · Asked at: [Databricks](databricks.md) †, Palantir † · ✍ [Answer](../answers/engineering.md#sd-text-to-sql)
   - Tests: Whether semantic correctness and query permissions constrain generation.
+  - A strong answer covers:
+    - Retrieve a small candidate schema from catalog metadata, governed metric definitions and verified example queries.
+    - Run generated SQL read-only under the requesting user's own warehouse permissions, with cost, row and time limits.
+    - Compare result sets with verified queries on real questions, and measure schema-retrieval recall separately.
+  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) (Lei et al., arXiv)
 - **[Design an LLM gateway with provider routing, failover, caching, rate limits and enforceable spending budgets.](../themes/ai-system-design.md#sd-gateway)**
   - System design · Asked at: Palantir †, [Perplexity](perplexity.md) † · ✍ [Answer](../answers/engineering.md#sd-gateway)
   - Tests: Whether provider differences and failure handling preserve the service contract.
@@ -97,15 +130,32 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 - **[Write a function that collects a paginated REST result while handling page size, termination and incomplete responses explicitly.](../themes/coding-practical.md#code-pagination)**
   - Coding · Asked at: Palantir †
   - Tests: Whether boundary conditions prevent missing or duplicated records.
+  - A strong answer covers:
+    - Prefer cursor pagination: with offsets, concurrent inserts and deletes shift pages and cause gaps or duplicates.
+    - Terminate on an absent next cursor, not a short page, and guard against a repeated cursor looping forever.
+    - Validate each page, retry failures with backoff, dedupe by id; test empty results and exact page-size multiples.
 - **[Optimise the implementation of a given scheduling system, keeping the code clean.](../themes/coding-practical.md#code-optimise-scheduler)**
   - Coding · Asked at: Palantir 🗣
   - Tests: Whether you find the real bottleneck and improve it without making the code harder to read.
+  - A strong answer covers:
+    - Profile on a realistic workload before changing anything, and state the input sizes that matter.
+    - Replace the dominant cost with a better structure, such as a heap or interval index, keeping the interface.
+    - Keep existing tests passing, add a benchmark, and report complexity and timings before and after.
 - **[Debug a broken API service: trace the logs, find the bottleneck and fix a memory leak.](../themes/coding-practical.md#code-debug-api-service)**
   - Coding · Asked at: Palantir 🗣
   - Tests: Whether you debug a running service systematically from evidence rather than guesses.
+  - A strong answer covers:
+    - Reproduce the symptom, then follow one request through the logs to find where time is spent.
+    - Test one hypothesis at a time; compare heap snapshots over time to find objects that keep growing.
+    - Fix the root cause, such as an unbounded cache or unreleased handles, and prove the fix under load.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 - **[Write SQL queries to answer questions about a dataset, without being able to run them.](../themes/coding-practical.md#code-sql-by-hand)**
   - Coding · Asked at: Palantir 🗣
   - Tests: Whether your data-querying fundamentals hold up without tools to check them.
+  - A strong answer covers:
+    - Restate each question as the result's grain: what one row represents and which rows qualify.
+    - Watch for join fan-out, NULL semantics in filters and aggregates, and WHERE versus HAVING.
+    - Trace each query by hand on a few sample rows, including ties, NULLs and empty groups.
 
 ### [AI platform and operating model](../themes/ai-operating-model.md)
 
@@ -118,8 +168,13 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Evaluate allowed fallbacks and fail closed when no compliant route exists.
   - Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - **[Design a service that lets several teams query a shared dataset without exposing the underlying raw records.](../themes/ai-operating-model.md#ops-shared-data-access)**
-  - System design · Senior · Asked at: Palantir †
+  - System design · Senior · Asked at: Palantir † · ✍ [Answer](../answers/leadership.md#ops-shared-data-access)
   - Tests: Whether you define permissible results and enforce access across a shared platform.
+  - A strong answer covers:
+    - Define permissible results per team and purpose: fields, aggregations and a minimum group size.
+    - Enforce policy in the service: caller identity, query rewriting, row and column controls, output checks.
+    - Defend against differencing and repeated slicing, log every query, and test with re-identification attempts.
+  - Read: [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](https://csrc.nist.gov/pubs/sp/800/226/final) (NIST)
 
 ### [Applied and customer scenarios](../themes/applied-scenarios.md)
 
@@ -134,35 +189,78 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 - **[A freight railway loses substantial revenue to unexpected locomotive downtime. Turn the problem into an engineering plan.](../themes/applied-scenarios.md#app-rail-downtime)**
   - Applied scenario · Senior · Asked at: Palantir †
   - Tests: Whether you connect operational decisions, usable data and intervention value.
+  - A strong answer covers:
+    - Ask which failure modes cost most and which decision an early warning would change.
+    - Check whether sensor and repair logs label failures, then price false alarms against missed breakdowns.
+    - Close on a pilot fleet, comparing unplanned downtime and cost with matched locomotives.
 - **[How would you design a system to improve traffic in New York City?](../themes/applied-scenarios.md#app-city-traffic)**
   - System design · Senior · Asked at: Palantir †
   - Tests: Whether you decompose an ambiguous city-scale objective into measurable interventions.
+  - A strong answer covers:
+    - Ask what improving traffic means and for whom: travel time, safety, emissions, buses or freight.
+    - Choose levers the system actually controls, such as signal timing or bus lanes, and their data.
+    - Evaluate one corridor against a comparable control, watching for traffic displaced onto nearby streets.
 - **[Design synchronisation between two systems that hold employee records.](../themes/applied-scenarios.md#app-employee-sync)**
   - System design · Senior · Asked at: Palantir †
   - Tests: Whether you identify record ownership, conflicts and recovery semantics.
+  - A strong answer covers:
+    - Assign an owner per field, not per record, and a stable identifier linking both systems.
+    - Propagate changes idempotently with version ordering, and define which side wins each conflict.
+    - Reconcile regularly, replay safely after outages, and route unmatched or deleted records to review.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - **[Design an application for recording species while exploring an unfamiliar environment.](../themes/applied-scenarios.md#app-field-catalogue)**
   - System design · Senior · Asked at: Palantir †
   - Tests: Whether you clarify field constraints and support trustworthy data collection.
+  - A strong answer covers:
+    - Ask about field constraints first: connectivity, battery, gloves, light and who records.
+    - Design capture to work offline with location, time and photo, and resolve sync conflicts later.
+    - Store the model's suggestion apart from the observer's call, and audit a sample against experts.
 - **[After an introduction to insider trading, explain how you would detect it: what data would you need, what would you ask the customer and what patterns would you look for?](../themes/applied-scenarios.md#app-financial-crime-decomposition)**
   - Applied scenario · Asked at: Palantir 🗣
   - Tests: Whether you turn a vague, high-stakes problem into a scoped first system that can be tested.
+  - A strong answer covers:
+    - Ask which instruments and data exist, and what an analyst must decide from an alert.
+    - Scope one pattern first: unusual trading by connected accounts before price-moving announcements.
+    - Backtest on confirmed past cases, and cap alert volume at what analysts can review.
 - **[Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures.](../themes/applied-scenarios.md#app-learn-then-design)**
   - Applied scenario · Asked at: Palantir 🗣
   - Tests: Whether you learn an unfamiliar tool quickly and carry it into sound design decisions.
+  - A strong answer covers:
+    - Read the core abstraction and one minimal example, then wrap the library behind a thin interface.
+    - Carry what you learned about its limits, state and errors into the scale and storage design.
+    - Name how the design fails, plan retries, timeouts and backpressure, and test the integration path.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 
 ### [Behavioral and values](../themes/behavioral-values.md)
 
 - **[Describe a time you pushed back on a customer's request.](../themes/behavioral-values.md#beh-customer-pushback)**
   - Behavioral · Senior · Asked at: Palantir †
   - Tests: Whether you protect the customer's underlying goal while challenging a proposed solution.
+  - A strong answer covers:
+    - Choose a request where the customer's proposed solution would have hurt their own underlying goal.
+    - Show how you uncovered the goal behind the request and offered an alternative that served it better.
+    - Close with what the customer decided, how the relationship held, and evidence the goal was met.
 - **[How do you think about work for defence or intelligence customers, and what would you do if a requested project conflicted with your values?](../themes/behavioral-values.md#beh-sensitive-mission)**
   - Behavioral · Senior · Asked at: Palantir †
   - Tests: Whether you reason about concrete boundaries and professional responsibility.
+  - A strong answer covers:
+    - State your actual position on defence and intelligence work and its reasoning, whichever way it points.
+    - Draw a concrete boundary — which uses, what oversight, whose decision — rather than a general statement of values.
+    - Lay out your steps on conflict: raise it, escalate, leave the project, and when you would quit.
 - **[Why this company, and why the forward deployed role rather than engineering on the core product?](../themes/behavioral-values.md#beh-why-forward-deployed)**
   - Self-presentation · Asked at: Palantir 🗣
   - Tests: Whether your motivation fits customer-facing delivery work, not only the company's name.
+  - A strong answer covers:
+    - Tie the company choice to specifics you checked, such as its customers and the problems it deploys into.
+    - Explain why customer-facing delivery suits you better than core product work, including what you give up.
+    - Back the motivation with your own track record of working directly with users and shipping into their environments.
+  - Read: [Forward Deployed Engineering](https://builders.ramp.com/post/forward-deployed-engineering) (Ramp Builders)
 - **[What might keep you from succeeding in this job?](../themes/behavioral-values.md#beh-might-not-succeed)**
   - Self-presentation · Asked at: Palantir †
   - Tests: Whether you assess your fit for an ambiguous, customer-facing role honestly.
+  - A strong answer covers:
+    - Name a real risk tied to this role's demands — ambiguity, customer pressure, context switching — not a disguised strength.
+    - Pick a risk that matters but is not disqualifying, and explain how it has shown up before.
+    - Describe how you mitigate it in practice and what early signal would tell your manager it is happening.
 
 ← [Atlassian](atlassian.md) · [Adyen](adyen.md) →

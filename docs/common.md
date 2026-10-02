@@ -17,7 +17,7 @@ Questions reported at two or more companies, strongest basis first.
 - **[Compare tensor, pipeline, data, sequence and expert parallelism for a large model deployment.](themes/inference-economics.md#inf-parallelism)**
   - Knowledge · Asked at: [Amazon](companies/amazon.md) †, [Google and Google DeepMind](companies/google.md) †, [Meta](companies/meta.md) †
 - **[Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems.](themes/inference-economics.md#inf-latency-metrics)**
-  - Knowledge · Asked at: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) †
+  - Knowledge · Asked at: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Answer](answers/engineering.md#inf-latency-metrics)
 - **[You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable.](themes/inference-economics.md#inf-cost-reduction)**
   - Applied scenario · Asked at: [Amazon](companies/amazon.md) †, [Microsoft](companies/microsoft.md) † · ✍ [Answer](answers/engineering.md#inf-cost-reduction)
 - **[After a deployment, p99 latency doubles although model weights are unchanged. How do you isolate the cause?](themes/inference-economics.md#inf-tail-regression)**
@@ -52,7 +52,7 @@ Questions reported at two or more companies, strongest basis first.
 - **[Design a knowledge assistant over ten million enterprise documents with per-user permissions and a continuously changing corpus.](themes/ai-system-design.md#sd-enterprise-rag)**
   - System design · Asked at: [Amazon](companies/amazon.md) †, [Databricks](companies/databricks.md) †, [Microsoft](companies/microsoft.md) †, [OpenAI](companies/openai.md) † · ✍ [Answer](answers/engineering.md#sd-enterprise-rag)
 - **[Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](themes/ai-system-design.md#sd-text-to-sql)**
-  - System design · Asked at: [Databricks](companies/databricks.md) †, [Palantir](companies/palantir.md) †
+  - System design · Asked at: [Databricks](companies/databricks.md) †, [Palantir](companies/palantir.md) † · ✍ [Answer](answers/engineering.md#sd-text-to-sql)
 - **[Design an LLM gateway with provider routing, failover, caching, rate limits and enforceable spending budgets.](themes/ai-system-design.md#sd-gateway)**
   - System design · Asked at: [Palantir](companies/palantir.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Answer](answers/engineering.md#sd-gateway)
 - **[Design a streaming chat service for hundreds of millions of users, including capacity, conversation storage and graceful overload behaviour.](themes/ai-system-design.md#sd-consumer-chat)**

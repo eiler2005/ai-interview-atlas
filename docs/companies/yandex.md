@@ -35,5 +35,10 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Find a pair of numbers in an array with a given sum; clarify the conditions, test the code and discuss complexity and edge cases.](../themes/coding-practical.md#code-pair-sum)**
   - Coding · Asked at: Yandex ✅
   - Tests: Whether basic data-structure fluency, testing and edge-case discipline hold up in live coding.
+  - A strong answer covers:
+    - Clarify sortedness, duplicates, negatives, reuse of one element, and whether to return values, indices or all pairs.
+    - Use a hash set in O(n) time, or two pointers on sorted input with O(1) extra space.
+    - Test empty and single-element arrays, no valid pair, a target equal to twice one value, and overflow.
+  - Read: [Алгоритмические собеседования в Яндексе: как подготовиться и чего ожидать](https://education.yandex.ru/journal/algoritmicheskie-sobesedovaniya-v-yandekse-kak-podgotovitsya-i-chego-ozhidat) (Яндекс Образование)
 
 ← [T-Bank](t-bank.md)

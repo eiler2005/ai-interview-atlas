@@ -62,7 +62,7 @@ A `start_here` question may carry a written answer:
 
 ```yaml
     answer:
-      ru: "One paragraph of 100-150 words."
+      ru: "One paragraph of 100-180 words."
 ```
 
 Write one paragraph a candidate could say aloud: the point first, then the mechanism and what it costs, then what you would do or measure, then where the answer stops holding. It must agree with that question's `tests` line and its three-bullet `outline`, which it turns into speech. Ground it in the cited `reading`; use no invented numbers, benchmarks or company facts. Standard formulas are fine.

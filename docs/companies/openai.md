@@ -41,9 +41,18 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 - **[Relate cross-entropy, KL divergence and perplexity for next-token prediction; state the assumptions behind each comparison.](../themes/llm-fundamentals.md#llm-language-loss)**
   - Knowledge · Asked at: OpenAI †
   - Tests: Whether probabilistic definitions are used consistently.
+  - A strong answer covers:
+    - Show cross-entropy equals data entropy plus KL from data to model, so for fixed data minimising either is equivalent.
+    - Define perplexity as exp of mean per-token cross-entropy in nats; it shifts with tokeniser, eval text and context length.
+    - Compare across tokenisers in bits per byte, fixing the text, context handling and log base before drawing conclusions.
 - **[Explain how self-attention cost grows with context length and compare ways to reduce that cost.](../themes/llm-fundamentals.md#llm-long-attention)**
   - Knowledge · Asked at: OpenAI †
   - Tests: Whether efficiency changes are distinguished from changes to model behaviour.
+  - A strong answer covers:
+    - Show the cost: prefill score and value products scale with T squared; each decode step reads a KV cache linear in T.
+    - Separate exact kernels like FlashAttention, which cut memory traffic, from windows, sparsity, KV eviction or GQA, which change outputs.
+    - Re-run long-context quality evals for behaviour-changing methods; for exact ones, check numerical equivalence and speed only.
+  - Read: [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) (Dao et al., arXiv) · [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv)
 
 ### [Inference, serving and cost](../themes/inference-economics.md)
 
@@ -97,8 +106,13 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Separate a retrieval failure from an unfaithful generation when attributing the error.
   - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - **[A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?](../themes/evals-observability.md#eval-upgrade-complaint)**
-  - Applied scenario · Asked at: OpenAI †
+  - Applied scenario · Asked at: OpenAI † · ✍ [Answer](../answers/engineering.md#eval-upgrade-complaint)
   - Tests: Whether concrete customer failures drive reproduction and remediation.
+  - A strong answer covers:
+    - Collect the customer's exact failing requests and list every change shipped with the upgrade, not only the model.
+    - Replay old and new configurations on identical inputs with repeated samples and blind side-by-side grading.
+    - Choose the remedy by cause: fix configuration, adapt the prompt or pin the version; add cases to the release gate.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 
 ### [Safety, security and governance](../themes/safety-security-governance.md)
 
@@ -140,12 +154,21 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 - **[Design reliable delivery of events to customer webhook endpoints despite timeouts, duplicate attempts and unavailable receivers.](../themes/ai-system-design.md#sd-webhooks)**
   - System design · Asked at: OpenAI †
   - Tests: Whether delivery guarantees and consumer responsibilities are stated precisely.
+  - A strong answer covers:
+    - State the guarantee as at-least-once and unordered, and require consumers to deduplicate by a stable event id.
+    - Write events to a durable outbox in the same transaction, then retry with capped backoff and jitter.
+    - Isolate failing endpoints in per-endpoint queues, disable after a retry window, and support replay.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe) · [Standard Webhooks specification](https://github.com/standard-webhooks/standard-webhooks/blob/main/spec/standard-webhooks.md) (Standard Webhooks)
 
 ### [Practical coding](../themes/coding-practical.md)
 
 - **[Build a cache with constant-time lookup and recency updates, then add expiry without breaking eviction semantics.](../themes/coding-practical.md#code-lru)**
   - Coding · Asked at: OpenAI †
   - Tests: Whether data-structure invariants survive an evolving specification.
+  - A strong answer covers:
+    - Clarify capacity, whether reads refresh recency, and whether expired entries still count until purged.
+    - Use a hash map with a doubly linked list for O(1); one removal path serves expiry and eviction.
+    - Test capacity one, updating an existing key, and expiry at exact boundaries with an injected clock.
 - **[Implement a token-bucket limiter and explain what must change when several workers enforce the same limit.](../themes/coding-practical.md#code-token-bucket)**
   - Coding · Asked at: [Anthropic](anthropic.md) †, OpenAI † · ✍ [Answer](../answers/engineering.md#code-token-bucket)
   - Tests: Whether time accounting and concurrent updates preserve the quota.
@@ -157,15 +180,34 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 - **[Implement an in-memory key-value store with begin, commit and abort, stating the transaction semantics you support.](../themes/coding-practical.md#code-transactions)**
   - Coding · Asked at: OpenAI †
   - Tests: Whether rollback and visibility match a precise contract.
+  - A strong answer covers:
+    - State the contract: whether transactions nest, and whether other clients can see uncommitted writes.
+    - Keep a stack of write layers with deletion markers; reads search top-down, commit merges into the parent.
+    - Test deleting a key set in the same transaction, nested abort, and commit or abort with none open.
+  - Read: [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) (PostgreSQL documentation)
 - **[Refactor a small, poorly structured program with passing tests. Explain the first change and how you preserve observable behaviour.](../themes/coding-practical.md#code-refactoring)**
-  - Coding · Asked at: OpenAI †
+  - Coding · Asked at: OpenAI † · ✍ [Answer](../answers/leadership.md#code-refactoring)
   - Tests: Whether improvements are incremental and justified by maintainability.
+  - A strong answer covers:
+    - Pin down observable behaviour first, adding characterisation tests where existing tests assert too little.
+    - Make the first change small and mechanical, such as extracting a function, running tests after each step.
+    - Justify each step by a maintenance cost it removes, and never mix refactoring with behaviour changes.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers) · [Refactoring](https://refactoring.com/) (Martin Fowler)
 - **[Build a semantic search over a product catalogue that a chat model can call as a tool.](../themes/coding-practical.md#code-catalogue-search-tool)**
   - Coding · Asked at: OpenAI †
   - Tests: Whether you combine retrieval with a clear, validated tool interface that a model can use reliably.
+  - A strong answer covers:
+    - Define the tool contract: query, typed filters, a result limit, and compact results with stable product ids.
+    - Index product text with embeddings plus keyword matching, and apply filters before ranking.
+    - Return actionable errors and explicit empty results; evaluate tool selection and arguments on realistic chat requests.
+  - Read: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic) · [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - **[Implement a credit system in which credits carry different expiry rules and usage requirements, and extend it as follow-up requirements arrive.](../themes/coding-practical.md#code-credit-ledger)**
   - Coding · Asked at: OpenAI †
   - Tests: Whether your design absorbs changing business rules without a rewrite.
+  - A strong answer covers:
+    - Model credits as grants with amount, expiry and conditions, and usage as append-only ledger entries.
+    - Isolate the consumption policy, such as soonest expiry first via a heap, so new rules plug in.
+    - Test expiry at the exact timestamp, consumption spanning grants, insufficient balance and rebuilding balances from the ledger.
 
 ### [AI product strategy and metrics](../themes/ai-product-strategy.md)
 
@@ -188,6 +230,10 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 - **[You have invented a memory machine that generates video, images, smells and sounds. How would you bring it to market?](../themes/ai-product-strategy.md#prod-memory-machine-launch)**
   - Product case · Senior · Asked at: OpenAI †
   - Tests: Whether you turn an unfamiliar capability into a focused market entry.
+  - A strong answer covers:
+    - Choose one beachhead user and occasion, and only the senses that occasion actually needs.
+    - Measure repeat paid use, with guardrails on user distress and the consent of people depicted.
+    - Test willingness to pay with a hand-run concierge pilot before building scent hardware.
 
 ### [Programmes and delivery](../themes/program-delivery.md)
 
@@ -224,9 +270,17 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 - **[Which project are you most proud of, and why?](../themes/behavioral-values.md#beh-proud-project)**
   - Self-presentation · Senior · Asked at: OpenAI †
   - Tests: Whether you explain meaningful impact and your actual contribution.
+  - A strong answer covers:
+    - Choose the project by what changed for its users or the business, not by its technology or brand.
+    - Separate what you personally decided and built from the team's work, and name the hardest call you made.
+    - Close with evidence of the impact and why this project, rather than a bigger one, matters to you.
 - **[Describe a conflict with a colleague, how you handled it and what you learned.](../themes/behavioral-values.md#beh-interpersonal-conflict)**
   - Behavioral · Senior · Asked at: OpenAI †
   - Tests: Whether you understand the other person's perspective and your own part in the conflict.
+  - A strong answer covers:
+    - Pick a conflict in which your own behaviour contributed, not one where the colleague was simply difficult.
+    - Restate the colleague's view as they would, including the pressure they were under, before your own.
+    - Close with how the working relationship stood afterwards and what you now do differently yourself.
 - **[Tell me about conflicting stakeholder priorities and how you established alignment.](../themes/behavioral-values.md#beh-stakeholder-priorities)**
   - Behavioral · Senior · Asked at: OpenAI † · ✍ [Answer](../answers/leadership.md#beh-stakeholder-priorities)
   - Tests: Whether you make competing objectives explicit and build an actionable agreement.
@@ -238,8 +292,17 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 - **[How do you manage conflict when the situation is urgent?](../themes/behavioral-values.md#beh-conflict-under-urgency)**
   - Applied scenario · Senior · Asked at: OpenAI †
   - Tests: Whether urgency changes the decision process without eliminating respect and accountability.
+  - A strong answer covers:
+    - Make the decision owner and deadline explicit first, so urgency shortens debate rather than removing it.
+    - Hear each side briefly, prefer a reversible step, and record dissent instead of overriding it silently.
+    - Revisit after the pressure passes: review the decision, repair relationships, and fix what caused the urgency.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - **[What is the largest failure you have experienced as a product manager?](../themes/behavioral-values.md#beh-product-failure)**
   - Behavioral · Senior · Asked at: OpenAI †
   - Tests: Whether you can discuss product judgement, consequences and changed practice honestly.
+  - A strong answer covers:
+    - Pick a failure that is truly large and rooted in your own product judgement, not in others' execution.
+    - Reconstruct what you believed then, which signal you discounted, and what it cost users and the business.
+    - Close with the practice you changed, such as how you validate demand, and a later decision it improved.
 
 ← [Anthropic](anthropic.md) · [Amazon](amazon.md) →

@@ -10,7 +10,7 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
 ## <a id="track-both"></a>Both tracks
 
 - <a id="eval-reasoning-counterfactual"></a>**A team attributes better results to a reasoning model, but it also changed prompts, tools and compute budget. Design a comparison that identifies what improved.**
-  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-counterfactual&title=%5BCorrection%5D%20eval-reasoning-counterfactual)
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#eval-reasoning-counterfactual) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-counterfactual&title=%5BCorrection%5D%20eval-reasoning-counterfactual)
   - Tests: Whether a model claim is separated from changes to the surrounding system.
   - A strong answer covers:
     - Freeze task inputs, scoring and tool state; vary model, prompt and budget in controlled comparisons.
@@ -28,6 +28,11 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="eval-scarce-labels"></a>**How would you build a useful evaluation set when reference answers are missing and expert time is scarce?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
   - Tests: Whether sampling and annotation effort target consequential uncertainty.
+  - A strong answer covers:
+    - Start from error analysis of real traces to learn which failures matter, before labelling anything.
+    - Spend expert time on uncertain, high-stakes cases, judged by pass-fail criteria rather than one answer to match.
+    - Calibrate cheaper graders against expert labels and track agreement before trusting them at scale.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-release-gate"></a>**Design a release gate for prompt and model updates, including what happens when aggregate gains hide a critical regression.**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#eval-release-gate) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-release-gate&title=%5BCorrection%5D%20eval-release-gate)
   - Tests: Whether release decisions account for failure severity and uncertainty.
@@ -47,17 +52,32 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="eval-online"></a>**Design online evaluation for an AI feature: choose what to log, review manually and compare in an experiment.**
   - System design · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-online&title=%5BCorrection%5D%20eval-online)
   - Tests: Whether experimental outcomes are distinguished from passive correlations.
+  - A strong answer covers:
+    - Log inputs, outputs, versions and downstream outcomes per request, within consent and retention limits.
+    - Review a stratified sample manually to find failure types, but treat logged correlations as hypotheses.
+    - Establish causal effects with a randomised experiment, a pre-registered primary metric, guardrails and adequate power.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="eval-upgrade-complaint"></a>**A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?**
-  - Applied scenario · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-upgrade-complaint&title=%5BCorrection%5D%20eval-upgrade-complaint)
+  - Applied scenario · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/engineering.md#eval-upgrade-complaint) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-upgrade-complaint&title=%5BCorrection%5D%20eval-upgrade-complaint)
   - Tests: Whether concrete customer failures drive reproduction and remediation.
+  - A strong answer covers:
+    - Collect the customer's exact failing requests and list every change shipped with the upgrade, not only the model.
+    - Replay old and new configurations on identical inputs with repeated samples and blind side-by-side grading.
+    - Choose the remedy by cause: fix configuration, adapt the prompt or pin the version; add cases to the release gate.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-production-actions"></a>**How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?**
   - System design · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-production-actions&title=%5BCorrection%5D%20eval-production-actions)
   - Tests: Whether action consequences change the acceptance criteria.
+  - A strong answer covers:
+    - Grade outcomes in the environment, not the proposal text: what changed, and was it permitted.
+    - Weight errors by consequence and reversibility; irreversible actions need near-zero tolerance or human approval.
+    - Test in sandboxed replicas, then use shadow mode and staged rollout with action logs and a kill switch.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
 
 ## <a id="track-engineering"></a>AI Engineering
 
 - <a id="eval-reasoning-supervision"></a>**Distinguish outcome rewards, process supervision and inference-time verification. What evidence would justify each for a new reasoning task?**
-  - Knowledge · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-supervision&title=%5BCorrection%5D%20eval-reasoning-supervision)
+  - Knowledge · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#eval-reasoning-supervision) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-supervision&title=%5BCorrection%5D%20eval-reasoning-supervision)
   - Tests: Whether training signals are distinguished from deployment-time selection and independently measured quality.
   - A strong answer covers:
     - Explain which feedback changes model weights and which selects among outputs at inference.
@@ -83,6 +103,11 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="eval-contamination"></a>**How does benchmark contamination distort evaluation, and how would you reduce leakage into training or model selection?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-contamination&title=%5BCorrection%5D%20eval-contamination)
   - Tests: Whether repeated tuning on test data is recognised as leakage.
+  - A strong answer covers:
+    - Distinguish test items seen in pre-training from selection leakage through repeated tuning on the test set.
+    - Keep a private test set used once per decision, and tune only on a separate development split.
+    - Detect contamination with n-gram overlap and canary strings, and compare against items created after the data cutoff.
+  - Read: [Proving Test Set Contamination in Black Box Language Models](https://arxiv.org/abs/2310.17623) (Oren et al., arXiv)
 - <a id="eval-traces"></a>**Design observability for a production LLM workflow: which spans, versions, costs and feedback should be linked?**
   - System design · ✍ [Answer](../answers/engineering.md#eval-traces) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-traces&title=%5BCorrection%5D%20eval-traces)
   - Tests: Whether a failed user task can be reconstructed without indiscriminate sensitive logging.
@@ -94,6 +119,11 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="eval-prompt-rollback"></a>**How would you version prompts and dependent configuration so an observed regression can be rolled back reproducibly?**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-rollback&title=%5BCorrection%5D%20eval-prompt-rollback)
   - Tests: Whether rollback restores the actual system configuration.
+  - A strong answer covers:
+    - Version the full configuration as one immutable bundle: prompt, model snapshot, parameters, tools and retrieval index.
+    - Pin model snapshots rather than aliases, since a floating alias changes behaviour without a deploy.
+    - Log the bundle id on every request, and confirm a rollback by rerunning the failing cases on it.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="eval-agent-outcomes"></a>**How should evaluation of a tool-using agent differ from grading one generated response?**
   - System design · ✍ [Answer](../answers/engineering.md#eval-agent-outcomes) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-agent-outcomes&title=%5BCorrection%5D%20eval-agent-outcomes)
   - Tests: Whether final state, trajectory and repeated-run reliability are all inspected.
@@ -105,20 +135,49 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="eval-emergent-capability"></a>**Design an experiment for a suspected emergent capability or bias in a large model, with controls against misleading task framing.**
   - Applied scenario · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-emergent-capability&title=%5BCorrection%5D%20eval-emergent-capability)
   - Tests: Whether a capability claim is testable and alternative explanations are considered.
+  - A strong answer covers:
+    - Turn the claim into a prediction with a metric, a threshold and a result that would refute it.
+    - Control framing: paraphrased prompts, shuffled options, counterbalanced order, and continuous metrics beside exact match.
+    - Rule out contamination and scoring artefacts with fresh items, smaller-model baselines and repeated samples.
+  - Read: [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004) (Schaeffer et al., arXiv)
 - <a id="eval-frontier-harness"></a>**Build the evaluation harness for a new model release, covering reproducibility, execution isolation and comparable results.**
   - System design · Asked at: [Google and Google DeepMind](../companies/google.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-frontier-harness&title=%5BCorrection%5D%20eval-frontier-harness)
   - Tests: Whether evaluation infrastructure can support trustworthy comparisons.
+  - A strong answer covers:
+    - Pin everything that shapes a score: dataset version, prompt template, decoding settings, grader and seeds.
+    - Run model-generated code in isolated, network-restricted sandboxes with resource limits and clean state per task.
+    - Report means over repeated samples with confidence intervals, and rerun a baseline model to detect harness drift.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 - <a id="eval-multiple-good-answers"></a>**Two qualified clinicians produce different good notes from the same consultation. How would you evaluate a generated note fairly?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-multiple-good-answers&title=%5BCorrection%5D%20eval-multiple-good-answers)
   - Tests: Whether evaluation permits valid variation while checking omissions and unsupported content.
+  - A strong answer covers:
+    - Score against a checklist of clinically required facts from the consultation, not similarity to one note.
+    - Check every statement in the generated note for support in the transcript, and flag unsupported content separately.
+    - Treat agreement between the two clinicians as the ceiling, and calibrate any automated judge against them.
 - <a id="eval-behaviour-brainstorm"></a>**In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation.**
   - Knowledge · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-behaviour-brainstorm&title=%5BCorrection%5D%20eval-behaviour-brainstorm)
   - Tests: Whether you generate concrete, testable hypotheses about model behaviour quickly.
+  - A strong answer covers:
+    - State each idea as a behaviour, a controlled prompt change and the measurable outcome you expect.
+    - Draw on observable levers: position of information, option order, length, persona, language and repeated sampling.
+    - Say how many samples and which control would separate a real effect from noise or prompt wording.
+  - Read: [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv)
 - <a id="eval-ml-task-framing"></a>**Frame a business problem as a machine-learning task: choose and justify the quality metric, and explain how you would collect and validate the data.**
   - Knowledge · Asked at: [T-Bank](../companies/t-bank.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-ml-task-framing&title=%5BCorrection%5D%20eval-ml-task-framing)
   - Tests: Whether the metric and data follow from the business goal rather than habit.
+  - A strong answer covers:
+    - Translate the business decision into a prediction target, the action it triggers and the cost of each error.
+    - Pick the offline metric from those error costs, and name the online business metric it should move.
+    - Validate the data: label delay and leakage, time-based splits, and drift between training and serving.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="eval-prompt-target-share"></a>**Modify a prompt so that a target share of the model's outputs matches the desired result, and show how you measured it.**
   - Applied scenario · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-target-share&title=%5BCorrection%5D%20eval-prompt-target-share)
   - Tests: Whether prompt changes are driven by measurement on a set of cases rather than single examples.
+  - A strong answer covers:
+    - Define the desired result as a pass-fail check, and build a representative case set first.
+    - Change one thing at a time and sample each case several times, since outputs vary between runs.
+    - Report the share with a confidence interval on held-out cases, so the gain is not overfitting.
+  - Read: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 
 ← [Fine-tuning and post-training](post-training.md) · [Safety, security and governance](safety-security-governance.md) →

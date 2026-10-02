@@ -3,7 +3,7 @@
 
 [English](../../themes/inference-economics.md) · Русский · [AI Interview Atlas](../../../README.ru.md) › [Темы](../README.md#themes)
 
-Обслуживание моделей в масштабе: prefill и decode, батчинг, кэширование, квантизация, метрики задержки и рычаги стоимости.
+Обслуживание моделей в масштабе: prefill и decode, батчинг, кеширование, квантизация, метрики задержки и рычаги стоимости.
 
 На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (14)](#track-engineering)
 
@@ -18,12 +18,21 @@
     - Задать остановку и резервный сценарий; показать все расходы на успешную задачу и нарушения срока.
   - Читать: [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 - <a id="inf-latency-metrics"></a>**Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса.**
-  - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-latency-metrics&title=%5BCorrection%5D%20inf-latency-metrics)
+  - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#inf-latency-metrics) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-latency-metrics&title=%5BCorrection%5D%20inf-latency-metrics)
   - Что проверяет: Умение отличать задержку для пользователя от совокупной пропускной способности.
+  - Сильный ответ покрывает:
+    - Определить TTFT как очередь плюс prefill, TPOT и inter-token latency как темп декодирования, throughput как ёмкость.
+    - Объяснить, как больший батч обменивает скорость декодирования для пользователя на throughput и как prefill прерывает декодирование.
+    - Сравнивать при одинаковой нагрузке и распределении длин: p50 и p99 по каждой задержке, throughput в пределах целей.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - <a id="inf-runtime-choice"></a>**Как сравнить vLLM, SGLang, TensorRT-LLM и собственный runtime на конкретной нагрузке?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-runtime-choice&title=%5BCorrection%5D%20inf-runtime-choice)
   - Что проверяет: Умение выбирать по воспроизводимой нагрузке, а не общему рейтингу.
-  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
+  - Сильный ответ покрывает:
+    - Воспроизвести снятую нагрузку: реальные распределения длин промптов и ответов, характер поступления запросов, общие префиксы и параллельность.
+    - Зафиксировать модель, точность, параллелизм и оборудование, честно настроить каждый движок и учесть стоимость сопровождения собственного runtime.
+    - Сравнивать goodput — запросы в секунду в пределах SLO по TTFT и задержке между токенами — и совпадение выходов с базовой реализацией.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving](https://arxiv.org/abs/2401.09670) (Zhong et al., arXiv)
 - <a id="inf-cost-reduction"></a>**Вам поручили снизить стоимость инференса на порядок. Расставьте меры по приоритету и объясните, как проверить достижимость цели.**
   - Прикладной сценарий · Где спрашивали: [Amazon](../companies/amazon.md) †, [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/engineering.md#inf-cost-reduction) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-cost-reduction&title=%5BCorrection%5D%20inf-cost-reduction)
   - Что проверяет: Умение оценить экономию при явных ограничениях качества и задержки.
@@ -36,7 +45,7 @@
 ## <a id="track-engineering"></a>AI-инженерия
 
 - <a id="inf-reasoning-incomplete"></a>**Запрос к reasoning API расходует токены, но не возвращает пригодный ответ. Как найти причину и организовать восстановление с ограниченным бюджетом?**
-  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-incomplete&title=%5BCorrection%5D%20inf-reasoning-incomplete)
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#inf-reasoning-incomplete) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-incomplete&title=%5BCorrection%5D%20inf-reasoning-incomplete)
   - Что проверяет: Умение различать учёт токенов, статус завершения и бюджет повторов.
   - Сильный ответ покрывает:
     - Проверить статус, расход токенов, размер контекста и смысл выходного лимита у провайдера.
@@ -48,7 +57,7 @@
   - Что проверяет: Умение определять узкое место с учётом нагрузки и батча.
   - Сильный ответ покрывает:
     - Prefill обрабатывает позиции промпта параллельно, decode идёт авторегрессионно.
-    - При малом батче decode часто читает веса с низким повторным использованием вычислений.
+    - При малом батче decode часто читает веса и почти не переиспользует их в арифметике.
     - Профилировать длины и батчинг до вывода о вычислительном или memory-bound ограничении.
   - Читать: [Optimizing inference](https://huggingface.co/docs/transformers/main/en/llm_optims) (Hugging Face Transformers docs)
 - <a id="inf-continuous-batching"></a>**Объясните батчинг на уровне итераций: как запросы добавляются в выполняющийся батч и покидают его?**
@@ -86,9 +95,19 @@
 - <a id="inf-precision"></a>**Сравните форматы с плавающей точкой и целочисленные форматы вплоть до четырёх бит: как проверить допустимость снижения точности?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-precision&title=%5BCorrection%5D%20inf-precision)
   - Что проверяет: Умение сопоставить экономию памяти с качеством, ядрами и поддержкой оборудования.
+  - Сильный ответ покрывает:
+    - Сравнить неравномерную сетку FP8 и FP4 с равномерной сеткой INT8 и INT4 и масштабы по группам, без которых не обойтись при малой разрядности.
+    - Отделить квантование только весов до 4 бит, ускоряющее memory-bound декодирование, от квантования активаций, которому нужны нативные ядра FP8 или INT8 на целевом GPU.
+    - Сравнить с bf16 по задачным оценкам и KL на токен, отдельно на длинном контексте, коде и математике, затем измерить реальную пропускную способность.
+  - Читать: [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314) (Dettmers et al., arXiv) · [Optimizing inference](https://huggingface.co/docs/transformers/main/en/llm_optims) (Hugging Face Transformers docs) · [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://arxiv.org/abs/2210.17323) (Frantar et al., arXiv) · [SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models](https://arxiv.org/abs/2211.10438) (Xiao et al., arXiv) · [FP8 Formats for Deep Learning](https://arxiv.org/abs/2209.05433) (Micikevicius et al., arXiv)
 - <a id="inf-parallelism"></a>**Сравните tensor, pipeline, data, sequence и expert parallelism при развёртывании большой модели.**
   - Знания · Где спрашивали: [Amazon](../companies/amazon.md) †, [Google и Google DeepMind](../companies/google.md) †, [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-parallelism&title=%5BCorrection%5D%20inf-parallelism)
   - Что проверяет: Умение выбирать по обмену данными и ограничениям памяти.
+  - Сильный ответ покрывает:
+    - Назвать, что делит каждая схема и какой обмен добавляет: all-reduce в каждом слое у TP, активации между стадиями у PP, обмен KV у SP, all-to-all у EP.
+    - Сначала уместить веса и KV: TP внутри NVLink-домена, PP между узлами, затем реплики data parallel без обмена ради пропускной способности.
+    - Измерить запас памяти на GPU, долю обмена во времени шага, простои конвейера и перекос нагрузки экспертов при целевой задержке.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv) · [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv) · [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) (Shoeybi et al., arXiv)
 - <a id="inf-memory-budget"></a>**Оцените память для обслуживания модели с 70 млрд параметров, явно задав точность, контекст и конкурентность.**
   - Прикладной сценарий · ✍ [Ответ](../answers/engineering.md#inf-memory-budget) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-memory-budget&title=%5BCorrection%5D%20inf-memory-budget)
   - Что проверяет: Умение учесть веса, кеш и запас памяти во время выполнения.
@@ -100,6 +119,11 @@
 - <a id="inf-roofline"></a>**Постройте roofline-оценку декодирования модели 70B для одного запроса на H100; сначала проверьте, помещается ли выбранное представление.**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-roofline&title=%5BCorrection%5D%20inf-roofline)
   - Что проверяет: Умение ограничить оценку пропускной способностью памяти, её объёмом и достижимой утилизацией.
+  - Сильный ответ покрывает:
+    - Сначала проверить, помещается ли модель: 70B в bf16 — около 140 ГБ, больше одной H100 на 80 ГБ; в FP8 почти не остаётся места под KV.
+    - Сопоставить байты, читаемые на токен (все веса плюс KV), с примерно 2 FLOP на параметр: декодирование одного запроса упирается в пропускную способность памяти.
+    - Ограничить число токенов в секунду достижимой, а не пиковой пропускной способностью HBM и сверить оценку с профилем реального запуска.
+  - Читать: [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv)
 - <a id="inf-tail-regression"></a>**После релиза p99 задержки удвоился, хотя веса модели не менялись. Как локализовать причину?**
   - Прикладной сценарий · Где спрашивали: [Amazon](../companies/amazon.md) †, [Databricks](../companies/databricks.md) †, [OpenAI](../companies/openai.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#inf-tail-regression) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-tail-regression&title=%5BCorrection%5D%20inf-tail-regression)
   - Что проверяет: Умение разделить ожидание, планирование, зависимости и изменения трафика.
@@ -111,11 +135,26 @@
 - <a id="inf-chunked-prefill"></a>**Почему разбиение prefill на части помогает смешанному трафику и какой компромисс задаёт размер части?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-chunked-prefill&title=%5BCorrection%5D%20inf-chunked-prefill)
   - Что проверяет: Совместный учёт пропускной способности и пауз декодирования.
+  - Сильный ответ покрывает:
+    - Объяснить паузу: длинный prefill занимает итерацию целиком, все идущие декодирования ждут, и задержка между токенами подскакивает.
+    - Смешивать в итерации части prefill с decode в пределах бюджета токенов; мелкие части сглаживают decode, но растят TTFT и накладные расходы.
+    - Перебрать бюджет токенов на итерацию на смешанном трафике и сопоставить p99 задержки между токенами с TTFT и пропускной способностью.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve](https://arxiv.org/abs/2403.02310) (Agrawal et al., arXiv)
 - <a id="inf-disaggregation"></a>**Когда стоит разделить prefill и decode между воркерами и как оценить накладные расходы передачи KV?**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-disaggregation&title=%5BCorrection%5D%20inf-disaggregation)
   - Что проверяет: Умение сопоставить независимое масштабирование со стоимостью передачи и эксплуатации.
+  - Сильный ответ покрывает:
+    - Разделять фазы, когда всплески prefill ломают SLO по задержке decode или фазам нужны разный параллелизм и оборудование.
+    - Оценить передачу как байты KV на токен, умноженные на длину промпта и делённые на пропускную способность канала, с послойным перекрытием с prefill.
+    - Сравнить goodput на GPU с совмещённой схемой и chunked prefill, учитывая хвост задержки передачи и перебалансировку числа воркеров.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving](https://arxiv.org/abs/2401.09670) (Zhong et al., arXiv)
 - <a id="inf-accelerator-takehome"></a>**В первоначальном домашнем задании Anthropic для инженеров производительности, введённом в 2024 году и впоследствии снятом с использования, оптимизируйте последовательную программу для симулятора ускорителя с помощью многоядерного, векторного и инструкционного параллелизма.**
   - Кодинг · Где спрашивали: [Anthropic](../companies/anthropic.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-accelerator-takehome&title=%5BCorrection%5D%20inf-accelerator-takehome)
   - Что проверяет: Умение методично находить параллелизм и строить инструменты, чтобы измерять и отлаживать каждый шаг.
+  - Сильный ответ покрывает:
+    - Сначала обеспечить корректность: сверять каждый выход с последовательной версией и исправить имеющиеся ошибки до оптимизации.
+    - Найти независимые итерации по зависимостям данных и разложить их по ядрам, SIMD-полосам и слотам инструкций за такт.
+    - Измерять циклы симулятора после каждого изменения и по трассе инструкций искать простои и незанятые исполнительные блоки.
+  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 
 ← [Основы LLM](llm-fundamentals.md) · [RAG и поиск](rag-retrieval.md) →

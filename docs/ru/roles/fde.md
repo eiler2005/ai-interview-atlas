@@ -101,7 +101,7 @@ AI-инженерия / AI-лидерство · Роли: Forward deployed engi
 Редакционная подборка: вопросы по теме роли, о которых не сообщали именно для неё.
 
 - **[Спроектируйте агента, создающего и обновляющего наряды в действующей ERP без дублирования или незаметного искажения операций.](../themes/agents-tools.md#agt-erp-writes)**
-  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md)
+  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/leadership.md#agt-erp-writes)
 - **[Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию.](../themes/evals-observability.md#eval-release-gate)**
   - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-release-gate)
 - **[Спроектируйте помощника по десяти миллионам корпоративных документов с индивидуальными правами и постоянно меняющимся корпусом.](../themes/ai-system-design.md#sd-enterprise-rag)**
@@ -117,7 +117,7 @@ AI-инженерия / AI-лидерство · Роли: Forward deployed engi
 - **[Компания хочет за четыре недели запустить ответы по двум миллионам внутренних файлов без вывода данных за пределы VPC. Как определить объём пилота?](../themes/applied-scenarios.md#app-vpc-pilot)**
   - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md) · ✍ [Ответ](../answers/leadership.md#app-vpc-pilot)
 - **[Корпоративный клиент сообщает, что Claude галлюцинирует в ассистенте с поиском по базе знаний. Как вы начнёте разбор ошибок?](../themes/applied-scenarios.md#app-rag-account-triage)**
-  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md)
+  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md) · ✍ [Ответ](../answers/leadership.md#app-rag-account-triage)
 - **[Как вы объясните сложный результат AI-исследования нетехнической аудитории?](../themes/applied-scenarios.md#app-research-explanation)**
   - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md)
 - **[Грузовая железная дорога теряет существенную выручку из-за внезапных простоев локомотивов. Превратите проблему в инженерный план.](../themes/applied-scenarios.md#app-rail-downtime)**

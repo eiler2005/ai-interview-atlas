@@ -17,7 +17,7 @@
 - **[Сравните tensor, pipeline, data, sequence и expert parallelism при развёртывании большой модели.](themes/inference-economics.md#inf-parallelism)**
   - Знания · Где спрашивали: [Amazon](companies/amazon.md) †, [Google и Google DeepMind](companies/google.md) †, [Meta](companies/meta.md) †
 - **[Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса.](themes/inference-economics.md#inf-latency-metrics)**
-  - Знания · Где спрашивали: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) †
+  - Знания · Где спрашивали: [Microsoft](companies/microsoft.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Ответ](answers/engineering.md#inf-latency-metrics)
 - **[Вам поручили снизить стоимость инференса на порядок. Расставьте меры по приоритету и объясните, как проверить достижимость цели.](themes/inference-economics.md#inf-cost-reduction)**
   - Прикладной сценарий · Где спрашивали: [Amazon](companies/amazon.md) †, [Microsoft](companies/microsoft.md) † · ✍ [Ответ](answers/engineering.md#inf-cost-reduction)
 - **[После релиза p99 задержки удвоился, хотя веса модели не менялись. Как локализовать причину?](themes/inference-economics.md#inf-tail-regression)**
@@ -52,7 +52,7 @@
 - **[Спроектируйте помощника по десяти миллионам корпоративных документов с индивидуальными правами и постоянно меняющимся корпусом.](themes/ai-system-design.md#sd-enterprise-rag)**
   - System design · Где спрашивали: [Amazon](companies/amazon.md) †, [Databricks](companies/databricks.md) †, [Microsoft](companies/microsoft.md) †, [OpenAI](companies/openai.md) † · ✍ [Ответ](answers/engineering.md#sd-enterprise-rag)
 - **[Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения.](themes/ai-system-design.md#sd-text-to-sql)**
-  - System design · Где спрашивали: [Databricks](companies/databricks.md) †, [Palantir](companies/palantir.md) †
+  - System design · Где спрашивали: [Databricks](companies/databricks.md) †, [Palantir](companies/palantir.md) † · ✍ [Ответ](answers/engineering.md#sd-text-to-sql)
 - **[Спроектируйте LLM gateway с маршрутизацией, failover, кешированием, лимитами запросов и обязательными бюджетами.](themes/ai-system-design.md#sd-gateway)**
   - System design · Где спрашивали: [Palantir](companies/palantir.md) †, [Perplexity](companies/perplexity.md) † · ✍ [Ответ](answers/engineering.md#sd-gateway)
 - **[Спроектируйте потоковый чат для сотен миллионов пользователей с планированием мощности, хранением диалогов и работой при перегрузке.](themes/ai-system-design.md#sd-consumer-chat)**

@@ -119,3 +119,33 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - System design · [Multimodal and voice](../themes/multimodal-voice.md) · ✍ [Answer](../answers/engineering.md#mm-latency)
 - **55. [Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.](../themes/coding-practical.md#code-agent-loop)**
   - Coding · [Practical coding](../themes/coding-practical.md) · ✍ [Answer](../answers/engineering.md#code-agent-loop)
+- **56. [Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems.](../themes/inference-economics.md#inf-latency-metrics)**
+  - Knowledge · [Inference, serving and cost](../themes/inference-economics.md) · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#inf-latency-metrics)
+- **57. [Why can an exact attention kernel run faster without changing the quadratic attention computation?](../themes/llm-fundamentals.md#llm-flashattention)**
+  - Knowledge · [LLM fundamentals](../themes/llm-fundamentals.md) · ✍ [Answer](../answers/engineering.md#llm-flashattention)
+- **58. [Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](../themes/ai-system-design.md#sd-text-to-sql)**
+  - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#sd-text-to-sql)
+- **59. [A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?](../themes/evals-observability.md#eval-upgrade-complaint)**
+  - Applied scenario · [Evaluation and observability](../themes/evals-observability.md) · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/engineering.md#eval-upgrade-complaint)
+- **60. [How would you make an agent's production actions reversible where possible and auditable where reversal is impossible?](../themes/agents-tools.md#agt-reversibility)**
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#agt-reversibility)
+- **61. [Budget memory for full bf16 finetuning of a 7B model with Adam, then recalculate for LoRA and explain your optimiser assumptions.](../themes/post-training.md#pt-training-memory)**
+  - Applied scenario · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-training-memory)
+- **62. [Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable.](../themes/post-training.md#pt-distributed-training)**
+  - System design · [Fine-tuning and post-training](../themes/post-training.md) · Asked at: [Google and Google DeepMind](../companies/google.md) † · ✍ [Answer](../answers/engineering.md#pt-distributed-training)
+- **63. [Explain group-relative policy optimisation and the trade-offs of estimating advantages without a learned value model.](../themes/post-training.md#pt-grpo)**
+  - Knowledge · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-grpo)
+- **64. [Policy reward keeps rising while humans prefer its outputs less. How would you diagnose and limit reward hacking?](../themes/post-training.md#pt-reward-hacking)**
+  - Applied scenario · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-reward-hacking)
+- **65. [Explain how Constitutional AI uses principles, self-revision and AI-generated preferences, and identify what human judgement it still depends on.](../themes/post-training.md#pt-constitutional)**
+  - Knowledge · [Fine-tuning and post-training](../themes/post-training.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#pt-constitutional)
+- **66. [Explain hypothetical-document retrieval and how you would establish whether it improves your query distribution.](../themes/rag-retrieval.md#rag-hyde)**
+  - Knowledge · [RAG and retrieval](../themes/rag-retrieval.md) · ✍ [Answer](../answers/engineering.md#rag-hyde)
+- **67. [In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?](../themes/coding-practical.md#code-ai-assisted-ownership)**
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Canva](../companies/canva.md) ✅ · ✍ [Answer](../answers/engineering.md#code-ai-assisted-ownership)
+- **68. [A team attributes better results to a reasoning model, but it also changed prompts, tools and compute budget. Design a comparison that identifies what improved.](../themes/evals-observability.md#eval-reasoning-counterfactual)**
+  - Applied scenario · [Evaluation and observability](../themes/evals-observability.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#eval-reasoning-counterfactual)
+- **69. [Distinguish outcome rewards, process supervision and inference-time verification. What evidence would justify each for a new reasoning task?](../themes/evals-observability.md#eval-reasoning-supervision)**
+  - Knowledge · [Evaluation and observability](../themes/evals-observability.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#eval-reasoning-supervision)
+- **70. [A reasoning API request consumes tokens but returns no usable answer. How would you diagnose it and design a bounded recovery policy?](../themes/inference-economics.md#inf-reasoning-incomplete)**
+  - Applied scenario · [Inference, serving and cost](../themes/inference-economics.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#inf-reasoning-incomplete)

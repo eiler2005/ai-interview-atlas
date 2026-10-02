@@ -27,9 +27,9 @@ questions:
         - "Compare AI and non-AI solutions, integration effort and trust requirements."
         - "Define a pilot outcome, quality guardrails and a rollout decision."
       ru:
-        - "Выберите сегмент клиентов, пользователя и существенную проблему рабочего процесса."
-        - "Сравните AI- и обычные решения, сложность интеграции и требования к доверию."
-        - "Определите результат пилота, ограничения по качеству и условие расширения запуска."
+        - "Выбрать сегмент клиентов, пользователя и существенную проблему рабочего процесса."
+        - "Сравнить AI- и обычные решения, сложность интеграции и требования к доверию."
+        - "Определить результат пилота, ограничения по качеству и условие расширения запуска."
     answer:
       en: "Improving an enterprise assistant starts with a segment and one workflow, not a feature list. I would look for a recurring task where the answer already exists inside the company but is expensive to find and assemble, for example drafting a response against internal policies, and describe a specific user and the point where they get stuck. Then an honest comparison: if search, a template or rules solve it, the model is not needed. For enterprise customers demos do not decide anything, integration and trust do: sign in through corporate accounts, permissions inherited from the source, logging, and requirements on data storage and processing. I would bound the pilot with an outcome announced in advance: time on task, share of tasks finished without rework, quality guardrails, and the condition for expanding. The weakness of pilots is that enthusiasts do not predict behaviour under mandatory rollout."
       ru: "Улучшение корпоративного ассистента начинается с выбора сегмента и одного рабочего процесса, а не со списка возможностей. Я бы искал регулярную задачу, где ответ уже существует внутри компании, но его дорого найти и собрать — например, подготовка ответа по внутренним регламентам, — и описал бы конкретного пользователя и место, где он буксует. Дальше честное сравнение: если задача решается поиском, шаблоном или правилами, модель не нужна. Для корпоративных клиентов решают не демонстрации, а интеграция и доверие — вход через корпоративные учётные записи, наследование прав от источника, журналирование, требования к хранению и обработке данных. Пилот я бы ограничил заранее объявленным результатом: время на задачу, доля задач, доведённых до конца без переделки, ограничения по качеству и условие расширения. Слабое место пилотов в том, что энтузиасты не предсказывают поведение при обязательном внедрении."
@@ -62,12 +62,12 @@ questions:
         - "Estimate cost per successful workflow, including retries and human review."
         - "Test willingness to pay and consider selective routing before broad deployment."
       ru:
-        - "Найдите задачи, где улучшение делает возможным новый результат."
-        - "Оцените стоимость успешно выполненного процесса с повторами и проверкой человеком."
-        - "Проверьте готовность платить и выборочное использование модели до массового внедрения."
+        - "Найти задачи, где улучшение делает возможным новый результат."
+        - "Оценить стоимость успешно выполненного процесса с повторами и проверкой человеком."
+        - "Проверить готовность платить и выборочное использование модели до массового внедрения."
     answer:
-      en: "The question is whether gains make previously untrusted tasks acceptable: where mandatory human review was required before and spot checks are now enough. You count not the price of a token but the cost of a successfully completed workflow, including retries, review and the cost of error, because an expensive model that passes on the first attempt is often cheaper than a cheap one with three attempts and a review. You pay in latency, complexity and dependence on a single provider. I'd measure that cost on my own task set, test willingness to pay on a narrow segment, and turn on selective routing: the expensive model only for hard cases or cases where an error is costly, the cheap one as the base. The limit is that if users don't notice the difference in outcome, no quality gain pays for itself, and prices and capabilities move faster than product plans."
-      ru: "Решает не абстрактная мощность, а наличие задач, где прирост качества переводит работу из разряда недоверяемой в допустимую: там, где раньше требовалась обязательная проверка человеком, а теперь достаточно выборочной. Считать надо не цену токена, а стоимость успешно завершённого процесса с учётом повторов, проверки и цены ошибки — дорогая модель, проходящая с первой попытки, часто дешевле дешёвой с тремя попытками и ревью. Платите вы задержкой, сложностью и зависимостью от одного поставщика. Я бы измерил эту стоимость на своём наборе задач, проверил готовность платить на узком сегменте и включил выборочную маршрутизацию: дорогая модель только на сложных или дорогих по ошибке случаях, дешёвая как основа. Ограничение в том, что если пользователь не замечает разницы в результате, никакой прирост качества не окупается, а цены и возможности моделей меняются быстрее продуктовых планов."
+      en: "The question is whether gains make previously untrusted tasks acceptable: where mandatory human review was required before and spot checks are now enough. You count not the price of a token but the cost of a successfully completed workflow, including retries, review and the cost of error. Three attempts of a cheap model still cost less in tokens than one of a model ten times the price, so the expensive one wins where the cheap one can't reach the bar at any number of retries, or where human review time and the cost of a mistake dominate the bill. You pay in latency, complexity and dependence on a single provider. I'd measure that cost on my own task set, test willingness to pay on a narrow segment, and turn on selective routing: the expensive model only for hard cases or cases where an error is costly, the cheap one as the base. The limit is that if users don't notice the difference in outcome, no quality gain pays for itself, and prices and capabilities move faster than product plans."
+      ru: "Решает не абстрактная мощность, а наличие задач, где прирост качества делает допустимой работу, которую раньше нельзя было доверить модели: там, где раньше требовалась обязательная проверка человеком, а теперь достаточно выборочной. Считать надо не цену токена, а стоимость успешно завершённого процесса с учётом повторов, проверки и цены ошибки. По токенам три попытки дешёвой модели всё равно стоят меньше одной попытки модели, которая в десять раз дороже, поэтому дорогая выигрывает там, где дешёвая не дотягивает до планки ни с каким числом повторов, или там, где в счёте преобладают время проверки человеком и цена ошибки. Платите вы задержкой, сложностью и зависимостью от одного поставщика. Я бы измерил эту стоимость на своём наборе задач, проверил готовность платить на узком сегменте и включил выборочную маршрутизацию: дорогая модель только на сложных или дорогих по ошибке случаях, дешёвая как основа. Ограничение в том, что если пользователь не замечает разницы в результате, никакой прирост качества не окупается, а цены и возможности моделей меняются быстрее продуктовых планов."
     reading: ["google-rules-of-ml","paper-heart"]
   - id: "prod-ai-suitability"
     tracks: ["leadership"]
@@ -97,12 +97,12 @@ questions:
         - "Check data access, evaluability, latency and the need for predictable behaviour."
         - "Run a bounded comparison and name a reason to reject the LLM approach."
       ru:
-        - "Опишите задачу пользователя, базовое решение и цену ошибки."
-        - "Проверьте доступ к данным, возможность оценки, задержку и требования к предсказуемости."
-        - "Проведите ограниченное сравнение и назовите основание отказаться от LLM."
+        - "Описать задачу пользователя, базовое решение и цену ошибки."
+        - "Проверить доступ к данным, возможность оценки, задержку и требования к предсказуемости."
+        - "Провести ограниченное сравнение и назвать основание отказаться от LLM."
     answer:
-      en: "I start from the user's job and the baseline solution, not from the model: their goal, how it is done today, and what a mistake costs. If rules, search or a simple model close the task, that is the answer, a simple heuristic and a clear metric first, otherwise you add complexity with no gain. Then I check four things: whether we can access the data, whether the result can be evaluated at all, whether the scenario tolerates latency, and whether variability in the answer is acceptable. Where reproducibility and exact calculation are required, the model is at best an interface over a deterministic system. Then a bounded comparison on a shared task set with thresholds and cost stated in advance. I always name the reason to reject the approach up front, or the pilot succeeds whatever happens. This tells you about suitability, not about whether the feature gets used."
-      ru: "Начинаю с задачи пользователя и базового решения, а не с модели: что человек пытается сделать, как это делается сегодня и сколько стоит ошибка. Если задача закрывается правилами, поиском или простой моделью, это и есть ответ — сначала простая эвристика и понятная метрика, иначе сложность добавляется без выигрыша. Затем проверяю четыре вещи: есть ли доступ к нужным данным, можно ли вообще оценить результат, терпит ли сценарий задержку и допустима ли вариативность ответа. Там, где нужны воспроизводимость и точный расчёт, модель в лучшем случае интерфейс поверх детерминированной системы. Дальше ограниченное сравнение на общем наборе задач с заранее названными порогами и стоимостью. Обязательно формулирую заранее основание отказаться, иначе пилот окажется успешным при любом результате. Такая проверка говорит о пригодности, но не гарантирует, что функцией будут пользоваться."
+      en: "An LLM earns its place where inputs are too messy for rules and a mistake is cheap or caught before it does harm, and I establish that from the job, not the model: what the user is trying to do, how it's done today, what an error costs and who sees it. The non-obvious trade-off is coverage against variability: the model handles free text and odd documents that rules can't parse, but the same input can give different outputs, and its failures can't be listed in advance the way a rule's can. Where the value is exact repeatability, the model is at most an interface over a deterministic system. Then I check data access, whether correct can be defined and labelled, and the latency budget. The comparison is the LLM against the best simple baseline on labelled real cases, scoring the error that matters weighted by its cost, plus cost and latency per task, with a rejection rule stated up front. If correct can't be defined or labelled, the answer is no LLM yet: build the measurement first."
+      ru: "LLM оправдана там, где входные данные слишком разнородны для правил, а ошибка дешева или перехватывается до того, как навредит, и выясняю я это, отталкиваясь от задачи, а не от модели: что человек пытается сделать, как это делается сегодня, сколько стоит ошибка и кто её увидит. Неочевидный компромисс — покрытие против вариативности: модель справляется со свободным текстом и нестандартными документами, которые правила не разберут, но один и тот же вход может дать разные ответы, а её сбои нельзя заранее перечислить, как сбои правила. Где ценность в точной воспроизводимости, модель в лучшем случае интерфейс поверх детерминированной системы. Дальше проверяю доступ к данным, можно ли определить и разметить правильный результат, и бюджет задержки. Сравниваю LLM с лучшим простым базовым решением на размеченных реальных случаях, считая важную ошибку с весом её цены, плюс стоимость и задержку на задачу, а правило отказа формулирую заранее. Если правильный результат нельзя определить или разметить, вывод — пока без LLM: сначала нужно научиться измерять."
     reading: ["google-rules-of-ml","anthropic-building-effective-agents"]
   - id: "prod-student-assistant"
     tracks: ["leadership"]
@@ -131,9 +131,9 @@ questions:
         - "Design a usable flow with uncertainty, verification and misuse in mind."
         - "Measure task success and learning value alongside retention."
       ru:
-        - "Выберите сегмент студентов и одну регулярную неудовлетворённую потребность."
-        - "Спроектируйте удобный сценарий с учётом неопределённости, проверки и злоупотреблений."
-        - "Измеряйте успешность задачи и пользу для обучения наряду с удержанием."
+        - "Выбрать сегмент студентов и одну регулярную неудовлетворённую потребность."
+        - "Спроектировать удобный сценарий с учётом неопределённости, проверки и злоупотреблений."
+        - "Измерять успешность задачи и пользу для обучения наряду с удержанием."
     answer:
       en: "I would drop the universal helper and pick one segment with one recurring need, say first year students preparing for an exam in a specific subject, and make the course materials the source rather than the whole internet. The flow is built around understanding: the assistant works through the mistake, asks questions back and points to the place in the materials instead of producing the finished assignment; uncertainty is stated out loud, and copying is treated as the main abuse model and limited in the product, with academic integrity rules in mind. I would measure task success, learning value through a delayed knowledge check, and only then retention. That is exactly where the boundary runs: retention can grow from harm, because students love an assistant that does the work for them even though it makes their learning worse, and without a learning metric you will not see it."
       ru: "Я бы отказался от универсального помощника и выбрал один сегмент с одной регулярной потребностью — скажем, студенты первого курса, готовящиеся к экзамену по конкретному предмету, — а источником сделал бы материалы курса, а не интернет целиком. Сценарий строится вокруг понимания: ассистент разбирает ошибку, задаёт встречные вопросы и показывает место в материалах, а не выдаёт готовый текст задания; неуверенность проговаривается прямо, а списывание рассматривается как основная модель злоупотребления и ограничивается продуктово, с учётом правил академической честности. Измерять я бы стал успешность задачи, пользу для обучения на отложенной проверке знаний и только затем удержание. Именно здесь и проходит граница: удержание может расти от вреда, потому что ассистента, решающего задания за студента, любят, хотя учебный результат он ухудшает, и без учебной метрики это незаметно."
@@ -166,9 +166,9 @@ questions:
         - "Compare grounding, abstention and interaction changes on the same tasks."
         - "Track unsupported claims, useful task completion and segment-level regressions."
       ru:
-        - "Соберите типичные ошибки и разделите проблемы знаний, поиска и подачи ответа."
-        - "Сравните опору на источники, отказ от ответа и изменения интерфейса на одинаковых задачах."
-        - "Отслеживайте неподтверждённые утверждения, полезное выполнение задач и регрессии по сегментам."
+        - "Собрать типичные ошибки и разделить проблемы знаний, поиска и подачи ответа."
+        - "Сравнить опору на источники, отказ от ответа и изменения интерфейса на одинаковых задачах."
+        - "Отслеживать неподтверждённые утверждения, полезное выполнение задач и регрессии по сегментам."
     answer:
       en: "First I would stop treating this as one problem and split the complaints by cause: the model does not know the fact, retrieval brought back the wrong thing or nothing, or the answer is presented so that the confidence does not match the grounds. Those are three different fixes. Grounding in sources reduces invention but adds latency and moves quality onto retrieval; abstention can reduce exposure to wrong answers but irritates people when it fires without reason; interface changes like showing citations and marking unverified claims are cheap and shift trust without touching the model. So I would compare those options on the same task set rather than by feel, and watch the share of claims with no source support, useful task completion, and regressions by segment. Calibration aligns confidence with observed correctness; it does not fix factual errors. Abstention and interface choices change exposure, and warnings may be ignored."
       ru: "Сначала я бы перестал считать это одной проблемой и разобрал жалобы на причины: модель не знает факта, поиск принёс не то или ничего, либо ответ подан так, что уверенность не соответствует основанию. Это три разных исправления. Опора на источники уменьшает выдумки, но добавляет задержку и переносит качество на поиск; отказ отвечать может снизить воздействие неверных ответов, но раздражает, когда срабатывает не по делу; изменения интерфейса вроде показа цитат и пометки непроверенного стоят дёшево и меняют доверие, не трогая модель. Поэтому сравнивал бы эти варианты на одном наборе задач, а не по ощущениям, и следил бы за долей утверждений без подтверждения источником, полезным выполнением задач и регрессиями по сегментам. Калибровка согласует уверенность с наблюдаемой правильностью, но не исправляет фактические ошибки. Отказы и интерфейс меняют воздействие ошибок, а предупреждения могут игнорироваться."
@@ -200,9 +200,9 @@ questions:
         - "Compare expected value, quality risk, engineering cost and dependencies."
         - "Choose a narrow first release and measure accepted, useful assistance."
       ru:
-        - "Разделите задачи письма и найдите трудности в текущем процессе."
-        - "Сопоставьте ожидаемую пользу, риск качества, трудоёмкость и зависимости."
-        - "Выберите узкий первый релиз и измеряйте принятую пользователем полезную помощь."
+        - "Разделить задачи письма и найти трудности в текущем процессе."
+        - "Сопоставить ожидаемую пользу, риск качества, трудоёмкость и зависимости."
+        - "Выбрать узкий первый релиз и измерять принятую пользователем полезную помощь."
     answer:
       en: "Prioritisation starts by splitting writing into distinct tasks: drafting from scratch, rewriting an existing passage, shortening, fixing tone and grammar, and merging several documents. For each I'd find the point where the person gets stuck today and compare expected value, quality risk, engineering cost and dependencies such as access rights to the document. The risk here is asymmetric: a suggestion next to the text is cheap when it is wrong, while a sweeping edit of someone else's document is expensive, so tasks with a visible, reversible result on a selected fragment come first. The first release should be narrow, and I'd measure not the volume generated but the assistance a user accepted: the share of inserted text still in the document later, and the share of undos. The limit is that acceptance is not quality, people accept an edit to avoid arguing, so text quality needs a separate check."
       ru: "Приоритизация начинается с разбиения письма на разные задачи: черновик с нуля, переписывание готового куска, сокращение, правка тона и грамматики, сведение нескольких документов. Для каждой я бы нашёл место, где человек буксует сегодня, и сопоставил ожидаемую пользу, риск качества, трудоёмкость и зависимости вроде прав доступа к документу. Риск здесь несимметричен: подсказка рядом с текстом дешева в ошибке, а массовая правка чужого документа дорога, поэтому вперёд выходят задачи с видимым и обратимым результатом на выделенном фрагменте. Первый релиз стоит сделать узким и измерять не объём сгенерированного, а принятую пользователем помощь: доля вставленного и сохранившегося в документе спустя время, доля отката. Ограничение в том, что принятие не равно качеству — люди соглашаются с правкой, чтобы не спорить, поэтому нужна отдельная проверка качества текста."
@@ -235,12 +235,12 @@ questions:
         - "Separate adoption, retention, task quality, latency and cost."
         - "Use a baseline or experiment and guard against metric gaming."
       ru:
-        - "Назовите цель пользователя и наблюдаемый признак успешно выполненной задачи."
-        - "Разделите внедрение, удержание, качество задачи, задержку и стоимость."
-        - "Используйте базовую линию или эксперимент и учитывайте манипулирование метриками."
+        - "Назвать цель пользователя и наблюдаемый признак успешно выполненной задачи."
+        - "Разделить внедрение, удержание, качество задачи, задержку и стоимость."
+        - "Использовать базовую линию или эксперимент и учитывать манипулирование метриками."
     answer:
-      en: "The metric starts with the user's goal and an observable sign the task is done: what exactly should happen in the product if the feature worked. Then I would separate the layers people usually mix: adoption, meaning who tried it, retention, who came back, task quality, whether it was finished and how many edits or undos there were, plus latency and cost per task. Model metrics on the eval set stay, but as an explanation of cause, not as proof of value. You pay for this in event instrumentation and discipline about definitions. You compare against a baseline or inside an experiment: how the task was done without the feature. And think in advance about how the metric will be gamed, through pushy suggestions or counting an impression as usage. A short experiment will not see trust effects that take months to appear."
-      ru: "Метрика начинается с цели пользователя и наблюдаемого признака того, что задача выполнена: что именно должно произойти в продукте, если функция сработала. Дальше я бы развёл слои, которые часто смешивают: внедрение, то есть кто попробовал, удержание, кто вернулся, качество задачи, доведена ли она до результата и сколько было правок или откатов, а также задержка и стоимость на задачу. Модельные метрики на eval-наборе остаются, но как объяснение причины, а не как доказательство пользы. За это платят разметкой событий и дисциплиной определений. Сравнивать нужно с базовой линией или в эксперименте: как задача решалась без функции. И заранее продумать, как метрику будут накручивать — навязчивыми подсказками, засчитыванием показа за использование. Короткий эксперимент при этом не видит эффектов доверия, которые проявляются месяцами."
+      en: "Success is an observable completed task, and model metrics explain why it moves but never prove value. Take a feature that drafts replies: success is a draft that gets sent with light edits. Then I'd keep the layers apart: adoption as the share of eligible users who tried it, retention as the share still using it weeks later, task quality as the share of drafts sent and how much was edited or discarded, p95 latency, and cost per sent draft, with eval-set scores underneath as diagnosis. The real trade-off is the comparison: a holdout group is the only clean read on cause, but it withholds the benefit and needs weeks to show retention, while before and after is cheap and confounded by novelty and season. Against gaming, every volume metric gets a paired quality metric that falls when volume is inflated: count an impression as usage and adoption rises while the share sent drops. The limit: even a clean experiment misses trust effects that take months, and outputs used outside the product need sampled human rating."
+      ru: "Успех — это наблюдаемо выполненная задача, а модельные метрики объясняют, почему он меняется, но не доказывают пользу. Возьмём функцию, которая готовит черновики ответов: успех — черновик, отправленный с небольшой правкой. Дальше я бы развёл слои: внедрение — доля пользователей с доступом к функции, которые её попробовали, удержание — доля тех, кто пользуется ею спустя недели, качество задачи — доля отправленных черновиков и объём правки или удалений, задержка по p95 и стоимость на отправленный черновик, а оценки на eval-наборе лежат ниже как диагностика. Настоящий компромисс — в способе сравнения: контрольная группа без функции — единственный чистый способ установить причину, но она лишает часть людей пользы и требует недель, чтобы увидеть удержание, а сравнение до и после дёшево, но смешано с эффектом новизны и сезонностью. Против накрутки каждая метрика объёма получает парную метрику качества, которая падает при раздувании объёма: засчитайте показ за использование — внедрение вырастет, а доля отправленных упадёт. Ограничение: даже чистый эксперимент не видит эффектов доверия, которые проявляются месяцами, а результаты, которые используются вне продукта, требуют выборочной оценки людьми."
     reading: ["paper-heart"]
   - id: "prod-search-north-star"
     tracks: ["leadership"]
@@ -270,12 +270,12 @@ questions:
         - "Add quality, safety, latency and cost guardrails."
         - "Explain denominator, segmentation and how the metric could mislead."
       ru:
-        - "Определите полезно завершённую поисковую задачу и способ её наблюдать."
-        - "Добавьте ограничения по качеству, безопасности, задержке и стоимости."
-        - "Объясните знаменатель, сегментацию и ситуации, когда метрика вводит в заблуждение."
+        - "Определить полезно завершённую поисковую задачу и способ её наблюдать."
+        - "Добавить ограничения по качеству, безопасности, задержке и стоимости."
+        - "Объяснить знаменатель, сегментацию и ситуации, когда метрика вводит в заблуждение."
     answer:
-      en: "I would make the headline metric the share of sessions with a usefully completed search task, not clicks and not time on page, because both rise when the answer is bad. Completion has to be observed indirectly: the user did not rephrase, went through to a source and did not come straight back, took the next action; some cases need human labelling because the behaviour is ambiguous. Any single metric pushes you to an extreme, so you add guardrails around it: the share of claims with no source support, safety, latency and cost per query, and a regression in any of them cancels the gain. I would explain the denominator separately: do we count sessions or queries, what we do with bots and repeats, how we segment by language and task type. For navigational and entertainment queries completion is poorly defined, and there the metric misleads."
-      ru: "Главной метрикой я бы сделал долю сессий с полезно завершённой поисковой задачей, а не клики и не время на странице, потому что и то и другое растёт при плохом ответе. Наблюдать завершение приходится косвенно: пользователь не переформулировал запрос, перешёл к источнику и не вернулся сразу, выполнил следующее действие; часть случаев стоит подтверждать разметкой людьми, поскольку поведение неоднозначно. Любая единственная метрика толкает в крайность, поэтому её дополняют ограничениями: доля утверждений без подтверждения источником, безопасность, задержка и стоимость запроса — ухудшение любого из них отменяет прирост. Отдельно объясняю знаменатель: считаем сессии или запросы, что делаем с ботами и повторами, как сегментируем по языку и типу задачи. В навигационных и развлекательных запросах завершение плохо определимо, и там метрика вводит в заблуждение."
+      en: "I would make the headline metric the share of sessions with a usefully completed search task, not clicks and not time on page, because both rise when the answer is bad. Completion has to be observed indirectly: the user did not rephrase, took the next action, and if they opened a source, did not come straight back. In an answer product a click-out alone is ambiguous: it can mean checking the answer or that the answer fell short, and a satisfied user may not click at all, so these signals are calibrated against human labelling. Any single metric pushes you to an extreme, so you add guardrails around it: the share of claims with no source support, safety, latency and cost per query, and a regression in any of them cancels the gain. I would explain the denominator separately: do we count sessions or queries, what we do with bots and repeats, how we segment by language and task type. For navigational and entertainment queries completion is poorly defined, and there the metric misleads."
+      ru: "Главной метрикой я бы сделал долю сессий с полезно завершённой поисковой задачей, а не клики и не время на странице, потому что и то и другое растёт при плохом ответе. Наблюдать завершение приходится косвенно: пользователь не переформулировал запрос, выполнил следующее действие, а если открыл источник, то не вернулся сразу. В сервисе ответов сам по себе переход к источнику неоднозначен: это может быть и проверка ответа, и признак того, что ответа не хватило, а довольный пользователь может вообще никуда не переходить, поэтому такие сигналы калибруют по разметке людьми. Любая единственная метрика толкает в крайность, поэтому её дополняют ограничениями: доля утверждений без подтверждения источником, безопасность, задержка и стоимость запроса — ухудшение любого из них отменяет прирост. Отдельно объясняю знаменатель: считаем сессии или запросы, что делаем с ботами и повторами, как сегментируем по языку и типу задачи. В навигационных и развлекательных запросах завершение плохо определимо, и там метрика вводит в заблуждение."
     reading: ["paper-heart"]
   - id: "prod-notification-paradox"
     tracks: ["leadership"]
@@ -304,12 +304,12 @@ questions:
         - "Test whether notifications shift existing activity or create valuable new actions."
         - "Include opt-outs, satisfaction and longer-term effects before deciding."
       ru:
-        - "Проверьте определения, показы, когорты и устройство эксперимента."
-        - "Проверьте, перераспределяют ли уведомления активность или создают новые полезные действия."
-        - "Учтите отключения уведомлений, удовлетворённость и долгосрочный эффект."
+        - "Проверить определения, показы, когорты и устройство эксперимента."
+        - "Проверить, перераспределяют ли уведомления активность или создают новые полезные действия."
+        - "Учесть отключения уведомлений, удовлетворённость и долгосрочный эффект."
     answer:
-      en: "The most likely explanation is substitution: notifications do not create activity, they move it out of organic visits, so total time does not change. But before explaining behaviour I would check the measurement: do the definitions of engagement and time match, did impressions simply grow, are cohorts of new and existing users mixed together, and was this an experiment with a control or a before and after comparison. Then the substantive question: do notifications lead to actions that would not have happened otherwise, or to the same actions just earlier. Look at opt outs and unsubscribes, complaints, satisfaction and retention over a long horizon, because a short term rise in clicks is often paid for by losing the channel. Finally, flat time does not by itself mean there is no value: the product may have become more useful in less time, and that is a fine outcome."
-      ru: "Самое вероятное объяснение — замещение: уведомления не создают активность, а переносят её из органических заходов, поэтому суммарное время не меняется. Но прежде чем объяснять поведение, я бы проверил измерение: совпадают ли определения вовлечённости и времени, не выросли ли просто показы, не смешаны ли когорты новых и старых пользователей и был ли это эксперимент с контролем или сравнение до и после. Дальше содержательный вопрос: приводят ли уведомления к действиям, которых без них не было, или к тем же самым, просто раньше. Смотреть надо отключения и отписки, жалобы, удовлетворённость и удержание на длинном горизонте, потому что краткосрочный рост кликов часто оплачивается потерей канала. Наконец, нейтральное время само по себе не означает отсутствия пользы: продукт мог стать полезнее при меньшем времени, и это нормальный исход."
+      en: "The first hypothesis is substitution: notifications may not create activity but move it out of organic visits, so total time does not change. But before explaining behaviour I would check the measurement: do the definitions of engagement and time match, did impressions simply grow, are cohorts of new and existing users mixed together, and was this an experiment with a control or a before and after comparison. Then the substantive question: do notifications lead to actions that would not have happened otherwise, or to the same actions just earlier. Look at opt-outs and unsubscribes, complaints, satisfaction and retention over a long horizon, because a short-term rise in clicks is often paid for by losing the channel. Finally, flat time does not by itself mean there is no value: the product may have become more useful in less time, and that is a fine outcome."
+      ru: "Первая гипотеза — замещение: уведомления, возможно, не создают активность, а переносят её из органических заходов, поэтому суммарное время не меняется. Но прежде чем объяснять поведение, я бы проверил измерение: совпадают ли определения вовлечённости и времени, не выросли ли просто показы, не смешаны ли когорты новых и старых пользователей и был ли это эксперимент с контролем или сравнение до и после. Дальше содержательный вопрос: приводят ли уведомления к действиям, которых без них не было, или к тем же самым, просто раньше. Смотреть надо отключения и отписки, жалобы, удовлетворённость и удержание на длинном горизонте, потому что краткосрочный рост кликов часто оплачивается потерей канала. Наконец, неизменное время само по себе не означает отсутствия пользы: продукт мог стать полезнее при меньшем времени, и это нормальный исход."
     reading: ["paper-heart"]
   - id: "prod-favorite-agent"
     tracks: ["leadership"]
@@ -338,12 +338,12 @@ questions:
         - "Explain why the proposed improvement outranks alternatives."
         - "Specify a prototype, success measure and possible adverse effect."
       ru:
-        - "Опишите реальный сценарий и момент, в котором продукт подводит пользователя."
-        - "Объясните, почему выбранное улучшение важнее альтернатив."
-        - "Определите прототип, критерий успеха и возможный негативный эффект."
+        - "Описать реальный сценарий и момент, в котором продукт подводит пользователя."
+        - "Объяснить, почему выбранное улучшение важнее альтернатив."
+        - "Определить прототип, критерий успеха и возможный негативный эффект."
     answer:
-      en: "Answer this through an observed breakage rather than a wish list. Take a product you use regularly and describe the moment it fails you: an agent loses context between sessions and makes you explain the task again, or it confidently goes off in the wrong direction with no way to intervene while it runs. Then explain why the improvement you chose outranks the alternatives, how often the situation happens, what it costs the user, whether a workaround exists, and in doing that you show prioritisation rather than taste. Then name the cheapest way to test the hypothesis, a success criterion stated in advance, and a likely adverse effect: keeping context raises privacy risk, and allowing interruption slows the work down. The boundary is that you are reasoning as a user from outside, so do not invent another team's internal reasons, plans or metrics."
-      ru: "Отвечать на такой вопрос стоит через наблюдаемую поломку, а не через список пожеланий. Возьмите продукт, которым пользуетесь регулярно, и опишите момент, где он подводит: например, агент теряет контекст между сессиями и заставляет заново объяснять задачу, либо уверенно уходит не туда, а вмешаться по ходу нельзя. Дальше объясните, почему выбранное улучшение важнее альтернатив — частота ситуации, цена для пользователя, отсутствие обходного пути, — и тем самым покажите приоритизацию, а не вкус. Затем назовите самый дешёвый способ проверить гипотезу, заранее сформулированный критерий успеха и вероятный побочный эффект: сохранение контекста повышает риски приватности, возможность прерывания замедляет работу. Граница здесь в том, что вы рассуждаете как пользователь снаружи, поэтому не стоит выдумывать внутренние причины, планы и метрики чужой команды."
+      en: "Pick a product you use often enough to have watched it fail repeatedly in real work, and choose the failure where your own workaround costs the most. The interviewer is scoring whether your judgement rests on observed friction with a frequency and a cost rather than on a feature you'd like, so say how often it happens, what it costs in time or redone work, and what you do instead. Then show prioritisation: name two or three other improvements and rank them on frequency, cost and how many users plausibly share the problem, admitting where your own usage is unusual. Close with the cheapest test of the hypothesis, often a mock-up or a person simulating the behaviour behind the interface, with one success criterion fixed in advance and the side effect you'd watch, since most fixes cost latency, privacy or extra steps. The usual mistake is a wish list or invented internal metrics. From outside you can't measure the effect directly, so say so and name a proxy you could observe, such as retries or abandoned sessions."
+      ru: "Возьмите продукт, которым пользуетесь достаточно часто, чтобы не раз видеть, как он подводит вас в реальной работе, и выберите сбой, на обход которого у вас уходит больше всего сил. Интервьюер оценивает, опирается ли ваше суждение на наблюдаемую проблему с частотой и ценой, а не на функцию, которую вам хотелось бы, поэтому скажите, как часто это случается, сколько стоит во времени или переделанной работе и что вы делаете вместо этого. Затем покажите приоритизацию: назовите два-три других улучшения и расставьте их по частоте, цене и тому, у скольких пользователей, по всей видимости, та же проблема, честно отметив, чем ваше использование нетипично. Закончите самым дешёвым способом проверить гипотезу — часто это макет или человек, изображающий нужное поведение за интерфейсом, — с одним критерием успеха, заданным заранее, и побочным эффектом, за которым будете следить: почти любое исправление чего-то стоит: задержки, приватности или лишних шагов. Типичная ошибка — список пожеланий или выдуманные внутренние метрики. Снаружи эффект напрямую не измерить, так и скажите и назовите прокси-метрику, которую можно наблюдать, например повторные запросы или брошенные сессии."
     reading: ["paper-heart"]
   - id: "prod-memory-machine-launch"
     tracks: ["leadership"]
@@ -364,6 +364,15 @@ questions:
     evidence:
       - source: "exponent-openai-pm"
         company: "openai"
+    outline:
+      en:
+        - "Choose one beachhead user and occasion, and only the senses that occasion actually needs."
+        - "Measure repeat paid use, with guardrails on user distress and the consent of people depicted."
+        - "Test willingness to pay with a hand-run concierge pilot before building scent hardware."
+      ru:
+        - "Выбрать первый сегмент и повод и оставить только те модальности, без которых этот повод не работает."
+        - "Измерять повторное платное использование с ограничениями по дистрессу пользователей и согласию изображённых людей."
+        - "Проверить готовность платить на пилоте, проводимом вручную, до разработки устройства для запахов."
   - id: "prod-agent-use-cases"
     tracks: ["leadership"]
     roles: ["ai-pm"]
@@ -431,8 +440,8 @@ questions:
         - "Сравнить стоимость успешного результата и задержку в том виде, в каком её чувствует пользователь."
         - "Добавить ограничения, отсекающие модель: регион развёртывания, обращение с данными, изменения со временем."
     answer:
-      en: "The choice only means something once the task and a quality bar are fixed and then measured on our own examples, not on public leaderboards that rarely resemble the product. With that in place the comparison has four axes that trade against each other: quality on the task, cost, latency, and the constraints that simply disqualify a candidate — where it may be deployed, what may be sent to it, whether the provider retains data. Cost belongs per successful outcome rather than per token, because a cheaper model that needs retries or human correction is often the expensive one, and latency matters as the user feels it, including retrieval and tool calls. The decision is also not permanent: models and prices move, so keeping the evaluation runnable and the integration swappable is worth more than picking this quarter's best model."
-      ru: "Выбор обретает смысл только когда зафиксированы задача и планка качества, а затем измерены на наших собственных примерах, а не на публичных лидербордах, которые редко похожи на продукт. Дальше сравнение идёт по четырём осям, которые конфликтуют между собой: качество на задаче, стоимость, задержка и ограничения, просто отсекающие кандидата, — где его разрешено развернуть, что ему можно отправлять, сохраняет ли провайдер данные. Стоимость считается на успешный результат, а не на токен: более дешёвая модель, требующая повторов или правки человеком, часто и оказывается дорогой. Задержку важно мерить так, как её чувствует пользователь, включая поиск и вызовы инструментов. Решение к тому же не навсегда: модели и цены меняются, поэтому поддерживать оценку воспроизводимой, а интеграцию заменяемой ценнее, чем выбрать лучшую модель этого квартала."
+      en: "I'd fix the task and a pass criterion before running anything, on real product examples, because leaderboard gaps can shrink or reverse on your own distribution. For each candidate I'd measure pass rate, cost per passing output including retries and the human time spent fixing failures, and p95 latency end to end with retrieval and tool calls, since that's what the user waits for. The non-obvious trade-off is with reasoning models: they can lift the pass rate and still lose on cost and latency, because their reasoning tokens are billed as output and spent before the answer starts. That can win a batch task and disqualify an interactive one, which is why routing only the hard cases to them often beats choosing one model. Then the constraints act as filters, not weights: where the model may run, what data may be sent and whether the provider keeps it, and how often versions change or retire. If only one model clears them, there's nothing to compare, and the real work is keeping the evaluation runnable for its next version."
+      ru: "Задачу и критерий прохождения я бы зафиксировал до любых прогонов, на реальных примерах продукта, потому что разрыв на лидербордах на собственном распределении может сократиться или перевернуться. Для каждого кандидата измерил бы долю прохождения, стоимость прошедшего ответа с учётом повторов и времени людей на исправление сбоев и p95 задержки от начала до конца, с поиском и вызовами инструментов, — именно этого ждёт пользователь. Неочевидный компромисс связан с рассуждающими моделями: они могут поднять долю прохождения и всё равно проиграть по стоимости и задержке, потому что токены рассуждения оплачиваются как выходные и тратятся до начала ответа. В пакетной обработке такая модель может победить, а для интерактивного сценария оказаться неприемлемой, поэтому направлять к ней только трудные случаи часто лучше, чем выбирать одну модель на всё. Дальше ограничения работают как фильтры, а не как веса: где модель можно развернуть, какие данные ей можно отправлять и хранит ли их провайдер, как часто версии меняются и выводятся из эксплуатации. Если ограничения проходит только одна модель, сравнивать нечего, и настоящая работа — держать оценку готовой к её следующей версии."
     reading: ["openai-reasoning-models"]
   - id: "prod-new-search-feature"
     tracks: ["leadership"]
@@ -453,6 +462,16 @@ questions:
     evidence:
       - source: "exponent-perplexity-ai-pm"
         company: "perplexity"
+    outline:
+      en:
+        - "Pick one segment and a recurring research job that users still finish outside the product."
+        - "Explain why rivals cannot simply copy it, and measure completed tasks with a citation-accuracy guardrail."
+        - "Test the riskiest assumption cheaply with a fake-door test or a manual prototype for target users."
+      ru:
+        - "Выбрать один сегмент и регулярную исследовательскую задачу, которую пользователи пока доделывают вне продукта."
+        - "Объяснить, почему конкурентам не скопировать функцию просто так, и измерять завершённые задачи с ограничением по точности ссылок."
+        - "Дёшево проверить самое рискованное предположение: тест фиктивной кнопки или ручной прототип на целевых пользователях."
+    reading: ["paper-heart"]
   - id: "prod-roadmap"
     tracks: ["leadership"]
     roles: ["ai-pm"]
@@ -473,6 +492,15 @@ questions:
     evidence:
       - source: "exponent-databricks"
         company: "databricks"
+    outline:
+      en:
+        - "Tie each opportunity to its user, one outcome metric and the assumption it rests on."
+        - "Compare expected value with cost and confidence, and name what each choice delays or forgoes."
+        - "Fund cheap tests of the shakiest assumptions first, and set a date to revisit the order."
+      ru:
+        - "Привязать каждую возможность к её пользователю, одной метрике результата и предположению, на котором она держится."
+        - "Сравнить ожидаемую ценность с затратами и уверенностью и назвать, что каждый выбор откладывает или исключает."
+        - "Сначала вложиться в дешёвые проверки самых шатких предположений и назначить дату пересмотра порядка."
   - id: "prod-handyman-marketplace"
     tracks: ["leadership"]
     type: "product_case"
@@ -492,6 +520,15 @@ questions:
     evidence:
       - source: "exponent-report-meta-ai-pm"
         company: "meta"
+    outline:
+      en:
+        - "Name both sides, the decision each makes, and what each must trust: vetting, price, payment."
+        - "Measure requests ending in a completed job and time to match, guarded by disputes and repeat bookings."
+        - "Launch in one area and one trade, recruiting tradespeople by hand before automating the match."
+      ru:
+        - "Назвать обе стороны, решение каждой и то, в чём каждой нужна уверенность: проверка мастеров, цена, оплата."
+        - "Измерять долю заявок, закрытых выполненной работой, и время до подбора с ограничениями по спорам и повторным заказам."
+        - "Запуститься в одном районе и одной специальности, набирая мастеров вручную до автоматизации подбора."
   - id: "prod-product-cannibalisation"
     tracks: ["leadership"]
     type: "product_case"
@@ -511,6 +548,15 @@ questions:
     evidence:
       - source: "exponent-report-meta-ai-pm"
         company: "meta"
+    outline:
+      en:
+        - "Ask whether the service should add new users and time or move existing time between apps."
+        - "Estimate substitution with a holdout or matched cohorts, not by comparing the two curves."
+        - "Judge it on net portfolio users and value, with the core product's health as a guardrail."
+      ru:
+        - "Выяснить, должен ли сервис приносить новых пользователей и время или перераспределять время между приложениями."
+        - "Оценить замещение через контрольную группу или сопоставимые когорты, а не сравнением двух кривых."
+        - "Оценивать по чистому приросту пользователей и ценности портфеля с ограничением по здоровью основного продукта."
   - id: "prod-volunteer-cold-start"
     tracks: ["leadership"]
     type: "product_case"
@@ -530,6 +576,15 @@ questions:
     evidence:
       - source: "exponent-report-meta-ai-pm"
         company: "meta"
+    outline:
+      en:
+        - "Pick which side is scarce, then narrow to one city and cause where matches can happen."
+        - "Measure posted needs filled by a completed shift, with no-shows and organiser churn as guardrails."
+        - "Match the first organisations and volunteers by hand to test whether matches turn into shifts."
+      ru:
+        - "Определить, какая сторона в дефиците, и сузиться до одного города и направления, где совпадения реально возможны."
+        - "Измерять долю опубликованных потребностей, закрытых состоявшейся сменой, с ограничениями по неявкам и оттоку организаций."
+        - "Первые пары организаций и волонтёров подбирать вручную, проверяя, превращаются ли совпадения в смены."
   - id: "prod-search-versus-answer"
     tracks: ["leadership"]
     type: "product_case"
@@ -561,8 +616,8 @@ questions:
         - "Оценивать ответ по проверяемости, свежести и правильной атрибуции доказательств."
         - "Назвать первое улучшение и метрику, которая покажет его результат."
     answer:
-      en: "The comparison only works per task. An answer engine wins where the user's job is synthesis: a question whose answer is spread across several sources, a comparison, an unfamiliar topic they cannot yet phrase as keywords; one pass replaces five tabs. Classic search still wins navigation, where the user knows the destination and a link is faster than a paragraph; queries needing the freshest state; and anything where the user must judge the source themselves, because an answer flattens away who said it and when. The failure mode is confident synthesis over weak evidence, which search never claimed to do. So I would improve attribution first: claim-level citations the user can verify at a glance, and visible recency, measured by how often people open a cited source and how often they reformulate instead. If the answer is right but unverifiable, enterprise and research users will not trust it."
-      ru: "Сравнивать имеет смысл только по задачам. Сервис ответов выигрывает там, где работа пользователя — синтез: ответ размазан по нескольким источникам, нужно сравнение, тема незнакома и её пока не выразить ключевыми словами; один проход заменяет пять вкладок. Обычный поиск по-прежнему выигрывает навигацию, где пользователь знает адрес и ссылка быстрее абзаца; запросы, требующие самого свежего состояния; и всё, где источник человек должен оценить сам, потому что ответ стирает, кто это сказал и когда. Характерный провал — уверенный синтез на слабых доказательствах, чего поиск никогда и не обещал. Поэтому первым я бы улучшал атрибуцию: ссылки на уровне утверждений, проверяемые одним взглядом, и видимую свежесть, с метриками — как часто открывают процитированный источник и как часто вместо этого переформулируют запрос. Если ответ верен, но непроверяем, корпоративные и исследовательские пользователи ему не поверят."
+      en: "The comparison only works per task. An answer engine wins where the user's job is synthesis: a question whose answer is spread across several sources, a comparison, an unfamiliar topic they cannot yet phrase as keywords; one pass replaces five tabs. Classic search still wins navigation, where the user knows the destination and a link is faster than a paragraph; queries needing the freshest state; and anything where the user must judge the source themselves, because an answer flattens away who said it and when. The failure mode is confident synthesis over weak evidence, which search never claimed to do. So I would improve attribution first: claim-level citations the user can verify at a glance, and visible recency, measured by the share of sampled claims their citation actually supports, and how often people still reformulate. If the answer is right but unverifiable, enterprise and research users will not trust it."
+      ru: "Сравнивать имеет смысл только по задачам. Сервис ответов выигрывает там, где работа пользователя — синтез: ответ размазан по нескольким источникам, нужно сравнение, тема незнакома и её пока не выразить ключевыми словами; один проход заменяет пять вкладок. Обычный поиск по-прежнему сильнее в навигации, где пользователь знает адрес и ссылка быстрее абзаца, в запросах, требующих самого свежего состояния, и везде, где источник человек должен оценить сам, потому что ответ стирает, кто это сказал и когда. Характерный провал — уверенный синтез на слабых доказательствах, чего поиск никогда и не обещал. Поэтому первым я бы улучшал атрибуцию: ссылки на уровне утверждений, проверяемые одним взглядом, и видимую свежесть, с метриками — доля утверждений в выборке, которые процитированный источник действительно подтверждает, и как часто пользователи всё равно переформулируют запрос. Если ответ верен, но непроверяем, корпоративные и исследовательские пользователи ему не поверят."
     reading: ["paper-rag"]
   - id: "prod-impactful-product"
     tracks: ["leadership"]
@@ -583,6 +638,15 @@ questions:
     evidence:
       - source: "monzo-pm-interview"
         company: "monzo"
+    outline:
+      en:
+        - "Pick the product where your own decisions changed the outcome, not the biggest team effort."
+        - "State the business case you made, the bet's riskiest assumption and the experiment that tested it."
+        - "Close with measured impact against a baseline, your share of it, and what you would change."
+      ru:
+        - "Выбрать продукт, где результат изменили именно ваши решения, а не самый масштабный командный проект."
+        - "Изложить бизнес-обоснование, самое рискованное предположение ставки и эксперимент, который его проверил."
+        - "Закончить измеренным эффектом относительно базовой линии, вашим вкладом в него и тем, что сделали бы иначе."
   - id: "prod-enterprise-ai-pricing"
     tracks: ["leadership"]
     roles: ["ai-pm"]
@@ -611,7 +675,7 @@ questions:
         - "Считать кастомизацию под клиента повторяющимися затратами и осознанно продавать её или продуктизировать."
     answer:
       en: "Enterprise AI pricing is a margin question disguised as a value question, so I start with the cost stack per account: inference, including retries and evaluation tokens; retrieval, indexing and storage of their corpus; the human cost of onboarding, support and incidents; and engineering time spent keeping their configuration alive. Then the price metric: seats are predictable for the buyer but decouple revenue from usage, while consumption tracks cost and frightens procurement, so a common answer is a platform fee plus metered usage with a committed floor. Customisation is where margin actually disappears. A bespoke integration or a client-specific eval set is not a one-off but a recurring obligation that every model upgrade reopens, so I would price it separately or refuse it until it can be productised. I would watch gross margin per account rather than blended, because averages hide the accounts that lose money."
-      ru: "Цена корпоративного AI-продукта — вопрос маржи, замаскированный под вопрос ценности, поэтому я начинаю со структуры затрат на аккаунт: инференс, включая повторы и токены самой оценки качества; поиск, индексация и хранение их корпуса; человеческая стоимость внедрения, поддержки и разбора инцидентов; инженерное время на поддержание их конфигурации. Затем метрика цены: места предсказуемы для покупателя, но отвязывают выручку от использования, а потребление следует за затратами и пугает закупки, поэтому частый ответ — платформенный платёж плюс тарифицируемое использование с обязательным минимумом. Маржа же по-настоящему исчезает в кастомизации. Индивидуальная интеграция или набор оценок под клиента — не разовая работа, а повторяющееся обязательство, которое заново вскрывается при каждом обновлении модели, поэтому я бы продавал её отдельно или отказывался до продуктизации. Смотреть я бы стал на валовую маржу по каждому аккаунту, а не на смешанную: средние скрывают убыточных клиентов."
+      ru: "Цена корпоративного AI-продукта — вопрос маржи, замаскированный под вопрос ценности, поэтому я начинаю со структуры затрат на аккаунт: инференс, включая повторы и токены самой оценки качества; поиск, индексация и хранение их корпуса; стоимость работы людей на внедрении, поддержке и разборе инцидентов; инженерное время на поддержание их конфигурации. Затем метрика цены: оплата за места предсказуема для покупателя, но отвязывает выручку от использования, а оплата за потребление следует за затратами и пугает закупки, поэтому частый ответ — платформенный платёж плюс тарифицируемое использование с обязательным минимумом. Маржа же по-настоящему исчезает в кастомизации. Индивидуальная интеграция или набор оценок под клиента — не разовая работа, а повторяющееся обязательство, которое заново вскрывается при каждом обновлении модели, поэтому я бы продавал её отдельно или отказывался до продуктизации. Смотреть я бы стал на валовую маржу по каждому аккаунту, а не на смешанную: средние скрывают убыточных клиентов."
     reading: ["oreilly-year-of-llms"]
   - id: "prod-enterprise-discovery"
     tracks: ["leadership"]
@@ -628,6 +692,21 @@ questions:
       - source: "habr-ai-pm-enterprise-interviewer"
         role: "ai-pm"
     added: "2026-09-29"
+    start_here: ["leadership"]
+    priority: 66
+    outline:
+      en:
+        - "Split the persona into user, budget-owning sponsor and blockers such as security, legal and IT."
+        - "Recruit through existing customers, account teams and partners, interviewing several roles in the same account."
+        - "Judge the problem by current spend on workarounds and a sponsor's willingness to commit scarce resources."
+      ru:
+        - "Разделить персону на пользователя, спонсора с бюджетом и блокирующих: безопасность, юристов, ИТ."
+        - "Искать респондентов через текущих клиентов, аккаунт-менеджеров и партнёров, опрашивая несколько ролей в одной компании."
+        - "Оценивать проблему по текущим затратам на обходные пути и готовности спонсора вложить дефицитные ресурсы."
+    answer:
+      en: "In enterprise there's no single persona: there's the user who does the work, the sponsor who owns the budget and the target metric, and the people who can block the purchase — security, legal, IT, the data owner. They want different things, and an AI product often dies at the blockers rather than with users, so discovery has to cover all of them, ideally several roles inside the same account, to see how decisions actually get made. Respondents come from wherever trust already exists: current customers and their account teams, sales conversations, partners and integrators, former colleagues. Cold outreach mostly reaches people with spare time. To judge whether it's worth solving I look past stated pain to behaviour: what they already spend on workarounds — people, spreadsheets, a vendor — how often it occurs, and whether a sponsor will commit something scarce: data access, expert time or a paid pilot. Interest without commitment isn't evidence. And a few large accounts can make a problem look universal, so I'd check it repeats across segments."
+      ru: "В корпоративном сегменте нет одной персоны: есть пользователь, который делает работу, спонсор, который владеет бюджетом и целевой метрикой, и те, кто может заблокировать покупку, — безопасность, юристы, ИТ, владелец данных. Им нужно разное, и AI-продукт нередко погибает на блокирующих, а не у пользователей, поэтому дискавери должно охватить всех, лучше — несколько ролей внутри одной компании, чтобы увидеть, как на самом деле принимаются решения. Респондентов ищут там, где уже есть доверие: текущие клиенты и их аккаунт-менеджеры, переговоры отдела продаж, партнёры и интеграторы, бывшие коллеги. Холодные рассылки в основном доходят до тех, у кого есть свободное время. Чтобы понять, стоит ли проблему решать, смотрю не на заявленную боль, а на поведение: сколько уже тратят на обходные пути — люди, таблицы, подрядчик, — как часто это случается и готов ли спонсор вложить что-то дефицитное: доступ к данным, время экспертов, платный пилот. Интерес без обязательства — не свидетельство. А несколько крупных клиентов могут создать видимость всеобщей проблемы, поэтому проверил бы, повторяется ли она в разных сегментах."
+    reading: ["gitlab-research-recruiting"]
   - id: "prod-expensive-mvp"
     tracks: ["leadership"]
     roles: ["ai-pm"]
@@ -643,3 +722,18 @@ questions:
       - source: "habr-ai-pm-enterprise-interviewer"
         role: "ai-pm"
     added: "2026-09-29"
+    start_here: ["leadership"]
+    priority: 65
+    outline:
+      en:
+        - "Treat the MVP as an experiment: list its assumptions and rank them by uncertainty and cost of error."
+        - "Test the riskiest cheaply: the model offline on customer data, a concierge pilot, or a paid pilot commitment."
+        - "Agree in advance which evidence justifies the build, and name what a cheap test cannot prove."
+      ru:
+        - "Считать MVP экспериментом: выписать его допущения и ранжировать по неопределённости и цене ошибки."
+        - "Проверить самое рискованное дёшево: модель офлайн на данных клиента, ручной пилот или обязательство платного пилота."
+        - "Заранее договориться, какие данные оправдывают разработку, и назвать, чего дешёвая проверка доказать не может."
+    answer:
+      en: "An MVP that's too expensive is usually being treated as a small product rather than as an experiment, so I'd go back to what we need to learn. I'd write down the assumptions — the problem is costly enough to pay for, the model reaches the needed quality on this customer's documents, we can actually get the data, the workflow will absorb the output, the buyer can get it through security review — and rank them by uncertainty and cost of being wrong. In enterprise AI the riskiest are rarely the interface; they're data access and quality on real data. Each gets the cheapest test that could kill it: running the model offline on a sample of the customer's data, a concierge pilot where people do the part that isn't built, a design partner committing to a paid pilot. I'd agree beforehand what result justifies the build. The trade-off: these tests prove neither scale nor integration cost; when integration is the main risk, a thin end-to-end slice at one customer is the cheapest honest test."
+      ru: "Слишком дорогой MVP обычно означает, что его делают как маленький продукт, а не как эксперимент, поэтому я бы вернулся к тому, что нам нужно узнать. Выписал бы допущения: проблема стоит того, чтобы за её решение платить; модель достигает нужного качества на документах этого клиента; данные действительно можно получить; процесс примет результат; покупатель проведёт продукт через проверку безопасности, — и ранжировал бы их по неопределённости и цене ошибки. В корпоративном AI самое рискованное редко интерфейс; обычно это доступ к данным и качество на реальных данных. Для каждого допущения — самая дешёвая проверка, способная его опровергнуть: прогнать модель офлайн на выборке данных клиента, ручной пилот, где недостроенную часть делают люди, обязательство партнёра по разработке на платный пилот. Заранее договорился бы, какой результат оправдывает разработку. Цена такого подхода: эти проверки не доказывают ни масштаб, ни стоимость интеграции; когда главный риск — сама интеграция, самая дешёвая честная проверка — тонкий сквозной срез у одного клиента."
+    reading: ["google-rules-of-ml"]

@@ -26,8 +26,13 @@
     - Задать условия эскалации и передавать контекст для продолжения человеком.
   - Читать: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic) · [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - <a id="sd-moderation"></a>**Спроектируйте модерацию, сочетающую специализированные классификаторы и LLM при ограничениях задержки и нагрузки на проверяющих.**
-  - System design · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-moderation&title=%5BCorrection%5D%20sd-moderation)
+  - System design · Где спрашивали: [Meta](../companies/meta.md) † · ✍ [Ответ](../answers/leadership.md#sd-moderation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-moderation&title=%5BCorrection%5D%20sd-moderation)
   - Что проверяет: Учёт классов риска, эскалации и ошибочных решений в дизайне.
+  - Сильный ответ покрывает:
+    - Определить классы риска по вреду, с отдельным допуском на ошибочное удаление и пропуск нарушения для каждого.
+    - Построить каскад: быстрые классификаторы на всё, LLM на зону неопределённости, люди на тяжёлые спорные случаи.
+    - Задать пороги по классам по измеренным точности и полноте, отслеживая очередь проверяющих, апелляции и отмены.
+  - Читать: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) (Markov et al., arXiv) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv)
 - <a id="sd-gateway"></a>**Спроектируйте LLM gateway с маршрутизацией, failover, кешированием, лимитами запросов и обязательными бюджетами.**
   - System design · Где спрашивали: [Palantir](../companies/palantir.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#sd-gateway) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-gateway&title=%5BCorrection%5D%20sd-gateway)
   - Что проверяет: Умение сохранить контракт сервиса при различиях и отказах провайдеров.
@@ -50,18 +55,42 @@
 - <a id="sd-code-assistant"></a>**Спроектируйте coding assistant для репозитория: от индексации и сборки контекста до применения изменений и проверки результата.**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-code-assistant&title=%5BCorrection%5D%20sd-code-assistant)
   - Что проверяет: Умение связать контекст кода, безопасные изменения и проверку задачи.
+  - Сильный ответ покрывает:
+    - Решить, как находится контекст: граф символов и поиск по запросу или заранее построенный индекс эмбеддингов.
+    - Применять правки как diff к той версии файла, которую прочитали, в изолированной рабочей копии и с ревью пользователя.
+    - Замкнуть цикл сборкой, линтерами и тестами самого репозитория; оценивать на исторических задачах с известными исправлениями.
+  - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic) · [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="sd-catalogue-search"></a>**Спроектируйте семантический поиск по большому каталогу товаров с оценкой релевантности и быстро меняющимися остатками.**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-catalogue-search&title=%5BCorrection%5D%20sd-catalogue-search)
   - Что проверяет: Умение сочетать смысловую релевантность с ограничениями каталога.
+  - Сильный ответ покрывает:
+    - Сочетать лексическое совпадение для брендов, размеров и артикулов с векторным поиском для описательных запросов.
+    - Не зашивать остатки и цену в эмбеддинги: применять их как жёсткие фильтры во время запроса из актуального хранилища.
+    - Измерять релевантность на размеченных запросах по сегментам, а онлайн — долю пустых выдач и показов отсутствующих товаров.
+  - Читать: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="sd-document-intelligence"></a>**Спроектируйте извлечение структурированных полей из десяти миллионов сканов с возможностью проверки сомнительных результатов.**
   - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-document-intelligence&title=%5BCorrection%5D%20sd-document-intelligence)
   - Что проверяет: Совместный учёт качества извлечения, происхождения данных и масштабирования.
+  - Сильный ответ покрывает:
+    - Обрабатывать документы идемпотентными заданиями, сохраняя для каждого поля страницу, область, версию модели и уверенность.
+    - Отправлять на проверку поля с низкой откалиброванной уверенностью или проваленными правилами валидации, с учётом пропускной способности проверяющих.
+    - Измерять точность по каждому полю на стратифицированной контрольной выборке и возвращать исправления проверяющих в оценку.
 - <a id="sd-text-to-sql"></a>**Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения.**
-  - System design · Где спрашивали: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-text-to-sql&title=%5BCorrection%5D%20sd-text-to-sql)
+  - System design · Где спрашивали: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#sd-text-to-sql) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-text-to-sql&title=%5BCorrection%5D%20sd-text-to-sql)
   - Что проверяет: Учёт смысловой корректности и разрешений при генерации запросов.
+  - Сильный ответ покрывает:
+    - Отобрать небольшую схему-кандидат по метаданным каталога, утверждённым определениям метрик и проверенным примерам запросов.
+    - Выполнять сгенерированный SQL только на чтение под правами самого пользователя в хранилище, с лимитами стоимости, строк и времени.
+    - Сравнивать результаты с проверенными запросами на реальных вопросах и отдельно измерять полноту выбора схемы.
+  - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) (Lei et al., arXiv)
 - <a id="sd-meeting-assistant"></a>**Спроектируйте помощника для встреч: запись, различение говорящих, публикация итогов и поручений в подключённые системы.**
   - System design · Где спрашивали: [Microsoft](../companies/microsoft.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-meeting-assistant&title=%5BCorrection%5D%20sd-meeting-assistant)
   - Что проверяет: Умение согласовать обработку аудио, атрибуцию и надёжность интеграций.
+  - Сильный ответ покрывает:
+    - Разделить распознавание речи и диаризацию; сопоставлять говорящих с людьми по отдельным аудиоканалам участников, где они есть.
+    - Привязывать каждое поручение к фрагменту расшифровки, исполнителю и уверенности до любой публикации.
+    - Публиковать с ключом идемпотентности на каждый пункт, чтобы повторы не создавали дубли задач, и давать пользователю сначала подтвердить.
+  - Читать: [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="sd-consumer-chat"></a>**Спроектируйте потоковый чат для сотен миллионов пользователей с планированием мощности, хранением диалогов и работой при перегрузке.**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [Google и Google DeepMind](../companies/google.md) †, [Meta](../companies/meta.md) †, [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#sd-consumer-chat) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-consumer-chat&title=%5BCorrection%5D%20sd-consumer-chat)
   - Что проверяет: Умение вывести решения по мощности и надёжности из предположений о масштабе.
@@ -73,17 +102,42 @@
 - <a id="sd-thread-state"></a>**Как поддержать несколько вопросов в одном диалоге, сохраняя порядок реплик и согласованность общего контекста?**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-thread-state&title=%5BCorrection%5D%20sd-thread-state)
   - Что проверяет: Умение явно задать согласованность параллельных обновлений диалога.
+  - Сильный ответ покрывает:
+    - Сначала выбрать семантику: сериализовать реплики внутри диалога или ветвить его, давая каждой ветке свой снимок.
+    - Дописывать реплики с порядковым номером внутри диалога и ключом идемпотентности, отклоняя устаревшие записи.
+    - Проверить на чередующихся запросах, повторах той же реплики и отменах, что история не дублируется и не перемешивается.
+  - Читать: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="sd-billion-document-search"></a>**Спроектируйте распределённый поиск по миллиарду документов при миллионе запросов в секунду; задайте предположения о разбиении и мощности.**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-billion-document-search&title=%5BCorrection%5D%20sd-billion-document-search)
   - Что проверяет: Умение обосновать индексацию, fan-out и хвостовую задержку расчётами.
+  - Сильный ответ покрывает:
+    - Оценить объём индекса на документ и нагрузку на шард, чтобы вывести число шардов и реплик.
+    - Выбрать разбиение по документам или по термам, учитывая, что fan-out на все шарды усиливает хвостовую задержку.
+    - Сдерживать хвосты дублирующими запросами и частичными результатами; проверить p99 при отказе шарда и переиндексации.
+  - Читать: [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/) (Dean and Barroso, Google Research)
 - <a id="sd-webhooks"></a>**Спроектируйте надёжную доставку событий на webhook клиентов при тайм-аутах, повторах и недоступности получателей.**
   - System design · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-webhooks&title=%5BCorrection%5D%20sd-webhooks)
   - Что проверяет: Умение точно задать гарантии доставки и обязанности получателя.
+  - Сильный ответ покрывает:
+    - Заявить гарантию как at-least-once без порядка и обязать получателя отсеивать дубли по стабильному id события.
+    - Записывать события в надёжный outbox в той же транзакции, затем повторять с ограниченным backoff и jitter.
+    - Изолировать сбойные endpoint-ы отдельными очередями, отключать после окна повторов и поддержать повторную отправку.
+  - Читать: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe) · [Standard Webhooks specification](https://github.com/standard-webhooks/standard-webhooks/blob/main/spec/standard-webhooks.md) (Standard Webhooks)
 - <a id="sd-architecture-critique"></a>**Найдите слабые места архитектуры существующего продакшен-сервиса, затем спроектируйте поверх неё новую продуктовую функцию.**
   - System design · Где спрашивали: [LangChain](../companies/langchain.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-architecture-critique&title=%5BCorrection%5D%20sd-architecture-critique)
   - Что проверяет: Умение рассуждать о реальной несовершенной системе, а не о чистом листе.
+  - Сильный ответ покрывает:
+    - Разобрать систему в том виде, в каком она работает: путь запроса, владение данными, режимы отказа и кто её эксплуатирует.
+    - Ранжировать слабые места по риску для новой функции, а не по тому, насколько некрасиво они выглядят.
+    - Спроектировать функцию в существующих ограничениях, назвав минимально необходимые изменения и безопасный путь миграции.
+  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 - <a id="sd-ml-system-end-to-end"></a>**Спроектируйте ML-систему для продуктовой функции целиком: сформулируйте задачу и требования, разбейте её на подзадачи, спланируйте сбор данных, выберите архитектуры моделей, затем выкатите и протестируйте.**
   - System design · Где спрашивали: [Т-Банк](../companies/t-bank.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-ml-system-end-to-end&title=%5BCorrection%5D%20sd-ml-system-end-to-end)
   - Что проверяет: Умение выстроить ML-систему от постановки задачи до выкатки, не перескакивая сразу к модели.
+  - Сильный ответ покрывает:
+    - Сформулировать продуктовое решение, офлайн- и онлайн-метрики, ограничения по задержке и стоимости до выбора модели.
+    - Разбить на подзадачи, спланировать источник разметки и обыграть эвристический baseline до усложнения моделей.
+    - Спланировать выкатку через теневой режим или A/B-тест с мониторингом дрейфа и откатом.
+  - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ← [Мультимодальность и голос](multimodal-voice.md) · [Практический кодинг](coding-practical.md) →

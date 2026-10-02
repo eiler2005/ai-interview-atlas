@@ -25,8 +25,8 @@ questions:
         - "Сравнить размеры и перекрытия на характерных вопросах."
         - "Измерить пропуски поиска и качество ответов, включая таблицы и границы чанков."
     answer:
-      en: "For documentation I'd split along the document structure rather than by a fixed character count: the unit's a section or subsection, and into the chunk I carry the chain of headings, the document identifier and the position inside it. Then the fragment stays intelligible away from its page, and I can return an exact link to it. The trade-off is direct: small chunks match the query more precisely but lose context, large ones keep the meaning but blur the embedding and drag surplus text into the prompt. I don't guess size and overlap, I tune them on a set of representative questions, comparing retrieval misses against final answer quality. Separately I'd check tables, code examples, and cases where the answer sits on the boundary between two chunks. Splitting won't save you if the documentation is contradictory or stale, and it doesn't replace adding explanatory context to a fragment before indexing."
-      ru: "Для технической документации резал бы по структуре документа, а не по фиксированному числу символов: единицей берём раздел или подраздел, а в сам чанк переносим цепочку заголовков, идентификатор документа и позицию в нём. Тогда фрагмент остаётся понятным в отрыве от страницы, и по нему можно вернуть точную ссылку. Компромисс прямой: мелкие чанки точнее попадают в запрос, но теряют контекст, крупные сохраняют смысл, но размывают эмбеддинг и тянут в промпт лишнее. Поэтому размер и перекрытие не угадываю, а подбираю на наборе характерных вопросов, сравнивая пропуски поиска и качество итоговых ответов. Отдельно проверил бы таблицы, примеры кода и случаи, когда ответ лежит ровно на границе двух чанков. Разбиение не спасает, если документация противоречива или устарела, и не заменяет добавление поясняющего контекста к фрагменту перед индексацией."
+      en: "I'd split along the document's structure, because an embedding is one vector per chunk: a chunk that straddles two topics averages them and matches neither, and one cut mid-procedure loses what this flag or the step above refers to. The unit is a section; sections longer than a few hundred tokens split recursively at paragraphs with a small overlap, while code blocks and tables stay whole, a table keeping its header row. Each chunk carries its heading chain, document id and position, so it's intelligible away from its page and links back precisely. The trade-off is size: small chunks match precisely but lose context, large ones keep it but blur the vector and fill the prompt. My baseline is a fixed-size window with overlap, compared on representative questions with known source passages: recall at k for retrieval, then answer quality, with tables and answers spanning two sections checked separately. The boundary: this needs real structure, and on scanned PDFs or inconsistent headings I'd fall back to recursive size-based splitting."
+      ru: "Резал бы по структуре документа, потому что эмбеддинг — это один вектор на чанк: чанк, захвативший две темы, усредняет их и не совпадает ни с одной, а разрезанный посреди инструкции теряет, к чему относятся «этот флаг» или «шаг выше». Единица — раздел; разделы длиннее нескольких сотен токенов рекурсивно делятся по абзацам с небольшим перекрытием, а блоки кода и таблицы остаются целыми, причём таблица сохраняет строку заголовков. Каждый чанк несёт цепочку заголовков, идентификатор документа и позицию в нём, поэтому понятен в отрыве от страницы и даёт точную ссылку. Компромисс в размере: мелкие чанки точнее попадают в запрос, но теряют контекст, крупные сохраняют его, но размывают вектор и забивают промпт. Базой беру окно фиксированного размера с перекрытием и сравниваю на характерных вопросах с известными исходными фрагментами: полноту поиска в первых k результатах, затем качество ответов, отдельно проверяя таблицы и ответы на стыке двух разделов. Граница: подходу нужна настоящая структура, и на сканированных PDF или непоследовательных заголовках я бы откатился к рекурсивному разбиению по размеру."
     reading: ["anthropic-contextual-retrieval"]
   - id: "rag-hybrid"
     tracks: ["engineering"]
@@ -131,6 +131,8 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 66
     outline:
       en:
         - "Generate a hypothetical document, embed it and retrieve real corpus documents near that embedding."
@@ -140,6 +142,9 @@ questions:
         - "Сгенерировать гипотетический документ, получить его embedding и найти близкие реальные документы корпуса."
         - "Считать сгенерированный документ средством поиска, но не фактическим источником ответа."
         - "Сравнить с поиском по исходному запросу на характерной выборке: релевантность, качество ответа и добавленная задержка."
+    answer:
+      en: "HyDE bets that an answer-shaped text lands closer to real answers in embedding space than a short question does. A language model writes a plausible document answering the query, an encoder embeds it, and retrieval returns the real documents nearest that vector; the original paper used an unsupervised contrastive encoder without relevance labels, relying on the embedding to discard invented specifics. The hypothetical text is only a search key: it never enters the answer's context or citations, because its details may be fabricated. The cost is a generation call before every retrieval. Whether it helps is an empirical question for my traffic, so I'd label representative queries and compare recall and ranking against direct-query retrieval and a hybrid baseline, by query type, then check answer quality and p95 latency. It tends to help short, underspecified queries worded unlike the documents, and to hurt when the model doesn't know the domain and invents the wrong vocabulary, or when queries hinge on exact identifiers that lexical search already matches."
+      ru: "HyDE делает ставку на то, что текст в форме ответа ложится в пространстве эмбеддингов ближе к настоящим ответам, чем короткий вопрос. Языковая модель пишет правдоподобный документ с ответом на запрос, энкодер превращает его в эмбеддинг, и поиск возвращает ближайшие к этому вектору реальные документы; в исходной статье использовался энкодер, обученный контрастивно без разметки релевантности, в расчёте на то, что эмбеддинг отбросит выдуманные детали. Гипотетический текст — только ключ поиска: он никогда не попадает ни в контекст ответа, ни в ссылки, потому что его подробности могут быть выдуманы. Платим вызовом генерации перед каждым поиском. Помогает ли это, решается измерением на моём трафике: я бы разметил характерные запросы и сравнил полноту и ранжирование с поиском по исходному запросу и с гибридным baseline в разбивке по типам запросов, а затем проверил качество ответов и p95 задержки. Обычно метод помогает коротким, недоопределённым запросам, сформулированным не так, как документы, и вредит, когда модель не знает предметную область и выдумывает не ту лексику или когда запрос держится на точных идентификаторах, которые лексический поиск и так находит."
     reading: ["paper-hyde"]
   - id: "rag-agentic"
     tracks: ["engineering","leadership"]
@@ -154,6 +159,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Iterate when later queries depend on earlier findings: multi-hop questions, cross-entity comparisons or underspecified requests."
+        - "Weigh added latency, tokens and compounding errors such as query drift and loops against the measured recall gain."
+        - "Compare single-shot and iterative retrieval per question type on accuracy, evidence recall, calls per answer and cost."
+      ru:
+        - "Итерировать, когда следующие запросы зависят от найденного ранее: многошаговые вопросы, сравнение сущностей, недоопределённые формулировки."
+        - "Сопоставить добавочную задержку, токены и накопление ошибок — уход запроса в сторону, зацикливание — с измеренным ростом полноты."
+        - "Сравнить однократный и итеративный поиск по типам вопросов: точность, полнота найденных доказательств, число вызовов на ответ и стоимость."
+    reading: ["paper-react","anthropic-multi-agent-research"]
   - id: "rag-embedding-drift"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -167,6 +182,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Hold a frozen relevance set and corpus snapshot; stable scores there clear the model and point to new content or indexing."
+        - "Check indexing directly: document counts against the source, embedding model version per vector, parse failures, ANN recall against exact search."
+        - "Slice production queries by document age and topic; new-term misses that lexical search catches signal genuine drift."
+      ru:
+        - "Держать замороженный набор релевантности и снимок корпуса: стабильный результат на них оправдывает модель и указывает на новый контент или индексацию."
+        - "Проверить индексацию напрямую: число документов против источника, версию модели эмбеддингов у каждого вектора, сбои парсинга, полноту ANN против точного поиска."
+        - "Разрезать продовый трафик по возрасту и теме документов: промахи по новым терминам, которые находит лексический поиск, указывают на настоящий дрейф."
   - id: "rag-permissions"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -225,8 +249,8 @@ questions:
         - "Сравнить обход графа с грубыми кластерами и product quantisation."
         - "Измерить память, стоимость обновлений и поиск с фильтрами при целевой задержке."
     answer:
-      en: "I'd start with exact search over a sample of queries: it gives the baseline against which the word recall means anything at all. HNSW builds a multi layer graph of neighbours and descends it greedily: search is fast and accurate, insertion is cheap, but the graph lives entirely in memory and costs dearly there. IVF-PQ first divides the space into coarse clusters and looks at only the nearest few, storing vectors compressed by product quantisers: it needs several times less memory, but quantisation itself loses accuracy and the clustering has to be trained on representative data. I'd choose by measuring recall against the exact baseline at the target latency, and separately measure memory footprint, the cost of updates and deletions, and behaviour under metadata filters. A small collection needs no approximate index at all, and no index will fix bad embeddings."
-      ru: "Начинал бы я с точного поиска на выборке запросов: он даёт эталон, относительно которого слово recall вообще имеет смысл. HNSW строит многослойный граф соседей и жадно спускается по нему: поиск быстрый и точный, вставка дешёвая, но граф целиком живёт в памяти и дорого по ней обходится. IVF-PQ сначала делит пространство на грубые кластеры и смотрит лишь несколько ближайших, а векторы хранит сжатыми произведением квантователей: памяти нужно в разы меньше, зато квантование само по себе теряет точность, а кластеризацию приходится обучать на репрезентативных данных. Выбор делал бы по замеру recall относительно точного эталона при целевой задержке, отдельно измерив объём памяти, стоимость обновлений и удалений и поведение при фильтрах по метаданным. Маленькой коллекции приближённый индекс не нужен вовсе, а плохие эмбеддинги никакой индекс не исправит."
+      en: "I'd start with exact search over a sample of queries: it gives the baseline against which the word recall means anything at all. HNSW builds a multi layer graph of neighbours and descends it greedily: search is fast and accurate and inserts need no retraining, but deletes are usually only marked, and the graph lives entirely in memory and costs dearly there. IVF-PQ first divides the space into coarse clusters and looks at only the nearest few, storing vectors compressed by product quantisers: it cuts memory by an order of magnitude or more, but quantisation itself loses accuracy and the clustering has to be trained on representative data. I'd choose by measuring recall against the exact baseline at the target latency, and separately measure memory footprint, the cost of updates and deletions, and behaviour under metadata filters. A small collection needs no approximate index at all, and no index will fix bad embeddings."
+      ru: "Начинал бы я с точного поиска на выборке запросов: он даёт эталон, относительно которого слово recall вообще имеет смысл. HNSW строит многослойный граф соседей и жадно спускается по нему: поиск быстрый и точный, вставка не требует переобучения, но удаления обычно лишь помечаются, а граф целиком живёт в памяти и дорого по ней обходится. IVF-PQ сначала делит пространство на грубые кластеры и смотрит лишь несколько ближайших, а векторы хранит сжатыми с помощью product quantisation: памяти нужно меньше на порядок, а то и больше, зато квантование само по себе теряет точность, а кластеризацию приходится обучать на репрезентативных данных. Выбор делал бы по замеру recall относительно точного эталона при целевой задержке, отдельно измерив объём памяти, стоимость обновлений и удалений и поведение при фильтрах по метаданным. Маленькой коллекции приближённый индекс не нужен вовсе, а плохие эмбеддинги никакой индекс не исправит."
     reading: ["paper-hnsw", "faiss-indexes"]
   - id: "rag-document-layout"
     tracks: ["engineering"]
@@ -241,6 +265,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Recover layout before embedding: reading order across columns, table structure with headers, figure captions with page coordinates."
+        - "Index tables and figures as linked units with header context and generated descriptions, tied to the paragraphs that cite them."
+        - "Audit parsing on sampled pages against the rendered originals, then evaluate retrieval on questions answerable only from tables or figures."
+      ru:
+        - "Восстановить макет до эмбеддингов: порядок чтения по колонкам, структуру таблиц с заголовками, подписи рисунков с координатами на странице."
+        - "Индексировать таблицы и рисунки как связанные единицы с контекстом заголовков и сгенерированными описаниями, привязав их к ссылающимся абзацам."
+        - "Проверить парсинг на выборке страниц против отрисованных оригиналов, затем оценить поиск на вопросах, ответ на которые есть только в таблицах или рисунках."
+    reading: ["anthropic-contextual-retrieval"]
   - id: "rag-freshness"
     tracks: ["engineering"]
     type: "system_design"
@@ -255,6 +289,15 @@ questions:
       - source: "outcome-school-company-wise"
         company: "perplexity"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Drive updates from change events, upserting by document id and version and replacing all its chunks atomically."
+        - "Honour deletions at query time through tombstones; rebuild into a new index with dual writes, then switch an alias."
+        - "Measure lag from source change to searchable with canary documents, and reconcile document counts between source and index."
+      ru:
+        - "Обновлять по событиям изменений: upsert по идентификатору и версии документа с атомарной заменой всех его чанков."
+        - "Учитывать удаления уже при запросе через tombstone-метки; перестраивать в новый индекс с двойной записью и затем переключать алиас."
+        - "Измерять лаг от изменения в источнике до появления в поиске канареечными документами и сверять число документов в источнике и индексе."
   - id: "rag-citations"
     tracks: ["engineering"]
     type: "system_design"
@@ -282,7 +325,7 @@ questions:
         - "Определить поведение, когда подтверждения нет: убрать утверждение, помечать как неподтверждённое или отказаться отвечать."
     answer:
       en: "The point is that attaching a source is not evidence of support, so I design for claim-level attribution and then verify it. Generation emits each factual sentence with the identifier of the passage it used, ideally with character offsets, which keeps the binding checkable instead of a bibliography appended at the end. A separate verification step then asks whether the cited passage actually entails the claim — an entailment model or a second-pass judge, calibrated against a human-labelled sample, because a judge that rubber-stamps is worse than no check. Claims that fail get dropped, marked unsupported, or trigger abstention, and I measure the share of sentences with a verified citation, precision of citations on a labelled set, and how often the system abstains. The limit is that entailment only proves the passage says it; if retrieval surfaced a stale document, a perfectly supported claim can still be false."
-      ru: "Смысл в том, что приложенная ссылка ещё не доказывает подтверждение, поэтому я проектирую привязку на уровне утверждений и затем её проверяю. Генерация помечает каждое фактическое предложение идентификатором использованного фрагмента, желательно со смещениями в символах, — тогда связь можно проверить, а не получить список литературы в конце. Отдельный шаг проверки спрашивает, действительно ли процитированный фрагмент влечёт утверждение: модель следования или второй проход-судья, откалиброванный на размеченной людьми выборке, потому что судья, штампующий «подтверждено», хуже отсутствия проверки. Непрошедшие утверждения убираются, помечаются как неподтверждённые или приводят к отказу отвечать, а я измеряю долю предложений с проверенной ссылкой, точность ссылок на размеченном наборе и частоту отказов. Граница в том, что следование доказывает лишь то, что так написано во фрагменте: если поиск вернул устаревший документ, безупречно подтверждённое утверждение всё равно может быть ложным."
+      ru: "Смысл в том, что приложенная ссылка ещё не доказывает подтверждение, поэтому я проектирую привязку на уровне утверждений и затем её проверяю. Генерация помечает каждое фактическое предложение идентификатором использованного фрагмента, желательно со смещениями в символах, — тогда связь можно проверить, а не получить список литературы в конце. Отдельный шаг проверки спрашивает, действительно ли процитированный фрагмент влечёт утверждение: NLI-модель или судья вторым проходом, откалиброванный на размеченной людьми выборке, потому что судья, штампующий «подтверждено», хуже отсутствия проверки. Непрошедшие утверждения убираются, помечаются как неподтверждённые или приводят к отказу отвечать, а я измеряю долю предложений с проверенной ссылкой, точность ссылок на размеченном наборе и частоту отказов. Граница в том, что следование доказывает лишь то, что так написано во фрагменте: если поиск вернул устаревший документ, безупречно подтверждённое утверждение всё равно может быть ложным."
     reading: ["eugeneyan-llm-patterns"]
   - id: "rag-structured-queries"
     tracks: ["engineering"]
@@ -298,6 +341,15 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Explain why top-k retrieval fails: it returns similar passages, not a complete filtered set, so any count is a sample."
+        - "Route to the system of record: a governed query over order status and block reason, with the model only translating intent."
+        - "Pin down what counts as blocked by a supplier, show the query and data timestamp, and test against known counts."
+      ru:
+        - "Объяснить провал top-k поиска: он возвращает похожие фрагменты, а не полный отфильтрованный набор, поэтому любой подсчёт — лишь выборка."
+        - "Направить запрос в систему учёта: управляемый запрос по статусу заказа и причине блокировки, а модель лишь переводит намерение."
+        - "Уточнить, что считается блокировкой из-за поставщика, показать запрос и момент среза данных и проверить на заранее известных значениях."
   - id: "rag-clinical-context"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -311,3 +363,12 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Use the list as a bounded decoding bias toward acoustically plausible matches, never as text to insert."
+        - "Guard against confirmation bias: compare biased and unbiased hypotheses, and flag listed drugs with weak acoustic evidence for review."
+        - "Test listed, new unlisted and unmentioned drugs; tune bias strength on recall against false insertions and substitutions."
+      ru:
+        - "Использовать список как ограниченное смещение декодирования в пользу акустически правдоподобных совпадений, а не как текст для вставки."
+        - "Защититься от подтверждающего смещения: сравнивать гипотезы со смещением и без и отправлять на проверку препараты из списка со слабой акустической опорой."
+        - "Проверить случаи с препаратом из списка, новым препаратом вне списка и без упоминания; подобрать силу смещения по полноте против вставок и подмен."

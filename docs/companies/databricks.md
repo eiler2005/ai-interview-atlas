@@ -71,14 +71,23 @@ On this page: [Interview loop](#loop) · [Questions (8)](#questions)
     - Evaluate grounded answers and test revocation, stale data and partial outages.
   - Read: [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview) (Microsoft Learn) · [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - **[Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](../themes/ai-system-design.md#sd-text-to-sql)**
-  - System design · Asked at: Databricks †, [Palantir](palantir.md) †
+  - System design · Asked at: Databricks †, [Palantir](palantir.md) † · ✍ [Answer](../answers/engineering.md#sd-text-to-sql)
   - Tests: Whether semantic correctness and query permissions constrain generation.
+  - A strong answer covers:
+    - Retrieve a small candidate schema from catalog metadata, governed metric definitions and verified example queries.
+    - Run generated SQL read-only under the requesting user's own warehouse permissions, with cost, row and time limits.
+    - Compare result sets with verified queries on real questions, and measure schema-retrieval recall separately.
+  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) (Lei et al., arXiv)
 
 ### [AI product strategy and metrics](../themes/ai-product-strategy.md)
 
 - **[How do you prioritise a product roadmap when several valuable opportunities compete?](../themes/ai-product-strategy.md#prod-roadmap)**
   - Product case · Senior · Asked at: Databricks †
   - Tests: Whether prioritisation exposes assumptions and opportunity cost.
+  - A strong answer covers:
+    - Tie each opportunity to its user, one outcome metric and the assumption it rests on.
+    - Compare expected value with cost and confidence, and name what each choice delays or forgoes.
+    - Fund cheap tests of the shakiest assumptions first, and set a date to revisit the order.
 
 ### [Applied and customer scenarios](../themes/applied-scenarios.md)
 

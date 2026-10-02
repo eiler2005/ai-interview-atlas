@@ -13,37 +13,41 @@ Prompt injection, утечка данных, guardrails, приватность,
   - System design · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#sec-mail-agent-boundaries) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-mail-agent-boundaries&title=%5BCorrection%5D%20sec-mail-agent-boundaries)
   - Что проверяет: Умеете ли вы находить границы доверия и обеспечивать права доступа вне модели.
   - Сильный ответ покрывает:
-    - Разделите содержимое недоверенного письма и полномочия на чтение или отправку.
-    - Ограничьте инструменты и адресатов; требуйте явного подтверждения передачи чувствительных данных.
-    - Проверяйте косвенную инъекцию и попытки утечки; одного промпта недостаточно.
+    - Разделить содержимое недоверенного письма и полномочия на чтение или отправку.
+    - Ограничить инструменты и адресатов; требовать явного подтверждения передачи чувствительных данных.
+    - Проверять косвенную инъекцию и попытки утечки; одного промпта недостаточно.
   - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) (Simon Willison) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) (Simon Willison)
 - <a id="sec-safe-deployment"></a>**Как вы организуете безопасное внедрение AI-модели в промышленную эксплуатацию?**
   - System design · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#sec-safe-deployment) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-safe-deployment&title=%5BCorrection%5D%20sec-safe-deployment)
   - Что проверяет: Связываете ли вы оценку рисков с ответственностью за решение о выпуске.
   - Сильный ответ покрывает:
-    - Определите назначение, затронутые группы и недопустимые последствия.
-    - Назначьте ответственных за оценку, принятие остаточного риска и инциденты.
-    - Предусмотрите постепенный запуск, мониторинг и проверенный откат или остановку.
+    - Определить назначение, затронутые группы и недопустимые последствия.
+    - Назначить ответственных за оценку, принятие остаточного риска и инциденты.
+    - Предусмотреть постепенный запуск, мониторинг и проверенный откат или остановку.
   - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) (Anthropic)
 - <a id="sec-action-authorisation"></a>**Какие защитные меры нужны AI-системе, действующей от имени пользователя?**
   - System design · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#sec-action-authorisation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-action-authorisation&title=%5BCorrection%5D%20sec-action-authorisation)
   - Что проверяет: Различаете ли вы предложенное моделью действие и разрешённое выполнение.
   - Сильный ответ покрывает:
-    - Ограничьте полномочия пользователем, ресурсом и операцией.
-    - Показывайте значимые действия для подтверждения и проверяйте политику при выполнении.
-    - Фиксируйте действия, ограничивайте расходы и предусмотрите восстановление после частичного выполнения.
+    - Ограничить полномочия пользователем, ресурсом и операцией.
+    - Показывать значимые действия для подтверждения и проверять политику при выполнении.
+    - Фиксировать действия, ограничивать расходы и предусмотреть восстановление после частичного выполнения.
   - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="sec-delivery-pressure"></a>**Расскажите о ситуации, когда сроки вступили в противоречие с требованиями безопасности. Как вы приняли решение?**
   - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#sec-delivery-pressure) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-delivery-pressure&title=%5BCorrection%5D%20sec-delivery-pressure)
   - Что проверяет: Умеете ли вы явно обсуждать риски и ответственность под давлением сроков.
   - Сильный ответ покрывает:
-    - Опишите конкретную угрозу и доступные на тот момент данные.
-    - Объясните альтернативы, эскалацию и полномочия на принятие остаточного риска.
-    - Честно изложите результат и последующие изменения в контроле.
+    - Описать конкретную угрозу и доступные на тот момент данные.
+    - Объяснить альтернативы, эскалацию и полномочия на принятие остаточного риска.
+    - Честно изложить результат и последующие изменения в контроле.
   - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="sec-upload-moderation"></a>**Спроектируйте систему выявления вредного контента в загрузках Facebook и Instagram.**
   - System design · Senior · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-upload-moderation&title=%5BCorrection%5D%20sec-upload-moderation)
   - Что проверяет: Умеете ли вы объединить выявление нарушений, проверку и апелляции в нужном масштабе.
+  - Сильный ответ покрывает:
+    - Разделить вред по тяжести и для каждого уровня выбрать: блокировка при загрузке, ограничение показа или очередь на проверку.
+    - Сочетать сравнение хешей для известного контента с классификаторами для нового, отправляя неуверенные случаи модераторам.
+    - Измерять распространённость, точность по каждому правилу и долю решений, отменённых по апелляции, взвешивая ошибочные удаления и пропуски.
 - <a id="sec-guardrail-exception"></a>**Продуктовая команда просит исключение из правила безопасности AI для одного корпоративного клиента. Как оценить, согласовать и ограничить срок такого исключения?**
   - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#sec-guardrail-exception) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
   - Что проверяет: Есть ли у исключения ответственный владелец, компенсирующие меры и решение о прекращении его действия.
@@ -55,15 +59,32 @@ Prompt injection, утечка данных, guardrails, приватность,
 - <a id="sec-matter-isolation"></a>**Два партнёра одной юридической фирмы консультируют разные стороны сделки. Как изолировать их AI-рабочие пространства?**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-matter-isolation&title=%5BCorrection%5D%20sec-matter-isolation)
   - Что проверяет: Понимаете ли вы, что границы доступа могут проходить внутри одного клиента.
+  - Сильный ответ покрывает:
+    - Считать границей дело, а не тенанта: утечка между сторонами сделки нарушает конфиденциальность клиента.
+    - Применять её в момент поиска и держать память, кеши, логи и данные для дообучения отдельно по делам.
+    - Проверять утечки между делами целевыми запросами, аудировать каждый доступ и следить за избыточной блокировкой общих знаний фирмы.
+  - Читать: [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview) (Microsoft Learn) · [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn)
 - <a id="sec-chat-safety"></a>**Спроектируйте защитные меры для сервиса свободного общения с персонажами.**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-chat-safety&title=%5BCorrection%5D%20sec-chat-safety)
   - Что проверяет: Учитывают ли меры контроля длинные диалоги и эскалацию, а не только отдельные ответы.
+  - Сильный ответ покрывает:
+    - Назвать вред, который накапливается за много реплик: самоповреждение, сексуализированный контент с несовершеннолетними, эмоциональная зависимость.
+    - Оценивать траекторию всего диалога, а не отдельные ответы, и эскалировать к кризисным ресурсам или проверке человеком.
+    - Проверять на длинных сценарных диалогах, считая пропущенные эскалации и лишние прерывания безобидной ролевой игры.
 - <a id="sec-generation-intervention"></a>**Когда стоит вмешиваться во время генерации токенов, а не фильтровать готовый ответ?**
   - Знания · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-generation-intervention&title=%5BCorrection%5D%20sec-generation-intervention)
   - Что проверяет: Учитываете ли вы риск раскрытия, задержку и последствия частичного ответа.
+  - Сильный ответ покрывает:
+    - Вмешиваться во время генерации, когда вред наносит уже сам показ текста: утечка секретов, опасные инструкции.
+    - Взвесить задержку и риск раскрытия: буферизация задерживает поток, а отзыв показанного текста его не отменяет.
+    - Измерять, сколько вредного текста показано до обрыва, ложные обрывы безобидных ответов и добавленную задержку.
 - <a id="sec-robot-safety"></a>**Спроектируйте архитектуру безопасности обученной политики робота, работающего рядом с людьми.**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-robot-safety&title=%5BCorrection%5D%20sec-robot-safety)
   - Что проверяет: Предусматриваете ли вы независимые ограничения и безопасный режим отказа.
+  - Сильный ответ покрывает:
+    - Назвать опасности рядом с людьми: сила контакта, скорость, зоны защемления и неожиданное движение.
+    - Поставить под обученной политикой независимый слой безопасности, обеспечивающий пределы скорости, силы и рабочих зон.
+    - Сделать безопасную остановку режимом отказа, проверить её внесением неисправностей и считать лишние остановки ценой.
 
 ## <a id="track-leadership"></a>AI-лидерство
 
@@ -71,30 +92,60 @@ Prompt injection, утечка данных, guardrails, приватность,
   - Продуктовый кейс · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#sec-consumer-safety) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-consumer-safety&title=%5BCorrection%5D%20sec-consumer-safety)
   - Что проверяет: Учитывают ли требования безопасности реальных пользователей и возможный вред.
   - Сильный ответ покрывает:
-    - Выберите конкретный сценарий, аудиторию и модель злоупотреблений.
-    - Объедините продуктовые ограничения, оценку модели, жалобы и эскалацию человеку.
-    - Измеряйте вредные ответы и необоснованные отказы по сегментам пользователей.
+    - Выбрать конкретный сценарий, аудиторию и модель злоупотреблений.
+    - Объединить продуктовые ограничения, оценку модели, жалобы и эскалацию человеку.
+    - Измерять вредные ответы и необоснованные отказы по сегментам пользователей.
   - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
 - <a id="sec-alignment-open-problem"></a>**Какую нерешённую проблему согласования AI с человеческими намерениями вы считаете наиболее важной и почему?**
   - Знания · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-alignment-open-problem&title=%5BCorrection%5D%20sec-alignment-open-problem)
   - Что проверяет: Разделяете ли вы аргументы и предположения и понимаете ли, какие данные нужны.
+  - Сильный ответ покрывает:
+    - Выбрать одну конкретную проблему, например reward hacking или недостоверные рассуждения, и назвать её вред.
+    - Отделить то, что показывают текущие данные, от экстраполяции и назвать предположение, на котором держится аргумент.
+    - Назвать данные, которые изменили бы ваш приоритет, и измеримый исследовательский шаг к ним.
+  - Читать: [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv) · [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) (Chen et al., arXiv) · [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., arXiv)
 - <a id="sec-interpretability-tradeoff"></a>**Как вы сопоставите улучшение качества модели и снижение её интерпретируемости?**
-  - Прикладной сценарий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-interpretability-tradeoff&title=%5BCorrection%5D%20sec-interpretability-tradeoff)
+  - Прикладной сценарий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#sec-interpretability-tradeoff) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-interpretability-tradeoff&title=%5BCorrection%5D%20sec-interpretability-tradeoff)
   - Что проверяет: Связываете ли вы компромисс со сценарием применения, последствиями и доступными мерами контроля.
+  - Сильный ответ покрывает:
+    - Выяснить, зачем здесь интерпретируемость: объяснять решения затронутым людям, оспаривать их, валидировать модель или отлаживать.
+    - Сопоставить выигрыш с последствиями ошибок и с мерами контроля, не зависящими от устройства модели.
+    - Проверить выигрыш на важных срезах, с мониторингом результатов и более простой резервной моделью.
+  - Читать: [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) (Board of Governors of the Federal Reserve System) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="sec-annotation-outsourcing"></a>**Часть разметчиков сдаёт ответы чат-бота вместо самостоятельной разметки. Как это выявить и исправить?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-annotation-outsourcing&title=%5BCorrection%5D%20sec-annotation-outsourcing)
   - Что проверяет: Умеете ли вы проверить качество разметки без веры в безошибочный детектор AI-текста.
+  - Сильный ответ покрывает:
+    - Назвать вред: метки перестают отражать человеческое суждение и загрязняют данные для обучения и оценки.
+    - Опираться на контрольные вопросы, согласованность и время выполнения, а не на детектор, чьи ложные срабатывания бьют по честным разметчикам.
+    - Подтверждать случаи до санкций, переразметить затронутые данные и исправить стимулы и устройство задания, толкающие к обходу.
 - <a id="sec-stale-legal-authority"></a>**AI-меморандум ссылается на судебное решение, которое утратило силу. На каком этапе это должен выявить процесс?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-stale-legal-authority&title=%5BCorrection%5D%20sec-stale-legal-authority)
   - Что проверяет: Проверяете ли вы актуальность правового основания наряду с точностью цитирования.
+  - Сильный ответ покрывает:
+    - Разделить две проверки: меморандум точно передаёт решение, и решение по-прежнему сохраняет силу.
+    - Проверять последующую судьбу каждого решения по правовой базе с отметками об отмене при поиске и ещё раз перед подписанием.
+    - Подмешивать отменённые решения в тестовые меморандумы, измеряя долю пойманных, и следить за флагами, которые юристы начинают игнорировать.
 - <a id="sec-age-assurance"></a>**Как организовать проверку возраста, если продукт для несовершеннолетних существенно отличается?**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-age-assurance&title=%5BCorrection%5D%20sec-age-assurance)
   - Что проверяет: Учитываете ли вы приватность, обход проверки и последствия ошибок определения возраста.
+  - Сильный ответ покрывает:
+    - Назвать цену каждой ошибки: несовершеннолетний во взрослом продукте против ошибочно ограниченного взрослого.
+    - Наслаивать сигналы по уровню риска, переходя к верификации только при необходимости и храня минимум данных.
+    - Измерять ошибки по возрастным группам, попытки обхода и отток из-за трудностей проверки и предусмотреть апелляцию.
 - <a id="sec-voice-consent"></a>**Спроектируйте защиту сервиса клонирования голоса: согласие, происхождение аудио и реагирование на злоупотребления.**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-voice-consent&title=%5BCorrection%5D%20sec-voice-consent)
   - Что проверяет: Рассматриваете ли вы согласие как проверяемое требование на всём жизненном цикле.
+  - Сильный ответ покрывает:
+    - Проверять согласие самого говорящего, например по живой произнесённой фразе, до создания голоса.
+    - Привязать согласие к голосовой модели, чтобы отзыв её отключал, и маркировать или журналировать сгенерированное аудио.
+    - Быстро разбирать жалобы на подделку и запросы на удаление, измеряя пойманные злоупотребления и ошибочные блокировки.
 - <a id="sec-clinical-invention"></a>**В сгенерированной медицинской записи появился препарат, который не обсуждался на приёме. Как выявить и локализовать этот инцидент?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-clinical-invention&title=%5BCorrection%5D%20sec-clinical-invention)
   - Что проверяет: Ставите ли вы предотвращение вреда пациенту и проверку выше среднего качества текста.
+  - Сильный ответ покрывает:
+    - Отнестись к этому как к инциденту безопасности пациента: найти затронутые подписанные записи и выяснить, опиралось ли на них лечение.
+    - Локализовать проверкой, помечающей препараты, которых нет в расшифровке, и требовать подтверждения врача до подписи.
+    - Измерять неподтверждённые упоминания препаратов на аудируемых выборках и следить за усталостью от ложных предупреждений.
 
 ← [Оценка качества и наблюдаемость](evals-observability.md) · [Мультимодальность и голос](multimodal-voice.md) →

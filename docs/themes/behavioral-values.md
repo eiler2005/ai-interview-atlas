@@ -36,48 +36,114 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
 - <a id="beh-moral-conflict"></a>**Describe a time when work created a moral conflict for you. What did you do?**
   - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-moral-conflict&title=%5BCorrection%5D%20beh-moral-conflict)
   - Tests: Whether you can explain values, consequences and practical action without a rehearsed slogan.
+  - A strong answer covers:
+    - Choose a case with real stakes where reasonable people could disagree, not an obvious wrongdoing.
+    - State the value through its consequences: who would be affected and how, and which options you had.
+    - Describe the action you took, what it cost you, and the line you would hold next time.
 - <a id="beh-ai-safety-view"></a>**What do you see as the significant risks of advanced AI systems?**
   - Knowledge · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ai-safety-view&title=%5BCorrection%5D%20beh-ai-safety-view)
   - Tests: Whether you articulate a coherent, evidence-sensitive view of AI risk.
+  - A strong answer covers:
+    - Separate risk classes — misuse, unintended model behaviour, wider structural effects — and say which you rank highest.
+    - Tie each risk to current evidence, and mark clearly where you are extrapolating rather than observing.
+    - Name what evidence would change your ranking and which mitigations, such as capability evaluations, can be tested now.
+  - Read: [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) (Anthropic) · [International AI Safety Report](https://www.gov.uk/government/publications/international-ai-safety-report-2025) (UK Department for Science, Innovation and Technology)
 - <a id="beh-proud-project"></a>**Which project are you most proud of, and why?**
   - Self-presentation · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-proud-project&title=%5BCorrection%5D%20beh-proud-project)
   - Tests: Whether you explain meaningful impact and your actual contribution.
+  - A strong answer covers:
+    - Choose the project by what changed for its users or the business, not by its technology or brand.
+    - Separate what you personally decided and built from the team's work, and name the hardest call you made.
+    - Close with evidence of the impact and why this project, rather than a bigger one, matters to you.
 - <a id="beh-interpersonal-conflict"></a>**Describe a conflict with a colleague, how you handled it and what you learned.**
   - Behavioral · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-interpersonal-conflict&title=%5BCorrection%5D%20beh-interpersonal-conflict)
   - Tests: Whether you understand the other person's perspective and your own part in the conflict.
+  - A strong answer covers:
+    - Pick a conflict in which your own behaviour contributed, not one where the colleague was simply difficult.
+    - Restate the colleague's view as they would, including the pressure they were under, before your own.
+    - Close with how the working relationship stood afterwards and what you now do differently yourself.
 - <a id="beh-research-priorities"></a>**Describe a disagreement with a researcher or technical lead about priorities and what followed.**
   - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-research-priorities&title=%5BCorrection%5D%20beh-research-priorities)
   - Tests: Whether you can reason across research and engineering incentives.
+  - A strong answer covers:
+    - Pick a dispute over priorities where research and engineering goals genuinely pulled in different directions.
+    - Explain what each side was rewarded for — new findings or reliable delivery — and what each choice cost.
+    - Show how it was settled, for example by a time-boxed experiment, and what followed for both sides.
 - <a id="beh-ml-project-obstacles"></a>**Describe a project that used data and machine learning. What obstacles did you encounter?**
   - Behavioral · Senior · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ml-project-obstacles&title=%5BCorrection%5D%20beh-ml-project-obstacles)
   - Tests: Whether you connect technical obstacles to actions and delivered outcomes.
+  - A strong answer covers:
+    - Pick obstacles specific to data and models — labels, leakage, drift, evaluation gaps — not generic delays.
+    - For each obstacle, say how you diagnosed it and why you chose that fix over the alternatives.
+    - End with the delivered outcome measured against a baseline, and which obstacle you would now catch earlier.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="beh-ambiguity-result"></a>**Tell me about achieving a meaningful result despite substantial ambiguity.**
   - Behavioral · Senior · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ambiguity-result&title=%5BCorrection%5D%20beh-ambiguity-result)
   - Tests: Whether you reduce uncertainty through decisions and feedback.
+  - A strong answer covers:
+    - Choose a case where the goal or the problem itself was unclear, not just resources or time.
+    - Show which unknown you resolved first, with what small decision or probe, and how feedback changed the plan.
+    - Close with the meaningful result and the evidence that you had solved the right problem.
 - <a id="beh-wrong-technical-choice"></a>**Describe a technical decision you championed that turned out to be wrong.**
   - Behavioral · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-wrong-technical-choice&title=%5BCorrection%5D%20beh-wrong-technical-choice)
   - Tests: Whether you can reverse a position and repair its consequences.
+  - A strong answer covers:
+    - Pick a decision you persuaded others to adopt, so that reversing it cost you something publicly.
+    - Name the signal that showed it was wrong, how long you took to accept it, and why.
+    - Describe how you reversed it openly, repaired what it had broken, and changed how you champion decisions.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - <a id="beh-beyond-initial-scope"></a>**Tell me about an opportunity you saw that was larger than the original scope of your assignment.**
   - Behavioral · Senior · Asked at: [Amazon](../companies/amazon.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-beyond-initial-scope&title=%5BCorrection%5D%20beh-beyond-initial-scope)
   - Tests: Whether you recognise broader value and justify taking on additional scope.
+  - A strong answer covers:
+    - Pick an opportunity you noticed from inside the assigned work, and explain what made it visible to you.
+    - Show how you sized the extra value against the cost, and who agreed before you expanded scope.
+    - Close with whether the original assignment still landed and what the larger value turned out to be.
+  - Read: [Leadership Principles](https://amazon.jobs/content/en/our-workplace/leadership-principles) (Amazon Jobs)
 - <a id="beh-incomplete-context"></a>**Describe a time when you had to make progress without access to the full context.**
   - Behavioral · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-incomplete-context&title=%5BCorrection%5D%20beh-incomplete-context)
   - Tests: Whether you distinguish safe assumptions from decisions that require clarification.
+  - A strong answer covers:
+    - Choose a case where waiting for full context had a real cost, so moving ahead was justified.
+    - Sort your assumptions by reversibility: proceed on cheap-to-undo ones, stop and ask on irreversible ones.
+    - Show how you recorded the assumptions, which ones proved wrong, and what it cost to correct them.
+  - Read: [Leadership Principles](https://amazon.jobs/content/en/our-workplace/leadership-principles) (Amazon Jobs)
 - <a id="beh-hardest-shipped-work"></a>**What is the most technically demanding thing you have shipped, and what would you do differently now?**
   - Self-presentation · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-hardest-shipped-work&title=%5BCorrection%5D%20beh-hardest-shipped-work)
   - Tests: Whether you explain complexity and lessons beyond the prestige of the technology.
+  - A strong answer covers:
+    - Locate the difficulty in the problem's constraints — scale, latency, correctness, legacy — not in the technology's name.
+    - Walk through the hardest decision, the alternatives you rejected, and your personal part in it.
+    - Give a specific change you would make today, grounded in what production later revealed.
 - <a id="beh-ml-business-impact"></a>**Describe one model you shipped that improved a business outcome and another that did not.**
   - Behavioral · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ml-business-impact&title=%5BCorrection%5D%20beh-ml-business-impact)
   - Tests: Whether you distinguish deployment from realised value and can explain the difference.
+  - A strong answer covers:
+    - Pick a pair where both models shipped, so the contrast is about realised value, not delivery.
+    - Explain the gap in the second case: proxy metric, adoption, workflow fit or a baseline already good enough.
+    - Show how each outcome was measured against a control, and what you now check before building.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="beh-long-term-sacrifice"></a>**Tell me about a short-term sacrifice you made to achieve a longer-term benefit.**
   - Behavioral · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-long-term-sacrifice&title=%5BCorrection%5D%20beh-long-term-sacrifice)
   - Tests: Whether you can justify delayed value and assess whether it materialised.
+  - A strong answer covers:
+    - Pick a sacrifice others could see, such as a delayed feature or a missed short-term target.
+    - Explain the bet: the expected long-term benefit, how you argued for it, and who accepted the cost.
+    - Close by showing whether the benefit materialised, with evidence, and say so plainly if it only partly did.
 - <a id="beh-customer-pushback"></a>**Describe a time you pushed back on a customer's request.**
   - Behavioral · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-customer-pushback&title=%5BCorrection%5D%20beh-customer-pushback)
   - Tests: Whether you protect the customer's underlying goal while challenging a proposed solution.
+  - A strong answer covers:
+    - Choose a request where the customer's proposed solution would have hurt their own underlying goal.
+    - Show how you uncovered the goal behind the request and offered an alternative that served it better.
+    - Close with what the customer decided, how the relationship held, and evidence the goal was met.
 - <a id="beh-sensitive-mission"></a>**How do you think about work for defence or intelligence customers, and what would you do if a requested project conflicted with your values?**
   - Behavioral · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-sensitive-mission&title=%5BCorrection%5D%20beh-sensitive-mission)
   - Tests: Whether you reason about concrete boundaries and professional responsibility.
+  - A strong answer covers:
+    - State your actual position on defence and intelligence work and its reasoning, whichever way it points.
+    - Draw a concrete boundary — which uses, what oversight, whose decision — rather than a general statement of values.
+    - Lay out your steps on conflict: raise it, escalate, leave the project, and when you would quit.
 - <a id="beh-critical-feedback"></a>**Describe feedback that was difficult for you to hear and what you did with it.**
   - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#beh-critical-feedback) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
   - Tests: Whether you can respond to criticism with specific learning and action.
@@ -92,9 +158,18 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
 - <a id="beh-why-forward-deployed"></a>**Why this company, and why the forward deployed role rather than engineering on the core product?**
   - Self-presentation · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-why-forward-deployed&title=%5BCorrection%5D%20beh-why-forward-deployed)
   - Tests: Whether your motivation fits customer-facing delivery work, not only the company's name.
+  - A strong answer covers:
+    - Tie the company choice to specifics you checked, such as its customers and the problems it deploys into.
+    - Explain why customer-facing delivery suits you better than core product work, including what you give up.
+    - Back the motivation with your own track record of working directly with users and shipping into their environments.
+  - Read: [Forward Deployed Engineering](https://builders.ramp.com/post/forward-deployed-engineering) (Ramp Builders)
 - <a id="beh-mission-without-upside"></a>**Would you be comfortable staying if the company's stock went to zero?**
   - Behavioral · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-mission-without-upside&title=%5BCorrection%5D%20beh-mission-without-upside)
   - Tests: Whether your commitment rests on the mission and the work rather than the financial upside.
+  - A strong answer covers:
+    - Answer honestly, naming what actually holds you to this work: the mission, the problems, the people.
+    - Distinguish needing a fair salary from depending on equity upside, and admit that pay matters.
+    - Back it with a past choice, if you have one, where the work outweighed the money.
 
 ## <a id="track-leadership"></a>AI Leadership
 
@@ -109,14 +184,32 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
 - <a id="beh-ai-decision-ownership"></a>**Tell me about an AI decision you owned that had significant downstream consequences.**
   - Behavioral · Senior · Asked at: [Amazon](../companies/amazon.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ai-decision-ownership&title=%5BCorrection%5D%20beh-ai-decision-ownership)
   - Tests: Whether you consider impact beyond your immediate deliverable.
+  - A strong answer covers:
+    - Choose a decision whose effects reached people outside your team: users, operators, downstream systems or partners.
+    - Show which second-order effects you anticipated, which you missed, and how you weighed them at the time.
+    - Close with how you monitored the consequences after launch and what you changed in response.
+  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="beh-conflict-under-urgency"></a>**How do you manage conflict when the situation is urgent?**
   - Applied scenario · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-conflict-under-urgency&title=%5BCorrection%5D%20beh-conflict-under-urgency)
   - Tests: Whether urgency changes the decision process without eliminating respect and accountability.
+  - A strong answer covers:
+    - Make the decision owner and deadline explicit first, so urgency shortens debate rather than removing it.
+    - Hear each side briefly, prefer a reversible step, and record dissent instead of overriding it silently.
+    - Revisit after the pressure passes: review the decision, repair relationships, and fix what caused the urgency.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="beh-product-failure"></a>**What is the largest failure you have experienced as a product manager?**
   - Behavioral · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-product-failure&title=%5BCorrection%5D%20beh-product-failure)
   - Tests: Whether you can discuss product judgement, consequences and changed practice honestly.
+  - A strong answer covers:
+    - Pick a failure that is truly large and rooted in your own product judgement, not in others' execution.
+    - Reconstruct what you believed then, which signal you discounted, and what it cost users and the business.
+    - Close with the practice you changed, such as how you validate demand, and a later decision it improved.
 - <a id="beh-might-not-succeed"></a>**What might keep you from succeeding in this job?**
   - Self-presentation · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-might-not-succeed&title=%5BCorrection%5D%20beh-might-not-succeed)
   - Tests: Whether you assess your fit for an ambiguous, customer-facing role honestly.
+  - A strong answer covers:
+    - Name a real risk tied to this role's demands — ambiguity, customer pressure, context switching — not a disguised strength.
+    - Pick a risk that matters but is not disqualifying, and explain how it has shown up before.
+    - Describe how you mitigate it in practice and what early signal would tell your manager it is happening.
 
 ← [Payments and regulated domains](domain-payments-fintech.md)

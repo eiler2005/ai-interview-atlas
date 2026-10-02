@@ -2,6 +2,21 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-10-02 checklists for every question, a third batch of answers and deeper answers
+
+### Added
+- Every question now has a three-point checklist of what a strong answer covers, in English and Russian. Until now only the priority questions and ten others had one; the 174 new checklists span all 17 themes, and behavioural ones coach how to choose and close your own example rather than suggesting a story.
+- 30 written answers in English and Russian for a third batch of priority questions, raising the priority set from 55 to 70 per track. On the engineering track they cover latency metrics, FlashAttention, text-to-SQL over a large warehouse, a reported regression after a model upgrade, reversible agent actions, training memory and distributed training, GRPO, reward hacking, Constitutional AI, HyDE, accountability for AI-assisted code and three reasoning-model exercises. On the leadership track, chosen by the demand the radar shows, they cover initiative retrospectives, a delay caused by a misjudgement, a slipped upstream dependency, team scale, resolving a disagreement without discarding either side, chartering shared AI infrastructure, protected health data, refactoring, agent writes into an ERP, an MVP that is too expensive, enterprise discovery, moderation, the interpretability trade-off, shared data access and triaging a customer's hallucination complaint.
+- 45 primary sources: papers behind the new checklists and answers, such as GPTQ, SmoothQuant, ALiBi, YaRN, RMSNorm, SwiGLU, CLIP, prefix and prompt tuning, DistServe and Sarathi-Serve, plus standards and guides such as NIST SP 800-226, the Standard Webhooks specification and PostgreSQL's transaction isolation.
+
+### Changed
+- 52 existing answers were reviewed for depth and accuracy, then deepened or corrected. Among the corrections: grouped-query attention pays off at large batch and long context, because small-batch decode is bound by reading the weights; a pure causal mask never fully masks a row; a model ten times the price wins only where review and error costs dominate; and a shared prefix cache is a timing side channel rather than a direct content leak.
+- Answers may now run to 180 words, so that a deeper answer can still be said aloud in about a minute.
+- Every answer written or revised since 2026-09-28, including the second batch, passed an independent review in a separate session.
+- Russian checklists use the infinitive throughout, and «кеш» is spelled one way.
+- The English text of two questions was corrected: the date-range prompt now lists all three phrasings from its source, and the speech-quality question no longer reads as if synthesised speech were a recognition metric.
+- The roadmap, the learning path and the methodology reflect the new counts; the learning path places priorities 41–70 in its weekly plans.
+
 ## Unreleased — 2026-09-30 Russian numeral agreement in generated counts
 
 ### Changed

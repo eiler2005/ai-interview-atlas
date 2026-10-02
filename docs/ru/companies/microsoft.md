@@ -34,8 +34,13 @@
 ### [Инференс, serving и стоимость](../themes/inference-economics.md)
 
 - **[Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса.](../themes/inference-economics.md#inf-latency-metrics)**
-  - Знания · Где спрашивали: Microsoft †, [Perplexity](perplexity.md) †
+  - Знания · Где спрашивали: Microsoft †, [Perplexity](perplexity.md) † · ✍ [Ответ](../answers/engineering.md#inf-latency-metrics)
   - Что проверяет: Умение отличать задержку для пользователя от совокупной пропускной способности.
+  - Сильный ответ покрывает:
+    - Определить TTFT как очередь плюс prefill, TPOT и inter-token latency как темп декодирования, throughput как ёмкость.
+    - Объяснить, как больший батч обменивает скорость декодирования для пользователя на throughput и как prefill прерывает декодирование.
+    - Сравнивать при одинаковой нагрузке и распределении длин: p50 и p99 по каждой задержке, throughput в пределах целей.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - **[Вам поручили снизить стоимость инференса на порядок. Расставьте меры по приоритету и объясните, как проверить достижимость цели.](../themes/inference-economics.md#inf-cost-reduction)**
   - Прикладной сценарий · Где спрашивали: [Amazon](amazon.md) †, Microsoft † · ✍ [Ответ](../answers/engineering.md#inf-cost-reduction)
   - Что проверяет: Умение оценить экономию при явных ограничениях качества и задержки.
@@ -107,6 +112,11 @@
 - **[Спроектируйте помощника для встреч: запись, различение говорящих, публикация итогов и поручений в подключённые системы.](../themes/ai-system-design.md#sd-meeting-assistant)**
   - System design · Где спрашивали: Microsoft †
   - Что проверяет: Умение согласовать обработку аудио, атрибуцию и надёжность интеграций.
+  - Сильный ответ покрывает:
+    - Разделить распознавание речи и диаризацию; сопоставлять говорящих с людьми по отдельным аудиоканалам участников, где они есть.
+    - Привязывать каждое поручение к фрагменту расшифровки, исполнителю и уверенности до любой публикации.
+    - Публиковать с ключом идемпотентности на каждый пункт, чтобы повторы не создавали дубли задач, и давать пользователю сначала подтвердить.
+  - Читать: [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 
 ### [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
 
@@ -114,17 +124,17 @@
   - Продуктовый кейс · Senior · Где спрашивали: Microsoft † · ✍ [Ответ](../answers/leadership.md#prod-writing-priorities)
   - Что проверяет: Учитывает ли приоритизация пользу, надёжность и соответствие рабочему процессу.
   - Сильный ответ покрывает:
-    - Разделите задачи письма и найдите трудности в текущем процессе.
-    - Сопоставьте ожидаемую пользу, риск качества, трудоёмкость и зависимости.
-    - Выберите узкий первый релиз и измеряйте принятую пользователем полезную помощь.
+    - Разделить задачи письма и найти трудности в текущем процессе.
+    - Сопоставить ожидаемую пользу, риск качества, трудоёмкость и зависимости.
+    - Выбрать узкий первый релиз и измерять принятую пользователем полезную помощь.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - **[Как вы измерите успех AI-функции в продукте Microsoft?](../themes/ai-product-strategy.md#prod-ai-feature-metrics)**
   - Продуктовый кейс · Senior · Где спрашивали: Microsoft † · ✍ [Ответ](../answers/leadership.md#prod-ai-feature-metrics)
   - Что проверяет: Связывают ли метрики поведение модели с результатами для пользователя и бизнеса.
   - Сильный ответ покрывает:
-    - Назовите цель пользователя и наблюдаемый признак успешно выполненной задачи.
-    - Разделите внедрение, удержание, качество задачи, задержку и стоимость.
-    - Используйте базовую линию или эксперимент и учитывайте манипулирование метриками.
+    - Назвать цель пользователя и наблюдаемый признак успешно выполненной задачи.
+    - Разделить внедрение, удержание, качество задачи, задержку и стоимость.
+    - Использовать базовую линию или эксперимент и учитывать манипулирование метриками.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?](../themes/ai-product-strategy.md#prod-agent-use-cases)**
   - Продуктовый кейс · Senior · Где спрашивали: Microsoft † · ✍ [Ответ](../answers/leadership.md#prod-agent-use-cases)
@@ -148,11 +158,21 @@
 - **[Расскажите об AI-продукте, созданном с нуля, и о том, как вы довели его до выпуска.](../themes/program-delivery.md#prog-zero-to-one-ai)**
   - Самопрезентация · Senior · Где спрашивали: Microsoft †
   - Что проверяет: Умеете ли вы объяснить полный путь до выпуска, а не только создание прототипа.
+  - Сильный ответ покрывает:
+    - Выбрать продукт, дошедший до реальных пользователей, и начать с проблемы и того, почему ей подходил AI.
+    - Отдать большую часть ответа пути от прототипа к продакшену: набор для оценки, планка качества, обработка сбоев, решение о запуске.
+    - Закончить внедрением и результатом после запуска и тем, как качество отслеживали и улучшали на реальном трафике.
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 
 ### [Поведенческие вопросы и ценности](../themes/behavioral-values.md)
 
 - **[Расскажите о техническом решении, которое вы отстаивали, но которое оказалось ошибочным.](../themes/behavioral-values.md#beh-wrong-technical-choice)**
   - Поведенческий · Senior · Где спрашивали: Microsoft †
   - Что проверяет: Умеете ли вы пересмотреть позицию и исправить последствия.
+  - Сильный ответ покрывает:
+    - Выбрать решение, которое вы убедили других принять, чтобы отказ от него чего-то вам стоил публично.
+    - Назвать сигнал, показавший ошибку, сколько времени вы шли к её признанию и почему.
+    - Описать, как вы открыто отменили решение, исправили последствия и изменили то, как продвигаете решения.
+  - Читать: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 
 ← [Meta](meta.md) · [Spotify](spotify.md) →

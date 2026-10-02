@@ -44,7 +44,7 @@ We read sources without logging in, bypassing a CAPTCHA or scraping against a si
 
 ## Questions and answers
 
-Each question states what it tests. Priority questions also list what a strong answer covers and what to read. These outlines are checklists written from primary material, not scripts; interviewers reward your own reasoning and your real examples. Numbers in outlines come from the cited reading or are marked as estimates.
+Each question states what it tests and lists what a strong answer covers; priority questions, and many others, also say what to read, and priority questions have a written answer. These outlines are checklists grounded in primary material where reading is listed, not scripts; interviewers reward your own reasoning and your real examples. Numbers in outlines come from the cited reading or are marked as estimates.
 
 Coding appears only where a company source or candidate reports show that the loop includes it. Leadership candidates should read the practical coding questions anyway: many loops ask them to review or reason about such code.
 

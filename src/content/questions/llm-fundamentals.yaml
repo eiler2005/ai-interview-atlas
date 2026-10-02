@@ -26,8 +26,8 @@ questions:
         - "Объяснить деление на корень из размерности ключа и насыщение softmax."
         - "Наложить causal mask до softmax и проверить численную устойчивость."
     answer:
-      en: "For self-attention, Q, K and V have dimensions batch, heads, sequence length and head width. I multiply Q by transposed K, divide scores by the square root of key width, apply softmax over keys and multiply by V. The output matches Q's shape when value and key widths match; cross-attention may use different query and key lengths. Scaling controls growing dot-product variance, which can saturate softmax and weaken gradients. For causal attention, future positions receive minus infinity before softmax; subtracting each row's maximum improves numerical stability. I'd compare against a reference on random tensors and verify that changing future tokens cannot change earlier outputs. Scaling alone cannot prevent every low-precision overflow, and it does not replace normalisation."
-      ru: "Для self-attention Q, K и V имеют форму батч, головы, длина, размер головы; считаем скалярные произведения Q и K по последней оси, получаем матрицу оценок длина на длину, делим её на корень из размерности ключа, берём softmax по оси ключей и умножаем на V, получая взвешенную сумму значений той же формы, что и Q, если размерности значений и ключей совпадают. В cross-attention длины запросов и ключей могут различаться. Делим потому, что дисперсия скалярного произведения растёт вместе с размером головы: без масштаба softmax насыщается, распределение почти вырождается в одну позицию, и градиент через него затухает. Causal mask накладываем до softmax, подставляя минус бесконечность будущим позициям, а сам softmax считаем с вычитанием построчного максимума ради устойчивости. Проверил бы я сравнением с эталонной реализацией на случайных тензорах и тестом, что ранние выходы не меняются при подмене будущих токенов. Масштаб не спасает от переполнения в низкой точности и не заменяет нормализацию."
+      en: "Attention is softmax(QKᵀ/√d_k)V, and the shapes carry the derivation. Q and K are batch × heads × n × d_k, so QKᵀ is an n × n score matrix per head; softmax over the key axis makes each row a distribution, and multiplying by V gives n × d_v, a weighted sum of values. The scale is one line: if q and k have independent zero-mean, unit-variance components, q·k sums d_k unit-variance terms, so its variance is d_k. Unscaled, logits spread as √d_k, softmax puts almost all mass on one key, and its Jacobian, diag(p) − ppᵀ, goes to zero, so gradients to Q and K vanish; dividing by √d_k restores unit variance. For causal attention I set future scores to minus infinity before softmax and subtract each row's maximum. I'd test against a naive implementation on random tensors and check that changing future tokens leaves earlier outputs intact. The scale only fixes variance at initialisation: if query and key norms grow in training, softmax saturates anyway, which is why some models normalise queries and keys."
+      ru: "Внимание — это softmax(QKᵀ/√d_k)V, и вывод держится на размерностях. Q и K имеют форму батч × головы × n × d_k, поэтому QKᵀ — матрица оценок n × n на каждую голову; softmax по оси ключей превращает каждую строку в распределение, а умножение на V даёт n × d_v, взвешенную сумму значений. Масштаб выводится в одну строку: если компоненты q и k независимы, имеют нулевое среднее и единичную дисперсию, q·k — сумма d_k слагаемых с единичной дисперсией, значит, её дисперсия равна d_k. Без масштаба разброс логитов растёт как √d_k, softmax отдаёт почти всю массу одному ключу, его якобиан diag(p) − ppᵀ стремится к нулю, и градиенты к Q и K затухают; деление на √d_k возвращает единичную дисперсию. В causal-варианте я ставлю будущим позициям минус бесконечность до softmax и вычитаю построчный максимум. Проверял бы сравнением с наивной реализацией на случайных тензорах и тестом, что подмена будущих токенов не меняет ранние выходы. Масштаб фиксирует дисперсию только при инициализации: если нормы запросов и ключей растут в обучении, softmax всё равно насыщается, поэтому в некоторых моделях запросы и ключи дополнительно нормализуют."
     reading: ["paper-attention"]
   - id: "llm-kv-cache"
     tracks: ["engineering"]
@@ -86,8 +86,8 @@ questions:
         - "Связать число KV-голов с размером кеша и чтением памяти."
         - "Обсудить проверку качества и необходимость обучения или адаптации весов."
     answer:
-      en: "The distinction is the number of KV heads per query head: in MHA every query head has its own K and V pair, in MQA all query heads share a single pair, in GQA the heads are split into groups and the pair is shared inside a group. KV head count enters the cache formula linearly, so MQA gives the smallest cache and the least memory read per step, and small batch decode is bound by exactly that reading. We pay in quality: MQA can lose more quality; GQA can stay closer to MHA. From an existing MHA checkpoint you average the KV heads within groups and fine-tune on a small fraction of the original budget, so the move isn't free. I'd measure both cache per sequence and quality on my own eval set, alongside speed. With short prompts and large batches the gain is smaller: the bottleneck is elsewhere."
-      ru: "Различие только в том, сколько голов ключей и значений приходится на головы запросов: в MHA у каждой головы запроса своя пара K и V, в MQA все головы запросов делят одну общую пару, в GQA головы разбиты на группы и внутри группы пара общая. Число KV-голов входит в формулу кеша линейно, поэтому MQA даёт наименьший кеш и наименьшее чтение памяти на шаг, а декодирование при малом батче упирается как раз в чтение. Платим качеством: MQA может терять заметнее, GQA при разумном числе групп может оставаться ближе к MHA. Из готового MHA-чекпойнта KV-головы усредняют по группам и дообучают на небольшой доле исходного бюджета, то есть переход не бесплатный. Я бы мерил и кеш на последовательность, и качество на своём eval-наборе, а не только скорость. На коротких промптах и больших батчах выигрыш меньше: там узкое место другое."
+      en: "All three keep every query head with its own attention pattern and differ only in keys and values: MHA has a K and V pair per query head, MQA one pair for all, GQA one per group. The cache shrinks by the ratio of query heads to KV heads: with 64 query heads and 8 KV heads it's eight times smaller than MHA, with MQA sixty-four. That pays off where KV reads dominate decode, at large batch and long context; at small batch and short prompts each step is bound by reading the weights, and fewer KV heads barely move latency. The price is quality: MQA loses more, GQA with a few groups stays close to MHA, and converting an MHA checkpoint takes mean-pooling KV heads per group plus uptraining on about five percent of the original pretraining. I'd measure concurrency at fixed memory, long-context decode throughput and quality against MHA. Under tensor parallelism MQA's single head is copied to every device, so GQA with one group per shard costs the same memory there and keeps more quality."
+      ru: "Все три варианта сохраняют все головы запросов со своим паттерном внимания и различаются только ключами и значениями: в MHA пара K и V на каждую голову запроса, в MQA одна пара на всех, в GQA одна на группу. Кеш сжимается во столько раз, во сколько голов запросов больше, чем KV-голов: при 64 головах запросов и 8 KV-головах он в восемь раз меньше, чем в MHA, а в MQA — в шестьдесят четыре. Окупается это там, где decode упирается в чтение KV, то есть при большом батче и длинном контексте; при малом батче и коротких промптах шаг ограничен чтением весов, и меньшее число KV-голов задержку почти не меняет. Платим качеством: MQA теряет больше, GQA с несколькими группами остаётся близка к MHA, а перевод MHA-чекпойнта требует усреднить KV-головы внутри групп и дообучить примерно на пяти процентах исходных шагов предобучения. Я бы мерил конкурентность при фиксированной памяти, пропускную способность decode на длинном контексте и качество против MHA. При tensor parallelism единственная голова MQA копируется на каждое устройство, поэтому GQA с одной группой на шард занимает там столько же памяти и сохраняет больше качества."
     reading: ["paper-gqa"]
   - id: "llm-latent-attention"
     tracks: ["engineering"]
@@ -107,15 +107,15 @@ questions:
     outline:
       en:
         - "Cache one low-rank latent vector per token instead of full keys and values for every head."
-        - "Reconstruct per-head keys and values from that latent during attention, paying extra compute."
+        - "Reconstruct per-head keys and values from that latent, or fold the up-projections into the query and output projections, paying extra compute."
         - "Separate this architectural compression from quantising the same cache."
       ru:
         - "Кешировать один низкоранговый латентный вектор на токен вместо полных key и value для каждой головы."
-        - "Восстанавливать key и value по головам из латента во время внимания, платя дополнительными вычислениями."
+        - "Восстанавливать key и value по головам из латента или встраивать обратные проекции в проекции query и выхода, платя дополнительными вычислениями."
         - "Отделить архитектурное сжатие от квантования того же кеша."
     answer:
-      en: "Latent attention changes what you store, not how precisely you store it. Keys and values are projected down to a single low-rank latent vector per token, and that latent is what the cache holds; during attention it is projected back up to per-head keys and values, with the positional part handled separately. Cache bytes per token therefore fall by about the compression ratio, paid for with extra projection work on every decode step and more intricate kernels. I would measure cache bytes per token, the context length and batch size reachable within the same memory, decode throughput, and quality against a grouped-query baseline at an equal cache budget. The distinction matters because quantisation lowers the precision of the same tensors: the two compose, and treating them as one saving counts it twice. The gain is real only when the KV cache, not the weights, is what bounds you."
-      ru: "Латентное внимание меняет то, что вы храните, а не точность хранения. Key и value проецируются вниз в один низкоранговый латентный вектор на токен, и именно латент лежит в кеше; во время внимания он проецируется обратно в key и value по головам, а позиционная часть обрабатывается отдельно. Байты кеша на токен поэтому падают примерно во столько раз, каково сжатие, а платой становятся дополнительные проекции на каждом шаге декодирования и более сложные ядра. Я бы измерил байты кеша на токен, достижимые в той же памяти длину контекста и размер батча, пропускную способность декодирования и качество против grouped-query при равном бюджете кеша. Различение важно, потому что квантование снижает точность тех же тензоров: одно с другим сочетается, и объединение их в одну экономию считает её дважды. Выигрыш реален лишь тогда, когда вас ограничивает KV-кеш, а не веса."
+      en: "Latent attention changes what you store, not how precisely you store it. Keys and values are projected down to a single low-rank latent vector per token, and that latent is what the cache holds; during attention it is projected back up to per-head keys and values, or the up-projections are folded into the query and output projections so attention runs on the latent directly, with the positional part cached as a small separate key. Cache bytes per token therefore fall by about the compression ratio, paid for with extra arithmetic on every decode step and more intricate kernels. I would measure cache bytes per token, the context length and batch size reachable within the same memory, decode throughput, and quality against a grouped-query baseline at an equal cache budget. The distinction matters because quantisation lowers the precision of the same tensors: the two compose, so each needs its own baseline or one saving gets counted twice. The gain is real only when the KV cache, not the weights, is what bounds you."
+      ru: "Латентное внимание меняет то, что вы храните, а не точность хранения. Key и value проецируются вниз в один низкоранговый латентный вектор на токен, и именно латент лежит в кеше; во время внимания он либо проецируется обратно в key и value по головам, либо матрицы обратной проекции встраиваются в проекции запроса и выхода, и внимание считается прямо по латенту, а позиционная часть кешируется отдельным небольшим ключом. Байты кеша на токен поэтому падают примерно во столько раз, каково сжатие, а платой становятся дополнительная арифметика на каждом шаге декодирования и более сложные ядра. Я бы измерил байты кеша на токен, достижимые в той же памяти длину контекста и размер батча, пропускную способность декодирования и качество против grouped-query при равном бюджете кеша. Различение важно, потому что квантование снижает точность тех же тензоров: одно с другим сочетается, поэтому у каждого должен быть свой baseline, иначе одну экономию посчитают дважды. Выигрыш реален лишь тогда, когда вас ограничивает KV-кеш, а не веса."
     reading: ["paper-deepseek-v2"]
   - id: "llm-flashattention"
     tracks: ["engineering"]
@@ -130,6 +130,8 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 57
     outline:
       en:
         - "Explain tiled attention and the reduction in reads and writes between accelerator memory levels."
@@ -139,6 +141,9 @@ questions:
         - "Объяснить блочное вычисление attention и сокращение обмена между уровнями памяти ускорителя."
         - "Отличить точный attention с различиями округления от разреженного или приближённого attention."
         - "Разделить квадратичную арифметику и обмен с памятью; измерить нужные размерности на целевом оборудовании."
+    answer:
+      en: "Because on a GPU standard attention is limited by memory traffic, not arithmetic. The usual kernel writes the N-by-N score matrix to high-bandwidth memory, reads it back for the softmax, writes the probabilities, then reads them again to multiply by V. FlashAttention tiles Q, K and V into blocks that fit in on-chip SRAM and keeps a running maximum and sum per row, the online softmax, rescaling the partial output as each key block arrives, so the full matrix never lands in HBM. FLOPs stay quadratic; the backward pass even adds some, recomputing scores from saved softmax statistics rather than storing them, and still wins because far fewer bytes move. It's exact, differing from standard attention only by floating-point summation order, unlike sparse or low-rank methods that change what's computed. I'd benchmark the real sequence lengths, head widths, masking and dtype on the target GPU, checking agreement within tolerance. At short sequences attention isn't the bottleneck, and in single-token decode attention's cost is reading the KV cache, a different problem."
+      ru: "Потому что на GPU обычный attention упирается в обмен с памятью, а не в арифметику. Стандартное ядро пишет матрицу оценок N на N в HBM, читает её обратно ради softmax, записывает вероятности и снова читает их, чтобы умножить на V. FlashAttention режет Q, K и V на блоки, которые помещаются в SRAM на кристалле, и держит для каждой строки текущий максимум и сумму, то есть онлайн-softmax, пересчитывая частичный результат по мере прихода каждого блока ключей, так что полная матрица в HBM не попадает вовсе. FLOPs остаются квадратичными, обратный проход их даже добавляет, пересчитывая оценки по сохранённой статистике softmax вместо хранения матрицы, и всё равно выигрывает, потому что байтов передаётся намного меньше. Метод точный: от стандартного attention он отличается лишь порядком суммирования в плавающей точке, в отличие от разреженных или низкоранговых методов, меняющих само вычисление. Я бы измерял на реальных длинах, размерах голов, масках и типах данных на целевом GPU, проверяя совпадение в пределах допуска. На коротких последовательностях attention не узкое место, а при декодировании по одному токену стоимость attention — это чтение KV-кеша, и это уже другая задача."
     reading: ["paper-flashattention"]
   - id: "llm-tokenization"
     tracks: ["engineering"]
@@ -153,6 +158,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Describe training: start from characters or bytes and repeatedly merge the most frequent adjacent pair until the vocabulary is full."
+        - "Link unevenness to corpus frequency and pre-tokenisation rules: rare scripts fragment, digit groups vary, code indentation splits oddly."
+        - "Measure tokens per character or word by language and domain, and the effect on context, cost and arithmetic."
+      ru:
+        - "Описать обучение: начать с символов или байтов и повторно сливать самую частую соседнюю пару, пока словарь не заполнится."
+        - "Связать неравномерность с частотами корпуса и правилами предтокенизации: редкие письменности дробятся, группы цифр различаются, отступы в коде режутся непредсказуемо."
+        - "Измерить число токенов на символ или слово по языкам и доменам и его влияние на контекст, стоимость и арифметику."
+    reading: ["paper-bpe-subword","paper-tokenizer-unfairness"]
   - id: "llm-position-schemes"
     tracks: ["engineering"]
     type: "knowledge"
@@ -166,6 +181,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Show where position enters: added to input embeddings, rotated into queries and keys, or added to attention logits."
+        - "Contrast absolute learned or sinusoidal tables with RoPE's relative-offset dot products and ALiBi's linear distance penalty."
+        - "Test behaviour beyond the training length on in-context retrieval, since perplexity hides weak use of distant tokens."
+      ru:
+        - "Показать, куда входит позиция: прибавляется к эмбеддингам входа, поворачивает query и key или добавляется к логитам внимания."
+        - "Противопоставить абсолютные обучаемые или синусоидальные таблицы скалярному произведению по относительному смещению в RoPE и линейному штрафу за расстояние в ALiBi."
+        - "Проверить поведение за пределами обучающей длины на поиске внутри контекста: перплексия скрывает слабое использование дальних токенов."
+    reading: ["paper-attention","paper-rope","paper-alibi"]
   - id: "llm-rope-extension"
     tracks: ["engineering"]
     type: "knowledge"
@@ -180,7 +205,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "meta"
     added: "2026-09-26"
-    reading: ["paper-rope"]
+    outline:
+      en:
+        - "Explain RoPE: rotate query and key dimension pairs by position times a per-pair frequency, so scores depend on offset."
+        - "Show that position interpolation divides every frequency by the scale, blurring nearby tokens; NTK and YaRN mostly rescale low frequencies."
+        - "Separate accepted length from use: test retrieval and multi-hop tasks at varied depths, plus short-context regressions after finetuning."
+      ru:
+        - "Объяснить RoPE: пары координат query и key поворачиваются на угол, равный позиции, умноженной на частоту пары, поэтому оценка зависит от смещения."
+        - "Показать, что позиционная интерполяция делит каждую частоту на коэффициент растяжения и размывает соседние токены; NTK и YaRN масштабируют в основном низкие частоты."
+        - "Отличать допустимую длину от реального использования: проверить поиск и многошаговые задачи на разной глубине и регрессии на коротком контексте после дообучения."
+    reading: ["paper-rope","paper-lost-in-the-middle","paper-position-interpolation","paper-yarn","paper-ruler"]
   - id: "llm-compute-optimal"
     tracks: ["engineering","leadership"]
     roles: ["research-engineer"]
@@ -253,6 +287,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "meta"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Name the objectives: next-token loss on raw corpora, the same loss on demonstrations masked to responses, then pairwise preferences."
+        - "State what each changes: pretraining sets knowledge and skills, instruction tuning sets format, preferences re-rank behaviours already available."
+        - "Probe the limits: facts added only in tuning generalise poorly, and preference training can reward length or flattery."
+      ru:
+        - "Назвать цели: предсказание следующего токена на сыром корпусе, та же функция потерь на демонстрациях с маской на ответы, затем попарные предпочтения."
+        - "Сказать, что меняет каждый этап: предобучение даёт знания и навыки, instruction tuning — формат, предпочтения переранжируют уже доступное модели поведение."
+        - "Проверить границы: факты, добавленные только дообучением, обобщаются плохо, а обучение на предпочтениях может поощрять длину и угодливость."
+    reading: ["paper-instructgpt","paper-dpo","paper-finetuning-new-knowledge"]
   - id: "llm-decoding"
     tracks: ["engineering"]
     type: "knowledge"
@@ -269,6 +313,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "perplexity"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Describe each as a transform: argmax, approximate sequence-likelihood search, logit division by T, top-k truncation, cumulative-mass truncation."
+        - "Name failures: greedy and beam repeat or go bland, high temperature derails, top-k ignores distribution shape, top-p admits flat tails."
+        - "Choose by task, deterministic for extraction and sampled for generation, and measure accuracy together with diversity across seeds."
+      ru:
+        - "Описать каждый метод как преобразование: argmax, приближённый поиск по правдоподобию последовательности, деление логитов на T, отсечение до k и по накопленной массе."
+        - "Назвать сбои: greedy и beam зацикливаются или банальны, высокая температура уводит в бессвязность, top-k игнорирует форму распределения, top-p пропускает плоский хвост."
+        - "Выбирать по задаче — детерминированно для извлечения, с сэмплированием для генерации — и мерить точность вместе с разнообразием по разным seed."
+    reading: ["paper-nucleus-sampling"]
   - id: "llm-context-position"
     tracks: ["engineering"]
     type: "knowledge"
@@ -310,6 +364,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Write both blocks: post-norm applies LayerNorm after the residual add; pre-norm normalises only the sublayer input."
+        - "Link placement to stability: pre-norm keeps an identity gradient path and needs less warmup, but residual norms grow with depth."
+        - "Give RMSNorm as x divided by its root mean square, times a gain: no mean-centring or bias, fewer operations."
+      ru:
+        - "Записать оба блока: в post-norm LayerNorm применяется после сложения с residual, в pre-norm нормализуется только вход подслоя."
+        - "Связать расположение с устойчивостью: pre-norm сохраняет тождественный путь градиента и меньше зависит от прогрева, но норма residual растёт с глубиной."
+        - "Дать формулу RMSNorm — x, делённый на своё среднеквадратичное значение и умноженный на gain: без вычитания среднего и сдвига, меньше операций."
+    reading: ["paper-attention","paper-layer-norm-placement","paper-rmsnorm"]
   - id: "llm-gated-mlp"
     tracks: ["engineering"]
     type: "knowledge"
@@ -324,6 +388,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "meta"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Write SwiGLU: Swish of one projection gates a second linear projection elementwise, then a down projection returns to d_model."
+        - "Count parameters: three matrices instead of two, so hidden width shrinks to about 8d/3 to keep 8d² weights."
+        - "Compare at matched parameters and FLOPs on held-out loss, noting extra activation memory and fused gate-up kernels."
+      ru:
+        - "Записать SwiGLU: Swish от одной проекции поэлементно гейтит вторую линейную проекцию, затем проекция вниз возвращает d_model."
+        - "Посчитать параметры: три матрицы вместо двух, поэтому скрытая ширина сужается примерно до 8d/3, чтобы сохранить 8d² весов."
+        - "Сравнивать при равных параметрах и FLOP по отложенному loss, учитывая дополнительную память активаций и слияние ядер gate и up."
+    reading: ["paper-glu-variants"]
   - id: "llm-decoder-pass"
     tracks: ["engineering"]
     type: "knowledge"
@@ -338,6 +412,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "anthropic"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Carry [B, T, d_model] through norm, Q, K, V projections split into heads, [B, H, T, T] scores and the output projection."
+        - "Keep the residual stream at d_model throughout; the MLP expands to d_ff and back before each residual add."
+        - "Project the final normed stream through a d_model by vocabulary matrix to [B, T, V] logits; recheck shapes for one cached decode step."
+      ru:
+        - "Провести [B, T, d_model] через нормализацию, проекции Q, K, V с разбиением на головы, оценки [B, H, T, T] и выходную проекцию."
+        - "Держать residual-поток в d_model на всём пути: MLP расширяет до d_ff и сужает обратно перед каждым сложением."
+        - "Спроецировать финально нормализованный поток матрицей d_model × размер словаря в логиты [B, T, V] и перепроверить размерности для шага decode с KV-кешем."
+    reading: ["paper-attention"]
   - id: "llm-language-loss"
     tracks: ["engineering"]
     type: "knowledge"
@@ -352,6 +436,15 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Show cross-entropy equals data entropy plus KL from data to model, so for fixed data minimising either is equivalent."
+        - "Define perplexity as exp of mean per-token cross-entropy in nats; it shifts with tokeniser, eval text and context length."
+        - "Compare across tokenisers in bits per byte, fixing the text, context handling and log base before drawing conclusions."
+      ru:
+        - "Показать, что cross-entropy равна энтропии данных плюс KL от данных к модели, поэтому при фиксированных данных минимизировать одно и другое равносильно."
+        - "Определить перплексию как экспоненту среднего cross-entropy на токен в натах; она зависит от токенизатора, текста оценки и длины контекста."
+        - "Сравнивать разные токенизаторы в битах на байт, зафиксировав текст, обработку контекста и основание логарифма."
   - id: "llm-long-attention"
     tracks: ["engineering"]
     type: "knowledge"
@@ -366,3 +459,13 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Show the cost: prefill score and value products scale with T squared; each decode step reads a KV cache linear in T."
+        - "Separate exact kernels like FlashAttention, which cut memory traffic, from windows, sparsity, KV eviction or GQA, which change outputs."
+        - "Re-run long-context quality evals for behaviour-changing methods; for exact ones, check numerical equivalence and speed only."
+      ru:
+        - "Показать стоимость: произведения оценок и значений в prefill растут как T², а каждый шаг decode читает KV-кеш, линейный по T."
+        - "Отделить точные ядра вроде FlashAttention, сокращающие обмен с памятью, от окон, разреженности, вытеснения KV или GQA, меняющих выход модели."
+        - "Для методов, меняющих поведение, заново прогнать оценки на длинном контексте; для точных — проверить только численную эквивалентность и скорость."
+    reading: ["paper-flashattention","paper-gqa"]

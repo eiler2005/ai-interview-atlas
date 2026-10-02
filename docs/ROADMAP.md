@@ -6,22 +6,22 @@ What this repository plans to improve next, and what it will not do. This is the
 
 ## Where the atlas is today
 
-As of 2026-09-28:
+As of 2026-10-02:
 
-- 255 questions across 17 themes, each saying what it tests, split between the engineering and the leadership track.
-- 80 priority questions — 40 per track — each with an answer checklist, reading and a written answer in English and Russian. All 160 answer texts have passed independent content review.
-- 20 company pages showing sourced loop stages, coding requirements and reported questions where evidence exists. Some describe general software or product roles rather than specialist AI roles; secondary evidence and assumptions remain visible.
-- 108 sources, recording when each was read and its publication date when known.
+- 294 questions across 17 themes, each saying what it tests and what a strong answer covers, split between the engineering and the leadership track.
+- 140 priority questions — 70 per track — each with reading and a written answer in English and Russian. All 280 answer texts have passed independent content review: the first 160 on 2026-09-28, the rest, including answers deepened since, on 2026-10-02.
+- 29 company pages showing sourced loop stages, coding requirements and reported questions where evidence exists. Some describe general software or product roles rather than specialist AI roles; secondary evidence and assumptions remain visible.
+- 207 sources, recording when each was read and its publication date when known.
 - A requirements radar over 79 job postings from September 2026.
 - A PDF builder for the main books and separate answers editions. New local builds are not released assets: the [releases page](https://github.com/eiler2005/ai-interview-atlas/releases/latest) lists what has actually been published.
 
-The contribution workflow requires schema and provenance validation, language and link checks, and privacy checks with distinct worktree, index and history scopes. These checks do not establish factual accuracy or publication approval. The written answers have passed independent content review, and the four local PDF books have completed production checks of extracted text and every rendered page. Publication remains a separate decision.
+The contribution workflow requires schema and provenance validation, language and link checks, and privacy checks with distinct worktree, index and history scopes. These checks do not establish factual accuracy or publication approval. The written answers have passed independent content review. The four local PDF books checked on 2026-09-29 contain only the first 80 answers per language, so they need rebuilding and fresh production checks before any release. Publication remains a separate decision.
 
 ## Next
 
-- **Independent content review and PDF production checks.** *Done for this edition.* A separate session reviewed all 80 answers in each language for factual accuracy, agreement with the checklists and language quality. All four local books also passed text and visual production checks. These are distinct checks; neither publishes a release. Answers remain examples of good reasoning, not reference answers.
-- **Checklists beyond the priority set.** *Planned.* Today only the priority questions say what a strong answer covers. The rest give the question and what it tests, which is enough to practise with but less than the project should offer.
-- **Better company evidence and more companies.** *Planned.* Seek independent corroboration and specialist AI evidence where current pages have only general-role baselines or limited public evidence. The current 20 are not a ranking and have not all cleared a two-independent-source threshold. As the [methodology](METHODOLOGY.md) explains, each claim carries its own evidence marker; two documents from one publisher do not count as independent corroboration.
+- **Independent content review and PDF production checks.** *Done for the answers; the books are pending.* Separate sessions reviewed every answer in each language for factual accuracy, agreement with the checklists and language quality: the first 80 on 2026-09-28, the rest on 2026-10-02. The local books checked on 2026-09-29 predate the later answers and must be rebuilt and checked again. These are distinct checks; neither publishes a release. Answers remain examples of good reasoning, not reference answers.
+- **Checklists beyond the priority set.** *Done.* Every question now says what a strong answer covers, and most list primary reading. Written answers remain limited to the priority questions.
+- **Better company evidence and more companies.** *Planned.* Seek independent corroboration and specialist AI evidence where current pages have only general-role baselines or limited public evidence. The current 29 are not a ranking and have not all cleared a two-independent-source threshold. As the [methodology](METHODOLOGY.md) explains, each claim carries its own evidence marker; two documents from one publisher do not count as independent corroboration.
 - **Source freshness.** *In progress.* A weekly job now checks that cited URLs still resolve (sites that block automated checks are skipped) and keeps one issue listing the failures; a failing link is a prompt to re-read the source, not proof that the claim is wrong. Company pages already mark a review date more than a year older than the newest content; the mark should also follow the calendar, not only newer content. Interview loops change, and a page that quietly ages is worse than one that admits it.
 
 ## After that

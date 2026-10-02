@@ -36,11 +36,21 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[What are a language model's generation parameters?](../themes/agents-tools.md#agt-api-level-features)**
   - Knowledge · Asked at: Tochka ✅
   - Tests: Whether you distinguish model generation settings from instructions about role, style or response structure.
+  - A strong answer covers:
+    - Name the decoding settings: temperature, top-p, top-k, maximum output tokens and stop sequences.
+    - Separate them from prompt instructions on role, tone and format; an enforced output schema is an API setting.
+    - Show each setting's effect on repeated samples, and check which ones a given API actually accepts.
+  - Read: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ### [Applied and customer scenarios](../themes/applied-scenarios.md)
 
-- **[Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first) and «по первое число» (through the first).](../themes/applied-scenarios.md#app-prompt-date-range)**
+- **[Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first), «по первое число» (through the first) and «за первое число» (for the first).](../themes/applied-scenarios.md#app-prompt-date-range)**
   - Applied scenario · Asked at: Tochka ✅
   - Tests: Whether you handle language-specific ambiguity and test a prompt on hard cases.
+  - A strong answer covers:
+    - Define the output: start and end dates, inclusive or exclusive bounds, and the reference date.
+    - Spell out how the prepositions «с», «по» and «за» set each bound, with contrasting examples.
+    - Test on a set of near-identical phrasings and relative dates, and ask back when it is ambiguous.
+  - Read: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 
 ← [Stripe](stripe.md) · [Avito](avito.md) →

@@ -33,8 +33,8 @@ questions:
         - "Разделить загрузку и версии индекса с проверкой прав и поиском во время запроса."
         - "Оценить обоснованность ответов и проверить отзыв прав, устаревание и частичные отказы."
     answer:
-      en: "I clarify peak query volume, content freshness requirements and permission semantics before sizing. The ingestion path versions documents, chunks them, computes embeddings and attaches access metadata. The online path obtains the user's current identity and groups, filters retrieval and supplies authorised context to generation with source citations. Indexing delay and access revocation are separate concerns: stale content may be disclosed, but stale ACLs cannot justify leaking a revoked document. I require bounded authorisation freshness or an authoritative permission check before context leaves retrieval; when neither is available, access fails closed. Cached grants and answers must be invalidated or revalidated. I test grounding and revocation separately, including concurrent permission changes and cache hits. Search outages and reduced coverage should be visible to users without weakening the access boundary."
-      ru: "До расчёта ресурсов уточняю пиковую нагрузку, свежесть содержания и семантику прав. Конвейер загрузки версионирует документы, режет на фрагменты, считает эмбеддинги и добавляет метаданные доступа. Онлайн-путь получает текущую идентичность и группы пользователя, фильтрует поиск и передаёт разрешённый контекст генерации со ссылками на источники. Задержка индексации содержания и отзыв прав — разные проблемы: устаревание текста можно обозначить, но устаревший ACL не оправдывает утечку отозванного документа. Требую ограниченной свежести полномочий или проверки в авторитетной системе до выхода контекста из поиска; если это невозможно, доступ закрывается. Кешированные разрешения и ответы инвалидируются или перепроверяются. Отдельно тестирую обоснованность и отзыв доступа, включая одновременные изменения прав и попадания в кеш. Отказы поиска и неполнота выдачи видны пользователю без ослабления границы доступа."
+      en: "I'd pin down query volume, freshness and permission semantics, then size. At an assumed twenty chunks per document that's two hundred million vectors, about 800 GB as 1,024-dimensional float32, so the index is sharded or product-quantised, with recall checked against exact search. Ingestion is event-driven: changed documents are re-chunked and re-embedded, deletions tombstoned at once, behind a versioned index. The decisive point is that permissions must propagate faster than reindexing. ACLs live on each chunk as group ids, updated without re-embedding, and the user's groups are resolved at query time, so a membership change applies on the next query. The filter belongs inside the ANN query: post-filtering a top-k can leave almost nothing for a user who sees a small slice of the corpus, while filtering during graph search keeps recall until the allowed set gets tiny, where I switch to exact search over that subset. I'd measure revocation lag at p99, filtered recall and answer grounding, and show a shard outage as partial coverage. Stale text can be shown with its date; uncertain authorisation fails closed."
+      ru: "Сначала уточнил бы объём запросов, требования к свежести и семантику прав, а уже потом считал. При условных двадцати фрагментах на документ это двести миллионов векторов, около 800 ГБ при размерности 1024 во float32, так что индекс шардируется или сжимается product quantisation, а полноту сверяю с точным поиском. Загрузка событийная: изменённые документы заново режутся и пересчитываются в эмбеддинги, удалённые сразу помечаются как удалённые, а индекс версионируется. Решающее: изменения прав должны распространяться быстрее переиндексации. ACL хранится на каждом фрагменте как идентификаторы групп и обновляется без пересчёта эмбеддингов, а группы пользователя определяются в момент запроса, так что изменение членства действует уже со следующего запроса. Фильтр должен стоять внутри ANN-запроса: постфильтрация top-k может почти ничего не оставить пользователю, которому виден малый срез корпуса, а фильтрация во время обхода графа держит полноту, пока разрешённое множество не станет совсем маленьким, — тогда переключаюсь на точный поиск по этому подмножеству. Измерял бы задержку отзыва прав на p99, полноту с фильтром и обоснованность ответов, а отказ шарда показывал бы как неполное покрытие. Устаревший текст можно показать с датой, а при неясных полномочиях доступ закрывается."
     reading: ["azure-search-document-access","anthropic-contextual-retrieval"]
   - id: "sd-code-assistant"
     tracks: ["engineering"]
@@ -50,6 +50,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Decide how context is found: a symbol graph and search on demand, or a precomputed embedding index."
+        - "Apply edits as diffs against the file version that was read, in an isolated workspace, with user review."
+        - "Close the loop with the repository's build, linters and tests; evaluate on historical tasks with known fixes."
+      ru:
+        - "Решить, как находится контекст: граф символов и поиск по запросу или заранее построенный индекс эмбеддингов."
+        - "Применять правки как diff к той версии файла, которую прочитали, в изолированной рабочей копии и с ревью пользователя."
+        - "Замкнуть цикл сборкой, линтерами и тестами самого репозитория; оценивать на исторических задачах с известными исправлениями."
+    reading: ["anthropic-context-engineering","anthropic-building-effective-agents"]
   - id: "sd-support-agent"
     tracks: ["engineering","leadership"]
     roles: ["applied-ai-engineer"]
@@ -76,8 +86,8 @@ questions:
         - "Использовать наблюдаемые исходы операций и состояние обращения против повторных действий."
         - "Задать условия эскалации и передавать контекст для продолжения человеком."
     answer:
-      en: "I start from which requests the agent serves and turn them into an explicit tool list with permission boundaries: it checks order status itself, issues a refund up to an amount threshold and with confirmation, and anything else is outside its authority. A narrow surface buys predictability at the cost of requests it will not close. Against duplicate actions you have case state and observed operation outcomes: before issuing a refund the agent checks whether one was already issued, and writing calls carry an idempotency key. I define escalation conditions in advance from observable signals: the customer asks for a human, the task is outside the tool set, a tool returned an ambiguous outcome, the conversation got heated. On transfer the person gets the history, actions taken and their results, so they don't start from scratch. The agent removes routine load, but on complex, emotional cases its value is small."
-      ru: "Начинаю с того, какие обращения агент вообще обслуживает, и превращаю их в явный список инструментов с границами разрешений: статус заказа он смотрит сам, возврат оформляет до порога суммы и с подтверждением, остальное вне его полномочий. Узкая поверхность даёт предсказуемость ценой того, что часть обращений агент не закроет. От повторных действий защищают состояние обращения и наблюдаемые исходы операций: прежде чем оформлять возврат, агент читает, не оформлен ли он уже, а записывающие вызовы идут с ключом идемпотентности. Условия эскалации задаю заранее и по наблюдаемым признакам: клиент просит человека, задача вне набора инструментов, инструмент вернул неопределённый исход, разговор обострился. При передаче человек получает историю, выполненные действия и их результаты, чтобы не начинать с нуля. Граница: агент снимает типовую нагрузку, но на сложных и эмоциональных обращениях его ценность мала."
+      en: "I'd make authority a property of the tools, not of the prompt. Each supported intent maps to a tool whose backend enforces the limits: the agent reads order status freely, issues a refund only below a threshold and only to the verified customer, and anything else isn't callable at all. Duplicates are prevented by the case record, not the model's memory: each action is written there as an intent with an idempotency key and a status before it executes, and the agent reads the record before acting, so a retry or a resumed conversation can't refund twice. Escalation triggers are observable: the customer asks for a person, the request is out of scope, a tool returned an ambiguous outcome, or the same issue comes back. The handoff carries the history, the actions and their results. I'd compare against human-only handling on resolution without a human, wrong-action rate, repeat contacts and escalation precision. The real boundary is the threshold: lower it and more cases escalate, raise it and the agent's mistakes become direct losses."
+      ru: "Полномочия я бы делал свойством инструментов, а не промпта. Каждому поддерживаемому типу обращения соответствует инструмент, бэкенд которого сам проверяет лимиты: статус заказа агент смотрит свободно, возврат оформляет только ниже порога суммы и только подтверждённому клиенту, а всё остальное ему просто недоступно. От повторов защищает карточка обращения, а не память модели: каждое действие ещё до исполнения записывается туда как намерение с ключом идемпотентности и статусом, и агент читает карточку перед действием, так что повтор или возобновлённый разговор не оформят возврат дважды. Условия эскалации наблюдаемы: клиент просит человека, запрос вне полномочий, инструмент вернул неопределённый исход или та же проблема вернулась снова. При передаче человек получает историю, выполненные действия и их результаты. Сравнивал бы с обработкой только людьми по доле решённых без человека, доле ошибочных действий, повторным обращениям и точности эскалаций. Настоящая граница — порог: снизишь его — эскалаций станет больше, поднимешь — ошибки агента превратятся в прямые потери."
     reading: ["anthropic-building-effective-agents","anthropic-writing-tools"]
   - id: "sd-catalogue-search"
     tracks: ["engineering"]
@@ -92,6 +102,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Combine lexical matching for brands, sizes and SKUs with dense retrieval for descriptive queries."
+        - "Keep stock and price out of embeddings; apply them as query-time hard filters from a fresh store."
+        - "Measure relevance on judged queries by segment, and online track zero-result rate and out-of-stock items shown."
+      ru:
+        - "Сочетать лексическое совпадение для брендов, размеров и артикулов с векторным поиском для описательных запросов."
+        - "Не зашивать остатки и цену в эмбеддинги: применять их как жёсткие фильтры во время запроса из актуального хранилища."
+        - "Измерять релевантность на размеченных запросах по сегментам, а онлайн — долю пустых выдач и показов отсутствующих товаров."
+    reading: ["anthropic-contextual-retrieval"]
   - id: "sd-moderation"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -106,6 +126,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "meta"
     added: "2026-09-26"
+    start_here: ["leadership"]
+    priority: 67
+    outline:
+      en:
+        - "Define risk classes by harm, with separate tolerance for wrongful removal and missed violations per class."
+        - "Cascade: fast classifiers on everything, an LLM on the uncertain band, people on severe ambiguous cases."
+        - "Set thresholds per class from measured precision and recall, tracking reviewer queue, appeals and overturns."
+      ru:
+        - "Определить классы риска по вреду, с отдельным допуском на ошибочное удаление и пропуск нарушения для каждого."
+        - "Построить каскад: быстрые классификаторы на всё, LLM на зону неопределённости, люди на тяжёлые спорные случаи."
+        - "Задать пороги по классам по измеренным точности и полноте, отслеживая очередь проверяющих, апелляции и отмены."
+    answer:
+      en: "I'd start from the policy rather than the models: risk classes defined by harm, and for each the relative cost of wrongly removing content against missing a violation, because those tolerances drive every later choice. Severity also decides where moderation sits against the delay budget: the gravest classes are held until checked, while low-harm ones can be published and reviewed asynchronously. Then a cascade. Fast specialist classifiers score everything; confident cases on either side are decided automatically; the uncertain band goes to an LLM that reads the policy text and context, slower and costlier but better on nuance and on policy changes that have no training data yet; only severe cases that stay ambiguous reach people. The trade-off sits in the thresholds: widening the uncertain band improves accuracy but raises latency, cost and review load, so I'd set them per class from precision and recall on a labelled set, and feed appeals and reviewer overturns back as labels. The LLM stage reads content written by adversaries, so it can be manipulated, and the labelled set goes stale as they adapt."
+      ru: "Начинал бы с политики, а не с моделей: классы риска по вреду, и для каждого — соотношение цены ошибочного удаления и пропущенного нарушения, потому что именно эти допуски определяют всё остальное. Тяжесть решает и то, где модерация стоит относительно бюджета задержки: самые опасные классы удерживаются до проверки, а малозначимые можно публиковать и проверять асинхронно. Дальше каскад. Быстрые специализированные классификаторы оценивают всё; уверенные случаи с обеих сторон решаются автоматически; зона неопределённости уходит к LLM, которая читает текст политики и контекст, — медленнее и дороже, но лучше справляется с нюансами и с изменениями политики, для которых ещё нет обучающих данных; к людям попадают только тяжёлые случаи, оставшиеся спорными. Компромисс сидит в порогах: расширение зоны неопределённости повышает долю верных решений, но увеличивает задержку, стоимость и нагрузку на проверяющих, поэтому пороги задаю по классам по точности и полноте на размеченном наборе, а апелляции и отменённые проверяющими решения возвращаю как новую разметку. LLM-этап читает контент, написанный противником, поэтому им можно манипулировать, а размеченный набор устаревает по мере того, как противник адаптируется."
+    reading: ["paper-moderation-holistic","paper-llama-guard"]
   - id: "sd-document-intelligence"
     tracks: ["engineering"]
     type: "system_design"
@@ -120,6 +155,15 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Process documents as idempotent jobs, storing each field with page, region, model version and confidence."
+        - "Route fields with low calibrated confidence or failed validation rules to review, sized to reviewer capacity."
+        - "Measure per-field accuracy on a stratified audit sample, and feed reviewer corrections back into evaluation."
+      ru:
+        - "Обрабатывать документы идемпотентными заданиями, сохраняя для каждого поля страницу, область, версию модели и уверенность."
+        - "Отправлять на проверку поля с низкой откалиброванной уверенностью или проваленными правилами валидации, с учётом пропускной способности проверяющих."
+        - "Измерять точность по каждому полю на стратифицированной контрольной выборке и возвращать исправления проверяющих в оценку."
   - id: "sd-text-to-sql"
     tracks: ["engineering"]
     roles: ["applied-ai-engineer"]
@@ -137,6 +181,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 58
+    outline:
+      en:
+        - "Retrieve a small candidate schema from catalog metadata, governed metric definitions and verified example queries."
+        - "Run generated SQL read-only under the requesting user's own warehouse permissions, with cost, row and time limits."
+        - "Compare result sets with verified queries on real questions, and measure schema-retrieval recall separately."
+      ru:
+        - "Отобрать небольшую схему-кандидат по метаданным каталога, утверждённым определениям метрик и проверенным примерам запросов."
+        - "Выполнять сгенерированный SQL только на чтение под правами самого пользователя в хранилище, с лимитами стоимости, строк и времени."
+        - "Сравнивать результаты с проверенными запросами на реальных вопросах и отдельно измерять полноту выбора схемы."
+    answer:
+      en: "With thousands of tables the hard part is choosing the schema, not writing SQL, and the real risk is a query that runs and returns a wrong number. So I'd retrieve a small candidate set from the catalog, using table and column descriptions, governed metric definitions, known join paths and verified example queries, and generate against that, preferring a semantic layer where metrics like revenue are already defined, because raw joins invite fan-out double counting. Permissions aren't the model's job: the query runs read-only under the requesting user's own warehouse identity, so row and column security apply, after parsing confirms a single SELECT over catalogued objects, with a cost estimate, timeout and row limit. Ambiguity gets a clarifying question, and the answer shows the SQL and its assumptions. I'd evaluate on real questions with verified queries, comparing result sets rather than SQL text, and measure schema-retrieval recall separately, since a missed table caps everything downstream. Where definitions are contested or undocumented, generation can't fix that; curated metrics come first."
+      ru: "При тысячах таблиц трудность в выборе схемы, а не в написании SQL, а настоящий риск — запрос, который выполняется и возвращает неверное число. Поэтому я бы доставал из каталога небольшой набор кандидатов по описаниям таблиц и колонок, утверждённым определениям метрик, известным путям соединений и проверенным примерам запросов и генерировал по нему, предпочитая семантический слой, где метрики вроде выручки уже определены: сырые соединения провоцируют двойной счёт из-за размножения строк. Права — не забота модели: запрос выполняется только на чтение под собственной учётной записью пользователя в хранилище, так что действует защита на уровне строк и колонок, а перед этим парсер подтверждает, что это один SELECT по объектам из каталога, и задаются оценка стоимости, таймаут и лимит строк. На неоднозначность система отвечает уточняющим вопросом, а в ответе показывает SQL и свои допущения. Оценивал бы на реальных вопросах с проверенными запросами, сравнивая результирующие наборы, а не текст SQL, и отдельно мерил бы полноту выбора схемы: пропущенная таблица ограничивает всё дальнейшее. Где определения спорны или не задокументированы, генерация этого не исправит, и сначала нужны выверенные метрики."
+    reading: ["owasp-llm-top-10","paper-spider-2"]
   - id: "sd-meeting-assistant"
     tracks: ["engineering"]
     type: "system_design"
@@ -151,6 +210,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "microsoft"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Separate transcription from diarisation; map speakers to people using per-participant audio channels where available."
+        - "Link each action item to its transcript span, owner and confidence before anything is published."
+        - "Publish with an idempotency key per item so retries never duplicate tasks, and let users confirm first."
+      ru:
+        - "Разделить распознавание речи и диаризацию; сопоставлять говорящих с людьми по отдельным аудиоканалам участников, где они есть."
+        - "Привязывать каждое поручение к фрагменту расшифровки, исполнителю и уверенности до любой публикации."
+        - "Публиковать с ключом идемпотентности на каждый пункт, чтобы повторы не создавали дубли задач, и давать пользователю сначала подтвердить."
+    reading: ["paper-whisper","stripe-idempotency"]
   - id: "sd-gateway"
     tracks: ["engineering","leadership"]
     roles: ["ai-platform-engineer"]
@@ -180,8 +249,8 @@ questions:
         - "Проверять квоты и бюджеты клиентов до отправки, включая повторы."
         - "Задать границы failover при частично переданном ответе и вызовах с побочными эффектами."
     answer:
-      en: "A gateway exists for one contract over different providers, so first I describe their capabilities, streaming output, tool calling, context limits, behaviour on failure, and unify only genuinely compatible semantics; the rest I expose explicitly rather than emulate, otherwise the client quietly gets different behaviour. Quotas and budgets I check before dispatch, per client, and they must account for retries, or failover eats the budget itself; when a budget is exhausted I return a clear error saying when to try again. The cache key includes the model and its parameters, otherwise the cache serves an answer from another model. The subtlest part is the failover boundary: once part of a response has gone to the client you cannot switch providers without breaking the stream, and a side-effecting call cannot be repeated without idempotency. The limit: a gateway levels interfaces and failures, but not the quality gap between models."
-      ru: "Gateway существует ради единого контракта поверх разных провайдеров, поэтому сначала я описываю их возможности — потоковую выдачу, вызов инструментов, лимиты контекста, поведение при отказе — и унифицирую только действительно совместимую семантику; остальное выставляю явно, а не эмулирую, иначе клиент получит тихо иное поведение. Квоты и бюджеты проверяю до отправки запроса, отдельно по каждому клиенту, и обязательно учитываю повторы, иначе failover сам съест бюджет; при исчерпании возвращаю понятную ошибку с указанием, когда пробовать снова. Ключ кеша включает модель и параметры, иначе кеш отдаст ответ другой модели. Самое тонкое — границы failover: если часть ответа уже ушла клиенту, переключить провайдера без разрыва потока нельзя, а вызов с побочными эффектами нельзя повторять без идемпотентности. Граница: gateway выравнивает интерфейсы и отказы, но не сгладит разницу в качестве моделей."
+      en: "A gateway exists for one contract over different providers, so first I describe their capabilities, streaming output, tool calling, context limits, behaviour on failure, and unify only genuinely compatible semantics; the rest I expose explicitly rather than emulate, otherwise the client quietly gets different behaviour. Quotas and budgets I check before dispatch, per client, and they must account for retries, or failover eats the budget itself; when a budget is exhausted I return a clear error saying when to try again. I cache whole responses only where returning the same answer twice is acceptable, and the key includes the client, the model and its parameters, otherwise the cache serves another client's or another model's answer. The subtlest part is the failover boundary: once part of a response has gone to the client you cannot switch providers without breaking the stream, and a side-effecting call cannot be repeated without idempotency. The limit: a gateway levels interfaces and failures, but not the quality gap between models."
+      ru: "Gateway существует ради единого контракта поверх разных провайдеров, поэтому сначала я описываю их возможности — потоковую выдачу, вызов инструментов, лимиты контекста, поведение при отказе — и унифицирую только действительно совместимую семантику; остальное выставляю явно, а не эмулирую, иначе клиент незаметно получит другое поведение. Квоты и бюджеты проверяю до отправки запроса, отдельно по каждому клиенту, и обязательно учитываю повторы, иначе failover сам съест бюджет; при исчерпании возвращаю понятную ошибку с указанием, когда пробовать снова. Целые ответы кеширую только там, где допустимо дважды вернуть один и тот же ответ, и ключ включает клиента, модель и параметры, иначе кеш отдаст ответ другого клиента или другой модели. Самое тонкое — границы failover: если часть ответа уже ушла клиенту, переключить провайдера без разрыва потока нельзя, а вызов с побочными эффектами нельзя повторять без идемпотентности. Граница: gateway выравнивает интерфейсы и отказы, но не сгладит разницу в качестве моделей."
     reading: ["stripe-rate-limiters","stripe-idempotency"]
   - id: "sd-consumer-chat"
     tracks: ["engineering"]
@@ -215,8 +284,8 @@ questions:
         - "Разделить допуск запросов, планирование инференса и долговременное состояние диалога."
         - "Предусмотреть запас мощности, отмену, отказ при перегрузке и восстановление после частичного сбоя."
     answer:
-      en: "I start the estimate from explicit assumptions about traffic: how many users are active at peak, how many concurrent streams they hold, the average answer length in tokens and the generation speed required. From those you derive the needed throughput in tokens per second and the number of concurrent sessions, and from conversation length and lifetime, the storage volume. The actual numbers depend on the product, so what is valuable is not the number itself but that it was derived from an assumption somebody can challenge. Architecturally I separate three layers: admission control with a queue and priorities, inference scheduling with batching and preemption, and conversation storage in an ordinary database, apart from compute. Cancellation is mandatory: the user left, generation stops and frees memory. Under overload I reject fast and explicitly. The limit: headroom costs money, and under a sustained accelerator shortage degraded service is unavoidable."
-      ru: "Считать начинаю с явных предположений о трафике: сколько пользователей активны в пик, сколько у них одновременных потоков, какова средняя длина ответа в токенах и требуемая скорость генерации. Из этого выводятся нужная пропускная способность в токенах в секунду и число одновременных сессий, а из длины и срока жизни диалогов — объём хранения. Конкретные числа зависят от продукта, поэтому ценно не само число, а то, что оно выведено из предположения, которое можно оспорить. Архитектурно разделяю три слоя: допуск запросов с очередью и приоритетами, планирование инференса с батчингом и вытеснением, и хранение диалогов в обычной базе отдельно от вычислений. Обязательна отмена: пользователь ушёл — генерация останавливается и освобождает память. При перегрузке отказываю быстро и явно. Граница: запас мощности стоит денег, и при устойчивом дефиците ускорителей деградация обслуживания неизбежна."
+      en: "KV-cache memory, not compute, caps concurrent streams, so I'd size from that. Suppose 100 million daily users, ten replies each, 20 seconds of streaming per reply: about 230,000 concurrent streams on average, say half a million at peak. A 70B-class model with 80 layers and eight 128-wide KV heads needs a third of a megabyte of bf16 cache per token, so a 4,000-token conversation holds 1.3 GB, and an assumed 80 GB of free cache per replica fits about 60 streams, far too few to saturate compute. That's roughly 8,000 replicas before headroom. So admission counts free cache blocks: a request starts only when its expected length fits, otherwise it waits in a bounded queue or is rejected at once with a retry hint. A closed connection cancels generation and frees its blocks. Conversations, two billion messages a day, go to an append-only store partitioned by conversation, so a dropped stream resumes from the last saved message. The boundary: with short chats or a quantised cache, decode throughput becomes the limit and admission counts tokens per step."
+      ru: "Число одновременных потоков ограничено памятью под KV-кеш, а не вычислениями, поэтому мощность считаю от неё. Допустим, 100 миллионов пользователей в день, по десять ответов на каждого и по 20 секунд потоковой выдачи на ответ: в среднем около 230 тысяч одновременных потоков, в пик — скажем, полмиллиона. Модели класса 70B с 80 слоями и восемью KV-головами размерности 128 нужна треть мегабайта кеша в bf16 на токен, так что диалог на 4000 токенов держит 1,3 ГБ, а при условных 80 ГБ свободной памяти под кеш реплика вмещает около 60 потоков — слишком мало, чтобы загрузить вычисления. Это порядка 8000 реплик без учёта запаса. Поэтому допуск считает свободные блоки кеша: запрос стартует, только если помещается его ожидаемая длина, иначе ждёт в ограниченной очереди или сразу получает отказ с подсказкой, когда повторить. Закрытое соединение отменяет генерацию и освобождает её блоки. Диалоги — два миллиарда сообщений в день — пишутся в append-only хранилище с партиционированием по диалогу, поэтому оборванный поток продолжается с последнего сохранённого сообщения. Граница: при коротких диалогах или квантованном кеше ограничением становится пропускная способность декодирования, и допуск считают по токенам на шаг."
     reading: ["google-sre-book","paper-pagedattention"]
   - id: "sd-thread-state"
     tracks: ["engineering"]
@@ -232,6 +301,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "anthropic"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Decide the semantics first: serialise turns per conversation, or fork branches that each see a snapshot."
+        - "Append turns with a per-conversation sequence number and an idempotency key, rejecting stale writes."
+        - "Test interleaved requests, retries of the same turn and cancellations for duplicated or reordered history."
+      ru:
+        - "Сначала выбрать семантику: сериализовать реплики внутри диалога или ветвить его, давая каждой ветке свой снимок."
+        - "Дописывать реплики с порядковым номером внутри диалога и ключом идемпотентности, отклоняя устаревшие записи."
+        - "Проверить на чередующихся запросах, повторах той же реплики и отменах, что история не дублируется и не перемешивается."
+    reading: ["stripe-idempotency"]
   - id: "sd-billion-document-search"
     tracks: ["engineering"]
     type: "system_design"
@@ -246,6 +325,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "anthropic"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Estimate index bytes per document and queries per shard to derive shard and replica counts."
+        - "Choose document versus term partitioning, knowing that fan-out to every shard amplifies tail latency."
+        - "Contain tails with hedged requests and partial results, and test p99 under shard failure and reindexing."
+      ru:
+        - "Оценить объём индекса на документ и нагрузку на шард, чтобы вывести число шардов и реплик."
+        - "Выбрать разбиение по документам или по термам, учитывая, что fan-out на все шарды усиливает хвостовую задержку."
+        - "Сдерживать хвосты дублирующими запросами и частичными результатами; проверить p99 при отказе шарда и переиндексации."
+    reading: ["paper-tail-at-scale"]
   - id: "sd-model-api"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -275,8 +364,8 @@ questions:
         - "Отдавать поток инкрементально с идентификаторами запроса и определить поведение клиента при обрыве."
         - "Развивать контракт аддитивно: версионирование, окна устаревания и опубликованные лимиты."
     answer:
-      en: "This endpoint is a contract other people build on, so every decision must survive clients I cannot upgrade. Authentication is per key with scopes and rotation; quotas meter tokens and concurrency, not just request counts, because one long generation costs more than a thousand short ones, and a rejection returns remaining budget and a retry hint rather than a bare error. Streaming needs its own contract: incremental events carrying a request id, an explicit terminal event, and defined behaviour when the stream dies mid-answer, since a truncated reply is not safe to retry blindly. Compatibility comes from additive change — new optional fields, versioned model names, deprecation windows backed by usage telemetry. The hard part is that model behaviour is not versionable the way a schema is: identical requests drift over time, so the promise must cover the interface and documented limits, never identical output."
-      ru: "Этот endpoint — контракт, на котором строят другие, поэтому каждое решение должно пережить клиентов, которых я не могу обновить. Аутентификация — по ключу с областями доступа и ротацией; квоты считают токены и параллельность, а не только число запросов, потому что одна длинная генерация дороже тысячи коротких, а отказ возвращает остаток бюджета и подсказку о повторе, а не сухую ошибку. Потоку нужен свой контракт: инкрементальные события с идентификатором запроса, явное завершающее событие и описанное поведение при обрыве посреди ответа, поскольку усечённый ответ нельзя слепо повторять. Совместимость даёт аддитивность: новые необязательные поля, версионированные имена моделей, окна устаревания с телеметрией использования. Трудность в том, что поведение модели не версионируется так, как схема: одинаковые запросы со временем дрейфуют, поэтому обещание должно покрывать интерфейс и описанные лимиты, но никогда не идентичный вывод."
+      en: "This endpoint is a contract other people build on, so every decision must survive clients I cannot upgrade. Authentication is per key with scopes and rotation; quotas meter tokens and concurrency, not just request counts, because two requests can differ in token cost by orders of magnitude and a long stream holds capacity for its whole duration; a rejection returns remaining budget and a retry hint rather than a bare error. Streaming needs its own contract: incremental events carrying a request id, an explicit terminal event, and defined behaviour when the stream dies mid-answer, since a truncated reply is not safe to retry blindly. Compatibility comes from additive change — new optional fields, versioned model names, deprecation windows backed by usage telemetry. The hard part is that model behaviour is not versionable the way a schema is: identical requests drift over time, so the promise must cover the interface and documented limits, never identical output."
+      ru: "Этот endpoint — контракт, на котором строят другие, поэтому каждое решение должно пережить клиентов, которых я не могу обновить. Аутентификация — по ключу с областями доступа и ротацией; квоты считают токены и параллельность, а не только число запросов, потому что два запроса могут различаться по стоимости в токенах на порядки, а длинный поток занимает мощность всё время генерации; отказ же возвращает остаток бюджета и подсказку о повторе, а не сухую ошибку. Потоку нужен свой контракт: инкрементальные события с идентификатором запроса, явное завершающее событие и описанное поведение при обрыве посреди ответа, поскольку усечённый ответ нельзя слепо повторять. Совместимость даёт аддитивность: новые необязательные поля, версионированные имена моделей, окна устаревания с телеметрией использования. Трудность в том, что поведение модели не версионируется так, как схема: одинаковые запросы со временем дрейфуют, поэтому обещание должно покрывать интерфейс и описанные лимиты, но никогда не идентичный вывод."
     reading: ["stripe-rate-limiters"]
   - id: "sd-webhooks"
     tracks: ["engineering"]
@@ -292,6 +381,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    outline:
+      en:
+        - "State the guarantee as at-least-once and unordered, and require consumers to deduplicate by a stable event id."
+        - "Write events to a durable outbox in the same transaction, then retry with capped backoff and jitter."
+        - "Isolate failing endpoints in per-endpoint queues, disable after a retry window, and support replay."
+      ru:
+        - "Заявить гарантию как at-least-once без порядка и обязать получателя отсеивать дубли по стабильному id события."
+        - "Записывать события в надёжный outbox в той же транзакции, затем повторять с ограниченным backoff и jitter."
+        - "Изолировать сбойные endpoint-ы отдельными очередями, отключать после окна повторов и поддержать повторную отправку."
+    reading: ["stripe-idempotency","standard-webhooks-spec"]
   - id: "sd-architecture-critique"
     tracks: ["engineering"]
     roles: ["software-engineer"]
@@ -308,6 +407,16 @@ questions:
         company: "langchain"
         role: "software-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Read the system as it runs: request path, data ownership, failure modes and who operates it."
+        - "Rank weaknesses by the risk they pose to the new feature, not by how ugly they look."
+        - "Design the feature within existing constraints, naming the minimal changes it forces and a safe migration."
+      ru:
+        - "Разобрать систему в том виде, в каком она работает: путь запроса, владение данными, режимы отказа и кто её эксплуатирует."
+        - "Ранжировать слабые места по риску для новой функции, а не по тому, насколько некрасиво они выглядят."
+        - "Спроектировать функцию в существующих ограничениях, назвав минимально необходимые изменения и безопасный путь миграции."
+    reading: ["palantir-existing-systems"]
   - id: "sd-ml-system-end-to-end"
     tracks: ["engineering"]
     roles: ["ml-engineer"]
@@ -324,3 +433,13 @@ questions:
         company: "t-bank"
         role: "ml-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Frame the product decision, offline and online metrics, and latency and cost limits before any model."
+        - "Decompose into subtasks, plan where labels come from, and beat a heuristic baseline before adding models."
+        - "Plan deployment through shadow mode or an A/B test, with drift monitoring and a rollback."
+      ru:
+        - "Сформулировать продуктовое решение, офлайн- и онлайн-метрики, ограничения по задержке и стоимости до выбора модели."
+        - "Разбить на подзадачи, спланировать источник разметки и обыграть эвристический baseline до усложнения моделей."
+        - "Спланировать выкатку через теневой режим или A/B-тест с мониторингом дрейфа и откатом."
+    reading: ["google-rules-of-ml"]

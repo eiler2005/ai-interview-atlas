@@ -13,19 +13,33 @@
   - System design · Senior · Где спрашивали: [Amazon](../companies/amazon.md) † · ✍ [Ответ](../answers/leadership.md#prog-device-update) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-device-update&title=%5BCorrection%5D%20prog-device-update)
   - Что проверяет: Учитываете ли вы разнообразие устройств, прерывания обновлений и безопасный выпуск.
   - Сильный ответ покрывает:
-    - Уточните состав обновления, совместимость, связь и неудобства для пользователей.
-    - Предусмотрите контролируемые группы, проверки состояния и восстановление после установки.
-    - Определите условия приостановки, ответственность за откат и взаимодействие с поддержкой.
+    - Уточнить состав обновления, совместимость, связь и неудобства для пользователей.
+    - Предусмотреть контролируемые группы, проверки состояния и восстановление после установки.
+    - Определить условия приостановки, ответственность за откат и взаимодействие с поддержкой.
   - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="prog-technical-ownership"></a>**Расскажите о проекте, за который отвечали от начала до конца, и его ключевых технических решениях.**
   - Самопрезентация · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-technical-ownership&title=%5BCorrection%5D%20prog-technical-ownership)
   - Что проверяет: Связываете ли вы технические решения с ограничениями, порядком работ и результатами.
+  - Сильный ответ покрывает:
+    - Выбрать проект, за который вы отвечали от начала до конца, и показать, как ограничения задали порядок работ.
+    - Разобрать два-три ключевых решения, каждое с отвергнутой альтернативой и причиной выбора.
+    - Закончить связью каждого решения с измеренным результатом, включая то, чья цена проявилась позже.
+  - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="prog-delayed-by-judgement"></a>**Расскажите о техническом просчёте, из-за которого задержался проект.**
-  - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-delayed-by-judgement&title=%5BCorrection%5D%20prog-delayed-by-judgement)
+  - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#prog-delayed-by-judgement) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-delayed-by-judgement&title=%5BCorrection%5D%20prog-delayed-by-judgement)
   - Что проверяет: Умеете ли вы находить ошибочные предположения и менять подход к планированию.
+  - Сильный ответ покрывает:
+    - Выбрать просчёт, который был техническим и вашим, и сформулировать его как допущение, в которое вы тогда верили.
+    - Показать, когда появились первые данные против него, сколько времени ушло на реакцию и во что обошлась задержка.
+    - Назвать изменённую практику планирования, например раннюю проверку рискованных допущений, и где она потом помогла.
+  - Читать: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="prog-four-hour-demo"></a>**У вас четыре часа, чтобы собрать и показать работающий AI-продукт. Как распределить время?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-four-hour-demo&title=%5BCorrection%5D%20prog-four-hour-demo)
   - Что проверяет: Умеете ли вы выбрать реалистичный объём демонстрации и оставить время на интеграцию.
+  - Сильный ответ покрывает:
+    - В первые минуты зафиксировать одного пользователя, одну задачу и точный сценарий показа, ещё ничего не собирая.
+    - Взять готовые модели по API и существующие компоненты и рано собрать тонкий сквозной путь, а уже потом его углублять.
+    - Заморозить функциональность задолго до конца, отрепетировать показ на подготовленных входных данных и прямо сказать, что сделано заглушкой.
 
 ## <a id="track-leadership"></a>AI-лидерство
 
@@ -33,35 +47,50 @@
   - Поведенческий · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#prog-difficult-launch) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-difficult-launch&title=%5BCorrection%5D%20prog-difficult-launch)
   - Что проверяет: Умеете ли вы объяснить зависимости, решения и собственный вклад в результат.
   - Сильный ответ покрывает:
-    - Опишите цель, ограничения, участников и критические зависимости.
-    - Разберите важное решение, альтернативы и согласование действий участников.
-    - Назовите достигнутый результат и изменения для последующих запусков.
+    - Описать цель, ограничения, участников и критические зависимости.
+    - Разобрать важное решение, альтернативы и согласование действий участников.
+    - Назвать достигнутый результат и изменения для последующих запусков.
   - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="prog-prelaunch-hallucinations"></a>**За три недели до запуска LLM-функции оценка выявила много галлюцинаций в пограничных сценариях. Что вы предпримете?**
   - Прикладной сценарий · Senior · Где спрашивали: [Amazon](../companies/amazon.md) † · ✍ [Ответ](../answers/leadership.md#prog-prelaunch-hallucinations) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-prelaunch-hallucinations&title=%5BCorrection%5D%20prog-prelaunch-hallucinations)
   - Что проверяет: Принимаете ли вы решение о запуске на основе риска, а не любой ценой сохраняете дату.
   - Сильный ответ покрывает:
-    - Проверьте тяжесть, частоту, затронутых пользователей и надёжность оценки.
-    - Сравните сужение объёма, проверку человеком, устранение причин и перенос запуска.
-    - Назначьте владельца решения, критерии готовности и план коммуникаций.
+    - Проверить тяжесть, частоту, затронутых пользователей и надёжность оценки.
+    - Сравнить сужение объёма, проверку человеком, устранение причин и перенос запуска.
+    - Назначить владельца решения, критерии готовности и план коммуникаций.
   - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="prog-cross-team-delivery"></a>**Расскажите о крупном межфункциональном проекте: неопределённости, препятствиях и задержках.**
   - Поведенческий · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · ✍ [Ответ](../answers/leadership.md#prog-cross-team-delivery) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-cross-team-delivery&title=%5BCorrection%5D%20prog-cross-team-delivery)
   - Что проверяет: Умеете ли вы менять способ выполнения работы по мере уточнения данных и зависимостей.
   - Сильный ответ покрывает:
-    - Свяжите результаты и зависимости с конкретными ответственными.
-    - Объясните, как обнаружили препятствие и изменили план или порядок эскалации.
-    - Разделите выполненную работу и её эффект и первоначальные цели.
+    - Связать результаты и зависимости с конкретными ответственными.
+    - Объяснить, как обнаружили препятствие и изменили план или порядок эскалации.
+    - Разделить выполненную работу и её эффект и первоначальные цели.
   - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="prog-initiative-retrospective"></a>**Представьте крупную инициативу, которой вы руководили: что сработало, что нет и чему вы научились.**
-  - Самопрезентация · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-initiative-retrospective&title=%5BCorrection%5D%20prog-initiative-retrospective)
+  - Самопрезентация · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#prog-initiative-retrospective) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-initiative-retrospective&title=%5BCorrection%5D%20prog-initiative-retrospective)
   - Что проверяет: Умеете ли вы честно оценить инициативу на этапах планирования и выполнения.
+  - Сильный ответ покрывает:
+    - Выбрать инициативу, за которую отвечали целиком, и назвать её исходную цель в измеримых величинах.
+    - Разделить ошибки планирования и исполнения и назвать одно собственное решение, которое сейчас приняли бы иначе.
+    - Закончить результатом относительно исходной цели и практикой, которую поменяли после.
+  - Читать: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - <a id="prog-zero-to-one-ai"></a>**Расскажите об AI-продукте, созданном с нуля, и о том, как вы довели его до выпуска.**
   - Самопрезентация · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-zero-to-one-ai&title=%5BCorrection%5D%20prog-zero-to-one-ai)
   - Что проверяет: Умеете ли вы объяснить полный путь до выпуска, а не только создание прототипа.
+  - Сильный ответ покрывает:
+    - Выбрать продукт, дошедший до реальных пользователей, и начать с проблемы и того, почему ей подходил AI.
+    - Отдать большую часть ответа пути от прототипа к продакшену: набор для оценки, планка качества, обработка сбоев, решение о запуске.
+    - Закончить внедрением и результатом после запуска и тем, как качество отслеживали и улучшали на реальном трафике.
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="prog-dependency-slip"></a>**Команда-поставщик данных не успевает к контрольной дате AI-программы. Как вы пересмотрите план и сообщите о последствиях?**
-  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-dependency-slip&title=%5BCorrection%5D%20prog-dependency-slip)
+  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-dependency-slip) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-dependency-slip&title=%5BCorrection%5D%20prog-dependency-slip)
   - Что проверяет: Умеете ли вы оценить влияние зависимости и предложить варианты действий.
+  - Сильный ответ покрывает:
+    - Выяснить, что именно сдвинулось: какие данные, на сколько и насколько надёжна новая дата.
+    - Провести сдвиг по критическому пути и оценить перестановку работ, частичные данные, сокращение объёма и перенос срока.
+    - Принести спонсорам оценённые варианты с владельцем решения и добавить промежуточные точки с командой-поставщиком.
+  - Читать: [Dependency Mapping](https://www.atlassian.com/team-playbook/plays/dependency-mapping) (Atlassian Team Playbook)
 - <a id="prog-research-milestones"></a>**Как вы спланируете AI-программу, если её основная исследовательская гипотеза может не подтвердиться?**
   - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-research-milestones) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-research-milestones&title=%5BCorrection%5D%20prog-research-milestones)
   - Что проверяет: Снижают ли контрольные точки неопределённость и позволяют ли обоснованно остановить работу.

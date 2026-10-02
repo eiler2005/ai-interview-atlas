@@ -27,12 +27,12 @@ questions:
         - "Explain a consequential decision, alternatives and how you kept people aligned."
         - "State the realised outcome and what you changed for later launches."
       ru:
-        - "Опишите цель, ограничения, участников и критические зависимости."
-        - "Разберите важное решение, альтернативы и согласование действий участников."
-        - "Назовите достигнутый результат и изменения для последующих запусков."
+        - "Описать цель, ограничения, участников и критические зависимости."
+        - "Разобрать важное решение, альтернативы и согласование действий участников."
+        - "Назвать достигнутый результат и изменения для последующих запусков."
     answer:
-      en: "Pick a launch where the difficulty was in the dependencies, not the volume of work, and open with the frame: the goal, the constraints on date, quality and regulatory requirements, who was involved, and what sat on the critical path. Then give the interviewer what they want most, which is one decision: what you actually decided, what the alternatives were, what data you had, and how you got agreement from the people it affected. Unpack that one in detail and compress everything else. Say how you defined readiness, with release criteria, a rollback plan and on-call cover after the release; that is what separates managing risk from hoping. Finish with the outcome in the terms you promised beforehand, and what you changed for later launches. The usual mistake is a project overview with no contribution of your own; the second is a victory report where no bet went wrong."
-      ru: "Выбирайте запуск, где сложность была в зависимостях, а не в объёме работы, и начинайте с рамки: цель, ограничения по срокам, качеству и требованиям регулятора, состав участников и что лежало на критическом пути. Дальше интервьюеру нужнее всего одно решение: что именно вы решали, какие были альтернативы, какими данными располагали и как договорились с теми, кого это затрагивало. Его разбирайте подробно, остальное сжимайте. Полезно назвать, как понимали готовность — критерии выпуска, план отката, дежурство после релиза, — это отличает управление риском от надежды на удачу. Заканчивайте результатом в тех величинах, которые обещали заранее, и тем, что изменили в подготовке следующих запусков. Типичная ошибка — обзор проекта без собственного вклада; вторая — победный отчёт, в котором ни одна ставка не оказалась неверной."
+      en: "Pick a launch with a decision you drove that could have gone the other way, hard because of dependencies you didn't control, not volume or long hours. Give the frame briefly, the goal, hard constraints on date, quality or regulation, the critical path, and cut team history, tooling and the full timeline. The interviewer is separating your contribution from the team's, so speak in the first person singular for your own decisions and the plural for the team's work, and expect probing there. Then unpack the one decision: the options, what you knew, what you gave up, and how the people it cost came to accept it. Say how readiness was defined before the date, with launch criteria, a rollback plan and on-call cover. Close with evidence: which criteria were met or missed in the terms promised beforehand, and the single process change you carried into later launches, with a sign it worked. The usual mistakes are an overview where you never decide anything and a victory report where no bet went wrong."
+      ru: "Выбирайте запуск с решением, которое вели вы и которое могло пойти иначе, а сложным его делали зависимости вне вашего контроля, а не объём работы или переработки. Рамку дайте коротко — цель, жёсткие ограничения по срокам, качеству или регулированию, критический путь, — а историю команды, инструменты и полную хронологию вырежьте. Интервьюер отделяет ваш вклад от вклада команды, поэтому о своих решениях говорите в первом лице единственного числа, о работе команды — во множественном, и ждите уточняющих вопросов именно здесь. Затем разберите одно решение: варианты, что вы знали, чем пожертвовали и как его приняли те, кому оно чего-то стоило. Скажите, как определяли готовность до даты: критерии выпуска, план отката, дежурство. Закончите свидетельствами: какие критерии выполнены или нет в тех величинах, что обещали заранее, и одно изменение процесса, которое вы перенесли в следующие запуски, с признаком того, что оно сработало. Типичные ошибки — обзор, где вы ни разу ничего не решаете, и победный отчёт, где ни одна ставка не оказалась неверной."
     reading: ["google-sre-book","design-docs-at-google"]
   - id: "prog-prelaunch-hallucinations"
     tracks: ["leadership"]
@@ -61,9 +61,9 @@ questions:
         - "Compare narrowing scope, adding review, fixing causes and delaying release."
         - "Assign a decision owner, explicit exit criteria and a communication plan."
       ru:
-        - "Проверьте тяжесть, частоту, затронутых пользователей и надёжность оценки."
-        - "Сравните сужение объёма, проверку человеком, устранение причин и перенос запуска."
-        - "Назначьте владельца решения, критерии готовности и план коммуникаций."
+        - "Проверить тяжесть, частоту, затронутых пользователей и надёжность оценки."
+        - "Сравнить сужение объёма, проверку человеком, устранение причин и перенос запуска."
+        - "Назначить владельца решения, критерии готовности и план коммуникаций."
     answer:
       en: "The first thing I do is stop discussing the date and establish the shape of the risk: how severe the consequences of this error are, how often it appears on the real distribution of requests, who it hits, and how trustworthy the evaluation itself is, since a small or unrepresentative eval set can both exaggerate a problem and hide it. I compare the options on one scale of harm and cost: narrow the feature to the cases where it's reliable, add human review or an honest refusal, fix the cause in retrieval and prompts, or move the launch. Each option pays something: narrowing costs value, a human in the loop costs speed and money. I name an owner for the launch decision, written exit criteria, and a communication plan for users and support. None of this helps if the edge-case error is irreversible: then there's no launch to discuss."
       ru: "Первым делом перестаю обсуждать дату и выясняю характер риска: насколько тяжелы последствия такой ошибки, как часто она возникает на реальном распределении запросов, кого именно задевает и насколько надёжна сама оценка — маленький или нерепрезентативный eval-набор умеет и преувеличивать проблему, и прятать её. Потом сравниваю варианты по одной шкале вреда и стоимости: сузить функцию до сценариев, где она надёжна, добавить проверку человеком или честный отказ, лечить причину в поиске и промптах, перенести запуск. Каждый вариант чем-то платит: сужение бьёт по ценности, человек в контуре — по скорости и цене. Дальше назначаю владельца решения о запуске, письменные критерии готовности и план коммуникаций для пользователей и поддержки. Всё это не поможет, если ошибка в пограничном сценарии необратима: там запуск обсуждать нечего."
@@ -95,9 +95,9 @@ questions:
         - "Explain how you detected a blockage and changed the plan or escalation path."
         - "Distinguish actual delivery and impact from initial targets."
       ru:
-        - "Свяжите результаты и зависимости с конкретными ответственными."
-        - "Объясните, как обнаружили препятствие и изменили план или порядок эскалации."
-        - "Разделите выполненную работу и её эффект и первоначальные цели."
+        - "Связать результаты и зависимости с конкретными ответственными."
+        - "Объяснить, как обнаружили препятствие и изменили план или порядок эскалации."
+        - "Разделить выполненную работу и её эффект и первоначальные цели."
     answer:
       en: "What's tested here isn't stamina, it's how you change the way you work as the picture clears. Start with the map: what you promised to deliver, what those deliverables depended on, and who personally owned each dependency, because people are accountable, not teams. Then take one blockage and show the mechanics: which signal let you see it rather than hear about it afterwards, what you changed in the plan, the order of work or the escalation path, and what you gave up to do it. Keep three things apart: what was delivered, what effect it had, and how that compares with the original target; if the target was missed, say so. The common mistake is a long coordination story with no decision in it. Finish with what you now do earlier, which is usually an early test of the most fragile dependency."
       ru: "Проверяют здесь не выносливость, а то, как вы меняете способ работы по мере того, как картина проясняется. Начните с карты: какие результаты вы обещали, от чего они зависели и кто персонально отвечал за каждую зависимость — отвечают люди, а не команды. Дальше возьмите одно препятствие и покажите механику: по какому сигналу вы его заметили, а не узнали постфактум, что изменили в плане, порядке работ или уровне эскалации и чем при этом пожертвовали. Отдельно разведите три вещи: что сделано, какой это дало эффект и как он соотносится с исходной целью — если цель не достигнута, так и скажите. Частая ошибка — длинный рассказ про координацию, где нет ни одного решения. Заканчивайте тем, что теперь делаете раньше: обычно это ранняя проверка самой хрупкой зависимости."
@@ -129,9 +129,9 @@ questions:
         - "Use controlled cohorts, health checks and recoverable installation."
         - "Define rollout pauses, rollback ownership and support communication."
       ru:
-        - "Уточните состав обновления, совместимость, связь и неудобства для пользователей."
-        - "Предусмотрите контролируемые группы, проверки состояния и восстановление после установки."
-        - "Определите условия приостановки, ответственность за откат и взаимодействие с поддержкой."
+        - "Уточнить состав обновления, совместимость, связь и неудобства для пользователей."
+        - "Предусмотреть контролируемые группы, проверки состояния и восстановление после установки."
+        - "Определить условия приостановки, ответственность за откат и взаимодействие с поддержкой."
     answer:
       en: "Updating home devices means operating in someone else's environment: different models and firmware versions, weak Wi-Fi, a socket switched off halfway through the install. I assess: changes, affected devices, whether protocol compatibility with older versions holds, how large the package is and when to download it so the user isn't disturbed. Then I ship in waves: our own devices, a small group, then wider cohorts with a health check after install and a metric of devices that came back online, not just ones that received the package. The install has to be atomic, with a backup image and an automatic return to the previous version after a failed boot or health check. I set the thresholds for pausing the rollout, the owner of the rollback call, and what support will see. None of this saves you from a defect in the update mechanism itself: that may require a service visit."
       ru: "Обновление устройств, которые стоят у людей дома, это не деплой, а операция в чужой среде: разные модели и версии прошивки, слабый Wi-Fi, розетка, выключенная посреди установки. Поэтому начинаю с состава: что меняется, какие устройства затронуты, сохраняется ли совместимость протоколов со старыми версиями, сколько весит пакет и когда его загружать, чтобы не мешать пользователю. Дальше выпуск волнами: свои устройства, небольшая группа, затем расширение по когортам с проверкой состояния после установки и метрикой вернувшихся в строй, а не только доставленных. Установка должна быть атомарной, с резервным образом и автоматическим возвратом на прежнюю версию при неудачном запуске или проверке состояния. Отдельно фиксирую пороги остановки выпуска, владельца решения об откате и что увидит поддержка. Против дефекта в самом механизме обновления это не спасает: может потребоваться сервис."
@@ -155,6 +155,21 @@ questions:
     evidence:
       - source: "exponent-report-anthropic-em"
         company: "anthropic"
+    start_here: ["leadership"]
+    priority: 56
+    outline:
+      en:
+        - "Pick an initiative you owned end to end and state its original goal in measurable terms."
+        - "Separate planning errors from execution errors, and name one decision of yours you would now reverse."
+        - "Close with the result against the original goal and a practice you changed afterwards."
+      ru:
+        - "Выбрать инициативу, за которую отвечали целиком, и назвать её исходную цель в измеримых величинах."
+        - "Разделить ошибки планирования и исполнения и назвать одно собственное решение, которое сейчас приняли бы иначе."
+        - "Закончить результатом относительно исходной цели и практикой, которую поменяли после."
+    answer:
+      en: "Pick an initiative where you owned the outcome, not just a workstream, and open with its original goal as it was set — scope, date, a metric — because an honest assessment compares the result with that, not with whatever eventually shipped. Then assess it on two axes. Planning: which assumptions proved wrong, about demand, an estimate or a dependency. Execution: where the team carried out a sound plan badly, or rescued a weak one. The interviewer is listening for whether you can tell the two apart, because they lead to different lessons. Make what didn't work substantive: one decision of your own that you'd now reverse, and what it cost. The usual mistake is a failure section made of things that happened to you, such as a reorganisation or a vendor. If you present with slides, give the failures as much room as the successes, since follow-up questions go wherever you were vague. Close with the result against the original goal, gap included, and a practice you changed afterwards."
+      ru: "Выбирайте инициативу, где вы отвечали за результат, а не за отдельное направление, и начните с исходной цели в том виде, в каком её ставили, — объём, срок, метрика: честная оценка сравнивает итог именно с ней, а не с тем, что в итоге выпустили. Дальше оценивайте по двум осям. Планирование: какие допущения оказались неверны — о спросе, об оценке трудоёмкости, о зависимости. Исполнение: где команда плохо реализовала хороший план или, наоборот, вытащила слабый. Интервьюер слушает, умеете ли вы их различать, потому что выводы из них разные. Сделайте раздел о том, что не сработало, содержательным: одно ваше собственное решение, которое вы бы сейчас отменили, и во что оно обошлось. Типичная ошибка — список неудач из того, что с вами случилось, вроде реорганизации или подрядчика. Если рассказываете со слайдами, отдайте неудачам столько же места, сколько успехам: уточняющие вопросы пойдут туда, где вы были расплывчаты. Заканчивайте результатом относительно исходной цели, включая разрыв, и практикой, которую поменяли после."
+    reading: ["google-sre-postmortem-culture"]
   - id: "prog-technical-ownership"
     tracks: ["engineering","leadership"]
     type: "self_presentation"
@@ -174,6 +189,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "anthropic"
+    outline:
+      en:
+        - "Pick a project you owned end to end, and show how its constraints set the order of work."
+        - "Walk through two or three key decisions, each with the alternative you rejected and the reason."
+        - "Close by tying each decision to the measured outcome, including one whose cost showed up later."
+      ru:
+        - "Выбрать проект, за который вы отвечали от начала до конца, и показать, как ограничения задали порядок работ."
+        - "Разобрать два-три ключевых решения, каждое с отвергнутой альтернативой и причиной выбора."
+        - "Закончить связью каждого решения с измеренным результатом, включая то, чья цена проявилась позже."
+    reading: ["design-docs-at-google"]
   - id: "prog-delayed-by-judgement"
     tracks: ["engineering","leadership"]
     type: "behavioral"
@@ -193,6 +218,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "anthropic"
+    start_here: ["leadership"]
+    priority: 57
+    outline:
+      en:
+        - "Pick a misjudgement that was technical and yours, stated as the assumption you believed then."
+        - "Show when contrary evidence first appeared, how long you took to act, and what the delay cost."
+        - "Name the planning practice you changed, such as testing risky assumptions first, and where it later helped."
+      ru:
+        - "Выбрать просчёт, который был техническим и вашим, и сформулировать его как допущение, в которое вы тогда верили."
+        - "Показать, когда появились первые данные против него, сколько времени ушло на реакцию и во что обошлась задержка."
+        - "Назвать изменённую практику планирования, например раннюю проверку рискованных допущений, и где она потом помогла."
+    answer:
+      en: "Choose a misjudgement that was technical and genuinely yours: an assumption that a component would scale, that an integration was a week's work, that a data format was stable. What's tested is whether you can locate the faulty assumption precisely, so state it as the sentence you believed at the time and why it was reasonable on what you knew. Then the part most candidates skip: when did the first evidence against it appear, and how long did you take to act on it? That gap is often where most of the delay came from, rather than the original error. Be specific about the cost in time and who absorbed it. The weak ending is adding buffer to estimates, because padding doesn't correct a wrong assumption. A strong one names a change in how you plan: testing the riskiest technical assumption first with a short spike, or writing assumptions into the design doc with a date to check them, and a later project where that caught a problem early."
+      ru: "Выбирайте просчёт, который был техническим и действительно вашим: допущение, что компонент выдержит рост нагрузки, что интеграция займёт неделю, что формат данных стабилен. Проверяют, умеете ли вы точно найти ошибочное допущение, поэтому сформулируйте его той фразой, в которую тогда верили, и объясните, почему при тогдашних данных оно выглядело разумным. Дальше часть, которую большинство пропускает: когда появились первые признаки, что оно неверно, и сколько времени прошло, прежде чем вы отреагировали? Часто именно в этом зазоре, а не в исходной ошибке, и набирается основная задержка. Конкретно назовите, сколько времени это стоило и на кого легло. Слабый финал — «стал закладывать запас в оценки»: запас не исправляет неверное допущение. Сильный называет изменение в том, как вы планируете: первым проверять самое рискованное техническое допущение коротким прототипом или записывать допущения в design-документ с датой проверки, — и более поздний проект, где это вовремя поймало проблему."
+    reading: ["google-sre-postmortem-culture","design-docs-at-google"]
   - id: "prog-four-hour-demo"
     tracks: ["engineering","leadership"]
     type: "applied_scenario"
@@ -211,6 +251,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Spend the opening minutes fixing one user, one task and the exact demo path before building anything."
+        - "Use hosted models and existing parts, and get a thin end-to-end path working early before deepening it."
+        - "Freeze features well before the end, rehearse on prepared inputs, and state plainly what is stubbed."
+      ru:
+        - "В первые минуты зафиксировать одного пользователя, одну задачу и точный сценарий показа, ещё ничего не собирая."
+        - "Взять готовые модели по API и существующие компоненты и рано собрать тонкий сквозной путь, а уже потом его углублять."
+        - "Заморозить функциональность задолго до конца, отрепетировать показ на подготовленных входных данных и прямо сказать, что сделано заглушкой."
   - id: "prog-zero-to-one-ai"
     tracks: ["leadership"]
     type: "self_presentation"
@@ -230,6 +279,16 @@ questions:
     evidence:
       - source: "exponent-microsoft-ai-pm"
         company: "microsoft"
+    outline:
+      en:
+        - "Pick a product that reached real users, and open with the problem and why AI fitted it."
+        - "Spend most of the answer on the prototype-to-production gap: evaluation set, quality bar, failure handling, launch decision."
+        - "Close with adoption and outcome after launch, and how quality was monitored and improved once real traffic arrived."
+      ru:
+        - "Выбрать продукт, дошедший до реальных пользователей, и начать с проблемы и того, почему ей подходил AI."
+        - "Отдать большую часть ответа пути от прототипа к продакшену: набор для оценки, планка качества, обработка сбоев, решение о запуске."
+        - "Закончить внедрением и результатом после запуска и тем, как качество отслеживали и улучшали на реальном трафике."
+    reading: ["hamel-evals"]
   - id: "prog-dependency-slip"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -247,6 +306,21 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:program-delivery"]
+    start_here: ["leadership"]
+    priority: 58
+    outline:
+      en:
+        - "Establish exactly what slipped: which data, by how much, and how reliable the new date is."
+        - "Trace the slip through the critical path and price re-sequencing, partial data, descoping and moving the date."
+        - "Bring sponsors priced options with a decision owner, and add intermediate checkpoints with the upstream team."
+      ru:
+        - "Выяснить, что именно сдвинулось: какие данные, на сколько и насколько надёжна новая дата."
+        - "Провести сдвиг по критическому пути и оценить перестановку работ, частичные данные, сокращение объёма и перенос срока."
+        - "Принести спонсорам оценённые варианты с владельцем решения и добавить промежуточные точки с командой-поставщиком."
+    answer:
+      en: "I'd first pin down what actually slipped, because late data covers very different situations: the whole dataset or one source, labels or raw records, a week or an open-ended delay, and how far I trust the new date given how the team did against the last one. Then I trace it through the critical path. A slip only moves our date if the work that needs the data sits on that path; the evaluation harness, pipeline code and a pilot on a partial or synthetic sample can often proceed, so the real impact may be smaller than the headline, or larger if labelling and training are strictly sequential. I'd bring sponsors options, each with its cost: re-sequence, launch on partial data with a named quality risk, cut scope, or move the date, plus who owns the choice. And I'd replace the single handover date with intermediate checkpoints, such as a schema and a sample delivered early. The boundary: if the slip comes from conflicting priorities, re-planning won't fix it; it goes to whoever sets both teams' priorities."
+      ru: "Сначала выясняю, что именно сдвинулось: опоздание данных скрывает очень разные ситуации — весь набор или один источник, разметка или сырые записи, неделя или задержка без понятного срока, и насколько я доверяю новой дате, учитывая, как команда уложилась в прошлую. Дальше провожу сдвиг по критическому пути. Наш срок двигается, только если работа, которой нужны эти данные, лежит на нём; стенд оценки, код пайплайна и пилот на частичной или синтетической выборке часто можно продолжать, так что реальное влияние бывает меньше, чем кажется по первому сообщению, — или больше, если разметка и обучение идут строго последовательно. Спонсорам приношу варианты, каждый со своей ценой: переставить работы, запуститься на частичных данных с названным риском по качеству, сократить объём или перенести срок, — и кто принимает решение. Единую дату передачи заменяю промежуточными точками, например ранней поставкой схемы и образца данных. Граница: если сдвиг вызван конфликтом приоритетов, перепланирование его не исправит — вопрос уходит к тому, кто задаёт приоритеты обеим командам."
+    reading: ["atlassian-dependency-mapping"]
   - id: "prog-research-milestones"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -277,7 +351,7 @@ questions:
         - "Финансировать резервный путь и договориться об условии остановки до того, как все вложились."
     answer:
       en: "I plan the uncertainty, not the timeline. The first step is to write the hypothesis down precisely enough that it could be false, then order the work so the cheapest falsifying experiment comes first, because a programme that learns its core assumption is wrong in month nine has spent eight months buying nothing. Milestones are therefore defined by which unknown they retire, not by artefacts delivered, and each carries a decision rule agreed in advance: what result continues, what pivots, what stops. Agreeing the stop condition before anyone is invested is the whole trick, since afterwards it becomes a referendum on people's judgement. I would also fund a fallback path in parallel, so there is something to ship if the hypothesis fails, and report progress as uncertainty removed. A programme that reports only percentage complete is not being managed."
-      ru: "Я планирую неопределённость, а не сроки. Первый шаг — записать гипотезу настолько точно, чтобы она могла оказаться ложной, и выстроить работу так, чтобы самый дешёвый опровергающий эксперимент шёл первым: программа, узнавшая на девятом месяце, что её основное допущение неверно, восемь месяцев покупала пустоту. Контрольные точки поэтому определяются тем, какую неизвестность они снимают, а не сданными артефактами, и к каждой прилагается заранее согласованное правило решения: какой результат продолжает работу, какой разворачивает её, какой останавливает. Договориться об условии остановки до того, как все вложились, — и есть главный приём: потом это превращается в референдум о чьей-то компетентности. Я бы параллельно финансировал резервный путь, чтобы было что выпустить при неподтверждении гипотезы, и докладывал прогресс как снятую неопределённость. Программа, отчитывающаяся только процентом готовности, не управляется."
+      ru: "Я планирую неопределённость, а не сроки. Первый шаг — записать гипотезу настолько точно, чтобы она могла оказаться ложной, и выстроить работу так, чтобы самый дешёвый опровергающий эксперимент шёл первым: программа, узнавшая на девятом месяце, что её основное допущение неверно, восемь месяцев потратила впустую. Контрольные точки поэтому определяются тем, какую неизвестность они снимают, а не сданными артефактами, и к каждой прилагается заранее согласованное правило решения: какой результат продолжает работу, какой разворачивает её, какой останавливает. Договориться об условии остановки до того, как все вложились, — и есть главный приём: потом это превращается в референдум о чьей-то компетентности. Я бы параллельно финансировал резервный путь, чтобы было что выпустить при неподтверждении гипотезы, и докладывал прогресс как снятую неопределённость. Программа, отчитывающаяся только процентом готовности, не управляется."
     reading: ["design-docs-at-google"]
   - id: "prog-multi-owner-readiness"
     tracks: ["leadership"]
@@ -309,5 +383,5 @@ questions:
         - "Зафиксировать решение, принятый остаточный риск, его владельца и дату пересмотра."
     answer:
       en: "Disagreement about readiness is usually disagreement about criteria that were never written down, so I stop collecting approvals and start converting objections into testable statements. Each team names what must be true to launch — an error rate below a stated threshold, a runbook exercised, an audit trail retrievable — with the evidence that shows it. Most conflict dissolves here, because operations and risk are not disputing the numbers, they are worried about different failure modes. Then I make decision rights explicit before the room meets: who decides, who must be consulted, and who genuinely holds a veto — one bounded by policy, not by discomfort. Whatever remains unresolved is written as accepted residual risk with a named owner, a mitigation and a review date, so the decision is traceable. A veto with no criterion behind it is the thing to resolve."
-      ru: "Расхождение в оценке готовности почти всегда есть расхождение в критериях, которые никто не записал, поэтому я перестаю собирать согласования и начинаю переводить возражения в проверяемые утверждения. Каждая команда называет, что должно быть верно для запуска: доля ошибок ниже заявленного порога, отработанный runbook, извлекаемый аудиторский след — и прилагает подтверждающие данные. Большая часть конфликта растворяется уже здесь: эксплуатация и риск-функция спорят не о цифрах, а беспокоятся о разных режимах отказа. Затем я до встречи явно фиксирую права решения: кто решает, с кем обязательно советуются и у кого действительно есть право вето — ограниченное политикой, а не общим дискомфортом. Всё нерешённое оформляется как принятый остаточный риск с названным владельцем, мерой снижения и датой пересмотра, чтобы решение можно было проверить. Вето, за которым нет критерия, — и есть то, что нужно разрешить."
+      ru: "Расхождение в оценке готовности обычно сводится к расхождению в критериях, которые никто не записал, поэтому я перестаю собирать согласования и начинаю переводить возражения в проверяемые утверждения. Каждая команда называет, что должно быть верно для запуска: доля ошибок ниже заявленного порога, отработанный runbook, извлекаемый аудиторский след — и прилагает подтверждающие данные. Большая часть конфликта растворяется уже здесь: эксплуатация и риск-функция спорят не о цифрах, а беспокоятся о разных режимах отказа. Затем я до встречи явно фиксирую права решения: кто решает, с кем обязательно советуются и у кого действительно есть право вето — ограниченное политикой, а не общим дискомфортом. Всё нерешённое оформляется как принятый остаточный риск с названным владельцем, мерой снижения и датой пересмотра, чтобы решение можно было проверить. Вето, за которым нет критерия, — и есть то, что нужно разрешить."
     reading: ["nist-ai-rmf"]

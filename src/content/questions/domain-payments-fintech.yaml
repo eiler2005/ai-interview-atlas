@@ -25,9 +25,9 @@ questions:
         - "Validate authority at execution; require new confirmation for changes outside the grant."
         - "Preserve an audit trail and distinguish authorisation evidence from settlement success."
       ru:
-        - "Явно представьте намерение пользователя и ограничения операции, включая сумму и получателя."
-        - "Проверяйте полномочия при выполнении; запрашивайте новое подтверждение изменений за пределами разрешения."
-        - "Сохраняйте аудиторский след и различайте подтверждение полномочий и успешное завершение расчётов."
+        - "Явно представить намерение пользователя и ограничения операции, включая сумму и получателя."
+        - "Проверять полномочия при выполнении; запрашивать новое подтверждение изменений за пределами разрешения."
+        - "Сохранять аудиторский след и различать подтверждение полномочий и успешное завершение расчётов."
     answer:
       en: "A payment has to rest on a separate verifiable authorisation, not on what the agent understood the user to mean. Intent is expressed as an explicit object with constraints, amount or limit, payee, currency, validity period and conditions, and it's signed so it can be produced later; that's what AP2 is built on, where signed mandates tie the user's consent to a specific purchase and payment and give a consistent trail. Authority is validated at execution time on the payment side: if the amount or the payee falls outside the grant, you need a new confirmation, not the agent's guess. The audit trail keeps what the user approved, what the agent proposed and what executed. Authorisation evidence and settlement are different things: an authorisation doesn't mean the money arrived. A signature authenticates a signer and unchanged mandate; genuine consent also requires a trusted approval flow. Limits and revocation still matter."
       ru: "Платёж должен опираться на отдельное проверяемое разрешение, а не на то, что агент так понял пользователя. Намерение выражается явным объектом с ограничениями — сумма или лимит, получатель, валюта, срок действия, условия — и подписывается так, что его можно предъявить позже; именно на этом построен AP2, где подписанные мандаты связывают согласие пользователя с конкретной покупкой и платежом и дают непротиворечивый след. Полномочия проверяются в момент исполнения на стороне платёжной части: если сумма или получатель вышли за границы разрешения, нужно новое подтверждение, а не догадка агента. Аудиторский след хранит, что пользователь одобрил, что агент предложил и что исполнилось. Важно различать подтверждение полномочий и завершение расчётов: авторизация не означает, что деньги дошли. Подпись подтверждает подписанта и неизменность мандата; подлинное согласие требует доверенного процесса одобрения. Лимиты и возможность отзыва всё равно нужны."
@@ -57,9 +57,9 @@ questions:
         - "Use the provider's idempotency contract and reconcile status after ambiguous failures."
         - "Handle retention limits, concurrent attempts and manual escalation; do not promise global exactly-once execution."
       ru:
-        - "Задайте стабильный идентификатор операции и сохраните намерение до повторов."
-        - "Используйте контракт идемпотентности поставщика и сверяйте статус после неоднозначного сбоя."
-        - "Учтите срок хранения ключей, конкурентные попытки и ручную эскалацию; не обещайте сквозное выполнение строго один раз."
+        - "Задать стабильный идентификатор операции и сохранить намерение до повторов."
+        - "Использовать контракт идемпотентности поставщика и сверять статус после неоднозначного сбоя."
+        - "Учесть срок хранения ключей, конкурентные попытки и ручную эскалацию; не обещать сквозное выполнение строго один раз."
     answer:
       en: "A timeout does not mean the refund failed, so I'd treat the unknown outcome as a reconciliation problem rather than a reason to repeat the call. Every operation gets a stable identifier created before the first request, and the intent is persisted in our own database before the request goes out, otherwise a retry has nothing to attach to. The retry goes with the same idempotency key under the provider's contract, with exponential backoff and jitter; if the response is ambiguous again, the status is resolved with a status query or by reconciling reports, not with a second refund. You have to account for the finite lifetime of keys, concurrent attempts under one key, and a changed amount, which makes it a different operation. I'd test parallel retries and the manual escalation path. There is no end to end exactly once: this is retry with deduplication and later reconciliation."
       ru: "Таймаут не означает, что возврат не прошёл, поэтому неизвестный исход я бы рассматривал как задачу сверки, а не как повод повторить вызов. Каждой операции присваивается стабильный идентификатор, созданный до первого обращения, а намерение сохраняется в своей базе раньше, чем уходит запрос, иначе повтор не с чем связать. Повтор идёт с тем же ключом идемпотентности по контракту поставщика, с экспоненциальной задержкой и случайным разбросом; если ответ снова неоднозначен, статус выясняется запросом состояния или сверкой выгрузок, а не вторым возвратом. Учитывать нужно конечный срок жизни ключей, одновременные попытки с одним ключом и изменение суммы, которое делает запрос уже другой операцией. Проверил бы поведение при параллельных повторах и путь ручной эскалации. Сквозного выполнения ровно один раз не бывает: это повтор с дедупликацией и последующей сверкой."
@@ -89,9 +89,9 @@ questions:
         - "Evaluate representative cases and harmful errors, including how employees use or override suggestions."
         - "Document owners, monitoring, escalation and a controlled expansion; verify applicable jurisdiction-specific obligations separately."
       ru:
-        - "Определите решения, затронутых клиентов и границы полномочий ассистента."
-        - "Оцените типичные случаи и опасные ошибки, включая принятие и отмену рекомендаций сотрудниками."
-        - "Зафиксируйте владельцев, мониторинг, эскалацию и контролируемое расширение; отдельно проверьте применимые требования юрисдикции."
+        - "Определить решения, затронутых клиентов и границы полномочий ассистента."
+        - "Оценить типичные случаи и опасные ошибки, включая принятие и отмену рекомендаций сотрудниками."
+        - "Зафиксировать владельцев, мониторинг, эскалацию и контролируемое расширение; отдельно проверить применимые требования юрисдикции."
     answer:
       en: "Before expanding you have to fix which decisions the assistant touches, which customers they affect, and where its authority ends: it proposes, the employee decides, and that has to be true in the interface, not just in a document. I would collect two kinds of evidence: a set of real cases with known correct outcomes, including rare and expensive errors, and the behaviour of employees, the share of suggestions accepted and rejected, and reversals and corrections after acceptance. The mechanism is uncomfortable: a suggestion shifts attention, and agreement quickly becomes a formality, so suggestion quality is measured together with the quality of human decisions. Then you name owners, monitoring, the escalation path and a staged expansion by segment with a stop ready, and the applicable jurisdiction requirements are verified separately with lawyers. Quality on historical cases does not predict behaviour with new products and unfamiliar fraud schemes."
       ru: "До расширения нужно зафиксировать, какие решения ассистент затрагивает, кого из клиентов они касаются и где проходит граница его полномочий: он предлагает, сотрудник решает, и это должно быть правдой в интерфейсе, а не декларацией. Данные я бы собрал двух видов — набор реальных обращений с известным правильным исходом, включая редкие и дорогие ошибки, и поведение сотрудников: доля принятых и отклонённых рекомендаций, отмены и исправления после принятия. Механизм здесь неприятный: подсказка смещает внимание, и согласие быстро становится формальным, поэтому качество подсказки измеряется вместе с качеством решений людей. Дальше назначаются владельцы, мониторинг, порядок эскалации и поэтапное расширение по сегментам с готовой остановкой, а применимые требования юрисдикции проверяются отдельно с юристами. Качество на исторических обращениях не предсказывает поведение при новых продуктах и незнакомых схемах мошенничества."
@@ -114,6 +114,21 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    start_here: ["leadership"]
+    priority: 62
+    outline:
+      en:
+        - "Map every copy of recordings, transcripts and notes, including logs, traces, caches and evaluation sets."
+        - "Send protected data to a model API only under a contract covering health data, retention and training use."
+        - "Minimise data per step, audit access, measure redaction misses and test deletion before integration."
+      ru:
+        - "Найти каждую копию записей, расшифровок и заметок, включая логи, трассировки, кеши и наборы для оценки."
+        - "Передавать защищённые данные в API модели только по договору, покрывающему медицинские данные, хранение и обучение."
+        - "Минимизировать данные на каждом шаге, журналировать доступ, измерить пропуски маскирования и проверить удаление до интеграции."
+    answer:
+      en: "Protected health information changes the order of work: before choosing a model I'd map every place the data goes, because each copy carries the same obligations. That means the audio, transcripts and generated notes, but also logs, traces, caches, retry queues, evaluation sets and support tickets, which is where it usually leaks. A third-party model API is acceptable only as permitted processing: a contract that explicitly covers health data, limits retention, excludes training on it, and fixes where it's stored and who can access it. Without that the data doesn't go, which may mean a different vendor or a self-hosted model at higher operating cost. Then minimisation: each step receives only what it needs, identifiers are removed where the task allows, and prompts and outputs stay out of general-purpose logging. Redaction tools miss things, so I'd measure their misses on a labelled sample, and test deletion and access auditing before launch. Consent to record and the obligations that apply depend on jurisdiction and each party's role, so counsel confirms them; the architecture can't."
+      ru: "Защищённая медицинская информация меняет порядок работы: прежде чем выбирать модель, я бы нанёс на карту все места, куда попадают данные, потому что на каждую копию распространяются те же обязательства. Это аудио, расшифровки и сгенерированные записи, но также логи, трассировки, кеши, очереди повторов, наборы для оценки и обращения в поддержку — обычно утечка случается именно там. Сторонний API модели допустим только как разрешённая обработка: договор, явно покрывающий медицинские данные, ограничивающий срок хранения, запрещающий обучение на них и фиксирующий, где они хранятся и у кого есть доступ. Без этого данные туда не уходят, а значит, может понадобиться другой поставщик или своя модель с более дорогой эксплуатацией. Дальше минимизация: каждый шаг получает только нужное, идентификаторы убираются там, где задача позволяет, а промпты и ответы не попадают в общее журналирование. Инструменты маскирования пропускают данные, поэтому измерил бы их пропуски на размеченной выборке и до запуска проверил удаление и аудит доступа. Согласие на запись и применимые обязательства зависят от юрисдикции и роли каждой стороны, поэтому их подтверждают юристы, а не архитектура."
+    reading: ["owasp-llm-top-10"]
   - id: "pay-clinical-writeback"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -132,3 +147,13 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Match patient and encounter by stable identifiers, and block the write on any mismatch."
+        - "Write an unsigned draft that enters the record only after clinician review and signature."
+        - "Make writes idempotent, reconcile after timeouts, and correct signed notes by amendment, not overwrite."
+      ru:
+        - "Сопоставлять пациента и визит по устойчивым идентификаторам и блокировать запись при любом расхождении."
+        - "Записывать неподписанный черновик, который попадает в карту только после проверки и подписи врача."
+        - "Сделать запись идемпотентной, сверять статус после тайм-аутов и исправлять подписанные документы дополнением, а не перезаписью."
+    reading: ["stripe-idempotency"]

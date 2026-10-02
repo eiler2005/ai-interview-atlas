@@ -30,20 +30,35 @@
 - **[Сравните greedy decoding, beam search, температуру, top-k и nucleus sampling; приведите ограничение каждого подхода.](../themes/llm-fundamentals.md#llm-decoding)**
   - Знания · Где спрашивали: Google и Google DeepMind †, [Perplexity](perplexity.md) †
   - Что проверяет: Понимание связи преобразований вероятностей с разнообразием и качеством ответов.
+  - Сильный ответ покрывает:
+    - Описать каждый метод как преобразование: argmax, приближённый поиск по правдоподобию последовательности, деление логитов на T, отсечение до k и по накопленной массе.
+    - Назвать сбои: greedy и beam зацикливаются или банальны, высокая температура уводит в бессвязность, top-k игнорирует форму распределения, top-p пропускает плоский хвост.
+    - Выбирать по задаче — детерминированно для извлечения, с сэмплированием для генерации — и мерить точность вместе с разнообразием по разным seed.
+  - Читать: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ### [Инференс, serving и стоимость](../themes/inference-economics.md)
 
 - **[Сравните tensor, pipeline, data, sequence и expert parallelism при развёртывании большой модели.](../themes/inference-economics.md#inf-parallelism)**
   - Знания · Где спрашивали: [Amazon](amazon.md) †, Google и Google DeepMind †, [Meta](meta.md) †
   - Что проверяет: Умение выбирать по обмену данными и ограничениям памяти.
+  - Сильный ответ покрывает:
+    - Назвать, что делит каждая схема и какой обмен добавляет: all-reduce в каждом слое у TP, активации между стадиями у PP, обмен KV у SP, all-to-all у EP.
+    - Сначала уместить веса и KV: TP внутри NVLink-домена, PP между узлами, затем реплики data parallel без обмена ради пропускной способности.
+    - Измерить запас памяти на GPU, долю обмена во времени шага, простои конвейера и перекос нагрузки экспертов при целевой задержке.
+  - Читать: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv) · [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv) · [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) (Shoeybi et al., arXiv)
 
 ### [Дообучение и post-training](../themes/post-training.md)
 
 - **[В длинном запуске предобучения внезапно расходится loss. Как проверить данные, численную устойчивость и оптимизатор перед продолжением с checkpoint?](../themes/post-training.md#pt-loss-divergence)**
   - Прикладной сценарий · Где спрашивали: Google и Google DeepMind †
   - Что проверяет: Умение восстанавливать обучение на основе воспроизводимой диагностики.
+  - Сильный ответ покрывает:
+    - Найти первый аномальный шаг по норме градиента, величинам активаций и логитов внимания и отношению обновления к весам.
+    - Повторить участок с предыдущего checkpoint с тем же порядком данных: воспроизведённый скачок указывает на данные или численную устойчивость, иначе подозревать оборудование.
+    - Вносить одно целевое исправление — пропуск батчей, меньший learning rate, более жёсткий clipping или z-loss — и сравнить повторённую траекторию.
+  - Читать: [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/abs/2204.02311) (Chowdhery et al., arXiv) · [Small-scale proxies for large-scale Transformer training instabilities](https://arxiv.org/abs/2309.14322) (Wortsman et al., arXiv)
 - **[Спроектируйте обучение модели, не помещающейся на одном ускорителе: как разделить состояние и ограничить стоимость коммуникаций?](../themes/post-training.md#pt-distributed-training)**
-  - System design · Где спрашивали: Google и Google DeepMind †
+  - System design · Где спрашивали: Google и Google DeepMind † · ✍ [Ответ](../answers/engineering.md#pt-distributed-training)
   - Что проверяет: Умение выбирать параллелизм по состоянию модели, активациям и топологии сети.
   - Сильный ответ покрывает:
     - Разделить параметры, градиенты, состояние оптимизатора и активации до выбора схемы разбиения.
@@ -56,6 +71,11 @@
 - **[Спроектируйте eval-harness для новой модели с воспроизводимостью, изоляцией исполнения и сопоставимыми результатами.](../themes/evals-observability.md#eval-frontier-harness)**
   - System design · Где спрашивали: Google и Google DeepMind †
   - Что проверяет: Умение построить инфраструктуру для достоверного сравнения.
+  - Сильный ответ покрывает:
+    - Закрепить всё, что влияет на оценку: версию датасета, шаблон промпта, параметры декодирования, оценщика и seed.
+    - Исполнять сгенерированный моделью код в изолированных песочницах с ограничением сети и ресурсов и чистым состоянием на задачу.
+    - Показывать средние по повторным сэмплам с доверительными интервалами и перезапускать baseline-модель, чтобы ловить дрейф harness.
+  - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 
 ### [Дизайн AI-систем](../themes/ai-system-design.md)
 
@@ -81,9 +101,19 @@
 - **[Реализуйте multi-head attention, затем измените код так, чтобы несколько query-голов делили пару голов key и value.](../themes/coding-practical.md#code-grouped-attention)**
   - Кодинг · Где спрашивали: Google и Google DeepMind †
   - Что проверяет: Умение согласованно реализовать расположение тензоров и группировку голов.
+  - Сильный ответ покрывает:
+    - Сначала зафиксировать размерности: батч, последовательность, головы и размер головы; требовать, чтобы число query-голов делилось на число KV-голов.
+    - Сопоставить query-голову h с KV-головой h // group_size; при расширении использовать repeat_interleave, а не tile.
+    - Проверить, что при равном числе голов получается обычный multi-head attention, а при одной KV-голове — multi-query.
+  - Читать: [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv) · [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv)
 - **[Реализуйте температуру, top-k фильтрацию и nucleus sampling для вектора логитов, включая граничные случаи.](../themes/coding-practical.md#code-sampling)**
   - Кодинг · Где спрашивали: Google и Google DeepMind †
   - Что проверяет: Корректная обработка вероятностей, равенств и недопустимых параметров.
+  - Сильный ответ покрывает:
+    - Задать контракт параметров: нулевая температура как argmax, допустимые диапазоны k и p, нечисловые логиты.
+    - Использовать устойчивый softmax; nucleus оставляет наименьший отсортированный префикс с массой не меньше p — сортировка за O(V log V).
+    - Проверить равенства на границе отсечения, p около единицы, k больше словаря и частоты выборки при фиксированном seed.
+  - Читать: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ### [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
 
@@ -91,25 +121,25 @@
   - Продуктовый кейс · Senior · Где спрашивали: Google и Google DeepMind † · ✍ [Ответ](../answers/leadership.md#prod-ai-suitability)
   - Что проверяет: Начинаете ли вы с задачи и данных, а не с технологии.
   - Сильный ответ покрывает:
-    - Опишите задачу пользователя, базовое решение и цену ошибки.
-    - Проверьте доступ к данным, возможность оценки, задержку и требования к предсказуемости.
-    - Проведите ограниченное сравнение и назовите основание отказаться от LLM.
+    - Описать задачу пользователя, базовое решение и цену ошибки.
+    - Проверить доступ к данным, возможность оценки, задержку и требования к предсказуемости.
+    - Провести ограниченное сравнение и назвать основание отказаться от LLM.
   - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - **[Спроектируйте ассистента на основе Gemini для студентов университета.](../themes/ai-product-strategy.md#prod-student-assistant)**
   - Продуктовый кейс · Senior · Где спрашивали: Google и Google DeepMind † · ✍ [Ответ](../answers/leadership.md#prod-student-assistant)
   - Что проверяет: Определяет ли понятная потребность пользователя функции, учебные результаты и защитные меры.
   - Сильный ответ покрывает:
-    - Выберите сегмент студентов и одну регулярную неудовлетворённую потребность.
-    - Спроектируйте удобный сценарий с учётом неопределённости, проверки и злоупотреблений.
-    - Измеряйте успешность задачи и пользу для обучения наряду с удержанием.
+    - Выбрать сегмент студентов и одну регулярную неудовлетворённую потребность.
+    - Спроектировать удобный сценарий с учётом неопределённости, проверки и злоупотреблений.
+    - Измерять успешность задачи и пользу для обучения наряду с удержанием.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - **[Пользователи жалуются, что Gemini уверенно даёт неверные ответы. Что вы измените?](../themes/ai-product-strategy.md#prod-confident-errors)**
   - Продуктовый кейс · Senior · Где спрашивали: Google и Google DeepMind † · ✍ [Ответ](../answers/leadership.md#prod-confident-errors)
   - Что проверяет: Умеете ли вы различать причины ошибок и формировать обоснованное доверие.
   - Сильный ответ покрывает:
-    - Соберите типичные ошибки и разделите проблемы знаний, поиска и подачи ответа.
-    - Сравните опору на источники, отказ от ответа и изменения интерфейса на одинаковых задачах.
-    - Отслеживайте неподтверждённые утверждения, полезное выполнение задач и регрессии по сегментам.
+    - Собрать типичные ошибки и разделить проблемы знаний, поиска и подачи ответа.
+    - Сравнить опору на источники, отказ от ответа и изменения интерфейса на одинаковых задачах.
+    - Отслеживать неподтверждённые утверждения, полезное выполнение задач и регрессии по сегментам.
   - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 
 ### [Руководство инженерными командами](../themes/engineering-leadership.md)
@@ -118,42 +148,51 @@
   - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-low-performance)
   - Что проверяет: Умеете ли вы справедливо разобраться в причинах и превратить ожидания в конкретные действия.
   - Сильный ответ покрывает:
-    - Покажите отклонение от ожиданий на наблюдаемых примерах.
-    - Объясните обратную связь, обсуждение и оказанную поддержку.
-    - Опишите согласованные действия и результат последующей проверки.
+    - Показать отклонение от ожиданий на наблюдаемых примерах.
+    - Объяснить обратную связь, обсуждение и оказанную поддержку.
+    - Описать согласованные действия и результат последующей проверки.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[Как вы работали с сильным инженером, чьё поведение вызывало конфликты с коллегами?](../themes/engineering-leadership.md#lead-disruptive-star)**
   - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-disruptive-star)
   - Что проверяет: Предъявляете ли вы понятные требования и к результатам, и к взаимодействию.
   - Сильный ответ покрывает:
-    - Разделите технические результаты и последствия конкретного поведения.
-    - Объясните обратную связь и то, как вы выслушали сотрудника.
-    - Опишите согласованные изменения поведения и последующие наблюдения.
+    - Разделить технические результаты и последствия конкретного поведения.
+    - Объяснить обратную связь и то, как вы выслушали сотрудника.
+    - Описать согласованные изменения поведения и последующие наблюдения.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[Как вы поступите, если сильный сотрудник собирается уйти во время реорганизации?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
   - Прикладной сценарий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-reorganisation-retention)
   - Что проверяет: Умеете ли вы разобраться в причинах ухода без невыполнимых обещаний.
   - Сильный ответ покрывает:
-    - Выясните причины и отделите неопределённость перемен от устойчивых проблем.
-    - Объясните, что известно, на что вы влияете и какие решения ещё не приняты.
-    - Обсудите доступную поддержку, нерешённые вопросы и последующую встречу.
+    - Выяснить причины и отделить неопределённость перемен от устойчивых проблем.
+    - Объяснить, что известно, на что вы влияете и какие решения ещё не приняты.
+    - Обсудить доступную поддержку, нерешённые вопросы и последующую встречу.
   - Читать: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - **[Как вы стабилизируете инженерную команду после смены руководства?](../themes/engineering-leadership.md#lead-team-after-change)**
   - Прикладной сценарий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-after-change)
   - Что проверяет: Умеете ли вы восстановить доверие и ясность работы до масштабных изменений.
   - Сильный ответ покрывает:
-    - Выслушайте команду и партнёров и выявите срочные риски для работы и людей.
-    - Уточните приоритеты, ответственность за решения и регулярное взаимодействие.
-    - Внесите ограниченное число обоснованных изменений и проверьте их эффект.
+    - Выслушать команду и партнёров и выявить срочные риски для работы и людей.
+    - Уточнить приоритеты, ответственность за решения и регулярное взаимодействие.
+    - Внести ограниченное число обоснованных изменений и проверить их эффект.
   - Читать: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - **[Расскажите о споре в команде, который вы разрешили, сохранив обоснованные доводы обеих сторон.](../themes/engineering-leadership.md#lead-two-valid-views)**
-  - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind 🗣
+  - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-two-valid-views)
   - Что проверяет: Выявляете ли вы реальные потребности вместо поверхностного компромисса.
+  - Сильный ответ покрывает:
+    - Выбрать спор, где обе позиции защищали что-то настоящее, и изложить каждую в сильнейшей форме.
+    - Показать, как вы перешли от позиций к стоящим за ними потребностям и нашли вариант, закрывающий обе.
+    - Закончить принятым решением, тем, остались ли закрыты оба опасения, и тем, как вы это проверили.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ### [Поведенческие вопросы и ценности](../themes/behavioral-values.md)
 
 - **[Расскажите о разногласии с исследователем или техническим лидером по приоритетам и о том, что произошло дальше.](../themes/behavioral-values.md#beh-research-priorities)**
   - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind †
   - Что проверяет: Умеете ли вы учитывать различия мотивации исследователей и инженеров.
+  - Сильный ответ покрывает:
+    - Выбрать спор о приоритетах, где цели исследования и инженерной работы действительно тянули в разные стороны.
+    - Объяснить, за что поощряли каждую сторону — за новые результаты или за надёжный выпуск, — и чего стоил каждый вариант.
+    - Показать, как спор разрешился, например экспериментом с ограниченным сроком, и что было дальше для обеих сторон.
 
 ← [Canva](canva.md) · [Meta](meta.md) →

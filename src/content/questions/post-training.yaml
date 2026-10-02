@@ -57,8 +57,8 @@ questions:
         - "Объяснить отсутствие отдельно обучаемой reward model в базовом варианте."
         - "Обсудить покрытие предпочтений и сдвиг распределения без тезиса об устаревании online RL."
     answer:
-      en: "DPO derives a preference loss using log policy-to-reference probability ratios, equivalently differences of log probabilities. It compares those quantities for preferred and rejected responses, avoiding a separately trained reward model and an online rollout loop. That simplifies implementation, though the frozen reference still contributes to the objective. Standard offline DPO learns from a fixed preference dataset. If its coverage misses responses the updated policy produces, the training signal may generalise poorly there. PPO can score current rollouts with a reward model, but that model can also fail outside its training distribution. I would therefore inspect preference coverage, held-out behaviour and policy drift before choosing between them. A simpler loss does not make online RL obsolete: the decision depends on data coverage, compute budget and the amount of behavioural change required."
-      ru: "DPO выводит функцию потерь предпочтений через логарифмы отношений вероятностей обучаемой политики и опорной модели, то есть разности логарифмов. Эти величины сравниваются для предпочтительного и отвергнутого ответов; отдельная обученная reward model и онлайн-цикл генерации не нужны. Реализация проще, хотя замороженная опорная модель всё ещё участвует в целевой функции. Обычный офлайн-DPO учится на фиксированном наборе предпочтений. Если он не покрывает ответы обновлённой политики, обобщение сигнала может ухудшиться. PPO оценивает текущие траектории моделью награды, но и она может ошибаться вне своего обучающего распределения. Поэтому проверяю покрытие предпочтений, поведение на отложенных задачах и уход политики. Простая функция потерь не делает online RL устаревшим: выбор зависит от данных, вычислительного бюджета и требуемого изменения поведения."
+      en: "DPO starts from the same KL-regularised objective as PPO-based RLHF but uses its closed-form optimum: the reward becomes implicit, β times the log ratio of policy to reference probability, plus a term depending only on the prompt. In the Bradley–Terry preference model that term cancels, so the loss is written directly on the policy: a logistic loss on β times the gap between chosen and rejected log ratios. β plays the KL penalty's role, and there's no reward model, value network or sampling loop. The price is an assumption: fixed pairs must cover what the policy will generate, since the loss shapes only responses in pairs and can lower the likelihood of both answers or drift toward length. PPO scores fresh rollouts from the current policy, catching errors where they occur, at the cost of a reward model that can be exploited. I'd compare held-out win rate against the reference, KL and length drift. A simpler loss isn't better alignment: when the change needed is large or the reward is verifiable, fresh rollouts earn their cost."
+      ru: "DPO исходит из той же цели с KL-регуляризацией, что и RLHF на PPO, но берёт её решение в замкнутой форме: награда становится неявной — β, умноженное на логарифм отношения вероятностей политики и опорной модели, плюс слагаемое, зависящее только от промпта. В модели предпочтений Брэдли–Терри это слагаемое сокращается, и функция потерь записывается прямо на политике: логистическая потеря от β, умноженного на разность логарифмических отношений для выбранного и отвергнутого ответов. β играет роль штрафа KL, а reward model, value-сети и цикла генерации нет. Цена — предпосылка: фиксированные пары должны покрывать то, что будет генерировать политика, ведь функция потерь формирует только ответы из пар и может снижать вероятность обоих ответов или сдвигать модель к длинным ответам. PPO оценивает свежие траектории текущей политики и ловит ошибки там, где они реально возникают, ценой reward model, которую можно обмануть. Сравнивал бы долю побед над опорной моделью на отложенных промптах, KL и дрейф длины. Простая функция потерь не означает лучшего выравнивания: если нужно крупное изменение поведения или награда проверяема, свежие траектории окупают свою цену."
     reading: ["paper-dpo"]
   - id: "pt-grpo"
     tracks: ["engineering"]
@@ -74,6 +74,8 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 63
     outline:
       en:
         - "Sample several completions per prompt and estimate advantages relative to their group rewards."
@@ -83,6 +85,9 @@ questions:
         - "Получить несколько ответов на промпт и оценить advantage относительно наград внутри группы."
         - "Объяснить экономию памяти value model и оставшиеся затраты на генерацию и вычисление наград."
         - "Проверить группы с малым разбросом наград; сравнить успех на отложенных задачах и устойчивость обучения."
+    answer:
+      en: "GRPO replaces PPO's learned critic with the group itself as the baseline. For each prompt it samples a group of completions from the current policy, scores them, and sets each one's advantage to its reward minus the group mean, divided by the group's standard deviation; with outcome rewards that value applies to every token. The update is PPO's clipped objective, with KL to the reference model added to the loss rather than folded into the reward. Dropping the value model, usually comparable in size to the policy, saves its memory and training, but rollouts remain the main cost: several samples per prompt, reward computation, reference forward passes. The baseline is noisy for small groups, and when every completion earns the same reward all advantages are zero, so that prompt gives no gradient beyond the KL term; dividing by a tiny spread also amplifies near-unanimous groups. I'd log the share of zero-variance groups, filter prompts by difficulty, and compare held-out success, KL, length and reward stability. A learned critic earns its cost when credit must be assigned across long multi-step trajectories."
+      ru: "GRPO заменяет обучаемого критика из PPO самой группой ответов в роли baseline. На каждый промпт текущая политика генерирует группу ответов, их оценивают, и advantage каждого — это разность его награды и среднего по группе, делённая на стандартное отклонение группы; при награде за результат это значение получает каждый токен ответа. Обновление — clipped-цель PPO, а KL к опорной модели добавляется прямо в функцию потерь, а не вшивается в награду. Отказ от value model, обычно сопоставимой по размеру с политикой, экономит её память и обучение, но главная статья расходов остаётся: несколько генераций на промпт, вычисление наград, проходы опорной модели. Baseline шумный при маленьких группах, а если все ответы получили одинаковую награду, все advantage равны нулю и промпт не даёт градиента, кроме слагаемого KL; деление на крошечный разброс к тому же раздувает почти единогласные группы. Я бы логировал долю групп с нулевой дисперсией, фильтровал промпты по сложности и сравнивал успех на отложенных задачах, KL, длину ответов и устойчивость награды. Обучаемый критик окупается, когда вклад отдельных шагов нужно оценивать на длинных многошаговых траекториях."
     reading: ["paper-deepseekmath-grpo"]
   - id: "pt-lora"
     tracks: ["engineering"]
@@ -138,8 +143,8 @@ questions:
         - "Разделить роли NF4, двойного квантования и paged optimizers."
         - "Учесть вычисления деквантования и сохраняющуюся память активаций."
     answer:
-      en: "QLoRA saves memory by keeping base weights quantised to four bits and frozen while only low-rank adapters are trained: gradients and optimiser states exist for those alone, and they were exactly what ate most of the memory in full finetuning. Three mechanisms work together: NF4, a quantisation format designed for normally distributed weights; double quantisation, which compresses the quantisation constants themselves; and paged optimisers, which move optimiser states into host memory during spikes. You pay in compute, because weights are dequantised to the compute precision on every matrix multiply, which can slow training depending on implementation. Activation memory does not go anywhere and grows with sequence length and batch size, so on long context it becomes the binding constraint again. The limit: this is a way to fit finetuning into less memory, not a way to guarantee full-finetuning quality on any task."
-      ru: "QLoRA экономит память тем, что базовые веса хранятся квантованными в четырёх битах и остаются замороженными, а обучаются только низкоранговые адаптеры: градиенты и состояния оптимизатора существуют лишь для них, а именно они съедали основную часть памяти при полном дообучении. Три приёма работают вместе: NF4 — формат квантования, рассчитанный на нормально распределённые веса; двойное квантование сжимает сами константы квантования; paged optimizers выносят состояния оптимизатора в память процессора при всплесках. Платим вычислениями: веса деквантуются в вычислительную точность на каждом матричном умножении, что может замедлить обучение в зависимости от реализации. Память активаций при этом никуда не исчезает и растёт с длиной последовательности и батчем, так что на длинном контексте она снова становится ограничением. Граница: это способ уместить дообучение в меньшую память, а не способ гарантированно получить качество полного дообучения на любой задаче."
+      en: "QLoRA saves memory by keeping base weights quantised to four bits and frozen while only low-rank adapters, kept in 16-bit, are trained: gradients flow back through the dequantised base weights, but weight gradients and optimiser states exist for the adapters alone, and those were exactly what ate most of the memory in full finetuning. Three mechanisms work together: NF4, a quantisation format designed for normally distributed weights; double quantisation, which compresses the quantisation constants themselves; and paged optimisers, which move optimiser states into host memory during spikes. You pay in compute, because weights are dequantised to the compute precision on every matrix multiply, which can slow training depending on implementation. Activation memory does not go anywhere and grows with sequence length and batch size, so on long context it becomes the binding constraint again. The limit: this is a way to fit finetuning into less memory, not a way to guarantee full-finetuning quality on any task."
+      ru: "QLoRA экономит память тем, что базовые веса хранятся квантованными в четырёх битах и остаются замороженными, а обучаются только низкоранговые адаптеры в 16 битах: градиент проходит назад через деквантованные базовые веса, но градиенты по весам и состояния оптимизатора существуют лишь для адаптеров, а именно они съедали основную часть памяти при полном дообучении. Три приёма работают вместе: NF4 — формат квантования, рассчитанный на нормально распределённые веса; двойное квантование сжимает сами константы квантования; paged optimizers выносят состояния оптимизатора в память процессора при всплесках. Платим вычислениями: веса деквантуются в вычислительную точность на каждом матричном умножении, что может замедлить обучение в зависимости от реализации. Память активаций при этом никуда не исчезает и растёт с длиной последовательности и батчем, так что на длинном контексте она снова становится ограничением. Граница: это способ уместить дообучение в меньшую память, а не способ гарантированно получить качество полного дообучения на любой задаче."
     reading: ["paper-qlora"]
   - id: "pt-adaptation-method"
     tracks: ["engineering"]
@@ -154,6 +159,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Place each method: LoRA adds low-rank weight updates, prefix tuning trains per-layer key-value prefixes, prompt tuning trains input embeddings."
+        - "Weigh capacity against cost: full finetuning stores optimiser states and a model per task; adapters merge or swap per request."
+        - "Compare all at matched data on held-out task metrics and general regressions, including serving latency and memory."
+      ru:
+        - "Расставить методы: LoRA добавляет низкоранговые обновления весов, prefix tuning обучает префиксы key и value в каждом слое, prompt tuning — входные эмбеддинги."
+        - "Взвесить выразительность и цену: полное дообучение хранит состояния оптимизатора и модель на каждую задачу, а адаптеры сливаются с весами или подменяются на запрос."
+        - "Сравнить все варианты на одинаковых данных по отложенным метрикам задачи и регрессиям общих способностей, включая задержку и память при обслуживании."
+    reading: ["paper-lora","paper-prefix-tuning","paper-prompt-tuning"]
   - id: "pt-forgetting"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -167,6 +182,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Fix a retention suite before training and score base and finetuned checkpoints on it alongside the target task."
+        - "Reduce drift with replayed general data, a lower learning rate or fewer steps, adapters, a KL penalty or weight interpolation."
+        - "Plot task gain against retention across checkpoints and mixing ratios, and pick a point on that frontier."
+      ru:
+        - "До обучения зафиксировать набор проверки сохранности и оценить на нём базовый и дообученный чекпоинты вместе с целевой задачей."
+        - "Снижать дрейф подмешиванием общих данных, меньшим learning rate или числом шагов, адаптерами, KL-штрафом или интерполяцией весов."
+        - "Построить зависимость прироста на задаче от сохранности по чекпоинтам и долям смешивания и выбрать точку на этой границе."
+    reading: ["paper-instructgpt","paper-lora-forgets-less"]
   - id: "pt-method-choice"
     tracks: ["engineering","leadership"]
     roles: ["research-engineer"]
@@ -198,8 +223,8 @@ questions:
         - "Задать промптовый baseline; проверить retrieval для свежих знаний с источниками."
         - "Дообучать при достаточных характерных примерах и сравнить полную стоимость и отложенное качество."
     answer:
-      en: "I find the cause of the failures first, because three different diseases are cured differently: the model lacks knowledge, the task was explained badly, or it has persistent unwanted behaviour and format. Going through a sample of real failures is cheaper than any training. Bad instructions are fixed by the prompt, which is always the baseline everything else is compared against. Missing fresh or private knowledge is covered by retrieval: data updates without retraining, answers get source citations, and you pay in search latency and index quality. I take finetuning once enough representative examples of the wanted behaviour have accumulated, and count the full cost: labelling, training, version maintenance, and repeating all of it when the base model changes. I decide on a held-out set, not on impressions. The limit: finetuning barely helps with facts going stale, and retrieval will not fix behaviour if the model ignores what it found."
-      ru: "Сначала нахожу причину отказов, потому что три разные болезни лечатся по-разному: модели не хватает знаний, ей плохо объяснили задачу или у неё устойчиво нежелательное поведение и формат. Разобрать выборку реальных провалов дешевле любого обучения. Плохие инструкции лечит промпт, и он же всегда даёт baseline, с которым сравнивается остальное. Нехватку свежих или закрытых знаний закрывает retrieval: данные обновляются без переобучения, ответ получает ссылки на источники, платим задержкой поиска и качеством индекса. Дообучение беру, когда набралось достаточно характерных примеров нужного поведения, и считаю полную стоимость: разметка, обучение, обслуживание версий и повторение всего этого при смене базовой модели. Решение принимаю по отложенной выборке, а не по впечатлениям. Граница: дообучение почти не спасает от устаревающих фактов, а retrieval не исправит поведение, если модель игнорирует найденное."
+      en: "I'd let a diagnostic pick the intervention: rerun a sample of real failures with the right document pasted into the prompt. If they now succeed, the model lacked knowledge, and retrieval fits: facts stay fresh without retraining and answers can cite sources, paid for with a search hop in latency and an index to keep current. If they still fail with the evidence in front of the model, it's instructions or behaviour, so I tighten the prompt with explicit rules and examples; that's cheap and becomes the baseline everything else must beat. Finetuning is for what persists after that, a format, tone or decision pattern the prompt can't hold reliably, once I have enough representative examples to train and still hold some out. Its cost is the lifecycle: labelling, training, evaluation and redoing it when the base model changes, though shorter prompts can cut per-request tokens and latency. I'd compare the options on one held-out set by cost per successful task. Finetuning won't keep facts fresh, and retrieval can't fix a model that ignores what it found."
+      ru: "Вмешательство я бы выбирал по диагностике: прогоняю выборку реальных провалов заново, вставив в промпт нужный документ. Если теперь получается, модели не хватало знаний, и подходит retrieval: факты остаются свежими без переобучения, ответы могут ссылаться на источники, а платим задержкой на лишнее обращение к поиску и индексом, который надо поддерживать. Если с нужными сведениями перед глазами модель всё равно ошибается, дело в инструкциях или поведении, и я ужесточаю промпт явными правилами и примерами; это дёшево и становится baseline, который остальное обязано обойти. Дообучение — для того, что остаётся после этого: формат, тон или схема решений, которые промпт не удерживает надёжно, и только когда набралось достаточно характерных примеров, чтобы обучить и ещё оставить часть на отложенную проверку. Его цена — весь жизненный цикл: разметка, обучение, оценка и повторение всего этого при смене базовой модели, хотя более короткие промпты могут снизить токены и задержку на запрос. Сравнивал бы варианты на одной отложенной выборке по стоимости успешной задачи. Дообучение не сделает факты свежими, а retrieval не исправит модель, которая игнорирует найденное."
     reading: ["paper-rag","paper-lora"]
   - id: "pt-training-memory"
     tracks: ["engineering"]
@@ -214,6 +239,8 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 61
     outline:
       en:
         - "State the precision and bytes for weights, gradients, Adam moments and any master-weight copy."
@@ -223,6 +250,9 @@ questions:
         - "Задать точность и объём весов, градиентов, моментов Adam и мастер-копии весов, если она есть."
         - "Для LoRA разделить замороженные базовые веса, обучаемые адаптеры и состояние их оптимизатора."
         - "Отдельно учесть активации, временные буферы и запас; измерить пиковую память на характерном батче."
+    answer:
+      en: "I'd state the precision assumption first, because the total depends on it. With bf16 weights and gradients, an fp32 master copy and Adam's two fp32 moments, it's 2 plus 2 plus 12, so 16 bytes per parameter: about 112 GB for 7 billion parameters before any activation, the accounting the ZeRO paper uses. Lower-precision moments or master weights change that, so I'd name my choice. LoRA removes most of it: the frozen base needs only 2 bytes per parameter, about 14 GB, with no gradients or optimiser state, while adapters of tens of millions of parameters at modest rank carry the full 16 bytes and stay under a gigabyte. What LoRA doesn't remove is activations: backpropagation still runs through every frozen layer to reach the adapters, and activation memory grows with batch, sequence length and depth, so at long contexts it can exceed the weights. I'd budget activations separately, add checkpointing if needed, keep allocator headroom, and confirm peak memory on a representative batch at the longest sequence."
+      ru: "Сначала я бы назвал предположение о точности, потому что от него зависит итог. При весах и градиентах в bf16, мастер-копии в fp32 и двух моментах Adam в fp32 получается 2 плюс 2 плюс 12, то есть 16 байт на параметр: около 112 ГБ на 7 млрд параметров ещё без учёта активаций — именно так считает статья о ZeRO. Моменты или мастер-веса в меньшей точности меняют цифру, поэтому свой выбор надо назвать. LoRA убирает большую часть: замороженной базе нужны только её 2 байта на параметр, около 14 ГБ, без градиентов и состояния оптимизатора, а адаптеры на десятки миллионов параметров при умеренном ранге несут полные 16 байт и укладываются меньше чем в гигабайт. Чего LoRA не убирает, так это активаций: обратное распространение всё равно проходит через все замороженные слои, чтобы добраться до адаптеров, а память активаций растёт с батчем, длиной последовательности и глубиной, так что на длинном контексте может превысить веса. Активации я бы считал отдельно, при необходимости включил бы checkpointing, оставил запас аллокатору и подтвердил пиковую память на характерном батче с максимальной длиной."
     reading: ["paper-zero","paper-lora"]
   - id: "pt-verifiable-reward"
     tracks: ["engineering"]
@@ -237,6 +267,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Prefer verifiers where correctness is cheap and objective, like exact answers or tests, avoiding reward-model overoptimisation."
+        - "Name the blind spots: weak tests, special-cased outputs, parser loopholes, edited graders and right answers from wrong reasoning."
+        - "Audit high-reward samples and track the gap between training reward and hidden tests or independent review."
+      ru:
+        - "Предпочитать программную проверку там, где правильность дешева и объективна — точный ответ или тесты, — избегая переоптимизации модели награды."
+        - "Назвать слепые зоны: слабые тесты, подгонку под конкретные случаи, лазейки парсера, правку проверяющего кода и верный ответ из неверного рассуждения."
+        - "Вручную проверять выборку траекторий с высокой наградой и следить за разрывом между наградой и скрытыми тестами или независимой проверкой."
+    reading: ["paper-deepseek-r1","paper-reward-overoptimization"]
   - id: "pt-reward-hacking"
     tracks: ["engineering"]
     roles: ["research-engineer"]
@@ -251,6 +291,8 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 64
     outline:
       en:
         - "Compare proxy reward with blinded held-out human preferences and inspect newly rewarded behaviours."
@@ -258,8 +300,11 @@ questions:
         - "Treat KL control and early stopping as mitigations, not guarantees; distinguish synthetic gold-model evidence from human evaluation."
       ru:
         - "Сопоставить прокси-награду со слепой оценкой людьми на отложенных данных и изучить новые поощряемые признаки."
-        - "Проверить ранние checkpoint и меньшую интенсивность оптимизации; расширить покрытие предпочтений до переобучения."
+        - "Проверить ранние checkpoint и меньшую интенсивность оптимизации; расширить покрытие предпочтений до повторного обучения."
         - "Считать контроль KL и раннюю остановку мерами снижения риска, не гарантией; отличать синтетическую эталонную модель от оценки людьми."
+    answer:
+      en: "Rising reward with falling human preference is the signature of overoptimisation: the policy has moved where the reward model's errors outweigh its signal. I'd confirm it with blinded, held-out human comparisons across checkpoints, plotted against proxy reward and KL from the reference policy, to find where human preference peaked. Then I'd look at what the reward newly pays for, such as length, confident tone, formatting or agreeing with the user, and test those features directly on the reward model. The quick limit is rolling back to the peak checkpoint and rerunning with a stronger KL coefficient or fewer steps. The durable fix is coverage: fresh preferences on the current policy's outputs, where the reward model never trained, then retraining it. Gao, Schulman and Hilton saw gold reward rise then fall with distance from the initial policy, but their gold was a synthetic reward model, not people, so the shape is a hypothesis to check. KL control and early stopping limit drift; they don't make the proxy right."
+      ru: "Растущая награда при падающем предпочтении людей — характерный признак переоптимизации: политика ушла туда, где ошибки reward model перевешивают её сигнал. Я бы подтвердил это слепыми сравнениями людьми на отложенных данных по нескольким checkpoint, сопоставив их с прокси-наградой и с KL от опорной политики, чтобы найти, где предпочтение людей было на пике. Затем посмотрел бы, за что награда стала платить: длина, уверенный тон, оформление, согласие с пользователем, — и проверил бы эти признаки напрямую на reward model. Быстрая мера — откатиться к пиковому checkpoint и перезапустить с более сильным KL-коэффициентом или меньшим числом шагов. Надёжная — покрытие: свежие предпочтения на ответах текущей политики, на которых reward model никогда не обучалась, и её повторное обучение. Gao, Schulman и Hilton наблюдали, как эталонная награда сначала растёт, а потом падает с удалением от исходной политики, но эталоном у них была синтетическая reward model, а не люди, поэтому форма кривой — гипотеза для проверки. Контроль KL и ранняя остановка ограничивают дрейф, но не делают прокси правильным."
     reading: ["paper-reward-overoptimization"]
   - id: "pt-distillation"
     tracks: ["engineering"]
@@ -274,6 +319,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Build prompts covering the capability distribution, including rare languages, long context and refusals, not only easy traffic."
+        - "Choose teacher outputs or token-level logit KL, and add on-policy student samples so it learns from its own mistakes."
+        - "Evaluate by capability slice against independent labels, not teacher agreement, and flag slices where the student's gap widens."
+      ru:
+        - "Собрать промпты, покрывающие распределение способностей, включая редкие языки, длинный контекст и отказы, а не только лёгкий трафик."
+        - "Выбрать дистилляцию по ответам учителя или по KL логитов на токен и добавить on-policy выборки ученика, чтобы он учился на своих ошибках."
+        - "Оценивать по срезам способностей на независимой разметке, а не по согласию с учителем, и отмечать срезы, где отставание ученика растёт."
+    reading: ["paper-deepseek-r1","paper-distillation","paper-on-policy-distillation"]
   - id: "pt-constitutional"
     tracks: ["engineering","leadership"]
     type: "knowledge"
@@ -288,6 +343,8 @@ questions:
       - source: "outcome-school-company-wise"
         company: "anthropic"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 65
     outline:
       en:
         - "Separate supervised self-critique and revision from reinforcement learning on AI-generated preferences."
@@ -297,6 +354,9 @@ questions:
         - "Разделить обучение на самокритике и исправлениях и RL по предпочтениям, сгенерированным AI."
         - "Объяснить влияние выбранных принципов на критику, сравнения и обученную модель предпочтений."
         - "Указать человеческий выбор принципов и оценки; сокращение разметки вредности не устраняет ценностные решения."
+    answer:
+      en: "Constitutional AI replaces human harmlessness labels with model judgements guided by written principles, in two stages. In the supervised stage a helpful model answers harmful prompts, critiques its answer against a principle drawn from the constitution and revises it, and a model is finetuned on the revisions. In the RL stage the model produces answer pairs, a feedback model picks the better one under a sampled principle, and those AI preferences train the preference model used as reward: the RLHF pipeline with machine labels for harmlessness. So the principles shape every critique, every comparison and what the preference model learns. What stays human is substantial: people wrote and selected the principles, helpfulness preferences in the original work were still human labels, the starting model was trained with human feedback, and evaluation was human comparison. I'd measure agreement between AI and human labels on held-out pairs and track over-refusal on benign prompts. It cuts labelling effort; it moves value choices into a document rather than removing them."
+      ru: "Constitutional AI заменяет человеческую разметку вредности суждениями модели по записанным принципам, в два этапа. На этапе обучения с учителем полезная модель отвечает на вредные промпты, критикует свой ответ по принципу, взятому из конституции, и исправляет его, а затем модель дообучают на исправленных ответах. На этапе RL модель выдаёт пары ответов, модель обратной связи выбирает лучший по случайно взятому принципу, и на этих AI-предпочтениях учится модель предпочтений, которая служит наградой: это конвейер RLHF, где метки вредности ставит машина. Поэтому принципы определяют каждую критику, каждое сравнение и то, чему учится модель предпочтений. Человеческого остаётся много: люди написали и отобрали принципы, предпочтения по полезности в исходной работе по-прежнему размечали люди, стартовая модель обучена на человеческой обратной связи, а оценка — это сравнения людьми. Я бы измерял согласие AI-меток с человеческими на отложенных парах и следил за лишними отказами на безобидных запросах. Метод сокращает разметку, но не устраняет ценностный выбор, а переносит его в документ."
     reading: ["paper-constitutional-ai"]
   - id: "pt-loss-divergence"
     tracks: ["engineering"]
@@ -313,6 +373,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "google"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Locate the first anomalous step in gradient norm, attention-logit and activation magnitudes, and update-to-weight ratios."
+        - "Replay from the prior checkpoint with identical data order; a reproduced spike implicates data or numerics, otherwise suspect hardware."
+        - "Apply one targeted fix, such as skipping batches, a lower learning rate, tighter clipping or z-loss, and compare the replayed trajectory."
+      ru:
+        - "Найти первый аномальный шаг по норме градиента, величинам активаций и логитов внимания и отношению обновления к весам."
+        - "Повторить участок с предыдущего checkpoint с тем же порядком данных: воспроизведённый скачок указывает на данные или численную устойчивость, иначе подозревать оборудование."
+        - "Вносить одно целевое исправление — пропуск батчей, меньший learning rate, более жёсткий clipping или z-loss — и сравнить повторённую траекторию."
+    reading: ["paper-palm","paper-training-instabilities"]
   - id: "pt-distributed-training"
     tracks: ["engineering"]
     roles: ["research-engineer"]
@@ -328,6 +398,8 @@ questions:
       - source: "outcome-school-company-wise"
         company: "google"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 62
     outline:
       en:
         - "Separate parameters, gradients, optimiser state and activations before choosing a partitioning plan."
@@ -337,4 +409,7 @@ questions:
         - "Разделить параметры, градиенты, состояние оптимизатора и активации до выбора схемы разбиения."
         - "Объяснить шардинг состояния ZeRO и затраты на обмен; отличать его от разделения вычислений слоя."
         - "Измерить пиковую память, обмен и пропускную способность на целевой топологии до масштабирования."
+    answer:
+      en: "I'd start by sizing what doesn't fit, because each kind of state has a different fix. With mixed-precision Adam, parameters, gradients and optimiser state cost about 16 bytes per parameter; activations scale separately with micro-batch, sequence length and depth. ZeRO shards model state across data-parallel ranks: stage one splits optimiser state and stage two adds gradients, both at roughly ordinary data-parallel communication, since the all-reduce becomes a reduce-scatter plus an all-gather; stage three also shards parameters and gathers each layer just in time, at about one and a half times the traffic. That divides state, not computation. If one layer's working set still doesn't fit, I need tensor parallelism, which splits matrix multiplications and communicates inside every layer, so it belongs on fast intra-node links; across nodes, pipeline parallelism splits layers into stages that exchange only activations, paying in idle bubbles. Activations get checkpointing. Before scaling I'd measure peak memory per device, the share of step time spent communicating, and per-device throughput from one node to the target, since on slow interconnect stage three's gathers can dominate."
+      ru: "Я бы начал с того, что именно не помещается, потому что у каждого вида состояния своё лечение. При Adam в смешанной точности параметры, градиенты и состояние оптимизатора стоят около 16 байт на параметр, а активации растут отдельно — с микробатчем, длиной последовательности и глубиной. ZeRO шардирует состояние модели между data-parallel рангами: первая стадия делит состояние оптимизатора, вторая добавляет градиенты, и обе обходятся примерно тем же обменом, что обычный data parallelism, потому что all-reduce превращается в reduce-scatter плюс all-gather; третья стадия шардирует и параметры, собирая каждый слой непосредственно перед использованием, и трафик вырастает примерно в полтора раза. Это деление состояния, а не вычислений. Если рабочий набор одного слоя всё равно не влезает, нужен tensor parallelism, который режет матричные умножения и обменивается данными внутри каждого слоя, поэтому его место на быстрых связях внутри узла; между узлами pipeline parallelism делит слои на стадии, которые обмениваются только активациями, и платит простоями. Для активаций — checkpointing. До масштабирования я бы измерил пиковую память на устройство, долю времени шага на обмен и пропускную способность на устройство от одного узла до целевого размера: на медленной сети сборки слоёв третьей стадии могут занять большую часть шага."
     reading: ["paper-zero"]

@@ -18,7 +18,7 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
     - Use finetuning when representative examples justify it, then compare lifecycle cost and held-out quality.
   - Read: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) (Lewis et al., arXiv) · [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) (Hu et al., arXiv)
 - <a id="pt-constitutional"></a>**Explain how Constitutional AI uses principles, self-revision and AI-generated preferences, and identify what human judgement it still depends on.**
-  - Knowledge · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-constitutional&title=%5BCorrection%5D%20pt-constitutional)
+  - Knowledge · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#pt-constitutional) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-constitutional&title=%5BCorrection%5D%20pt-constitutional)
   - Tests: Whether reduced labelling effort is distinguished from removing human value choices.
   - A strong answer covers:
     - Separate supervised self-critique and revision from reinforcement learning on AI-generated preferences.
@@ -45,7 +45,7 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
     - Discuss preference coverage and distribution shift rather than declaring online RL obsolete.
   - Read: [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) (Rafailov et al., arXiv)
 - <a id="pt-grpo"></a>**Explain group-relative policy optimisation and the trade-offs of estimating advantages without a learned value model.**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-grpo&title=%5BCorrection%5D%20pt-grpo)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#pt-grpo) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-grpo&title=%5BCorrection%5D%20pt-grpo)
   - Tests: Whether relative rewards and variance are connected to sample groups.
   - A strong answer covers:
     - Sample several completions per prompt and estimate advantages relative to their group rewards.
@@ -71,11 +71,21 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="pt-adaptation-method"></a>**Compare low-rank adapters, prefix tuning, soft prompt tuning and full finetuning for one task.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-adaptation-method&title=%5BCorrection%5D%20pt-adaptation-method)
   - Tests: Whether data, capacity and deployment constraints guide adaptation.
+  - A strong answer covers:
+    - Place each method: LoRA adds low-rank weight updates, prefix tuning trains per-layer key-value prefixes, prompt tuning trains input embeddings.
+    - Weigh capacity against cost: full finetuning stores optimiser states and a model per task; adapters merge or swap per request.
+    - Compare all at matched data on held-out task metrics and general regressions, including serving latency and memory.
+  - Read: [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) (Hu et al., arXiv) · [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://arxiv.org/abs/2101.00190) (Li et al., arXiv) · [The Power of Scale for Parameter-Efficient Prompt Tuning](https://arxiv.org/abs/2104.08691) (Lester et al., arXiv)
 - <a id="pt-forgetting"></a>**After domain finetuning, general capabilities regress. How would you measure and reduce catastrophic forgetting?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-forgetting&title=%5BCorrection%5D%20pt-forgetting)
   - Tests: Whether task gains are checked against preserved capabilities.
+  - A strong answer covers:
+    - Fix a retention suite before training and score base and finetuned checkpoints on it alongside the target task.
+    - Reduce drift with replayed general data, a lower learning rate or fewer steps, adapters, a KL penalty or weight interpolation.
+    - Plot task gain against retention across checkpoints and mixing ratios, and pick a point on that frontier.
+  - Read: [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) (Ouyang et al., arXiv) · [LoRA Learns Less and Forgets Less](https://arxiv.org/abs/2405.09673) (Biderman et al., arXiv)
 - <a id="pt-training-memory"></a>**Budget memory for full bf16 finetuning of a 7B model with Adam, then recalculate for LoRA and explain your optimiser assumptions.**
-  - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-training-memory&title=%5BCorrection%5D%20pt-training-memory)
+  - Applied scenario · ✍ [Answer](../answers/engineering.md#pt-training-memory) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-training-memory&title=%5BCorrection%5D%20pt-training-memory)
   - Tests: Whether gradients, optimiser state, master weights and activations are all considered.
   - A strong answer covers:
     - State the precision and bytes for weights, gradients, Adam moments and any master-weight copy.
@@ -85,8 +95,13 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="pt-verifiable-reward"></a>**When is a programmatically verifiable reward preferable to a learned reward model, and where can the verifier still be exploited?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-verifiable-reward&title=%5BCorrection%5D%20pt-verifiable-reward)
   - Tests: Whether verification is treated as a specification with blind spots.
+  - A strong answer covers:
+    - Prefer verifiers where correctness is cheap and objective, like exact answers or tests, avoiding reward-model overoptimisation.
+    - Name the blind spots: weak tests, special-cased outputs, parser loopholes, edited graders and right answers from wrong reasoning.
+    - Audit high-reward samples and track the gap between training reward and hidden tests or independent review.
+  - Read: [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (v1)](https://arxiv.org/html/2501.12948v1) (DeepSeek-AI, arXiv) · [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv)
 - <a id="pt-reward-hacking"></a>**Policy reward keeps rising while humans prefer its outputs less. How would you diagnose and limit reward hacking?**
-  - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-reward-hacking&title=%5BCorrection%5D%20pt-reward-hacking)
+  - Applied scenario · ✍ [Answer](../answers/engineering.md#pt-reward-hacking) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-reward-hacking&title=%5BCorrection%5D%20pt-reward-hacking)
   - Tests: Whether optimisation of the proxy is distinguished from improvement in the real goal.
   - A strong answer covers:
     - Compare proxy reward with blinded held-out human preferences and inspect newly rewarded behaviours.
@@ -96,11 +111,21 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="pt-distillation"></a>**Design a teacher-to-student distillation process and explain how you would detect capabilities the smaller model fails to retain.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distillation&title=%5BCorrection%5D%20pt-distillation)
   - Tests: Whether data coverage and independent evaluation constrain teacher imitation.
+  - A strong answer covers:
+    - Build prompts covering the capability distribution, including rare languages, long context and refusals, not only easy traffic.
+    - Choose teacher outputs or token-level logit KL, and add on-policy student samples so it learns from its own mistakes.
+    - Evaluate by capability slice against independent labels, not teacher agreement, and flag slices where the student's gap widens.
+  - Read: [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (v1)](https://arxiv.org/html/2501.12948v1) (DeepSeek-AI, arXiv) · [Distilling the Knowledge in a Neural Network](https://arxiv.org/abs/1503.02531) (Hinton et al., arXiv) · [On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes](https://arxiv.org/abs/2306.13649) (Agarwal et al., arXiv)
 - <a id="pt-loss-divergence"></a>**A long pretraining run suddenly diverges. How do you investigate data, numerics and optimiser state before resuming from a checkpoint?**
   - Applied scenario · Asked at: [Google and Google DeepMind](../companies/google.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-loss-divergence&title=%5BCorrection%5D%20pt-loss-divergence)
   - Tests: Whether recovery is based on a reproducible diagnosis.
+  - A strong answer covers:
+    - Locate the first anomalous step in gradient norm, attention-logit and activation magnitudes, and update-to-weight ratios.
+    - Replay from the prior checkpoint with identical data order; a reproduced spike implicates data or numerics, otherwise suspect hardware.
+    - Apply one targeted fix, such as skipping batches, a lower learning rate, tighter clipping or z-loss, and compare the replayed trajectory.
+  - Read: [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/abs/2204.02311) (Chowdhery et al., arXiv) · [Small-scale proxies for large-scale Transformer training instabilities](https://arxiv.org/abs/2309.14322) (Wortsman et al., arXiv)
 - <a id="pt-distributed-training"></a>**Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable.**
-  - System design · Asked at: [Google and Google DeepMind](../companies/google.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distributed-training&title=%5BCorrection%5D%20pt-distributed-training)
+  - System design · Asked at: [Google and Google DeepMind](../companies/google.md) † · ✍ [Answer](../answers/engineering.md#pt-distributed-training) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distributed-training&title=%5BCorrection%5D%20pt-distributed-training)
   - Tests: Whether model state, activations and network topology determine the parallel plan.
   - A strong answer covers:
     - Separate parameters, gradients, optimiser state and activations before choosing a partitioning plan.

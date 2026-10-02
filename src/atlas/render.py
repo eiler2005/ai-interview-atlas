@@ -102,7 +102,7 @@ LABELS = {
         "inside_items": [
             (
                 "**{questions} questions** across {themes} themes: {engineering} for engineering, "
-                "{leadership} for leadership. Each says what it tests."
+                "{leadership} for leadership. Each says what it tests and what a strong answer covers."
             ),
             (
                 "**{answers} written answers** to the priority questions — a paragraph you could say "
@@ -156,8 +156,8 @@ LABELS = {
                 "[{engineering_name}]({engineering_page}) · [{leadership_name}]({leadership_page})."
             ),
             (
-                "Answer aloud before reading anything. Each question lists what it tests; the "
-                "priority ones add a checklist and what to read."
+                "Answer aloud before reading anything. Each question lists what it tests and what "
+                "a strong answer covers; the priority ones add reading and a written answer."
             ),
             "Before an interview, open that employer's page and the themes its loop covers.",
         ],
@@ -176,8 +176,9 @@ LABELS = {
                 "coding requirement and the questions reported for that company."
             ),
             (
-                "Practise aloud. Every question says what it tests; priority questions also have "
-                "answer checklists and reading. Use those as prompts for reasoning, not scripts."
+                "Practise aloud. Every question says what it tests and what a strong answer "
+                "covers; priority questions also have reading and a written answer. Use those as "
+                "prompts for reasoning, not scripts."
             ),
         ],
         "how_items_no_radar": [
@@ -191,8 +192,9 @@ LABELS = {
                 "coding requirement and the questions reported for that company."
             ),
             (
-                "Practise aloud. Every question says what it tests; priority questions also have "
-                "answer checklists and reading. Use those as prompts for reasoning, not scripts."
+                "Practise aloud. Every question says what it tests and what a strong answer "
+                "covers; priority questions also have reading and a written answer. Use those as "
+                "prompts for reasoning, not scripts."
             ),
         ],
         "legend": (
@@ -458,7 +460,7 @@ LABELS = {
         "inside_items": [
             (
                 "**{questions} {questions_word}** в {themes} темах: {engineering} по инженерии, "
-                "{leadership} по лидерству. У каждого указано, что он проверяет."
+                "{leadership} по лидерству. У каждого указано, что он проверяет и что покрывает сильный ответ."
             ),
             (
                 "**{answers} {answers_word}** на приоритетные вопросы — абзац, который можно "
@@ -512,7 +514,8 @@ LABELS = {
             ),
             (
                 "Сначала отвечайте вслух и только потом читайте. У каждого вопроса написано, что он "
-                "проверяет; у приоритетных есть чек-лист и материалы для чтения."
+                "проверяет и что покрывает сильный ответ; у приоритетных есть ещё материалы для "
+                "чтения и написанный ответ."
             ),
             "Перед интервью откройте страницу работодателя и темы, которые есть в его цикле.",
         ],
@@ -531,8 +534,9 @@ LABELS = {
                 "кодингу и вопросы, о которых сообщали для этой компании."
             ),
             (
-                "Отвечайте вслух. Каждый вопрос объясняет, что проверяет; у приоритетных есть "
-                "чек-листы ответа и чтение. Используйте их для рассуждений, а не заучивания."
+                "Отвечайте вслух. Каждый вопрос объясняет, что проверяет и что покрывает сильный "
+                "ответ; у приоритетных есть ещё чтение и написанный ответ. Используйте их для "
+                "рассуждений, а не заучивания."
             ),
         ],
         "how_items_no_radar": [
@@ -546,8 +550,9 @@ LABELS = {
                 "кодингу и вопросы, о которых сообщали для этой компании."
             ),
             (
-                "Отвечайте вслух. Каждый вопрос объясняет, что проверяет; у приоритетных есть "
-                "чек-листы ответа и чтение. Используйте их для рассуждений, а не заучивания."
+                "Отвечайте вслух. Каждый вопрос объясняет, что проверяет и что покрывает сильный "
+                "ответ; у приоритетных есть ещё чтение и написанный ответ. Используйте их для "
+                "рассуждений, а не заучивания."
             ),
         ],
         "legend": (

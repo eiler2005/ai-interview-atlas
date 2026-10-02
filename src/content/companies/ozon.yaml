@@ -27,7 +27,7 @@ loop:
     ru: "Основная техническая секция"
   detail:
     en: "One and a half to two hours of practical cases on concurrency, caching and SQL; one report included a code review that turned on misused locks."
-    ru: "Полтора–два часа практических кейсов на многопоточность, кэширование и SQL; в одном отчёте был code review, где главным оказалось неверное использование блокировок."
+    ru: "Полтора–два часа практических кейсов на многопоточность, кеширование и SQL; в одном отчёте был code review, где главным оказалось неверное использование блокировок."
   claim: "participant_report"
   sources:
   - "habr-ozon-tbank-candidate"

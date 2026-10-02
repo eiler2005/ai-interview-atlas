@@ -27,12 +27,12 @@ questions:
         - "Explain the feedback, listening and support you provided."
         - "Describe agreed next steps and the follow-up result."
       ru:
-        - "Покажите отклонение от ожиданий на наблюдаемых примерах."
-        - "Объясните обратную связь, обсуждение и оказанную поддержку."
-        - "Опишите согласованные действия и результат последующей проверки."
+        - "Показать отклонение от ожиданий на наблюдаемых примерах."
+        - "Объяснить обратную связь, обсуждение и оказанную поддержку."
+        - "Описать согласованные действия и результат последующей проверки."
     answer:
-      en: "The interviewer isn't listening for a firing story; they want to see how you separate facts from impressions. So build the answer from the observable gap: what expectations were written down, which results and deadlines missed them, and which examples show it. Then explain how you gave feedback: directly, promptly, not in public, and what you heard back. The causes usually sit in unclear priorities, skill gaps, or circumstances outside work. Name the support you offered, the actions you agreed with a check-in date, and how it ended, including the cases where the person left. One common mistake is opening with a diagnosis of their personality and closing with a moral; another is staying silent about your own part in expectations never being clear. Finish with what you changed in your own practice: how you state expectations now, and how early you notice drift."
-      ru: "Интервьюер слушает здесь не историю увольнения, а способ отличать факты от впечатлений, поэтому стройте ответ от наблюдаемого разрыва: какие ожидания были зафиксированы, какие именно результаты и сроки им не соответствовали, на каких примерах это видно. Дальше объясните, как вы дали обратную связь — прямо, вовремя, не публично — и что услышали в ответ: причины часто лежат в непонятных приоритетах, пробелах в навыках или обстоятельствах вне работы. Затем назовите оказанную поддержку, согласованные действия с датой проверки и чем всё закончилось, включая случаи, когда человек ушёл. Типичная ошибка — начать с диагноза личности и закончить моралью; вторая — умолчать о своём вкладе в то, что ожидания не были ясны. Завершайте тем, что изменили в собственной работе: как теперь формулируете ожидания и насколько рано замечаете отклонение."
+      en: "Choose a case where expectations were clear before the gap and your diagnosis changed what you did; a case decided on day one shows nothing. The interviewer is scoring whether you separate facts from impressions, so open with the expectation and the observable misses in deadlines, quality or scope, not with the person's character. The substance is diagnosis: did they not know what good looked like, know but lack the skill, have the skill but not the will, or face something in their circumstances? Each leads elsewhere — clearer expectations, coaching, a direct conversation, adjusted load — so explain how you told them apart. Then the trade-off: support is time-boxed because the team carries the gap meanwhile, so say how long you gave it and what made you move to a formal plan or not. A red flag is expectations written down only after the problem was declared; if that was you, say so. Close with evidence: what was agreed with dates, what the check showed, how it ended, including an exit, and what you now catch earlier."
+      ru: "Выбирайте случай, где ожидания были ясны до появления разрыва и ваш диагноз изменил ваши действия: история, решённая в первый же день, ничего не показывает. Интервьюер оценивает, отделяете ли вы факты от впечатлений, поэтому начинайте с ожидания и наблюдаемых промахов по срокам, качеству или объёму, а не с характера человека. Суть ответа — в диагнозе: человек не знал, как выглядит хороший результат, знал, но не хватало навыка, умел, но не хотел, или мешали обстоятельства? Каждый вариант ведёт к своему — к более ясным ожиданиям, к коучингу, к прямому разговору, к перераспределению нагрузки, — поэтому объясните, как вы их различили. Дальше компромисс: поддержка ограничена по времени, потому что всё это время разрыв несёт команда, так что скажите, сколько времени вы дали и что заставило перейти к формальному плану или отказаться от него. Тревожный сигнал — ожидания, записанные только после того, как проблему объявили; если так было у вас, скажите об этом сами. Закончите свидетельствами: о чём договорились и к каким датам, что показала проверка, чем всё кончилось, включая уход, и что вы теперь замечаете раньше."
     reading: ["google-manager-training"]
   - id: "lead-disruptive-star"
     tracks: ["leadership"]
@@ -61,9 +61,9 @@ questions:
         - "Explain your feedback and how you heard their perspective."
         - "Describe agreed behaviour changes and subsequent observations."
       ru:
-        - "Разделите технические результаты и последствия конкретного поведения."
-        - "Объясните обратную связь и то, как вы выслушали сотрудника."
-        - "Опишите согласованные изменения поведения и последующие наблюдения."
+        - "Разделить технические результаты и последствия конкретного поведения."
+        - "Объяснить обратную связь и то, как вы выслушали сотрудника."
+        - "Описать согласованные изменения поведения и последующие наблюдения."
     answer:
       en: "Separate two things in your first sentence: the person's technical contribution and the consequences of specific behaviour. Otherwise the answer sounds like a complaint about someone's character. Describe what was observable: whose work got held up, who stopped bringing ideas, which meetings ended without a decision. What's being tested is whether you set standards for collaboration as clearly as you set them for results, and whether you quietly make an exception for a strong engineer. Say how you talked one on one, what you heard back, since sharpness often covers overload, unclear authority, or a sense that quality is being sacrificed, and what behaviour changes you agreed in checkable terms. End with what you saw afterwards and what would have followed if nothing changed. The mistake is finishing with \"we talked and it went away\"; the interviewer wants the follow-up, not a happy ending."
       ru: "Разделите две вещи с первой фразы: технический вклад человека и последствия конкретного поведения — иначе ответ звучит как жалоба на характер. Опишите наблюдаемое: чьи задачи тормозились, кто перестал приносить идеи, какие встречи заканчивались без решения. Проверяют здесь, предъявляете ли вы требования к взаимодействию так же ясно, как к результату, и не делаете ли исключение для сильного инженера. Расскажите, как вы говорили один на один, что услышали в ответ — за резкостью нередко стоят перегрузка, непонятные полномочия или ощущение, что качеством жертвуют, — и о каких изменениях поведения договорились, в проверяемых формулировках. Закончите тем, что наблюдали дальше и что было бы, если бы ничего не поменялось. Ошибка — финал вида «поговорили, и всё прошло»: интервьюеру нужна последующая проверка, а не благополучная развязка."
@@ -95,12 +95,12 @@ questions:
         - "Explain how coaching helped them choose actions."
         - "Distinguish their achievements from your support."
       ru:
-        - "Опишите цель развития сотрудника и исходную ситуацию."
-        - "Объясните, как наставничество помогло выбрать действия."
-        - "Отделите достижения сотрудника от вашей поддержки."
+        - "Описать цель развития сотрудника и исходную ситуацию."
+        - "Объяснить, как наставничество помогло выбрать действия."
+        - "Отделить достижения сотрудника от вашей поддержки."
     answer:
-      en: "Start with their goal, not your role: what they wanted to reach, where they stood then, and what gap to the next level was visible in their work. Then explain what the mentoring actually did: which tasks you helped them pick or handed over, what questions you asked, what feedback you gave and how often. What is being listened for is whether you grow people through real work and whether you avoid taking credit for their wins, so name the achievements as theirs: they did it, they defended the design, they got promoted. State your own contribution separately and more modestly: you created an opportunity, removed an obstacle, made the result visible. The common mistake is a story where the mentor decides everything and the mentee only executes. Finish with what you learned about developing people and what you do differently with the people you lead now."
-      ru: "Начните с цели человека, а не со своей роли: чего он хотел достичь, где находился тогда и какой разрыв до следующего уровня был виден в работе. Потом объясните, что именно делало наставничество: какие задачи вы помогли выбрать или передали, какие вопросы задавали, какую обратную связь давали и с какой регулярностью. Слушают при этом главное — растите ли вы людей через настоящую работу и не присваиваете ли их достижения, поэтому достижения называйте от их имени: он сделал, он защитил проект, его повысили. Свой вклад формулируйте отдельно и скромнее: создал возможность, убрал препятствие, добился видимости результата. Частая ошибка — рассказ, где наставник решает всё сам, а подопечный только исполняет. Заканчивайте тем, что вы поняли про развитие людей и что делаете иначе с теми, кого ведёте сейчас."
+      en: "Pick someone whose growth shows in evidence that doesn't rest on your opinion: scope they now own, decisions they make without you, an assessment by people outside your line. Start with their goal and the gap to the next level as it showed in their work, not with your role. Then say what kind of help it was, because mentoring and sponsoring differ: questions and advice that helped them choose their own actions, or putting their name forward for visible work. The interviewer is scoring the trade-off underneath: stretch work can fail in public, and growth comes from handing over the decision, not just the task, so name where you chose not to step in and what that cost, perhaps a slower or rougher result. Split the credit cleanly, their outcomes in their name, your part narrower, and test it with one question: would they describe your support the same way? The usual mistake is a mentor who decided everything. Close with what they handle now that they couldn't then, and what you do differently since."
+      ru: "Выбирайте человека, чей рост виден по свидетельствам, не зависящим от вашего мнения: зона ответственности, которую он теперь ведёт, решения, которые принимает без вас, оценка людей вне вашей линии подчинения. Начните с его цели и разрыва до следующего уровня, как он проявлялся в работе, а не со своей роли. Затем скажите, какой была помощь, потому что наставничество и спонсорство — разные вещи: вопросы и советы, которые помогали ему самому выбирать действия, или то, что вы выдвигали его на заметную работу. Интервьюер оценивает компромисс, который за этим стоит: задача на вырост может провалиться у всех на виду, а рост приходит, когда передаёшь решение, а не только задачу, поэтому назовите, где вы сознательно не вмешались и чего это стоило — скажем, более медленного или менее аккуратного результата. Чётко разделите заслуги: результаты — от его имени, ваша часть — скромнее, и проверьте себя одним вопросом: описал бы он вашу поддержку так же? Типичная ошибка — наставник, который решал всё сам. Закончите тем, с чем человек справляется сейчас и не справлялся тогда, и тем, что вы с тех пор делаете иначе."
     reading: ["google-manager-training"]
   - id: "lead-team-disagrees"
     tracks: ["leadership"]
@@ -129,9 +129,9 @@ questions:
         - "Use evidence or a bounded experiment where it can resolve the disagreement."
         - "Explain decision rights, communicate the choice and define when to revisit it."
       ru:
-        - "Уточните спорные предположения и разберите самое сильное возражение."
-        - "Используйте данные или ограниченный эксперимент, если это поможет разрешить спор."
-        - "Объясните полномочия, сообщите решение и условия его пересмотра."
+        - "Уточнить спорные предположения и разобрать самое сильное возражение."
+        - "Использовать данные или ограниченный эксперимент, если это поможет разрешить спор."
+        - "Объяснить полномочия, сообщить решение и условия его пересмотра."
     answer:
       en: "First I work out what the disagreement is about: facts, a forecast, or priorities. Otherwise the discussion goes in circles. I ask people to name the assumptions my proposal rests on, then take the strongest objection and state it better than its author did: if it falls apart, the direction is firmer; if it doesn't, I'm the one who has to change the decision. Where the argument turns on an unknown quantity, it's cheaper to run a bounded experiment or prototype with an agreed criterion than to keep arguing; the price is time, so I fix the deadline up front. Then I say plainly whose call it is: the discussion is open, the responsibility is mine. The decision, reasons and rejected options go into a design doc with the conditions for revisiting it. This is overkill when a decision is cheap and reversible: then trying is faster than aligning."
       ru: "Сначала выясняю, о чём именно спор: о фактах, о прогнозе или о приоритетах — иначе обсуждение идёт по кругу. Прошу назвать предположения, на которых держится моё предложение, и беру самое сильное возражение, формулируя его вслух лучше, чем это сделал автор: если оно рассыпается, направление крепче, если нет — менять решение надо мне. Там, где спор упирается в неизвестную величину, дешевле не спорить, а поставить ограниченный эксперимент или прототип с заранее согласованным критерием; плата за это — время, поэтому срок фиксирую сразу. Дальше прямо говорю, чьё это решение: обсуждение открытое, ответственность моя. Решение, причины и отвергнутые варианты записываю в design-документ вместе с условиями пересмотра. Такой порядок избыточен, когда решение дёшево и обратимо: тогда быстрее попробовать, чем согласовывать."
@@ -163,9 +163,9 @@ questions:
         - "Explain what is known, what you can change and what remains undecided."
         - "Discuss feasible support, surface unresolved concerns and agree a follow-up."
       ru:
-        - "Выясните причины и отделите неопределённость перемен от устойчивых проблем."
-        - "Объясните, что известно, на что вы влияете и какие решения ещё не приняты."
-        - "Обсудите доступную поддержку, нерешённые вопросы и последующую встречу."
+        - "Выяснить причины и отделить неопределённость перемен от устойчивых проблем."
+        - "Объяснить, что известно, на что вы влияете и какие решения ещё не приняты."
+        - "Обсудить доступную поддержку, нерешённые вопросы и последующую встречу."
     answer:
       en: "I start with a conversation that isn't a negotiation: I want the reason, not retention at any price. Then I separate the temporary uncertainty of a reorganisation, an unclear manager, an unsettled team shape, plans on hold, from problems that predate it: a growth ceiling, pay, relationships, the content of the work. The mechanism is simple: the first is treated with information and dates, the second only with real changes. Confusing them is expensive, because a promise I can't keep speeds the exit and costs the team's trust. So I say honestly what is decided, what I influence, what is still open and when it will be known. I offer support I can actually give, write down unresolved questions and set a follow-up on a specific date. If the reason is beyond my influence, the goal changes: a decent exit, a handover and a preserved relationship are a result too."
       ru: "Начинаю с разговора без торга: мне нужно понять причину, а не удержать любой ценой. Дальше разделяю временную неопределённость реорганизации — неясный руководитель, непонятный контур команды, подвешенные планы — и устойчивые проблемы, которые были и до неё: потолок роста, вознаграждение, отношения, содержание работы. Механизм простой: первое лечится информацией и сроками, второе — только реальными изменениями, а путать их дорого, потому что невыполнимое обещание ускорит уход и ударит по доверию всей команды. Поэтому честно говорю, что уже решено, на что влияю я, что ещё открыто и когда станет известно. Предлагаю доступную поддержку, записываю нерешённые вопросы и назначаю следующую встречу с конкретной датой. Если причина вне моего влияния, задача меняется: достойный выход, передача знаний и сохранённые отношения тоже результат."
@@ -197,9 +197,9 @@ questions:
         - "Clarify priorities, decision ownership and communication routines."
         - "Make a small number of justified changes and check their effect."
       ru:
-        - "Выслушайте команду и партнёров и выявите срочные риски для работы и людей."
-        - "Уточните приоритеты, ответственность за решения и регулярное взаимодействие."
-        - "Внесите ограниченное число обоснованных изменений и проверьте их эффект."
+        - "Выслушать команду и партнёров и выявить срочные риски для работы и людей."
+        - "Уточнить приоритеты, ответственность за решения и регулярное взаимодействие."
+        - "Внести ограниченное число обоснованных изменений и проверить их эффект."
     answer:
       en: "I spend the first weeks listening rather than reforming: one on ones with the team and with key partners, asking what gets in the way today and what people are afraid of tomorrow. A change of manager by itself lowers predictability, so any big early change reads as a threat, even a sensible one. Then I put clarity back: which priorities hold right now, who owns which decisions, which meetings and reports stay and which go away. Urgent risks to delivery and to people I close immediately, without waiting for the full picture. After that I make a small number of changes, each with a stated reason, and check the effect after a fixed period against dates, incidents, attrition and direct feedback. This pace is wrong if the team is already in crisis: there you stop the fall first and listen as you go."
       ru: "Первые недели трачу на слушание, а не на реформы: встречи один на один с командой и ключевыми партнёрами, вопросы о том, что мешает работать сегодня и чего люди опасаются завтра. Смена руководителя сама по себе снижает предсказуемость, поэтому любое раннее крупное изменение читается как угроза, даже вполне разумное. Дальше возвращаю ясность: какие приоритеты действуют сейчас, кто какие решения принимает, какие встречи и отчёты остаются, а какие исчезают. Срочные риски для поставки и для людей закрываю сразу, не дожидаясь полной картины. Потом делаю немного изменений, каждое с объяснением причины, и через фиксированный срок проверяю эффект по срокам, инцидентам, оттоку и прямым отзывам. Такой темп не годится, если команда уже в кризисе: там сначала останавливают падение, а слушают по ходу."
@@ -231,9 +231,9 @@ questions:
         - "Describe competing priorities, objections and how participants shaped the plan."
         - "Show delivery and impact, including what remained outside your control."
       ru:
-        - "Объясните значение возможности и как вы её обнаружили."
-        - "Опишите конкурирующие приоритеты, возражения и вклад участников в план."
-        - "Покажите выполнение и эффект, обозначив границы своего влияния."
+        - "Объяснить значение возможности и как вы её обнаружили."
+        - "Описать конкурирующие приоритеты, возражения и вклад участников в план."
+        - "Показать выполнение и эффект, обозначив границы своего влияния."
     answer:
       en: "Build the answer around the opportunity, not around how persuasive you were. Start with what you noticed and why it mattered: which signal in the data, the support tickets or the metrics, what size of effect you expected and on what basis. Then the important part. Everyone you needed already had a plan for the quarter, so say whose priorities you were pushing against, what objections came back, and how the proposal changed because of other people's input; a coalition holds together through co-authorship, not through persuasion. A written document with options, risks and open questions helps here, because people argue with a text rather than with rumours. Then give what was actually delivered and what effect it had, and mark the limits of your influence honestly: where other people decided, and what did not work. The mistake is a story where you convinced everyone at once, with no losses."
       ru: "Стройте ответ вокруг самой возможности, а не вокруг своей убедительности. Сначала объясните, что вы заметили и почему это было ценно: какой сигнал в данных, обращениях или метриках, какого порядка эффект вы ожидали и на каком основании. Дальше самое важное: у каждого участника был свой план на квартал, поэтому расскажите, чьи приоритеты вы задевали, какие возражения звучали и как предложение менялось от чужого вклада — коалиция держится на соавторстве, а не на уговорах. Хороший инструмент здесь письменный документ с вариантами, рисками и открытыми вопросами: спорят с текстом, а не со слухами. Затем приведите, что было реально сделано и какой вышел эффект, и честно обозначьте границы своего влияния: где решали другие и что не получилось. Ошибка — история, в которой вы убедили всех сразу и без потерь."
@@ -257,6 +257,21 @@ questions:
     evidence:
       - source: "exponent-report-anthropic-em"
         company: "anthropic"
+    start_here: ["leadership"]
+    priority: 59
+    outline:
+      en:
+        - "State the size precisely: direct reports, managers beneath you, total headcount and what the team owned."
+        - "Explain what you stopped doing personally and which mechanisms replaced your direct involvement."
+        - "Close with a signal that showed whether the model worked, and what you changed in response."
+      ru:
+        - "Назвать размер точно: прямые подчинённые, руководители под вами, общая численность и за что отвечала команда."
+        - "Объяснить, что вы перестали делать сами и какие механизмы заменили ваше прямое участие."
+        - "Закончить сигналом, по которому было видно, работает ли модель управления, и тем, что вы поменяли в ответ."
+    answer:
+      en: "Give the number precisely and with its structure: how many direct reports, whether some of them were managers, the total headcount, and what the organisation owned. Inflating it with dotted lines or contractors falls apart at the first follow-up. The real question is the second half: what changed in your job as it grew. With a handful of people you can know every design decision; with managers under you, you can't, so name what you stopped doing yourself — reviewing every change, running every incident, interviewing every candidate — and what replaced it: delegated decision rights, written standards, an operating rhythm, skip-level conversations, a few metrics you actually read. The interviewer is listening for whether your mechanisms matched the span, and the common failure is a large team run like a small one, with you as the bottleneck. If your largest team was small, say so and talk about complexity instead: several functions, time zones or stakeholders. Close with a signal that showed the model working or failing, and what you changed in response."
+      ru: "Назовите число точно и со структурой: сколько прямых подчинённых, были ли среди них руководители, общая численность и за что отвечала организация. Раздувание за счёт функционального подчинения или подрядчиков рассыпается на первом уточняющем вопросе. Настоящий вопрос — вторая половина: что менялось в вашей работе по мере роста. Когда людей несколько, можно знать каждое проектное решение; когда под вами руководители — нельзя, поэтому назовите, что вы перестали делать сами: смотреть каждое изменение, вести каждый инцидент, собеседовать каждого кандидата, — и что пришло на замену: делегированные права на решения, письменные стандарты, ритм работы, встречи через уровень, несколько метрик, которые вы действительно читали. Интервьюер слушает, соответствовали ли ваши механизмы масштабу, а частый провал — большая команда, которой управляют как маленькой, и вы в роли узкого места. Если самая большая команда была небольшой, так и скажите и говорите о сложности: несколько функций, часовых поясов или заинтересованных сторон. Закончите сигналом, по которому было видно, работает модель или нет, и тем, что вы поменяли в ответ."
+    reading: ["google-manager-training"]
   - id: "lead-high-performer-development"
     tracks: ["leadership"]
     type: "behavioral"
@@ -276,6 +291,16 @@ questions:
     evidence:
       - source: "exponent-report-meta-em-m1"
         company: "meta"
+    outline:
+      en:
+        - "Start from what each strong performer wants next, and stretch them with harder problems, not more volume."
+        - "Avoid a privileged exception: same standards on collaboration, and stretch work offered openly, not by favour."
+        - "Close with evidence of their growth, such as scope they now own alone, and whether they stayed."
+      ru:
+        - "Начать с того, чего дальше хочет каждый сильный сотрудник, и давать рост через более трудные задачи, а не через объём."
+        - "Не делать из них исключение: те же требования к совместной работе, а сложные задачи распределять открыто, не по симпатии."
+        - "Закончить свидетельствами их роста, например зоной, которую они теперь ведут сами, и тем, остались ли они."
+    reading: ["google-manager-training"]
   - id: "lead-partner-feedback"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -295,6 +320,16 @@ questions:
     evidence:
       - source: "exponent-report-meta-em-m1"
         company: "meta"
+    outline:
+      en:
+        - "Ask for specific instances and their impact on the partner's team, holding back any defence at first."
+        - "Test whether it is a pattern with other partners and your team, separating your behaviour from structural friction."
+        - "Commit to one visible change, tell the partner what it is, and ask them later whether it worked."
+      ru:
+        - "Попросить конкретные случаи и описание того, как это сказалось на команде партнёра, поначалу удерживаясь от оправданий."
+        - "Проверить у других партнёров и своей команды, системно ли это, отделяя своё поведение от структурных трений между функциями."
+        - "Взять на себя одно заметное изменение, сообщить о нём партнёру и позже спросить, сработало ли оно."
+    reading: ["google-manager-training"]
   - id: "lead-two-valid-views"
     tracks: ["leadership"]
     type: "behavioral"
@@ -314,6 +349,21 @@ questions:
     evidence:
       - source: "exponent-report-google-em-l6"
         company: "google"
+    start_here: ["leadership"]
+    priority: 60
+    outline:
+      en:
+        - "Pick a disagreement where both positions protected something real, and state each in its strongest form."
+        - "Show how you moved from positions to the needs behind them and found an option meeting both."
+        - "Close with what was decided, whether both concerns stayed addressed, and how you checked."
+      ru:
+        - "Выбрать спор, где обе позиции защищали что-то настоящее, и изложить каждую в сильнейшей форме."
+        - "Показать, как вы перешли от позиций к стоящим за ними потребностям и нашли вариант, закрывающий обе."
+        - "Закончить принятым решением, тем, остались ли закрыты оба опасения, и тем, как вы это проверили."
+    answer:
+      en: "Choose a disagreement where both sides were defending something real, say delivery speed against operability, rather than one where somebody was simply wrong, because the question is about keeping valid concerns, not about picking a winner. State each position in its strongest form. The interviewer is listening for the step from positions to needs: what each person feared would happen if the other prevailed. Positions conflict far more often than needs do, and once the needs are visible there's often an option that meets both — a staged rollout, a guardrail with a deadline, a reversible first step. Make clear this isn't splitting the difference, which usually leaves both concerns half addressed; that's the superficial compromise being tested. Say who decided, and what you'd have done if the needs had genuinely conflicted. The usual mistake is casting yourself as the wise mediator whose idea solved everything. Close with evidence: what was built, whether both concerns stayed addressed, and how the two people worked together afterwards."
+      ru: "Выбирайте спор, где обе стороны защищали что-то настоящее, например скорость выпуска и удобство эксплуатации, а не тот, где кто-то просто ошибался: вопрос о том, чтобы сохранить обоснованные опасения, а не выбрать победителя. Изложите каждую позицию в сильнейшей форме. Интервьюер слушает переход от позиций к потребностям: чего каждый боялся, если победит другой. Позиции конфликтуют гораздо чаще, чем потребности, и когда потребности видны, нередко находится вариант, закрывающий обе, — поэтапный выпуск, ограничитель со сроком, обратимый первый шаг. Подчеркните, что это не деление пополам: оно обычно оставляет оба опасения закрытыми наполовину, и именно такой поверхностный компромисс здесь проверяют. Скажите, кто принимал решение и что бы вы сделали, если бы потребности действительно противоречили друг другу. Частая ошибка — роль мудрого посредника, чья идея всё решила. Заканчивайте свидетельствами: что в итоге сделали, остались ли закрыты оба опасения и как эти двое работали вместе дальше."
+    reading: ["google-manager-training"]
   - id: "lead-strategic-hiring"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -342,11 +392,11 @@ questions:
         - "Write the role from the gap, and define what evidence the loop must produce."
       ru:
         - "Начать с обязательств следующего периода и требуемых для них компетенций."
-        - "Отличить пробел, который стоит закрывать найм, от решаемого обучением, заимствованием или отказом от работы."
+        - "Отличить пробел, который стоит закрывать наймом, от решаемого обучением, заимствованием или отказом от работы."
         - "Писать роль из пробела и определить, какие доказательства должно дать интервью."
     answer:
-      en: "I work backwards from commitments, not from granted headcount. What has the team promised for the next few quarters, which capabilities that requires, and where is the team thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to."
-      ru: "Я иду от обязательств, а не от выделенной численности. Что команда обещала на ближайшие кварталы, какие компетенции для этого нужны и где она тонка именно по компетенциям, а не по числу людей. Дальше по каждому пробелу спрашиваю, вообще ли найм — подходящий инструмент: часть закрывается быстрее обучением человека, который уже знает предметную область, часть — временным заимствованием специалиста, а часть должна закрыться решением эту работу не делать. Остальное оправдывает роль, и роль я пишу из пробела, а не из общей карьерной лестницы, затем определяю, какие доказательства должно дать интервью, чтобы оно проверяло сам пробел, а не его подобие. Я взвешиваю и долговечность: компетенция, нужная стратегии годами, заслуживает найма, а полугодовой всплеск — обычно нет. Провал, от которого я страхуюсь, — найм под ту архитектуру, которая есть, а не под ту, к которой мы идём."
+      en: "I work backwards from commitments, not from granted headcount. I ask what the team has promised for the next few quarters, which capabilities that requires, and where the team is thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to."
+      ru: "Я иду от обязательств, а не от выделенной численности. Смотрю, что команда обещала на ближайшие кварталы, какие компетенции для этого нужны и где ей не хватает именно компетенций, а не людей. Дальше по каждому пробелу спрашиваю, вообще ли найм — подходящий инструмент: часть закрывается быстрее обучением человека, который уже знает предметную область, часть — временным заимствованием специалиста, а часть должна закрыться решением эту работу не делать. Остальное оправдывает роль, и роль я пишу из пробела, а не из общей карьерной лестницы, затем определяю, какие доказательства должно дать интервью, чтобы оно проверяло сам пробел, а не его подобие. Я взвешиваю и долговечность: компетенция, нужная стратегии годами, заслуживает найма, а полугодовой всплеск — обычно нет. Провал, от которого я страхуюсь, — найм под ту архитектуру, которая есть, а не под ту, к которой мы идём."
     reading: ["google-manager-training"]
   - id: "lead-quality-standard"
     tracks: ["leadership"]
@@ -401,6 +451,15 @@ questions:
     evidence:
       - source: "exponent-perplexity-ai-pm"
         company: "perplexity"
+    outline:
+      en:
+        - "Bring the user problem and the evidence behind it, not the feature, so engineers can judge the reasoning."
+        - "Treat objections about cost, complexity or maintenance as inputs that can reshape scope, not as resistance."
+        - "Agree a success metric and a cheap first version, and commit to cutting it if the metric misses."
+      ru:
+        - "Принести проблему пользователя и данные за ней, а не саму функцию, чтобы инженеры могли проверить логику."
+        - "Считать возражения о цене, сложности и поддержке входными данными, способными изменить объём, а не сопротивлением."
+        - "Договориться о метрике успеха и дешёвой первой версии и обещать убрать функцию, если метрика не будет достигнута."
   - id: "lead-personal-growth"
     tracks: ["leadership"]
     type: "behavioral"
@@ -420,6 +479,16 @@ questions:
     evidence:
       - source: "exponent-report-meta-em-m1"
         company: "meta"
+    outline:
+      en:
+        - "Name one or two specific practices you changed, not a general shift in philosophy."
+        - "Explain what triggered each change, such as feedback or a team outcome, and what you believed before."
+        - "Show the effect as your team would describe it, and name what you are still changing."
+      ru:
+        - "Назвать одну-две конкретные практики, которые вы изменили, а не общий сдвиг в философии."
+        - "Объяснить, что вызвало каждое изменение, например обратная связь или результат команды, и во что вы верили раньше."
+        - "Показать эффект так, как его описала бы команда, и назвать, что вы меняете до сих пор."
+    reading: ["google-manager-training"]
   - id: "lead-research-product-boundary"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -449,7 +518,7 @@ questions:
         - "Оформить передачу как контракт: интерфейс, свидетельства оценки и владелец на дежурстве."
         - "Защитить релиз версионированием и путём отката, чтобы исследование не расшатывало его."
     answer:
-      en: "These are two different bars, not two levels of rigour, so I separate them structurally. Exploration is judged on learning rate and may be messy, undocumented and abandoned; production is judged on reliability and has an owner who is paged. The boundary is a handoff contract: a stable interface, evaluation evidence on an agreed set, and a named owner who accepts it; nothing enters the release path by being interesting. Behind that boundary the product team keeps versioning, gating and a rollback path, so a research change is a candidate, never a fait accompli. I would keep one shared evaluation suite both sides trust, because these arguments are usually about evidence. The pattern I watch for is researchers on permanent call for their own prototype, which quietly ends exploration; that is the signal to productionise it or retire it."
+      en: "These are two different bars, not two levels of rigour, so I separate them structurally. Exploration is judged on how fast the team learns and may be messy, undocumented and abandoned; production is judged on reliability and has an owner who is paged. The boundary is a handoff contract: a stable interface, evaluation evidence on an agreed set, and a named owner who accepts it; nothing enters the release path by being interesting. Behind that boundary the product team keeps versioning, gating and a rollback path, so a research change is a candidate, never a fait accompli. I would keep one shared evaluation suite both sides trust, because these arguments are usually about evidence. The pattern I watch for is researchers on permanent call for their own prototype, which quietly ends exploration; that is the signal to productionise it or retire it."
       ru: "Это две разные планки, а не две степени строгости, поэтому я разделяю их структурно. Исследование оценивается по скорости получения знаний и может быть неаккуратным, недокументированным и брошенным; эксплуатация оценивается по надёжности и имеет владельца, которого будят. Границей становится контракт передачи: стабильный интерфейс, свидетельства оценки на согласованном наборе и названный владелец, который её принимает; ничто не попадает в релизный путь просто потому, что интересно. За этой границей продуктовая команда держит версионирование, гейты и путь отката, поэтому исследовательское изменение — кандидат, а не свершившийся факт. Я бы сохранил один общий набор оценок, которому доверяют обе стороны: такие споры обычно идут именно о доказательствах. Настораживает меня картина, когда исследователи бессрочно дежурят по собственному прототипу: это тихо заканчивает исследования и служит сигналом либо довести прототип до продакшена, либо от него отказаться."
     reading: ["google-rules-of-ml"]
   - id: "lead-ai-review-skills"
@@ -479,10 +548,10 @@ questions:
       ru:
         - "Назвать настоящий пробел: ревью крупного изменения, которого никто не писал руками, а не владение инструментом."
         - "Оставить автора ответственным за объяснение и тестирование изменения, чем бы оно ни было создано."
-        - "Учить ревью навыкам проверки и измерять пропущенные дефекты, а не число внедрений."
+        - "Учить ревьюеров навыкам проверки и измерять пропущенные дефекты, а не охват использования инструмента."
     answer:
-      en: "The gap is not tool operation, it is that review was designed for changes a human drafted incrementally and now receives large, plausible diffs nobody wrote by hand. So I would fix ownership first: the author is accountable for the change regardless of what produced it, and a pull request nobody can explain does not get reviewed. Concretely the author states intent, the tests that pin the behaviour, and what they verified themselves; reviewers are trained to read tests before implementation, to check edge cases and error paths where generated code is weakest, and to reject a change too large to reason about. I would keep changes small and invest in tests as the durable check, since a human cannot out-read the generator. I would measure escaped defects, revert rate and review latency, never tool adoption, which says nothing about understanding."
-      ru: "Пробел не в умении пользоваться инструментом: ревью проектировалось под изменения, которые человек писал постепенно, а теперь получает большие правдоподобные диффы, которых никто не набирал руками. Поэтому я бы сначала починил ответственность: автор отвечает за изменение независимо от того, чем оно создано, а pull request, который никто не может объяснить, не идёт на ревью. Конкретно: автор формулирует замысел, тесты, закрепляющие поведение, и что проверил сам; ревьюеров учат читать тесты раньше реализации, смотреть граничные случаи и ветки ошибок, где сгенерированный код слабее всего, и отклонять изменение, слишком большое для осмысления. Я бы держал изменения небольшими и вкладывался в тесты как в устойчивую проверку: человек не в состоянии перечитать генератор. Измерял бы пропущенные дефекты, долю откатов и время ревью, но никогда не число внедрений инструмента — оно ничего не говорит о понимании."
+      en: "The gap is not tool operation, it is that review was designed for changes a human drafted incrementally and now receives large, plausible diffs nobody wrote by hand. So I would fix ownership first: the author is accountable for the change regardless of what produced it, and a pull request nobody can explain does not get reviewed. Concretely the author states intent, the tests that pin the behaviour, and what they verified themselves; reviewers are trained to read tests before implementation, to check edge cases and error paths where generated code is weakest, and to reject a change too large to reason about. I would keep changes small and invest in tests as the durable check, since a human cannot out-read the generator; but tests generated with the code can encode the same misreading, so they count only once someone has checked them against the stated intent. I would measure escaped defects, revert rate and review latency, never tool adoption, which says nothing about understanding."
+      ru: "Пробел не в умении пользоваться инструментом: ревью проектировалось под изменения, которые человек писал постепенно, а теперь получает большие правдоподобные диффы, которых никто не набирал руками. Поэтому я бы сначала починил ответственность: автор отвечает за изменение независимо от того, чем оно создано, а pull request, который никто не может объяснить, не идёт на ревью. Конкретно: автор формулирует замысел, тесты, закрепляющие поведение, и что проверил сам; ревьюеров учат читать тесты раньше реализации, смотреть граничные случаи и ветки ошибок, где сгенерированный код слабее всего, и отклонять изменение, слишком большое для осмысления. Я бы держал изменения небольшими и вкладывался в тесты как в устойчивую проверку: человек не успеет прочитать всё, что выдаёт генератор. Но тесты, сгенерированные вместе с кодом, могут закрепить то же неверное понимание задачи, поэтому опираться на них можно только после того, как их сверили с заявленным замыслом. Измерял бы пропущенные дефекты, долю откатов и время ревью, но никогда не охват использования инструмента — оно ничего не говорит о понимании."
     reading: ["anthropic-ai-resistant-evaluations"]
   - id: "lead-platform-team-charter"
     tracks: ["leadership"]
@@ -501,6 +570,21 @@ questions:
     provenance: "generated"
     added: "2026-09-26"
     basis: ["radar:engineering-leadership"]
+    start_here: ["leadership"]
+    priority: 61
+    outline:
+      en:
+        - "Define the shared need precisely and compare its cost with each team building its own."
+        - "Choose a staffing model explicitly: funded headcount, capacity taken from both roadmaps, or one owning team."
+        - "Write a narrow charter with a named owner, support terms and the trigger for a dedicated team."
+      ru:
+        - "Точно определить общую потребность и сравнить её стоимость с тем, что каждая команда сделает сама."
+        - "Явно выбрать модель ресурсов: новые ставки, ёмкость из планов обеих команд или одна команда-владелец."
+        - "Написать узкий устав с названным владельцем, условиями поддержки и триггером для выделенной команды."
+    answer:
+      en: "The thing to prevent is a platform announced before anyone is staffed to run it: teams start depending on it, it degrades, and its failures belong to no one. I'd first define what's actually shared — model access, an evaluation harness, logging with redaction — and what each team would build alone, because a quarter of duplication can be cheaper than a premature shared dependency that couples two roadmaps. If it's genuinely shared, capacity must come from somewhere, and the honest options are few: fund headcount, take an explicit share out of both teams' plans, or make one team the owner, with the other as a customer on written terms. A volunteer working group isn't one of them. Then a narrow charter: the owner, what's in and out of scope, response expectations, how changes are requested, and the trigger for a dedicated team, such as a third consumer or growing support load. If neither team will give up roadmap capacity, that's a priority decision for their common manager, not an org-design problem."
+      ru: "Предотвратить нужно платформу, объявленную раньше, чем появились люди для её поддержки: команды начинают от неё зависеть, она деградирует, а за её сбои не отвечает никто. Поэтому сначала определяю, что действительно общее — доступ к моделям, стенд оценки, журналирование с маскированием, — и что каждая команда сделала бы сама: квартал дублирования бывает дешевле преждевременной общей зависимости, которая связывает два роадмапа. Если потребность действительно общая, ёмкость должна откуда-то взяться, и честных вариантов немного: выделить ставки, явно забрать долю из планов обеих команд или назначить одну команду владельцем, а другую — клиентом на письменно зафиксированных условиях. Рабочая группа добровольцев в этот список не входит. Дальше узкий устав: владелец, что входит в зону ответственности и что нет, ожидаемые сроки реакции, порядок запроса изменений и триггер для выделенной команды, например третий потребитель или растущая нагрузка на поддержку. Если ни одна команда не готова отдать часть плана, это вопрос приоритетов для их общего руководителя, а не задача оргдизайна."
+    reading: ["fowler-team-topologies"]
   - id: "lead-ai-interview-redesign"
     tracks: ["leadership"]
     roles: ["engineering-manager"]
@@ -514,4 +598,13 @@ questions:
     provenance: "generated"
     added: "2026-09-30"
     basis: ["radar:engineering-leadership"]
-    reading: ["anthropic-ai-resistant-evaluations"]
+    outline:
+      en:
+        - "Identify which old tasks assistants now solve, and restate the signal as judgement, verification and ownership."
+        - "Allow tools openly with the same setup for everyone, and score how candidates check, correct and explain output."
+        - "Calibrate the new tasks on current engineers using the same tools, and track whether scores predict later performance."
+      ru:
+        - "Определить, какие прежние задания теперь решают ассистенты, и переформулировать сигнал как суждение, проверку и ответственность."
+        - "Открыто разрешить инструменты в одинаковой для всех среде и оценивать, как кандидат проверяет, исправляет и объясняет результат."
+        - "Откалибровать новые задания на действующих инженерах с теми же инструментами и отслеживать, предсказывают ли оценки последующую работу."
+    reading: ["anthropic-ai-resistant-evaluations","canva-ai-interview-success"]

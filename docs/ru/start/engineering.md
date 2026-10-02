@@ -119,3 +119,33 @@
   - System design · [Мультимодальность и голос](../themes/multimodal-voice.md) · ✍ [Ответ](../answers/engineering.md#mm-latency)
 - **55. [Реализуйте минимальный агентный runner с проверяемой диспетчеризацией инструментов, обработкой ошибок и жёстким лимитом шагов.](../themes/coding-practical.md#code-agent-loop)**
   - Кодинг · [Практический кодинг](../themes/coding-practical.md) · ✍ [Ответ](../answers/engineering.md#code-agent-loop)
+- **56. [Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса.](../themes/inference-economics.md#inf-latency-metrics)**
+  - Знания · [Инференс, serving и стоимость](../themes/inference-economics.md) · Где спрашивали: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#inf-latency-metrics)
+- **57. [Почему точный attention может работать быстрее без изменения квадратичного характера вычислений?](../themes/llm-fundamentals.md#llm-flashattention)**
+  - Знания · [Основы LLM](../themes/llm-fundamentals.md) · ✍ [Ответ](../answers/engineering.md#llm-flashattention)
+- **58. [Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения.](../themes/ai-system-design.md#sd-text-to-sql)**
+  - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#sd-text-to-sql)
+- **59. [Клиент жалуется на худшие ответы после обновления модели. Как проверить регрессию и решить, что восстановить или изменить?](../themes/evals-observability.md#eval-upgrade-complaint)**
+  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#eval-upgrade-complaint)
+- **60. [Как сделать действия агента в production обратимыми там, где это возможно, и проверяемыми там, где откат невозможен?](../themes/agents-tools.md#agt-reversibility)**
+  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#agt-reversibility)
+- **61. [Рассчитайте память полного bf16-дообучения модели 7B с Adam, затем для LoRA; явно задайте предположения об оптимизаторе.](../themes/post-training.md#pt-training-memory)**
+  - Прикладной сценарий · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-training-memory)
+- **62. [Спроектируйте обучение модели, не помещающейся на одном ускорителе: как разделить состояние и ограничить стоимость коммуникаций?](../themes/post-training.md#pt-distributed-training)**
+  - System design · [Дообучение и post-training](../themes/post-training.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · ✍ [Ответ](../answers/engineering.md#pt-distributed-training)
+- **63. [Объясните GRPO и компромиссы оценки advantage без обученной value model.](../themes/post-training.md#pt-grpo)**
+  - Знания · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-grpo)
+- **64. [Награда политики растёт, а людям ответы нравятся всё меньше. Как выявить и ограничить reward hacking?](../themes/post-training.md#pt-reward-hacking)**
+  - Прикладной сценарий · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-reward-hacking)
+- **65. [Объясните использование принципов, самокоррекции и AI-предпочтений в Constitutional AI и сохранённую зависимость от человеческих решений.](../themes/post-training.md#pt-constitutional)**
+  - Знания · [Дообучение и post-training](../themes/post-training.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#pt-constitutional)
+- **66. [Объясните поиск через гипотетический документ и способ проверить пользу на вашем распределении запросов.](../themes/rag-retrieval.md#rag-hyde)**
+  - Знания · [RAG и поиск](../themes/rag-retrieval.md) · ✍ [Ответ](../answers/engineering.md#rag-hyde)
+- **67. [На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?](../themes/coding-practical.md#code-ai-assisted-ownership)**
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Canva](../companies/canva.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-ownership)
+- **68. [Команда связывает улучшение результатов с reasoning-моделью, но одновременно изменила промпты, инструменты и вычислительный бюджет. Как выяснить, что именно помогло?](../themes/evals-observability.md#eval-reasoning-counterfactual)**
+  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#eval-reasoning-counterfactual)
+- **69. [Различите награду за результат, process supervision и проверку при инференсе. Какие данные обоснуют выбор каждого подхода для новой reasoning-задачи?](../themes/evals-observability.md#eval-reasoning-supervision)**
+  - Знания · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#eval-reasoning-supervision)
+- **70. [Запрос к reasoning API расходует токены, но не возвращает пригодный ответ. Как найти причину и организовать восстановление с ограниченным бюджетом?](../themes/inference-economics.md#inf-reasoning-incomplete)**
+  - Прикладной сценарий · [Инференс, serving и стоимость](../themes/inference-economics.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#inf-reasoning-incomplete)

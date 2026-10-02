@@ -119,3 +119,33 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - Behavioral · Senior · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/leadership.md#beh-stakeholder-priorities)
 - **55. [Describe feedback that was difficult for you to hear and what you did with it.](../themes/behavioral-values.md#beh-critical-feedback)**
   - Behavioral · Senior · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#beh-critical-feedback)
+- **56. [Present a major initiative you led: what worked, what did not, and what you learned.](../themes/program-delivery.md#prog-initiative-retrospective)**
+  - Self-presentation · Senior · [Programmes and delivery](../themes/program-delivery.md) · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Answer](../answers/leadership.md#prog-initiative-retrospective)
+- **57. [Tell me about a technical misjudgement that delayed a project.](../themes/program-delivery.md#prog-delayed-by-judgement)**
+  - Behavioral · Senior · [Programmes and delivery](../themes/program-delivery.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#prog-delayed-by-judgement)
+- **58. [An upstream data team will miss a milestone on your AI programme. How do you revise the plan and communicate the impact?](../themes/program-delivery.md#prog-dependency-slip)**
+  - Applied scenario · Senior · [Programmes and delivery](../themes/program-delivery.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-dependency-slip)
+- **59. [What is the largest team you have managed, and how did your responsibilities change at that scale?](../themes/engineering-leadership.md#lead-team-scale)**
+  - Self-presentation · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-team-scale)
+- **60. [Describe a team disagreement that you resolved without discarding the valid concerns on either side.](../themes/engineering-leadership.md#lead-two-valid-views)**
+  - Behavioral · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-two-valid-views)
+- **61. [Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?](../themes/engineering-leadership.md#lead-platform-team-charter)**
+  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-platform-team-charter)
+- **62. [A clinical AI service handles recordings, transcripts and notes containing protected health information. How does that constrain architecture and use of third-party model APIs?](../themes/domain-payments-fintech.md#pay-clinical-data-boundary)**
+  - System design · Senior · [Payments and regulated domains](../themes/domain-payments-fintech.md) · ✍ [Answer](../answers/leadership.md#pay-clinical-data-boundary)
+- **63. [Refactor a small, poorly structured program with passing tests. Explain the first change and how you preserve observable behaviour.](../themes/coding-practical.md#code-refactoring)**
+  - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/leadership.md#code-refactoring)
+- **64. [Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations.](../themes/agents-tools.md#agt-erp-writes)**
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/leadership.md#agt-erp-writes)
+- **65. [What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?](../themes/ai-product-strategy.md#prod-expensive-mvp)**
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-expensive-mvp)
+- **66. [In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?](../themes/ai-product-strategy.md#prod-enterprise-discovery)**
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-enterprise-discovery)
+- **67. [Design a moderation system that combines specialist classifiers and LLMs while controlling delay and review workload.](../themes/ai-system-design.md#sd-moderation)**
+  - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Meta](../companies/meta.md) † · ✍ [Answer](../answers/leadership.md#sd-moderation)
+- **68. [How would you weigh a performance improvement against reduced model interpretability?](../themes/safety-security-governance.md#sec-interpretability-tradeoff)**
+  - Applied scenario · Senior · [Safety, security and governance](../themes/safety-security-governance.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#sec-interpretability-tradeoff)
+- **69. [Design a service that lets several teams query a shared dataset without exposing the underlying raw records.](../themes/ai-operating-model.md#ops-shared-data-access)**
+  - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/leadership.md#ops-shared-data-access)
+- **70. [An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?](../themes/applied-scenarios.md#app-rag-account-triage)**
+  - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#app-rag-account-triage)

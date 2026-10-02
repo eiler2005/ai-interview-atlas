@@ -29,5 +29,10 @@ On this page: [Interview loop](#loop) · [Questions (1)](#questions)
 - **[Critique the weaknesses of an existing production service architecture, then design a new product feature on top of it.](../themes/ai-system-design.md#sd-architecture-critique)**
   - System design · Asked at: LangChain †
   - Tests: Whether you reason about a real, imperfect system rather than a blank page.
+  - A strong answer covers:
+    - Read the system as it runs: request path, data ownership, failure modes and who operates it.
+    - Rank weaknesses by the risk they pose to the new feature, not by how ugly they look.
+    - Design the feature within existing constraints, naming the minimal changes it forces and a safe migration.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 
 ← [Databricks](databricks.md) · [NVIDIA](nvidia.md) →

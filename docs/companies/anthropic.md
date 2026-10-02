@@ -55,6 +55,11 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Trace the tensor shapes through one decoder-only transformer layer and through the final vocabulary projection.](../themes/llm-fundamentals.md#llm-decoder-pass)**
   - Knowledge · Asked at: Anthropic †
   - Tests: Whether attention, residual paths and vocabulary logits form a coherent computation.
+  - A strong answer covers:
+    - Carry [B, T, d_model] through norm, Q, K, V projections split into heads, [B, H, T, T] scores and the output projection.
+    - Keep the residual stream at d_model throughout; the MLP expands to d_ff and back before each residual add.
+    - Project the final normed stream through a d_model by vocabulary matrix to [B, T, V] logits; recheck shapes for one cached decode step.
+  - Read: [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv)
 
 ### [Inference, serving and cost](../themes/inference-economics.md)
 
@@ -69,6 +74,11 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[In Anthropic's original performance-engineering take-home, introduced in 2024 and subsequently retired, optimise a serial program for a simulated accelerator using multicore, vector and instruction-level parallelism.](../themes/inference-economics.md#inf-accelerator-takehome)**
   - Coding · Asked at: Anthropic ✅
   - Tests: Whether you find parallelism methodically and build tooling to measure and debug each step.
+  - A strong answer covers:
+    - Lock correctness first: check every output against the serial version, and fix any existing bug before optimising.
+    - Find independent iterations from data dependencies, then spread them across cores, SIMD lanes and per-cycle instruction slots.
+    - Measure simulated cycles after every change, and use a per-instruction trace to find stalls and idle units.
+  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 
 ### [Agents, tools and protocols](../themes/agents-tools.md)
 
@@ -91,15 +101,24 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?](../themes/agents-tools.md#agt-coding-harness)**
   - System design · Asked at: Anthropic †
   - Tests: Whether controlled comparisons can identify the source of improvements.
+  - A strong answer covers:
+    - Define the harness precisely: tools, context assembly, retries, test feedback and stopping rules.
+    - Run a factorial comparison: swap the model with the harness fixed, then swap the harness.
+    - On a fixed task set, repeat trials, grade the final repository by tests and report variance.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - **[Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.](../themes/agents-tools.md#agt-mcp-long-running)**
   - System design · Asked at: Anthropic †
   - Tests: Whether you manage state, failures and context budget across a long tool-driven run.
-  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
+  - A strong answer covers:
+    - Keep the plan and progress in durable state outside the context, not only in the transcript.
+    - Budget the context: paginate and trim tool results, compact history, fetch details only when needed.
+    - Make tool steps resumable and idempotent, and test recovery from a server failure mid-run.
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 
 ### [Fine-tuning and post-training](../themes/post-training.md)
 
 - **[Explain how Constitutional AI uses principles, self-revision and AI-generated preferences, and identify what human judgement it still depends on.](../themes/post-training.md#pt-constitutional)**
-  - Knowledge · Asked at: Anthropic †
+  - Knowledge · Asked at: Anthropic † · ✍ [Answer](../answers/engineering.md#pt-constitutional)
   - Tests: Whether reduced labelling effort is distinguished from removing human value choices.
   - A strong answer covers:
     - Separate supervised self-critique and revision from reinforcement learning on AI-generated preferences.
@@ -128,12 +147,27 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Design an experiment for a suspected emergent capability or bias in a large model, with controls against misleading task framing.](../themes/evals-observability.md#eval-emergent-capability)**
   - Applied scenario · Asked at: Anthropic †
   - Tests: Whether a capability claim is testable and alternative explanations are considered.
+  - A strong answer covers:
+    - Turn the claim into a prediction with a metric, a threshold and a result that would refute it.
+    - Control framing: paraphrased prompts, shuffled options, counterbalanced order, and continuous metrics beside exact match.
+    - Rule out contamination and scoring artefacts with fresh items, smaller-model baselines and repeated samples.
+  - Read: [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004) (Schaeffer et al., arXiv)
 - **[In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation.](../themes/evals-observability.md#eval-behaviour-brainstorm)**
   - Knowledge · Asked at: Anthropic 🗣
   - Tests: Whether you generate concrete, testable hypotheses about model behaviour quickly.
+  - A strong answer covers:
+    - State each idea as a behaviour, a controlled prompt change and the measurable outcome you expect.
+    - Draw on observable levers: position of information, option order, length, persona, language and repeated sampling.
+    - Say how many samples and which control would separate a real effect from noise or prompt wording.
+  - Read: [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv)
 - **[Modify a prompt so that a target share of the model's outputs matches the desired result, and show how you measured it.](../themes/evals-observability.md#eval-prompt-target-share)**
   - Applied scenario · Asked at: Anthropic 🗣
   - Tests: Whether prompt changes are driven by measurement on a set of cases rather than single examples.
+  - A strong answer covers:
+    - Define the desired result as a pass-fail check, and build a representative case set first.
+    - Change one thing at a time and sample each case several times, since outputs vary between runs.
+    - Report the share with a confidence interval on held-out cases, so the gain is not overfitting.
+  - Read: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 
 ### [Safety, security and governance](../themes/safety-security-governance.md)
 
@@ -164,9 +198,19 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Which unresolved alignment problem deserves the most attention, and why?](../themes/safety-security-governance.md#sec-alignment-open-problem)**
   - Knowledge · Senior · Asked at: Anthropic †
   - Tests: Whether you separate an argument from speculation and identify useful evidence.
+  - A strong answer covers:
+    - Pick one concrete problem, such as reward hacking or unfaithful reasoning, and state its harm.
+    - Separate what current evidence shows from extrapolation, and name the assumption the argument rests on.
+    - Name the evidence that would change your priority, and a measurable research step toward it.
+  - Read: [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv) · [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) (Chen et al., arXiv) · [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., arXiv)
 - **[How would you weigh a performance improvement against reduced model interpretability?](../themes/safety-security-governance.md#sec-interpretability-tradeoff)**
-  - Applied scenario · Senior · Asked at: Anthropic †
+  - Applied scenario · Senior · Asked at: Anthropic † · ✍ [Answer](../answers/leadership.md#sec-interpretability-tradeoff)
   - Tests: Whether the trade-off depends on use, consequences and available controls.
+  - A strong answer covers:
+    - Ask what interpretability serves here: explaining decisions to those affected, contesting outcomes, validation or debugging.
+    - Weigh the gain against error consequences and against controls that do not depend on model internals.
+    - Verify the gain on the slices that matter, with outcome monitoring and a simpler fallback model.
+  - Read: [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) (Board of Governors of the Federal Reserve System) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 
 ### [AI system design](../themes/ai-system-design.md)
 
@@ -181,9 +225,19 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[How would you support multiple questions within one conversation while keeping turn ordering and shared context consistent?](../themes/ai-system-design.md#sd-thread-state)**
   - System design · Asked at: Anthropic †
   - Tests: Whether concurrent conversation updates have clear consistency semantics.
+  - A strong answer covers:
+    - Decide the semantics first: serialise turns per conversation, or fork branches that each see a snapshot.
+    - Append turns with a per-conversation sequence number and an idempotency key, rejecting stale writes.
+    - Test interleaved requests, retries of the same turn and cancellations for duplicated or reordered history.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - **[Design distributed search for a billion documents at a million queries per second; state your partitioning and capacity assumptions.](../themes/ai-system-design.md#sd-billion-document-search)**
   - System design · Asked at: Anthropic †
   - Tests: Whether indexing, fan-out and tail latency are grounded in estimates.
+  - A strong answer covers:
+    - Estimate index bytes per document and queries per shard to derive shard and replica counts.
+    - Choose document versus term partitioning, knowing that fan-out to every shard amplifies tail latency.
+    - Contain tails with hedged requests and partial results, and test p99 under shard failure and reindexing.
+  - Read: [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/) (Dean and Barroso, Google Research)
 - **[Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.](../themes/ai-system-design.md#sd-model-api)**
   - System design · Asked at: Anthropic † · ✍ [Answer](../answers/engineering.md#sd-model-api)
   - Tests: Whether a model endpoint is treated as a durable platform contract.
@@ -239,29 +293,58 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Explain decision rights, communicate the choice and define when to revisit it.
   - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - **[What is the largest team you have managed, and how did your responsibilities change at that scale?](../themes/engineering-leadership.md#lead-team-scale)**
-  - Self-presentation · Senior · Asked at: Anthropic 🗣
+  - Self-presentation · Senior · Asked at: Anthropic 🗣 · ✍ [Answer](../answers/leadership.md#lead-team-scale)
   - Tests: Whether your management model matches the actual span and complexity.
+  - A strong answer covers:
+    - State the size precisely: direct reports, managers beneath you, total headcount and what the team owned.
+    - Explain what you stopped doing personally and which mechanisms replaced your direct involvement.
+    - Close with a signal that showed whether the model worked, and what you changed in response.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ### [Programmes and delivery](../themes/program-delivery.md)
 
 - **[Present a major initiative you led: what worked, what did not, and what you learned.](../themes/program-delivery.md#prog-initiative-retrospective)**
-  - Self-presentation · Senior · Asked at: Anthropic 🗣
+  - Self-presentation · Senior · Asked at: Anthropic 🗣 · ✍ [Answer](../answers/leadership.md#prog-initiative-retrospective)
   - Tests: Whether you can assess an initiative honestly across planning and execution.
+  - A strong answer covers:
+    - Pick an initiative you owned end to end and state its original goal in measurable terms.
+    - Separate planning errors from execution errors, and name one decision of yours you would now reverse.
+    - Close with the result against the original goal and a practice you changed afterwards.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - **[Walk through a project you owned from beginning to end and its key technical decisions.](../themes/program-delivery.md#prog-technical-ownership)**
   - Self-presentation · Senior · Asked at: Anthropic †
   - Tests: Whether technical choices are connected to constraints, sequencing and outcomes.
+  - A strong answer covers:
+    - Pick a project you owned end to end, and show how its constraints set the order of work.
+    - Walk through two or three key decisions, each with the alternative you rejected and the reason.
+    - Close by tying each decision to the measured outcome, including one whose cost showed up later.
+  - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - **[Tell me about a technical misjudgement that delayed a project.](../themes/program-delivery.md#prog-delayed-by-judgement)**
-  - Behavioral · Senior · Asked at: Anthropic †
+  - Behavioral · Senior · Asked at: Anthropic † · ✍ [Answer](../answers/leadership.md#prog-delayed-by-judgement)
   - Tests: Whether you recognise faulty assumptions and change planning practice afterward.
+  - A strong answer covers:
+    - Pick a misjudgement that was technical and yours, stated as the assumption you believed then.
+    - Show when contrary evidence first appeared, how long you took to act, and what the delay cost.
+    - Name the planning practice you changed, such as testing risky assumptions first, and where it later helped.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 
 ### [Applied and customer scenarios](../themes/applied-scenarios.md)
 
 - **[An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?](../themes/applied-scenarios.md#app-rag-account-triage)**
-  - Applied scenario · Senior · Asked at: Anthropic †
+  - Applied scenario · Senior · Asked at: Anthropic † · ✍ [Answer](../answers/leadership.md#app-rag-account-triage)
   - Tests: Whether you separate retrieval failures, unsupported generation and misunderstood user expectations.
+  - A strong answer covers:
+    - Collect concrete failing cases with full traces: question, retrieved passages, assembled prompt and answer.
+    - Sort each into missed retrieval, an answer unsupported by retrieved text, or a question the corpus cannot answer.
+    - Report the split with counts, fix the dominant cause first, and keep the cases as a regression set.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - **[How would you explain a complex AI research result to a nontechnical audience?](../themes/applied-scenarios.md#app-research-explanation)**
   - Applied scenario · Senior · Asked at: Anthropic †
   - Tests: Whether you communicate implications and limitations without replacing evidence with hype.
+  - A strong answer covers:
+    - Ask who the audience is and which of their decisions the result should inform.
+    - Cut detail, never accuracy: one honest analogy, what was measured and against which baseline.
+    - State what the result does not show, and check the audience can restate its limits.
 
 ### [Behavioral and values](../themes/behavioral-values.md)
 
@@ -276,9 +359,18 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Describe a time when work created a moral conflict for you. What did you do?](../themes/behavioral-values.md#beh-moral-conflict)**
   - Behavioral · Senior · Asked at: Anthropic 🗣
   - Tests: Whether you can explain values, consequences and practical action without a rehearsed slogan.
+  - A strong answer covers:
+    - Choose a case with real stakes where reasonable people could disagree, not an obvious wrongdoing.
+    - State the value through its consequences: who would be affected and how, and which options you had.
+    - Describe the action you took, what it cost you, and the line you would hold next time.
 - **[What do you see as the significant risks of advanced AI systems?](../themes/behavioral-values.md#beh-ai-safety-view)**
   - Knowledge · Senior · Asked at: Anthropic †
   - Tests: Whether you articulate a coherent, evidence-sensitive view of AI risk.
+  - A strong answer covers:
+    - Separate risk classes — misuse, unintended model behaviour, wider structural effects — and say which you rank highest.
+    - Tie each risk to current evidence, and mark clearly where you are extrapolating rather than observing.
+    - Name what evidence would change your ranking and which mitigations, such as capability evaluations, can be tested now.
+  - Read: [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) (Anthropic) · [International AI Safety Report](https://www.gov.uk/government/publications/international-ai-safety-report-2025) (UK Department for Science, Innovation and Technology)
 - **[Describe feedback that was difficult for you to hear and what you did with it.](../themes/behavioral-values.md#beh-critical-feedback)**
   - Behavioral · Senior · Asked at: Anthropic † · ✍ [Answer](../answers/leadership.md#beh-critical-feedback)
   - Tests: Whether you can respond to criticism with specific learning and action.
@@ -290,5 +382,9 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Would you be comfortable staying if the company's stock went to zero?](../themes/behavioral-values.md#beh-mission-without-upside)**
   - Behavioral · Asked at: Anthropic 🗣
   - Tests: Whether your commitment rests on the mission and the work rather than the financial upside.
+  - A strong answer covers:
+    - Answer honestly, naming what actually holds you to this work: the mission, the problems, the people.
+    - Distinguish needing a fair salary from depending on equity upside, and admit that pay matters.
+    - Back it with a past choice, if you have one, where the work outweighed the money.
 
 [OpenAI](openai.md) →

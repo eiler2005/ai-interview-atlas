@@ -88,7 +88,7 @@ themes:
     name: {en: "Inference, serving and cost", ru: "Инференс, serving и стоимость"}
     summary:
       en: "Serving models at scale: prefill and decode, batching, caching, quantisation, latency metrics and the levers that move cost."
-      ru: "Обслуживание моделей в масштабе: prefill и decode, батчинг, кэширование, квантизация, метрики задержки и рычаги стоимости."
+      ru: "Обслуживание моделей в масштабе: prefill и decode, батчинг, кеширование, квантизация, метрики задержки и рычаги стоимости."
   - id: "rag-retrieval"
     name: {en: "RAG and retrieval", ru: "RAG и поиск"}
     summary:

@@ -18,8 +18,13 @@
     - Сравнить с одним агентом при сопоставимом общем бюджете; учесть повторы работы, ошибки координации, стоимость и задержку.
   - Читать: [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Anthropic)
 - <a id="agt-reversibility"></a>**Как сделать действия агента в production обратимыми там, где это возможно, и проверяемыми там, где откат невозможен?**
-  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-reversibility&title=%5BCorrection%5D%20agt-reversibility)
+  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#agt-reversibility) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-reversibility&title=%5BCorrection%5D%20agt-reversibility)
   - Что проверяет: Умение заранее продумать компенсационные действия и журнал исполнения.
+  - Сильный ответ покрывает:
+    - До выпуска инструмента отнести каждое действие к обратимым, компенсируемым в пределах окна или необратимым.
+    - Предпочитать встроенную отмену: черновики, мягкое удаление, отложенную отправку; для остального регистрировать проверенную компенсацию.
+    - До действия писать намерение, точные аргументы и автора разрешения в журнал только на добавление; репетировать восстановление по нему.
+  - Читать: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe) · [Compensating Transaction pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/compensating-transaction) (Microsoft Learn)
 - <a id="agt-approval"></a>**Спроектируйте подтверждение человеком значимых действий агента, связав разрешение с конкретным исполняемым действием.**
   - System design · Где спрашивали: [OpenAI](../companies/openai.md) †, [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#agt-approval) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-approval&title=%5BCorrection%5D%20agt-approval)
   - Что проверяет: Умение обеспечить контроль разрешений вне модели.
@@ -29,8 +34,13 @@
     - Записать решение и результат; аннулировать разрешение при существенном изменении действия.
   - Читать: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="agt-erp-writes"></a>**Спроектируйте агента, создающего и обновляющего наряды в действующей ERP без дублирования или незаметного искажения операций.**
-  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-erp-writes&title=%5BCorrection%5D%20agt-erp-writes)
+  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/leadership.md#agt-erp-writes) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-erp-writes&title=%5BCorrection%5D%20agt-erp-writes)
   - Что проверяет: Умение сохранить бизнес-инварианты при неопределённости модели и сети.
+  - Сильный ответ покрывает:
+    - Оставить модели только предложения: типизированную команду, проверенную по бизнес-правилам ERP до любой записи.
+    - Выводить стабильный бизнес-ключ для идемпотентного создания и обновлять с проверкой версии, а не перезаписью вслепую.
+    - Сверять неоднозначные исходы до повтора, журналировать предложение и эффект, проверить дубли событий и одновременные правки.
+  - Читать: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
@@ -53,6 +63,10 @@
 - <a id="agt-structured-output"></a>**Чем ответ по схеме отличается от function calling и какой компонент действительно исполняет действие?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-structured-output&title=%5BCorrection%5D%20agt-structured-output)
   - Что проверяет: Умение отличать валидный формат от разрешённого исполнения.
+  - Сильный ответ покрывает:
+    - Объяснить, что оба механизма лишь ограничивают вывод модели и сами ничего не исполняют.
+    - Сравнить типизированный итоговый ответ для вызывающего кода с запросом на вызов, который приложение может выполнить, отклонить или изменить.
+    - Оставить авторизацию в коде приложения: вызов, валидный по схеме, всё равно может быть запрещён, вреден или ошибочен.
   - Читать: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - <a id="agt-mcp"></a>**Что MCP стандартизирует между AI-приложением и внешним сервисом сверх формата function call модели?**
   - Знания · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/engineering.md#agt-mcp) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp&title=%5BCorrection%5D%20agt-mcp)
@@ -81,6 +95,11 @@
 - <a id="agt-tool-choice"></a>**Как агент должен решать, ответить сразу или получить свежие сведения через инструмент?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-tool-choice&title=%5BCorrection%5D%20agt-tool-choice)
   - Что проверяет: Учёт неопределённости, свежести и стоимости вызова.
+  - Сильный ответ покрывает:
+    - Сначала классифицировать вопрос: устойчивое знание, факты, зависящие от времени, или закрытые данные, которых у модели нет.
+    - Сопоставить цену неверного прямого ответа с задержкой, стоимостью и риском сбоя вызова.
+    - Измерить лишние и пропущенные вызовы на размеченных примерах; где требует политика, принудительно включать или запрещать инструменты.
+  - Читать: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - <a id="agt-termination"></a>**Задайте критерии завершения и остановки агентного цикла, исключающие бесконечные затраты на незавершённую задачу.**
   - System design · ✍ [Ответ](../answers/engineering.md#agt-termination) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-termination&title=%5BCorrection%5D%20agt-termination)
   - Что проверяет: Умение явно задать прогресс, бюджет и конечные состояния.
@@ -92,21 +111,50 @@
 - <a id="agt-goal-drift"></a>**После долгой работы агент уверенно решает не ту задачу. Как найти момент расхождения состояния с целью и восстановить работу?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-goal-drift&title=%5BCorrection%5D%20agt-goal-drift)
   - Что проверяет: Умение опираться на состояние задачи и наблюдения, а не уверенный текст.
+  - Сильный ответ покрывает:
+    - Сверить сохранённое состояние задачи и наблюдения инструментов с исходной целью, не опираясь на рассказ агента.
+    - Найти шаг, где резюме, сжатие контекста или неверно прочитанное наблюдение подменило ограничение.
+    - Продолжить с последней согласованной контрольной точки и добавить регулярную сверку прогресса с записанной целью.
+  - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-coding-harness"></a>**Как для coding agent отделить вклад модели от вклада harness в надёжное завершение задачи?**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-coding-harness&title=%5BCorrection%5D%20agt-coding-harness)
   - Что проверяет: Умение установить источник улучшения контролируемым сравнением.
+  - Сильный ответ покрывает:
+    - Точно определить harness: инструменты, сборку контекста, повторы, обратную связь от тестов и правила остановки.
+    - Провести факторное сравнение: менять модель при фиксированном harness, затем менять harness.
+    - На фиксированном наборе задач повторять прогоны, оценивать итоговое состояние репозитория тестами и показывать разброс.
+  - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="agt-ontology"></a>**Почему корпоративному агенту может быть полезнее работать с онтологией бизнес-объектов и действий, чем с сырыми таблицами и документами?**
   - Знания · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-ontology&title=%5BCorrection%5D%20agt-ontology)
   - Что проверяет: Умение связать семантическую модель с допустимыми операциями и правами.
+  - Сильный ответ покрывает:
+    - Объяснить, что бизнес-объекты несут смысл, связи и идентичность, которые в сырых таблицах остаются неявными.
+    - Давать агенту типизированные действия с предусловиями и правами вместо произвольных запросов и записей.
+    - Учесть стоимость моделирования и поддержки и проверить, что происходит, когда задача выходит за рамки онтологии.
+  - Читать: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - <a id="agt-support-agent-takehome"></a>**Соберите агента поддержки для вымышленной компании: выберите две функции из пяти, обоснуйте выбор и объясните, как будете измерять агента в продакшене.**
   - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-support-agent-takehome&title=%5BCorrection%5D%20agt-support-agent-takehome)
   - Что проверяет: Умение расставить приоритеты при ограниченном времени и спланировать измерение работающего агента.
+  - Сильный ответ покрывает:
+    - Выбрать две функции по объёму обращений, проверяемости решения и риску ошибочного действия.
+    - Назвать, что отложено и почему, и сохранить полностью рабочую передачу обращения человеку.
+    - Измерять реальное решение, повторные обращения, качество эскалаций и вредные действия, а не число закрытых диалогов.
+  - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="agt-mcp-long-running"></a>**Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна.**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp-long-running&title=%5BCorrection%5D%20agt-mcp-long-running)
   - Что проверяет: Умение управлять состоянием, сбоями и бюджетом контекста на протяжении долгого выполнения с инструментами.
-  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
+  - Сильный ответ покрывает:
+    - Хранить план и прогресс в долговременном состоянии вне контекста, а не только в истории диалога.
+    - Распределять бюджет контекста: отдавать результаты инструментов постранично и кратко, сжимать историю, подгружать детали по необходимости.
+    - Сделать шаги с инструментами возобновляемыми и идемпотентными; проверить восстановление после отказа сервера посреди выполнения.
+  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-api-level-features"></a>**Какие параметры управляют генерацией языковой модели?**
   - Знания · Где спрашивали: [Точка](../companies/tochka.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-api-level-features&title=%5BCorrection%5D%20agt-api-level-features)
   - Что проверяет: Отличаете ли вы настройки генерации модели от инструкций о роли, стиле или структуре ответа.
+  - Сильный ответ покрывает:
+    - Назвать параметры декодирования: температура, top-p, top-k, максимум выходных токенов и стоп-последовательности.
+    - Отделить их от инструкций в промпте о роли, тоне и формате; принудительная схема вывода — это настройка API.
+    - Показать влияние каждого параметра на повторных сэмплах и проверить, какие из них действительно принимает конкретный API.
+  - Читать: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ← [RAG и поиск](rag-retrieval.md) · [Дообучение и post-training](post-training.md) →

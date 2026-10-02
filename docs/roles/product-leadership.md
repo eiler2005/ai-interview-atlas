@@ -33,10 +33,10 @@ Questions whose source says they were asked for one of these roles.
   - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-enterprise-ai-pricing)
   - Sources (AI product manager (senior to group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, published 2026-05-23, retrieved 2026-09-29
 - **[In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?](../themes/ai-product-strategy.md#prod-enterprise-discovery)**
-  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md)
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-enterprise-discovery)
   - Sources (AI product manager (senior to group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, published 2026-05-23, retrieved 2026-09-29
 - **[What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?](../themes/ai-product-strategy.md#prod-expensive-mvp)**
-  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md)
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-expensive-mvp)
   - Sources (AI product manager (senior to group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, published 2026-05-23, retrieved 2026-09-29
 
 ### Also practise

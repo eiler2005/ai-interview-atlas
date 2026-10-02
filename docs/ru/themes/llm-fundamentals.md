@@ -20,6 +20,11 @@
 - <a id="llm-training-stages"></a>**Чем отличаются цели и данные предобучения, instruction tuning и оптимизации по предпочтениям?**
   - Знания · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-training-stages&title=%5BCorrection%5D%20llm-training-stages)
   - Что проверяет: Понимание возможностей и ограничений каждого этапа.
+  - Сильный ответ покрывает:
+    - Назвать цели: предсказание следующего токена на сыром корпусе, та же функция потерь на демонстрациях с маской на ответы, затем попарные предпочтения.
+    - Сказать, что меняет каждый этап: предобучение даёт знания и навыки, instruction tuning — формат, предпочтения переранжируют уже доступное модели поведение.
+    - Проверить границы: факты, добавленные только дообучением, обобщаются плохо, а обучение на предпочтениях может поощрять длину и угодливость.
+  - Читать: [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) (Ouyang et al., arXiv) · [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) (Rafailov et al., arXiv) · [Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?](https://arxiv.org/abs/2405.05904) (Gekhman et al., arXiv)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
@@ -52,11 +57,11 @@
   - Что проверяет: Понимание отличия архитектурного сжатия от снижения численной точности.
   - Сильный ответ покрывает:
     - Кешировать один низкоранговый латентный вектор на токен вместо полных key и value для каждой головы.
-    - Восстанавливать key и value по головам из латента во время внимания, платя дополнительными вычислениями.
+    - Восстанавливать key и value по головам из латента или встраивать обратные проекции в проекции query и выхода, платя дополнительными вычислениями.
     - Отделить архитектурное сжатие от квантования того же кеша.
   - Читать: [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) (DeepSeek-AI, arXiv)
 - <a id="llm-flashattention"></a>**Почему точный attention может работать быстрее без изменения квадратичного характера вычислений?**
-  - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
+  - Знания · ✍ [Ответ](../answers/engineering.md#llm-flashattention) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
   - Что проверяет: Понимание различия между обменом с памятью и вычислительной сложностью.
   - Сильный ответ покрывает:
     - Объяснить блочное вычисление attention и сокращение обмена между уровнями памяти ускорителя.
@@ -66,13 +71,27 @@
 - <a id="llm-tokenization"></a>**Объясните обучение BPE и причины неодинаковой токенизации чисел, кода и разных письменностей.**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-tokenization&title=%5BCorrection%5D%20llm-tokenization)
   - Что проверяет: Понимание влияния токенизации на расход контекста и представление текста.
+  - Сильный ответ покрывает:
+    - Описать обучение: начать с символов или байтов и повторно сливать самую частую соседнюю пару, пока словарь не заполнится.
+    - Связать неравномерность с частотами корпуса и правилами предтокенизации: редкие письменности дробятся, группы цифр различаются, отступы в коде режутся непредсказуемо.
+    - Измерить число токенов на символ или слово по языкам и доменам и его влияние на контекст, стоимость и арифметику.
+  - Читать: [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909) (Sennrich et al., arXiv) · [Language Model Tokenizers Introduce Unfairness Between Languages](https://arxiv.org/abs/2305.15425) (Petrov et al., arXiv)
 - <a id="llm-position-schemes"></a>**Сравните добавляемые позиционные эмбеддинги, rotary embeddings и смещения attention для задания порядка токенов.**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-position-schemes&title=%5BCorrection%5D%20llm-position-schemes)
   - Что проверяет: Понимание разных способов задать позицию токена.
+  - Сильный ответ покрывает:
+    - Показать, куда входит позиция: прибавляется к эмбеддингам входа, поворачивает query и key или добавляется к логитам внимания.
+    - Противопоставить абсолютные обучаемые или синусоидальные таблицы скалярному произведению по относительному смещению в RoPE и линейному штрафу за расстояние в ALiBi.
+    - Проверить поведение за пределами обучающей длины на поиске внутри контекста: перплексия скрывает слабое использование дальних токенов.
+  - Читать: [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv) · [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv) · [Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation](https://arxiv.org/abs/2108.12409) (Press et al., arXiv)
 - <a id="llm-rope-extension"></a>**Объясните RoPE и компромиссы интерполяции при расширении контекста за пределы обучающей длины.**
   - Знания · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-rope-extension&title=%5BCorrection%5D%20llm-rope-extension)
   - Что проверяет: Умение отличать допустимую длину входа от надёжной работы с длинным контекстом.
-  - Читать: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv)
+  - Сильный ответ покрывает:
+    - Объяснить RoPE: пары координат query и key поворачиваются на угол, равный позиции, умноженной на частоту пары, поэтому оценка зависит от смещения.
+    - Показать, что позиционная интерполяция делит каждую частоту на коэффициент растяжения и размывает соседние токены; NTK и YaRN масштабируют в основном низкие частоты.
+    - Отличать допустимую длину от реального использования: проверить поиск и многошаговые задачи на разной глубине и регрессии на коротком контексте после дообучения.
+  - Читать: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv) · [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv) · [Extending Context Window of Large Language Models via Positional Interpolation](https://arxiv.org/abs/2306.15595) (Chen et al., arXiv) · [YaRN: Efficient Context Window Extension of Large Language Models](https://arxiv.org/abs/2309.00071) (Peng et al., arXiv) · [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654) (Hsieh et al., arXiv)
 - <a id="llm-experts"></a>**Как разреженная маршрутизация по экспертам увеличивает число параметров и какие затраты сохраняются при активации части экспертов?**
   - Знания · ✍ [Ответ](../answers/engineering.md#llm-experts) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-experts&title=%5BCorrection%5D%20llm-experts)
   - Что проверяет: Умение различать активные вычисления, общую память и коммуникации.
@@ -84,6 +103,11 @@
 - <a id="llm-decoding"></a>**Сравните greedy decoding, beam search, температуру, top-k и nucleus sampling; приведите ограничение каждого подхода.**
   - Знания · Где спрашивали: [Google и Google DeepMind](../companies/google.md) †, [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-decoding&title=%5BCorrection%5D%20llm-decoding)
   - Что проверяет: Понимание связи преобразований вероятностей с разнообразием и качеством ответов.
+  - Сильный ответ покрывает:
+    - Описать каждый метод как преобразование: argmax, приближённый поиск по правдоподобию последовательности, деление логитов на T, отсечение до k и по накопленной массе.
+    - Назвать сбои: greedy и beam зацикливаются или банальны, высокая температура уводит в бессвязность, top-k игнорирует форму распределения, top-p пропускает плоский хвост.
+    - Выбирать по задаче — детерминированно для извлечения, с сэмплированием для генерации — и мерить точность вместе с разнообразием по разным seed.
+  - Читать: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 - <a id="llm-context-position"></a>**Как проверить и уменьшить склонность модели пропускать важные сведения в середине длинного контекста?**
   - Знания · ✍ [Ответ](../answers/engineering.md#llm-context-position) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-context-position&title=%5BCorrection%5D%20llm-context-position)
   - Что проверяет: Умение измерять использование контекста, а не судить по его вместимости.
@@ -95,17 +119,41 @@
 - <a id="llm-normalization"></a>**Сравните transformer-блоки с нормализацией до и после подслоя и объясните отличие RMSNorm.**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-normalization&title=%5BCorrection%5D%20llm-normalization)
   - Что проверяет: Понимание связи формулы нормализации с устойчивостью обучения.
+  - Сильный ответ покрывает:
+    - Записать оба блока: в post-norm LayerNorm применяется после сложения с residual, в pre-norm нормализуется только вход подслоя.
+    - Связать расположение с устойчивостью: pre-norm сохраняет тождественный путь градиента и меньше зависит от прогрева, но норма residual растёт с глубиной.
+    - Дать формулу RMSNorm — x, делённый на своё среднеквадратичное значение и умноженный на gain: без вычитания среднего и сдвига, меньше операций.
+  - Читать: [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv) · [On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745) (Xiong et al., arXiv) · [Root Mean Square Layer Normalization](https://arxiv.org/abs/1910.07467) (Zhang et al., arXiv)
 - <a id="llm-gated-mlp"></a>**Объясните две ветви SwiGLU и компромиссы по параметрам и вычислениям относительно обычного feed-forward блока.**
   - Знания · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-gated-mlp&title=%5BCorrection%5D%20llm-gated-mlp)
   - Что проверяет: Понимание механики gated activations.
+  - Сильный ответ покрывает:
+    - Записать SwiGLU: Swish от одной проекции поэлементно гейтит вторую линейную проекцию, затем проекция вниз возвращает d_model.
+    - Посчитать параметры: три матрицы вместо двух, поэтому скрытая ширина сужается примерно до 8d/3, чтобы сохранить 8d² весов.
+    - Сравнивать при равных параметрах и FLOP по отложенному loss, учитывая дополнительную память активаций и слияние ядер gate и up.
+  - Читать: [GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202) (Shazeer, arXiv)
 - <a id="llm-decoder-pass"></a>**Проследите размерности тензоров в слое decoder-only transformer и в финальной проекции на словарь.**
   - Знания · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-decoder-pass&title=%5BCorrection%5D%20llm-decoder-pass)
   - Что проверяет: Умение связать attention, residual-связи и логиты словаря в единое вычисление.
+  - Сильный ответ покрывает:
+    - Провести [B, T, d_model] через нормализацию, проекции Q, K, V с разбиением на головы, оценки [B, H, T, T] и выходную проекцию.
+    - Держать residual-поток в d_model на всём пути: MLP расширяет до d_ff и сужает обратно перед каждым сложением.
+    - Спроецировать финально нормализованный поток матрицей d_model × размер словаря в логиты [B, T, V] и перепроверить размерности для шага decode с KV-кешем.
+  - Читать: [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv)
 - <a id="llm-language-loss"></a>**Свяжите cross-entropy, KL divergence и perplexity в предсказании следующего токена и назовите условия корректного сравнения.**
   - Знания · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-language-loss&title=%5BCorrection%5D%20llm-language-loss)
   - Что проверяет: Умение согласованно использовать вероятностные определения.
+  - Сильный ответ покрывает:
+    - Показать, что cross-entropy равна энтропии данных плюс KL от данных к модели, поэтому при фиксированных данных минимизировать одно и другое равносильно.
+    - Определить перплексию как экспоненту среднего cross-entropy на токен в натах; она зависит от токенизатора, текста оценки и длины контекста.
+    - Сравнивать разные токенизаторы в битах на байт, зафиксировав текст, обработку контекста и основание логарифма.
 - <a id="llm-long-attention"></a>**Объясните рост стоимости self-attention с длиной контекста и сравните способы её уменьшить.**
   - Знания · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-long-attention&title=%5BCorrection%5D%20llm-long-attention)
   - Что проверяет: Умение отличать оптимизацию исполнения от изменения поведения модели.
+  - Сильный ответ покрывает:
+    - Показать стоимость: произведения оценок и значений в prefill растут как T², а каждый шаг decode читает KV-кеш, линейный по T.
+    - Отделить точные ядра вроде FlashAttention, сокращающие обмен с памятью, от окон, разреженности, вытеснения KV или GQA, меняющих выход модели.
+    - Для методов, меняющих поведение, заново прогнать оценки на длинном контексте; для точных — проверить только численную эквивалентность и скорость.
+  - Читать: [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) (Dao et al., arXiv) · [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv)
 
 [Инференс, serving и стоимость](inference-economics.md) →

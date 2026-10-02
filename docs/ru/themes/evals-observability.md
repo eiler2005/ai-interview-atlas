@@ -10,7 +10,7 @@
 ## <a id="track-both"></a>Оба трека
 
 - <a id="eval-reasoning-counterfactual"></a>**Команда связывает улучшение результатов с reasoning-моделью, но одновременно изменила промпты, инструменты и вычислительный бюджет. Как выяснить, что именно помогло?**
-  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-counterfactual&title=%5BCorrection%5D%20eval-reasoning-counterfactual)
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#eval-reasoning-counterfactual) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-counterfactual&title=%5BCorrection%5D%20eval-reasoning-counterfactual)
   - Что проверяет: Умение отделить эффект модели от изменений окружающей системы.
   - Сильный ответ покрывает:
     - Зафиксировать задания, оценку и состояние инструментов; менять модель, промпт и бюджет в контролируемых сравнениях.
@@ -28,6 +28,11 @@
 - <a id="eval-scarce-labels"></a>**Как собрать полезный eval-набор без эталонных ответов и при дефиците экспертного времени?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
   - Что проверяет: Умение направить выборку и разметку на значимую неопределённость.
+  - Сильный ответ покрывает:
+    - Начать с разбора ошибок на реальных трассах, чтобы понять, какие сбои важны, до всякой разметки.
+    - Тратить время экспертов на неочевидные случаи с высокой ценой ошибки, оценивая по бинарным критериям, а не по совпадению с единственным ответом.
+    - Калибровать более дешёвых оценщиков по экспертной разметке и следить за согласием, прежде чем доверять им в масштабе.
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-release-gate"></a>**Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию.**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#eval-release-gate) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-release-gate&title=%5BCorrection%5D%20eval-release-gate)
   - Что проверяет: Учёт тяжести ошибок и неопределённости при выпуске.
@@ -47,17 +52,32 @@
 - <a id="eval-online"></a>**Спроектируйте онлайн-оценку AI-функции: что логировать, проверять вручную и сравнивать экспериментом?**
   - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-online&title=%5BCorrection%5D%20eval-online)
   - Что проверяет: Умение отличать результаты эксперимента от пассивных корреляций.
+  - Сильный ответ покрывает:
+    - Логировать входы, выходы, версии и последующие исходы по каждому запросу в рамках согласия и сроков хранения.
+    - Вручную разбирать стратифицированную выборку для поиска типов ошибок, но считать корреляции из логов гипотезами.
+    - Подтверждать причинный эффект рандомизированным экспериментом с заранее заданной основной метрикой, защитными метриками и достаточной мощностью.
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="eval-upgrade-complaint"></a>**Клиент жалуется на худшие ответы после обновления модели. Как проверить регрессию и решить, что восстановить или изменить?**
-  - Прикладной сценарий · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-upgrade-complaint&title=%5BCorrection%5D%20eval-upgrade-complaint)
+  - Прикладной сценарий · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#eval-upgrade-complaint) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-upgrade-complaint&title=%5BCorrection%5D%20eval-upgrade-complaint)
   - Что проверяет: Умение воспроизвести реальные клиентские ошибки и выбрать исправление.
+  - Сильный ответ покрывает:
+    - Собрать точные неудачные запросы клиента и перечислить все изменения, вышедшие с обновлением, а не только модель.
+    - Прогнать старую и новую конфигурацию на одинаковых входах с повторными сэмплами и слепым попарным сравнением.
+    - Выбрать исправление по причине: починить конфигурацию, адаптировать промпт или закрепить версию; добавить кейсы в критерии допуска.
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-production-actions"></a>**Как изменить оценку LLM-процесса при переходе от предложений к исполнению действий в production?**
   - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-production-actions&title=%5BCorrection%5D%20eval-production-actions)
   - Что проверяет: Умение учитывать последствия действий в критериях допуска.
+  - Сильный ответ покрывает:
+    - Оценивать исход в среде, а не текст предложения: что изменилось и было ли это разрешено.
+    - Взвешивать ошибки по последствиям и обратимости; для необратимых действий нужен почти нулевой допуск или одобрение человека.
+    - Проверять в изолированных копиях среды, затем переходить к теневому режиму и поэтапной выкатке с журналом действий и аварийным отключением.
+  - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
 - <a id="eval-reasoning-supervision"></a>**Различите награду за результат, process supervision и проверку при инференсе. Какие данные обоснуют выбор каждого подхода для новой reasoning-задачи?**
-  - Знания · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-supervision&title=%5BCorrection%5D%20eval-reasoning-supervision)
+  - Знания · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#eval-reasoning-supervision) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-reasoning-supervision&title=%5BCorrection%5D%20eval-reasoning-supervision)
   - Что проверяет: Умение отличать обучающий сигнал от отбора при инференсе и независимой оценки качества.
   - Сильный ответ покрывает:
     - Объяснить, какая обратная связь меняет веса, а какая выбирает результат при инференсе.
@@ -83,6 +103,11 @@
 - <a id="eval-contamination"></a>**Как загрязнение бенчмарка искажает оценку и как уменьшить утечку в обучение или подбор модели?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-contamination&title=%5BCorrection%5D%20eval-contamination)
   - Что проверяет: Понимание того, что повторная настройка по тестовому набору создаёт утечку.
+  - Сильный ответ покрывает:
+    - Различать попадание тестовых примеров в предобучение и утечку через отбор при многократной настройке по тесту.
+    - Держать закрытый тестовый набор, используемый один раз на решение, и настраивать только на отдельной dev-выборке.
+    - Выявлять загрязнение по пересечению n-грамм и canary-строкам и сравнивать с заданиями, созданными после даты среза данных.
+  - Читать: [Proving Test Set Contamination in Black Box Language Models](https://arxiv.org/abs/2310.17623) (Oren et al., arXiv)
 - <a id="eval-traces"></a>**Спроектируйте наблюдаемость LLM-процесса в production: какие spans, версии, затраты и обратную связь нужно связать?**
   - System design · ✍ [Ответ](../answers/engineering.md#eval-traces) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-traces&title=%5BCorrection%5D%20eval-traces)
   - Что проверяет: Умение восстановить сбой задачи без бесконтрольного логирования чувствительных данных.
@@ -94,6 +119,11 @@
 - <a id="eval-prompt-rollback"></a>**Как версионировать промпты и зависимые настройки для воспроизводимого отката обнаруженной регрессии?**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-rollback&title=%5BCorrection%5D%20eval-prompt-rollback)
   - Что проверяет: Умение восстановить при откате реальную конфигурацию системы.
+  - Сильный ответ покрывает:
+    - Версионировать всю конфигурацию одним неизменяемым набором: промпт, снимок модели, параметры, инструменты и индекс поиска.
+    - Закреплять конкретные снимки моделей, а не псевдонимы: плавающий псевдоним меняет поведение без деплоя.
+    - Записывать id набора в каждом запросе и подтверждать откат повторным прогоном упавших кейсов на восстановленном наборе.
+  - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="eval-agent-outcomes"></a>**Чем оценка агента с инструментами должна отличаться от проверки одного сгенерированного ответа?**
   - System design · ✍ [Ответ](../answers/engineering.md#eval-agent-outcomes) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-agent-outcomes&title=%5BCorrection%5D%20eval-agent-outcomes)
   - Что проверяет: Учёт конечного состояния, траектории и надёжности повторных запусков.
@@ -105,20 +135,49 @@
 - <a id="eval-emergent-capability"></a>**Спроектируйте эксперимент для предполагаемой новой способности или смещения большой модели с контролем влияния формулировки задачи.**
   - Прикладной сценарий · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-emergent-capability&title=%5BCorrection%5D%20eval-emergent-capability)
   - Что проверяет: Умение проверять утверждение о способности и рассматривать альтернативные объяснения.
+  - Сильный ответ покрывает:
+    - Превратить утверждение в предсказание с метрикой, порогом и результатом, который его опроверг бы.
+    - Контролировать формулировку: перефразированные промпты, перемешанные варианты, сбалансированный порядок и непрерывные метрики рядом с точным совпадением.
+    - Исключить загрязнение и артефакты оценки: новые задания, сравнение с меньшими моделями и повторные сэмплы.
+  - Читать: [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004) (Schaeffer et al., arXiv)
 - <a id="eval-frontier-harness"></a>**Спроектируйте eval-harness для новой модели с воспроизводимостью, изоляцией исполнения и сопоставимыми результатами.**
   - System design · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-frontier-harness&title=%5BCorrection%5D%20eval-frontier-harness)
   - Что проверяет: Умение построить инфраструктуру для достоверного сравнения.
+  - Сильный ответ покрывает:
+    - Закрепить всё, что влияет на оценку: версию датасета, шаблон промпта, параметры декодирования, оценщика и seed.
+    - Исполнять сгенерированный моделью код в изолированных песочницах с ограничением сети и ресурсов и чистым состоянием на задачу.
+    - Показывать средние по повторным сэмплам с доверительными интервалами и перезапускать baseline-модель, чтобы ловить дрейф harness.
+  - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 - <a id="eval-multiple-good-answers"></a>**Два квалифицированных врача составляют разные, но хорошие записи одной консультации. Как корректно оценить сгенерированную запись?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-multiple-good-answers&title=%5BCorrection%5D%20eval-multiple-good-answers)
   - Что проверяет: Умение допускать корректную вариативность, проверяя пропуски и неподтверждённое содержание.
+  - Сильный ответ покрывает:
+    - Оценивать по перечню клинически обязательных фактов из консультации, а не по сходству с одной записью.
+    - Проверять каждое утверждение сгенерированной записи на подтверждение в расшифровке и отдельно отмечать неподтверждённое.
+    - Принять согласие двух врачей за потолок и калибровать любого автоматического оценщика по их оценкам.
 - <a id="eval-behaviour-brainstorm"></a>**В коротком разговоре без подготовки предложите проверяемые идеи о поведении языковой модели, для которых нужен не внутренний доступ, а внимательное наблюдение.**
   - Знания · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-behaviour-brainstorm&title=%5BCorrection%5D%20eval-behaviour-brainstorm)
   - Что проверяет: Умение быстро выдвигать конкретные проверяемые гипотезы о поведении модели.
+  - Сильный ответ покрывает:
+    - Формулировать каждую идею как поведение, контролируемое изменение промпта и ожидаемый измеримый результат.
+    - Опираться на наблюдаемые рычаги: позицию информации, порядок вариантов, длину, персону, язык и повторные сэмплы.
+    - Назвать, сколько сэмплов и какой контроль отличат реальный эффект от шума или формулировки промпта.
+  - Читать: [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv)
 - <a id="eval-ml-task-framing"></a>**Сформулируйте бизнес-задачу как задачу машинного обучения: выберите и обоснуйте метрику качества и объясните, как соберёте и проверите данные.**
   - Знания · Где спрашивали: [Т-Банк](../companies/t-bank.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-ml-task-framing&title=%5BCorrection%5D%20eval-ml-task-framing)
   - Что проверяет: Следуют ли метрика и данные из бизнес-цели, а не из привычки.
+  - Сильный ответ покрывает:
+    - Перевести бизнес-решение в целевую переменную, действие, которое она запускает, и цену каждой ошибки.
+    - Выбрать офлайн-метрику исходя из цены ошибок и назвать онлайн-метрику бизнеса, которую она должна сдвинуть.
+    - Проверить данные: задержку и утечку меток, разбиение по времени и расхождение между обучением и продакшеном.
+  - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="eval-prompt-target-share"></a>**Измените промпт так, чтобы заданная доля ответов модели соответствовала нужному результату, и покажите, как вы это измерили.**
   - Прикладной сценарий · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-target-share&title=%5BCorrection%5D%20eval-prompt-target-share)
   - Что проверяет: Опираются ли правки промпта на измерения по набору примеров, а не на отдельные случаи.
+  - Сильный ответ покрывает:
+    - Сначала задать нужный результат как проверку с бинарным исходом и собрать представительный набор примеров.
+    - Менять по одному элементу за раз и сэмплировать каждый пример несколько раз, поскольку ответы различаются между прогонами.
+    - Показать долю с доверительным интервалом на отложенных примерах, чтобы прирост не оказался подгонкой.
+  - Читать: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 
 ← [Дообучение и post-training](post-training.md) · [Безопасность, защита и governance](safety-security-governance.md) →

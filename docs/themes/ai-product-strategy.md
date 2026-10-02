@@ -90,6 +90,10 @@ When AI is worth it, how to design AI features, measure them and build the busin
 - <a id="prod-memory-machine-launch"></a>**You have invented a memory machine that generates video, images, smells and sounds. How would you bring it to market?**
   - Product case · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-memory-machine-launch&title=%5BCorrection%5D%20prod-memory-machine-launch)
   - Tests: Whether you turn an unfamiliar capability into a focused market entry.
+  - A strong answer covers:
+    - Choose one beachhead user and occasion, and only the senses that occasion actually needs.
+    - Measure repeat paid use, with guardrails on user distress and the consent of people depicted.
+    - Test willingness to pay with a hand-run concierge pilot before building scent hardware.
 - <a id="prod-agent-use-cases"></a>**Which business use cases suit AI agents, and how would you compare them?**
   - Product case · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/leadership.md#prod-agent-use-cases) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-agent-use-cases&title=%5BCorrection%5D%20prod-agent-use-cases)
   - Tests: Whether you distinguish the value of autonomous action from its operational cost.
@@ -109,18 +113,39 @@ When AI is worth it, how to design AI features, measure them and build the busin
 - <a id="prod-new-search-feature"></a>**Propose a new feature for Perplexity and explain whom it serves.**
   - Product case · Senior · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-new-search-feature&title=%5BCorrection%5D%20prod-new-search-feature)
   - Tests: Whether you can make a differentiated, evidence-seeking product proposal.
+  - A strong answer covers:
+    - Pick one segment and a recurring research job that users still finish outside the product.
+    - Explain why rivals cannot simply copy it, and measure completed tasks with a citation-accuracy guardrail.
+    - Test the riskiest assumption cheaply with a fake-door test or a manual prototype for target users.
+  - Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-roadmap"></a>**How do you prioritise a product roadmap when several valuable opportunities compete?**
   - Product case · Senior · Asked at: [Databricks](../companies/databricks.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-roadmap&title=%5BCorrection%5D%20prod-roadmap)
   - Tests: Whether prioritisation exposes assumptions and opportunity cost.
+  - A strong answer covers:
+    - Tie each opportunity to its user, one outcome metric and the assumption it rests on.
+    - Compare expected value with cost and confidence, and name what each choice delays or forgoes.
+    - Fund cheap tests of the shakiest assumptions first, and set a date to revisit the order.
 - <a id="prod-handyman-marketplace"></a>**Design a product connecting local tradespeople with customers.**
   - Product case · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-handyman-marketplace&title=%5BCorrection%5D%20prod-handyman-marketplace)
   - Tests: Whether you reason about both sides of a marketplace and initial liquidity.
+  - A strong answer covers:
+    - Name both sides, the decision each makes, and what each must trust: vetting, price, payment.
+    - Measure requests ending in a completed job and time to match, guarded by disputes and repeat bookings.
+    - Launch in one area and one trade, recruiting tradespeople by hand before automating the match.
 - <a id="prod-product-cannibalisation"></a>**A new service grows while Facebook monthly active users decline. How would you assess whether the service is succeeding?**
   - Product case · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-product-cannibalisation&title=%5BCorrection%5D%20prod-product-cannibalisation)
   - Tests: Whether you investigate portfolio effects instead of reading one metric in isolation.
+  - A strong answer covers:
+    - Ask whether the service should add new users and time or move existing time between apps.
+    - Estimate substitution with a holdout or matched cohorts, not by comparing the two curves.
+    - Judge it on net portfolio users and value, with the core product's health as a guardrail.
 - <a id="prod-volunteer-cold-start"></a>**Design a volunteer-matching product and explain how it gets through cold start.**
   - Product case · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-volunteer-cold-start&title=%5BCorrection%5D%20prod-volunteer-cold-start)
   - Tests: Whether you make the first useful matches possible before scale arrives.
+  - A strong answer covers:
+    - Pick which side is scarce, then narrow to one city and cause where matches can happen.
+    - Measure posted needs filled by a completed shift, with no-shows and organiser churn as guardrails.
+    - Match the first organisations and volunteers by hand to test whether matches turn into shifts.
 - <a id="prod-search-versus-answer"></a>**Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?**
   - Product case · Senior · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/leadership.md#prod-search-versus-answer) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-versus-answer&title=%5BCorrection%5D%20prod-search-versus-answer)
   - Tests: Whether you compare products through user tasks and evidence quality.
@@ -132,6 +157,10 @@ When AI is worth it, how to design AI features, measure them and build the busin
 - <a id="prod-impactful-product"></a>**Walk through the product you built that had the greatest impact, including the business case and evidence of results.**
   - Self-presentation · Senior · Asked at: [Monzo](../companies/monzo.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-impactful-product&title=%5BCorrection%5D%20prod-impactful-product)
   - Tests: Whether you can connect personal decisions, experiments and realised impact.
+  - A strong answer covers:
+    - Pick the product where your own decisions changed the outcome, not the biggest team effort.
+    - State the business case you made, the bet's riskiest assumption and the experiment that tested it.
+    - Close with measured impact against a baseline, your share of it, and what you would change.
 - <a id="prod-enterprise-ai-pricing"></a>**How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?**
   - Product case · ✍ [Answer](../answers/leadership.md#prod-enterprise-ai-pricing) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
   - Tests: Whether you reason about unit economics and margin, not only product value.
@@ -141,10 +170,20 @@ When AI is worth it, how to design AI features, measure them and build the busin
     - Treat per-client customisation as recurring cost, and price or productise it deliberately.
   - Read: [What We Learned from a Year of Building with LLMs (Part I)](https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/) (O'Reilly Radar)
 - <a id="prod-enterprise-discovery"></a>**In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?**
-  - Product case · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
+  - Product case · ✍ [Answer](../answers/leadership.md#prod-enterprise-discovery) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
   - Tests: Whether you adapt customer research to enterprise buyers, users and decision-makers.
+  - A strong answer covers:
+    - Split the persona into user, budget-owning sponsor and blockers such as security, legal and IT.
+    - Recruit through existing customers, account teams and partners, interviewing several roles in the same account.
+    - Judge the problem by current spend on workarounds and a sponsor's willingness to commit scarce resources.
+  - Read: [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/) (GitLab Handbook)
 - <a id="prod-expensive-mvp"></a>**What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?**
-  - Product case · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-expensive-mvp&title=%5BCorrection%5D%20prod-expensive-mvp)
+  - Product case · ✍ [Answer](../answers/leadership.md#prod-expensive-mvp) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-expensive-mvp&title=%5BCorrection%5D%20prod-expensive-mvp)
   - Tests: Whether you test the riskiest assumptions with cheaper prototypes before committing to a build.
+  - A strong answer covers:
+    - Treat the MVP as an experiment: list its assumptions and rank them by uncertainty and cost of error.
+    - Test the riskiest cheaply: the model offline on customer data, a concierge pilot, or a paid pilot commitment.
+    - Agree in advance which evidence justifies the build, and name what a cheap test cannot prove.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ← [Practical coding](coding-practical.md) · [AI platform and operating model](ai-operating-model.md) →

@@ -29,8 +29,18 @@ On this page: [Interview loop](#loop) · [Questions (2)](#questions)
 - **[Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.](../themes/coding-practical.md#code-product-structure)**
   - Coding · Asked at: Cursor (Anysphere) 🗣
   - Tests: Whether you can read an unfamiliar real codebase and implement a core structure correctly.
+  - A strong answer covers:
+    - Find how the product uses the structure: callers, required operations, their frequency and existing tests.
+    - Choose the representation and invariants from those operations, and state each operation's complexity.
+    - Follow the repository's conventions, keep AI to syntax questions, and test the edge cases callers hit.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 - **[Given a real codebase for a working day, decide what to build, ship it, and explain your implementation choices and trade-offs.](../themes/coding-practical.md#code-self-scoped-onsite)**
   - Applied scenario · Asked at: Cursor (Anysphere) 🗣
   - Tests: Whether you scope your own work, deliver it and defend it without step-by-step direction.
+  - A strong answer covers:
+    - Explore the codebase first, then pick a change that is useful and finishable within the day.
+    - Ship a working core early, then iterate, keeping a running note of decisions and trade-offs.
+    - Close with a demonstration, naming its tests and limits and what you would build next.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 
 ← [Cognition](cognition.md) · [Perplexity](perplexity.md) →

@@ -119,3 +119,33 @@
   - Поведенческий · Senior · [Поведенческие вопросы и ценности](../themes/behavioral-values.md) · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#beh-stakeholder-priorities)
 - **55. [Расскажите об обратной связи, которую было трудно услышать, и о том, как вы её использовали.](../themes/behavioral-values.md#beh-critical-feedback)**
   - Поведенческий · Senior · [Поведенческие вопросы и ценности](../themes/behavioral-values.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#beh-critical-feedback)
+- **56. [Представьте крупную инициативу, которой вы руководили: что сработало, что нет и чему вы научились.](../themes/program-delivery.md#prog-initiative-retrospective)**
+  - Самопрезентация · Senior · [Программы и delivery](../themes/program-delivery.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#prog-initiative-retrospective)
+- **57. [Расскажите о техническом просчёте, из-за которого задержался проект.](../themes/program-delivery.md#prog-delayed-by-judgement)**
+  - Поведенческий · Senior · [Программы и delivery](../themes/program-delivery.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#prog-delayed-by-judgement)
+- **58. [Команда-поставщик данных не успевает к контрольной дате AI-программы. Как вы пересмотрите план и сообщите о последствиях?](../themes/program-delivery.md#prog-dependency-slip)**
+  - Прикладной сценарий · Senior · [Программы и delivery](../themes/program-delivery.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-dependency-slip)
+- **59. [Какой самой большой командой вы руководили и как при таком масштабе менялись ваши обязанности?](../themes/engineering-leadership.md#lead-team-scale)**
+  - Самопрезентация · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-scale)
+- **60. [Расскажите о споре в команде, который вы разрешили, сохранив обоснованные доводы обеих сторон.](../themes/engineering-leadership.md#lead-two-valid-views)**
+  - Поведенческий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-two-valid-views)
+- **61. [Двум продуктовым командам нужна общая AI-инфраструктура, но ни одна не может выделить инженера. Как организовать работу без обещаний платформы, под которые нет людей?](../themes/engineering-leadership.md#lead-platform-team-charter)**
+  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-platform-team-charter)
+- **62. [Клинический AI-сервис обрабатывает аудио, расшифровки и записи с защищённой медицинской информацией. Как это влияет на архитектуру и использование сторонних API моделей?](../themes/domain-payments-fintech.md#pay-clinical-data-boundary)**
+  - System design · Senior · [Платежи и регулируемые отрасли](../themes/domain-payments-fintech.md) · ✍ [Ответ](../answers/leadership.md#pay-clinical-data-boundary)
+- **63. [Отрефакторите небольшую плохо структурированную программу с проходящими тестами. Объясните первое изменение и сохранение наблюдаемого поведения.](../themes/coding-practical.md#code-refactoring)**
+  - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#code-refactoring)
+- **64. [Спроектируйте агента, создающего и обновляющего наряды в действующей ERP без дублирования или незаметного искажения операций.](../themes/agents-tools.md#agt-erp-writes)**
+  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/leadership.md#agt-erp-writes)
+- **65. [Что вы будете делать, если MVP корпоративного AI-продукта слишком дорого или долго делать?](../themes/ai-product-strategy.md#prod-expensive-mvp)**
+  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-expensive-mvp)
+- **66. [Кто в дискавери корпоративного AI-продукта является «персоной», где вы найдёте B2B-респондентов и как поймёте, что проблему стоит решать?](../themes/ai-product-strategy.md#prod-enterprise-discovery)**
+  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-enterprise-discovery)
+- **67. [Спроектируйте модерацию, сочетающую специализированные классификаторы и LLM при ограничениях задержки и нагрузки на проверяющих.](../themes/ai-system-design.md#sd-moderation)**
+  - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [Meta](../companies/meta.md) † · ✍ [Ответ](../answers/leadership.md#sd-moderation)
+- **68. [Как вы сопоставите улучшение качества модели и снижение её интерпретируемости?](../themes/safety-security-governance.md#sec-interpretability-tradeoff)**
+  - Прикладной сценарий · Senior · [Безопасность, защита и governance](../themes/safety-security-governance.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#sec-interpretability-tradeoff)
+- **69. [Спроектируйте сервис, в котором несколько команд запрашивают общий набор данных без доступа к исходным записям.](../themes/ai-operating-model.md#ops-shared-data-access)**
+  - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/leadership.md#ops-shared-data-access)
+- **70. [Корпоративный клиент сообщает, что Claude галлюцинирует в ассистенте с поиском по базе знаний. Как вы начнёте разбор ошибок?](../themes/applied-scenarios.md#app-rag-account-triage)**
+  - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#app-rag-account-triage)

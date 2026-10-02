@@ -12,6 +12,10 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="mm-speech-stack"></a>**Compare a speech-recognition, text-model and speech-synthesis pipeline with an end-to-end speech-to-speech model.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-speech-stack&title=%5BCorrection%5D%20mm-speech-stack)
   - Tests: Whether latency, controllability and paralinguistic information shape the choice.
+  - A strong answer covers:
+    - Identify what the text bottleneck drops: prosody, emotion, hesitation and speaker cues never reach the cascade's model.
+    - Weigh the cascade's inspectable transcripts, guardrails, tool use and swappable parts against end-to-end latency and expressiveness.
+    - Compare both on the same conversations: time to first audio, task success, instruction adherence and auditability.
 
 ## <a id="track-engineering"></a>AI Engineering
 
@@ -20,12 +24,17 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
   - Tests: Whether image encoding is separated from cross-modal fusion.
   - A strong answer covers:
     - Separate the vision encoder from the interface to the language model.
-    - Compare projected image tokens with cross-attention to visual features.
+    - Compare projected patch embeddings, cross-attention to visual features and discrete image tokens.
     - Discuss visual token budget, spatial detail and training alignment.
   - Read: [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) (Alayrac et al., arXiv)
 - <a id="mm-video"></a>**What architectural and data choices change when a vision-language model must reason over video rather than isolated images?**
   - Knowledge · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-video&title=%5BCorrection%5D%20mm-video)
   - Tests: Whether temporal information and sampling cost are addressed.
+  - A strong answer covers:
+    - Budget visual tokens: frames times tokens per frame explode, so choose frame rate, pooling or tubelet patches per task.
+    - Encode time explicitly with timestamps or temporal positions, and train on clips whose answers depend on event order.
+    - Test against single-frame and shuffled-frame baselines to confirm the model uses temporal information at all.
+  - Read: [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) (Alayrac et al., arXiv)
 - <a id="mm-latency"></a>**Build an end-to-end latency budget for a voice agent, from detecting the end of speech to playing its reply.**
   - System design · ✍ [Answer](../answers/engineering.md#mm-latency) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-latency&title=%5BCorrection%5D%20mm-latency)
   - Tests: Whether turn detection, ASR, generation, synthesis and transport all appear in the budget.
@@ -37,9 +46,18 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="mm-barge-in"></a>**Design interruption handling when a user starts speaking while the agent's audio is still playing.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-barge-in&title=%5BCorrection%5D%20mm-barge-in)
   - Tests: Whether playback cancellation and conversational state remain consistent.
-- <a id="mm-speech-quality"></a>**How would you evaluate speech recognition beyond word error rate and synthetic speech when many renditions are acceptable?**
+  - A strong answer covers:
+    - Detect speech over playback with echo cancellation, and tell short backchannels apart from real interruptions.
+    - On barge-in, stop playback and generation, record only the audio actually played, and keep committed tool actions.
+    - Measure stop latency, false and missed interruptions, and check transcripts so the model never assumes unheard text was heard.
+- <a id="mm-speech-quality"></a>**How would you evaluate speech recognition beyond word error rate, and synthesised speech when many renditions are acceptable?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-speech-quality&title=%5BCorrection%5D%20mm-speech-quality)
   - Tests: Whether task-critical errors and perceptual quality are measured separately.
+  - A strong answer covers:
+    - Score recognition on task-critical tokens: entity, number and keyword errors, insertions in silence, and downstream intent accuracy.
+    - Judge synthesis by listener comparisons, pairwise or MOS, with calibrated raters, since no single waveform is correct.
+    - Add automatic checks per slice: round-trip recognition for intelligibility, pronunciation of normalised terms, and speaker similarity.
+  - Read: [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv)
 - <a id="mm-accents"></a>**How would you improve and evaluate speech recognition for mixed-language utterances and different accents?**
   - Applied scenario · ✍ [Answer](../answers/engineering.md#mm-accents) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-accents&title=%5BCorrection%5D%20mm-accents)
   - Tests: Whether subgroup coverage and domain errors are visible in evaluation.
@@ -51,23 +69,54 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
 - <a id="mm-streaming-audio"></a>**How would you choose speech synthesis chunk boundaries and playback buffering under variable network delay?**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-streaming-audio&title=%5BCorrection%5D%20mm-streaming-audio)
   - Tests: Whether prosody, first-audio latency and playback continuity are balanced.
+  - A strong answer covers:
+    - Cut synthesis at clause or punctuation boundaries with lookahead, keeping a short first chunk for fast first audio.
+    - Size the playback buffer from measured jitter: too small underruns and stutters, too large delays every turn.
+    - Measure time to first audio, underrun rate and stall duration on replayed network traces, plus prosody at chunk joins.
 - <a id="mm-diarisation"></a>**Design speaker diarisation and explain how you would assign conversational roles without assuming speaker clusters imply identity.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-diarisation&title=%5BCorrection%5D%20mm-diarisation)
   - Tests: Whether segmentation, clustering and role inference are distinguished.
+  - A strong answer covers:
+    - Separate stages: speech activity and change detection, overlap handling, speaker embeddings, then clustering with unknown speaker count.
+    - Treat clusters as anonymous labels: roles come from content and turn patterns, identity only from consented enrolment.
+    - Report diarisation error split into miss, false alarm and confusion, including overlap, and score role accuracy separately.
 - <a id="mm-cross-modal-retrieval"></a>**Design search across text, images and video, including how queries and results share a comparable representation.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-cross-modal-retrieval&title=%5BCorrection%5D%20mm-cross-modal-retrieval)
   - Tests: Whether cross-modal alignment and retrieval granularity are explicit.
+  - A strong answer covers:
+    - Align modalities with contrastive dual encoders in one space, or index captions, OCR and transcripts as text.
+    - Fix the retrieval unit, such as timestamped video shots or image regions, and calibrate scores across the modality gap.
+    - Measure recall at k per query and result modality pair, and check that mixed rankings don't favour one modality.
+  - Read: [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020) (Radford et al., arXiv) · [Mind the Gap: Understanding the Modality Gap in Multi-modal Contrastive Representation Learning](https://arxiv.org/abs/2203.02053) (Liang et al., arXiv)
 - <a id="mm-normalization"></a>**How would you prepare numbers, abbreviations and ambiguous written forms for speech synthesis without changing their meaning?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-normalization&title=%5BCorrection%5D%20mm-normalization)
   - Tests: Whether text normalisation handles context-sensitive pronunciation.
+  - A strong answer covers:
+    - Classify semiotic types first: cardinals, ordinals, dates, currency, units, phone numbers, abbreviations, acronyms and homographs.
+    - Resolve ambiguity from context and locale, including Russian case agreement; constrain any model rewrite with grammars and lexicons.
+    - Verify that each verbalisation maps back to the original value, and test a curated set of ambiguous forms.
+  - Read: [RNN Approaches to Text Normalization: A Challenge](https://arxiv.org/abs/1611.00068) (Sproat et al., arXiv)
 - <a id="mm-dubbing"></a>**Design a dubbing pipeline that preserves speaker identity and fits translated speech into the original video's timing.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-dubbing&title=%5BCorrection%5D%20mm-dubbing)
   - Tests: Whether translation, alignment and audio quality are jointly constrained.
+  - A strong answer covers:
+    - Separate dialogue from music and effects, then transcribe with word timestamps and diarise so each segment keeps its speaker.
+    - Constrain translation length to each segment's duration, preferring rephrasing to extreme time-stretching; clone voices only with consent.
+    - Measure timing overruns, speaker similarity, translation adequacy judged by bilingual reviewers, and naturalness after remixing.
 - <a id="mm-clinical-audio"></a>**How would you improve recognition in a noisy consultation with overlapping speakers and specialised medical vocabulary?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-clinical-audio&title=%5BCorrection%5D%20mm-clinical-audio)
   - Tests: Whether noise, overlap and rare terminology have separate diagnostics.
+  - A strong answer covers:
+    - Slice errors by signal-to-noise ratio, overlapping segments and medical terms, so each cause gets its own error rate.
+    - Match fixes to causes: microphones and augmentation for noise, source separation for overlap, vocabulary biasing or finetuning for terms.
+    - Validate on held-out clinicians and rooms, counting inserted terms and dosage errors, not only overall WER.
 - <a id="mm-vision-language-action"></a>**What distinguishes a vision-language-action policy from a language model that merely invokes external tools?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-vision-language-action&title=%5BCorrection%5D%20mm-vision-language-action)
   - Tests: Whether action representation and control feedback are distinguished.
+  - A strong answer covers:
+    - Contrast outputs: continuous motor commands decoded from action tokens or an action head versus symbolic calls to an executor.
+    - Explain closed-loop control: the policy re-observes at control frequency, so latency and compounding errors matter; a tool returns once.
+    - Note the evaluation shift: demonstration data and success rates in simulated or physical rollouts, under safety limits.
+  - Read: [RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control](https://arxiv.org/abs/2307.15818) (Brohan et al., arXiv)
 
 ← [Safety, security and governance](safety-security-governance.md) · [AI system design](ai-system-design.md) →

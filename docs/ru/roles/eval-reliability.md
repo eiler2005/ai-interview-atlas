@@ -46,7 +46,7 @@ AI-инженерия · Роли: Инженер оценки качества 
 - **[Чем оценка агента с инструментами должна отличаться от проверки одного сгенерированного ответа?](../themes/evals-observability.md#eval-agent-outcomes)**
   - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-agent-outcomes)
 - **[Клиент жалуется на худшие ответы после обновления модели. Как проверить регрессию и решить, что восстановить или изменить?](../themes/evals-observability.md#eval-upgrade-complaint)**
-  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md)
+  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-upgrade-complaint)
 - **[Спроектируйте eval-harness для новой модели с воспроизводимостью, изоляцией исполнения и сопоставимыми результатами.](../themes/evals-observability.md#eval-frontier-harness)**
   - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md)
 - **[В коротком разговоре без подготовки предложите проверяемые идеи о поведении языковой модели, для которых нужен не внутренний доступ, а внимательное наблюдение.](../themes/evals-observability.md#eval-behaviour-brainstorm)**

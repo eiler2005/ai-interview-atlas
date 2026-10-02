@@ -41,6 +41,11 @@ On this page: [Interview loop](#loop) · [Questions (12)](#questions)
 - **[Compare tensor, pipeline, data, sequence and expert parallelism for a large model deployment.](../themes/inference-economics.md#inf-parallelism)**
   - Knowledge · Asked at: Amazon †, [Google and Google DeepMind](google.md) †, [Meta](meta.md) †
   - Tests: Whether communication patterns and memory limits determine the choice.
+  - A strong answer covers:
+    - Name each split and its traffic: TP per-layer all-reduce, PP stage activations, SP key-value exchange, EP token all-to-all.
+    - Fit weights and KV first: TP inside the NVLink domain, PP across nodes, then traffic-free data-parallel replicas for throughput.
+    - Measure per-GPU memory headroom, communication share of step time, pipeline bubbles and expert load imbalance at target latency.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv) · [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv) · [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) (Shoeybi et al., arXiv)
 - **[You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable.](../themes/inference-economics.md#inf-cost-reduction)**
   - Applied scenario · Asked at: Amazon †, [Microsoft](microsoft.md) † · ✍ [Answer](../answers/engineering.md#inf-cost-reduction)
   - Tests: Whether savings are measured under explicit quality and latency constraints.
@@ -123,8 +128,18 @@ On this page: [Interview loop](#loop) · [Questions (12)](#questions)
 - **[Tell me about an opportunity you saw that was larger than the original scope of your assignment.](../themes/behavioral-values.md#beh-beyond-initial-scope)**
   - Behavioral · Senior · Asked at: Amazon †
   - Tests: Whether you recognise broader value and justify taking on additional scope.
+  - A strong answer covers:
+    - Pick an opportunity you noticed from inside the assigned work, and explain what made it visible to you.
+    - Show how you sized the extra value against the cost, and who agreed before you expanded scope.
+    - Close with whether the original assignment still landed and what the larger value turned out to be.
+  - Read: [Leadership Principles](https://amazon.jobs/content/en/our-workplace/leadership-principles) (Amazon Jobs)
 - **[Tell me about an AI decision you owned that had significant downstream consequences.](../themes/behavioral-values.md#beh-ai-decision-ownership)**
   - Behavioral · Senior · Asked at: Amazon †
   - Tests: Whether you consider impact beyond your immediate deliverable.
+  - A strong answer covers:
+    - Choose a decision whose effects reached people outside your team: users, operators, downstream systems or partners.
+    - Show which second-order effects you anticipated, which you missed, and how you weighed them at the time.
+    - Close with how you monitored the consequences after launch and what you changed in response.
+  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 
 ← [OpenAI](openai.md) · [Canva](canva.md) →

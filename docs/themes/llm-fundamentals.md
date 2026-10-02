@@ -20,6 +20,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
 - <a id="llm-training-stages"></a>**What objectives and data distinguish pretraining, instruction tuning and preference optimisation?**
   - Knowledge · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-training-stages&title=%5BCorrection%5D%20llm-training-stages)
   - Tests: Whether the candidate can identify what each stage can and cannot change.
+  - A strong answer covers:
+    - Name the objectives: next-token loss on raw corpora, the same loss on demonstrations masked to responses, then pairwise preferences.
+    - State what each changes: pretraining sets knowledge and skills, instruction tuning sets format, preferences re-rank behaviours already available.
+    - Probe the limits: facts added only in tuning generalise poorly, and preference training can reward length or flattery.
+  - Read: [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) (Ouyang et al., arXiv) · [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) (Rafailov et al., arXiv) · [Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?](https://arxiv.org/abs/2405.05904) (Gekhman et al., arXiv)
 
 ## <a id="track-engineering"></a>AI Engineering
 
@@ -52,11 +57,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
   - Tests: Whether architectural compression is distinguished from lower numeric precision.
   - A strong answer covers:
     - Cache one low-rank latent vector per token instead of full keys and values for every head.
-    - Reconstruct per-head keys and values from that latent during attention, paying extra compute.
+    - Reconstruct per-head keys and values from that latent, or fold the up-projections into the query and output projections, paying extra compute.
     - Separate this architectural compression from quantising the same cache.
   - Read: [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) (DeepSeek-AI, arXiv)
 - <a id="llm-flashattention"></a>**Why can an exact attention kernel run faster without changing the quadratic attention computation?**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#llm-flashattention) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-flashattention&title=%5BCorrection%5D%20llm-flashattention)
   - Tests: Whether memory traffic is separated from arithmetic complexity.
   - A strong answer covers:
     - Explain tiled attention and the reduction in reads and writes between accelerator memory levels.
@@ -66,13 +71,27 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
 - <a id="llm-tokenization"></a>**Explain BPE training and why numbers, source code and different writing systems can tokenize unevenly.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-tokenization&title=%5BCorrection%5D%20llm-tokenization)
   - Tests: Whether tokenisation choices are connected to context use and representation.
+  - A strong answer covers:
+    - Describe training: start from characters or bytes and repeatedly merge the most frequent adjacent pair until the vocabulary is full.
+    - Link unevenness to corpus frequency and pre-tokenisation rules: rare scripts fragment, digit groups vary, code indentation splits oddly.
+    - Measure tokens per character or word by language and domain, and the effect on context, cost and arithmetic.
+  - Read: [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909) (Sennrich et al., arXiv) · [Language Model Tokenizers Introduce Unfairness Between Languages](https://arxiv.org/abs/2305.15425) (Petrov et al., arXiv)
 - <a id="llm-position-schemes"></a>**Compare additive positional embeddings, rotary embeddings and attention biases for representing token order.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-position-schemes&title=%5BCorrection%5D%20llm-position-schemes)
   - Tests: Whether different mechanisms for encoding position are understood.
+  - A strong answer covers:
+    - Show where position enters: added to input embeddings, rotated into queries and keys, or added to attention logits.
+    - Contrast absolute learned or sinusoidal tables with RoPE's relative-offset dot products and ALiBi's linear distance penalty.
+    - Test behaviour beyond the training length on in-context retrieval, since perplexity hides weak use of distant tokens.
+  - Read: [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv) · [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv) · [Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation](https://arxiv.org/abs/2108.12409) (Press et al., arXiv)
 - <a id="llm-rope-extension"></a>**Explain rotary position encoding and the trade-offs of interpolation when extending context beyond training lengths.**
   - Knowledge · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-rope-extension&title=%5BCorrection%5D%20llm-rope-extension)
   - Tests: Whether a longer accepted input is distinguished from reliable long-context reasoning.
-  - Read: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv)
+  - A strong answer covers:
+    - Explain RoPE: rotate query and key dimension pairs by position times a per-pair frequency, so scores depend on offset.
+    - Show that position interpolation divides every frequency by the scale, blurring nearby tokens; NTK and YaRN mostly rescale low frequencies.
+    - Separate accepted length from use: test retrieval and multi-hop tasks at varied depths, plus short-context regressions after finetuning.
+  - Read: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv) · [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv) · [Extending Context Window of Large Language Models via Positional Interpolation](https://arxiv.org/abs/2306.15595) (Chen et al., arXiv) · [YaRN: Efficient Context Window Extension of Large Language Models](https://arxiv.org/abs/2309.00071) (Peng et al., arXiv) · [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654) (Hsieh et al., arXiv)
 - <a id="llm-experts"></a>**How does sparse expert routing increase parameter capacity, and what costs remain despite activating only some experts?**
   - Knowledge · ✍ [Answer](../answers/engineering.md#llm-experts) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-experts&title=%5BCorrection%5D%20llm-experts)
   - Tests: Whether active computation, total memory and communication are separated.
@@ -84,6 +103,11 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
 - <a id="llm-decoding"></a>**Compare greedy decoding, beam search and temperature, top-k and nucleus sampling; give a failure mode for each.**
   - Knowledge · Asked at: [Google and Google DeepMind](../companies/google.md) †, [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-decoding&title=%5BCorrection%5D%20llm-decoding)
   - Tests: Whether probability manipulation is connected to output diversity and quality.
+  - A strong answer covers:
+    - Describe each as a transform: argmax, approximate sequence-likelihood search, logit division by T, top-k truncation, cumulative-mass truncation.
+    - Name failures: greedy and beam repeat or go bland, high temperature derails, top-k ignores distribution shape, top-p admits flat tails.
+    - Choose by task, deterministic for extraction and sampled for generation, and measure accuracy together with diversity across seeds.
+  - Read: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 - <a id="llm-context-position"></a>**How would you test and reduce a model's tendency to miss relevant evidence in the middle of a long context?**
   - Knowledge · ✍ [Answer](../answers/engineering.md#llm-context-position) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-context-position&title=%5BCorrection%5D%20llm-context-position)
   - Tests: Whether context utilisation is measured rather than inferred from context capacity.
@@ -95,17 +119,41 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
 - <a id="llm-normalization"></a>**Compare pre-normalisation and post-normalisation transformer blocks, then explain what RMSNorm changes.**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-normalization&title=%5BCorrection%5D%20llm-normalization)
   - Tests: Whether normalisation is linked to optimisation stability and its actual formula.
+  - A strong answer covers:
+    - Write both blocks: post-norm applies LayerNorm after the residual add; pre-norm normalises only the sublayer input.
+    - Link placement to stability: pre-norm keeps an identity gradient path and needs less warmup, but residual norms grow with depth.
+    - Give RMSNorm as x divided by its root mean square, times a gain: no mean-centring or bias, fewer operations.
+  - Read: [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv) · [On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745) (Xiong et al., arXiv) · [Root Mean Square Layer Normalization](https://arxiv.org/abs/1910.07467) (Zhang et al., arXiv)
 - <a id="llm-gated-mlp"></a>**Explain the two branches of SwiGLU and the parameter and compute trade-offs against a conventional feed-forward block.**
   - Knowledge · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-gated-mlp&title=%5BCorrection%5D%20llm-gated-mlp)
   - Tests: Whether gated activations are explained beyond their name.
+  - A strong answer covers:
+    - Write SwiGLU: Swish of one projection gates a second linear projection elementwise, then a down projection returns to d_model.
+    - Count parameters: three matrices instead of two, so hidden width shrinks to about 8d/3 to keep 8d² weights.
+    - Compare at matched parameters and FLOPs on held-out loss, noting extra activation memory and fused gate-up kernels.
+  - Read: [GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202) (Shazeer, arXiv)
 - <a id="llm-decoder-pass"></a>**Trace the tensor shapes through one decoder-only transformer layer and through the final vocabulary projection.**
   - Knowledge · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-decoder-pass&title=%5BCorrection%5D%20llm-decoder-pass)
   - Tests: Whether attention, residual paths and vocabulary logits form a coherent computation.
+  - A strong answer covers:
+    - Carry [B, T, d_model] through norm, Q, K, V projections split into heads, [B, H, T, T] scores and the output projection.
+    - Keep the residual stream at d_model throughout; the MLP expands to d_ff and back before each residual add.
+    - Project the final normed stream through a d_model by vocabulary matrix to [B, T, V] logits; recheck shapes for one cached decode step.
+  - Read: [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv)
 - <a id="llm-language-loss"></a>**Relate cross-entropy, KL divergence and perplexity for next-token prediction; state the assumptions behind each comparison.**
   - Knowledge · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-language-loss&title=%5BCorrection%5D%20llm-language-loss)
   - Tests: Whether probabilistic definitions are used consistently.
+  - A strong answer covers:
+    - Show cross-entropy equals data entropy plus KL from data to model, so for fixed data minimising either is equivalent.
+    - Define perplexity as exp of mean per-token cross-entropy in nats; it shifts with tokeniser, eval text and context length.
+    - Compare across tokenisers in bits per byte, fixing the text, context handling and log base before drawing conclusions.
 - <a id="llm-long-attention"></a>**Explain how self-attention cost grows with context length and compare ways to reduce that cost.**
   - Knowledge · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-long-attention&title=%5BCorrection%5D%20llm-long-attention)
   - Tests: Whether efficiency changes are distinguished from changes to model behaviour.
+  - A strong answer covers:
+    - Show the cost: prefill score and value products scale with T squared; each decode step reads a KV cache linear in T.
+    - Separate exact kernels like FlashAttention, which cut memory traffic, from windows, sparsity, KV eviction or GQA, which change outputs.
+    - Re-run long-context quality evals for behaviour-changing methods; for exact ones, check numerical equivalence and speed only.
+  - Read: [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) (Dao et al., arXiv) · [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv)
 
 [Inference, serving and cost](inference-economics.md) →

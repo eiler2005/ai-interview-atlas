@@ -34,8 +34,13 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 ### [Inference, serving and cost](../themes/inference-economics.md)
 
 - **[Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems.](../themes/inference-economics.md#inf-latency-metrics)**
-  - Knowledge · Asked at: Microsoft †, [Perplexity](perplexity.md) †
+  - Knowledge · Asked at: Microsoft †, [Perplexity](perplexity.md) † · ✍ [Answer](../answers/engineering.md#inf-latency-metrics)
   - Tests: Whether user-visible delay is separated from aggregate capacity.
+  - A strong answer covers:
+    - Define TTFT as queueing plus prefill, TPOT and inter-token latency as decode pace, throughput as aggregate capacity.
+    - Explain how larger batches trade each user's decode speed for throughput, and how admitted prefills stall decodes.
+    - Compare at matched load and length distributions: p50 and p99 per latency metric, throughput within the targets.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - **[You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable.](../themes/inference-economics.md#inf-cost-reduction)**
   - Applied scenario · Asked at: [Amazon](amazon.md) †, Microsoft † · ✍ [Answer](../answers/engineering.md#inf-cost-reduction)
   - Tests: Whether savings are measured under explicit quality and latency constraints.
@@ -107,6 +112,11 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Design a meeting assistant that records discussion, distinguishes speakers and publishes summaries and action items to connected tools.](../themes/ai-system-design.md#sd-meeting-assistant)**
   - System design · Asked at: Microsoft †
   - Tests: Whether audio processing, attribution and integration reliability fit together.
+  - A strong answer covers:
+    - Separate transcription from diarisation; map speakers to people using per-participant audio channels where available.
+    - Link each action item to its transcript span, owner and confidence before anything is published.
+    - Publish with an idempotency key per item so retries never duplicate tasks, and let users confirm first.
+  - Read: [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 
 ### [AI product strategy and metrics](../themes/ai-product-strategy.md)
 
@@ -148,11 +158,21 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Describe an AI product you built from scratch and how you took it through delivery.](../themes/program-delivery.md#prog-zero-to-one-ai)**
   - Self-presentation · Senior · Asked at: Microsoft †
   - Tests: Whether you can explain a complete delivery path rather than only a prototype.
+  - A strong answer covers:
+    - Pick a product that reached real users, and open with the problem and why AI fitted it.
+    - Spend most of the answer on the prototype-to-production gap: evaluation set, quality bar, failure handling, launch decision.
+    - Close with adoption and outcome after launch, and how quality was monitored and improved once real traffic arrived.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 
 ### [Behavioral and values](../themes/behavioral-values.md)
 
 - **[Describe a technical decision you championed that turned out to be wrong.](../themes/behavioral-values.md#beh-wrong-technical-choice)**
   - Behavioral · Senior · Asked at: Microsoft †
   - Tests: Whether you can reverse a position and repair its consequences.
+  - A strong answer covers:
+    - Pick a decision you persuaded others to adopt, so that reversing it cost you something publicly.
+    - Name the signal that showed it was wrong, how long you took to accept it, and why.
+    - Describe how you reversed it openly, repaired what it had broken, and changed how you champion decisions.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 
 ← [Meta](meta.md) · [Spotify](spotify.md) →

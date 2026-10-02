@@ -18,8 +18,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Compare with one agent at a comparable total budget; count duplicate work, coordination failures, cost and latency.
   - Read: [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Anthropic)
 - <a id="agt-reversibility"></a>**How would you make an agent's production actions reversible where possible and auditable where reversal is impossible?**
-  - System design · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-reversibility&title=%5BCorrection%5D%20agt-reversibility)
+  - System design · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#agt-reversibility) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-reversibility&title=%5BCorrection%5D%20agt-reversibility)
   - Tests: Whether compensating actions and durable evidence are planned before execution.
+  - A strong answer covers:
+    - Classify each tool action before release as reversible, compensable within a window, or irreversible.
+    - Prefer native undo such as drafts, soft deletes and delayed sends; register a tested compensation for the rest.
+    - Write intent, exact arguments and authoriser to an append-only log before acting; rehearse reconstruction from it.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe) · [Compensating Transaction pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/compensating-transaction) (Microsoft Learn)
 - <a id="agt-approval"></a>**Design human approval for consequential agent actions, including how approval remains bound to the exact action being executed.**
   - System design · Asked at: [OpenAI](../companies/openai.md) †, [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#agt-approval) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-approval&title=%5BCorrection%5D%20agt-approval)
   - Tests: Whether approval controls are enforced outside the model.
@@ -29,8 +34,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Record the decision and execution result; expire approval after material changes.
   - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="agt-erp-writes"></a>**Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations.**
-  - System design · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-erp-writes&title=%5BCorrection%5D%20agt-erp-writes)
+  - System design · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/leadership.md#agt-erp-writes) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-erp-writes&title=%5BCorrection%5D%20agt-erp-writes)
   - Tests: Whether business invariants survive uncertain model and network behaviour.
+  - A strong answer covers:
+    - Keep the model on proposals: a typed command validated against ERP business rules before any write.
+    - Derive a stable business key for idempotent creation, and update with a version check, never last-write-wins.
+    - Reconcile ambiguous outcomes before retrying, log proposal against effect, and test duplicate events and concurrent edits.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 
 ## <a id="track-engineering"></a>AI Engineering
 
@@ -53,6 +63,10 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="agt-structured-output"></a>**How do schema-constrained responses differ from function calls, and which component actually executes an action?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-structured-output&title=%5BCorrection%5D%20agt-structured-output)
   - Tests: Whether valid syntax is distinguished from authorised execution.
+  - A strong answer covers:
+    - Explain that both only constrain what the model emits; neither executes anything by itself.
+    - Contrast a typed answer for the caller with a call request the application may run, refuse or modify.
+    - Keep authorisation in application code: a schema-valid call can still be forbidden, harmful or wrong.
   - Read: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - <a id="agt-mcp"></a>**What does MCP standardise between an AI application and an external service that a model's function-call format does not?**
   - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/engineering.md#agt-mcp) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp&title=%5BCorrection%5D%20agt-mcp)
@@ -81,6 +95,11 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="agt-tool-choice"></a>**How should an agent decide whether to answer directly or obtain fresh information with a tool?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-tool-choice&title=%5BCorrection%5D%20agt-tool-choice)
   - Tests: Whether uncertainty, freshness and tool cost influence the decision.
+  - A strong answer covers:
+    - Classify the question first: stable knowledge, time-sensitive facts, or private data the model cannot have.
+    - Weigh the cost of a wrong direct answer against the tool's latency, price and failure risk.
+    - Measure unnecessary and missed calls on labelled cases; force or forbid tools where policy requires.
+  - Read: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - <a id="agt-termination"></a>**Define completion and stopping conditions for an agent loop so it cannot spend indefinitely on an unfinished task.**
   - System design · ✍ [Answer](../answers/engineering.md#agt-termination) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-termination&title=%5BCorrection%5D%20agt-termination)
   - Tests: Whether progress, budgets and terminal states are explicit.
@@ -92,21 +111,50 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="agt-goal-drift"></a>**A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-goal-drift&title=%5BCorrection%5D%20agt-goal-drift)
   - Tests: Whether diagnosis uses task state and observations rather than confidence in prose.
+  - A strong answer covers:
+    - Compare persisted task state and tool observations against the original goal, ignoring the agent's narrative.
+    - Find the step where a summary, context compaction or misread observation replaced a constraint.
+    - Resume from the last consistent checkpoint, and add periodic checks of progress against the written goal.
+  - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-coding-harness"></a>**For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-coding-harness&title=%5BCorrection%5D%20agt-coding-harness)
   - Tests: Whether controlled comparisons can identify the source of improvements.
+  - A strong answer covers:
+    - Define the harness precisely: tools, context assembly, retries, test feedback and stopping rules.
+    - Run a factorial comparison: swap the model with the harness fixed, then swap the harness.
+    - On a fixed task set, repeat trials, grade the final repository by tests and report variance.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="agt-ontology"></a>**Why might an enterprise agent operate on an ontology of business objects and actions instead of raw tables and documents?**
   - Knowledge · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-ontology&title=%5BCorrection%5D%20agt-ontology)
   - Tests: Whether semantic modelling is connected to valid operations and permissions.
+  - A strong answer covers:
+    - Explain that business objects carry meaning, relationships and identity that raw tables leave implicit.
+    - Expose typed actions with preconditions and permissions instead of free-form queries and writes.
+    - Weigh the modelling and upkeep cost, and test what happens when a task falls outside the ontology.
+  - Read: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - <a id="agt-support-agent-takehome"></a>**Build a customer-support agent for a fictional company: choose two of five proposed features, justify the choice and explain how you would measure the agent in production.**
   - Applied scenario · Asked at: [Sierra](../companies/sierra.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-support-agent-takehome&title=%5BCorrection%5D%20agt-support-agent-takehome)
   - Tests: Whether you prioritise scope under a deadline and plan measurement for a working agent.
+  - A strong answer covers:
+    - Choose the two features by ticket volume, verifiable resolution and the risk of acting wrongly.
+    - State what you cut and why, and keep escalation to a human working end to end.
+    - Measure genuine resolution, repeat contacts, escalation quality and harmful actions, not conversations closed.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="agt-mcp-long-running"></a>**Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp-long-running&title=%5BCorrection%5D%20agt-mcp-long-running)
   - Tests: Whether you manage state, failures and context budget across a long tool-driven run.
-  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
+  - A strong answer covers:
+    - Keep the plan and progress in durable state outside the context, not only in the transcript.
+    - Budget the context: paginate and trim tool results, compact history, fetch details only when needed.
+    - Make tool steps resumable and idempotent, and test recovery from a server failure mid-run.
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-api-level-features"></a>**What are a language model's generation parameters?**
   - Knowledge · Asked at: [Tochka](../companies/tochka.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-api-level-features&title=%5BCorrection%5D%20agt-api-level-features)
   - Tests: Whether you distinguish model generation settings from instructions about role, style or response structure.
+  - A strong answer covers:
+    - Name the decoding settings: temperature, top-p, top-k, maximum output tokens and stop sequences.
+    - Separate them from prompt instructions on role, tone and format; an enforced output schema is an API setting.
+    - Show each setting's effect on repeated samples, and check which ones a given API actually accepts.
+  - Read: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ← [RAG and retrieval](rag-retrieval.md) · [Fine-tuning and post-training](post-training.md) →

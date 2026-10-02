@@ -25,8 +25,8 @@ questions:
         - "Использовать наблюдения для следующего шага и выявления неверных предположений."
         - "Обсудить ошибки инструментов и задержку повторных взаимодействий."
     answer:
-      en: "Interleaving gives the model what its own reasoning cannot: a planned action and an observation returned by the environment are different things, and the observation can interrupt a chain of plausible but wrong assumptions. The mechanism is simple. The model states a step, calls a tool, gets a result, and builds the next step on it, so an observation can disconfirm a bad hypothesis before the final answer. You pay in latency and cost: every round is another call and more context, and tools return errors, empty results and junk the model must tell apart from fact. I would measure the share of tasks where an observation changed the plan, and the share of steps spent repeating one call. The limit: external feedback helps only while the environment answers honestly. If a tool is silently wrong, the loop only entrenches the error more confidently."
-      ru: "Чередование даёт модели то, чего нет в её собственных рассуждениях: запланированное действие и наблюдение, вернувшееся из среды, — разные вещи, и наблюдение может прервать цепочку правдоподобных, но неверных допущений. Механизм простой: модель формулирует шаг, вызывает инструмент, получает результат и строит следующий шаг уже на нём, поэтому наблюдение может опровергнуть ошибочную гипотезу до финального ответа, хотя это не гарантировано. Платим задержкой и стоимостью: каждый круг — это лишний вызов и лишний контекст, а сами инструменты возвращают ошибки, пустые выдачи и мусор, который модель обязана отличать от факта. Я бы измерил долю задач, где наблюдение изменило план, и долю шагов, потраченных на повтор одного и того же вызова. Граница в том, что внешняя обратная связь помогает, только пока среда отвечает честно: при молчаливо неверном инструменте цикл лишь увереннее закрепляет ошибку."
+      en: "Reasoning alone can't check its own premises: if the model assumes a wrong fact in step two, every later step builds on it, and the chain gets more fluent, not more correct. Interleaving adds the one channel that can contradict the model. It states a thought, takes an action, and the observation that comes back, not the plan, decides the next step, so an empty search or an unexpected value forces a revision before the final answer. The reasoning, in turn, tracks progress and chooses the next action, which acting alone lacks. The cost is latency, another model call and more context per round, plus tool errors, empty results and junk the model must not mistake for fact. I'd run the same tasks three ways, reasoning only, acting only and interleaved, and compare success rate, cost per task and how often the agent recovers after a failed call. The boundary: when the model already knows the answer, uninformative results can derail it, and a silently wrong tool makes it confidently wrong."
+      ru: "Одни рассуждения не умеют проверять собственные посылки: если модель на втором шаге приняла неверный факт, все следующие шаги строятся на нём, и цепочка становится глаже, но не вернее. Чередование добавляет единственный канал, способный модели возразить. Она формулирует мысль, выполняет действие, и следующий шаг определяет вернувшееся наблюдение, а не план, поэтому пустой поиск или неожиданное значение заставляют пересмотреть ход ещё до финального ответа. Рассуждение, в свою очередь, отслеживает прогресс и выбирает следующее действие — именно этого не хватает одним действиям. Платим задержкой, лишним вызовом модели и лишним контекстом на каждом круге, а ещё ошибками инструментов, пустыми выдачами и мусором, который модель не должна принять за факт. Я бы прогнал одни и те же задачи тремя способами — только рассуждения, только действия и чередование — и сравнил долю успеха, стоимость задачи и то, как часто агент восстанавливается после неудачного вызова. Граница: если модель и так знает ответ, неинформативные результаты могут сбить её с толку, а молча ошибающийся инструмент делает её уверенно неправой."
     reading: ["paper-react"]
   - id: "agt-retries"
     tracks: ["engineering"]
@@ -71,6 +71,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Explain that both only constrain what the model emits; neither executes anything by itself."
+        - "Contrast a typed answer for the caller with a call request the application may run, refuse or modify."
+        - "Keep authorisation in application code: a schema-valid call can still be forbidden, harmful or wrong."
+      ru:
+        - "Объяснить, что оба механизма лишь ограничивают вывод модели и сами ничего не исполняют."
+        - "Сравнить типизированный итоговый ответ для вызывающего кода с запросом на вызов, который приложение может выполнить, отклонить или изменить."
+        - "Оставить авторизацию в коде приложения: вызов, валидный по схеме, всё равно может быть запрещён, вреден или ошибочен."
     reading: ["claude-tool-use"]
   - id: "agt-mcp"
     tracks: ["engineering"]
@@ -99,8 +108,8 @@ questions:
         - "Назвать, что фиксирует протокол: транспорт, обнаружение возможностей и типизированные инструменты, ресурсы и промпты."
         - "Обсудить границу доверия: подключённый сервер поставляет и возможности, и недоверенный контент."
     answer:
-      en: "A function-call format describes only the shape of the arguments a model emits. It says nothing about where the tool lives, how the application learns the tool exists, or how the result comes back. MCP standardises that surrounding layer — a client-server handshake, capability discovery, and typed primitives for tools, resources and prompts over a defined transport — so the same server works with any compliant application and a tool can be added without changing the model or redeploying the client. Execution and authority stay outside the model: the client still decides which servers are connected and what each may do. I would judge it by how much integration code disappears per new tool. The trade-off is the trust boundary it creates: a connected server contributes tool descriptions and returns content, both of which reach the context as untrusted input, so a third-party server is a supply-chain and prompt-injection surface."
-      ru: "Формат function call описывает одно: форму аргументов, которые выдаёт модель. Он ничего не говорит о том, где живёт инструмент, как приложение узнаёт о его существовании и как возвращается результат. MCP стандартизирует именно этот окружающий слой — рукопожатие клиента и сервера, обнаружение возможностей и типизированные примитивы для инструментов, ресурсов и промптов поверх заданного транспорта, — поэтому один и тот же сервер работает с любым совместимым приложением, а инструмент добавляется без изменения модели и переразвёртывания клиента. Исполнение и полномочия остаются вне модели: клиент по-прежнему решает, какие серверы подключены и что каждому разрешено. Пользу я бы оценивал тем, сколько интеграционного кода исчезает на каждый новый инструмент. Плата — возникающая граница доверия: подключённый сервер даёт и описания инструментов, и возвращаемый контент, а это попадает в контекст как недоверенный ввод, поэтому сторонний сервер — поверхность и цепочки поставок, и prompt injection."
+      en: "A function-call format describes only the shape of the arguments a model emits. It says nothing about where the tool lives, how the application learns the tool exists, or how the result comes back. MCP standardises that surrounding layer — a client-server handshake, capability discovery, and typed primitives for tools, resources and prompts over a defined transport — so the same server works with any compliant application, within the capabilities both sides declare at the handshake, and a tool can be added without changing the model or redeploying the client. Execution and authority stay outside the model: the host application still decides which servers are connected and what each may do. I would judge it by how much integration code disappears per new tool. The trade-off is the trust boundary it creates: a connected server contributes tool descriptions and returns content, both of which reach the context as untrusted input, so a third-party server is a supply-chain and prompt-injection surface."
+      ru: "Формат function call описывает одно: форму аргументов, которые выдаёт модель. Он ничего не говорит о том, где живёт инструмент, как приложение узнаёт о его существовании и как возвращается результат. MCP стандартизирует именно этот окружающий слой — рукопожатие клиента и сервера, обнаружение возможностей и типизированные примитивы для инструментов, ресурсов и промптов поверх заданного транспорта, — поэтому один и тот же сервер работает с любым совместимым приложением в пределах возможностей, которые обе стороны объявили при рукопожатии, а инструмент добавляется без изменения модели и переразвёртывания клиента. Исполнение и полномочия остаются вне модели: приложение-хост по-прежнему решает, какие серверы подключены и что каждому разрешено. Пользу я бы оценивал тем, сколько интеграционного кода исчезает на каждый новый инструмент. Плата — возникающая граница доверия: подключённый сервер даёт и описания инструментов, и возвращаемый контент, а это попадает в контекст как недоверенный ввод, поэтому сторонний сервер — поверхность атаки и через цепочку поставок, и через prompt injection."
     reading: ["mcp-specification"]
   - id: "agt-tool-surface"
     tracks: ["engineering"]
@@ -129,8 +138,8 @@ questions:
         - "Возвращать ограниченные релевантные результаты и понятные ошибки."
         - "Проверять выбор инструмента и аргументов на реальных задачах и устранять неоднозначное дублирование."
     answer:
-      en: "I design a tool as one coherent operation the model picks by a single clear name, not as a thin wrapper over an endpoint. The name states intent, the schema stays minimal and checkable, with enumerations instead of free text wherever the options are finite, so a bad argument is rejected by validation, not by the downstream system. Results need bounds: return the relevant fields and a sensible volume, otherwise the context fills with noise and the next choice gets worse. Write errors so the next step follows from them, not just a code. I test this on realistic tasks: run a set of requests, measure how often the right tool and the right arguments were chosen, then remove near-identical operations the model confuses. A description can't replace a missing operation, and if the action is not in the set, the model will improvise it out of unsuitable ones."
-      ru: "Инструмент стоит проектировать как целостную операцию, которую модель выбирает по одному понятному имени, а не как тонкую обёртку над эндпоинтом. Имя говорит о намерении, схема остаётся минимальной и проверяемой, с перечислениями вместо свободного текста там, где вариантов конечное число, — тогда неверный аргумент отсекается валидацией, а не внешней системой. Результат нужно ограничивать: возвращать релевантные поля и разумный объём, иначе контекст забивается мусором и следующий выбор портится. Ошибку формулируйте так, чтобы из неё следовал следующий шаг, а не просто код. Проверяю это на реальных задачах: прогоняю набор запросов и меряю долю верно выбранного инструмента и корректных аргументов, потом убираю почти одинаковые операции, между которыми модель путается. Граница: описание не заменит недостающую операцию — если нужного действия в наборе нет, модель начнёт собирать его из неподходящих."
+      en: "The model chooses a tool only from its name, description and schema, so every pair of overlapping tools is a decision it can get wrong, and every free-text argument is a place to invent a value. I'd shape tools around the agent's tasks, not the API's endpoints: a search instead of a list that dumps every record, names prefixed by service, enumerations wherever options are finite, and a strict schema so validation rejects a bad argument before the downstream system sees it. The real trade-off is granularity: a few high-level tools cut selection errors but make arguments complex, while many thin ones keep arguments simple but make selection ambiguous and chains longer. Results are paginated and capped, and an error says what to change. On a fixed set of realistic tasks I'd measure the share of calls with the right tool and valid arguments and the tokens per task, before and after each merge or rename. The boundary: once the set grows into dozens of tools, selection degrades even with good descriptions, so I'd load tools per task."
+      ru: "Модель выбирает инструмент только по имени, описанию и схеме, поэтому каждая пара пересекающихся инструментов — это развилка, на которой она может ошибиться, а каждый аргумент свободным текстом — место, где можно выдумать значение. Инструменты я бы строил вокруг задач агента, а не эндпоинтов API: поиск вместо списка, вываливающего все записи, имена с префиксом сервиса, перечисления везде, где вариантов конечное число, и строгая схема, чтобы неверный аргумент отсекала валидация раньше, чем его увидит внешняя система. Настоящий компромисс — гранулярность: несколько высокоуровневых инструментов снижают ошибки выбора, но усложняют аргументы, а много тонких оставляют аргументы простыми, но делают выбор неоднозначным, а цепочки длиннее. Результаты разбиты на страницы и ограничены по объёму, а ошибка говорит, что именно исправить. На фиксированном наборе реалистичных задач я бы измерял долю вызовов с верным инструментом и корректными аргументами и токены на задачу — до и после каждого слияния или переименования. Граница: когда инструментов становятся десятки, выбор ухудшается даже при хороших описаниях, поэтому я бы подгружал инструменты под задачу."
     reading: ["anthropic-writing-tools"]
   - id: "agt-multi-agent"
     tracks: ["engineering","leadership"]
@@ -187,8 +196,8 @@ questions:
         - "Записывать в память подтверждённые итоги с происхождением и возможностью правки, а не каждую реплику."
         - "Извлекать по релевантности текущей задаче, удаляя или замещая устаревшие записи."
     answer:
-      en: "I start by separating two things that get conflated: the working context of one session, which is a window I fill and discard, and durable state, which is a store with its own lifecycle. Only a small, deliberate subset should graduate — stable user preferences, decisions and their rationale, confirmed task outcomes — each written with provenance and a timestamp so it can be corrected or superseded rather than silently accumulated. Retrieval is then a query against the current task, not a dump of everything remembered, because injecting all history recreates the context problem it was meant to solve. Forgetting is a feature: expiry for time-sensitive facts, supersession when a newer statement contradicts an older one. I would measure whether recalled items were actually used, and how often stale memory causes an error. The danger is a confident wrong memory, which is harder to notice than no memory at all."
-      ru: "Я начинаю с разделения двух вещей, которые обычно смешивают: рабочего контекста одной сессии — окна, которое я наполняю и выбрасываю, — и долговременного состояния, то есть хранилища со своим жизненным циклом. Переходить во второе должно лишь небольшое осознанно выбранное подмножество: устойчивые предпочтения пользователя, решения и их обоснования, подтверждённые итоги задач, — каждая запись с происхождением и временем, чтобы её можно было исправить или заместить, а не молча накапливать. Извлечение тогда становится запросом под текущую задачу, а не выгрузкой всего запомненного: подмешивание всей истории воспроизводит ту самую проблему контекста, которую память должна была снять. Забывание — это функция: срок жизни для чувствительных ко времени фактов и замещение, когда новое утверждение противоречит старому. Я бы измерял, использовались ли извлечённые записи на самом деле, и как часто устаревшая память приводит к ошибке. Опасность — уверенная неверная память: её заметить труднее, чем отсутствие памяти вообще."
+      en: "I'd keep two stores with different lifecycles: the session's working context, filled and discarded, and durable memory, where only confirmed things graduate: stable preferences, decisions with their rationale, task outcomes. The real choice is what gets written. I extract at write time into structured records, subject, attribute, value, source and timestamp, rather than embedding raw transcripts, because a keyed record can be superseded when the user changes their mind, while two contradictory transcript chunks both stay retrievable. The cost is lost detail, so raw episodes are kept briefly as a fallback, not as memory. Retrieval returns a handful of records relevant to the current task, never the whole history, which would recreate the context problem. Forgetting is explicit: expiry for time-bound facts, supersession by key, deletion on request. I'd replay multi-session tasks with memory off and on, measuring success, the share of recalled records actually used and errors caused by stale ones. The boundary: memory the model inferred rather than was told reinforces its own mistakes, so inferences get lower trust or aren't stored."
+      ru: "Я бы держал два хранилища с разным жизненным циклом: рабочий контекст сессии, который наполняется и выбрасывается, и долговременную память, куда попадает только подтверждённое — устойчивые предпочтения, решения с обоснованием, итоги задач. Главный выбор — что именно записывать. Я извлекаю факты уже при записи в структурированные записи — субъект, атрибут, значение, источник и время, — а не превращаю в эмбеддинги сырые транскрипты, потому что запись с ключом можно заместить, когда пользователь передумал, а два противоречащих друг другу куска транскрипта так и останутся оба доступными для поиска. Плата — потеря деталей, поэтому сырые эпизоды храню недолго как запасной источник, а не как память. Извлечение возвращает несколько записей, релевантных текущей задаче, а не всю историю: подмешивание всего воспроизвело бы ту самую проблему контекста. Забывание задаю явно: срок жизни для фактов, привязанных ко времени, замещение по ключу и удаление по запросу. Я бы прогнал многосессионные задачи с памятью и без неё и измерил долю успеха, долю извлечённых записей, которые реально использовались, и ошибки из-за устаревших записей. Граница: память, которую модель вывела сама, а не услышала, закрепляет её собственные ошибки, поэтому выводы получают пониженное доверие или не сохраняются вовсе."
     reading: ["anthropic-context-engineering"]
   - id: "agt-tool-choice"
     tracks: ["engineering"]
@@ -203,6 +212,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Classify the question first: stable knowledge, time-sensitive facts, or private data the model cannot have."
+        - "Weigh the cost of a wrong direct answer against the tool's latency, price and failure risk."
+        - "Measure unnecessary and missed calls on labelled cases; force or forbid tools where policy requires."
+      ru:
+        - "Сначала классифицировать вопрос: устойчивое знание, факты, зависящие от времени, или закрытые данные, которых у модели нет."
+        - "Сопоставить цену неверного прямого ответа с задержкой, стоимостью и риском сбоя вызова."
+        - "Измерить лишние и пропущенные вызовы на размеченных примерах; где требует политика, принудительно включать или запрещать инструменты."
+    reading: ["claude-tool-use"]
   - id: "agt-termination"
     tracks: ["engineering"]
     roles: ["agent-engineer"]
@@ -246,6 +265,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 60
+    outline:
+      en:
+        - "Classify each tool action before release as reversible, compensable within a window, or irreversible."
+        - "Prefer native undo such as drafts, soft deletes and delayed sends; register a tested compensation for the rest."
+        - "Write intent, exact arguments and authoriser to an append-only log before acting; rehearse reconstruction from it."
+      ru:
+        - "До выпуска инструмента отнести каждое действие к обратимым, компенсируемым в пределах окна или необратимым."
+        - "Предпочитать встроенную отмену: черновики, мягкое удаление, отложенную отправку; для остального регистрировать проверенную компенсацию."
+        - "До действия писать намерение, точные аргументы и автора разрешения в журнал только на добавление; репетировать восстановление по нему."
+    answer:
+      en: "Reversibility has to be designed into each tool before the agent can call it, so I'd classify every action as reversible, compensable or irreversible. Where possible I'd shape the tool so undo is native: drafts instead of sends, soft deletes with retention, scheduled actions with a cancel window, versioned configuration. Compensation is weaker than rollback, since a refund after a charge is a new action that can fail and leaves traces, so each compensable action is registered with its compensating action and the window in which it still works. Before executing, the runner writes an intent record to an append-only log the agent can't modify: exact arguments, an idempotency key, who authorised it, policy and model versions; afterwards, the external system's result. Irreversible actions get stricter gates: previews, limits or human approval. I'd rehearse compensations regularly and test whether the log alone reconstructs any action. The boundary: an audit trail enables accountability and repair, not undo, so for irreversible actions with serious consequences the real control is not letting the agent act alone."
+      ru: "Обратимость надо заложить в каждый инструмент до того, как агент сможет его вызвать, поэтому я бы разделил все действия на обратимые, компенсируемые и необратимые. Где можно, инструмент стоит устроить так, чтобы отмена была встроенной: черновик вместо отправки, мягкое удаление со сроком хранения, отложенное действие с окном отмены, версионируемая конфигурация. Компенсация слабее отката: возврат денег после списания — это новое действие, которое тоже может не пройти и оставляет следы, поэтому для каждого компенсируемого действия регистрируется компенсирующее и окно, в котором оно ещё работает. Перед исполнением runner пишет запись о намерении в журнал только на добавление, который агент изменить не может: точные аргументы, ключ идемпотентности, кто разрешил, версии политики и модели, — а после исполнения туда же ложится результат внешней системы. Необратимые действия проходят более строгий контроль: предпросмотр, лимиты или подтверждение человеком. Компенсации я бы регулярно репетировал и проверял, восстанавливается ли любое действие по одному журналу. Граница: журнал даёт подотчётность и возможность исправить последствия, но не отмену, поэтому для необратимых действий с серьёзными последствиями настоящий контроль — не давать агенту действовать в одиночку."
+    reading: ["stripe-idempotency","azure-compensating-transaction"]
   - id: "agt-approval"
     tracks: ["engineering","leadership"]
     roles: ["agent-engineer"]
@@ -292,6 +326,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Compare persisted task state and tool observations against the original goal, ignoring the agent's narrative."
+        - "Find the step where a summary, context compaction or misread observation replaced a constraint."
+        - "Resume from the last consistent checkpoint, and add periodic checks of progress against the written goal."
+      ru:
+        - "Сверить сохранённое состояние задачи и наблюдения инструментов с исходной целью, не опираясь на рассказ агента."
+        - "Найти шаг, где резюме, сжатие контекста или неверно прочитанное наблюдение подменило ограничение."
+        - "Продолжить с последней согласованной контрольной точки и добавить регулярную сверку прогресса с записанной целью."
+    reading: ["anthropic-context-engineering"]
   - id: "agt-coding-harness"
     tracks: ["engineering"]
     type: "system_design"
@@ -306,6 +350,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "anthropic"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Define the harness precisely: tools, context assembly, retries, test feedback and stopping rules."
+        - "Run a factorial comparison: swap the model with the harness fixed, then swap the harness."
+        - "On a fixed task set, repeat trials, grade the final repository by tests and report variance."
+      ru:
+        - "Точно определить harness: инструменты, сборку контекста, повторы, обратную связь от тестов и правила остановки."
+        - "Провести факторное сравнение: менять модель при фиксированном harness, затем менять harness."
+        - "На фиксированном наборе задач повторять прогоны, оценивать итоговое состояние репозитория тестами и показывать разброс."
+    reading: ["anthropic-evals-for-agents"]
   - id: "agt-erp-writes"
     tracks: ["engineering","leadership"]
     roles: ["forward-deployed-engineer"]
@@ -321,6 +375,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    start_here: ["leadership"]
+    priority: 64
+    outline:
+      en:
+        - "Keep the model on proposals: a typed command validated against ERP business rules before any write."
+        - "Derive a stable business key for idempotent creation, and update with a version check, never last-write-wins."
+        - "Reconcile ambiguous outcomes before retrying, log proposal against effect, and test duplicate events and concurrent edits."
+      ru:
+        - "Оставить модели только предложения: типизированную команду, проверенную по бизнес-правилам ERP до любой записи."
+        - "Выводить стабильный бизнес-ключ для идемпотентного создания и обновлять с проверкой версии, а не перезаписью вслепую."
+        - "Сверять неоднозначные исходы до повтора, журналировать предложение и эффект, проверить дубли событий и одновременные правки."
+    answer:
+      en: "I'd keep the model off the ERP's write path: it produces a typed command — create or update a work order, with explicit fields — and deterministic code validates it against business rules before any write: the asset exists, the status transition is allowed, no open order already covers this job. Duplicates are prevented by a stable business key derived from the triggering event, not from the model's wording, used as an idempotency key, so a retried tool call or a re-run agent finds the existing order instead of creating a second. Updates carry the record version they read and fail on conflict, because a planner may have edited the order in between, and silent last-write-wins is how corruption goes unnoticed. After a timeout the agent looks up that key before retrying. Each write logs the proposal, the validated command and the ERP's response, and I'd test duplicate events, concurrent edits and injected timeouts. Validation stops illegal states, not plausible wrong ones like a valid order on the wrong asset, so high-impact changes need approval."
+      ru: "Я бы не пускал модель на путь записи в ERP: она выдаёт типизированную команду — создать или обновить наряд с явными полями, — а детерминированный код проверяет её по бизнес-правилам до любой записи: оборудование существует, переход статуса разрешён, открытого наряда на эту работу ещё нет. Дубли предотвращает стабильный бизнес-ключ, выведенный из исходного события, а не из формулировки модели и используемый как ключ идемпотентности, поэтому повторный вызов инструмента или перезапущенный агент находит существующий наряд, а не создаёт второй. Обновление несёт версию записи, которую прочитало, и отклоняется при конфликте: планировщик мог изменить наряд в промежутке, а молчаливая перезапись вслепую — именно тот путь, которым искажения проходят незамеченными. После таймаута агент сначала ищет запись по этому ключу и лишь потом повторяет. Каждая запись журналирует предложение, проверенную команду и ответ ERP; тестировал бы дубли событий, одновременные правки и искусственные таймауты. Проверка отсекает недопустимые состояния, но не правдоподобно неверные вроде корректного наряда не на то оборудование, поэтому значимые изменения требуют подтверждения."
+    reading: ["stripe-idempotency"]
   - id: "agt-ontology"
     tracks: ["engineering"]
     type: "knowledge"
@@ -335,6 +404,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Explain that business objects carry meaning, relationships and identity that raw tables leave implicit."
+        - "Expose typed actions with preconditions and permissions instead of free-form queries and writes."
+        - "Weigh the modelling and upkeep cost, and test what happens when a task falls outside the ontology."
+      ru:
+        - "Объяснить, что бизнес-объекты несут смысл, связи и идентичность, которые в сырых таблицах остаются неявными."
+        - "Давать агенту типизированные действия с предусловиями и правами вместо произвольных запросов и записей."
+        - "Учесть стоимость моделирования и поддержки и проверить, что происходит, когда задача выходит за рамки онтологии."
+    reading: ["anthropic-writing-tools"]
   - id: "agt-support-agent-takehome"
     tracks: ["engineering"]
     roles: ["agent-engineer"]
@@ -351,6 +430,16 @@ questions:
         company: "sierra"
         role: "agent-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Choose the two features by ticket volume, verifiable resolution and the risk of acting wrongly."
+        - "State what you cut and why, and keep escalation to a human working end to end."
+        - "Measure genuine resolution, repeat contacts, escalation quality and harmful actions, not conversations closed."
+      ru:
+        - "Выбрать две функции по объёму обращений, проверяемости решения и риску ошибочного действия."
+        - "Назвать, что отложено и почему, и сохранить полностью рабочую передачу обращения человеку."
+        - "Измерять реальное решение, повторные обращения, качество эскалаций и вредные действия, а не число закрытых диалогов."
+    reading: ["anthropic-evals-for-agents"]
   - id: "agt-mcp-long-running"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer", "agent-engineer"]
@@ -367,7 +456,16 @@ questions:
         company: "anthropic"
         role: "forward-deployed-engineer"
     added: "2026-09-29"
-    reading: ["mcp-specification"]
+    outline:
+      en:
+        - "Keep the plan and progress in durable state outside the context, not only in the transcript."
+        - "Budget the context: paginate and trim tool results, compact history, fetch details only when needed."
+        - "Make tool steps resumable and idempotent, and test recovery from a server failure mid-run."
+      ru:
+        - "Хранить план и прогресс в долговременном состоянии вне контекста, а не только в истории диалога."
+        - "Распределять бюджет контекста: отдавать результаты инструментов постранично и кратко, сжимать историю, подгружать детали по необходимости."
+        - "Сделать шаги с инструментами возобновляемыми и идемпотентными; проверить восстановление после отказа сервера посреди выполнения."
+    reading: ["mcp-specification","anthropic-context-engineering"]
   - id: "agt-api-level-features"
     tracks: ["engineering"]
     roles: ["applied-ai-engineer"]
@@ -383,3 +481,13 @@ questions:
       - source: "tochka-prompt-engineers-2024"
         company: "tochka"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Name the decoding settings: temperature, top-p, top-k, maximum output tokens and stop sequences."
+        - "Separate them from prompt instructions on role, tone and format; an enforced output schema is an API setting."
+        - "Show each setting's effect on repeated samples, and check which ones a given API actually accepts."
+      ru:
+        - "Назвать параметры декодирования: температура, top-p, top-k, максимум выходных токенов и стоп-последовательности."
+        - "Отделить их от инструкций в промпте о роли, тоне и формате; принудительная схема вывода — это настройка API."
+        - "Показать влияние каждого параметра на повторных сэмплах и проверить, какие из них действительно принимает конкретный API."
+    reading: ["paper-nucleus-sampling"]

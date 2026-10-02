@@ -30,8 +30,16 @@ On this page: [Interview loop](#loop) · [Questions (2)](#questions)
 - **[Instead of a coding round, build a proof of concept for a customer scenario inside the company's own agent product and show how the customer would use it.](../themes/applied-scenarios.md#app-agent-product-poc)**
   - Applied scenario · Asked at: Cognition †
   - Tests: Whether you understand how customers actually use the product, not only how to write code.
+  - A strong answer covers:
+    - Ask who the customer's user is and which task in their day the product takes over.
+    - Build with the product's own features as a customer would, not custom code that bypasses them.
+    - Demo the flow end to end on realistic input, including a failure and how the user recovers.
 - **[Lead a timed case-study call with a simulated customer: uncover the real problem, propose an approach and agree on next steps.](../themes/applied-scenarios.md#app-customer-case-call)**
   - Applied scenario · Asked at: Cognition †
   - Tests: Whether you run a customer conversation under time pressure and leave with a concrete plan.
+  - A strong answer covers:
+    - Open with questions on the outcome they need, the current workflow and who decides.
+    - Propose the smallest approach that tests their biggest risk, and say what you would not do.
+    - Close on dated next steps, owners, success criteria and the data they will send.
 
 ← [NVIDIA](nvidia.md) · [Cursor (Anysphere)](cursor.md) →

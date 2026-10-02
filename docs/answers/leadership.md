@@ -5,7 +5,7 @@ English · [Русский](../ru/answers/leadership.md) · [AI Interview Atlas]
 
 Written answers to the priority questions of this track, in the same order and numbering as *Start here*. Answer each question yourself first: what follows is one good answer, not the only correct one, and an interviewer is listening to your reasoning rather than checking your wording.
 
-Answers written: 55 of 55.
+Answers written: 70 of 70.
 
 ## <a id="contents"></a>Contents
 
@@ -16,6 +16,7 @@ Answers written: 55 of 55.
   - [4. What safeguards should surround an AI system that acts on a user's behalf?](#sec-action-authorisation)
   - [5. Describe a situation where delivery pressure conflicted with security or safety concerns. How did you decide what to do?](#sec-delivery-pressure)
   - [53. A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?](#sec-guardrail-exception)
+  - [68. How would you weigh a performance improvement against reduced model interpretability?](#sec-interpretability-tradeoff)
 - **AI product strategy and metrics**
   - [6. How would you improve ChatGPT for enterprise customers?](#prod-enterprise-assistant)
   - [7. A model offers much greater capability but costs ten times as much. How would you decide what product to build with it?](#prod-capability-cost)
@@ -31,10 +32,13 @@ Answers written: 55 of 55.
   - [42. Which business use cases suit AI agents, and how would you compare them?](#prod-agent-use-cases)
   - [43. How would you price an enterprise AI product, which costs must you count, and how does customising it for each client affect its margin?](#prod-enterprise-ai-pricing)
   - [44. Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?](#prod-search-versus-answer)
+  - [65. What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?](#prod-expensive-mvp)
+  - [66. In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?](#prod-enterprise-discovery)
 - **AI platform and operating model**
   - [16. Define a strategy for an internal AI platform, including who owns its success metrics.](#ops-platform-ownership)
   - [17. How would you support multiple model providers when some deployment environments permit only a subset of models?](#ops-restricted-models)
   - [45. How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?](#ops-private-evaluation)
+  - [69. Design a service that lets several teams query a shared dataset without exposing the underlying raw records.](#ops-shared-data-access)
 - **Leading engineering teams**
   - [18. Tell me how you handled an engineer who was not meeting expectations.](#lead-low-performance)
   - [19. How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?](#lead-disruptive-star)
@@ -47,6 +51,9 @@ Answers written: 55 of 55.
   - [47. How do you decide which engineering capabilities to hire for?](#lead-strategic-hiring)
   - [48. How do you establish engineering quality standards across a team?](#lead-quality-standard)
   - [49. Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?](#lead-research-product-boundary)
+  - [59. What is the largest team you have managed, and how did your responsibilities change at that scale?](#lead-team-scale)
+  - [60. Describe a team disagreement that you resolved without discarding the valid concerns on either side.](#lead-two-valid-views)
+  - [61. Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?](#lead-platform-team-charter)
 - **Programmes and delivery**
   - [25. Walk through the most difficult product launch you led.](#prog-difficult-launch)
   - [26. Three weeks before launching an LLM feature, evaluation reveals substantial hallucinations on edge cases. What happens next?](#prog-prelaunch-hallucinations)
@@ -54,6 +61,9 @@ Answers written: 55 of 55.
   - [28. How would you roll out updates to Alexa devices already deployed in people's homes?](#prog-device-update)
   - [50. How would you plan an AI programme whose central research hypothesis may fail?](#prog-research-milestones)
   - [51. Engineering, operations and risk teams disagree about launch readiness. How would you reach a traceable decision?](#prog-multi-owner-readiness)
+  - [56. Present a major initiative you led: what worked, what did not, and what you learned.](#prog-initiative-retrospective)
+  - [57. Tell me about a technical misjudgement that delayed a project.](#prog-delayed-by-judgement)
+  - [58. An upstream data team will miss a milestone on your AI programme. How do you revise the plan and communicate the impact?](#prog-dependency-slip)
 - **Applied and customer scenarios**
   - [29. A customer wants to automate claims processing with AI. What would you do in the first two weeks?](#app-claims-discovery)
   - [30. A customer executive wants to cancel an AI pilot because it keeps producing wrong results. What would you do over the next 48 hours?](#app-pilot-rescue)
@@ -62,16 +72,24 @@ Answers written: 55 of 55.
   - [33. A customer says their eight-GPU chatbot is too slow and too expensive. You have a week with them; how do you use it?](#app-slow-expensive)
   - [34. An enterprise wants document Q&A over two million internal files within four weeks, with no data leaving its VPC. How would you scope the pilot?](#app-vpc-pilot)
   - [52. A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?](#app-contact-centre)
+  - [70. An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?](#app-rag-account-triage)
 - **Payments and regulated domains**
   - [35. A shopping agent can initiate payments. How would you prove that each payment matches the user's actual authorisation?](#pay-agent-authority)
   - [36. An AI support agent initiates a refund, then the payment API times out. How should the system recover without issuing the refund twice?](#pay-ambiguous-timeout)
   - [37. A bank wants to roll out an AI assistant that proposes case decisions to employees. What evidence and controls would you require before expansion?](#pay-bank-copilot-release)
+  - [62. A clinical AI service handles recordings, transcripts and notes containing protected health information. How does that constrain architecture and use of third-party model APIs?](#pay-clinical-data-boundary)
 - **Behavioral and values**
   - [38. Why do you want to work at Anthropic, and where do you disagree with its approach?](#beh-motivation-and-disagreement)
   - [39. Describe a mistake you made, its consequences and what you changed afterward.](#beh-mistake-learning)
   - [40. Tell me about a time you disagreed with someone and could not persuade them.](#beh-unresolved-disagreement)
   - [54. Tell me about conflicting stakeholder priorities and how you established alignment.](#beh-stakeholder-priorities)
   - [55. Describe feedback that was difficult for you to hear and what you did with it.](#beh-critical-feedback)
+- **Practical coding**
+  - [63. Refactor a small, poorly structured program with passing tests. Explain the first change and how you preserve observable behaviour.](#code-refactoring)
+- **Agents, tools and protocols**
+  - [64. Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations.](#agt-erp-writes)
+- **AI system design**
+  - [67. Design a moderation system that combines specialist classifiers and LLMs while controlling delay and review workload.](#sd-moderation)
 
 ### <a id="sec-mail-agent-boundaries"></a>1. An assistant reads external email, searches internal documents and sends replies. Where could an attacker redirect it, and how would you constrain the damage?
 
@@ -87,7 +105,7 @@ Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) �
 
 *System design · [Safety, security and governance](../themes/safety-security-governance.md) · [Checklist](../themes/safety-security-governance.md#sec-safe-deployment)*
 
-A release starts with intended use: its task, affected users and unacceptable outcomes. Then risk becomes a shared artifact rather than a team opinion. Threats are written down, an assessment is done, and every role has a name on it: who evaluates, who accepts the residual risk, who is on call during an incident. The cost is obvious, the release goes slower and some of the work does not look like development. In practice I would expose the system in stages, from internal users to a share of traffic, hold thresholds on an eval set together with production signals like complaints, harmful responses, latency and cost, and rehearse rollback in advance with a clear trigger and a named owner who can stop it. The limit is simple: a procedure cannot anticipate every risk, so the assessment is repeated when the model, the data or the load changes.
+Safe deployment means every step of exposure is a decision a named person makes against criteria written before the results arrive. I'd turn intended use and the outcomes we won't accept into evals with thresholds, so the release bar exists before anyone is attached to the date. Ownership is split on purpose: one owner runs the evaluation, someone answerable for the product's consequences, not the person measured on the launch date, accepts the residual risk, and the on-call owner can halt rollout without a meeting. Exposure goes internal, then a small share of traffic, then wider, with halt thresholds on a labelled sample of live traffic: harmful responses, complaints, escalations. The non-obvious cost is that small stages see rare harms slowly, so a stage ends when enough traffic has passed for the rare failure to show, not after a fixed number of days. The boundary: rollback doesn't recall sent messages or undo actions taken, and a prompt edit or an index refresh changes behaviour as much as a new model, so it passes the same gate.
 
 Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy)
 
@@ -97,7 +115,7 @@ Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management
 
 *Product case · [Safety, security and governance](../themes/safety-security-governance.md) · [Checklist](../themes/safety-security-governance.md#sec-consumer-safety)*
 
-Safety for a consumer product is designed from a concrete use case and audience, not from a general list of prohibitions: who these people are, why they come, what abuse looks like here, and what harm is real for vulnerable groups. Then it is not one barrier but several layers: product limits on what the service simply does not do, model evaluation on an abuse corpus, a live reporting channel, and escalation to a human where the cost of error is high. Every layer costs money and friction, so measure both sides: the share of harmful completions and the share of unnecessary refusals, always broken out by user segment, language and topic. I would run a regular review of reports and feed them into the eval set. The limit is that the set always lags behind new abuse patterns, and averaged metrics hide harm concentrated in a small group.
+Safety requirements should come from who actually uses the product and what harm is plausible for them; a generic list of prohibitions over-refuses ordinary users and still misses the specific risk. So I'd write an abuse model per population: a teenager looking for self-harm methods, an adult using role-play to extract dangerous instructions, someone generating content to harass a real person. Each layer stops something different: a product limit removes a capability outright, certain but costly for legitimate use; model behaviour covers the grey zone and is probabilistic; reports surface patterns the eval set hasn't seen; human escalation handles crisis signals where a wrong automatic reply is expensive. I'd measure harmful completions and unnecessary refusals on a double-labelled sample stratified by segment and language, oversampling small groups so their rates are visible at all. A severe new pattern in reports gets a blunt product block at once, then a model fix and an eval update. The boundary: the product rarely knows a user's age or intent, and averages hide harm concentrated in a small group.
 
 Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
 
@@ -137,7 +155,7 @@ Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for
 
 *Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-capability-cost)*
 
-The question is whether gains make previously untrusted tasks acceptable: where mandatory human review was required before and spot checks are now enough. You count not the price of a token but the cost of a successfully completed workflow, including retries, review and the cost of error, because an expensive model that passes on the first attempt is often cheaper than a cheap one with three attempts and a review. You pay in latency, complexity and dependence on a single provider. I'd measure that cost on my own task set, test willingness to pay on a narrow segment, and turn on selective routing: the expensive model only for hard cases or cases where an error is costly, the cheap one as the base. The limit is that if users don't notice the difference in outcome, no quality gain pays for itself, and prices and capabilities move faster than product plans.
+The question is whether gains make previously untrusted tasks acceptable: where mandatory human review was required before and spot checks are now enough. You count not the price of a token but the cost of a successfully completed workflow, including retries, review and the cost of error. Three attempts of a cheap model still cost less in tokens than one of a model ten times the price, so the expensive one wins where the cheap one can't reach the bar at any number of retries, or where human review time and the cost of a mistake dominate the bill. You pay in latency, complexity and dependence on a single provider. I'd measure that cost on my own task set, test willingness to pay on a narrow segment, and turn on selective routing: the expensive model only for hard cases or cases where an error is costly, the cheap one as the base. The limit is that if users don't notice the difference in outcome, no quality gain pays for itself, and prices and capabilities move faster than product plans.
 
 Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/)
 
@@ -147,7 +165,7 @@ Read: [Rules of Machine Learning](https://developers.google.com/machine-learning
 
 *Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-ai-suitability)*
 
-I start from the user's job and the baseline solution, not from the model: their goal, how it is done today, and what a mistake costs. If rules, search or a simple model close the task, that is the answer, a simple heuristic and a clear metric first, otherwise you add complexity with no gain. Then I check four things: whether we can access the data, whether the result can be evaluated at all, whether the scenario tolerates latency, and whether variability in the answer is acceptable. Where reproducibility and exact calculation are required, the model is at best an interface over a deterministic system. Then a bounded comparison on a shared task set with thresholds and cost stated in advance. I always name the reason to reject the approach up front, or the pilot succeeds whatever happens. This tells you about suitability, not about whether the feature gets used.
+An LLM earns its place where inputs are too messy for rules and a mistake is cheap or caught before it does harm, and I establish that from the job, not the model: what the user is trying to do, how it's done today, what an error costs and who sees it. The non-obvious trade-off is coverage against variability: the model handles free text and odd documents that rules can't parse, but the same input can give different outputs, and its failures can't be listed in advance the way a rule's can. Where the value is exact repeatability, the model is at most an interface over a deterministic system. Then I check data access, whether correct can be defined and labelled, and the latency budget. The comparison is the LLM against the best simple baseline on labelled real cases, scoring the error that matters weighted by its cost, plus cost and latency per task, with a rejection rule stated up front. If correct can't be defined or labelled, the answer is no LLM yet: build the measurement first.
 
 Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) · [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents)
 
@@ -187,7 +205,7 @@ Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for
 
 *Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-ai-feature-metrics)*
 
-The metric starts with the user's goal and an observable sign the task is done: what exactly should happen in the product if the feature worked. Then I would separate the layers people usually mix: adoption, meaning who tried it, retention, who came back, task quality, whether it was finished and how many edits or undos there were, plus latency and cost per task. Model metrics on the eval set stay, but as an explanation of cause, not as proof of value. You pay for this in event instrumentation and discipline about definitions. You compare against a baseline or inside an experiment: how the task was done without the feature. And think in advance about how the metric will be gamed, through pushy suggestions or counting an impression as usage. A short experiment will not see trust effects that take months to appear.
+Success is an observable completed task, and model metrics explain why it moves but never prove value. Take a feature that drafts replies: success is a draft that gets sent with light edits. Then I'd keep the layers apart: adoption as the share of eligible users who tried it, retention as the share still using it weeks later, task quality as the share of drafts sent and how much was edited or discarded, p95 latency, and cost per sent draft, with eval-set scores underneath as diagnosis. The real trade-off is the comparison: a holdout group is the only clean read on cause, but it withholds the benefit and needs weeks to show retention, while before and after is cheap and confounded by novelty and season. Against gaming, every volume metric gets a paired quality metric that falls when volume is inflated: count an impression as usage and adoption rises while the share sent drops. The limit: even a clean experiment misses trust effects that take months, and outputs used outside the product need sampled human rating.
 
 Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/)
 
@@ -197,7 +215,7 @@ Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for
 
 *Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-search-north-star)*
 
-I would make the headline metric the share of sessions with a usefully completed search task, not clicks and not time on page, because both rise when the answer is bad. Completion has to be observed indirectly: the user did not rephrase, went through to a source and did not come straight back, took the next action; some cases need human labelling because the behaviour is ambiguous. Any single metric pushes you to an extreme, so you add guardrails around it: the share of claims with no source support, safety, latency and cost per query, and a regression in any of them cancels the gain. I would explain the denominator separately: do we count sessions or queries, what we do with bots and repeats, how we segment by language and task type. For navigational and entertainment queries completion is poorly defined, and there the metric misleads.
+I would make the headline metric the share of sessions with a usefully completed search task, not clicks and not time on page, because both rise when the answer is bad. Completion has to be observed indirectly: the user did not rephrase, took the next action, and if they opened a source, did not come straight back. In an answer product a click-out alone is ambiguous: it can mean checking the answer or that the answer fell short, and a satisfied user may not click at all, so these signals are calibrated against human labelling. Any single metric pushes you to an extreme, so you add guardrails around it: the share of claims with no source support, safety, latency and cost per query, and a regression in any of them cancels the gain. I would explain the denominator separately: do we count sessions or queries, what we do with bots and repeats, how we segment by language and task type. For navigational and entertainment queries completion is poorly defined, and there the metric misleads.
 
 Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/)
 
@@ -207,7 +225,7 @@ Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for
 
 *Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-notification-paradox)*
 
-The most likely explanation is substitution: notifications do not create activity, they move it out of organic visits, so total time does not change. But before explaining behaviour I would check the measurement: do the definitions of engagement and time match, did impressions simply grow, are cohorts of new and existing users mixed together, and was this an experiment with a control or a before and after comparison. Then the substantive question: do notifications lead to actions that would not have happened otherwise, or to the same actions just earlier. Look at opt outs and unsubscribes, complaints, satisfaction and retention over a long horizon, because a short term rise in clicks is often paid for by losing the channel. Finally, flat time does not by itself mean there is no value: the product may have become more useful in less time, and that is a fine outcome.
+The first hypothesis is substitution: notifications may not create activity but move it out of organic visits, so total time does not change. But before explaining behaviour I would check the measurement: do the definitions of engagement and time match, did impressions simply grow, are cohorts of new and existing users mixed together, and was this an experiment with a control or a before and after comparison. Then the substantive question: do notifications lead to actions that would not have happened otherwise, or to the same actions just earlier. Look at opt-outs and unsubscribes, complaints, satisfaction and retention over a long horizon, because a short-term rise in clicks is often paid for by losing the channel. Finally, flat time does not by itself mean there is no value: the product may have become more useful in less time, and that is a fine outcome.
 
 Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/)
 
@@ -217,7 +235,7 @@ Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for
 
 *Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-favorite-agent)*
 
-Answer this through an observed breakage rather than a wish list. Take a product you use regularly and describe the moment it fails you: an agent loses context between sessions and makes you explain the task again, or it confidently goes off in the wrong direction with no way to intervene while it runs. Then explain why the improvement you chose outranks the alternatives, how often the situation happens, what it costs the user, whether a workaround exists, and in doing that you show prioritisation rather than taste. Then name the cheapest way to test the hypothesis, a success criterion stated in advance, and a likely adverse effect: keeping context raises privacy risk, and allowing interruption slows the work down. The boundary is that you are reasoning as a user from outside, so do not invent another team's internal reasons, plans or metrics.
+Pick a product you use often enough to have watched it fail repeatedly in real work, and choose the failure where your own workaround costs the most. The interviewer is scoring whether your judgement rests on observed friction with a frequency and a cost rather than on a feature you'd like, so say how often it happens, what it costs in time or redone work, and what you do instead. Then show prioritisation: name two or three other improvements and rank them on frequency, cost and how many users plausibly share the problem, admitting where your own usage is unusual. Close with the cheapest test of the hypothesis, often a mock-up or a person simulating the behaviour behind the interface, with one success criterion fixed in advance and the side effect you'd watch, since most fixes cost latency, privacy or extra steps. The usual mistake is a wish list or invented internal metrics. From outside you can't measure the effect directly, so say so and name a proxy you could observe, such as retries or abandoned sessions.
 
 Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/)
 
@@ -247,7 +265,7 @@ Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-
 
 *Behavioral · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-low-performance)*
 
-The interviewer isn't listening for a firing story; they want to see how you separate facts from impressions. So build the answer from the observable gap: what expectations were written down, which results and deadlines missed them, and which examples show it. Then explain how you gave feedback: directly, promptly, not in public, and what you heard back. The causes usually sit in unclear priorities, skill gaps, or circumstances outside work. Name the support you offered, the actions you agreed with a check-in date, and how it ended, including the cases where the person left. One common mistake is opening with a diagnosis of their personality and closing with a moral; another is staying silent about your own part in expectations never being clear. Finish with what you changed in your own practice: how you state expectations now, and how early you notice drift.
+Choose a case where expectations were clear before the gap and your diagnosis changed what you did; a case decided on day one shows nothing. The interviewer is scoring whether you separate facts from impressions, so open with the expectation and the observable misses in deadlines, quality or scope, not with the person's character. The substance is diagnosis: did they not know what good looked like, know but lack the skill, have the skill but not the will, or face something in their circumstances? Each leads elsewhere — clearer expectations, coaching, a direct conversation, adjusted load — so explain how you told them apart. Then the trade-off: support is time-boxed because the team carries the gap meanwhile, so say how long you gave it and what made you move to a formal plan or not. A red flag is expectations written down only after the problem was declared; if that was you, say so. Close with evidence: what was agreed with dates, what the check showed, how it ended, including an exit, and what you now catch earlier.
 
 Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
 
@@ -267,7 +285,7 @@ Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/p
 
 *Behavioral · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-mentee-growth)*
 
-Start with their goal, not your role: what they wanted to reach, where they stood then, and what gap to the next level was visible in their work. Then explain what the mentoring actually did: which tasks you helped them pick or handed over, what questions you asked, what feedback you gave and how often. What is being listened for is whether you grow people through real work and whether you avoid taking credit for their wins, so name the achievements as theirs: they did it, they defended the design, they got promoted. State your own contribution separately and more modestly: you created an opportunity, removed an obstacle, made the result visible. The common mistake is a story where the mentor decides everything and the mentee only executes. Finish with what you learned about developing people and what you do differently with the people you lead now.
+Pick someone whose growth shows in evidence that doesn't rest on your opinion: scope they now own, decisions they make without you, an assessment by people outside your line. Start with their goal and the gap to the next level as it showed in their work, not with your role. Then say what kind of help it was, because mentoring and sponsoring differ: questions and advice that helped them choose their own actions, or putting their name forward for visible work. The interviewer is scoring the trade-off underneath: stretch work can fail in public, and growth comes from handing over the decision, not just the task, so name where you chose not to step in and what that cost, perhaps a slower or rougher result. Split the credit cleanly, their outcomes in their name, your part narrower, and test it with one question: would they describe your support the same way? The usual mistake is a mentor who decided everything. Close with what they handle now that they couldn't then, and what you do differently since.
 
 Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
 
@@ -317,7 +335,7 @@ Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-doc
 
 *Behavioral · [Programmes and delivery](../themes/program-delivery.md) · [Checklist](../themes/program-delivery.md#prog-difficult-launch)*
 
-Pick a launch where the difficulty was in the dependencies, not the volume of work, and open with the frame: the goal, the constraints on date, quality and regulatory requirements, who was involved, and what sat on the critical path. Then give the interviewer what they want most, which is one decision: what you actually decided, what the alternatives were, what data you had, and how you got agreement from the people it affected. Unpack that one in detail and compress everything else. Say how you defined readiness, with release criteria, a rollback plan and on-call cover after the release; that is what separates managing risk from hoping. Finish with the outcome in the terms you promised beforehand, and what you changed for later launches. The usual mistake is a project overview with no contribution of your own; the second is a victory report where no bet went wrong.
+Pick a launch with a decision you drove that could have gone the other way, hard because of dependencies you didn't control, not volume or long hours. Give the frame briefly, the goal, hard constraints on date, quality or regulation, the critical path, and cut team history, tooling and the full timeline. The interviewer is separating your contribution from the team's, so speak in the first person singular for your own decisions and the plural for the team's work, and expect probing there. Then unpack the one decision: the options, what you knew, what you gave up, and how the people it cost came to accept it. Say how readiness was defined before the date, with launch criteria, a rollback plan and on-call cover. Close with evidence: which criteria were met or missed in the terms promised beforehand, and the single process change you carried into later launches, with a sign it worked. The usual mistakes are an overview where you never decide anything and a victory report where no bet went wrong.
 
 Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
 
@@ -357,7 +375,7 @@ Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-conten
 
 *Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · [Checklist](../themes/applied-scenarios.md#app-claims-discovery)*
 
-I'd use those two weeks to define one measurable process. First I take apart how claims are handled today: which steps exist, which decisions a person makes and by what rules, where exceptions come up, how frequent they are, and who actually works in the system every day. In parallel I check the data: whether we have access, what form the documents are in, what counts as a correct answer, and whether there is a decision history to give us a baseline. Separately I look at the cost of an error, because a wrongful denial and an overpayment cost different things, and that decides which steps stay with a human. By the end I pick a narrow pilot: one claim type, an end-to-end path, a baseline on time and accuracy, acceptance criteria, and an owner on the customer side. Automating the whole flow is not on the table yet.
+Two weeks buy one bounded workflow and a go or no-go, not a prototype of automated claims. The first week I'd spend with handlers, mapping intake, document extraction, coverage check, routing, adjudication and payment, with each step's volume, handling time and exception rate, to see where time actually goes. The first candidate is usually intake and document triage, not adjudication: an extraction error gets caught by the handler downstream and is cheap to reverse, while a wrongful denial lands on the policyholder with legal exposure, so denials stay with a person, and wrongful denial, overpayment and delay each get their own threshold. The second week builds the baseline from past claims: handling time, extraction accuracy on a double-checked sample, the share of simple claims that could go straight through. The pilot then has acceptance criteria per claim type and an owner in claims operations. Without a decision history or access to the claims system, two weeks yield an assessment and a data plan, and saying so early is the result.
 
 Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 
@@ -377,7 +395,7 @@ Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-conten
 
 *Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · [Checklist](../themes/applied-scenarios.md#app-finetuning-request)*
 
-I don't start with an architecture argument. I start by asking what the customer is trying to solve with their own model: different behaviour and output format, knowledge that isn't in the context, a different cost per request, or control over the weights and where they run. Those four needs are met differently, and fine-tuning covers the first one well: it freezes knowledge at training time and ages along with the support tickets, while retrieval over their data updates when someone edits the source. Then I build a representative task set from their own tickets with expected answers, and compare the approaches on it honestly, hybrid included. Before recommending anything I talk through the cost of ownership: labelling, data quality, retraining when the base model changes, evaluation, migration. If the requirement comes from a regulator or from data isolation, arguing about quality is beside the point.
+I don't start with an architecture argument. I start by asking what the customer is trying to solve with their own model: different behaviour and output format, knowledge that isn't in the context, a different cost per request, or control over the weights and where they run. Those four needs are met differently. Fine-tuning covers the first one well and can serve the third by teaching a smaller model the narrow task, but it freezes knowledge at training time, ages along with the support tickets and learns the mistakes support staff made in them, while retrieval over their data updates when someone edits the source. Then I build a representative task set from their own tickets with expected answers, and compare the approaches on it honestly, hybrid included. Before recommending anything I talk through the cost of ownership: labelling, data quality, retraining when the base model changes, evaluation, migration. If the requirement comes from a regulator or from data isolation, arguing about quality is beside the point.
 
 Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) · [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents)
 
@@ -387,7 +405,7 @@ Read: [Rules of Machine Learning](https://developers.google.com/machine-learning
 
 *Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · [Checklist](../themes/applied-scenarios.md#app-model-retirement)*
 
-I would treat sixty days as a deadline to assess, not a guarantee of enough time. First I inventory workflows, prompts, tool contracts and dependencies on model quirks: answer formats, context limits, refusals and accumulated workarounds. In parallel I freeze an evaluation set covering typical tasks and known failures, so successor selection rests on evidence. I compare candidates on quality, latency and cost, budgeting for prompt and parser changes. Migration proceeds through small traffic slices, during staffed hours, with advance customer communication. Before retirement, rollback may use the old model; afterward it needs a supported alternative or a reduced service mode. Tasks without objective correctness criteria require human review, whose lead time belongs in the plan. If migration cannot finish safely, I communicate scope reductions and contingency plans early.
+Sixty days is fixed; the hidden dependency is that the evaluation must exist before any candidate is chosen, so the first week builds the measuring instrument, not model trials. An agent's quality belongs to the model together with prompts, tool schemas and parsers tuned to its habits, so a successor regresses not because it's weaker but because it formats tool calls differently, refuses elsewhere or follows instructions more literally. I'd freeze an eval from recorded traffic and known failures and replay it in shadow against candidates, with thresholds per slice rather than one average. The trade-off is depth against a fallback: porting prompts carefully to one successor gives the best quality; keeping a second candidate alive costs more but is the only rollback once the old model is gone. Rollout goes shadow, small share, wider, in staffed hours, with customers told in advance. The boundary: if a slice can't reach parity by an agreed date, I'd decide what to cut and say so, and tasks with no objective check need human review time planned in.
 
 Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
 
@@ -397,7 +415,7 @@ Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/d
 
 *Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · [Checklist](../themes/applied-scenarios.md#app-slow-expensive)*
 
-I'd start the week with measurements, not ideas: what the real workload profile looks like, how latency is distributed across percentiles rather than averaged, what the response time is made of, retrieval, prefill, decode, external calls, what the utilisation of those eight GPUs is, and what one successfully completed user task costs. The customer's complaint is usually about that last number, not about the price of a token. I profile first and only then pick the lever: batching and serving parameters, a smaller model or quantisation, shorter context and more precise retrieval, streaming and caching for perceived speed. That order holds because swapping the model is the most expensive move and serving is often underloaded. Every change gets validated on the same recorded workload with quality guardrails. If the bottleneck is in the data sources or in the scenario itself, optimising inference won't help.
+I'd start the week with measurements, not ideas: what the real workload profile looks like, how latency is distributed across percentiles rather than averaged, what the response time is made of — retrieval, prefill, decode, external calls — what the utilisation of those eight GPUs is, and what one successfully completed user task costs. The customer's complaint is usually about that last number, not about the price of a token. I profile first and only then pick the lever: batching and serving parameters, a smaller model or quantisation, shorter context and more precise retrieval, streaming and caching for perceived speed. That order holds because serving is often underloaded and tuning it leaves the answers unchanged, while a smaller or quantised model changes them and needs a full quality re-evaluation. Every change gets validated on the same recorded workload with quality and reliability guardrails. If the bottleneck is in the data sources or in the scenario itself, optimising inference won't help.
 
 Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml)
 
@@ -477,7 +495,7 @@ Read: [Leadership Principles](https://amazon.jobs/content/en/our-workplace/leade
 
 *Knowledge · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-model-choice)*
 
-The choice only means something once the task and a quality bar are fixed and then measured on our own examples, not on public leaderboards that rarely resemble the product. With that in place the comparison has four axes that trade against each other: quality on the task, cost, latency, and the constraints that simply disqualify a candidate — where it may be deployed, what may be sent to it, whether the provider retains data. Cost belongs per successful outcome rather than per token, because a cheaper model that needs retries or human correction is often the expensive one, and latency matters as the user feels it, including retrieval and tool calls. The decision is also not permanent: models and prices move, so keeping the evaluation runnable and the integration swappable is worth more than picking this quarter's best model.
+I'd fix the task and a pass criterion before running anything, on real product examples, because leaderboard gaps can shrink or reverse on your own distribution. For each candidate I'd measure pass rate, cost per passing output including retries and the human time spent fixing failures, and p95 latency end to end with retrieval and tool calls, since that's what the user waits for. The non-obvious trade-off is with reasoning models: they can lift the pass rate and still lose on cost and latency, because their reasoning tokens are billed as output and spent before the answer starts. That can win a batch task and disqualify an interactive one, which is why routing only the hard cases to them often beats choosing one model. Then the constraints act as filters, not weights: where the model may run, what data may be sent and whether the provider keeps it, and how often versions change or retire. If only one model clears them, there's nothing to compare, and the real work is keeping the evaluation runnable for its next version.
 
 Read: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning)
 
@@ -507,7 +525,7 @@ Read: [What We Learned from a Year of Building with LLMs (Part I)](https://www.o
 
 *Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-search-versus-answer)*
 
-The comparison only works per task. An answer engine wins where the user's job is synthesis: a question whose answer is spread across several sources, a comparison, an unfamiliar topic they cannot yet phrase as keywords; one pass replaces five tabs. Classic search still wins navigation, where the user knows the destination and a link is faster than a paragraph; queries needing the freshest state; and anything where the user must judge the source themselves, because an answer flattens away who said it and when. The failure mode is confident synthesis over weak evidence, which search never claimed to do. So I would improve attribution first: claim-level citations the user can verify at a glance, and visible recency, measured by how often people open a cited source and how often they reformulate instead. If the answer is right but unverifiable, enterprise and research users will not trust it.
+The comparison only works per task. An answer engine wins where the user's job is synthesis: a question whose answer is spread across several sources, a comparison, an unfamiliar topic they cannot yet phrase as keywords; one pass replaces five tabs. Classic search still wins navigation, where the user knows the destination and a link is faster than a paragraph; queries needing the freshest state; and anything where the user must judge the source themselves, because an answer flattens away who said it and when. The failure mode is confident synthesis over weak evidence, which search never claimed to do. So I would improve attribution first: claim-level citations the user can verify at a glance, and visible recency, measured by the share of sampled claims their citation actually supports, and how often people still reformulate. If the answer is right but unverifiable, enterprise and research users will not trust it.
 
 Read: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)
 
@@ -527,7 +545,7 @@ Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/d
 
 *Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-ai-review-skills)*
 
-The gap is not tool operation, it is that review was designed for changes a human drafted incrementally and now receives large, plausible diffs nobody wrote by hand. So I would fix ownership first: the author is accountable for the change regardless of what produced it, and a pull request nobody can explain does not get reviewed. Concretely the author states intent, the tests that pin the behaviour, and what they verified themselves; reviewers are trained to read tests before implementation, to check edge cases and error paths where generated code is weakest, and to reject a change too large to reason about. I would keep changes small and invest in tests as the durable check, since a human cannot out-read the generator. I would measure escaped defects, revert rate and review latency, never tool adoption, which says nothing about understanding.
+The gap is not tool operation, it is that review was designed for changes a human drafted incrementally and now receives large, plausible diffs nobody wrote by hand. So I would fix ownership first: the author is accountable for the change regardless of what produced it, and a pull request nobody can explain does not get reviewed. Concretely the author states intent, the tests that pin the behaviour, and what they verified themselves; reviewers are trained to read tests before implementation, to check edge cases and error paths where generated code is weakest, and to reject a change too large to reason about. I would keep changes small and invest in tests as the durable check, since a human cannot out-read the generator; but tests generated with the code can encode the same misreading, so they count only once someone has checked them against the stated intent. I would measure escaped defects, revert rate and review latency, never tool adoption, which says nothing about understanding.
 
 Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations)
 
@@ -537,7 +555,7 @@ Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/e
 
 *Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-strategic-hiring)*
 
-I work backwards from commitments, not from granted headcount. What has the team promised for the next few quarters, which capabilities that requires, and where is the team thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to.
+I work backwards from commitments, not from granted headcount. I ask what the team has promised for the next few quarters, which capabilities that requires, and where the team is thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to.
 
 Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
 
@@ -557,7 +575,7 @@ Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-conten
 
 *Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-research-product-boundary)*
 
-These are two different bars, not two levels of rigour, so I separate them structurally. Exploration is judged on learning rate and may be messy, undocumented and abandoned; production is judged on reliability and has an owner who is paged. The boundary is a handoff contract: a stable interface, evaluation evidence on an agreed set, and a named owner who accepts it; nothing enters the release path by being interesting. Behind that boundary the product team keeps versioning, gating and a rollback path, so a research change is a candidate, never a fait accompli. I would keep one shared evaluation suite both sides trust, because these arguments are usually about evidence. The pattern I watch for is researchers on permanent call for their own prototype, which quietly ends exploration; that is the signal to productionise it or retire it.
+These are two different bars, not two levels of rigour, so I separate them structurally. Exploration is judged on how fast the team learns and may be messy, undocumented and abandoned; production is judged on reliability and has an owner who is paged. The boundary is a handoff contract: a stable interface, evaluation evidence on an agreed set, and a named owner who accepts it; nothing enters the release path by being interesting. Behind that boundary the product team keeps versioning, gating and a rollback path, so a research change is a candidate, never a fait accompli. I would keep one shared evaluation suite both sides trust, because these arguments are usually about evidence. The pattern I watch for is researchers on permanent call for their own prototype, which quietly ends exploration; that is the signal to productionise it or retire it.
 
 Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml)
 
@@ -597,7 +615,7 @@ Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/build
 
 *Applied scenario · [Safety, security and governance](../themes/safety-security-governance.md) · [Checklist](../themes/safety-security-governance.md#sec-guardrail-exception)*
 
-First I ask what the control actually protects against, because some requests target a control whose purpose nobody remembers, and some are reasonable asks blocked by a clumsy implementation. If the underlying risk is real, the answer is usually not a binary exception but a narrower path: a compensating control, a tighter scope, human review in place of the automated block, logging that makes the residual risk observable. Whatever is granted is scoped to that customer and that use, never to the code path generally, because an exception in shared code silently becomes the new default. It gets a named owner on the business side rather than the engineer who implemented it, an expiry date, and a review able to refuse renewal. The failure mode to avoid is the permanent temporary exception, so I would report open exceptions as a standing number.
+First I ask what the control actually protects against, because some requests target a control whose purpose nobody remembers, and some are reasonable asks blocked by a clumsy implementation. I also ask who bears the harm if it's relaxed, since that's rarely the team asking. If the underlying risk is real, the answer is usually not a binary exception but a narrower path: a compensating control, a tighter scope, human review in place of the automated block, logging that makes the residual risk observable. Whatever is granted is scoped to that customer and that use, never to the code path generally, because an exception in shared code silently becomes the new default. It gets a named owner on the business side rather than the engineer who implemented it, an expiry date, and a review able to refuse renewal. The failure mode to avoid is the permanent temporary exception, so I would report open exceptions as a standing number.
 
 Read: [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
 
@@ -620,5 +638,155 @@ Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/pe
 The test is whether you can still hear it, so state the feedback in the words it was actually given. Softened versions — I was told to communicate more — signal that you have not really accepted it. Admitting your first reaction is fine and makes the answer credible, because most people are defensive before they are reflective. What matters is the next step: that you went and checked, by asking others whether they saw the same thing or looking for it in your own record, instead of accepting or rejecting it on one person's word. Then name the specific change, the narrower the better, and a later situation where you can tell it stuck. Avoid two endings — the one where the feedback turned out to be unfair after all, and the one where you simply tried harder — because neither shows anything changed.
 
 Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
+
+[↑ Contents](#contents)
+
+### <a id="prog-initiative-retrospective"></a>56. Present a major initiative you led: what worked, what did not, and what you learned.
+
+*Self-presentation · [Programmes and delivery](../themes/program-delivery.md) · [Checklist](../themes/program-delivery.md#prog-initiative-retrospective)*
+
+Pick an initiative where you owned the outcome, not just a workstream, and open with its original goal as it was set — scope, date, a metric — because an honest assessment compares the result with that, not with whatever eventually shipped. Then assess it on two axes. Planning: which assumptions proved wrong, about demand, an estimate or a dependency. Execution: where the team carried out a sound plan badly, or rescued a weak one. The interviewer is listening for whether you can tell the two apart, because they lead to different lessons. Make what didn't work substantive: one decision of your own that you'd now reverse, and what it cost. The usual mistake is a failure section made of things that happened to you, such as a reorganisation or a vendor. If you present with slides, give the failures as much room as the successes, since follow-up questions go wherever you were vague. Close with the result against the original goal, gap included, and a practice you changed afterwards.
+
+Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/)
+
+[↑ Contents](#contents)
+
+### <a id="prog-delayed-by-judgement"></a>57. Tell me about a technical misjudgement that delayed a project.
+
+*Behavioral · [Programmes and delivery](../themes/program-delivery.md) · [Checklist](../themes/program-delivery.md#prog-delayed-by-judgement)*
+
+Choose a misjudgement that was technical and genuinely yours: an assumption that a component would scale, that an integration was a week's work, that a data format was stable. What's tested is whether you can locate the faulty assumption precisely, so state it as the sentence you believed at the time and why it was reasonable on what you knew. Then the part most candidates skip: when did the first evidence against it appear, and how long did you take to act on it? That gap is often where most of the delay came from, rather than the original error. Be specific about the cost in time and who absorbed it. The weak ending is adding buffer to estimates, because padding doesn't correct a wrong assumption. A strong one names a change in how you plan: testing the riskiest technical assumption first with a short spike, or writing assumptions into the design doc with a date to check them, and a later project where that caught a problem early.
+
+Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
+
+[↑ Contents](#contents)
+
+### <a id="prog-dependency-slip"></a>58. An upstream data team will miss a milestone on your AI programme. How do you revise the plan and communicate the impact?
+
+*Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · [Checklist](../themes/program-delivery.md#prog-dependency-slip)*
+
+I'd first pin down what actually slipped, because late data covers very different situations: the whole dataset or one source, labels or raw records, a week or an open-ended delay, and how far I trust the new date given how the team did against the last one. Then I trace it through the critical path. A slip only moves our date if the work that needs the data sits on that path; the evaluation harness, pipeline code and a pilot on a partial or synthetic sample can often proceed, so the real impact may be smaller than the headline, or larger if labelling and training are strictly sequential. I'd bring sponsors options, each with its cost: re-sequence, launch on partial data with a named quality risk, cut scope, or move the date, plus who owns the choice. And I'd replace the single handover date with intermediate checkpoints, such as a schema and a sample delivered early. The boundary: if the slip comes from conflicting priorities, re-planning won't fix it; it goes to whoever sets both teams' priorities.
+
+Read: [Dependency Mapping](https://www.atlassian.com/team-playbook/plays/dependency-mapping)
+
+[↑ Contents](#contents)
+
+### <a id="lead-team-scale"></a>59. What is the largest team you have managed, and how did your responsibilities change at that scale?
+
+*Self-presentation · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-team-scale)*
+
+Give the number precisely and with its structure: how many direct reports, whether some of them were managers, the total headcount, and what the organisation owned. Inflating it with dotted lines or contractors falls apart at the first follow-up. The real question is the second half: what changed in your job as it grew. With a handful of people you can know every design decision; with managers under you, you can't, so name what you stopped doing yourself — reviewing every change, running every incident, interviewing every candidate — and what replaced it: delegated decision rights, written standards, an operating rhythm, skip-level conversations, a few metrics you actually read. The interviewer is listening for whether your mechanisms matched the span, and the common failure is a large team run like a small one, with you as the bottleneck. If your largest team was small, say so and talk about complexity instead: several functions, time zones or stakeholders. Close with a signal that showed the model working or failing, and what you changed in response.
+
+Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
+
+[↑ Contents](#contents)
+
+### <a id="lead-two-valid-views"></a>60. Describe a team disagreement that you resolved without discarding the valid concerns on either side.
+
+*Behavioral · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-two-valid-views)*
+
+Choose a disagreement where both sides were defending something real, say delivery speed against operability, rather than one where somebody was simply wrong, because the question is about keeping valid concerns, not about picking a winner. State each position in its strongest form. The interviewer is listening for the step from positions to needs: what each person feared would happen if the other prevailed. Positions conflict far more often than needs do, and once the needs are visible there's often an option that meets both — a staged rollout, a guardrail with a deadline, a reversible first step. Make clear this isn't splitting the difference, which usually leaves both concerns half addressed; that's the superficial compromise being tested. Say who decided, and what you'd have done if the needs had genuinely conflicted. The usual mistake is casting yourself as the wise mediator whose idea solved everything. Close with evidence: what was built, whether both concerns stayed addressed, and how the two people worked together afterwards.
+
+Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
+
+[↑ Contents](#contents)
+
+### <a id="lead-platform-team-charter"></a>61. Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-platform-team-charter)*
+
+The thing to prevent is a platform announced before anyone is staffed to run it: teams start depending on it, it degrades, and its failures belong to no one. I'd first define what's actually shared — model access, an evaluation harness, logging with redaction — and what each team would build alone, because a quarter of duplication can be cheaper than a premature shared dependency that couples two roadmaps. If it's genuinely shared, capacity must come from somewhere, and the honest options are few: fund headcount, take an explicit share out of both teams' plans, or make one team the owner, with the other as a customer on written terms. A volunteer working group isn't one of them. Then a narrow charter: the owner, what's in and out of scope, response expectations, how changes are requested, and the trigger for a dedicated team, such as a third consumer or growing support load. If neither team will give up roadmap capacity, that's a priority decision for their common manager, not an org-design problem.
+
+Read: [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html)
+
+[↑ Contents](#contents)
+
+### <a id="pay-clinical-data-boundary"></a>62. A clinical AI service handles recordings, transcripts and notes containing protected health information. How does that constrain architecture and use of third-party model APIs?
+
+*System design · [Payments and regulated domains](../themes/domain-payments-fintech.md) · [Checklist](../themes/domain-payments-fintech.md#pay-clinical-data-boundary)*
+
+Protected health information changes the order of work: before choosing a model I'd map every place the data goes, because each copy carries the same obligations. That means the audio, transcripts and generated notes, but also logs, traces, caches, retry queues, evaluation sets and support tickets, which is where it usually leaks. A third-party model API is acceptable only as permitted processing: a contract that explicitly covers health data, limits retention, excludes training on it, and fixes where it's stored and who can access it. Without that the data doesn't go, which may mean a different vendor or a self-hosted model at higher operating cost. Then minimisation: each step receives only what it needs, identifiers are removed where the task allows, and prompts and outputs stay out of general-purpose logging. Redaction tools miss things, so I'd measure their misses on a labelled sample, and test deletion and access auditing before launch. Consent to record and the obligations that apply depend on jurisdiction and each party's role, so counsel confirms them; the architecture can't.
+
+Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
+
+[↑ Contents](#contents)
+
+### <a id="code-refactoring"></a>63. Refactor a small, poorly structured program with passing tests. Explain the first change and how you preserve observable behaviour.
+
+*Coding · [Practical coding](../themes/coding-practical.md) · [Checklist](../themes/coding-practical.md#code-refactoring)*
+
+Before touching anything I'd settle what observable behaviour means here — return values, error messages, side effects like written files or output order — and whether the passing tests actually assert it. Passing tests only protect what they check, so where coverage is thin I'd first add characterisation tests that record what the code does now, including the odd cases I'd be tempted to fix. The first change should be small, mechanical and easy to revert: usually extracting a function from the longest block or naming a magic value, then running the tests. Each step goes in its own commit, and I never mix a refactoring with a behaviour change, since a failing test then can't say which one broke it; a bug I find gets fixed separately, with its own test. I'd justify each step by a cost it removes, such as a rule duplicated in three places or logic you can't test in isolation, not by taste. If the code is about to be replaced or rarely changes, the cheapest refactoring is none.
+
+Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) · [Refactoring](https://refactoring.com/)
+
+[↑ Contents](#contents)
+
+### <a id="agt-erp-writes"></a>64. Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations.
+
+*System design · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-erp-writes)*
+
+I'd keep the model off the ERP's write path: it produces a typed command — create or update a work order, with explicit fields — and deterministic code validates it against business rules before any write: the asset exists, the status transition is allowed, no open order already covers this job. Duplicates are prevented by a stable business key derived from the triggering event, not from the model's wording, used as an idempotency key, so a retried tool call or a re-run agent finds the existing order instead of creating a second. Updates carry the record version they read and fail on conflict, because a planner may have edited the order in between, and silent last-write-wins is how corruption goes unnoticed. After a timeout the agent looks up that key before retrying. Each write logs the proposal, the validated command and the ERP's response, and I'd test duplicate events, concurrent edits and injected timeouts. Validation stops illegal states, not plausible wrong ones like a valid order on the wrong asset, so high-impact changes need approval.
+
+Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency)
+
+[↑ Contents](#contents)
+
+### <a id="prod-expensive-mvp"></a>65. What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?
+
+*Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-expensive-mvp)*
+
+An MVP that's too expensive is usually being treated as a small product rather than as an experiment, so I'd go back to what we need to learn. I'd write down the assumptions — the problem is costly enough to pay for, the model reaches the needed quality on this customer's documents, we can actually get the data, the workflow will absorb the output, the buyer can get it through security review — and rank them by uncertainty and cost of being wrong. In enterprise AI the riskiest are rarely the interface; they're data access and quality on real data. Each gets the cheapest test that could kill it: running the model offline on a sample of the customer's data, a concierge pilot where people do the part that isn't built, a design partner committing to a paid pilot. I'd agree beforehand what result justifies the build. The trade-off: these tests prove neither scale nor integration cost; when integration is the main risk, a thin end-to-end slice at one customer is the cheapest honest test.
+
+Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml)
+
+[↑ Contents](#contents)
+
+### <a id="prod-enterprise-discovery"></a>66. In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?
+
+*Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-enterprise-discovery)*
+
+In enterprise there's no single persona: there's the user who does the work, the sponsor who owns the budget and the target metric, and the people who can block the purchase — security, legal, IT, the data owner. They want different things, and an AI product often dies at the blockers rather than with users, so discovery has to cover all of them, ideally several roles inside the same account, to see how decisions actually get made. Respondents come from wherever trust already exists: current customers and their account teams, sales conversations, partners and integrators, former colleagues. Cold outreach mostly reaches people with spare time. To judge whether it's worth solving I look past stated pain to behaviour: what they already spend on workarounds — people, spreadsheets, a vendor — how often it occurs, and whether a sponsor will commit something scarce: data access, expert time or a paid pilot. Interest without commitment isn't evidence. And a few large accounts can make a problem look universal, so I'd check it repeats across segments.
+
+Read: [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/)
+
+[↑ Contents](#contents)
+
+### <a id="sd-moderation"></a>67. Design a moderation system that combines specialist classifiers and LLMs while controlling delay and review workload.
+
+*System design · [AI system design](../themes/ai-system-design.md) · [Checklist](../themes/ai-system-design.md#sd-moderation)*
+
+I'd start from the policy rather than the models: risk classes defined by harm, and for each the relative cost of wrongly removing content against missing a violation, because those tolerances drive every later choice. Severity also decides where moderation sits against the delay budget: the gravest classes are held until checked, while low-harm ones can be published and reviewed asynchronously. Then a cascade. Fast specialist classifiers score everything; confident cases on either side are decided automatically; the uncertain band goes to an LLM that reads the policy text and context, slower and costlier but better on nuance and on policy changes that have no training data yet; only severe cases that stay ambiguous reach people. The trade-off sits in the thresholds: widening the uncertain band improves accuracy but raises latency, cost and review load, so I'd set them per class from precision and recall on a labelled set, and feed appeals and reviewer overturns back as labels. The LLM stage reads content written by adversaries, so it can be manipulated, and the labelled set goes stale as they adapt.
+
+Read: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674)
+
+[↑ Contents](#contents)
+
+### <a id="sec-interpretability-tradeoff"></a>68. How would you weigh a performance improvement against reduced model interpretability?
+
+*Applied scenario · [Safety, security and governance](../themes/safety-security-governance.md) · [Checklist](../themes/safety-security-governance.md#sec-interpretability-tradeoff)*
+
+I wouldn't weigh it in the abstract, because interpretability isn't one property: the question is what we need explanations for in this use. If a decision has to be explained to the person it affects, contested by them, or validated by an independent reviewer — lending, hiring, clinical triage — losing that can make the better model unusable whatever its accuracy. If it ranks recommendations, explanations mostly serve debugging, and other tools can cover that. So I compare the gain with the consequences of an error and with controls that don't rely on the model's internals: outcome monitoring by segment, human review of high-impact cases, a simpler challenger as fallback. Post-hoc explanations help, but they describe an approximation, not the model's actual computation, so they're weaker evidence than they look. I'd check that the improvement holds on the slices that matter, not just on average, because an opaque model's gain can hide a subgroup getting worse that we can no longer diagnose. Where explanation is a requirement rather than a preference, no performance gain buys it back.
+
+Read: [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+
+[↑ Contents](#contents)
+
+### <a id="ops-shared-data-access"></a>69. Design a service that lets several teams query a shared dataset without exposing the underlying raw records.
+
+*System design · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-shared-data-access)*
+
+The central decision is what counts as a permissible result, because no raw records isn't a policy until it says which outputs are allowed. Per team and purpose I'd define fields, aggregations and a minimum group size below which a result is suppressed. Teams never touch the store: they query a service that authenticates the caller, applies that purpose's policy, rewrites the query to enforce row and column restrictions, and checks the result before release. The non-obvious leak is through aggregates: two allowed queries whose difference isolates one person, or the same small group sliced repeatedly. So I'd add small-cell suppression, limits on overlapping queries, and for the most sensitive data differential privacy, calibrated noise under a privacy budget, which costs accuracy most on small segments. Every query is logged with caller and purpose, and I'd test by trying to re-identify individuals through the allowed interface. If a team genuinely needs record-level analysis, a de-identified extract or a controlled workspace where code runs next to the data is more honest than stretching the aggregate API.
+
+Read: [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](https://csrc.nist.gov/pubs/sp/800/226/final)
+
+[↑ Contents](#contents)
+
+### <a id="app-rag-account-triage"></a>70. An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?
+
+*Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · [Checklist](../themes/applied-scenarios.md#app-rag-account-triage)*
+
+Hallucination is a symptom, so I'd begin by getting concrete cases, a few dozen if they exist, each with its full trace: the question, what retrieval returned, the assembled prompt and the answer. Without traces the conversation is about impressions. Then I sort every case into one of three buckets, because each has a different fix. Retrieval failure: the right passage existed but wasn't returned, or a stale or contradictory document was. Unsupported generation: the right passage was in context, yet the answer added to it or contradicted it. Expectation mismatch: the corpus doesn't contain the answer, or the user wanted judgement rather than lookup; even then, filling the gap instead of saying the sources don't cover it is part of the defect. I'd show the customer the split with counts, fix the dominant bucket first, and keep the cases as a regression set. The limit is that escalated examples overrepresent vivid failures, so before claiming improvement I'd also measure a random sample of ordinary traffic.
+
+Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/)
 
 [↑ Contents](#contents)

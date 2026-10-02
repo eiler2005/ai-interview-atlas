@@ -10,8 +10,13 @@
 ## <a id="track-both"></a>Оба трека
 
 - <a id="code-refactoring"></a>**Отрефакторите небольшую плохо структурированную программу с проходящими тестами. Объясните первое изменение и сохранение наблюдаемого поведения.**
-  - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-refactoring&title=%5BCorrection%5D%20code-refactoring)
+  - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#code-refactoring) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-refactoring&title=%5BCorrection%5D%20code-refactoring)
   - Что проверяет: Умение улучшать код постепенно с понятной пользой для сопровождения.
+  - Сильный ответ покрывает:
+    - Сначала зафиксировать наблюдаемое поведение, добавив характеризующие тесты там, где существующие проверяют слишком мало.
+    - Сделать первое изменение маленьким и механическим, например выделить функцию, прогоняя тесты после каждого шага.
+    - Обосновывать каждый шаг устранённой ценой сопровождения и никогда не смешивать рефакторинг с изменением поведения.
+  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers) · [Refactoring](https://refactoring.com/) (Martin Fowler)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
@@ -26,18 +31,42 @@
 - <a id="code-grouped-attention"></a>**Реализуйте multi-head attention, затем измените код так, чтобы несколько query-голов делили пару голов key и value.**
   - Кодинг · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-grouped-attention&title=%5BCorrection%5D%20code-grouped-attention)
   - Что проверяет: Умение согласованно реализовать расположение тензоров и группировку голов.
+  - Сильный ответ покрывает:
+    - Сначала зафиксировать размерности: батч, последовательность, головы и размер головы; требовать, чтобы число query-голов делилось на число KV-голов.
+    - Сопоставить query-голову h с KV-головой h // group_size; при расширении использовать repeat_interleave, а не tile.
+    - Проверить, что при равном числе голов получается обычный multi-head attention, а при одной KV-голове — multi-query.
+  - Читать: [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv) · [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv)
 - <a id="code-cached-decode"></a>**Реализуйте декодирование одного токена с KV-кешем и сравните результат с полным проходом по префиксу.**
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-cached-decode&title=%5BCorrection%5D%20code-cached-decode)
   - Что проверяет: Корректность позиций, обновлений кеша и attention mask.
+  - Сильный ответ покрывает:
+    - Определить структуру кеша по слоям и смещения позиций, включая батчи с левым паддингом разной длины.
+    - Дописать новые key и value и вычислить внимание по кешу: линейная работа на шаг без пересчёта префикса.
+    - Проверить совпадение логитов с полным проходом по префиксу в пределах допуска на нескольких шагах и батчах с паддингом.
+  - Читать: [Optimizing inference](https://huggingface.co/docs/transformers/main/en/llm_optims) (Hugging Face Transformers docs)
 - <a id="code-bpe"></a>**Напишите небольшой BPE trainer и encoder, задав правила при равной частоте пар и неизвестных входных символах.**
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-bpe&title=%5BCorrection%5D%20code-bpe)
   - Что проверяет: Согласованность обученных слияний и поведения encoder.
+  - Сильный ответ покрывает:
+    - Зафиксировать базовый алфавит (байты или символы), предварительную токенизацию и детерминированное правило при равных частотах.
+    - Обучать, повторно сливая самую частую соседнюю пару; кодировать, применяя слияния в порядке их ранга, а не жадно по длине.
+    - Проверить обратное декодирование, равные частоты, пустой ввод и откат неизвестных символов к байтам или токену unknown.
+  - Читать: [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909) (Sennrich et al., arXiv)
 - <a id="code-sampling"></a>**Реализуйте температуру, top-k фильтрацию и nucleus sampling для вектора логитов, включая граничные случаи.**
   - Кодинг · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-sampling&title=%5BCorrection%5D%20code-sampling)
   - Что проверяет: Корректная обработка вероятностей, равенств и недопустимых параметров.
+  - Сильный ответ покрывает:
+    - Задать контракт параметров: нулевая температура как argmax, допустимые диапазоны k и p, нечисловые логиты.
+    - Использовать устойчивый softmax; nucleus оставляет наименьший отсортированный префикс с массой не меньше p — сортировка за O(V log V).
+    - Проверить равенства на границе отсечения, p около единицы, k больше словаря и частоты выборки при фиксированном seed.
+  - Читать: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 - <a id="code-lru"></a>**Напишите кеш с постоянным временем поиска и обновления давности, затем добавьте срок действия без нарушения правил вытеснения.**
   - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-lru&title=%5BCorrection%5D%20code-lru)
   - Что проверяет: Умение сохранить инварианты структуры данных при расширении требований.
+  - Сильный ответ покрывает:
+    - Уточнить ёмкость, обновляет ли чтение давность и учитываются ли просроченные записи до их удаления.
+    - Использовать хеш-таблицу с двусвязным списком для O(1); один путь удаления обслуживает и истечение, и вытеснение.
+    - Проверить ёмкость, равную единице, обновление существующего ключа и истечение ровно на границе с подменяемыми часами.
 - <a id="code-token-bucket"></a>**Реализуйте token-bucket limiter и объясните изменения для общего лимита, применяемого несколькими воркерами.**
   - Кодинг · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#code-token-bucket) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-token-bucket&title=%5BCorrection%5D%20code-token-bucket)
   - Что проверяет: Умение сохранить квоту при учёте времени и параллельных обновлениях.
@@ -57,12 +86,25 @@
 - <a id="code-stream-parser"></a>**Реализуйте инкрементальный SSE parser, где JSON в событиях данных может быть разбит произвольными сетевыми чанками.**
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-stream-parser&title=%5BCorrection%5D%20code-stream-parser)
   - Что проверяет: Умение отличать границы транспорта от границ сообщений.
+  - Сильный ответ покрывает:
+    - Буферизовать данные между чанками, декодировать UTF-8 инкрементально, делить строки по CRLF, LF или CR и не пересканировать уже разобранное.
+    - Склеивать строки data в одно событие и разбирать JSON только тогда, когда пустая строка завершает событие.
+    - Проверить разрез на каждом байтовом смещении, в том числе внутри многобайтовых символов, пары CRLF и последнего события.
 - <a id="code-semantic-chunks"></a>**Реализуйте перекрывающиеся чанки текста с сохранением смысловых единиц; задайте поведение, если единица больше целевого размера.**
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-semantic-chunks&title=%5BCorrection%5D%20code-semantic-chunks)
   - Что проверяет: Умение уточнить неоднозначные требования к размеру и границам до реализации.
+  - Сильный ответ покрывает:
+    - Уточнить единицу размера (токены или символы), что считается смысловой единицей и как измеряется перекрытие.
+    - Жадно укладывать целые единицы за один линейный проход; слишком большую единицу делить по следующей, более мелкой границе.
+    - Проверить слишком большие единицы, пустой ввод, перекрытие не меньше целевого размера и восстановление текста по смещениям без потерь.
 - <a id="code-cosine-search"></a>**Реализуйте точный поиск по cosine similarity и объясните ограничения, требующие иной production-архитектуры.**
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-cosine-search&title=%5BCorrection%5D%20code-cosine-search)
   - Что проверяет: Умение отличать корректный baseline от масштабируемого сервиса.
+  - Сильный ответ покрывает:
+    - Нормализовать векторы один раз, чтобы косинус свёлся к скалярному произведению; обработать нулевые векторы и несовпадение размерностей.
+    - Считать оценки одним матричным произведением и брать top-k частичным отбором: O(N·d) на запрос.
+    - Проверить равные оценки и k больше N; когда масштаб потребует ANN, оставить точный поиск эталоном полноты.
+  - Читать: [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) (Faiss maintainers)
 - <a id="code-agent-loop"></a>**Реализуйте минимальный агентный runner с проверяемой диспетчеризацией инструментов, обработкой ошибок и жёстким лимитом шагов.**
   - Кодинг · ✍ [Ответ](../answers/engineering.md#code-agent-loop) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-loop&title=%5BCorrection%5D%20code-agent-loop)
   - Что проверяет: Умение явно задать состояние цикла и условия завершения.
@@ -74,48 +116,117 @@
 - <a id="code-transactions"></a>**Реализуйте key-value хранилище в памяти с begin, commit и abort, явно задав поддерживаемую семантику транзакций.**
   - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-transactions&title=%5BCorrection%5D%20code-transactions)
   - Что проверяет: Соответствие отката и видимости чёткому контракту.
+  - Сильный ответ покрывает:
+    - Зафиксировать контракт: вкладываются ли транзакции и видят ли другие клиенты незакоммиченные записи.
+    - Держать стек слоёв записей с маркерами удаления; чтение идёт сверху вниз, commit сливает слой в родительский.
+    - Проверить удаление ключа, заданного в той же транзакции, откат вложенного уровня и commit или abort без открытой транзакции.
+  - Читать: [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) (PostgreSQL documentation)
 - <a id="code-pagination"></a>**Напишите функцию сбора постраничного REST-ответа с явной обработкой размера страницы, завершения и неполных ответов.**
   - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pagination&title=%5BCorrection%5D%20code-pagination)
   - Что проверяет: Умение предотвратить пропуски и дублирование записей на границах страниц.
+  - Сильный ответ покрывает:
+    - Предпочесть курсорную пагинацию: при смещениях параллельные вставки и удаления сдвигают страницы и дают пропуски или дубли.
+    - Завершать по отсутствию следующего курсора, а не по короткой странице, и защититься от зацикливания на повторном курсоре.
+    - Проверять каждую страницу, повторять сбои с backoff, отсеивать дубли по id; проверить пустой результат и кратность размеру страницы.
 - <a id="code-ai-assisted-build"></a>**Спланируйте продукт вместе с интервьюером, затем примерно за два часа соберите его с любыми AI-инструментами для программирования и защитите решения, код и путь в продакшен.**
   - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-build&title=%5BCorrection%5D%20code-ai-assisted-build)
   - Что проверяет: Умение ограничить задачу, собрать и защитить рабочий продукт с помощью AI за отведённое время.
+  - Сильный ответ покрывает:
+    - Договориться о минимальном сквозном срезе, который показывает продукт, и назвать, что будет отрезано.
+    - Отдавать инструменту чётко поставленные части, читать каждый diff и запускать приложение после каждого шага.
+    - Быть готовым объяснить каждое проектное решение и то, чего не хватает до продакшена: тесты, модель данных, обработка сбоев.
+  - Читать: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - <a id="code-agent-pr-review"></a>**Проверьте и доработайте черновой pull request коллеги со сквозной функцией в незнакомой кодовой базе, работая вместе с coding-агентами.**
   - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-pr-review&title=%5BCorrection%5D%20code-agent-pr-review)
   - Что проверяет: Умение критически оценить чужое изменение, а не принимать всё, что предлагает агент.
+  - Сильный ответ покрывает:
+    - Понять задуманное поведение и соглашения кодовой базы до чтения diff и обращения к агенту.
+    - Проверить сквозные риски: все места вызова, пути ошибок, конкурентность, миграции и недостающие тесты.
+    - Проверять каждое предложение агента тестами или воспроизведением и объяснять, какие изменения вы отклонили.
+  - Читать: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - <a id="code-product-structure"></a>**В клоне репозитория продукта реализуйте структуру данных, которую продукт действительно использует; к AI обращайтесь только с точечными вопросами по синтаксису.**
   - Кодинг · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-product-structure&title=%5BCorrection%5D%20code-product-structure)
   - Что проверяет: Умение разобраться в незнакомом реальном коде и правильно реализовать ключевую структуру.
+  - Сильный ответ покрывает:
+    - Выяснить, как продукт использует структуру: вызывающий код, нужные операции, их частоту и существующие тесты.
+    - Выбрать представление и инварианты исходя из этих операций и назвать сложность каждой из них.
+    - Следовать соглашениям репозитория, обращаться к AI только по синтаксису и проверить граничные случаи вызывающего кода.
+  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 - <a id="code-self-scoped-onsite"></a>**Получив реальную кодовую базу на рабочий день, решите, что построить, выпустите это и объясните свои решения и компромиссы.**
   - Прикладной сценарий · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-self-scoped-onsite&title=%5BCorrection%5D%20code-self-scoped-onsite)
   - Что проверяет: Умение самому определить объём работы, довести её до результата и защитить без пошаговых указаний.
+  - Сильный ответ покрывает:
+    - Сначала изучить кодовую базу, затем выбрать изменение, полезное и реально завершимое за день.
+    - Рано получить работающее ядро и дальше итерировать, по ходу записывая решения и компромиссы.
+    - Завершить демонстрацией, назвав тесты, ограничения и то, что вы сделали бы следующим.
+  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 - <a id="code-spreadsheet-cycles"></a>**В таблице, где ячейки могут ссылаться на другие ячейки, определите, есть ли циклическая ссылка.**
   - Кодинг · Где спрашивали: [Sierra](../companies/sierra.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-spreadsheet-cycles&title=%5BCorrection%5D%20code-spreadsheet-cycles)
   - Что проверяет: Умение представить зависимости графом и правильно и эффективно находить циклы.
+  - Сильный ответ покрывает:
+    - Уточнить формы ссылок, диапазоны и ссылки на себя, а также что вернуть: факт цикла или все ячейки в нём.
+    - Построить граф зависимостей и запустить DFS с тремя цветами или алгоритм Кана за O(ячейки + ссылки).
+    - Проверить петли на себя, длинные цепочки на глубину рекурсии, несвязные части и повторную проверку после изменения одной формулы.
 - <a id="code-catalogue-search-tool"></a>**Сделайте семантический поиск по каталогу товаров, который чат-модель может вызывать как инструмент.**
   - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-catalogue-search-tool&title=%5BCorrection%5D%20code-catalogue-search-tool)
   - Что проверяет: Умение совместить поиск с понятным, проверяемым интерфейсом инструмента, которым модель может надёжно пользоваться.
+  - Сильный ответ покрывает:
+    - Задать контракт инструмента: запрос, типизированные фильтры, лимит результатов и компактный ответ со стабильными id товаров.
+    - Индексировать описания товаров эмбеддингами вместе с поиском по ключевым словам и применять фильтры до ранжирования.
+    - Возвращать понятные ошибки и явный пустой результат; оценить выбор инструмента и аргументы на реалистичных запросах в чате.
+  - Читать: [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic) · [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
 - <a id="code-credit-ledger"></a>**Реализуйте систему кредитов с разными правилами сгорания и условиями использования и расширяйте её по мере поступления новых требований.**
   - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-credit-ledger&title=%5BCorrection%5D%20code-credit-ledger)
   - Что проверяет: Выдерживает ли ваше решение меняющиеся бизнес-правила без переписывания.
+  - Сильный ответ покрывает:
+    - Моделировать кредиты как начисления с суммой, сроком и условиями, а списания — как записи в журнале только на добавление.
+    - Вынести политику списания, например сначала ближайший срок через кучу, чтобы новые правила подключались без переписывания.
+    - Проверить истечение ровно в момент срока, списание из нескольких начислений, нехватку баланса и пересчёт остатков по журналу.
 - <a id="code-pair-sum"></a>**Найдите в массиве пару чисел с заданной суммой: уточните условия, протестируйте код и обсудите сложность и граничные случаи.**
   - Кодинг · Где спрашивали: [Яндекс](../companies/yandex.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pair-sum&title=%5BCorrection%5D%20code-pair-sum)
   - Что проверяет: Уверенность в базовых структурах данных, тестировании и граничных случаях при живом кодинге.
+  - Сильный ответ покрывает:
+    - Уточнить, отсортирован ли массив, есть ли дубли и отрицательные числа, можно ли брать элемент дважды и что вернуть.
+    - Использовать хеш-множество за O(n) времени или два указателя на отсортированном массиве с O(1) дополнительной памяти.
+    - Проверить пустой массив и массив из одного элемента, отсутствие пары, цель, равную удвоенному значению, и переполнение.
+  - Читать: [Алгоритмические собеседования в Яндексе: как подготовиться и чего ожидать](https://education.yandex.ru/journal/algoritmicheskie-sobesedovaniya-v-yandekse-kak-podgotovitsya-i-chego-ozhidat) (Яндекс Образование)
 - <a id="code-optimise-scheduler"></a>**Оптимизируйте реализацию заданной системы расписаний, сохранив код чистым.**
   - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-optimise-scheduler&title=%5BCorrection%5D%20code-optimise-scheduler)
   - Что проверяет: Умение найти настоящее узкое место и ускорить код, не делая его менее понятным.
+  - Сильный ответ покрывает:
+    - Профилировать на реалистичной нагрузке до любых изменений и назвать размеры входа, которые важны.
+    - Заменить доминирующую стоимость более подходящей структурой, например кучей или индексом интервалов, за прежним интерфейсом.
+    - Сохранить прохождение существующих тестов, добавить бенчмарк и показать сложность и замеры до и после.
 - <a id="code-debug-api-service"></a>**Отладьте сломанный API-сервис: разберите логи, найдите узкое место и устраните утечку памяти.**
   - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-debug-api-service&title=%5BCorrection%5D%20code-debug-api-service)
   - Что проверяет: Умение системно отлаживать работающий сервис по фактам, а не по догадкам.
+  - Сильный ответ покрывает:
+    - Воспроизвести симптом, затем пройти один запрос по логам и найти, где уходит время.
+    - Проверять гипотезы по одной; сравнивать снимки кучи во времени, чтобы найти постоянно растущие объекты.
+    - Устранить первопричину, например неограниченный кеш или незакрытые дескрипторы, и подтвердить исправление под нагрузкой.
+  - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 - <a id="code-sql-by-hand"></a>**Напишите SQL-запросы, отвечающие на вопросы о наборе данных, без возможности их запустить.**
   - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-sql-by-hand&title=%5BCorrection%5D%20code-sql-by-hand)
   - Что проверяет: Выдерживают ли ваши базовые навыки запросов к данным проверку без инструментов.
+  - Сильный ответ покрывает:
+    - Переформулировать каждый вопрос через гранулярность результата: что означает одна строка и какие строки в него попадают.
+    - Следить за размножением строк при join, семантикой NULL в фильтрах и агрегатах и разницей между WHERE и HAVING.
+    - Прогнать каждый запрос вручную на нескольких строках, включая равные значения, NULL и пустые группы.
 - <a id="code-agent-session-choices"></a>**На сессии с AI-кодингом объясните, какими моделями пользуетесь и почему, как следите за расходом токенов и как задаёте агенту контекст и задачу.**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
   - Что проверяет: Умение осознанно управлять coding-агентами, а не полагаться на их настройки по умолчанию.
+  - Сильный ответ покрывает:
+    - Подбирать модели под шаги: более сильную для планирования и ревью, более быструю для рутинных правок.
+    - Давать агенту ограниченную задачу, нужные файлы, ограничения и критерий готовности, а не весь репозиторий.
+    - Следить за токенами через размер контекста и число повторов и начинать заново с кратким резюме, когда сессия уходит в сторону.
+  - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - <a id="code-ai-assisted-ownership"></a>**На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?**
-  - Прикладной сценарий · Где спрашивали: [Canva](../companies/canva.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-ownership&title=%5BCorrection%5D%20code-ai-assisted-ownership)
+  - Прикладной сценарий · Где спрашивали: [Canva](../companies/canva.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-ownership) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-ownership&title=%5BCorrection%5D%20code-ai-assisted-ownership)
   - Что проверяет: Сохраняются ли ответственность и проверка при делегировании модели в условиях нехватки времени.
-  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
+  - Сильный ответ покрывает:
+    - Самому задать интерфейс, ограничения и граничные случаи до промпта, чтобы у сгенерированного кода была спецификация.
+    - Принимать только код, который можете объяснить; отклонять выдуманные API, проглоченные ошибки, ослабленные тесты и лишний объём.
+    - Проверять прогоном тестов на названных граничных случаях и вслух говорить, что проверили или отвергли.
+  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 
 ← [Дизайн AI-систем](ai-system-design.md) · [Стратегия и метрики AI-продукта](ai-product-strategy.md) →

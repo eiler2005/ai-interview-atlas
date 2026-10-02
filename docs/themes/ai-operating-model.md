@@ -26,8 +26,13 @@ On this page: [Both tracks (3)](#track-both) · [AI Leadership (1)](#track-leade
     - Build a public or synthetic proxy set shaped like their tasks, and state what it cannot show.
   - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="ops-shared-data-access"></a>**Design a service that lets several teams query a shared dataset without exposing the underlying raw records.**
-  - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-shared-data-access&title=%5BCorrection%5D%20ops-shared-data-access)
+  - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/leadership.md#ops-shared-data-access) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-shared-data-access&title=%5BCorrection%5D%20ops-shared-data-access)
   - Tests: Whether you define permissible results and enforce access across a shared platform.
+  - A strong answer covers:
+    - Define permissible results per team and purpose: fields, aggregations and a minimum group size.
+    - Enforce policy in the service: caller identity, query rewriting, row and column controls, output checks.
+    - Defend against differencing and repeated slicing, log every query, and test with re-identification attempts.
+  - Read: [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](https://csrc.nist.gov/pubs/sp/800/226/final) (NIST)
 
 ## <a id="track-leadership"></a>AI Leadership
 

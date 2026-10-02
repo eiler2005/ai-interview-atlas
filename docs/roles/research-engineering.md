@@ -38,17 +38,17 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[Compare DPO with PPO-based RLHF, including the assumptions behind offline preference learning and reasons to collect fresh rollouts.](../themes/post-training.md#pt-dpo)**
   - Knowledge · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-dpo)
 - **[Explain group-relative policy optimisation and the trade-offs of estimating advantages without a learned value model.](../themes/post-training.md#pt-grpo)**
-  - Knowledge · [Fine-tuning and post-training](../themes/post-training.md)
+  - Knowledge · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-grpo)
 - **[Derive the low-rank weight update used by LoRA and propose an experiment for choosing its rank.](../themes/post-training.md#pt-lora)**
   - Knowledge · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-lora)
 - **[Choose between prompt changes, retrieval and finetuning for a failing AI feature; include data freshness, latency and total cost.](../themes/post-training.md#pt-method-choice)**
   - Applied scenario · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-method-choice)
 - **[Policy reward keeps rising while humans prefer its outputs less. How would you diagnose and limit reward hacking?](../themes/post-training.md#pt-reward-hacking)**
-  - Applied scenario · [Fine-tuning and post-training](../themes/post-training.md)
+  - Applied scenario · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-reward-hacking)
 - **[A long pretraining run suddenly diverges. How do you investigate data, numerics and optimiser state before resuming from a checkpoint?](../themes/post-training.md#pt-loss-divergence)**
   - Applied scenario · [Fine-tuning and post-training](../themes/post-training.md)
 - **[Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable.](../themes/post-training.md#pt-distributed-training)**
-  - System design · [Fine-tuning and post-training](../themes/post-training.md)
+  - System design · [Fine-tuning and post-training](../themes/post-training.md) · ✍ [Answer](../answers/engineering.md#pt-distributed-training)
 - **[Design an experiment for a suspected emergent capability or bias in a large model, with controls against misleading task framing.](../themes/evals-observability.md#eval-emergent-capability)**
   - Applied scenario · [Evaluation and observability](../themes/evals-observability.md)
 - **[In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation.](../themes/evals-observability.md#eval-behaviour-brainstorm)**

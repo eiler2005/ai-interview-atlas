@@ -26,8 +26,13 @@ On this page: [Both tracks (5)](#track-both) · [AI Engineering (11)](#track-eng
     - Define escalation triggers and transfer enough context for a human to continue.
   - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic) · [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Anthropic)
 - <a id="sd-moderation"></a>**Design a moderation system that combines specialist classifiers and LLMs while controlling delay and review workload.**
-  - System design · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-moderation&title=%5BCorrection%5D%20sd-moderation)
+  - System design · Asked at: [Meta](../companies/meta.md) † · ✍ [Answer](../answers/leadership.md#sd-moderation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-moderation&title=%5BCorrection%5D%20sd-moderation)
   - Tests: Whether risk classes, escalation and false decisions shape system design.
+  - A strong answer covers:
+    - Define risk classes by harm, with separate tolerance for wrongful removal and missed violations per class.
+    - Cascade: fast classifiers on everything, an LLM on the uncertain band, people on severe ambiguous cases.
+    - Set thresholds per class from measured precision and recall, tracking reviewer queue, appeals and overturns.
+  - Read: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) (Markov et al., arXiv) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv)
 - <a id="sd-gateway"></a>**Design an LLM gateway with provider routing, failover, caching, rate limits and enforceable spending budgets.**
   - System design · Asked at: [Palantir](../companies/palantir.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#sd-gateway) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-gateway&title=%5BCorrection%5D%20sd-gateway)
   - Tests: Whether provider differences and failure handling preserve the service contract.
@@ -50,18 +55,42 @@ On this page: [Both tracks (5)](#track-both) · [AI Engineering (11)](#track-eng
 - <a id="sd-code-assistant"></a>**Design a repository-aware coding assistant, from indexing and context assembly to applying edits and checking results.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-code-assistant&title=%5BCorrection%5D%20sd-code-assistant)
   - Tests: Whether code context, safe edits and task evaluation are connected.
+  - A strong answer covers:
+    - Decide how context is found: a symbol graph and search on demand, or a precomputed embedding index.
+    - Apply edits as diffs against the file version that was read, in an isolated workspace, with user review.
+    - Close the loop with the repository's build, linters and tests; evaluate on historical tasks with known fixes.
+  - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic) · [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="sd-catalogue-search"></a>**Design semantic search for a large product catalogue, including relevance measurement and rapidly changing inventory.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-catalogue-search&title=%5BCorrection%5D%20sd-catalogue-search)
   - Tests: Whether semantic relevance is combined with valid catalogue constraints.
+  - A strong answer covers:
+    - Combine lexical matching for brands, sizes and SKUs with dense retrieval for descriptive queries.
+    - Keep stock and price out of embeddings; apply them as query-time hard filters from a fresh store.
+    - Measure relevance on judged queries by segment, and online track zero-result rate and out-of-stock items shown.
+  - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="sd-document-intelligence"></a>**Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable.**
   - System design · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-document-intelligence&title=%5BCorrection%5D%20sd-document-intelligence)
   - Tests: Whether extraction quality, provenance and scalable processing are planned together.
+  - A strong answer covers:
+    - Process documents as idempotent jobs, storing each field with page, region, model version and confidence.
+    - Route fields with low calibrated confidence or failed validation rules to review, sized to reviewer capacity.
+    - Measure per-field accuracy on a stratified audit sample, and feed reviewer corrections back into evaluation.
 - <a id="sd-text-to-sql"></a>**Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.**
-  - System design · Asked at: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-text-to-sql&title=%5BCorrection%5D%20sd-text-to-sql)
+  - System design · Asked at: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#sd-text-to-sql) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-text-to-sql&title=%5BCorrection%5D%20sd-text-to-sql)
   - Tests: Whether semantic correctness and query permissions constrain generation.
+  - A strong answer covers:
+    - Retrieve a small candidate schema from catalog metadata, governed metric definitions and verified example queries.
+    - Run generated SQL read-only under the requesting user's own warehouse permissions, with cost, row and time limits.
+    - Compare result sets with verified queries on real questions, and measure schema-retrieval recall separately.
+  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) (Lei et al., arXiv)
 - <a id="sd-meeting-assistant"></a>**Design a meeting assistant that records discussion, distinguishes speakers and publishes summaries and action items to connected tools.**
   - System design · Asked at: [Microsoft](../companies/microsoft.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-meeting-assistant&title=%5BCorrection%5D%20sd-meeting-assistant)
   - Tests: Whether audio processing, attribution and integration reliability fit together.
+  - A strong answer covers:
+    - Separate transcription from diarisation; map speakers to people using per-participant audio channels where available.
+    - Link each action item to its transcript span, owner and confidence before anything is published.
+    - Publish with an idempotency key per item so retries never duplicate tasks, and let users confirm first.
+  - Read: [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv) · [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="sd-consumer-chat"></a>**Design a streaming chat service for hundreds of millions of users, including capacity, conversation storage and graceful overload behaviour.**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) †, [Google and Google DeepMind](../companies/google.md) †, [Meta](../companies/meta.md) †, [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/engineering.md#sd-consumer-chat) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-consumer-chat&title=%5BCorrection%5D%20sd-consumer-chat)
   - Tests: Whether scale assumptions lead to explicit capacity and reliability decisions.
@@ -73,17 +102,42 @@ On this page: [Both tracks (5)](#track-both) · [AI Engineering (11)](#track-eng
 - <a id="sd-thread-state"></a>**How would you support multiple questions within one conversation while keeping turn ordering and shared context consistent?**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-thread-state&title=%5BCorrection%5D%20sd-thread-state)
   - Tests: Whether concurrent conversation updates have clear consistency semantics.
+  - A strong answer covers:
+    - Decide the semantics first: serialise turns per conversation, or fork branches that each see a snapshot.
+    - Append turns with a per-conversation sequence number and an idempotency key, rejecting stale writes.
+    - Test interleaved requests, retries of the same turn and cancellations for duplicated or reordered history.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="sd-billion-document-search"></a>**Design distributed search for a billion documents at a million queries per second; state your partitioning and capacity assumptions.**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-billion-document-search&title=%5BCorrection%5D%20sd-billion-document-search)
   - Tests: Whether indexing, fan-out and tail latency are grounded in estimates.
+  - A strong answer covers:
+    - Estimate index bytes per document and queries per shard to derive shard and replica counts.
+    - Choose document versus term partitioning, knowing that fan-out to every shard amplifies tail latency.
+    - Contain tails with hedged requests and partial results, and test p99 under shard failure and reindexing.
+  - Read: [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/) (Dean and Barroso, Google Research)
 - <a id="sd-webhooks"></a>**Design reliable delivery of events to customer webhook endpoints despite timeouts, duplicate attempts and unavailable receivers.**
   - System design · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-webhooks&title=%5BCorrection%5D%20sd-webhooks)
   - Tests: Whether delivery guarantees and consumer responsibilities are stated precisely.
+  - A strong answer covers:
+    - State the guarantee as at-least-once and unordered, and require consumers to deduplicate by a stable event id.
+    - Write events to a durable outbox in the same transaction, then retry with capped backoff and jitter.
+    - Isolate failing endpoints in per-endpoint queues, disable after a retry window, and support replay.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe) · [Standard Webhooks specification](https://github.com/standard-webhooks/standard-webhooks/blob/main/spec/standard-webhooks.md) (Standard Webhooks)
 - <a id="sd-architecture-critique"></a>**Critique the weaknesses of an existing production service architecture, then design a new product feature on top of it.**
   - System design · Asked at: [LangChain](../companies/langchain.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-architecture-critique&title=%5BCorrection%5D%20sd-architecture-critique)
   - Tests: Whether you reason about a real, imperfect system rather than a blank page.
+  - A strong answer covers:
+    - Read the system as it runs: request path, data ownership, failure modes and who operates it.
+    - Rank weaknesses by the risk they pose to the new feature, not by how ugly they look.
+    - Design the feature within existing constraints, naming the minimal changes it forces and a safe migration.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
 - <a id="sd-ml-system-end-to-end"></a>**Design an ML system for a product feature end to end: frame the task and requirements, decompose it, plan data collection, choose model architectures, then deploy and test it.**
   - System design · Asked at: [T-Bank](../companies/t-bank.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-ml-system-end-to-end&title=%5BCorrection%5D%20sd-ml-system-end-to-end)
   - Tests: Whether you structure an ML system from problem framing to deployment instead of jumping to a model.
+  - A strong answer covers:
+    - Frame the product decision, offline and online metrics, and latency and cost limits before any model.
+    - Decompose into subtasks, plan where labels come from, and beat a heuristic baseline before adding models.
+    - Plan deployment through shadow mode or an A/B test, with drift monitoring and a rollback.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ← [Multimodal and voice](multimodal-voice.md) · [Practical coding](coding-practical.md) →

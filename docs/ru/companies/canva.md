@@ -31,8 +31,12 @@
 ### [Практический кодинг](../themes/coding-practical.md)
 
 - **[На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?](../themes/coding-practical.md#code-ai-assisted-ownership)**
-  - Прикладной сценарий · Где спрашивали: Canva ✅
+  - Прикладной сценарий · Где спрашивали: Canva ✅ · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-ownership)
   - Что проверяет: Сохраняются ли ответственность и проверка при делегировании модели в условиях нехватки времени.
-  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
+  - Сильный ответ покрывает:
+    - Самому задать интерфейс, ограничения и граничные случаи до промпта, чтобы у сгенерированного кода была спецификация.
+    - Принимать только код, который можете объяснить; отклонять выдуманные API, проглоченные ошибки, ослабленные тесты и лишний объём.
+    - Проверять прогоном тестов на названных граничных случаях и вслух говорить, что проверили или отвергли.
+  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 
 ← [Amazon](amazon.md) · [Google и Google DeepMind](google.md) →

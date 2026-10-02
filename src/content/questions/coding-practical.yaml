@@ -30,8 +30,8 @@ questions:
         - "Использовать устойчивый softmax после маскирования запрещённых позиций."
         - "Проверить малые ручные примеры и неизменность ранних выходов при изменении будущих входов."
     answer:
-      en: "I'd start with an explicit contract on dimensions: batch, heads, length, head width, with a shape check at the entry, because most bugs here are swapped axes and silent broadcasting. Then scores as Q times K transposed on the last axis, division by the square root of head width, minus infinity at future positions j > i, allowing the diagonal and past, a stable softmax that subtracts the row maximum, and multiplication by V. The mask has to come before softmax: zeroing the weights after normalisation is wrong, the sum is spoiled by future positions. I'd write two kinds of test: a tiny example with numbers worked out by hand, and a causality test that changes tokens after a position and confirms the outputs before it didn't move. Separately I'd check a fully masked row. This is a teaching implementation: no memory saving like flash attention, and no inference caching."
-      ru: "Начал бы с явного контракта по размерностям: батч, головы, длина, размер головы, и проверка формы на входе, потому что большинство ошибок тут именно в перепутанных осях и в молчаливом broadcast. Дальше scores как произведение Q на транспонированный K по последней оси, деление на корень из размера головы, маскирование будущих позиций j > i значением минус бесконечность при разрешённых диагонали и прошлом, устойчивый softmax с вычитанием построчного максимума и умножение на V. Маска обязательно до softmax: зануление весов после нормировки неверно, сумма уже испорчена будущими позициями. Тесты делал бы двух видов: крошечный пример с числами, посчитанными вручную, и главное — тест причинности, где меняем токены после позиции и убеждаемся, что выходы до неё не изменились. Отдельно проверил бы полностью замаскированную строку. Это учебная реализация: она не даёт экономии памяти как flash-внимание и не покрывает кеширование на инференсе."
+      en: "I'd start with an explicit contract on dimensions: batch, heads, length, head width, with a shape check at the entry, because most bugs here are swapped axes and silent broadcasting. Then scores as Q times K transposed on the last axis, division by the square root of head width, minus infinity at future positions j > i, allowing the diagonal and past, a stable softmax that subtracts the row maximum, and multiplication by V. The mask has to come before softmax: zeroing the weights after normalisation is wrong, the sum is spoiled by future positions. I'd write two kinds of test: a tiny example with numbers worked out by hand, and a causality test that changes tokens after a position and confirms the outputs before it didn't move. A causal mask alone never empties a row, since the diagonal is allowed, but with a padding mask a row can be fully masked and softmax gives NaN, so I'd test that case. This is a teaching implementation: no memory saving like flash attention, and no inference caching."
+      ru: "Начал бы с явного контракта по размерностям: батч, головы, длина, размер головы, и проверка формы на входе, потому что большинство ошибок тут именно в перепутанных осях и в молчаливом broadcast. Дальше scores как произведение Q на транспонированный K по последней оси, деление на корень из размера головы, маскирование будущих позиций j > i значением минус бесконечность при разрешённых диагонали и прошлом, устойчивый softmax с вычитанием построчного максимума и умножение на V. Маска обязательно до softmax: зануление весов после нормировки неверно, сумма уже испорчена будущими позициями. Тесты делал бы двух видов: крошечный пример с числами, посчитанными вручную, и главное — тест причинности, где меняем токены после позиции и убеждаемся, что выходы до неё не изменились. Одна только causal mask никогда не закрывает строку целиком, ведь диагональ разрешена, но с маской паддинга строка может оказаться замаскированной полностью, и softmax даст NaN, поэтому этот случай я бы проверил отдельно. Это учебная реализация: в отличие от FlashAttention, она не экономит память и не покрывает кеширование на инференсе."
     reading: ["paper-attention"]
   - id: "code-grouped-attention"
     tracks: ["engineering"]
@@ -47,6 +47,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "google"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Fix shapes first: batch, sequence, heads and head dimension; require query heads divisible by KV heads."
+        - "Map query head h to KV head h // group_size; when expanding, use repeat_interleave, not tile."
+        - "Test that equal head counts reproduce multi-head attention and a single KV head gives multi-query attention."
+      ru:
+        - "Сначала зафиксировать размерности: батч, последовательность, головы и размер головы; требовать, чтобы число query-голов делилось на число KV-голов."
+        - "Сопоставить query-голову h с KV-головой h // group_size; при расширении использовать repeat_interleave, а не tile."
+        - "Проверить, что при равном числе голов получается обычный multi-head attention, а при одной KV-голове — multi-query."
+    reading: ["paper-gqa","paper-attention"]
   - id: "code-cached-decode"
     tracks: ["engineering"]
     type: "coding"
@@ -60,6 +70,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Define the per-layer cache layout and position offsets, including left-padded batches of different lengths."
+        - "Append the new key and value and attend over the cache: linear work per step, no prefix recompute."
+        - "Assert logits match a full-prefix forward pass within tolerance, over several steps and padded batches."
+      ru:
+        - "Определить структуру кеша по слоям и смещения позиций, включая батчи с левым паддингом разной длины."
+        - "Дописать новые key и value и вычислить внимание по кешу: линейная работа на шаг без пересчёта префикса."
+        - "Проверить совпадение логитов с полным проходом по префиксу в пределах допуска на нескольких шагах и батчах с паддингом."
+    reading: ["hf-llm-optims"]
   - id: "code-bpe"
     tracks: ["engineering"]
     type: "coding"
@@ -73,6 +93,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Fix the base alphabet, bytes or characters, the pre-tokenisation, and a deterministic tie-break rule."
+        - "Merge the most frequent adjacent pair repeatedly; encode by applying merges in learned rank order, not longest match."
+        - "Test decode round-trips, tied counts, empty input and unseen symbols falling back to bytes or an unknown token."
+      ru:
+        - "Зафиксировать базовый алфавит (байты или символы), предварительную токенизацию и детерминированное правило при равных частотах."
+        - "Обучать, повторно сливая самую частую соседнюю пару; кодировать, применяя слияния в порядке их ранга, а не жадно по длине."
+        - "Проверить обратное декодирование, равные частоты, пустой ввод и откат неизвестных символов к байтам или токену unknown."
+    reading: ["paper-bpe-subword"]
   - id: "code-sampling"
     tracks: ["engineering"]
     type: "coding"
@@ -87,6 +117,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "google"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Define the parameter contract: temperature zero as argmax, valid ranges for k and p, non-finite logits."
+        - "Use a stable softmax; nucleus keeps the smallest sorted prefix reaching mass p, an O(V log V) sort."
+        - "Test ties at the cutoff, p near one, k above vocabulary size, and frequencies under a fixed seed."
+      ru:
+        - "Задать контракт параметров: нулевая температура как argmax, допустимые диапазоны k и p, нечисловые логиты."
+        - "Использовать устойчивый softmax; nucleus оставляет наименьший отсортированный префикс с массой не меньше p — сортировка за O(V log V)."
+        - "Проверить равенства на границе отсечения, p около единицы, k больше словаря и частоты выборки при фиксированном seed."
+    reading: ["paper-nucleus-sampling"]
   - id: "code-lru"
     tracks: ["engineering"]
     type: "coding"
@@ -101,6 +141,15 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Clarify capacity, whether reads refresh recency, and whether expired entries still count until purged."
+        - "Use a hash map with a doubly linked list for O(1); one removal path serves expiry and eviction."
+        - "Test capacity one, updating an existing key, and expiry at exact boundaries with an injected clock."
+      ru:
+        - "Уточнить ёмкость, обновляет ли чтение давность и учитываются ли просроченные записи до их удаления."
+        - "Использовать хеш-таблицу с двусвязным списком для O(1); один путь удаления обслуживает и истечение, и вытеснение."
+        - "Проверить ёмкость, равную единице, обновление существующего ключа и истечение ровно на границе с подменяемыми часами."
   - id: "code-token-bucket"
     tracks: ["engineering"]
     type: "coding"
@@ -160,8 +209,8 @@ questions:
         - "Повторять подходящие ошибки с ограниченным backoff и jitter, учитывая идемпотентность."
         - "Возвращать результат каждого элемента и проверить тайм-ауты, постоянные ошибки и частичный успех."
     answer:
-      en: "I use an input queue, a semaphore on the number of concurrent requests, a wrapper around each item that catches its own exceptions and returns either a result or an error, and collection of all outcomes in input order. Cancellation and an overall deadline are passed inward, so that when time runs out the in-flight requests are cancelled too, not only those waiting in the queue. Retry only what is sensible to retry: timeouts, network failures, rate limit responses and server errors, with bounded attempts, exponential backoff and jitter, since without spread the clients synchronise and hit in a wave. For unsafe methods a retry needs an idempotency key, otherwise you get duplicates. One item's failure must not sink the batch, so I return a status per input. I'd test partial success, a permanent error, the deadline firing, and cancellation halfway. Client retries amplify overload, so the cap is mandatory."
-      ru: "Каркас такой: очередь входов, семафор на число одновременных запросов, обёртка вокруг каждого элемента, которая ловит собственные исключения и возвращает либо результат, либо ошибку, и сбор всех исходов в порядке входа. Отмена и общий дедлайн передаются внутрь, чтобы по истечении времени снимались и выполняющиеся запросы, а не только ожидающие в очереди. Повторять стоит лишь то, что осмысленно повторять: таймауты, сетевые сбои, ответы о превышении лимита и серверные ошибки, с потолком попыток, экспоненциальной паузой и обязательным jitter, поскольку без разброса клиенты синхронизируются и бьют волной. Для небезопасных методов повтор требует ключа идемпотентности, иначе появятся дубли. Ошибка одного элемента не должна валить батч, поэтому возвращаю статус на каждый вход. Проверял бы частичный успех, постоянную ошибку, срабатывание дедлайна и отмену на середине. Клиентские повторы усиливают перегрузку, так что потолок обязателен."
+      en: "I'd use a fixed pool of workers pulling from a queue, not one task per item behind a semaphore, so a million items don't mean a million pending tasks. Each item runs in a wrapper that turns its own failures into a result, value, permanent error or cancelled, stored by input index, so one failure can't sink its siblings, unlike a task group that cancels everything on the first error. Each attempt has a timeout inside an overall deadline, and cancelling the batch cancels in-flight requests too, so the wrapper mustn't swallow cancellation. I retry only timeouts, connection errors, rate-limit responses and server errors, with capped exponential backoff and full jitter, a uniform random sleep up to the current backoff, so clients don't retry in waves, and a Retry-After header wins. Unsafe writes retry only with an idempotency key. Tests use a fake clock and API: partial success, a permanent error, the deadline firing mid-retry and cancellation halfway. The boundary: per-item backoff doesn't bound the aggregate rate, so against a shared quota I'd put a token bucket in front."
+      ru: "Взял бы фиксированный пул воркеров, забирающих элементы из очереди, а не по задаче на элемент за семафором, чтобы вход на миллион элементов не порождал миллион ожидающих задач. Каждый элемент выполняется в обёртке, которая превращает его собственные сбои в результат — значение, постоянную ошибку или отмену — и пишет его по индексу входа, так что один сбой не топит соседей, в отличие от task group, которая отменяет всё при первой ошибке. У каждой попытки свой тайм-аут внутри общего дедлайна, а отмена батча снимает и выполняющиеся запросы, так что обёртка не должна эту отмену проглатывать. Повторяю только тайм-ауты, сетевые ошибки, ответы о превышении лимита и серверные ошибки, с ограниченным экспоненциальным backoff и full jitter, то есть случайной паузой от нуля до текущей величины backoff, чтобы клиенты не повторяли запросы волнами, а заголовок Retry-After главнее. Небезопасные записи повторяю только с ключом идемпотентности. Тесты — с поддельными часами и API: частичный успех, постоянная ошибка, дедлайн посреди повтора и отмена на середине. Граница: backoff по отдельным элементам не ограничивает суммарный темп, поэтому при общей квоте перед вызовами нужен token bucket."
     reading: ["stripe-idempotency","google-sre-book"]
   - id: "code-stream-parser"
     tracks: ["engineering"]
@@ -176,6 +225,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Buffer across chunks, decode UTF-8 incrementally, split lines on CRLF, LF or CR, never rescanning consumed bytes."
+        - "Accumulate data lines into one event and parse JSON only when a blank line dispatches it."
+        - "Test a split at every byte offset, including inside multibyte characters, CRLF pairs and the final event."
+      ru:
+        - "Буферизовать данные между чанками, декодировать UTF-8 инкрементально, делить строки по CRLF, LF или CR и не пересканировать уже разобранное."
+        - "Склеивать строки data в одно событие и разбирать JSON только тогда, когда пустая строка завершает событие."
+        - "Проверить разрез на каждом байтовом смещении, в том числе внутри многобайтовых символов, пары CRLF и последнего события."
   - id: "code-semantic-chunks"
     tracks: ["engineering"]
     type: "coding"
@@ -189,6 +247,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Clarify the size unit, tokens or characters, what counts as a semantic unit, and how overlap is measured."
+        - "Pack whole units greedily in one linear pass; split an oversized unit at the next finer boundary."
+        - "Test oversized units, empty input, overlap not smaller than the target, and lossless reconstruction from offsets."
+      ru:
+        - "Уточнить единицу размера (токены или символы), что считается смысловой единицей и как измеряется перекрытие."
+        - "Жадно укладывать целые единицы за один линейный проход; слишком большую единицу делить по следующей, более мелкой границе."
+        - "Проверить слишком большие единицы, пустой ввод, перекрытие не меньше целевого размера и восстановление текста по смещениям без потерь."
   - id: "code-cosine-search"
     tracks: ["engineering"]
     type: "coding"
@@ -202,6 +269,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Normalise vectors once so cosine becomes a dot product; handle zero vectors and dimension mismatches."
+        - "Score with one matrix product and take top-k by partial selection: O(N·d) per query."
+        - "Test ties and k above N; once scale forces ANN, keep exact search as the recall baseline."
+      ru:
+        - "Нормализовать векторы один раз, чтобы косинус свёлся к скалярному произведению; обработать нулевые векторы и несовпадение размерностей."
+        - "Считать оценки одним матричным произведением и брать top-k частичным отбором: O(N·d) на запрос."
+        - "Проверить равные оценки и k больше N; когда масштаб потребует ANN, оставить точный поиск эталоном полноты."
+    reading: ["faiss-indexes"]
   - id: "code-agent-loop"
     tracks: ["engineering"]
     roles: ["agent-engineer"]
@@ -228,8 +305,8 @@ questions:
         - "Проверять имя инструмента и аргументы по схеме до вызова; никогда не исполнять незарегистрированный инструмент."
         - "Возвращать ошибки инструментов модели как наблюдения, сохраняя жёсткий предел шагов и времени."
     answer:
-      en: "I would make the loop's state an explicit object — message history, step counter, deadline, budget and a termination reason — because agent-runner bugs are almost always implicit state in control flow. Each iteration asks the model for one action, and dispatch goes through a registry: resolve the tool by name, reject anything unregistered, validate arguments against its schema, then call it. An unknown tool or bad argument is not a crash but an observation returned to the model so it can correct itself, while genuine infrastructure failures retry under a bounded policy. Termination must be reachable several ways — a final answer, the step limit, the deadline, the budget, an unrecoverable error — and the runner records which one fired. I would test the limit path and an always-failing tool: an agent that cannot stop is the expensive failure. It omits approval for consequential actions and persistence across restarts."
-      ru: "Состояние цикла я бы сделал явным объектом: история сообщений, счётчик шагов, дедлайн, бюджет и причина остановки, — потому что ошибки агентных runner-ов почти всегда прячутся в неявном состоянии внутри управляющего потока. Каждая итерация спрашивает у модели одно действие, а вызов идёт через реестр: разрешить инструмент по имени, отвергнуть незарегистрированный, проверить аргументы по схеме и только затем вызвать. Неизвестный инструмент или неверный аргумент — не падение, а наблюдение, возвращённое модели, чтобы она исправилась; настоящие инфраструктурные сбои повторяются по ограниченной политике. Остановка должна достигаться с нескольких сторон — финальный ответ, предел шагов, дедлайн, бюджет, неустранимая ошибка, — и runner записывает, какая именно сработала. Я бы протестировал путь через предел и всегда падающий инструмент: агент, который не умеет останавливаться, и есть дорогая поломка. Одобрение значимых действий и сохранение состояния между перезапусками здесь сознательно не покрыты."
+      en: "I would make the loop's state an explicit object — message history, step counter, deadline, budget and a termination reason — because state hidden in control flow is what makes a runner hard to stop, test and debug. Each iteration asks the model for one action, and dispatch goes through a registry: resolve the tool by name, reject anything unregistered, validate arguments against its schema, then call it. An unknown tool or bad argument is not a crash but an observation returned to the model so it can correct itself, while genuine infrastructure failures retry under a bounded policy. Termination must be reachable several ways — a final answer, the step limit, the deadline, the budget, an unrecoverable error — and the runner records which one fired. I would test the limit path and an always-failing tool: an agent that cannot stop is the expensive failure. It omits approval for consequential actions and persistence across restarts."
+      ru: "Состояние цикла я бы сделал явным объектом: история сообщений, счётчик шагов, дедлайн, бюджет и причина остановки, — потому что именно состояние, спрятанное в управляющем потоке, делает runner трудным для остановки, тестирования и отладки. Каждая итерация спрашивает у модели одно действие, а вызов идёт через реестр: найти инструмент по имени, отвергнуть незарегистрированный, проверить аргументы по схеме и только затем вызвать. Неизвестный инструмент или неверный аргумент — не падение, а наблюдение, возвращённое модели, чтобы она исправилась; настоящие инфраструктурные сбои повторяются по ограниченной политике. Остановка должна достигаться с нескольких сторон — финальный ответ, предел шагов, дедлайн, бюджет, неустранимая ошибка, — и runner записывает, какая именно сработала. Я бы протестировал путь через предел и всегда падающий инструмент: агент, который не умеет останавливаться, и есть дорогая поломка. Одобрение значимых действий и сохранение состояния между перезапусками здесь сознательно не покрыты."
     reading: ["anthropic-building-effective-agents"]
   - id: "code-transactions"
     tracks: ["engineering"]
@@ -245,6 +322,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    outline:
+      en:
+        - "State the contract: whether transactions nest, and whether other clients can see uncommitted writes."
+        - "Keep a stack of write layers with deletion markers; reads search top-down, commit merges into the parent."
+        - "Test deleting a key set in the same transaction, nested abort, and commit or abort with none open."
+      ru:
+        - "Зафиксировать контракт: вкладываются ли транзакции и видят ли другие клиенты незакоммиченные записи."
+        - "Держать стек слоёв записей с маркерами удаления; чтение идёт сверху вниз, commit сливает слой в родительский."
+        - "Проверить удаление ключа, заданного в той же транзакции, откат вложенного уровня и commit или abort без открытой транзакции."
+    reading: ["postgresql-transaction-isolation"]
   - id: "code-refactoring"
     tracks: ["engineering","leadership"]
     type: "coding"
@@ -259,6 +346,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    start_here: ["leadership"]
+    priority: 63
+    outline:
+      en:
+        - "Pin down observable behaviour first, adding characterisation tests where existing tests assert too little."
+        - "Make the first change small and mechanical, such as extracting a function, running tests after each step."
+        - "Justify each step by a maintenance cost it removes, and never mix refactoring with behaviour changes."
+      ru:
+        - "Сначала зафиксировать наблюдаемое поведение, добавив характеризующие тесты там, где существующие проверяют слишком мало."
+        - "Сделать первое изменение маленьким и механическим, например выделить функцию, прогоняя тесты после каждого шага."
+        - "Обосновывать каждый шаг устранённой ценой сопровождения и никогда не смешивать рефакторинг с изменением поведения."
+    answer:
+      en: "Before touching anything I'd settle what observable behaviour means here — return values, error messages, side effects like written files or output order — and whether the passing tests actually assert it. Passing tests only protect what they check, so where coverage is thin I'd first add characterisation tests that record what the code does now, including the odd cases I'd be tempted to fix. The first change should be small, mechanical and easy to revert: usually extracting a function from the longest block or naming a magic value, then running the tests. Each step goes in its own commit, and I never mix a refactoring with a behaviour change, since a failing test then can't say which one broke it; a bug I find gets fixed separately, with its own test. I'd justify each step by a cost it removes, such as a rule duplicated in three places or logic you can't test in isolation, not by taste. If the code is about to be replaced or rarely changes, the cheapest refactoring is none."
+      ru: "Прежде чем что-то трогать, я бы договорился, что здесь считается наблюдаемым поведением: возвращаемые значения, сообщения об ошибках, побочные эффекты вроде записанных файлов или порядка вывода, — и проверил, действительно ли проходящие тесты это фиксируют. Проходящие тесты защищают только то, что проверяют, поэтому там, где покрытие тонкое, сначала добавил бы характеризующие тесты, которые записывают, что код делает сейчас, включая странные случаи, которые так и хочется исправить. Первое изменение должно быть маленьким, механическим и легко откатываемым: обычно выделить функцию из самого длинного блока или дать имя магическому значению, затем прогнать тесты. Каждый шаг — отдельный коммит, и рефакторинг я никогда не смешиваю с изменением поведения: иначе упавший тест не скажет, что именно сломалось; найденную ошибку исправляю отдельно, со своим тестом. Каждый шаг обосновываю ценой, которую он убирает, — правилом, повторённым в трёх местах, логикой, которую нельзя проверить изолированно, — а не вкусом. Если код скоро заменят или он почти не меняется, самый дешёвый рефакторинг — никакого."
+    reading: ["palantir-existing-systems","refactoring-catalog"]
   - id: "code-pagination"
     tracks: ["engineering"]
     type: "coding"
@@ -273,6 +375,15 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Prefer cursor pagination: with offsets, concurrent inserts and deletes shift pages and cause gaps or duplicates."
+        - "Terminate on an absent next cursor, not a short page, and guard against a repeated cursor looping forever."
+        - "Validate each page, retry failures with backoff, dedupe by id; test empty results and exact page-size multiples."
+      ru:
+        - "Предпочесть курсорную пагинацию: при смещениях параллельные вставки и удаления сдвигают страницы и дают пропуски или дубли."
+        - "Завершать по отсутствию следующего курсора, а не по короткой странице, и защититься от зацикливания на повторном курсоре."
+        - "Проверять каждую страницу, повторять сбои с backoff, отсеивать дубли по id; проверить пустой результат и кратность размеру страницы."
   - id: "code-ai-assisted-build"
     tracks: ["engineering"]
     roles: ["software-engineer", "agent-engineer"]
@@ -289,6 +400,16 @@ questions:
         company: "sierra"
         role: "software-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Agree on the smallest end-to-end slice that demonstrates the product, and name what you will cut."
+        - "Delegate well-specified pieces to the tool, read every diff, and run the app after each step."
+        - "Be ready to explain each design choice and what production still needs: tests, data model, failure handling."
+      ru:
+        - "Договориться о минимальном сквозном срезе, который показывает продукт, и назвать, что будет отрезано."
+        - "Отдавать инструменту чётко поставленные части, читать каждый diff и запускать приложение после каждого шага."
+        - "Быть готовым объяснить каждое проектное решение и то, чего не хватает до продакшена: тесты, модель данных, обработка сбоев."
+    reading: ["sierra-ai-native-interview","canva-ai-interview-success"]
   - id: "code-agent-pr-review"
     tracks: ["engineering"]
     roles: ["software-engineer", "agent-engineer"]
@@ -305,6 +426,16 @@ questions:
         company: "sierra"
         role: "software-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Understand the intended behaviour and the codebase's conventions before reading the diff or asking an agent."
+        - "Check cross-cutting risks: every call site, error paths, concurrency, migrations and missing tests."
+        - "Verify each agent suggestion by running tests or reproducing it, and explain which changes you rejected."
+      ru:
+        - "Понять задуманное поведение и соглашения кодовой базы до чтения diff и обращения к агенту."
+        - "Проверить сквозные риски: все места вызова, пути ошибок, конкурентность, миграции и недостающие тесты."
+        - "Проверять каждое предложение агента тестами или воспроизведением и объяснять, какие изменения вы отклонили."
+    reading: ["sierra-ai-native-interview","canva-ai-interview-success"]
   - id: "code-product-structure"
     tracks: ["engineering"]
     roles: ["software-engineer"]
@@ -321,6 +452,16 @@ questions:
         company: "cursor"
         role: "software-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Find how the product uses the structure: callers, required operations, their frequency and existing tests."
+        - "Choose the representation and invariants from those operations, and state each operation's complexity."
+        - "Follow the repository's conventions, keep AI to syntax questions, and test the edge cases callers hit."
+      ru:
+        - "Выяснить, как продукт использует структуру: вызывающий код, нужные операции, их частоту и существующие тесты."
+        - "Выбрать представление и инварианты исходя из этих операций и назвать сложность каждой из них."
+        - "Следовать соглашениям репозитория, обращаться к AI только по синтаксису и проверить граничные случаи вызывающего кода."
+    reading: ["palantir-existing-systems"]
   - id: "code-self-scoped-onsite"
     tracks: ["engineering"]
     roles: ["software-engineer"]
@@ -337,6 +478,16 @@ questions:
         company: "cursor"
         role: "software-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Explore the codebase first, then pick a change that is useful and finishable within the day."
+        - "Ship a working core early, then iterate, keeping a running note of decisions and trade-offs."
+        - "Close with a demonstration, naming its tests and limits and what you would build next."
+      ru:
+        - "Сначала изучить кодовую базу, затем выбрать изменение, полезное и реально завершимое за день."
+        - "Рано получить работающее ядро и дальше итерировать, по ходу записывая решения и компромиссы."
+        - "Завершить демонстрацией, назвав тесты, ограничения и то, что вы сделали бы следующим."
+    reading: ["palantir-existing-systems"]
   - id: "code-spreadsheet-cycles"
     tracks: ["engineering"]
     roles: ["agent-engineer"]
@@ -353,6 +504,15 @@ questions:
         company: "sierra"
         role: "agent-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Clarify reference forms, ranges and self-references, and whether to report any cycle or every cell in one."
+        - "Build a dependency graph and run three-colour DFS or Kahn's algorithm in O(cells + references)."
+        - "Test self-loops, long chains against recursion depth, disconnected parts, and rechecking after one formula changes."
+      ru:
+        - "Уточнить формы ссылок, диапазоны и ссылки на себя, а также что вернуть: факт цикла или все ячейки в нём."
+        - "Построить граф зависимостей и запустить DFS с тремя цветами или алгоритм Кана за O(ячейки + ссылки)."
+        - "Проверить петли на себя, длинные цепочки на глубину рекурсии, несвязные части и повторную проверку после изменения одной формулы."
   - id: "code-catalogue-search-tool"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -369,6 +529,16 @@ questions:
         company: "openai"
         role: "forward-deployed-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Define the tool contract: query, typed filters, a result limit, and compact results with stable product ids."
+        - "Index product text with embeddings plus keyword matching, and apply filters before ranking."
+        - "Return actionable errors and explicit empty results; evaluate tool selection and arguments on realistic chat requests."
+      ru:
+        - "Задать контракт инструмента: запрос, типизированные фильтры, лимит результатов и компактный ответ со стабильными id товаров."
+        - "Индексировать описания товаров эмбеддингами вместе с поиском по ключевым словам и применять фильтры до ранжирования."
+        - "Возвращать понятные ошибки и явный пустой результат; оценить выбор инструмента и аргументы на реалистичных запросах в чате."
+    reading: ["anthropic-writing-tools","claude-tool-use"]
   - id: "code-credit-ledger"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -385,6 +555,15 @@ questions:
         company: "openai"
         role: "forward-deployed-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Model credits as grants with amount, expiry and conditions, and usage as append-only ledger entries."
+        - "Isolate the consumption policy, such as soonest expiry first via a heap, so new rules plug in."
+        - "Test expiry at the exact timestamp, consumption spanning grants, insufficient balance and rebuilding balances from the ledger."
+      ru:
+        - "Моделировать кредиты как начисления с суммой, сроком и условиями, а списания — как записи в журнале только на добавление."
+        - "Вынести политику списания, например сначала ближайший срок через кучу, чтобы новые правила подключались без переписывания."
+        - "Проверить истечение ровно в момент срока, списание из нескольких начислений, нехватку баланса и пересчёт остатков по журналу."
   - id: "code-pair-sum"
     tracks: ["engineering"]
     roles: ["ml-engineer"]
@@ -401,6 +580,16 @@ questions:
         company: "yandex"
         role: "ml-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Clarify sortedness, duplicates, negatives, reuse of one element, and whether to return values, indices or all pairs."
+        - "Use a hash set in O(n) time, or two pointers on sorted input with O(1) extra space."
+        - "Test empty and single-element arrays, no valid pair, a target equal to twice one value, and overflow."
+      ru:
+        - "Уточнить, отсортирован ли массив, есть ли дубли и отрицательные числа, можно ли брать элемент дважды и что вернуть."
+        - "Использовать хеш-множество за O(n) времени или два указателя на отсортированном массиве с O(1) дополнительной памяти."
+        - "Проверить пустой массив и массив из одного элемента, отсутствие пары, цель, равную удвоенному значению, и переполнение."
+    reading: ["yandex-algorithmic-section"]
   - id: "code-optimise-scheduler"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -418,6 +607,15 @@ questions:
         role: "forward-deployed-engineer"
         observed: "2025-03"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Profile on a realistic workload before changing anything, and state the input sizes that matter."
+        - "Replace the dominant cost with a better structure, such as a heap or interval index, keeping the interface."
+        - "Keep existing tests passing, add a benchmark, and report complexity and timings before and after."
+      ru:
+        - "Профилировать на реалистичной нагрузке до любых изменений и назвать размеры входа, которые важны."
+        - "Заменить доминирующую стоимость более подходящей структурой, например кучей или индексом интервалов, за прежним интерфейсом."
+        - "Сохранить прохождение существующих тестов, добавить бенчмарк и показать сложность и замеры до и после."
   - id: "code-debug-api-service"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -435,6 +633,16 @@ questions:
         role: "forward-deployed-engineer"
         observed: "2025-03"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Reproduce the symptom, then follow one request through the logs to find where time is spent."
+        - "Test one hypothesis at a time; compare heap snapshots over time to find objects that keep growing."
+        - "Fix the root cause, such as an unbounded cache or unreleased handles, and prove the fix under load."
+      ru:
+        - "Воспроизвести симптом, затем пройти один запрос по логам и найти, где уходит время."
+        - "Проверять гипотезы по одной; сравнивать снимки кучи во времени, чтобы найти постоянно растущие объекты."
+        - "Устранить первопричину, например неограниченный кеш или незакрытые дескрипторы, и подтвердить исправление под нагрузкой."
+    reading: ["google-sre-book","palantir-existing-systems"]
   - id: "code-sql-by-hand"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -452,6 +660,15 @@ questions:
         role: "forward-deployed-engineer"
         observed: "2025-11"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Restate each question as the result's grain: what one row represents and which rows qualify."
+        - "Watch for join fan-out, NULL semantics in filters and aggregates, and WHERE versus HAVING."
+        - "Trace each query by hand on a few sample rows, including ties, NULLs and empty groups."
+      ru:
+        - "Переформулировать каждый вопрос через гранулярность результата: что означает одна строка и какие строки в него попадают."
+        - "Следить за размножением строк при join, семантикой NULL в фильтрах и агрегатах и разницей между WHERE и HAVING."
+        - "Прогнать каждый запрос вручную на нескольких строках, включая равные значения, NULL и пустые группы."
   - id: "code-agent-session-choices"
     tracks: ["engineering"]
     roles: ["ai-engineer", "software-engineer"]
@@ -467,6 +684,16 @@ questions:
       - source: "habr-llm-engineer-interviews-2026"
         role: "ai-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Match models to steps: a stronger model for planning and review, a faster one for routine edits."
+        - "Give the agent a scoped task, the relevant files, constraints and a done criterion, not the whole repository."
+        - "Track tokens through context size and retries, and restart from a short summary when the session drifts."
+      ru:
+        - "Подбирать модели под шаги: более сильную для планирования и ревью, более быструю для рутинных правок."
+        - "Давать агенту ограниченную задачу, нужные файлы, ограничения и критерий готовности, а не весь репозиторий."
+        - "Следить за токенами через размер контекста и число повторов и начинать заново с кратким резюме, когда сессия уходит в сторону."
+    reading: ["anthropic-context-engineering","canva-ai-interview-success"]
   - id: "code-ai-assisted-ownership"
     tracks: ["engineering"]
     roles: ["software-engineer", "ml-engineer"]
@@ -484,4 +711,18 @@ questions:
       - source: "canva-ai-in-interviews"
         company: "canva"
     added: "2026-09-30"
-    reading: ["anthropic-ai-resistant-evaluations"]
+    start_here: ["engineering"]
+    priority: 67
+    outline:
+      en:
+        - "State the interface, constraints and edge cases yourself before prompting, so generated code has a specification."
+        - "Accept only code you can explain; decline invented APIs, swallowed errors, weakened tests and unrequested scope."
+        - "Verify by running tests on the edge cases you named, and say aloud what you checked or rejected."
+      ru:
+        - "Самому задать интерфейс, ограничения и граничные случаи до промпта, чтобы у сгенерированного кода была спецификация."
+        - "Принимать только код, который можете объяснить; отклонять выдуманные API, проглоченные ошибки, ослабленные тесты и лишний объём."
+        - "Проверять прогоном тестов на названных граничных случаях и вслух говорить, что проверили или отвергли."
+    answer:
+      en: "Delegating the typing doesn't delegate ownership: whatever I submit, I should be able to explain line by line, and that judgement is what's really being assessed. So before prompting I'd state the interface, constraints and edge cases myself, which gives me a specification to check output against instead of reading generated code and nodding along. I'd ask for pieces small enough to review in a minute, read each diff before accepting it, and say aloud what I'm checking. I'd decline code I can't explain, calls to library functions I can't confirm exist, error handling that swallows exceptions, tests weakened until they pass, and changes beyond what I asked for; with input handling or anything security-sensitive I'd slow down whatever the clock says. Verification means running tests on the edge cases I named before generating. Under time pressure I'd spend review in proportion to risk: boilerplate gets a glance, core logic gets traced through a case. Rewriting everything by hand is the opposite failure, throwing away the leverage the format expects."
+      ru: "Делегируя набор кода, я не делегирую ответственность: всё, что сдаю, я должен уметь объяснить построчно, и на деле оценивают именно это суждение. Поэтому до промпта я бы сам сформулировал интерфейс, ограничения и граничные случаи — так появляется спецификация, по которой проверяется вывод, вместо того чтобы читать сгенерированный код и кивать. Просил бы куски, которые можно просмотреть за минуту, читал бы каждый diff до принятия и вслух проговаривал, что проверяю. Отказывался бы от кода, который не могу объяснить, от вызовов библиотечных функций, существование которых не могу подтвердить, от обработки ошибок, глотающей исключения, от тестов, ослабленных до прохождения, и от изменений сверх того, что я просил; на обработке ввода и всём, что касается безопасности, замедлился бы, что бы ни показывал таймер. Проверка — это прогон тестов на граничных случаях, названных до генерации. При нехватке времени распределял бы проверку пропорционально риску: шаблонный код — беглый взгляд, ключевую логику — проход по конкретному примеру. Переписывать всё руками — обратная ошибка: так теряется рычаг, которого ждёт формат."
+    reading: ["anthropic-ai-resistant-evaluations","canva-ai-interview-success"]

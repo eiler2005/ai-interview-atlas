@@ -28,12 +28,12 @@ questions:
         - "Check data access, error consequences and which steps need human judgement."
         - "Choose a narrow pilot with a baseline, acceptance criteria and an owner."
       ru:
-        - "Разберите текущий процесс, решения, исключения и ответственных пользователей."
-        - "Проверьте доступ к данным, последствия ошибок и этапы, требующие решения человека."
-        - "Выберите узкий пилот с базовой линией, критериями приёмки и владельцем."
+        - "Разобрать текущий процесс, решения, исключения и ответственных пользователей."
+        - "Проверить доступ к данным, последствия ошибок и этапы, требующие решения человека."
+        - "Выбрать узкий пилот с базовой линией, критериями приёмки и владельцем."
     answer:
-      en: "I'd use those two weeks to define one measurable process. First I take apart how claims are handled today: which steps exist, which decisions a person makes and by what rules, where exceptions come up, how frequent they are, and who actually works in the system every day. In parallel I check the data: whether we have access, what form the documents are in, what counts as a correct answer, and whether there is a decision history to give us a baseline. Separately I look at the cost of an error, because a wrongful denial and an overpayment cost different things, and that decides which steps stay with a human. By the end I pick a narrow pilot: one claim type, an end-to-end path, a baseline on time and accuracy, acceptance criteria, and an owner on the customer side. Automating the whole flow is not on the table yet."
-      ru: "Две недели трачу не на прототип, а на то, чтобы превратить широкий запрос в один измеримый процесс. Сначала разбираю, как заявления на выплату обрабатываются сейчас: какие шаги, какие решения человек принимает и по каким правилам, где возникают исключения, насколько они часты и кто именно работает в системе каждый день. Параллельно проверяю данные: есть ли доступ, в каком виде документы, что считается верным ответом и есть ли история решений для базовой линии. Отдельно смотрю на цену ошибки — необоснованный отказ и лишняя выплата стоят по-разному, и это определяет, какие шаги остаются за человеком. К концу выбираю узкий пилот: один тип заявлений на выплату, сквозной путь, базовая линия по времени и точности, критерии приёмки и владелец со стороны клиента. Автоматизация всего потока на этом этапе не обсуждается."
+      en: "Two weeks buy one bounded workflow and a go or no-go, not a prototype of automated claims. The first week I'd spend with handlers, mapping intake, document extraction, coverage check, routing, adjudication and payment, with each step's volume, handling time and exception rate, to see where time actually goes. The first candidate is usually intake and document triage, not adjudication: an extraction error gets caught by the handler downstream and is cheap to reverse, while a wrongful denial lands on the policyholder with legal exposure, so denials stay with a person, and wrongful denial, overpayment and delay each get their own threshold. The second week builds the baseline from past claims: handling time, extraction accuracy on a double-checked sample, the share of simple claims that could go straight through. The pilot then has acceptance criteria per claim type and an owner in claims operations. Without a decision history or access to the claims system, two weeks yield an assessment and a data plan, and saying so early is the result."
+      ru: "Две недели дают один ограниченный процесс и решение, продолжать ли, а не прототип автоматизации выплат. Первую неделю я бы провёл с сотрудниками, которые разбирают заявления, и разложил процесс на шаги — приём, извлечение данных из документов, проверка покрытия, маршрутизация, решение по выплате, сама выплата — с объёмом, временем обработки и долей исключений на каждом, чтобы увидеть, куда на самом деле уходит время. Первым кандидатом обычно оказываются приём и сортировка документов, а не решение по выплате: ошибку извлечения поймает сотрудник дальше по процессу, и исправить её дёшево, а необоснованный отказ ложится на страхователя и несёт юридические риски, поэтому отказы остаются за человеком, а у необоснованного отказа, переплаты и задержки свои пороги. Вторая неделя уходит на базовую линию по прошлым заявлениям: время обработки, точность извлечения на дважды проверенной выборке, доля простых заявлений, которые могли бы пройти без ручной обработки. У пилота появляются критерии приёмки по каждому типу заявлений и владелец в подразделении урегулирования. Если нет истории решений или доступа к системе учёта заявлений, за две недели получится оценка и план по данным, и сказать об этом сразу — это и есть результат."
     reading: ["anthropic-building-effective-agents","nist-ai-rmf"]
   - id: "app-pilot-rescue"
     tracks: ["engineering","leadership"]
@@ -63,9 +63,9 @@ questions:
         - "Contain harmful behaviour and separate data, system and expectation problems."
         - "Agree on a short recovery experiment and explicit continue-or-stop criteria."
       ru:
-        - "Признайте последствия и соберите с клиентом конкретные неудачные сценарии."
-        - "Ограничьте вред и разделите проблемы данных, системы и ожиданий."
-        - "Согласуйте короткий проверочный этап и критерии продолжения или остановки."
+        - "Признать последствия и собрать с клиентом конкретные неудачные сценарии."
+        - "Ограничить вред и разделить проблемы данных, системы и ожиданий."
+        - "Согласовать короткий проверочный этап и критерии продолжения или остановки."
     answer:
       en: "In the first hours I acknowledge the problem plainly, with no explanation of how it happened: trust is gone, and an argument about wording finishes it. I ask for specifics, not \"it works badly\" but a dozen real cases with the request, the answer they got, and the answer it should have been. That is the only way to separate three different illnesses: data that's missing or dirty, defects in the system itself such as retrieval and prompts, and expectations that never matched what the feature can do. I contain the damage: I switch off the riskiest scenarios and put human review or an honest refusal where confidence is low. By the end of the second day I propose a short recovery stage with a fixed set of cases, a deadline, and explicit continue-or-stop criteria. If the root cause is expectations, closing the pilot is more honest than fixing symptoms."
       ru: "В первые часы признаю проблему прямо, без объяснений, почему так вышло: доверие уже потеряно, и спор о формулировках добьёт его окончательно. Дальше прошу конкретику — не «работает плохо», а десяток реальных случаев с запросом, полученным ответом и тем, каким он должен был быть. Только так разделяются три разные болезни: недоступные или грязные данные, дефекты самой системы вроде поиска и промптов, и несовпадение ожиданий с тем, на что функция вообще способна. Одновременно ограничиваю ущерб: отключаю самые опасные сценарии, ставлю проверку человеком или честный отказ там, где уверенности нет. К концу вторых суток предлагаю короткий проверочный этап с зафиксированным набором случаев, сроком и критериями продолжения или остановки. Если корень в ожиданиях, честнее закрыть пилот, чем чинить симптомы."
@@ -98,12 +98,12 @@ questions:
         - "Build a representative task set and compare plausible approaches."
         - "Explain data governance, maintenance and migration costs before recommending."
       ru:
-        - "Уточните, зачем нужна своя модель: поведение, знания, цена или контроль."
-        - "Соберите представительный набор задач и сравните подходящие решения."
-        - "Объясните требования к данным, сопровождению и миграции до рекомендации."
+        - "Уточнить, зачем нужна своя модель: поведение, знания, цена или контроль."
+        - "Собрать представительный набор задач и сравнить подходящие решения."
+        - "Объяснить требования к данным, сопровождению и миграции до рекомендации."
     answer:
-      en: "I don't start with an architecture argument. I start by asking what the customer is trying to solve with their own model: different behaviour and output format, knowledge that isn't in the context, a different cost per request, or control over the weights and where they run. Those four needs are met differently, and fine-tuning covers the first one well: it freezes knowledge at training time and ages along with the support tickets, while retrieval over their data updates when someone edits the source. Then I build a representative task set from their own tickets with expected answers, and compare the approaches on it honestly, hybrid included. Before recommending anything I talk through the cost of ownership: labelling, data quality, retraining when the base model changes, evaluation, migration. If the requirement comes from a regulator or from data isolation, arguing about quality is beside the point."
-      ru: "Начинаю не со спора об архитектуре, а с вопроса, какую задачу клиент решает собственной моделью: нужно другое поведение и формат, нужны знания, которых нет в контексте, нужна другая цена запроса или нужен контроль над весами и размещением. Эти четыре потребности лечатся по-разному, и дообучение хорошо закрывает первую: знания оно фиксирует на момент обучения и стареет вместе с обращениями в поддержку, тогда как поиск по данным обновляется правкой источника. Дальше собираю представительный набор задач из их же тикетов с ожидаемыми ответами и честно сравниваю подходы на нём, включая гибридный. И до рекомендации проговариваю цену владения: разметка, качество данных, повторное обучение при смене базовой модели, оценка, миграция. Если требование идёт от регулятора или от изоляции данных, спор о качестве неуместен."
+      en: "I don't start with an architecture argument. I start by asking what the customer is trying to solve with their own model: different behaviour and output format, knowledge that isn't in the context, a different cost per request, or control over the weights and where they run. Those four needs are met differently. Fine-tuning covers the first one well and can serve the third by teaching a smaller model the narrow task, but it freezes knowledge at training time, ages along with the support tickets and learns the mistakes support staff made in them, while retrieval over their data updates when someone edits the source. Then I build a representative task set from their own tickets with expected answers, and compare the approaches on it honestly, hybrid included. Before recommending anything I talk through the cost of ownership: labelling, data quality, retraining when the base model changes, evaluation, migration. If the requirement comes from a regulator or from data isolation, arguing about quality is beside the point."
+      ru: "Начинаю не со спора об архитектуре, а с вопроса, какую задачу клиент решает собственной моделью: нужно другое поведение и формат, нужны знания, которых нет в контексте, нужна другая цена запроса или нужен контроль над весами и размещением. Эти четыре потребности лечатся по-разному. Дообучение хорошо закрывает первую и может закрыть третью, если научить узкой задаче модель поменьше, но знания оно фиксирует на момент обучения, стареет вместе с обращениями в поддержку и перенимает ошибки, которые допускали в них операторы, тогда как поиск по данным обновляется правкой источника. Дальше собираю представительный набор задач из их же тикетов с ожидаемыми ответами и честно сравниваю подходы на нём, включая гибридный. И до рекомендации проговариваю цену владения: разметка, качество данных, повторное обучение при смене базовой модели, оценка, миграция. Если требование идёт от регулятора или от изоляции данных, спор о качестве неуместен."
     reading: ["google-rules-of-ml","anthropic-building-effective-agents"]
   - id: "app-model-retirement"
     tracks: ["engineering","leadership"]
@@ -118,7 +118,7 @@ questions:
       en: >-
         Whether provider lifecycle risk is handled through reproducible evaluation and controlled change.
       ru: >-
-        Умеете ли вы управлять сменой поставщиком модели через воспроизводимую оценку и контролируемые изменения.
+        Умеете ли вы управлять риском того, что поставщик выведет модель из эксплуатации, через воспроизводимую оценку и контролируемые изменения.
     provenance: "published"
     added: "2026-09-26"
     evidence:
@@ -132,12 +132,12 @@ questions:
         - "Compare candidates against representative recorded tasks and failure cases."
         - "Plan staged migration, rollback within the available window and customer communication."
       ru:
-        - "Составьте перечень затронутых процессов, контрактов инструментов и особенностей модели."
-        - "Сравните кандидатов на типичных зафиксированных задачах и известных ошибках."
-        - "Спланируйте поэтапный переход, откат в доступное время и информирование клиентов."
+        - "Составить перечень затронутых процессов, контрактов инструментов и особенностей модели."
+        - "Сравнить кандидатов на типичных зафиксированных задачах и известных ошибках."
+        - "Спланировать поэтапный переход, откат в доступное время и информирование клиентов."
     answer:
-      en: "I would treat sixty days as a deadline to assess, not a guarantee of enough time. First I inventory workflows, prompts, tool contracts and dependencies on model quirks: answer formats, context limits, refusals and accumulated workarounds. In parallel I freeze an evaluation set covering typical tasks and known failures, so successor selection rests on evidence. I compare candidates on quality, latency and cost, budgeting for prompt and parser changes. Migration proceeds through small traffic slices, during staffed hours, with advance customer communication. Before retirement, rollback may use the old model; afterward it needs a supported alternative or a reduced service mode. Tasks without objective correctness criteria require human review, whose lead time belongs in the plan. If migration cannot finish safely, I communicate scope reductions and contingency plans early."
-      ru: "Шестьдесят дней считаю дедлайном, достаточность которого надо оценить. Сначала выписываю процессы, промпты, контракты инструментов и зависимости от особенностей модели: форматы ответов, контекст, отказы, накопленные обходные приёмы. Параллельно фиксирую набор для оценки из типичных задач и известных ошибок, чтобы выбирать преемника по свидетельствам. Сравниваю кандидатов по качеству, задержке и цене, закладывая изменения промптов и парсеров. Перехожу небольшими долями трафика в рабочее время с предварительным предупреждением клиентов. До отключения можно откатиться на старую модель; после нужен поддерживаемый запасной вариант или ограниченный режим сервиса. Для задач без объективного критерия правильности планирую время человеческого разбора. Если безопасно закончить миграцию не удаётся, заранее сообщаю об ограничении функций и резервном плане."
+      en: "Sixty days is fixed; the hidden dependency is that the evaluation must exist before any candidate is chosen, so the first week builds the measuring instrument, not model trials. An agent's quality belongs to the model together with prompts, tool schemas and parsers tuned to its habits, so a successor regresses not because it's weaker but because it formats tool calls differently, refuses elsewhere or follows instructions more literally. I'd freeze an eval from recorded traffic and known failures and replay it in shadow against candidates, with thresholds per slice rather than one average. The trade-off is depth against a fallback: porting prompts carefully to one successor gives the best quality; keeping a second candidate alive costs more but is the only rollback once the old model is gone. Rollout goes shadow, small share, wider, in staffed hours, with customers told in advance. The boundary: if a slice can't reach parity by an agreed date, I'd decide what to cut and say so, and tasks with no objective check need human review time planned in."
+      ru: "Шестьдесят дней не сдвинуть, а скрытая зависимость в том, что оценка должна появиться раньше выбора кандидата, поэтому первая неделя уходит на измерительный инструмент, а не на пробы моделей. Качество агента принадлежит не модели, а модели вместе с промптами, схемами инструментов и парсерами, подогнанными под её привычки, поэтому преемник проседает не оттого, что слабее, а оттого, что иначе оформляет вызовы инструментов, отказывает в других местах или понимает инструкции буквальнее. Я бы зафиксировал eval-набор из записанного трафика и известных сбоев и прогнал его в теневом режиме на кандидатах, с порогами по срезам, а не одним средним. Компромисс — глубина против запасного варианта: тщательно перенести промпты на одного преемника — лучшее качество; держать живым второго кандидата дороже, но после отключения старой модели это единственный путь отката. Переход идёт от теневого режима к небольшой доле и дальше, в рабочие часы, с заранее предупреждёнными клиентами. Граница: если какой-то срез к согласованной дате не дотягивает до прежнего уровня, я решаю, что урезать, и говорю об этом прямо, а для задач без объективной проверки закладываю время на разбор людьми."
     reading: ["anthropic-evals-for-agents","google-sre-book"]
   - id: "app-slow-expensive"
     tracks: ["engineering","leadership"]
@@ -165,12 +165,12 @@ questions:
         - "Profile before choosing serving, model, retrieval or interaction changes."
         - "Validate improvements on the same workload with quality and reliability guardrails."
       ru:
-        - "Измерьте реальную нагрузку, распределение задержек, утилизацию и стоимость успешной задачи."
-        - "Проведите профилирование до выбора изменений сервинга, модели, поиска или интерфейса."
-        - "Проверьте улучшения на той же нагрузке с ограничениями по качеству и надёжности."
+        - "Измерить реальную нагрузку, распределение задержек, утилизацию и стоимость успешной задачи."
+        - "Провести профилирование до выбора изменений сервинга, модели, поиска или интерфейса."
+        - "Проверить улучшения на той же нагрузке с ограничениями по качеству и надёжности."
     answer:
-      en: "I'd start the week with measurements, not ideas: what the real workload profile looks like, how latency is distributed across percentiles rather than averaged, what the response time is made of, retrieval, prefill, decode, external calls, what the utilisation of those eight GPUs is, and what one successfully completed user task costs. The customer's complaint is usually about that last number, not about the price of a token. I profile first and only then pick the lever: batching and serving parameters, a smaller model or quantisation, shorter context and more precise retrieval, streaming and caching for perceived speed. That order holds because swapping the model is the most expensive move and serving is often underloaded. Every change gets validated on the same recorded workload with quality guardrails. If the bottleneck is in the data sources or in the scenario itself, optimising inference won't help."
-      ru: "Неделю начинаю с измерений, а не с идей: какой реальный профиль нагрузки, как распределены задержки по процентилям, а не в среднем, из чего складывается время ответа — поиск, prefill, decode, внешние вызовы, — какая утилизация восьми GPU и сколько стоит одна успешно решённая задача пользователя. Обычно жалоба клиента именно про последнюю величину, а не про цену токена. Дальше профилирую и только потом выбираю рычаг: батчинг и параметры сервинга, модель поменьше или квантование, сокращение контекста и более точный поиск, стриминг и кеш для ощущаемой скорости. Порядок такой, потому что смена модели дороже всего, а сервинг часто недогружен. Каждое изменение проверяю на той же записанной нагрузке с ограничениями по качеству. Если узкое место в источниках данных или в самом сценарии, оптимизация инференса не поможет."
+      en: "I'd start the week with measurements, not ideas: what the real workload profile looks like, how latency is distributed across percentiles rather than averaged, what the response time is made of — retrieval, prefill, decode, external calls — what the utilisation of those eight GPUs is, and what one successfully completed user task costs. The customer's complaint is usually about that last number, not about the price of a token. I profile first and only then pick the lever: batching and serving parameters, a smaller model or quantisation, shorter context and more precise retrieval, streaming and caching for perceived speed. That order holds because serving is often underloaded and tuning it leaves the answers unchanged, while a smaller or quantised model changes them and needs a full quality re-evaluation. Every change gets validated on the same recorded workload with quality and reliability guardrails. If the bottleneck is in the data sources or in the scenario itself, optimising inference won't help."
+      ru: "Неделю начинаю с измерений, а не с идей: какой реальный профиль нагрузки, как распределены задержки по процентилям, а не в среднем, из чего складывается время ответа — поиск, prefill, decode, внешние вызовы, — какая утилизация восьми GPU и сколько стоит одна успешно решённая задача пользователя. Обычно жалоба клиента именно про последнюю величину, а не про цену токена. Дальше профилирую и только потом выбираю рычаг: батчинг и параметры сервинга, модель поменьше или квантование, сокращение контекста и более точный поиск, стриминг и кеш для ощущаемой скорости. Порядок такой, потому что сервинг часто недогружен и его настройка не меняет ответов, а модель поменьше или квантованная их меняет и требует полной повторной оценки качества. Каждое изменение проверяю на той же записанной нагрузке с ограничениями по качеству и надёжности. Если узкое место в источниках данных или в самом сценарии, оптимизация инференса не поможет."
     reading: ["google-sre-book","google-rules-of-ml"]
   - id: "app-vpc-pilot"
     tracks: ["engineering","leadership"]
@@ -199,9 +199,9 @@ questions:
         - "Choose a representative subset and a deployable end-to-end workflow."
         - "Agree acceptance tests, operational ownership and what the pilot cannot establish."
       ru:
-        - "Уточните приоритетные документы, права, разрешённые сервисы и самые ценные запросы."
-        - "Выберите представительную часть данных и реализуемый сквозной процесс."
-        - "Согласуйте приёмочные проверки, ответственность за эксплуатацию и пределы выводов пилота."
+        - "Уточнить приоритетные документы, права, разрешённые сервисы и самые ценные запросы."
+        - "Выбрать представительную часть данных и реализуемый сквозной процесс."
+        - "Согласовать приёмочные проверки, ответственность за эксплуатацию и пределы выводов пилота."
     answer:
       en: "Four weeks and two million files is a conversation about choosing, not about coverage. First I narrow it down: which document collections are genuinely needed, who has rights to them today, which services are allowed inside the perimeter, and which fifteen or so employee questions are worth the most. Permissions are not post-processing: the index has to carry labels and retrieval has to filter by the asker's rights, or the pilot becomes a leak path of its own. Then I take a representative slice of the data rather than a random one: it needs current and stale documents, duplicates and mixed formats, because those are what break answer quality. I build the end-to-end path in full, even on a narrow slice. Up front I agree acceptance tests, an owner for operations, and what the pilot will not prove: load, full coverage, and cost at the full volume."
       ru: "Четыре недели и два миллиона файлов — это разговор про выбор, а не про полноту. Сначала сужаю: какие коллекции документов действительно нужны, у кого есть права на них сейчас, какие сервисы разрешены внутри периметра и какие полтора десятка вопросов сотрудников стоят дороже всего. Права доступа не постобработка: индекс должен хранить метки, а поиск фильтровать по правам спрашивающего, иначе пилот сам станет каналом утечки. Дальше беру представительную часть данных, а не случайную: в ней должны быть свежие и устаревшие документы, дубликаты, разные форматы, потому что именно они ломают качество ответов. Сквозной путь реализую целиком, пусть и на узком срезе. Заранее согласую приёмочные проверки, владельца эксплуатации и то, чего пилот не докажет: нагрузку, полное покрытие и стоимость на всём объёме."
@@ -226,6 +226,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "anthropic"
+    start_here: ["leadership"]
+    priority: 70
+    outline:
+      en:
+        - "Collect concrete failing cases with full traces: question, retrieved passages, assembled prompt and answer."
+        - "Sort each into missed retrieval, an answer unsupported by retrieved text, or a question the corpus cannot answer."
+        - "Report the split with counts, fix the dominant cause first, and keep the cases as a regression set."
+      ru:
+        - "Собрать конкретные неудачные случаи с полными трассировками: вопрос, найденные фрагменты, собранный промпт и ответ."
+        - "Отнести каждый к промаху поиска, ответу без опоры на найденный текст или вопросу, на который в корпусе нет ответа."
+        - "Показать распределение в цифрах, сначала устранить преобладающую причину и сохранить случаи как регрессионный набор."
+    answer:
+      en: "Hallucination is a symptom, so I'd begin by getting concrete cases, a few dozen if they exist, each with its full trace: the question, what retrieval returned, the assembled prompt and the answer. Without traces the conversation is about impressions. Then I sort every case into one of three buckets, because each has a different fix. Retrieval failure: the right passage existed but wasn't returned, or a stale or contradictory document was. Unsupported generation: the right passage was in context, yet the answer added to it or contradicted it. Expectation mismatch: the corpus doesn't contain the answer, or the user wanted judgement rather than lookup; even then, filling the gap instead of saying the sources don't cover it is part of the defect. I'd show the customer the split with counts, fix the dominant bucket first, and keep the cases as a regression set. The limit is that escalated examples overrepresent vivid failures, so before claiming improvement I'd also measure a random sample of ordinary traffic."
+      ru: "Галлюцинация — это симптом, поэтому начал бы с конкретных случаев, нескольких десятков, если они есть, и для каждого с полной трассировкой: вопрос, что вернул поиск, собранный промпт и ответ. Без трассировок разговор идёт о впечатлениях. Дальше раскладываю каждый случай по одной из трёх корзин, потому что лечатся они по-разному. Ошибка поиска: нужный фрагмент существовал, но не попал в выдачу, или попал устаревший либо противоречивый документ. Неподтверждённая генерация: нужный фрагмент был в контексте, но ответ что-то к нему добавил или ему противоречит. Расхождение ожиданий: в корпусе ответа нет или пользователь ждал суждения, а не поиска; но и тогда заполнить пробел вместо того, чтобы сказать, что источники этого не покрывают, — часть дефекта. Показал бы клиенту распределение в цифрах, сначала занялся самой крупной корзиной и сохранил случаи как регрессионный набор. Ограничение: среди присланных примеров непропорционально много ярких провалов, поэтому прежде чем заявлять об улучшении, я бы измерил и случайную выборку обычного трафика."
+    reading: ["hamel-evals"]
   - id: "app-research-explanation"
     tracks: ["leadership"]
     roles: ["deployment-strategist"]
@@ -246,6 +261,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "anthropic"
+    outline:
+      en:
+        - "Ask who the audience is and which of their decisions the result should inform."
+        - "Cut detail, never accuracy: one honest analogy, what was measured and against which baseline."
+        - "State what the result does not show, and check the audience can restate its limits."
+      ru:
+        - "Выяснить, кто аудитория и какое её решение должен помочь принять этот результат."
+        - "Жертвовать деталями, но не точностью: одна честная аналогия, что измеряли и с чем сравнивали."
+        - "Назвать, чего результат не показывает, и проверить, что слушатели могут пересказать его пределы."
   - id: "app-rail-downtime"
     tracks: ["engineering","leadership"]
     roles: ["forward-deployed-engineer", "deployment-strategist"]
@@ -266,6 +290,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "palantir"
+    outline:
+      en:
+        - "Ask which failure modes cost most and which decision an early warning would change."
+        - "Check whether sensor and repair logs label failures, then price false alarms against missed breakdowns."
+        - "Close on a pilot fleet, comparing unplanned downtime and cost with matched locomotives."
+      ru:
+        - "Спросить, какие отказы обходятся дороже всего и какое решение изменило бы раннее предупреждение."
+        - "Проверить, размечены ли отказы в данных датчиков и журналах ремонта, и сопоставить цену ложной тревоги с пропущенной поломкой."
+        - "Завершить пилотом на части парка, сравнив внеплановые простои и затраты с сопоставимыми локомотивами."
   - id: "app-city-traffic"
     tracks: ["engineering","leadership"]
     roles: ["forward-deployed-engineer", "deployment-strategist"]
@@ -286,6 +319,15 @@ questions:
     evidence:
       - source: "exponent-palantir-fde"
         company: "palantir"
+    outline:
+      en:
+        - "Ask what improving traffic means and for whom: travel time, safety, emissions, buses or freight."
+        - "Choose levers the system actually controls, such as signal timing or bus lanes, and their data."
+        - "Evaluate one corridor against a comparable control, watching for traffic displaced onto nearby streets."
+      ru:
+        - "Уточнить, что значит улучшить движение и для кого: время в пути, безопасность, выбросы, автобусы или грузы."
+        - "Выбрать рычаги, которыми система реально управляет, например фазы светофоров или выделенные полосы, и данные для них."
+        - "Оценить один коридор против сопоставимого контрольного, следя за вытеснением потока на соседние улицы."
   - id: "app-employee-sync"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -305,6 +347,16 @@ questions:
     evidence:
       - source: "exponent-palantir-fde"
         company: "palantir"
+    outline:
+      en:
+        - "Assign an owner per field, not per record, and a stable identifier linking both systems."
+        - "Propagate changes idempotently with version ordering, and define which side wins each conflict."
+        - "Reconcile regularly, replay safely after outages, and route unmatched or deleted records to review."
+      ru:
+        - "Назначить владельца для каждого поля, а не для записи целиком, и устойчивый идентификатор, связывающий обе системы."
+        - "Передавать изменения идемпотентно с упорядочиванием по версии и определить, какая сторона побеждает в каждом конфликте."
+        - "Регулярно сверять системы, безопасно переигрывать изменения после сбоев и отправлять несопоставленные или удалённые записи на разбор."
+    reading: ["stripe-idempotency"]
   - id: "app-field-catalogue"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -324,6 +376,15 @@ questions:
     evidence:
       - source: "exponent-palantir-fde"
         company: "palantir"
+    outline:
+      en:
+        - "Ask about field constraints first: connectivity, battery, gloves, light and who records."
+        - "Design capture to work offline with location, time and photo, and resolve sync conflicts later."
+        - "Store the model's suggestion apart from the observer's call, and audit a sample against experts."
+      ru:
+        - "Сначала выяснить полевые ограничения: связь, заряд, перчатки, освещение и кто именно ведёт записи."
+        - "Проектировать запись для работы без сети, с координатами, временем и фото, а конфликты синхронизации разбирать позже."
+        - "Хранить подсказку модели отдельно от определения наблюдателя и сверять выборку записей с экспертами."
   - id: "app-decline-migration"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -342,6 +403,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Ask what prompted the conversation: cost, capacity, latency or pressure from a vendor."
+        - "Compare cost per useful output after migration effort, porting risk and remaining hardware commitments."
+        - "Recommend staying when the gain does not clear switching costs, and name what would reopen it."
+      ru:
+        - "Спросить, что вызвало разговор: стоимость, нехватка мощностей, задержка или давление поставщика."
+        - "Сравнить стоимость полезного результата с учётом затрат на миграцию, риска портирования и оставшихся обязательств по оборудованию."
+        - "Советовать сохранить систему, если выигрыш не покрывает затрат на переход, и назвать, что заставит вернуться к вопросу."
   - id: "app-open-model-engagement"
     tracks: ["engineering","leadership"]
     roles: ["forward-deployed-engineer", "deployment-strategist"]
@@ -361,6 +431,16 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Ask why they want to switch: cost, data control, customisation or vendor dependence."
+        - "Compare quality on their own tasks and full operating cost, including serving, upgrades and staff."
+        - "Close with a shadow run against agreed thresholds and named owners for serving and upgrades."
+      ru:
+        - "Спросить, зачем менять: цена, контроль над данными, кастомизация или зависимость от поставщика."
+        - "Сравнить качество на их собственных задачах и полную стоимость эксплуатации: сервинг, обновления и людей."
+        - "Закрыть теневым прогоном с согласованными порогами и названными владельцами сервинга и обновлений."
+    reading: ["openai-evaluation-best-practices","vllm-docs"]
   - id: "app-robot-data-collection"
     tracks: ["engineering","leadership"]
     type: "applied_scenario"
@@ -379,6 +459,16 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Ask what the policy must be able to do, and how success on each task is judged."
+        - "Allocate collection by coverage of tasks, robots and conditions, not equal hours per cell."
+        - "Reject failed or sloppy demonstrations, and train on early batches to see which data raises success."
+      ru:
+        - "Спросить, что политика должна уметь и как оценивается успех на каждой задаче."
+        - "Распределять сбор по покрытию задач, роботов и условий, а не поровну часов на каждую ячейку."
+        - "Отбрасывать неудачные и небрежные демонстрации и обучать на первых партиях, чтобы видеть, какие данные повышают успех."
+    reading: ["paper-open-x-embodiment"]
   - id: "app-diligence-economics"
     tracks: ["engineering","leadership"]
     type: "applied_scenario"
@@ -397,6 +487,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "State workload assumptions: pages per document, tokens per page, passes and questions per document."
+        - "Compare model cost with lawyers' review time, which may dominate, and find the turnaround bottleneck."
+        - "First test what cuts the dominant driver, such as triaging documents for review, on a labelled sample."
+      ru:
+        - "Назвать предположения о нагрузке: страниц на документ, токенов на страницу, проходов и вопросов на документ."
+        - "Сравнить стоимость модели со временем проверки юристами, которое может доминировать, и найти узкое место по срокам."
+        - "Первым проверить то, что снижает главную статью затрат, например сортировку документов для проверки, на размеченной выборке."
   - id: "app-missed-contract-clause"
     tracks: ["engineering","leadership"]
     type: "applied_scenario"
@@ -415,6 +514,16 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Reproduce the exact case: document version, query, retrieved passages and the output the lawyer saw."
+        - "Locate the failing stage: parsing, chunking, retrieval, reasoning over indirect wording, or human review."
+        - "Turn it into a regression test, check similar contracts for the same miss, and warn affected users."
+      ru:
+        - "Воспроизвести конкретный случай: версия документа, запрос, найденные фрагменты и вывод, который видел юрист."
+        - "Найти этап сбоя: разбор файла, разбиение, поиск, рассуждение над косвенной формулировкой или проверка человеком."
+        - "Превратить случай в регрессионный тест, поискать такой же пропуск в похожих договорах и предупредить затронутых пользователей."
+    reading: ["anthropic-contextual-retrieval","hamel-evals"]
   - id: "app-hospital-scheduling"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -433,6 +542,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Ask how a booking happens today: who calls, which rules apply, which system holds the schedule."
+        - "Write into the existing scheduling system, automate routine bookings, and route urgent or clinical requests to staff."
+        - "Pilot in one clinic, measuring completed bookings, no-shows and correct escalations against the phone baseline."
+      ru:
+        - "Спросить, как запись устроена сейчас: кто звонит, по каким правилам и в какой системе хранится расписание."
+        - "Записывать в существующую систему расписания, автоматизировать типовые записи, а срочные и медицинские вопросы передавать сотрудникам."
+        - "Запустить пилот в одной клинике, измеряя завершённые записи, неявки и правильность эскалаций относительно телефонного процесса."
   - id: "app-contact-centre"
     tracks: ["leadership"]
     roles: ["fde-lead"]
@@ -485,6 +603,16 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Ask which languages, channels and literacy levels users have, and who cannot use a chat at all."
+        - "Weigh on-premises limits on model size against quality per language, and keep phone and paper routes."
+        - "Accept on per-language task success with native-speaker review, leaving eligibility decisions to caseworkers."
+      ru:
+        - "Выяснить языки, каналы и уровень грамотности пользователей и то, кому чат недоступен вовсе."
+        - "Соотнести ограничения на размер модели в своём контуре с качеством на каждом языке и сохранить телефон и бумажный путь."
+        - "Принимать работу по успешности задач на каждом языке с проверкой носителями, оставив решения о праве на пособие сотрудникам."
+    reading: ["nist-ai-rmf"]
   - id: "app-financial-crime-decomposition"
     tracks: ["engineering","leadership"]
     roles: ["forward-deployed-engineer", "deployment-strategist"]
@@ -501,6 +629,15 @@ questions:
         company: "palantir"
         role: "forward-deployed-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Ask which instruments and data exist, and what an analyst must decide from an alert."
+        - "Scope one pattern first: unusual trading by connected accounts before price-moving announcements."
+        - "Backtest on confirmed past cases, and cap alert volume at what analysts can review."
+      ru:
+        - "Спросить, какие инструменты и данные есть и что аналитик должен решать по каждому сигналу."
+        - "Начать с одной закономерности: необычные сделки связанных счетов перед существенными объявлениями, влияющими на цену."
+        - "Проверить на подтверждённых прошлых случаях и ограничить поток сигналов тем, что аналитики успевают разобрать."
   - id: "app-agent-product-poc"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -517,6 +654,15 @@ questions:
         company: "cognition"
         role: "forward-deployed-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Ask who the customer's user is and which task in their day the product takes over."
+        - "Build with the product's own features as a customer would, not custom code that bypasses them."
+        - "Demo the flow end to end on realistic input, including a failure and how the user recovers."
+      ru:
+        - "Спросить, кто пользователь у клиента и какую задачу из его дня продукт берёт на себя."
+        - "Собирать на штатных возможностях продукта, как сделал бы клиент, а не на своём коде в обход них."
+        - "Показать сценарий целиком на реалистичных данных, включая сбой и то, как пользователь из него выходит."
   - id: "app-customer-case-call"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -533,6 +679,15 @@ questions:
         company: "cognition"
         role: "forward-deployed-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Open with questions on the outcome they need, the current workflow and who decides."
+        - "Propose the smallest approach that tests their biggest risk, and say what you would not do."
+        - "Close on dated next steps, owners, success criteria and the data they will send."
+      ru:
+        - "Начать с вопросов о нужном результате, текущем процессе и о том, кто принимает решение."
+        - "Предложить минимальный подход, проверяющий их главный риск, и назвать, чего делать не будете."
+        - "Закончить следующими шагами с датами, ответственными, критериями успеха и данными, которые они пришлют."
   - id: "app-learn-then-design"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -550,12 +705,22 @@ questions:
         role: "forward-deployed-engineer"
         observed: "2025-03"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Read the core abstraction and one minimal example, then wrap the library behind a thin interface."
+        - "Carry what you learned about its limits, state and errors into the scale and storage design."
+        - "Name how the design fails, plan retries, timeouts and backpressure, and test the integration path."
+      ru:
+        - "Разобрать основную абстракцию и один минимальный пример, затем спрятать библиотеку за тонким интерфейсом."
+        - "Перенести узнанное о её ограничениях, состоянии и ошибках в решения о масштабе и хранении."
+        - "Назвать, как система отказывает, предусмотреть повторы, тайм-ауты и backpressure и протестировать путь интеграции."
+    reading: ["palantir-existing-systems"]
   - id: "app-prompt-date-range"
     tracks: ["engineering"]
     roles: ["applied-ai-engineer"]
     type: "applied_scenario"
     text:
-      en: "Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first) and «по первое число» (through the first)."
+      en: "Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first), «по первое число» (through the first) and «за первое число» (for the first)."
       ru: "Напишите промпт, который извлекает период из запроса клиента и различает почти одинаковые формулировки вроде «с первого числа», «по первое число» и «за первое число»."
     tests:
       en: "Whether you handle language-specific ambiguity and test a prompt on hard cases."
@@ -565,3 +730,13 @@ questions:
       - source: "tochka-prompt-engineers-2025"
         company: "tochka"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Define the output: start and end dates, inclusive or exclusive bounds, and the reference date."
+        - "Spell out how the prepositions «с», «по» and «за» set each bound, with contrasting examples."
+        - "Test on a set of near-identical phrasings and relative dates, and ask back when it is ambiguous."
+      ru:
+        - "Определить формат вывода: начальная и конечная даты, включительность границ и дата отсчёта."
+        - "Явно описать, как предлоги «с», «по» и «за» задают каждую границу, и дать контрастные примеры."
+        - "Проверить на наборе почти одинаковых формулировок и относительных дат и переспрашивать клиента при неоднозначности."
+    reading: ["openai-evaluation-best-practices"]

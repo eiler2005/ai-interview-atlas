@@ -46,7 +46,7 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[How should evaluation of a tool-using agent differ from grading one generated response?](../themes/evals-observability.md#eval-agent-outcomes)**
   - System design · [Evaluation and observability](../themes/evals-observability.md) · ✍ [Answer](../answers/engineering.md#eval-agent-outcomes)
 - **[A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?](../themes/evals-observability.md#eval-upgrade-complaint)**
-  - Applied scenario · [Evaluation and observability](../themes/evals-observability.md)
+  - Applied scenario · [Evaluation and observability](../themes/evals-observability.md) · ✍ [Answer](../answers/engineering.md#eval-upgrade-complaint)
 - **[Build the evaluation harness for a new model release, covering reproducibility, execution isolation and comparable results.](../themes/evals-observability.md#eval-frontier-harness)**
   - System design · [Evaluation and observability](../themes/evals-observability.md)
 - **[In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation.](../themes/evals-observability.md#eval-behaviour-brainstorm)**

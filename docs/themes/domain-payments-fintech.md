@@ -26,11 +26,21 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (1)](#track-leade
     - Handle retention limits, concurrent attempts and manual escalation; do not promise global exactly-once execution.
   - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="pay-clinical-data-boundary"></a>**A clinical AI service handles recordings, transcripts and notes containing protected health information. How does that constrain architecture and use of third-party model APIs?**
-  - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-clinical-data-boundary&title=%5BCorrection%5D%20pay-clinical-data-boundary)
+  - System design · Senior · ✍ [Answer](../answers/leadership.md#pay-clinical-data-boundary) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-clinical-data-boundary&title=%5BCorrection%5D%20pay-clinical-data-boundary)
   - Tests: Whether you map sensitive data flows and establish permitted processing before integration.
+  - A strong answer covers:
+    - Map every copy of recordings, transcripts and notes, including logs, traces, caches and evaluation sets.
+    - Send protected data to a model API only under a contract covering health data, retention and training use.
+    - Minimise data per step, audit access, measure redaction misses and test deletion before integration.
+  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
 - <a id="pay-clinical-writeback"></a>**How would you write an AI-generated clinical note back into an electronic health-record system, and what can go wrong?**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-clinical-writeback&title=%5BCorrection%5D%20pay-clinical-writeback)
   - Tests: Whether you consider patient identity, review status, duplicate writes and recovery.
+  - A strong answer covers:
+    - Match patient and encounter by stable identifiers, and block the write on any mismatch.
+    - Write an unsigned draft that enters the record only after clinician review and signature.
+    - Make writes idempotent, reconcile after timeouts, and correct signed notes by amendment, not overwrite.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 
 ## <a id="track-leadership"></a>AI Leadership
 

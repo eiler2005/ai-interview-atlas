@@ -14,13 +14,13 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 - **AI Engineering.** Engineers who build, ship and run AI systems: applications, agents, platforms, inference and research code.
   - Roles covered: Software engineer (general interview baseline), AI / LLM engineer, Software engineer on AI products, Applied AI engineer, Forward deployed engineer (FDE), AI solutions architect / customer engineer, AI evaluation engineer, ML engineer / data scientist, Agent engineer, AI platform / MLOps engineer, Inference and performance engineer, Research engineer
   - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Applied AI / agent product engineer](roles/applied-ai.md) · [AI evaluation and reliability engineer](roles/eval-reliability.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [Research engineer](roles/research-engineering.md)
-  - [Start here](start/engineering.md): 55 priority questions in study order
-  - [Answers](answers/engineering.md): 55 of 55 written
+  - [Start here](start/engineering.md): 70 priority questions in study order
+  - [Answers](answers/engineering.md): 70 of 70 written
 - **AI Leadership.** People who decide what AI to build and lead the teams, programmes and organisations that build it.
   - Roles covered: Product manager (general interview baseline), AI product manager (senior to group), Director or head of product, Engineering manager, Director or head of engineering, Technical program manager, AI platform lead, Head of AI adoption / chief AI officer, Deployment strategist, Forward-deployed or solutions leader
   - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [AI product leadership](roles/product-leadership.md)
-  - [Start here](start/leadership.md): 55 priority questions in study order
-  - [Answers](answers/leadership.md): 55 of 55 written
+  - [Start here](start/leadership.md): 70 priority questions in study order
+  - [Answers](answers/leadership.md): 70 of 70 written
 
 ## <a id="themes"></a>Themes
 

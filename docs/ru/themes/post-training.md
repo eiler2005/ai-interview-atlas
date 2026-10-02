@@ -18,7 +18,7 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
     - Дообучать при достаточных характерных примерах и сравнить полную стоимость и отложенное качество.
   - Читать: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) (Lewis et al., arXiv) · [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) (Hu et al., arXiv)
 - <a id="pt-constitutional"></a>**Объясните использование принципов, самокоррекции и AI-предпочтений в Constitutional AI и сохранённую зависимость от человеческих решений.**
-  - Знания · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-constitutional&title=%5BCorrection%5D%20pt-constitutional)
+  - Знания · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#pt-constitutional) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-constitutional&title=%5BCorrection%5D%20pt-constitutional)
   - Что проверяет: Умение отличать сокращение разметки от устранения человеческого выбора ценностей.
   - Сильный ответ покрывает:
     - Разделить обучение на самокритике и исправлениях и RL по предпочтениям, сгенерированным AI.
@@ -45,7 +45,7 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
     - Обсудить покрытие предпочтений и сдвиг распределения без тезиса об устаревании online RL.
   - Читать: [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) (Rafailov et al., arXiv)
 - <a id="pt-grpo"></a>**Объясните GRPO и компромиссы оценки advantage без обученной value model.**
-  - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-grpo&title=%5BCorrection%5D%20pt-grpo)
+  - Знания · ✍ [Ответ](../answers/engineering.md#pt-grpo) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-grpo&title=%5BCorrection%5D%20pt-grpo)
   - Что проверяет: Понимание связи относительных наград и дисперсии с группами ответов.
   - Сильный ответ покрывает:
     - Получить несколько ответов на промпт и оценить advantage относительно наград внутри группы.
@@ -71,11 +71,21 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
 - <a id="pt-adaptation-method"></a>**Сравните низкоранговые адаптеры, prefix tuning, soft prompt tuning и полное дообучение для одной задачи.**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-adaptation-method&title=%5BCorrection%5D%20pt-adaptation-method)
   - Что проверяет: Умение выбирать метод по данным, выразительности и ограничениям развёртывания.
+  - Сильный ответ покрывает:
+    - Расставить методы: LoRA добавляет низкоранговые обновления весов, prefix tuning обучает префиксы key и value в каждом слое, prompt tuning — входные эмбеддинги.
+    - Взвесить выразительность и цену: полное дообучение хранит состояния оптимизатора и модель на каждую задачу, а адаптеры сливаются с весами или подменяются на запрос.
+    - Сравнить все варианты на одинаковых данных по отложенным метрикам задачи и регрессиям общих способностей, включая задержку и память при обслуживании.
+  - Читать: [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) (Hu et al., arXiv) · [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://arxiv.org/abs/2101.00190) (Li et al., arXiv) · [The Power of Scale for Parameter-Efficient Prompt Tuning](https://arxiv.org/abs/2104.08691) (Lester et al., arXiv)
 - <a id="pt-forgetting"></a>**После доменного дообучения просели общие способности модели. Как измерить и уменьшить catastrophic forgetting?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-forgetting&title=%5BCorrection%5D%20pt-forgetting)
   - Что проверяет: Умение проверять сохранение способностей наряду с успехом на целевой задаче.
+  - Сильный ответ покрывает:
+    - До обучения зафиксировать набор проверки сохранности и оценить на нём базовый и дообученный чекпоинты вместе с целевой задачей.
+    - Снижать дрейф подмешиванием общих данных, меньшим learning rate или числом шагов, адаптерами, KL-штрафом или интерполяцией весов.
+    - Построить зависимость прироста на задаче от сохранности по чекпоинтам и долям смешивания и выбрать точку на этой границе.
+  - Читать: [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) (Ouyang et al., arXiv) · [LoRA Learns Less and Forgets Less](https://arxiv.org/abs/2405.09673) (Biderman et al., arXiv)
 - <a id="pt-training-memory"></a>**Рассчитайте память полного bf16-дообучения модели 7B с Adam, затем для LoRA; явно задайте предположения об оптимизаторе.**
-  - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-training-memory&title=%5BCorrection%5D%20pt-training-memory)
+  - Прикладной сценарий · ✍ [Ответ](../answers/engineering.md#pt-training-memory) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-training-memory&title=%5BCorrection%5D%20pt-training-memory)
   - Что проверяет: Учёт градиентов, состояния оптимизатора, мастер-весов и активаций.
   - Сильный ответ покрывает:
     - Задать точность и объём весов, градиентов, моментов Adam и мастер-копии весов, если она есть.
@@ -85,22 +95,37 @@ Supervised fine-tuning, оптимизация по предпочтениям, 
 - <a id="pt-verifiable-reward"></a>**Когда программно проверяемая награда предпочтительнее обученной модели награды и как можно обмануть саму проверку?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-verifiable-reward&title=%5BCorrection%5D%20pt-verifiable-reward)
   - Что проверяет: Понимание ограничений проверки как спецификации.
+  - Сильный ответ покрывает:
+    - Предпочитать программную проверку там, где правильность дешева и объективна — точный ответ или тесты, — избегая переоптимизации модели награды.
+    - Назвать слепые зоны: слабые тесты, подгонку под конкретные случаи, лазейки парсера, правку проверяющего кода и верный ответ из неверного рассуждения.
+    - Вручную проверять выборку траекторий с высокой наградой и следить за разрывом между наградой и скрытыми тестами или независимой проверкой.
+  - Читать: [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (v1)](https://arxiv.org/html/2501.12948v1) (DeepSeek-AI, arXiv) · [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv)
 - <a id="pt-reward-hacking"></a>**Награда политики растёт, а людям ответы нравятся всё меньше. Как выявить и ограничить reward hacking?**
-  - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-reward-hacking&title=%5BCorrection%5D%20pt-reward-hacking)
+  - Прикладной сценарий · ✍ [Ответ](../answers/engineering.md#pt-reward-hacking) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-reward-hacking&title=%5BCorrection%5D%20pt-reward-hacking)
   - Что проверяет: Умение отличать оптимизацию прокси от достижения реальной цели.
   - Сильный ответ покрывает:
     - Сопоставить прокси-награду со слепой оценкой людьми на отложенных данных и изучить новые поощряемые признаки.
-    - Проверить ранние checkpoint и меньшую интенсивность оптимизации; расширить покрытие предпочтений до переобучения.
+    - Проверить ранние checkpoint и меньшую интенсивность оптимизации; расширить покрытие предпочтений до повторного обучения.
     - Считать контроль KL и раннюю остановку мерами снижения риска, не гарантией; отличать синтетическую эталонную модель от оценки людьми.
   - Читать: [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) (Gao, Schulman and Hilton, arXiv)
 - <a id="pt-distillation"></a>**Спроектируйте дистилляцию учителя в малую модель и проверку способностей, которые ученик не сохранил.**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distillation&title=%5BCorrection%5D%20pt-distillation)
   - Что проверяет: Учёт покрытия данных и независимой оценки при подражании учителю.
+  - Сильный ответ покрывает:
+    - Собрать промпты, покрывающие распределение способностей, включая редкие языки, длинный контекст и отказы, а не только лёгкий трафик.
+    - Выбрать дистилляцию по ответам учителя или по KL логитов на токен и добавить on-policy выборки ученика, чтобы он учился на своих ошибках.
+    - Оценивать по срезам способностей на независимой разметке, а не по согласию с учителем, и отмечать срезы, где отставание ученика растёт.
+  - Читать: [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (v1)](https://arxiv.org/html/2501.12948v1) (DeepSeek-AI, arXiv) · [Distilling the Knowledge in a Neural Network](https://arxiv.org/abs/1503.02531) (Hinton et al., arXiv) · [On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes](https://arxiv.org/abs/2306.13649) (Agarwal et al., arXiv)
 - <a id="pt-loss-divergence"></a>**В длинном запуске предобучения внезапно расходится loss. Как проверить данные, численную устойчивость и оптимизатор перед продолжением с checkpoint?**
   - Прикладной сценарий · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-loss-divergence&title=%5BCorrection%5D%20pt-loss-divergence)
   - Что проверяет: Умение восстанавливать обучение на основе воспроизводимой диагностики.
+  - Сильный ответ покрывает:
+    - Найти первый аномальный шаг по норме градиента, величинам активаций и логитов внимания и отношению обновления к весам.
+    - Повторить участок с предыдущего checkpoint с тем же порядком данных: воспроизведённый скачок указывает на данные или численную устойчивость, иначе подозревать оборудование.
+    - Вносить одно целевое исправление — пропуск батчей, меньший learning rate, более жёсткий clipping или z-loss — и сравнить повторённую траекторию.
+  - Читать: [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/abs/2204.02311) (Chowdhery et al., arXiv) · [Small-scale proxies for large-scale Transformer training instabilities](https://arxiv.org/abs/2309.14322) (Wortsman et al., arXiv)
 - <a id="pt-distributed-training"></a>**Спроектируйте обучение модели, не помещающейся на одном ускорителе: как разделить состояние и ограничить стоимость коммуникаций?**
-  - System design · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distributed-training&title=%5BCorrection%5D%20pt-distributed-training)
+  - System design · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · ✍ [Ответ](../answers/engineering.md#pt-distributed-training) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pt-distributed-training&title=%5BCorrection%5D%20pt-distributed-training)
   - Что проверяет: Умение выбирать параллелизм по состоянию модели, активациям и топологии сети.
   - Сильный ответ покрывает:
     - Разделить параметры, градиенты, состояние оптимизатора и активации до выбора схемы разбиения.

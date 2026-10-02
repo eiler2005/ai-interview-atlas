@@ -58,62 +58,137 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Agree acceptance tests, operational ownership and what the pilot cannot establish.
   - Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="app-rag-account-triage"></a>**An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?**
-  - Applied scenario · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-rag-account-triage&title=%5BCorrection%5D%20app-rag-account-triage)
+  - Applied scenario · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#app-rag-account-triage) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-rag-account-triage&title=%5BCorrection%5D%20app-rag-account-triage)
   - Tests: Whether you separate retrieval failures, unsupported generation and misunderstood user expectations.
+  - A strong answer covers:
+    - Collect concrete failing cases with full traces: question, retrieved passages, assembled prompt and answer.
+    - Sort each into missed retrieval, an answer unsupported by retrieved text, or a question the corpus cannot answer.
+    - Report the split with counts, fix the dominant cause first, and keep the cases as a regression set.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="app-rail-downtime"></a>**A freight railway loses substantial revenue to unexpected locomotive downtime. Turn the problem into an engineering plan.**
   - Applied scenario · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-rail-downtime&title=%5BCorrection%5D%20app-rail-downtime)
   - Tests: Whether you connect operational decisions, usable data and intervention value.
+  - A strong answer covers:
+    - Ask which failure modes cost most and which decision an early warning would change.
+    - Check whether sensor and repair logs label failures, then price false alarms against missed breakdowns.
+    - Close on a pilot fleet, comparing unplanned downtime and cost with matched locomotives.
 - <a id="app-city-traffic"></a>**How would you design a system to improve traffic in New York City?**
   - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-city-traffic&title=%5BCorrection%5D%20app-city-traffic)
   - Tests: Whether you decompose an ambiguous city-scale objective into measurable interventions.
+  - A strong answer covers:
+    - Ask what improving traffic means and for whom: travel time, safety, emissions, buses or freight.
+    - Choose levers the system actually controls, such as signal timing or bus lanes, and their data.
+    - Evaluate one corridor against a comparable control, watching for traffic displaced onto nearby streets.
 - <a id="app-employee-sync"></a>**Design synchronisation between two systems that hold employee records.**
   - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-employee-sync&title=%5BCorrection%5D%20app-employee-sync)
   - Tests: Whether you identify record ownership, conflicts and recovery semantics.
+  - A strong answer covers:
+    - Assign an owner per field, not per record, and a stable identifier linking both systems.
+    - Propagate changes idempotently with version ordering, and define which side wins each conflict.
+    - Reconcile regularly, replay safely after outages, and route unmatched or deleted records to review.
+  - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="app-field-catalogue"></a>**Design an application for recording species while exploring an unfamiliar environment.**
   - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-field-catalogue&title=%5BCorrection%5D%20app-field-catalogue)
   - Tests: Whether you clarify field constraints and support trustworthy data collection.
+  - A strong answer covers:
+    - Ask about field constraints first: connectivity, battery, gloves, light and who records.
+    - Design capture to work offline with location, time and photo, and resolve sync conflicts later.
+    - Store the model's suggestion apart from the observer's call, and audit a sample against experts.
 - <a id="app-open-model-engagement"></a>**A customer wants to replace a proprietary frontier-model API with an open model. How would you run the engagement?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-open-model-engagement&title=%5BCorrection%5D%20app-open-model-engagement)
   - Tests: Whether the migration plan tests quality, operating costs and ownership assumptions.
+  - A strong answer covers:
+    - Ask why they want to switch: cost, data control, customisation or vendor dependence.
+    - Compare quality on their own tasks and full operating cost, including serving, upgrades and staff.
+    - Close with a shadow run against agreed thresholds and named owners for serving and upgrades.
+  - Read: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation) · [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - <a id="app-robot-data-collection"></a>**A robotics customer requests 50,000 hours of demonstrations across twelve tasks and three robot types. How would you organise collection and decide what data to keep?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-robot-data-collection&title=%5BCorrection%5D%20app-robot-data-collection)
   - Tests: Whether collection targets are tied to coverage and usable demonstrations rather than hours alone.
+  - A strong answer covers:
+    - Ask what the policy must be able to do, and how success on each task is judged.
+    - Allocate collection by coverage of tasks, robots and conditions, not equal hours per cell.
+    - Reject failed or sloppy demonstrations, and train on early batches to see which data raises success.
+  - Read: [Open X-Embodiment: Robotic Learning Datasets and RT-X Models](https://arxiv.org/abs/2310.08864) (Open X-Embodiment Collaboration, arXiv)
 - <a id="app-diligence-economics"></a>**Estimate the cost and turnaround of AI due diligence over 5,000 documents. Which improvement would you investigate first?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-diligence-economics&title=%5BCorrection%5D%20app-diligence-economics)
   - Tests: Whether estimates expose workload assumptions and the dominant cost driver.
+  - A strong answer covers:
+    - State workload assumptions: pages per document, tokens per page, passes and questions per document.
+    - Compare model cost with lawyers' review time, which may dominate, and find the turnaround bottleneck.
+    - First test what cuts the dominant driver, such as triaging documents for review, on a labelled sample.
 - <a id="app-missed-contract-clause"></a>**A lawyer reports that the assistant missed a change-of-control clause during contract review. How would you investigate?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-missed-contract-clause&title=%5BCorrection%5D%20app-missed-contract-clause)
   - Tests: Whether you trace the failure through ingestion, retrieval, reasoning and review.
+  - A strong answer covers:
+    - Reproduce the exact case: document version, query, retrieved passages and the output the lawyer saw.
+    - Locate the failing stage: parsing, chunking, retrieval, reasoning over indirect wording, or human review.
+    - Turn it into a regression test, check similar contracts for the same miss, and warn affected users.
+  - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic) · [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="app-financial-crime-decomposition"></a>**After an introduction to insider trading, explain how you would detect it: what data would you need, what would you ask the customer and what patterns would you look for?**
   - Applied scenario · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-financial-crime-decomposition&title=%5BCorrection%5D%20app-financial-crime-decomposition)
   - Tests: Whether you turn a vague, high-stakes problem into a scoped first system that can be tested.
+  - A strong answer covers:
+    - Ask which instruments and data exist, and what an analyst must decide from an alert.
+    - Scope one pattern first: unusual trading by connected accounts before price-moving announcements.
+    - Backtest on confirmed past cases, and cap alert volume at what analysts can review.
 
 ## <a id="track-engineering"></a>AI Engineering
 
 - <a id="app-agent-product-poc"></a>**Instead of a coding round, build a proof of concept for a customer scenario inside the company's own agent product and show how the customer would use it.**
   - Applied scenario · Asked at: [Cognition](../companies/cognition.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-agent-product-poc&title=%5BCorrection%5D%20app-agent-product-poc)
   - Tests: Whether you understand how customers actually use the product, not only how to write code.
+  - A strong answer covers:
+    - Ask who the customer's user is and which task in their day the product takes over.
+    - Build with the product's own features as a customer would, not custom code that bypasses them.
+    - Demo the flow end to end on realistic input, including a failure and how the user recovers.
 - <a id="app-customer-case-call"></a>**Lead a timed case-study call with a simulated customer: uncover the real problem, propose an approach and agree on next steps.**
   - Applied scenario · Asked at: [Cognition](../companies/cognition.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-customer-case-call&title=%5BCorrection%5D%20app-customer-case-call)
   - Tests: Whether you run a customer conversation under time pressure and leave with a concrete plan.
+  - A strong answer covers:
+    - Open with questions on the outcome they need, the current workflow and who decides.
+    - Propose the smallest approach that tests their biggest risk, and say what you would not do.
+    - Close on dated next steps, owners, success criteria and the data they will send.
 - <a id="app-learn-then-design"></a>**Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures.**
   - Applied scenario · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-learn-then-design&title=%5BCorrection%5D%20app-learn-then-design)
   - Tests: Whether you learn an unfamiliar tool quickly and carry it into sound design decisions.
-- <a id="app-prompt-date-range"></a>**Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first) and «по первое число» (through the first).**
+  - A strong answer covers:
+    - Read the core abstraction and one minimal example, then wrap the library behind a thin interface.
+    - Carry what you learned about its limits, state and errors into the scale and storage design.
+    - Name how the design fails, plan retries, timeouts and backpressure, and test the integration path.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
+- <a id="app-prompt-date-range"></a>**Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first), «по первое число» (through the first) and «за первое число» (for the first).**
   - Applied scenario · Asked at: [Tochka](../companies/tochka.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-prompt-date-range&title=%5BCorrection%5D%20app-prompt-date-range)
   - Tests: Whether you handle language-specific ambiguity and test a prompt on hard cases.
+  - A strong answer covers:
+    - Define the output: start and end dates, inclusive or exclusive bounds, and the reference date.
+    - Spell out how the prepositions «с», «по» and «за» set each bound, with contrasting examples.
+    - Test on a set of near-identical phrasings and relative dates, and ask back when it is ambiguous.
+  - Read: [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 
 ## <a id="track-leadership"></a>AI Leadership
 
 - <a id="app-research-explanation"></a>**How would you explain a complex AI research result to a nontechnical audience?**
   - Applied scenario · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-research-explanation&title=%5BCorrection%5D%20app-research-explanation)
   - Tests: Whether you communicate implications and limitations without replacing evidence with hype.
+  - A strong answer covers:
+    - Ask who the audience is and which of their decisions the result should inform.
+    - Cut detail, never accuracy: one honest analogy, what was measured and against which baseline.
+    - State what the result does not show, and check the audience can restate its limits.
 - <a id="app-decline-migration"></a>**A prospective customer already runs on H100 GPUs. When would you recommend that they keep their current setup?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-decline-migration&title=%5BCorrection%5D%20app-decline-migration)
   - Tests: Whether you can reject a migration when customer economics do not justify it.
+  - A strong answer covers:
+    - Ask what prompted the conversation: cost, capacity, latency or pressure from a vendor.
+    - Compare cost per useful output after migration effort, porting risk and remaining hardware commitments.
+    - Recommend staying when the gain does not clear switching costs, and name what would reopen it.
 - <a id="app-hospital-scheduling"></a>**A hospital group schedules outpatient visits manually by phone. What would you build for them?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-hospital-scheduling&title=%5BCorrection%5D%20app-hospital-scheduling)
   - Tests: Whether you design around workflow, integration and safe exception handling.
+  - A strong answer covers:
+    - Ask how a booking happens today: who calls, which rules apply, which system holds the schedule.
+    - Write into the existing scheduling system, automate routine bookings, and route urgent or clinical requests to staff.
+    - Pilot in one clinic, measuring completed bookings, no-shows and correct escalations against the phone baseline.
 - <a id="app-contact-centre"></a>**A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?**
   - Applied scenario · Senior · ✍ [Answer](../answers/leadership.md#app-contact-centre) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-contact-centre&title=%5BCorrection%5D%20app-contact-centre)
   - Tests: Whether you scope user journeys, handoff and operational readiness together.
@@ -125,5 +200,10 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
 - <a id="app-public-service-language"></a>**A public agency wants a multilingual assistant for a paper-and-call-centre welfare service, hosted on premises. How would you scope delivery?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-public-service-language&title=%5BCorrection%5D%20app-public-service-language)
   - Tests: Whether access, language coverage and deployment constraints shape the service.
+  - A strong answer covers:
+    - Ask which languages, channels and literacy levels users have, and who cannot use a chat at all.
+    - Weigh on-premises limits on model size against quality per language, and keep phone and paper routes.
+    - Accept on per-language task success with native-speaker review, leaving eligibility decisions to caseworkers.
+  - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 
 ← [Programmes and delivery](program-delivery.md) · [Payments and regulated domains](domain-payments-fintech.md) →

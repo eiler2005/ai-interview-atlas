@@ -13,9 +13,9 @@
   - System design · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/leadership.md#ops-restricted-models) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-restricted-models&title=%5BCorrection%5D%20ops-restricted-models)
   - Что проверяет: Учитывает ли платформа ограничения сред и явно ли показывает различия возможностей.
   - Сильный ответ покрывает:
-    - Явно включите политику среды и ограничения данных в выбор модели.
-    - Определите переносимый интерфейс, сохраняя различия возможностей моделей.
-    - Проверьте допустимые резервные варианты и отказывайте, если разрешённого маршрута нет.
+    - Явно включить политику среды и ограничения данных в выбор модели.
+    - Определить переносимый интерфейс, сохраняя различия возможностей моделей.
+    - Проверить допустимые резервные варианты и отказывать, если разрешённого маршрута нет.
   - Читать: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="ops-private-evaluation"></a>**Как оценивать корпоративного AI-ассистента, если ваша команда не может просматривать данные клиента?**
   - System design · Senior · ✍ [Ответ](../answers/leadership.md#ops-private-evaluation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-private-evaluation&title=%5BCorrection%5D%20ops-private-evaluation)
@@ -26,8 +26,13 @@
     - Собрать публичный или синтетический прокси-набор под их задачи и назвать его ограничения.
   - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="ops-shared-data-access"></a>**Спроектируйте сервис, в котором несколько команд запрашивают общий набор данных без доступа к исходным записям.**
-  - System design · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-shared-data-access&title=%5BCorrection%5D%20ops-shared-data-access)
+  - System design · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/leadership.md#ops-shared-data-access) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-shared-data-access&title=%5BCorrection%5D%20ops-shared-data-access)
   - Что проверяет: Умеете ли вы определить допустимые результаты и обеспечить разграничение доступа на общей платформе.
+  - Сильный ответ покрывает:
+    - Определить допустимые результаты для каждой команды и цели: поля, агрегаты и минимальный размер группы.
+    - Применять политику в сервисе: идентичность вызывающего, переписывание запросов, контроль строк и столбцов, проверка результата.
+    - Защититься от вычитания и многократной нарезки, журналировать каждый запрос и проверить попытками повторной идентификации.
+  - Читать: [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](https://csrc.nist.gov/pubs/sp/800/226/final) (NIST)
 
 ## <a id="track-leadership"></a>AI-лидерство
 
@@ -35,9 +40,9 @@
   - Продуктовый кейс · Senior · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#ops-platform-ownership) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-platform-ownership&title=%5BCorrection%5D%20ops-platform-ownership)
   - Что проверяет: Связаны ли инвестиции в платформу с результатами внутренних клиентов и понятной ответственностью.
   - Сильный ответ покрывает:
-    - Найдите повторяющиеся потребности команд и пользу общего сервиса.
-    - Разделите надёжность и использование платформы и бизнес-результаты команд-потребителей.
-    - Выберите первый поддерживаемый процесс, границы сервиса и порядок пересмотра инвестиций.
+    - Найти повторяющиеся потребности команд и пользу общего сервиса.
+    - Разделить надёжность и использование платформы и бизнес-результаты команд-потребителей.
+    - Выбрать первый поддерживаемый процесс, границы сервиса и порядок пересмотра инвестиций.
   - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 
 ← [Стратегия и метрики AI-продукта](ai-product-strategy.md) · [Руководство инженерными командами](engineering-leadership.md) →

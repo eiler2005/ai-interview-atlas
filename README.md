@@ -21,11 +21,11 @@ Released PDF books are dated snapshots for offline reading. The website may cont
 
 ## What is inside
 
-- **294 questions** across 17 themes: 225 for engineering, 155 for leadership. Each says what it tests.
-- **110 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
+- **294 questions** across 17 themes: 225 for engineering, 155 for leadership. Each says what it tests and what a strong answer covers.
+- **140 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
 - **29 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
 - **6 role pages** in the [AI roles guide](docs/AI_ROLES.md): what each role involves, how it is interviewed and which questions to practise.
-- **162 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
+- **207 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
 - **A requirements radar** built from real job postings: what employers actually ask for, by theme.
 
 ## Why this one
@@ -37,7 +37,7 @@ Released PDF books are dated snapshots for offline reading. The website may cont
 ## Start in three steps
 
 1. Pick your track and work through its priority questions: [AI Engineering](docs/start/engineering.md) · [AI Leadership](docs/start/leadership.md).
-2. Answer aloud before reading anything. Each question lists what it tests; the priority ones add a checklist and what to read.
+2. Answer aloud before reading anything. Each question lists what it tests and what a strong answer covers; the priority ones add reading and a written answer.
 3. Before an interview, open that employer's page and the themes its loop covers.
 
 For a study sequence with weekly practice and completion checks, use the [learning path](docs/LEARNING_PATH.md).

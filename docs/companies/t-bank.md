@@ -34,11 +34,21 @@ On this page: [Interview loop](#loop) · [Questions (2)](#questions)
 - **[Frame a business problem as a machine-learning task: choose and justify the quality metric, and explain how you would collect and validate the data.](../themes/evals-observability.md#eval-ml-task-framing)**
   - Knowledge · Asked at: T-Bank ✅
   - Tests: Whether the metric and data follow from the business goal rather than habit.
+  - A strong answer covers:
+    - Translate the business decision into a prediction target, the action it triggers and the cost of each error.
+    - Pick the offline metric from those error costs, and name the online business metric it should move.
+    - Validate the data: label delay and leakage, time-based splits, and drift between training and serving.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ### [AI system design](../themes/ai-system-design.md)
 
 - **[Design an ML system for a product feature end to end: frame the task and requirements, decompose it, plan data collection, choose model architectures, then deploy and test it.](../themes/ai-system-design.md#sd-ml-system-end-to-end)**
   - System design · Asked at: T-Bank ✅
   - Tests: Whether you structure an ML system from problem framing to deployment instead of jumping to a model.
+  - A strong answer covers:
+    - Frame the product decision, offline and online metrics, and latency and cost limits before any model.
+    - Decompose into subtasks, plan where labels come from, and beat a heuristic baseline before adding models.
+    - Plan deployment through shadow mode or an A/B test, with drift monitoring and a rollback.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ← [SberDevices (Sber)](sberdevices.md) · [Yandex](yandex.md) →

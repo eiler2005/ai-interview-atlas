@@ -33,10 +33,10 @@ AI-лидерство · Роли: AI-продакт-менеджер (от seni
   - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-enterprise-ai-pricing)
   - Источники (AI-продакт-менеджер (от senior до group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, опубликовано 2026-05-23, проверено 2026-09-29
 - **[Кто в дискавери корпоративного AI-продукта является «персоной», где вы найдёте B2B-респондентов и как поймёте, что проблему стоит решать?](../themes/ai-product-strategy.md#prod-enterprise-discovery)**
-  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
+  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-enterprise-discovery)
   - Источники (AI-продакт-менеджер (от senior до group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, опубликовано 2026-05-23, проверено 2026-09-29
 - **[Что вы будете делать, если MVP корпоративного AI-продукта слишком дорого или долго делать?](../themes/ai-product-strategy.md#prod-expensive-mvp)**
-  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
+  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · ✍ [Ответ](../answers/leadership.md#prod-expensive-mvp)
   - Источники (AI-продакт-менеджер (от senior до group)): 🗣 [Как я собеседую менеджеров AI-продуктов для крупного Enterprise](https://habr.com/ru/articles/1038482/), Хабр, рассказ интервьюера, опубликовано 2026-05-23, проверено 2026-09-29
 
 ### Для практики

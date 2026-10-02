@@ -44,25 +44,48 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Explain rotary position encoding and the trade-offs of interpolation when extending context beyond training lengths.](../themes/llm-fundamentals.md#llm-rope-extension)**
   - Knowledge · Asked at: Meta †
   - Tests: Whether a longer accepted input is distinguished from reliable long-context reasoning.
-  - Read: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv)
+  - A strong answer covers:
+    - Explain RoPE: rotate query and key dimension pairs by position times a per-pair frequency, so scores depend on offset.
+    - Show that position interpolation divides every frequency by the scale, blurring nearby tokens; NTK and YaRN mostly rescale low frequencies.
+    - Separate accepted length from use: test retrieval and multi-hop tasks at varied depths, plus short-context regressions after finetuning.
+  - Read: [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) (Su et al., arXiv) · [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv) · [Extending Context Window of Large Language Models via Positional Interpolation](https://arxiv.org/abs/2306.15595) (Chen et al., arXiv) · [YaRN: Efficient Context Window Extension of Large Language Models](https://arxiv.org/abs/2309.00071) (Peng et al., arXiv) · [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654) (Hsieh et al., arXiv)
 - **[What objectives and data distinguish pretraining, instruction tuning and preference optimisation?](../themes/llm-fundamentals.md#llm-training-stages)**
   - Knowledge · Asked at: Meta †
   - Tests: Whether the candidate can identify what each stage can and cannot change.
+  - A strong answer covers:
+    - Name the objectives: next-token loss on raw corpora, the same loss on demonstrations masked to responses, then pairwise preferences.
+    - State what each changes: pretraining sets knowledge and skills, instruction tuning sets format, preferences re-rank behaviours already available.
+    - Probe the limits: facts added only in tuning generalise poorly, and preference training can reward length or flattery.
+  - Read: [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) (Ouyang et al., arXiv) · [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) (Rafailov et al., arXiv) · [Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?](https://arxiv.org/abs/2405.05904) (Gekhman et al., arXiv)
 - **[Explain the two branches of SwiGLU and the parameter and compute trade-offs against a conventional feed-forward block.](../themes/llm-fundamentals.md#llm-gated-mlp)**
   - Knowledge · Asked at: Meta †
   - Tests: Whether gated activations are explained beyond their name.
+  - A strong answer covers:
+    - Write SwiGLU: Swish of one projection gates a second linear projection elementwise, then a down projection returns to d_model.
+    - Count parameters: three matrices instead of two, so hidden width shrinks to about 8d/3 to keep 8d² weights.
+    - Compare at matched parameters and FLOPs on held-out loss, noting extra activation memory and fused gate-up kernels.
+  - Read: [GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202) (Shazeer, arXiv)
 
 ### [Inference, serving and cost](../themes/inference-economics.md)
 
 - **[Compare tensor, pipeline, data, sequence and expert parallelism for a large model deployment.](../themes/inference-economics.md#inf-parallelism)**
   - Knowledge · Asked at: [Amazon](amazon.md) †, [Google and Google DeepMind](google.md) †, Meta †
   - Tests: Whether communication patterns and memory limits determine the choice.
+  - A strong answer covers:
+    - Name each split and its traffic: TP per-layer all-reduce, PP stage activations, SP key-value exchange, EP token all-to-all.
+    - Fit weights and KV first: TP inside the NVLink domain, PP across nodes, then traffic-free data-parallel replicas for throughput.
+    - Measure per-GPU memory headroom, communication share of step time, pipeline bubbles and expert load imbalance at target latency.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv) · [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv) · [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) (Shoeybi et al., arXiv)
 
 ### [Safety, security and governance](../themes/safety-security-governance.md)
 
 - **[Design a system for detecting harmful content in Facebook and Instagram uploads.](../themes/safety-security-governance.md#sec-upload-moderation)**
   - System design · Senior · Asked at: Meta †
   - Tests: Whether you combine detection, review and appeals at the required scale.
+  - A strong answer covers:
+    - Tier harms by severity and choose per tier: block at upload, limit distribution or queue review.
+    - Combine hash matching for known content with classifiers for new content, routing uncertain cases to reviewers.
+    - Measure prevalence, per-policy precision and appeal overturn rate, weighing wrongful removals against missed harm.
 
 ### [Multimodal and voice](../themes/multimodal-voice.md)
 
@@ -71,18 +94,28 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
   - Tests: Whether image encoding is separated from cross-modal fusion.
   - A strong answer covers:
     - Separate the vision encoder from the interface to the language model.
-    - Compare projected image tokens with cross-attention to visual features.
+    - Compare projected patch embeddings, cross-attention to visual features and discrete image tokens.
     - Discuss visual token budget, spatial detail and training alignment.
   - Read: [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) (Alayrac et al., arXiv)
 - **[What architectural and data choices change when a vision-language model must reason over video rather than isolated images?](../themes/multimodal-voice.md#mm-video)**
   - Knowledge · Asked at: Meta †
   - Tests: Whether temporal information and sampling cost are addressed.
+  - A strong answer covers:
+    - Budget visual tokens: frames times tokens per frame explode, so choose frame rate, pooling or tubelet patches per task.
+    - Encode time explicitly with timestamps or temporal positions, and train on clips whose answers depend on event order.
+    - Test against single-frame and shuffled-frame baselines to confirm the model uses temporal information at all.
+  - Read: [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) (Alayrac et al., arXiv)
 
 ### [AI system design](../themes/ai-system-design.md)
 
 - **[Design a moderation system that combines specialist classifiers and LLMs while controlling delay and review workload.](../themes/ai-system-design.md#sd-moderation)**
-  - System design · Asked at: Meta †
+  - System design · Asked at: Meta † · ✍ [Answer](../answers/leadership.md#sd-moderation)
   - Tests: Whether risk classes, escalation and false decisions shape system design.
+  - A strong answer covers:
+    - Define risk classes by harm, with separate tolerance for wrongful removal and missed violations per class.
+    - Cascade: fast classifiers on everything, an LLM on the uncertain band, people on severe ambiguous cases.
+    - Set thresholds per class from measured precision and recall, tracking reviewer queue, appeals and overturns.
+  - Read: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) (Markov et al., arXiv) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv)
 - **[Design a streaming chat service for hundreds of millions of users, including capacity, conversation storage and graceful overload behaviour.](../themes/ai-system-design.md#sd-consumer-chat)**
   - System design · Asked at: [Anthropic](anthropic.md) †, [Google and Google DeepMind](google.md) †, Meta †, [OpenAI](openai.md) † · ✍ [Answer](../answers/engineering.md#sd-consumer-chat)
   - Tests: Whether scale assumptions lead to explicit capacity and reliability decisions.
@@ -105,24 +138,51 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Design a product connecting local tradespeople with customers.](../themes/ai-product-strategy.md#prod-handyman-marketplace)**
   - Product case · Senior · Asked at: Meta 🗣
   - Tests: Whether you reason about both sides of a marketplace and initial liquidity.
+  - A strong answer covers:
+    - Name both sides, the decision each makes, and what each must trust: vetting, price, payment.
+    - Measure requests ending in a completed job and time to match, guarded by disputes and repeat bookings.
+    - Launch in one area and one trade, recruiting tradespeople by hand before automating the match.
 - **[A new service grows while Facebook monthly active users decline. How would you assess whether the service is succeeding?](../themes/ai-product-strategy.md#prod-product-cannibalisation)**
   - Product case · Senior · Asked at: Meta 🗣
   - Tests: Whether you investigate portfolio effects instead of reading one metric in isolation.
+  - A strong answer covers:
+    - Ask whether the service should add new users and time or move existing time between apps.
+    - Estimate substitution with a holdout or matched cohorts, not by comparing the two curves.
+    - Judge it on net portfolio users and value, with the core product's health as a guardrail.
 - **[Design a volunteer-matching product and explain how it gets through cold start.](../themes/ai-product-strategy.md#prod-volunteer-cold-start)**
   - Product case · Senior · Asked at: Meta 🗣
   - Tests: Whether you make the first useful matches possible before scale arrives.
+  - A strong answer covers:
+    - Pick which side is scarce, then narrow to one city and cause where matches can happen.
+    - Measure posted needs filled by a completed shift, with no-shows and organiser churn as guardrails.
+    - Match the first organisations and volunteers by hand to test whether matches turn into shifts.
 
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 
 - **[How have you managed and developed your strongest performers?](../themes/engineering-leadership.md#lead-high-performer-development)**
   - Behavioral · Senior · Asked at: Meta 🗣
   - Tests: Whether you provide challenge and growth without creating a privileged exception.
+  - A strong answer covers:
+    - Start from what each strong performer wants next, and stretch them with harder problems, not more volume.
+    - Avoid a privileged exception: same standards on collaboration, and stretch work offered openly, not by favour.
+    - Close with evidence of their growth, such as scope they now own alone, and whether they stayed.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[A cross-functional partner gives you critical feedback about your leadership. How do you respond?](../themes/engineering-leadership.md#lead-partner-feedback)**
   - Applied scenario · Senior · Asked at: Meta 🗣
   - Tests: Whether you investigate feedback and translate it into changed behaviour.
+  - A strong answer covers:
+    - Ask for specific instances and their impact on the partner's team, holding back any defence at first.
+    - Test whether it is a pattern with other partners and your team, separating your behaviour from structural friction.
+    - Commit to one visible change, tell the partner what it is, and ask them later whether it worked.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[What have you changed about your management approach as you have grown?](../themes/engineering-leadership.md#lead-personal-growth)**
   - Behavioral · Senior · Asked at: Meta 🗣
   - Tests: Whether reflection produces concrete changes in how you lead.
+  - A strong answer covers:
+    - Name one or two specific practices you changed, not a general shift in philosophy.
+    - Explain what triggered each change, such as feedback or a team outcome, and what you believed before.
+    - Show the effect as your team would describe it, and name what you are still changing.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ### [Programmes and delivery](../themes/program-delivery.md)
 
@@ -140,8 +200,17 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Describe a project that used data and machine learning. What obstacles did you encounter?](../themes/behavioral-values.md#beh-ml-project-obstacles)**
   - Behavioral · Senior · Asked at: Meta †
   - Tests: Whether you connect technical obstacles to actions and delivered outcomes.
+  - A strong answer covers:
+    - Pick obstacles specific to data and models — labels, leakage, drift, evaluation gaps — not generic delays.
+    - For each obstacle, say how you diagnosed it and why you chose that fix over the alternatives.
+    - End with the delivered outcome measured against a baseline, and which obstacle you would now catch earlier.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - **[Tell me about achieving a meaningful result despite substantial ambiguity.](../themes/behavioral-values.md#beh-ambiguity-result)**
   - Behavioral · Senior · Asked at: Meta †
   - Tests: Whether you reduce uncertainty through decisions and feedback.
+  - A strong answer covers:
+    - Choose a case where the goal or the problem itself was unclear, not just resources or time.
+    - Show which unknown you resolved first, with what small decision or probe, and how feedback changed the plan.
+    - Close with the meaningful result and the evidence that you had solved the right problem.
 
 ← [Google and Google DeepMind](google.md) · [Microsoft](microsoft.md) →

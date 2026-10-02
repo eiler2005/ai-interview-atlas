@@ -69,17 +69,37 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
     - Make a small number of justified changes and check their effect.
   - Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - <a id="lead-team-scale"></a>**What is the largest team you have managed, and how did your responsibilities change at that scale?**
-  - Self-presentation · Senior · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-team-scale&title=%5BCorrection%5D%20lead-team-scale)
+  - Self-presentation · Senior · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-team-scale) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-team-scale&title=%5BCorrection%5D%20lead-team-scale)
   - Tests: Whether your management model matches the actual span and complexity.
+  - A strong answer covers:
+    - State the size precisely: direct reports, managers beneath you, total headcount and what the team owned.
+    - Explain what you stopped doing personally and which mechanisms replaced your direct involvement.
+    - Close with a signal that showed whether the model worked, and what you changed in response.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-high-performer-development"></a>**How have you managed and developed your strongest performers?**
   - Behavioral · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-high-performer-development&title=%5BCorrection%5D%20lead-high-performer-development)
   - Tests: Whether you provide challenge and growth without creating a privileged exception.
+  - A strong answer covers:
+    - Start from what each strong performer wants next, and stretch them with harder problems, not more volume.
+    - Avoid a privileged exception: same standards on collaboration, and stretch work offered openly, not by favour.
+    - Close with evidence of their growth, such as scope they now own alone, and whether they stayed.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-partner-feedback"></a>**A cross-functional partner gives you critical feedback about your leadership. How do you respond?**
   - Applied scenario · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-partner-feedback&title=%5BCorrection%5D%20lead-partner-feedback)
   - Tests: Whether you investigate feedback and translate it into changed behaviour.
+  - A strong answer covers:
+    - Ask for specific instances and their impact on the partner's team, holding back any defence at first.
+    - Test whether it is a pattern with other partners and your team, separating your behaviour from structural friction.
+    - Commit to one visible change, tell the partner what it is, and ask them later whether it worked.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-two-valid-views"></a>**Describe a team disagreement that you resolved without discarding the valid concerns on either side.**
-  - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-two-valid-views&title=%5BCorrection%5D%20lead-two-valid-views)
+  - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-two-valid-views) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-two-valid-views&title=%5BCorrection%5D%20lead-two-valid-views)
   - Tests: Whether you uncover underlying needs instead of forcing a superficial compromise.
+  - A strong answer covers:
+    - Pick a disagreement where both positions protected something real, and state each in its strongest form.
+    - Show how you moved from positions to the needs behind them and found an option meeting both.
+    - Close with what was decided, whether both concerns stayed addressed, and how you checked.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-strategic-hiring"></a>**How do you decide which engineering capabilities to hire for?**
   - Applied scenario · Senior · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
   - Tests: Whether staffing choices follow strategy and gaps in team capability.
@@ -99,9 +119,18 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
 - <a id="lead-engineering-persuasion"></a>**How would you convince engineers that a proposed product feature is worth building?**
   - Applied scenario · Senior · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-engineering-persuasion&title=%5BCorrection%5D%20lead-engineering-persuasion)
   - Tests: Whether you engage technical concerns and establish a shared reason to invest.
+  - A strong answer covers:
+    - Bring the user problem and the evidence behind it, not the feature, so engineers can judge the reasoning.
+    - Treat objections about cost, complexity or maintenance as inputs that can reshape scope, not as resistance.
+    - Agree a success metric and a cheap first version, and commit to cutting it if the metric misses.
 - <a id="lead-personal-growth"></a>**What have you changed about your management approach as you have grown?**
   - Behavioral · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-personal-growth&title=%5BCorrection%5D%20lead-personal-growth)
   - Tests: Whether reflection produces concrete changes in how you lead.
+  - A strong answer covers:
+    - Name one or two specific practices you changed, not a general shift in philosophy.
+    - Explain what triggered each change, such as feedback or a team outcome, and what you believed before.
+    - Show the effect as your team would describe it, and name what you are still changing.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-research-product-boundary"></a>**Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?**
   - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-research-product-boundary) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-research-product-boundary&title=%5BCorrection%5D%20lead-research-product-boundary)
   - Tests: Whether team design accommodates uncertainty without abandoning production ownership.
@@ -119,11 +148,20 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
     - Train review on verification habits and measure escaped defects, not adoption counts.
   - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 - <a id="lead-platform-team-charter"></a>**Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?**
-  - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-platform-team-charter&title=%5BCorrection%5D%20lead-platform-team-charter)
+  - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-platform-team-charter) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-platform-team-charter&title=%5BCorrection%5D%20lead-platform-team-charter)
   - Tests: Whether you resolve capacity and accountability before creating a new team boundary.
+  - A strong answer covers:
+    - Define the shared need precisely and compare its cost with each team building its own.
+    - Choose a staffing model explicitly: funded headcount, capacity taken from both roadmaps, or one owning team.
+    - Write a narrow charter with a named owner, support terms and the trigger for a dedicated team.
+  - Read: [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html) (Martin Fowler)
 - <a id="lead-ai-interview-redesign"></a>**Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?**
   - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-interview-redesign&title=%5BCorrection%5D%20lead-ai-interview-redesign)
   - Tests: Whether the loop measures judgement and ownership instead of banning or ignoring the tools.
-  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
+  - A strong answer covers:
+    - Identify which old tasks assistants now solve, and restate the signal as judgement, verification and ownership.
+    - Allow tools openly with the same setup for everyone, and score how candidates check, correct and explain output.
+    - Calibrate the new tasks on current engineers using the same tools, and track whether scores predict later performance.
+  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 
 ← [AI platform and operating model](ai-operating-model.md) · [Programmes and delivery](program-delivery.md) →

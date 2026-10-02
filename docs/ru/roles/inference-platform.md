@@ -51,7 +51,7 @@ AI-инженерия / AI-лидерство · Роли: Инженер инф
 - **[Оцените память для обслуживания модели с 70 млрд параметров, явно задав точность, контекст и конкурентность.](../themes/inference-economics.md#inf-memory-budget)**
   - Прикладной сценарий · [Инференс, serving и стоимость](../themes/inference-economics.md) · ✍ [Ответ](../answers/engineering.md#inf-memory-budget)
 - **[Разграничьте time to first token, time per output token, inter-token latency и throughput при сравнении систем инференса.](../themes/inference-economics.md#inf-latency-metrics)**
-  - Знания · [Инференс, serving и стоимость](../themes/inference-economics.md)
+  - Знания · [Инференс, serving и стоимость](../themes/inference-economics.md) · ✍ [Ответ](../answers/engineering.md#inf-latency-metrics)
 - **[Постройте roofline-оценку декодирования модели 70B для одного запроса на H100; сначала проверьте, помещается ли выбранное представление.](../themes/inference-economics.md#inf-roofline)**
   - Прикладной сценарий · [Инференс, serving и стоимость](../themes/inference-economics.md)
 - **[Как сравнить vLLM, SGLang, TensorRT-LLM и собственный runtime на конкретной нагрузке?](../themes/inference-economics.md#inf-runtime-choice)**

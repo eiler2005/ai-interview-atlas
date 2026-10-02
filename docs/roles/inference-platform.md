@@ -51,7 +51,7 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[Estimate a serving memory budget for a 70-billion-parameter model, explicitly choosing precision, context and concurrency assumptions.](../themes/inference-economics.md#inf-memory-budget)**
   - Applied scenario · [Inference, serving and cost](../themes/inference-economics.md) · ✍ [Answer](../answers/engineering.md#inf-memory-budget)
 - **[Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems.](../themes/inference-economics.md#inf-latency-metrics)**
-  - Knowledge · [Inference, serving and cost](../themes/inference-economics.md)
+  - Knowledge · [Inference, serving and cost](../themes/inference-economics.md) · ✍ [Answer](../answers/engineering.md#inf-latency-metrics)
 - **[Build a roofline estimate for single-request decoding of a 70B model on an H100; check first whether the chosen representation fits.](../themes/inference-economics.md#inf-roofline)**
   - Applied scenario · [Inference, serving and cost](../themes/inference-economics.md)
 - **[How would you benchmark vLLM, SGLang, TensorRT-LLM and a custom runtime for a specific workload?](../themes/inference-economics.md#inf-runtime-choice)**

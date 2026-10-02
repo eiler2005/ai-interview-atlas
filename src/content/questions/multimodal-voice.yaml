@@ -19,15 +19,15 @@ questions:
     outline:
       en:
         - "Separate the vision encoder from the interface to the language model."
-        - "Compare projected image tokens with cross-attention to visual features."
+        - "Compare projected patch embeddings, cross-attention to visual features and discrete image tokens."
         - "Discuss visual token budget, spatial detail and training alignment."
       ru:
         - "Отделить visual encoder от интерфейса с языковой моделью."
-        - "Сравнить проекцию токенов изображения с cross-attention к визуальным признакам."
+        - "Сравнить проекцию эмбеддингов патчей, cross-attention к визуальным признакам и дискретные токены изображения."
         - "Обсудить бюджет визуальных токенов, пространственные детали и обучение выравниванию."
     answer:
-      en: "Two choices matter: the image encoder and its interface to the language model. The encoder is usually taken off the shelf; the fork is at the interface. A projection maps patches into tokens of the language model's space and they simply take their place in the shared sequence: simple to build, fits many decoder architectures, but every visual token occupies context window and compute time. Cross-attention leaves visual features outside and adds cross-attention layers into the blocks, as in Flamingo: the text sequence doesn't grow, but you have to change the architecture and train new layers. The choice is decided by the visual token budget: fine detail, text inside the image and high resolution demand either more tokens or tiling. I'd compare the options on tasks needing spatial precision, not on general descriptions. Either way an alignment stage is required: without training on pairs the modalities won't meet."
-      ru: "Тут два независимых вопроса: чем кодировать изображение и как подмешать результат к языковой модели. Кодировщик обычно берут готовый, а вот на интерфейсе развилка. Проекция переводит патчи в токены пространства языковой модели, и они просто встают в общую последовательность: делается просто, работает с любым декодером, но каждый визуальный токен занимает окно контекста и время вычисления. Cross-attention оставляет визуальные признаки снаружи и добавляет в блоки слои перекрёстного внимания к ним, как во Flamingo: длина текстовой последовательности не растёт, зато нужно менять архитектуру и обучать новые слои. Решает выбор бюджет визуальных токенов: мелкие детали, текст на картинке и высокое разрешение требуют либо больше токенов, либо тайлинга. Я бы сравнил варианты на задачах с пространственной точностью, а не на общих описаниях. В любом случае нужен этап выравнивания: без обучения на парах модальности не сойдутся."
+      en: "I'd separate the encoder that turns pixels into features from the interface that fuses them with the language model; the three options differ in the interface. A projection maps each patch feature into the model's embedding space, and the results sit in the sequence like text: cheap to train, decoder unchanged, but tokens scale with resolution, and a 336 × 336 image at 14-pixel patches is 576 tokens of context, prefill and KV cache. Cross-attention, as in Flamingo, keeps features outside the sequence, compresses them to a fixed set of vectors and inserts gated cross-attention layers into a frozen model, gates starting at zero so text behaviour is initially untouched; the sequence stays short, but new layers need training. Discrete tokens quantise the image into a learned codebook added to the vocabulary, so the model can also generate images, but quantisation loses fine detail. All three need alignment training on image-text pairs. I'd compare them on text-in-image and spatial tasks, plotting accuracy against visual tokens per image: on dense documents, fixed compression drops exactly what matters."
+      ru: "Я бы разделил кодировщик, превращающий пиксели в признаки, и интерфейс, который соединяет их с языковой моделью; три варианта различаются именно интерфейсом. Проекция переводит признак каждого патча в пространство эмбеддингов модели, и результат встаёт в последовательность как текст: обучать дёшево, декодер не меняется, но число токенов растёт с разрешением, и картинка 336 × 336 при патчах по 14 пикселей — это 576 токенов контекста, prefill и KV-кеша. Cross-attention, как во Flamingo, держит признаки вне последовательности, сжимает их в фиксированный набор векторов и вставляет в замороженную модель слои перекрёстного внимания с гейтами, которые стартуют с нуля, так что поначалу поведение на тексте не меняется; последовательность остаётся короткой, но новые слои надо обучать. Дискретные токены квантуют изображение в обученный кодбук, добавленный к словарю, и модель может ещё и генерировать картинки, но квантование теряет мелкие детали. Всем трём нужно обучение выравниванию на парах изображение–текст. Сравнивал бы их на тексте внутри изображения и пространственных задачах, строя зависимость точности от числа визуальных токенов на картинку: на плотных документах фиксированное сжатие выбрасывает ровно то, что важно."
     reading: ["paper-flamingo"]
   - id: "mm-video"
     tracks: ["engineering"]
@@ -43,6 +43,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "meta"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Budget visual tokens: frames times tokens per frame explode, so choose frame rate, pooling or tubelet patches per task."
+        - "Encode time explicitly with timestamps or temporal positions, and train on clips whose answers depend on event order."
+        - "Test against single-frame and shuffled-frame baselines to confirm the model uses temporal information at all."
+      ru:
+        - "Посчитать бюджет визуальных токенов: кадры × токены на кадр быстро растут, поэтому выбрать частоту кадров, пулинг или tubelet-патчи под задачу."
+        - "Кодировать время явно — метками времени или временными позициями — и обучать на клипах, где ответ зависит от порядка событий."
+        - "Сравнить с базовыми вариантами по одному кадру и по перемешанным кадрам, чтобы убедиться, что модель вообще использует время."
+    reading: ["paper-flamingo"]
   - id: "mm-latency"
     tracks: ["engineering"]
     type: "system_design"
@@ -68,8 +78,8 @@ questions:
         - "Считать бюджет до первого слышимого звука и совмещать этапы потоком вместо очереди."
         - "Отделить медианную цель от хвоста и определить поведение агента при превышении этапа."
     answer:
-      en: "I budget to the first audible sound, because that is what a caller perceives as responsiveness, and I enumerate every stage before it: end-of-turn detection, final transcription, model time to first token, enough text to synthesise a first chunk, synthesis, network transport and client buffering. The largest and least obvious term is usually turn detection — waiting for silence to be confident the user finished — and it trades directly against interruptions: shorten it and the agent talks over people, lengthen it and the agent feels slow. Streaming is what makes the sum survivable, since transcription, generation and synthesis overlap instead of queueing, so I track each stage's contribution separately and set a median and a p95 target, because the tail is what callers remember. A budget only holds under load, so I also define degradation: a shorter reply, a filler acknowledgement, or a cheaper voice when a stage overruns."
-      ru: "Бюджет я считаю до первого слышимого звука, потому что именно это воспринимается как отзывчивость, и перечисляю все этапы до него: определение конца реплики, финальную расшифровку, время модели до первого токена, накопление текста на первый синтезируемый фрагмент, сам синтез, сетевой транспорт и буферизацию у клиента. Самое крупное и наименее очевидное слагаемое — обычно определение конца реплики: ожидание тишины, чтобы убедиться, что человек закончил. Оно напрямую обменивается на перебивания: сократишь — агент говорит поверх людей, удлинишь — кажется медленным. Выносимой сумму делает потоковость: расшифровка, генерация и синтез перекрываются, а не выстраиваются в очередь, поэтому вклад каждого этапа я отслеживаю отдельно и задаю цель по медиане и по p95, ведь запоминается именно хвост. Бюджет держится только под нагрузкой, поэтому я описываю и деградацию: короткий ответ, короткое подтверждение-заполнитель или более дешёвый голос, когда этап выбивается."
+      en: "I budget to the first audible sound, because that is what a caller perceives as responsiveness, and I enumerate every stage before it: end-of-turn detection, final transcription, model time to first token, enough text to synthesise a first chunk, synthesis, network transport and client buffering. The least obvious term, and often one of the largest, is turn detection — waiting for silence to be confident the user finished — and it trades directly against interruptions: shorten it and the agent talks over people, lengthen it and the agent feels slow. Streaming is what makes the sum survivable, since transcription, generation and synthesis overlap instead of queueing, so I track each stage's contribution separately and set a median and a p95 target, because the tail is what callers remember. A budget has to hold under load as well, so I also define degradation: a shorter reply, a filler acknowledgement, or a cheaper voice when a stage overruns."
+      ru: "Бюджет я считаю до первого слышимого звука, потому что именно это воспринимается как отзывчивость, и перечисляю все этапы до него: определение конца реплики, финальную расшифровку, время модели до первого токена, накопление текста на первый синтезируемый фрагмент, сам синтез, сетевой транспорт и буферизацию у клиента. Наименее очевидное и часто одно из самых крупных слагаемых — определение конца реплики: ожидание тишины, чтобы убедиться, что человек закончил. Здесь прямой размен с перебиваниями: сократишь — агент говорит поверх людей, удлинишь — кажется медленным. Выносимой сумму делает потоковость: расшифровка, генерация и синтез перекрываются, а не выстраиваются в очередь, поэтому вклад каждого этапа я отслеживаю отдельно и задаю цель по медиане и по p95, ведь запоминается именно хвост. Бюджет должен выдерживать и нагрузку, поэтому я описываю и деградацию: короткий ответ, короткое подтверждение-заполнитель или более дешёвый голос, когда этап выбивается."
     reading: ["paper-tail-at-scale"]
   - id: "mm-barge-in"
     tracks: ["engineering"]
@@ -84,6 +94,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Detect speech over playback with echo cancellation, and tell short backchannels apart from real interruptions."
+        - "On barge-in, stop playback and generation, record only the audio actually played, and keep committed tool actions."
+        - "Measure stop latency, false and missed interruptions, and check transcripts so the model never assumes unheard text was heard."
+      ru:
+        - "Распознавать речь поверх воспроизведения с эхоподавлением и отличать короткие поддакивания от настоящего перебивания."
+        - "При перебивании остановить воспроизведение и генерацию, записать в историю только реально проигранное и не откатывать уже выполненные действия инструментов."
+        - "Измерить задержку остановки, ложные и пропущенные перебивания и по логам убедиться, что модель не считает услышанным непроигранный текст."
   - id: "mm-speech-stack"
     tracks: ["engineering","leadership"]
     type: "knowledge"
@@ -97,11 +116,20 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Identify what the text bottleneck drops: prosody, emotion, hesitation and speaker cues never reach the cascade's model."
+        - "Weigh the cascade's inspectable transcripts, guardrails, tool use and swappable parts against end-to-end latency and expressiveness."
+        - "Compare both on the same conversations: time to first audio, task success, instruction adherence and auditability."
+      ru:
+        - "Назвать, что теряется на текстовом узком месте: интонация, эмоции, паузы и признаки говорящего не доходят до модели каскада."
+        - "Сопоставить проверяемые расшифровки, ограничители, вызовы инструментов и заменяемые компоненты каскада с задержкой и выразительностью единой модели."
+        - "Сравнить оба варианта на одних и тех же диалогах: время до первого звука, успех задачи, следование инструкциям и возможность аудита."
   - id: "mm-speech-quality"
     tracks: ["engineering"]
     type: "applied_scenario"
     text:
-      en: "How would you evaluate speech recognition beyond word error rate and synthetic speech when many renditions are acceptable?"
+      en: "How would you evaluate speech recognition beyond word error rate, and synthesised speech when many renditions are acceptable?"
       ru: "Как оценивать распознавание речи помимо WER, а синтез — при множестве допустимых вариантов звучания?"
     tests:
       en: "Whether task-critical errors and perceptual quality are measured separately."
@@ -110,6 +138,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Score recognition on task-critical tokens: entity, number and keyword errors, insertions in silence, and downstream intent accuracy."
+        - "Judge synthesis by listener comparisons, pairwise or MOS, with calibrated raters, since no single waveform is correct."
+        - "Add automatic checks per slice: round-trip recognition for intelligibility, pronunciation of normalised terms, and speaker similarity."
+      ru:
+        - "Оценивать распознавание по критичным для задачи токенам: ошибки в сущностях, числах и ключевых словах, вставки в тишине, точность интента."
+        - "Оценивать синтез сравнением слушателями — попарно или по MOS — с калиброванными оценщиками, поскольку единственно верной волны нет."
+        - "Добавить автоматические проверки по срезам: разборчивость через обратное распознавание, произношение нормализованных терминов и сходство голоса."
+    reading: ["paper-whisper"]
   - id: "mm-accents"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -135,8 +173,8 @@ questions:
         - "Проверять ошибки сущностей и критичные для задачи ошибки наряду с общим WER."
         - "Проверять адаптацию на отложенных говорящих и доменах для выявления регрессий."
     answer:
-      en: "You start not with the model but with sliced evaluation: an overall WER on an averaged set hides exactly the groups the work exists for. I'd build separate slices by language, by accent and region, by level and type of noise, and by utterances that switch language mid phrase, making sure each slice holds enough different speakers. Then task level metrics, not just WER: are names, amounts, numbers and the other entities that an action depends on recognised correctly, since one corrupted digit costs more than a dozen small errors. Improvement usually comes from data and adaptation: fine-tuning on the domain, a glossary of terms in the prompt, text normalisation. I check the result on held out speakers and domains, otherwise we get memorisation rather than robustness. A model that is strong on average can easily sag on one particular accent, and the labelling itself can be biased too."
-      ru: "Начинать надо не с модели, а с оценки по срезам: общий WER на усреднённом наборе прячет ровно те группы, ради которых работа и затевается. Я бы собрал отдельные срезы по языкам, по акцентам и регионам, по уровню и типу шума и по репликам с переключением языка внутри фразы, следя, чтобы в каждом срезе было достаточно разных говорящих. Дальше метрики по задаче, а не только WER: правильно ли распознаны имена, суммы, номера и прочие сущности, от которых зависит действие, ведь одна испорченная цифра дороже десятка мелких ошибок. Улучшают обычно данными и адаптацией: дообучение на домене, словарь терминов в подсказке, нормализация текста. Результат проверяю на отложенных говорящих и доменах, иначе получим запоминание, а не устойчивость. Модель, сильная в среднем, вполне может проседать на конкретном акценте, и сама разметка тоже бывает смещена."
+      en: "I'd start with evaluation, because an average WER hides exactly the groups this work is for. I'd build slices by language, accent, noise and code-switching, each with enough distinct speakers, and report WER per slice with confidence intervals bootstrapped over speakers, since one speaker's utterances are correlated. Code-switching needs its own care: a model like Whisper predicts one language token per segment and decodes conditioned on it, so a switched phrase can come out transliterated or even translated, and scoring is ambiguous too, because a loanword written in the other script counts as an error unless normalisation rules settle it. Beside WER I'd track errors in names, amounts and other entities an action depends on, since one wrong digit outweighs many small slips. The cheap lever is biasing decoding with a term list or prompt, which helps only known words; fine-tuning on accented and code-switched audio reaches further but can regress other languages. I'd validate any adaptation on held-out speakers and domains, and treat a slice with only a few speakers as no evidence either way."
+      ru: "Начинал бы с оценки, потому что средний WER прячет ровно те группы, ради которых работа затевается. Собрал бы срезы по языкам, акцентам, шуму и переключению языков, в каждом достаточно разных говорящих, и показывал WER по срезу с доверительными интервалами, полученными бутстрепом по говорящим: реплики одного человека коррелируют. Переключение языков требует отдельного внимания: модель вроде Whisper предсказывает один языковой токен на сегмент и декодирует с оглядкой на него, поэтому вставка на другом языке может выйти транслитерацией или даже переводом, а сама оценка неоднозначна: заимствованное слово, записанное другим алфавитом, считается ошибкой, пока это не решат правила нормализации. Помимо WER отслеживал бы ошибки в именах, суммах и других сущностях, от которых зависит действие: одна неверная цифра весит больше множества мелких промахов. Дешёвый рычаг — подсказать декодированию список терминов или промпт, но это помогает только с известными словами; дообучение на речи с акцентами и с переключением языков даёт больше, но может ухудшить другие языки. Любую адаптацию проверял бы на отложенных говорящих и доменах, а срез из нескольких говорящих не считал бы доказательством ни в какую сторону."
     reading: ["paper-whisper"]
   - id: "mm-streaming-audio"
     tracks: ["engineering"]
@@ -151,6 +189,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Cut synthesis at clause or punctuation boundaries with lookahead, keeping a short first chunk for fast first audio."
+        - "Size the playback buffer from measured jitter: too small underruns and stutters, too large delays every turn."
+        - "Measure time to first audio, underrun rate and stall duration on replayed network traces, plus prosody at chunk joins."
+      ru:
+        - "Резать синтез по границам клауз или знакам препинания с заглядыванием вперёд, оставляя короткую первую часть для быстрого первого звука."
+        - "Задавать буфер воспроизведения по измеренному джиттеру: маленький опустошается и заикается, большой задерживает каждую реплику."
+        - "Измерять время до первого звука, долю опустошений буфера и длительность пауз на воспроизведённых сетевых трассах, а также просодию на стыках."
   - id: "mm-diarisation"
     tracks: ["engineering"]
     type: "system_design"
@@ -164,6 +211,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Separate stages: speech activity and change detection, overlap handling, speaker embeddings, then clustering with unknown speaker count."
+        - "Treat clusters as anonymous labels: roles come from content and turn patterns, identity only from consented enrolment."
+        - "Report diarisation error split into miss, false alarm and confusion, including overlap, and score role accuracy separately."
+      ru:
+        - "Разделить этапы: детекция речи и смены говорящего, обработка наложений, эмбеддинги голоса, затем кластеризация при неизвестном числе говорящих."
+        - "Считать кластеры анонимными метками: роль выводить из содержания и очерёдности реплик, а личность — только по регистрации голоса с согласия."
+        - "Раскладывать ошибку диаризации на пропуски, ложные срабатывания и путаницу, включая наложения, и отдельно оценивать точность ролей."
   - id: "mm-cross-modal-retrieval"
     tracks: ["engineering"]
     type: "system_design"
@@ -177,6 +233,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Align modalities with contrastive dual encoders in one space, or index captions, OCR and transcripts as text."
+        - "Fix the retrieval unit, such as timestamped video shots or image regions, and calibrate scores across the modality gap."
+        - "Measure recall at k per query and result modality pair, and check that mixed rankings don't favour one modality."
+      ru:
+        - "Выровнять модальности контрастивными двойными энкодерами в одном пространстве или индексировать подписи, OCR и расшифровки как текст."
+        - "Задать единицу поиска — сцены видео с метками времени или области изображений — и калибровать оценки с учётом разрыва между модальностями."
+        - "Измерить recall@k для каждой пары модальностей запроса и результата и проверить, что смешанная выдача не предпочитает одну модальность."
+    reading: ["paper-clip","paper-modality-gap"]
   - id: "mm-normalization"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -190,6 +256,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Classify semiotic types first: cardinals, ordinals, dates, currency, units, phone numbers, abbreviations, acronyms and homographs."
+        - "Resolve ambiguity from context and locale, including Russian case agreement; constrain any model rewrite with grammars and lexicons."
+        - "Verify that each verbalisation maps back to the original value, and test a curated set of ambiguous forms."
+      ru:
+        - "Сначала классифицировать типы: количественные и порядковые числа, даты, валюты, единицы, телефоны, сокращения, аббревиатуры и омографы."
+        - "Снимать неоднозначность по контексту и локали, включая согласование падежа в русском; ограничивать переписывание моделью грамматиками и словарями."
+        - "Проверять, что каждое прочтение однозначно возвращается к исходному значению, и тестировать отобранный набор неоднозначных форм."
+    reading: ["paper-text-normalization"]
   - id: "mm-dubbing"
     tracks: ["engineering"]
     type: "system_design"
@@ -203,6 +279,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Separate dialogue from music and effects, then transcribe with word timestamps and diarise so each segment keeps its speaker."
+        - "Constrain translation length to each segment's duration, preferring rephrasing to extreme time-stretching; clone voices only with consent."
+        - "Measure timing overruns, speaker similarity, translation adequacy judged by bilingual reviewers, and naturalness after remixing."
+      ru:
+        - "Отделить речь от музыки и эффектов, затем распознать с пословными метками времени и провести диаризацию, чтобы каждый фрагмент сохранил говорящего."
+        - "Ограничивать длину перевода длительностью фрагмента, предпочитая перефразирование сильному растяжению по времени; клонировать голос только с согласия."
+        - "Измерить выход за тайминг, сходство голоса, адекватность перевода по оценке двуязычных экспертов и естественность после сведения."
   - id: "mm-clinical-audio"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -216,6 +301,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Slice errors by signal-to-noise ratio, overlapping segments and medical terms, so each cause gets its own error rate."
+        - "Match fixes to causes: microphones and augmentation for noise, source separation for overlap, vocabulary biasing or finetuning for terms."
+        - "Validate on held-out clinicians and rooms, counting inserted terms and dosage errors, not only overall WER."
+      ru:
+        - "Разложить ошибки по отношению сигнал/шум, участкам наложения речи и медицинским терминам, чтобы у каждой причины был свой показатель."
+        - "Подбирать меры под причину: микрофоны и аугментация против шума, разделение источников против наложений, смещение словаря или дообучение для терминов."
+        - "Проверять на отложенных врачах и кабинетах, считая вставленные термины и ошибки в дозировках, а не только общий WER."
   - id: "mm-vision-language-action"
     tracks: ["engineering"]
     type: "knowledge"
@@ -229,3 +323,13 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Contrast outputs: continuous motor commands decoded from action tokens or an action head versus symbolic calls to an executor."
+        - "Explain closed-loop control: the policy re-observes at control frequency, so latency and compounding errors matter; a tool returns once."
+        - "Note the evaluation shift: demonstration data and success rates in simulated or physical rollouts, under safety limits."
+      ru:
+        - "Сравнить выходы: непрерывные команды движения из токенов действий или отдельной головы против символьных вызовов исполнителю."
+        - "Объяснить замкнутый контур: политика заново наблюдает с частотой управления, поэтому важны задержка и накопление ошибок; инструмент отвечает один раз."
+        - "Отметить сдвиг в оценке: данные демонстраций и доля успехов в симуляции или на реальном роботе с ограничениями безопасности."
+    reading: ["paper-rt-2"]

@@ -27,9 +27,9 @@ questions:
         - "Restrict tools and destinations; require explicit approval for sensitive disclosure."
         - "Test indirect injection and monitor attempted exfiltration; prompts alone are insufficient."
       ru:
-        - "Разделите содержимое недоверенного письма и полномочия на чтение или отправку."
-        - "Ограничьте инструменты и адресатов; требуйте явного подтверждения передачи чувствительных данных."
-        - "Проверяйте косвенную инъекцию и попытки утечки; одного промпта недостаточно."
+        - "Разделить содержимое недоверенного письма и полномочия на чтение или отправку."
+        - "Ограничить инструменты и адресатов; требовать явного подтверждения передачи чувствительных данных."
+        - "Проверять косвенную инъекцию и попытки утечки; одного промпта недостаточно."
     answer:
       en: "Incoming mail lands in the same context as instructions, while the assistant's authority is wider than the sender's rights: a message asks it to find an internal document and forward it outside, and the model obliges. You do not fix that with prompt wording, you fix it by separating levels. Untrusted mail content stays data, and the authority to search or send lives in a tool layer that never reads a message as a command. I would narrow the tool set, restrict recipients to the current thread and known addresses, and require explicit human approval to go beyond that or to attach files. I would test against a corpus of indirect injections and exfiltration attempts, measuring the share of outbound messages carrying data above the requester's access level. The risk does not disappear: injection filters miss things, and data can still leak through an allowed channel."
       ru: "Главная уязвимость здесь в том, что текст входящего письма попадает в тот же контекст, что и инструкции, а полномочия ассистента шире, чем права отправителя: письмо просит найти внутренний документ и переслать его наружу, и модель послушно выполняет. Лечится это не формулировкой промпта, а разделением уровней: содержимое недоверенной почты остаётся данными, а права на поиск и отправку живут в слое инструментов, который не читает письмо как команду. Я бы сузил набор инструментов, ограничил получателей текущим тредом и известными адресами, потребовал явного подтверждения человеком при выходе за них и вложениях. Проверял бы корпусом писем с косвенными инъекциями и попытками утечки, считая долю исходящих сообщений с данными выше уровня доступа. Полностью риск не снимается: фильтры инъекций ошибаются, а утечка возможна и через разрешённый канал."
@@ -61,12 +61,12 @@ questions:
         - "Assign owners to evaluation, residual-risk acceptance and incident handling."
         - "Use staged exposure, monitoring and a tested rollback or shutdown path."
       ru:
-        - "Определите назначение, затронутые группы и недопустимые последствия."
-        - "Назначьте ответственных за оценку, принятие остаточного риска и инциденты."
-        - "Предусмотрите постепенный запуск, мониторинг и проверенный откат или остановку."
+        - "Определить назначение, затронутые группы и недопустимые последствия."
+        - "Назначить ответственных за оценку, принятие остаточного риска и инциденты."
+        - "Предусмотреть постепенный запуск, мониторинг и проверенный откат или остановку."
     answer:
-      en: "A release starts with intended use: its task, affected users and unacceptable outcomes. Then risk becomes a shared artifact rather than a team opinion. Threats are written down, an assessment is done, and every role has a name on it: who evaluates, who accepts the residual risk, who is on call during an incident. The cost is obvious, the release goes slower and some of the work does not look like development. In practice I would expose the system in stages, from internal users to a share of traffic, hold thresholds on an eval set together with production signals like complaints, harmful responses, latency and cost, and rehearse rollback in advance with a clear trigger and a named owner who can stop it. The limit is simple: a procedure cannot anticipate every risk, so the assessment is repeated when the model, the data or the load changes."
-      ru: "Выпуск начинается не с модели, а с назначения: какую задачу система решает, кого затрагивает и какие последствия мы считаем недопустимыми. Дальше риск становится общим артефактом, а не мнением команды: угрозы описаны, оценка проведена, и у каждой роли есть имя — кто оценивает, кто принимает остаточный риск, кто дежурит при инциденте. Плата за это очевидна: релиз идёт медленнее и появляется работа, которая не выглядит как разработка. Практически я бы запускал ступенями, от внутренних пользователей к доле трафика, держал пороги на eval-наборе и продовые сигналы вроде жалоб, вредных ответов, задержки и стоимости, и заранее репетировал откат с понятным условием срабатывания и ответственным за остановку. Граница простая: процедура не может предвидеть все риски, поэтому оценку приходится повторять при смене модели, данных и характера нагрузки."
+      en: "Safe deployment means every step of exposure is a decision a named person makes against criteria written before the results arrive. I'd turn intended use and the outcomes we won't accept into evals with thresholds, so the release bar exists before anyone is attached to the date. Ownership is split on purpose: one owner runs the evaluation, someone answerable for the product's consequences, not the person measured on the launch date, accepts the residual risk, and the on-call owner can halt rollout without a meeting. Exposure goes internal, then a small share of traffic, then wider, with halt thresholds on a labelled sample of live traffic: harmful responses, complaints, escalations. The non-obvious cost is that small stages see rare harms slowly, so a stage ends when enough traffic has passed for the rare failure to show, not after a fixed number of days. The boundary: rollback doesn't recall sent messages or undo actions taken, and a prompt edit or an index refresh changes behaviour as much as a new model, so it passes the same gate."
+      ru: "Безопасное внедрение означает, что каждый шаг расширения — это решение конкретного человека по критериям, записанным до того, как пришли результаты. Назначение и последствия, которые мы не принимаем, я бы превратил в проверки на eval-наборе с порогами, чтобы планка выпуска существовала раньше, чем кто-то привяжется к дате. Ответственность разделяю намеренно: один владелец проводит оценку, остаточный риск принимает тот, кто отвечает за последствия продукта, а не тот, кого оценивают по сроку запуска, а дежурный может остановить выкатку без всякого совещания. Расширение идёт ступенями — внутренние пользователи, небольшая доля трафика, дальше шире — с порогами остановки по размеченной выборке живого трафика: вредные ответы, жалобы, эскалации. Неочевидная цена в том, что малые ступени медленно замечают редкий вред, поэтому ступень заканчивается, когда через неё прошло достаточно трафика, чтобы редкий сбой успел проявиться, а не через фиксированное число дней. Граница: откат не отзывает отправленные сообщения и не отменяет совершённые действия, а правка промпта или обновление индекса меняют поведение не меньше новой модели, поэтому проходят ту же процедуру допуска."
     reading: ["nist-ai-rmf","google-sre-book","anthropic-rsp"]
   - id: "sec-consumer-safety"
     tracks: ["leadership"]
@@ -95,12 +95,12 @@ questions:
         - "Combine product limits, model evaluation, reporting and human escalation."
         - "Measure both harmful completions and unnecessary refusals by user segment."
       ru:
-        - "Выберите конкретный сценарий, аудиторию и модель злоупотреблений."
-        - "Объедините продуктовые ограничения, оценку модели, жалобы и эскалацию человеку."
-        - "Измеряйте вредные ответы и необоснованные отказы по сегментам пользователей."
+        - "Выбрать конкретный сценарий, аудиторию и модель злоупотреблений."
+        - "Объединить продуктовые ограничения, оценку модели, жалобы и эскалацию человеку."
+        - "Измерять вредные ответы и необоснованные отказы по сегментам пользователей."
     answer:
-      en: "Safety for a consumer product is designed from a concrete use case and audience, not from a general list of prohibitions: who these people are, why they come, what abuse looks like here, and what harm is real for vulnerable groups. Then it is not one barrier but several layers: product limits on what the service simply does not do, model evaluation on an abuse corpus, a live reporting channel, and escalation to a human where the cost of error is high. Every layer costs money and friction, so measure both sides: the share of harmful completions and the share of unnecessary refusals, always broken out by user segment, language and topic. I would run a regular review of reports and feed them into the eval set. The limit is that the set always lags behind new abuse patterns, and averaged metrics hide harm concentrated in a small group."
-      ru: "Безопасность потребительского продукта проектируется от конкретного сценария и аудитории, а не от общего списка запретов: кто эти люди, зачем приходят, как выглядит злоупотребление именно здесь и какой вред реален для уязвимых групп. Дальше работает не один барьер, а несколько слоёв — продуктовые ограничения на то, чего сервис не делает в принципе, оценка модели на корпусе злоупотреблений, живой канал жалоб и эскалация человеку там, где цена ошибки высока. Каждый слой стоит денег и трения, поэтому важно измерять обе стороны: долю вредных ответов и долю необоснованных отказов, обязательно по сегментам пользователей, языкам и темам. Я бы завёл регулярный разбор жалоб и пополнял ими eval-набор. Ограничение в том, что набор всегда отстаёт от новых схем злоупотребления, а усреднённые метрики прячут вред, сосредоточенный в небольшой группе."
+      en: "Safety requirements should come from who actually uses the product and what harm is plausible for them; a generic list of prohibitions over-refuses ordinary users and still misses the specific risk. So I'd write an abuse model per population: a teenager looking for self-harm methods, an adult using role-play to extract dangerous instructions, someone generating content to harass a real person. Each layer stops something different: a product limit removes a capability outright, certain but costly for legitimate use; model behaviour covers the grey zone and is probabilistic; reports surface patterns the eval set hasn't seen; human escalation handles crisis signals where a wrong automatic reply is expensive. I'd measure harmful completions and unnecessary refusals on a double-labelled sample stratified by segment and language, oversampling small groups so their rates are visible at all. A severe new pattern in reports gets a blunt product block at once, then a model fix and an eval update. The boundary: the product rarely knows a user's age or intent, and averages hide harm concentrated in a small group."
+      ru: "Требования к безопасности должны идти от того, кто реально пользуется продуктом и какой вред для этих людей правдоподобен: общий список запретов отказывает обычным пользователям там, где не нужно, и всё равно пропускает конкретный риск. Поэтому я бы описал модель злоупотреблений для каждой группы: подросток, который ищет способы навредить себе, взрослый, вытягивающий опасные инструкции через ролевую игру, кто-то, кто генерирует контент для травли конкретного человека. Каждый слой останавливает своё: продуктовое ограничение убирает возможность целиком — надёжно, но дорого для законного использования; поведение модели закрывает серую зону и работает вероятностно; жалобы показывают схемы, которых ещё нет в eval-наборе; эскалация человеку нужна на кризисных сигналах, где ошибочный автоматический ответ обходится дорого. Измерял бы долю вредных ответов и необоснованных отказов на выборке с двойной разметкой, стратифицированной по сегментам и языкам, с намеренно увеличенным числом примеров из малых групп, чтобы их доли вообще было видно. Новая тяжёлая схема из жалоб сразу закрывается грубым продуктовым блоком, а потом уже исправлением модели и пополнением eval-набора. Граница: продукт редко знает возраст и намерения пользователя, а средние значения прячут вред, сосредоточенный в небольшой группе."
     reading: ["nist-ai-rmf","owasp-llm-top-10"]
   - id: "sec-action-authorisation"
     tracks: ["engineering","leadership"]
@@ -129,9 +129,9 @@ questions:
         - "Show consequential actions for confirmation and enforce policy at execution."
         - "Record actions, bound spending and provide recovery for partial completion."
       ru:
-        - "Ограничьте полномочия пользователем, ресурсом и операцией."
-        - "Показывайте значимые действия для подтверждения и проверяйте политику при выполнении."
-        - "Фиксируйте действия, ограничивайте расходы и предусмотрите восстановление после частичного выполнения."
+        - "Ограничить полномочия пользователем, ресурсом и операцией."
+        - "Показывать значимые действия для подтверждения и проверять политику при выполнении."
+        - "Фиксировать действия, ограничивать расходы и предусмотреть восстановление после частичного выполнения."
     answer:
       en: "The key distinction is that the model proposes an action and the system authorises it, and those are different subsystems. Authority is scoped to the user, the resource and the operation: the agent acts no wider than the rights of the person it acts for, and a token is issued for a specific operation rather than for the whole account. Consequential and irreversible actions are shown to a human in plain wording: what exactly, to whom, for how much. Policy is checked at execution time on the service side, because a check inside the prompt can be talked around. You need an action log with an end to end identifier, spending and rate limits, and a recovery plan for partial completion, where a compensating operation matters more than a blind retry. The boundary is confirmation fatigue: ask about everything and people stop reading, so confirm what is expensive and irreversible."
       ru: "Ключевое различие такое: модель предлагает действие, а разрешает его система, и это разные подсистемы. Полномочия ограничиваются пользователем, ресурсом и операцией — агент действует не шире прав того, от чьего имени работает, а токен выдаётся под конкретную операцию, а не под всю учётную запись. Значимые и необратимые действия показываются человеку понятной формулировкой: что именно, кому, на какую сумму. Политика проверяется в момент исполнения на стороне сервиса, потому что проверка внутри промпта обходится текстом. Дополнительно нужны журнал действий со сквозным идентификатором, лимиты расходов и частоты, а также план восстановления после частичного выполнения, где компенсирующая операция важнее слепого повтора. Граница применимости в усталости от подтверждений: если спрашивать обо всём, люди перестают читать, поэтому подтверждать стоит дорогое и необратимое."
@@ -163,9 +163,9 @@ questions:
         - "Explain alternatives, escalation and who could accept the remaining risk."
         - "Report the result honestly and the control changed afterward."
       ru:
-        - "Опишите конкретную угрозу и доступные на тот момент данные."
-        - "Объясните альтернативы, эскалацию и полномочия на принятие остаточного риска."
-        - "Честно изложите результат и последующие изменения в контроле."
+        - "Описать конкретную угрозу и доступные на тот момент данные."
+        - "Объяснить альтернативы, эскалацию и полномочия на принятие остаточного риска."
+        - "Честно изложить результат и последующие изменения в контроле."
     answer:
       en: "Answer this as a risk decision, not as a story about saving the day. Take a real episode and start with the hazard: what specifically could have happened, who it would have affected, and what evidence you had at the time, including what you did not know. Then name the alternatives you considered seriously, such as narrowing the launch, enabling it for a subset of users, adding manual review, or moving the date, and say who had the authority to accept the remaining risk and how you escalated. That is what the interviewer is listening for: whether you separate your own opinion from someone else's decision, and whether you know who owns the risk. The common failure is the hero who saved everyone, or a decision with no author. Finish with an honest result, including what went wrong, and the control that changed afterward."
       ru: "Такой вопрос лучше отвечать как разбор решения о риске, а не как рассказ о подвиге. Возьмите реальный эпизод и начните с угрозы: что конкретно могло произойти, кого затронуло бы и какими данными вы располагали на тот момент, включая то, чего не знали. Дальше назовите альтернативы, которые рассматривали всерьёз — сузить запуск, включить для части пользователей, добавить ручную проверку, сдвинуть срок — и скажите, кто имел полномочия принять остаточный риск и как вы эскалировали. Интервьюер слушает именно это: отделяете ли вы своё мнение от чужого решения и знаете ли, кто владелец риска. Частая ошибка — герой, который всех спас, или безличное решение без автора. Заканчивайте честным результатом, включая то, что пошло не так, и изменениями в контроле, которые остались после истории."
@@ -189,6 +189,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "anthropic"
+    outline:
+      en:
+        - "Pick one concrete problem, such as reward hacking or unfaithful reasoning, and state its harm."
+        - "Separate what current evidence shows from extrapolation, and name the assumption the argument rests on."
+        - "Name the evidence that would change your priority, and a measurable research step toward it."
+      ru:
+        - "Выбрать одну конкретную проблему, например reward hacking или недостоверные рассуждения, и назвать её вред."
+        - "Отделить то, что показывают текущие данные, от экстраполяции и назвать предположение, на котором держится аргумент."
+        - "Назвать данные, которые изменили бы ваш приоритет, и измеримый исследовательский шаг к ним."
+    reading: ["paper-reward-overoptimization","paper-reasoning-faithfulness","paper-concrete-problems"]
   - id: "sec-interpretability-tradeoff"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -208,6 +218,21 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "anthropic"
+    start_here: ["leadership"]
+    priority: 68
+    outline:
+      en:
+        - "Ask what interpretability serves here: explaining decisions to those affected, contesting outcomes, validation or debugging."
+        - "Weigh the gain against error consequences and against controls that do not depend on model internals."
+        - "Verify the gain on the slices that matter, with outcome monitoring and a simpler fallback model."
+      ru:
+        - "Выяснить, зачем здесь интерпретируемость: объяснять решения затронутым людям, оспаривать их, валидировать модель или отлаживать."
+        - "Сопоставить выигрыш с последствиями ошибок и с мерами контроля, не зависящими от устройства модели."
+        - "Проверить выигрыш на важных срезах, с мониторингом результатов и более простой резервной моделью."
+    answer:
+      en: "I wouldn't weigh it in the abstract, because interpretability isn't one property: the question is what we need explanations for in this use. If a decision has to be explained to the person it affects, contested by them, or validated by an independent reviewer — lending, hiring, clinical triage — losing that can make the better model unusable whatever its accuracy. If it ranks recommendations, explanations mostly serve debugging, and other tools can cover that. So I compare the gain with the consequences of an error and with controls that don't rely on the model's internals: outcome monitoring by segment, human review of high-impact cases, a simpler challenger as fallback. Post-hoc explanations help, but they describe an approximation, not the model's actual computation, so they're weaker evidence than they look. I'd check that the improvement holds on the slices that matter, not just on average, because an opaque model's gain can hide a subgroup getting worse that we can no longer diagnose. Where explanation is a requirement rather than a preference, no performance gain buys it back."
+      ru: "Я бы не стал взвешивать это абстрактно, потому что интерпретируемость — не одно свойство: вопрос в том, для чего нам нужны объяснения в этом применении. Если решение надо объяснить человеку, которого оно касается, дать ему возможность оспорить его или передать на проверку независимому специалисту — кредитование, найм, клиническая сортировка, — то потеря этого может сделать лучшую модель непригодной при любой точности. Если модель ранжирует рекомендации, объяснения в основном нужны для отладки, и это закрывается другими средствами. Поэтому выигрыш сравниваю с последствиями ошибки и с мерами контроля, не опирающимися на внутреннее устройство модели: мониторинг результатов по сегментам, проверка человеком значимых случаев, более простая модель-конкурент в резерве. Объяснения постфактум помогают, но описывают приближение, а не реальное вычисление модели, поэтому как доказательство они слабее, чем кажутся. Я бы проверил, что улучшение держится на важных срезах, а не только в среднем: выигрыш непрозрачной модели может скрывать ухудшение для какой-то подгруппы, которое мы уже не сможем диагностировать. Там, где объяснение — требование, а не пожелание, никакой прирост качества его не покупает."
+    reading: ["sr-11-7","nist-ai-rmf"]
   - id: "sec-upload-moderation"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -227,6 +252,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
         company: "meta"
+    outline:
+      en:
+        - "Tier harms by severity and choose per tier: block at upload, limit distribution or queue review."
+        - "Combine hash matching for known content with classifiers for new content, routing uncertain cases to reviewers."
+        - "Measure prevalence, per-policy precision and appeal overturn rate, weighing wrongful removals against missed harm."
+      ru:
+        - "Разделить вред по тяжести и для каждого уровня выбрать: блокировка при загрузке, ограничение показа или очередь на проверку."
+        - "Сочетать сравнение хешей для известного контента с классификаторами для нового, отправляя неуверенные случаи модераторам."
+        - "Измерять распространённость, точность по каждому правилу и долю решений, отменённых по апелляции, взвешивая ошибочные удаления и пропуски."
   - id: "sec-annotation-outsourcing"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -245,6 +279,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Name the harm: labels stop reflecting human judgement and contaminate training and evaluation data."
+        - "Rely on gold questions, agreement and timing signals, not a detector whose false positives punish honest annotators."
+        - "Confirm cases before sanctions, re-label affected data, and fix incentives and task design that invite shortcuts."
+      ru:
+        - "Назвать вред: метки перестают отражать человеческое суждение и загрязняют данные для обучения и оценки."
+        - "Опираться на контрольные вопросы, согласованность и время выполнения, а не на детектор, чьи ложные срабатывания бьют по честным разметчикам."
+        - "Подтверждать случаи до санкций, переразметить затронутые данные и исправить стимулы и устройство задания, толкающие к обходу."
   - id: "sec-guardrail-exception"
     tracks: ["engineering","leadership"]
     type: "applied_scenario"
@@ -274,8 +317,8 @@ questions:
         - "Предпочесть узкую компенсирующую меру общему исключению и ограничить её этим клиентом."
         - "Дать исключению названного владельца, дату истечения и пересмотр, способный отказать в продлении."
     answer:
-      en: "First I ask what the control actually protects against, because some requests target a control whose purpose nobody remembers, and some are reasonable asks blocked by a clumsy implementation. If the underlying risk is real, the answer is usually not a binary exception but a narrower path: a compensating control, a tighter scope, human review in place of the automated block, logging that makes the residual risk observable. Whatever is granted is scoped to that customer and that use, never to the code path generally, because an exception in shared code silently becomes the new default. It gets a named owner on the business side rather than the engineer who implemented it, an expiry date, and a review able to refuse renewal. The failure mode to avoid is the permanent temporary exception, so I would report open exceptions as a standing number."
-      ru: "Сначала я спрашиваю, от чего это правило вообще защищает: часть просьб направлена на снятие контроля, чьё назначение никто уже не помнит, а часть — разумные запросы, заблокированные неудачной реализацией. Если риск реален, ответом обычно оказывается не бинарное исключение, а более узкий путь: компенсирующая мера, суженная область, проверка человеком вместо автоматической блокировки, журналирование, делающее остаточный риск наблюдаемым. Всё, что выдаётся, ограничивается этим клиентом и этим применением, а не участком кода в целом: исключение в общем коде незаметно становится новым поведением по умолчанию. У него появляется названный ответственный владелец со стороны бизнеса, а не инженер, который это реализовал, дата истечения и пересмотр, способный отказать в продлении. Режим отказа, которого надо избегать, — вечное временное исключение, поэтому число открытых исключений я бы показывал руководству постоянно."
+      en: "First I ask what the control actually protects against, because some requests target a control whose purpose nobody remembers, and some are reasonable asks blocked by a clumsy implementation. I also ask who bears the harm if it's relaxed, since that's rarely the team asking. If the underlying risk is real, the answer is usually not a binary exception but a narrower path: a compensating control, a tighter scope, human review in place of the automated block, logging that makes the residual risk observable. Whatever is granted is scoped to that customer and that use, never to the code path generally, because an exception in shared code silently becomes the new default. It gets a named owner on the business side rather than the engineer who implemented it, an expiry date, and a review able to refuse renewal. The failure mode to avoid is the permanent temporary exception, so I would report open exceptions as a standing number."
+      ru: "Сначала я спрашиваю, от чего это правило вообще защищает: часть просьб направлена на снятие контроля, чьё назначение никто уже не помнит, а часть — разумные запросы, заблокированные неудачной реализацией. Ещё я спрашиваю, кто понесёт вред при ослаблении правила: почти никогда это не та команда, что просит. Если риск реален, ответом обычно оказывается не бинарное исключение, а более узкий путь: компенсирующая мера, суженная область, проверка человеком вместо автоматической блокировки, журналирование, делающее остаточный риск наблюдаемым. Всё, что выдаётся, ограничивается этим клиентом и этим применением, а не участком кода в целом: исключение в общем коде незаметно становится новым поведением по умолчанию. У него появляется названный ответственный владелец со стороны бизнеса, а не инженер, который это реализовал, дата истечения и пересмотр, способный отказать в продлении. Ловушка, которой надо избегать, — вечное временное исключение, поэтому число открытых исключений я бы показывал руководству постоянно."
     reading: ["eu-ai-act"]
   - id: "sec-matter-isolation"
     tracks: ["engineering","leadership"]
@@ -295,6 +338,16 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Treat the matter, not the tenant, as the boundary: leakage across sides breaches client confidentiality."
+        - "Enforce it at retrieval time, and keep memory, caches, logs and tuning data per matter."
+        - "Probe for cross-matter leakage, audit every access, and track over-blocking of shared firm knowledge."
+      ru:
+        - "Считать границей дело, а не тенанта: утечка между сторонами сделки нарушает конфиденциальность клиента."
+        - "Применять её в момент поиска и держать память, кеши, логи и данные для дообучения отдельно по делам."
+        - "Проверять утечки между делами целевыми запросами, аудировать каждый доступ и следить за избыточной блокировкой общих знаний фирмы."
+    reading: ["azure-search-document-access","azure-multitenant"]
   - id: "sec-stale-legal-authority"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -313,6 +366,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Separate two checks: the memo states the decision faithfully, and the decision is still good law."
+        - "Check each authority's later treatment with a citator at retrieval and again before sign-off."
+        - "Seed test memos with overruled cases to measure catch rate, and track flags lawyers learn to ignore."
+      ru:
+        - "Разделить две проверки: меморандум точно передаёт решение, и решение по-прежнему сохраняет силу."
+        - "Проверять последующую судьбу каждого решения по правовой базе с отметками об отмене при поиске и ещё раз перед подписанием."
+        - "Подмешивать отменённые решения в тестовые меморандумы, измеряя долю пойманных, и следить за флагами, которые юристы начинают игнорировать."
   - id: "sec-chat-safety"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -331,6 +393,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Name harms that build over many turns: self-harm, sexualised content involving minors, emotional dependency."
+        - "Score the trajectory of the whole conversation, not single replies, and escalate to crisis resources or review."
+        - "Evaluate on long scripted conversations, counting missed escalations and needless interruptions of benign roleplay."
+      ru:
+        - "Назвать вред, который накапливается за много реплик: самоповреждение, сексуализированный контент с несовершеннолетними, эмоциональная зависимость."
+        - "Оценивать траекторию всего диалога, а не отдельные ответы, и эскалировать к кризисным ресурсам или проверке человеком."
+        - "Проверять на длинных сценарных диалогах, считая пропущенные эскалации и лишние прерывания безобидной ролевой игры."
   - id: "sec-generation-intervention"
     tracks: ["engineering","leadership"]
     type: "knowledge"
@@ -349,6 +420,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Intervene mid-stream when showing the text is itself the harm, such as leaked secrets or dangerous instructions."
+        - "Weigh latency against exposure: buffering delays the stream, while retracting shown text cannot undo it."
+        - "Measure harmful text shown before cutoff, false truncations of benign answers and added latency."
+      ru:
+        - "Вмешиваться во время генерации, когда вред наносит уже сам показ текста: утечка секретов, опасные инструкции."
+        - "Взвесить задержку и риск раскрытия: буферизация задерживает поток, а отзыв показанного текста его не отменяет."
+        - "Измерять, сколько вредного текста показано до обрыва, ложные обрывы безобидных ответов и добавленную задержку."
   - id: "sec-age-assurance"
     tracks: ["leadership"]
     type: "system_design"
@@ -367,6 +447,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "State what each error costs: a minor in the adult product versus an adult wrongly restricted."
+        - "Layer signals by risk, escalating to verification only when needed and keeping as little data as possible."
+        - "Measure errors by age band, evasion attempts and drop-off from friction, and offer an appeal path."
+      ru:
+        - "Назвать цену каждой ошибки: несовершеннолетний во взрослом продукте против ошибочно ограниченного взрослого."
+        - "Наслаивать сигналы по уровню риска, переходя к верификации только при необходимости и храня минимум данных."
+        - "Измерять ошибки по возрастным группам, попытки обхода и отток из-за трудностей проверки и предусмотреть апелляцию."
   - id: "sec-voice-consent"
     tracks: ["leadership"]
     type: "system_design"
@@ -385,6 +474,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Verify the speaker's own consent, for example with a live spoken phrase, before creating a voice."
+        - "Bind consent to the voice model so revocation disables it, and watermark or log generated audio."
+        - "Review impersonation reports and takedown requests fast, measuring abuse caught and wrongful blocks."
+      ru:
+        - "Проверять согласие самого говорящего, например по живой произнесённой фразе, до создания голоса."
+        - "Привязать согласие к голосовой модели, чтобы отзыв её отключал, и маркировать или журналировать сгенерированное аудио."
+        - "Быстро разбирать жалобы на подделку и запросы на удаление, измеряя пойманные злоупотребления и ошибочные блокировки."
   - id: "sec-clinical-invention"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -403,6 +501,15 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Treat it as a patient-safety incident: find affected signed notes and whether care relied on them."
+        - "Contain it with a check that flags medications absent from the transcript, requiring clinician confirmation before signing."
+        - "Measure unsupported medication mentions on audited samples, and track alert fatigue from false flags."
+      ru:
+        - "Отнестись к этому как к инциденту безопасности пациента: найти затронутые подписанные записи и выяснить, опиралось ли на них лечение."
+        - "Локализовать проверкой, помечающей препараты, которых нет в расшифровке, и требовать подтверждения врача до подписи."
+        - "Измерять неподтверждённые упоминания препаратов на аудируемых выборках и следить за усталостью от ложных предупреждений."
   - id: "sec-robot-safety"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -421,3 +528,12 @@ questions:
     added: "2026-09-26"
     evidence:
       - source: "outcome-school-company-wise"
+    outline:
+      en:
+        - "Name the hazards near people: contact force, speed, pinch points and unexpected motion."
+        - "Put an independent safety layer under the policy that enforces speed, force and zone limits."
+        - "Make a safe stop the fallback, verify it by fault injection, and count needless stops as cost."
+      ru:
+        - "Назвать опасности рядом с людьми: сила контакта, скорость, зоны защемления и неожиданное движение."
+        - "Поставить под обученной политикой независимый слой безопасности, обеспечивающий пределы скорости, силы и рабочих зон."
+        - "Сделать безопасную остановку режимом отказа, проверить её внесением неисправностей и считать лишние остановки ценой."

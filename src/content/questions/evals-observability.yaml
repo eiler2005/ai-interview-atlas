@@ -12,6 +12,8 @@ questions:
     provenance: "generated"
     basis: ["radar:evals-observability"]
     added: "2026-09-29"
+    start_here: ["engineering"]
+    priority: 68
     outline:
       en:
         - "Freeze task inputs, scoring and tool state; vary model, prompt and budget in controlled comparisons."
@@ -21,6 +23,9 @@ questions:
         - "Зафиксировать задания, оценку и состояние инструментов; менять модель, промпт и бюджет в контролируемых сравнениях."
         - "Повторить прогоны и показать неопределённость, сложные срезы и ошибки, а не только общую долю побед."
         - "Сравнить и базовый вариант при равном бюджете, и рабочую систему с её реальными ограничениями цены и задержки."
+    answer:
+      en: "Three changes shipped together, so a before-and-after number credits the model with all of them by default. I'd freeze what isn't under test: the task set, the grader and the tool environment, with tool responses recorded so a live API can't drift between runs. Then I'd vary one factor at a time plus the combinations that matter: old model with the new prompt and tools, new model with the old prompt, both models at the same compute budget. A full factorial over old and new versions of model, prompt, tools and budget is only sixteen configurations. Reasoning models respond strongly to budget, so an unmatched comparison often measures extra test-time compute rather than the model. Each cell gets repeated trials, since a few points on a stochastic system can be noise, and I'd report intervals, hard slices and failure examples, not one average. Separately, I'd measure the deployable system under its real cost and latency limits: the matched-budget winner may be unaffordable. If the factors interact strongly, the honest answer is the combination."
+      ru: "Три изменения вышли одновременно, поэтому сравнение до и после по умолчанию приписывает модели их все. Я бы заморозил то, что не проверяется: набор задач, оценщика и среду инструментов, а ответы инструментов записал бы, чтобы живой API не дрейфовал между прогонами. Дальше менял бы по одному фактору плюс важные сочетания: старая модель с новыми промптом и инструментами, новая модель со старым промптом, обе модели при одинаковом бюджете вычислений. Полный перебор старых и новых версий модели, промпта, инструментов и бюджета — всего шестнадцать конфигураций. Reasoning-модели сильно реагируют на бюджет, так что сравнение без его выравнивания часто меряет лишние вычисления при инференсе, а не модель. В каждой ячейке нужны повторные прогоны, потому что пара пунктов у стохастической системы бывает шумом, и показывать стоит интервалы, сложные срезы и примеры ошибок, а не одно среднее. Отдельно я бы измерил рабочую систему в её реальных пределах цены и задержки: победитель при равном бюджете может оказаться не по карману. Если факторы сильно взаимодействуют, честный ответ — само сочетание."
     reading: ["openai-evaluation-best-practices", "paper-test-time-compute"]
   - id: "eval-reasoning-supervision"
     tracks: ["engineering"]
@@ -34,6 +39,8 @@ questions:
     provenance: "generated"
     basis: ["radar:evals-observability"]
     added: "2026-09-29"
+    start_here: ["engineering"]
+    priority: 69
     outline:
       en:
         - "Explain which feedback changes model weights and which selects among outputs at inference."
@@ -43,6 +50,9 @@ questions:
         - "Объяснить, какая обратная связь меняет веса, а какая выбирает результат при инференсе."
         - "Оценить доступность разметки, ошибки проверяющего и способы обмануть награду или правило отбора."
         - "Проверять результат независимо на отложенных данных; не переносить выводы по математике на все процессы."
+    answer:
+      en: "The first two are training signals; the third isn't. An outcome reward scores only the end result, an exact answer or passing tests, like the rule-based rewards behind DeepSeek-R1, and reinforcement learning on it changes the weights: cheap when a checker exists, but the credit is sparse and a right answer reached by wrong steps still gets paid. Process supervision labels individual steps and trains a reward model on them; Lightman et al. found it selected maths solutions better than outcome supervision, at the price of step-level human labels. Inference-time verification leaves the weights alone: sample several candidates and let a verifier or a vote choose, paying latency and tokens per request. The same step-level reward model can serve either role, so the distinction is where the signal is applied. I'd want to know whether a reliable outcome check exists, whether step labels are affordable and consistent, and the verifier's false-accept rate, because any rule gets exploited. I'd judge all three on held-out outcome checks independent of that signal, and wouldn't carry maths results to workflows without a checker."
+      ru: "Первые два — обучающие сигналы, третий — нет. Награда за результат оценивает только итог, точный ответ или прошедшие тесты, как награды на основе правил в DeepSeek-R1, и обучение с подкреплением по ней меняет веса: это дёшево, когда есть проверка, но сигнал редкий, а правильный ответ, добытый неверными шагами, всё равно получает награду. Process supervision размечает отдельные шаги и обучает на них модель награды; Lightman и соавторы показали, что на математике она отбирает решения лучше, чем надзор по результату, ценой пошаговой разметки людьми. Проверка при инференсе веса не трогает: сэмплируем несколько кандидатов, выбирает проверяющий или голосование, а платим задержкой и токенами на каждом запросе. Одна и та же пошаговая модель награды может играть любую из этих ролей, так что различие в том, где применяется сигнал. Мне нужно знать, есть ли надёжная проверка итога, доступна ли и согласована ли пошаговая разметка и какова доля ложных принятий у проверяющего, потому что любое правило начнут эксплуатировать. Все три подхода я бы оценивал независимой проверкой итога на отложенных задачах и не переносил выводы с математики на процессы, где проверки нет."
     reading: ["paper-deepseek-r1", "paper-process-supervision"]
   - id: "eval-reasoning-trace-faithfulness"
     tracks: ["engineering", "leadership"]
@@ -98,8 +108,8 @@ questions:
         - "Менять порядок ответов и проверять влияние длины и идентичности модели."
         - "Измерять расхождения и передавать экспертам ненадёжные случаи."
     answer:
-      en: "A judge starts not with a prompt but with criteria: what counts as a good answer in this task, written so that two people would agree. Then you need a held-out calibration set with human labels; it measures the judge itself, otherwise we are simply trusting a model to grade a model. The known biases are checked by experiment: run each pair in both orders and see whether the verdict flips; compare the length of the winning answers to catch a reward for verbosity; hide authorship and check whether answers from the judge's own family win systematically. I would track agreement between judge and people, the share of pairs where swapping order changes the decision, and send unreliable cases to experts. The limit: a judge measures conformance to criteria, not usefulness to the user, and wherever an answer can be checked deterministically an ordinary check is cheaper."
-      ru: "Судья начинается не с промпта, а с критериев: что именно считается хорошим ответом в этой задаче, сформулированное так, чтобы два человека сошлись. Дальше нужна отложенная калибровочная выборка с человеческой разметкой — она измеряет самого судью, иначе мы просто доверяем модели оценивать модель. Известные смещения проверяются экспериментом: прогнать каждую пару в обоих порядках и посмотреть, меняется ли вердикт; сравнить длину победивших ответов, чтобы поймать награду за многословие; скрыть авторство и проверить, не выигрывают ли систематически ответы того же семейства, что и судья. Я бы считал согласие судьи с людьми и долю пар, где перестановка меняет решение, а ненадёжные случаи отправлял экспертам. Граница: судья измеряет соответствие критериям, а не пользу для пользователя, и там, где ответ проверяется детерминированно, дешевле обычная проверка."
+      en: "A judge starts not with a prompt but with criteria: what counts as a good answer in this task, written so that two people would agree. Then you need a held-out calibration set with human labels; it measures the judge itself, otherwise we are simply trusting a model to grade a model. The known biases are checked by experiment: run each pair in both orders and see whether the verdict flips; pad answers with repetition that adds no content and see whether they start winning, to catch a reward for verbosity; compare how often the judge prefers its own family's answers with how often people do on the same pairs, since a judge can favour its own style even when authorship is hidden. I would track agreement between judge and people, the share of pairs where swapping order changes the decision, and send unreliable cases to experts. The limit: a judge measures conformance to criteria, not usefulness to the user, and wherever an answer can be checked deterministically an ordinary check is cheaper."
+      ru: "Судья начинается не с промпта, а с критериев: что именно считается хорошим ответом в этой задаче, сформулированное так, чтобы два человека сошлись. Дальше нужна отложенная калибровочная выборка с человеческой разметкой — она измеряет самого судью, иначе мы просто доверяем модели оценивать модель. Известные смещения проверяются экспериментом: прогнать каждую пару в обоих порядках и посмотреть, меняется ли вердикт; раздуть ответы повторами без нового содержания и посмотреть, не начнут ли они выигрывать, чтобы поймать награду за многословие; сравнить, как часто судья предпочитает ответы своего семейства и как часто их предпочитают люди на тех же парах, ведь судья может отдавать предпочтение своему стилю даже при скрытом авторстве. Я бы считал согласие судьи с людьми и долю пар, где перестановка меняет решение, а ненадёжные случаи отправлял экспертам. Граница: судья измеряет соответствие критериям, а не пользу для пользователя, и там, где ответ проверяется детерминированно, дешевле обычная проверка."
     reading: ["paper-llm-as-judge"]
   - id: "eval-scarce-labels"
     tracks: ["engineering","leadership"]
@@ -115,6 +125,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Start from error analysis of real traces to learn which failures matter, before labelling anything."
+        - "Spend expert time on uncertain, high-stakes cases, judged by pass-fail criteria rather than one answer to match."
+        - "Calibrate cheaper graders against expert labels and track agreement before trusting them at scale."
+      ru:
+        - "Начать с разбора ошибок на реальных трассах, чтобы понять, какие сбои важны, до всякой разметки."
+        - "Тратить время экспертов на неочевидные случаи с высокой ценой ошибки, оценивая по бинарным критериям, а не по совпадению с единственным ответом."
+        - "Калибровать более дешёвых оценщиков по экспертной разметке и следить за согласием, прежде чем доверять им в масштабе."
+    reading: ["hamel-evals"]
   - id: "eval-hallucination"
     tracks: ["engineering"]
     roles: ["eval-engineer"]
@@ -144,8 +164,8 @@ questions:
         - "Масштабировать разметку судьёй, откалиброванным на размеченной людьми выборке."
         - "Разделять ошибку поиска и недостоверную генерацию при отнесении причины."
     answer:
-      en: "Fluency is not the signal, so I measure faithfulness against the evidence the system actually retrieved, not against the world. The unit is a claim: decompose the answer into separate statements and label each supported, contradicted or unsupported by the retrieved passages. That judgement scales with an LLM judge, but only after I calibrate it against a human-labelled sample, because an uncalibrated judge inherits the same plausibility bias I am trying to detect. Attribution matters as much as the rate: if the supporting passage was never retrieved, that is a retrieval defect, and improving the prompt will not fix it. On live traffic I would sample by segment rather than uniformly, since failures cluster in thin or ambiguous parts of the corpus. The limit is that a claim faithful to a retrieved passage can still be wrong if the source is stale, so faithfulness bounds but does not prove correctness."
-      ru: "Беглость — не сигнал, поэтому достоверность я измеряю против тех свидетельств, которые система реально нашла, а не против мира. Единица измерения — утверждение: ответ разбирается на отдельные высказывания, и каждое помечается как подтверждённое, опровергнутое или неподтверждённое найденными фрагментами. Эта разметка масштабируется LLM-судьёй, но лишь после калибровки на размеченной людьми выборке, потому что некалиброванный судья наследует ту же склонность к правдоподобию, которую я и пытаюсь поймать. Отнесение причины важно не меньше самой доли: если подтверждающего фрагмента вообще не было в выдаче, это дефект поиска, и правка промпта его не устранит. На живом трафике я бы отбирал примеры по сегментам, а не равномерно, поскольку сбои скапливаются в тонких и неоднозначных частях корпуса. Граница в том, что утверждение, достоверное относительно найденного фрагмента, всё равно может быть неверным при устаревшем источнике: достоверность ограничивает ошибку, но не доказывает правильность."
+      en: "Fluency is not the signal, so I measure faithfulness against the evidence the system actually retrieved, not against the world. The unit is a claim: decompose the answer into separate statements and label each supported, contradicted or unsupported by the retrieved passages. That judgement scales with an LLM judge, but only after I calibrate it against a human-labelled sample, because an uncalibrated judge inherits the same plausibility bias I am trying to detect. Attribution matters as much as the rate: if the supporting passage was never retrieved, that is a retrieval defect, and improving the prompt will not fix it. On live traffic I would sample by segment rather than uniformly, since failures cluster in thin or ambiguous parts of the corpus. The limit is that a claim faithful to a retrieved passage can still be wrong if the source is stale, so faithfulness measures grounding, not truth."
+      ru: "Беглость — не сигнал, поэтому достоверность я измеряю против тех свидетельств, которые система реально нашла, а не против мира. Единица измерения — утверждение: ответ разбирается на отдельные высказывания, и каждое помечается как подтверждённое, опровергнутое или неподтверждённое найденными фрагментами. Эта разметка масштабируется LLM-судьёй, но лишь после калибровки на размеченной людьми выборке, потому что некалиброванный судья наследует ту же склонность к правдоподобию, которую я и пытаюсь поймать. Отнесение причины важно не меньше самой доли: если подтверждающего фрагмента вообще не было в выдаче, это дефект поиска, и правка промпта его не устранит. На живом трафике я бы отбирал примеры по сегментам, а не равномерно, поскольку сбои скапливаются в слабо покрытых и неоднозначных частях корпуса. Граница в том, что утверждение, достоверное относительно найденного фрагмента, всё равно может быть неверным при устаревшем источнике: достоверность измеряет опору на источник, а не истинность."
     reading: ["hamel-evals"]
   - id: "eval-release-gate"
     tracks: ["engineering","leadership"]
@@ -174,8 +194,8 @@ questions:
         - "Задать правила допуска для критических срезов и повторных стохастических запусков."
         - "Сочетать офлайн-оценку с контролируемым rollout и явными критериями отката."
     answer:
-      en: "Admitting a change means comparing the candidate against a pinned baseline, so first version everything: the prompt, the model and its parameters, the dataset, and the grader code. Without that you can't tell what to attribute the gain to. I set the acceptance rule as a set of conditions rather than one average: the aggregate is no worse than baseline and no critical slice has dropped, meaning safety, money, and rare but expensive scenarios. Otherwise an overall rise quietly hides a regression on a small but important group. I handle stochasticity with repeated runs and look at the spread, not one pass. Offline scores are not enough: next comes a controlled rollout on a share of traffic with rollback conditions written down in advance, so nobody argues about them mid-incident. A gate catches only what the dataset covers, so new failure modes appear after they have already happened in production."
-      ru: "Допуск изменения — это сравнение кандидата с зафиксированным baseline, поэтому сначала версионируется всё: промпт, модель и её параметры, датасет и код оценщиков. Без этого непонятно, чему приписывать рост. Правило допуска задаю не одним средним числом, а набором условий: агрегат не хуже baseline и при этом ни один критический срез не просел — безопасность, деньги, редкие, но дорогие сценарии. Иначе общий рост спокойно прячет регрессию на маленькой, но важной группе. Стохастичность учитываю повторными запусками и смотрю на разброс, а не на единственный прогон. Офлайн-оценки мало: дальше идёт контролируемый rollout на доле трафика с заранее записанными условиями отката, чтобы не спорить о них посреди инцидента. Граница: гейт ловит только то, что покрыто датасетом, поэтому новые режимы отказа он увидит уже после того, как они случились в проде."
+      en: "I'd version everything, prompt, model and parameters, dataset and grader code, and compare the candidate with a pinned baseline on the same items. The rule isn't one average: the aggregate must not drop, and each critical slice, safety, money, rare but expensive cases, has its own rule. The hard part is statistics on small slices. With 50 items at a 90 percent pass rate, the 95 percent interval is about plus or minus eight points, so a three-point regression is invisible. So I compare paired, item by item, with several samples per item, and count items that flipped from pass to fail; for the most severe failures I keep must-pass items where any flip blocks. Thresholds and severity weights are fixed before the run, because a strict gate rejects good releases and a loose one ships regressions, and that trade is a product decision. Then a canary on a small share of traffic with numeric rollback triggers. The boundary: the gate only sees failure modes the dataset covers."
+      ru: "Версионирую всё — промпт, модель с параметрами, датасет и код оценщиков — и сравниваю кандидата с зафиксированным baseline на тех же примерах. Правило — не одно среднее: агрегат не должен просесть, а у каждого критического среза — безопасность, деньги, редкие, но дорогие сценарии — своё правило. Самое трудное — статистика на маленьких срезах. На 50 примерах при доле успеха 90% 95-процентный доверительный интервал — примерно плюс-минус восемь пунктов, так что регрессию в три пункта просто не видно. Поэтому сравниваю попарно, пример за примером, с несколькими сэмплами на пример, и считаю примеры, которые перешли из прошедших в проваленные; для самых тяжёлых отказов держу обязательные примеры, где любой такой переход блокирует выпуск. Пороги и веса тяжести фиксируются до прогона, потому что строгий гейт отклоняет хорошие релизы, а мягкий пропускает регрессии, и этот выбор — продуктовое решение. Дальше canary на малой доле трафика с числовыми порогами отката. Граница: гейт видит только те режимы отказа, которые покрыты датасетом."
     reading: ["anthropic-evals-for-agents"]
   - id: "eval-benchmark-mismatch"
     tracks: ["engineering","leadership"]
@@ -203,8 +223,8 @@ questions:
         - "Проверить утечки, регрессии срезов, задержку и изменения ожиданий."
         - "Воспроизвести жалобы и добавить типичные ошибки, не подгоняя модель под тест."
     answer:
-      en: "The first hypothesis is a gap between what the benchmark measures and what people actually do in the product. I would take a sample of live traffic and line it up against the test set by task type, language and length; often the category that improved barely occurs in the product. The second hypothesis is test leakage into training, or fitting to the set. The third is a regression on a specific slice hidden by the average. The fourth is non-benchmark causes: latency went up, the answer format changed, expectations shifted after the update. There is one practical step: reproduce specific complaints as test cases and add typical failures to the set, and the conversation moves from impressions to measurement. The limit: grow the set carefully, because optimising straight at it will detach the metric from usefulness again, and some complaints are not about the model at all."
-      ru: "Первая гипотеза — расхождение между тем, что меряет бенчмарк, и тем, что люди реально делают в продукте. Я бы взял выборку живого трафика и сопоставил её с составом тестового набора по типам задач, языку и длине: часто оказывается, что выросла категория, которая в продукте почти не встречается. Вторая гипотеза — утечка тестов в обучение или подгонка под набор. Третья — регрессия на конкретном срезе, спрятанная средним. Четвёртая — небенчмарочные причины: выросла задержка, изменился формат ответа, сместились ожидания после обновления. Практический шаг один: воспроизвести конкретные жалобы как тест-кейсы и добавить типичные ошибки в набор, тогда разговор переходит от впечатлений к измерению. Граница: пополнять набор надо аккуратно, потому что оптимизация прямо под него снова оторвёт метрику от пользы, а часть жалоб вообще не про модель."
+      en: "I'd order the hypotheses by how cheaply each can be ruled out. First, causes outside the model: latency, answer format, truncation or a changed system prompt, visible in logs within a day. Second, a mix mismatch: classify a sample of live traffic by task type, language and length, and re-weight the benchmark gain by that mix; if the gain vanishes, the model improved where users aren't. Third, a regression on a slice the average hides, from per-slice deltas. Fourth, the direct test of the complaint: a blind side-by-side of the old and new model on sampled production prompts, judged by people or by a judge calibrated against them. If the new model wins there, the complaints are about something else, often changed expectations. Fifth, contamination: n-gram overlap with training data, and reworded benchmark items, where a real gain survives rewording. Reproduced complaints become test cases, but I'd hold part of them out, because optimising straight at them detaches the metric from usefulness again."
+      ru: "Гипотезы я бы упорядочил по тому, насколько дёшево каждую отбросить. Первая — причины вне модели: задержка, формат ответа, обрезка или изменённый системный промпт; это видно в логах за день. Вторая — несовпадение состава: разметить выборку живого трафика по типам задач, языку и длине и перевзвесить прирост на бенчмарке по этому составу; если прирост исчезает, модель улучшилась там, где пользователей нет. Третья — регрессия на срезе, которую прячет среднее; её покажут изменения по срезам. Четвёртая — прямая проверка самой жалобы: слепое попарное сравнение старой и новой модели на выборке продовых запросов с оценкой людьми или судьёй, откалиброванным по людям. Если новая модель там выигрывает, жалобы о чём-то другом, часто об изменившихся ожиданиях. Пятая — утечка тестов: пересечение n-грамм с обучающими данными и перефразированные задания бенчмарка, на которых настоящий прирост сохраняется. Воспроизведённые жалобы становятся тест-кейсами, но часть я бы держал отдельно, потому что оптимизация прямо под них снова оторвёт метрику от пользы."
     reading: ["google-rules-of-ml"]
   - id: "eval-contamination"
     tracks: ["engineering"]
@@ -220,6 +240,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Distinguish test items seen in pre-training from selection leakage through repeated tuning on the test set."
+        - "Keep a private test set used once per decision, and tune only on a separate development split."
+        - "Detect contamination with n-gram overlap and canary strings, and compare against items created after the data cutoff."
+      ru:
+        - "Различать попадание тестовых примеров в предобучение и утечку через отбор при многократной настройке по тесту."
+        - "Держать закрытый тестовый набор, используемый один раз на решение, и настраивать только на отдельной dev-выборке."
+        - "Выявлять загрязнение по пересечению n-грамм и canary-строкам и сравнивать с заданиями, созданными после даты среза данных."
+    reading: ["paper-contamination-proof"]
   - id: "eval-traces"
     tracks: ["engineering"]
     roles: ["eval-engineer"]
@@ -246,8 +276,8 @@ questions:
         - "Записывать задержки, токены, исходы и выборочную обратную связь с ограничением хранения."
         - "Локализовать по трассировкам ошибки этапов и превращать повторы в eval-кейсы."
     answer:
-      en: "The core of observability is one end-to-end task identifier that every span attaches to: model calls, retrieval steps, tool calls, with the prompt, model, index and code versions alongside. Without versions a trace shows what broke but will not answer which change broke it. On each span I record latency, tokens and cost, the outcome and the error code, and I collect user feedback on a sample and bind it to the same identifier. Request and response contents are sensitive data, so I keep them selectively, with a short retention and masked fields, while metrics and structure can live longer. From there the traces show at which stage the task is lost, and recurring failures move into the eval set as cases. The limit: a trace explains one failure but says nothing about how frequent it is until there are aggregates beside it."
-      ru: "Ядро наблюдаемости — сквозной идентификатор задачи, к которому привязаны все spans: вызовы модели, шаги retrieval, вызовы инструментов, а рядом версии промпта, модели, индекса и кода. Без версий трассировка покажет, что сломалось, но не ответит, после какого изменения. На каждом span пишу задержку, токены и стоимость, исход и код ошибки, а пользовательскую обратную связь собираю выборочно и привязываю к тому же идентификатору. Содержимое запросов и ответов — чувствительные данные, поэтому храню их выборочно, с коротким сроком и маскированием полей, тогда как метрики и структуру можно держать дольше. Дальше по трассировкам видно, на каком этапе теряется задача, а повторяющиеся сбои переношу в eval-набор как кейсы. Граница: трассировка объясняет отдельный сбой, но не говорит, насколько он част, пока рядом нет агрегатов."
+      en: "Every user task gets one trace id that all spans attach to, model calls, retrieval and tool calls, each tagged with the prompt, model, index and code versions, so a trace answers not only what broke but which change broke it. Each span records latency, tokens, cost, outcome and error code, and user feedback carries the same id. Content is the sensitive part, so structure and metrics are kept for every task, while full payloads are kept by tail-based sampling: every failed task, low judge score or thumbs-down, plus a small fixed share of successes as a baseline, with masked fields and short retention. Then a failure reads directly: a retrieval span that returned nothing followed by a confident answer goes into an ungrounded-answer bucket, not a model bucket. I'd measure the share of failures attributed to a stage, time to diagnose and payloads that escaped masking, and recurring buckets become eval cases. The boundary: a wrong but fluent answer looks like a success, so its payload survives only if feedback or a judge flags it."
+      ru: "Каждая пользовательская задача получает один trace id, к которому привязаны все spans — вызовы модели, retrieval и вызовы инструментов, — и каждый помечен версиями промпта, модели, индекса и кода, так что трасса отвечает не только на вопрос, что сломалось, но и после какого изменения. На каждом span пишу задержку, токены, стоимость, исход и код ошибки, а пользовательская обратная связь несёт тот же идентификатор. Чувствительно именно содержимое, поэтому структуру и метрики храню для всех задач, а полные тексты — по tail-based sampling: каждая неудачная задача, низкая оценка судьи или дизлайк плюс небольшая фиксированная доля успешных как база для сравнения, с маскированием полей и коротким сроком хранения. Тогда сбой читается прямо: span поиска, вернувший пустоту, после которого идёт уверенный ответ, попадает в корзину необоснованных ответов, а не ошибок модели. Измерял бы долю сбоев, отнесённых к конкретному этапу, время диагностики и тексты, проскочившие маскирование, а повторяющиеся корзины превращаю в eval-кейсы. Граница: неверный, но гладкий ответ выглядит как успех, поэтому его полный текст сохранится, только если его отметит обратная связь или судья."
     reading: ["google-sre-book","anthropic-evals-for-agents"]
   - id: "eval-prompt-rollback"
     tracks: ["engineering"]
@@ -262,6 +292,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Version the full configuration as one immutable bundle: prompt, model snapshot, parameters, tools and retrieval index."
+        - "Pin model snapshots rather than aliases, since a floating alias changes behaviour without a deploy."
+        - "Log the bundle id on every request, and confirm a rollback by rerunning the failing cases on it."
+      ru:
+        - "Версионировать всю конфигурацию одним неизменяемым набором: промпт, снимок модели, параметры, инструменты и индекс поиска."
+        - "Закреплять конкретные снимки моделей, а не псевдонимы: плавающий псевдоним меняет поведение без деплоя."
+        - "Записывать id набора в каждом запросе и подтверждать откат повторным прогоном упавших кейсов на восстановленном наборе."
+    reading: ["google-sre-book"]
   - id: "eval-online"
     tracks: ["engineering","leadership"]
     roles: ["eval-engineer"]
@@ -277,6 +317,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "perplexity"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Log inputs, outputs, versions and downstream outcomes per request, within consent and retention limits."
+        - "Review a stratified sample manually to find failure types, but treat logged correlations as hypotheses."
+        - "Establish causal effects with a randomised experiment, a pre-registered primary metric, guardrails and adequate power."
+      ru:
+        - "Логировать входы, выходы, версии и последующие исходы по каждому запросу в рамках согласия и сроков хранения."
+        - "Вручную разбирать стратифицированную выборку для поиска типов ошибок, но считать корреляции из логов гипотезами."
+        - "Подтверждать причинный эффект рандомизированным экспериментом с заранее заданной основной метрикой, защитными метриками и достаточной мощностью."
+    reading: ["hamel-evals","paper-heart"]
   - id: "eval-agent-outcomes"
     tracks: ["engineering"]
     roles: ["eval-engineer"]
@@ -321,6 +371,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "anthropic"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Turn the claim into a prediction with a metric, a threshold and a result that would refute it."
+        - "Control framing: paraphrased prompts, shuffled options, counterbalanced order, and continuous metrics beside exact match."
+        - "Rule out contamination and scoring artefacts with fresh items, smaller-model baselines and repeated samples."
+      ru:
+        - "Превратить утверждение в предсказание с метрикой, порогом и результатом, который его опроверг бы."
+        - "Контролировать формулировку: перефразированные промпты, перемешанные варианты, сбалансированный порядок и непрерывные метрики рядом с точным совпадением."
+        - "Исключить загрязнение и артефакты оценки: новые задания, сравнение с меньшими моделями и повторные сэмплы."
+    reading: ["paper-emergence-mirage"]
   - id: "eval-upgrade-complaint"
     tracks: ["engineering","leadership"]
     roles: ["eval-engineer"]
@@ -336,6 +396,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "openai"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 59
+    outline:
+      en:
+        - "Collect the customer's exact failing requests and list every change shipped with the upgrade, not only the model."
+        - "Replay old and new configurations on identical inputs with repeated samples and blind side-by-side grading."
+        - "Choose the remedy by cause: fix configuration, adapt the prompt or pin the version; add cases to the release gate."
+      ru:
+        - "Собрать точные неудачные запросы клиента и перечислить все изменения, вышедшие с обновлением, а не только модель."
+        - "Прогнать старую и новую конфигурацию на одинаковых входах с повторными сэмплами и слепым попарным сравнением."
+        - "Выбрать исправление по причине: починить конфигурацию, адаптировать промпт или закрепить версию; добавить кейсы в критерии допуска."
+    answer:
+      en: "A complaint is a lead, not yet a confirmed regression, so I'd start from the customer's concrete failing requests rather than our aggregate evals, which didn't flag it. First I'd establish what actually changed: the model version, but also default parameters, system prompt, tool schemas, output limits and retrieval, any of which can ship with an upgrade. Then I'd replay the same inputs on old and new configurations with everything else pinned, several samples each because outputs vary, and grade them side by side, blind, against criteria the customer agrees describe the failure. If the gap survives, I'd search traffic for similar requests to size it. The remedy follows the cause: a configuration bug gets fixed; a prompt tuned to the old model's quirks gets adapted, often with the customer; a genuine capability loss on their slice justifies pinning the previous version for a bounded window while a fix lands. Either way the cases join the release gate. Pinning is temporary because old versions retire, and if paired replay shows nothing beyond sampling noise, the regression isn't confirmed."
+      ru: "Жалоба — это зацепка, а не подтверждённая регрессия, поэтому начинал бы я с конкретных неудачных запросов клиента, а не с наших агрегированных eval, которые проблему не отметили. Сначала выяснил бы, что на самом деле изменилось: версия модели, но и параметры по умолчанию, системный промпт, схемы инструментов, выходные лимиты и retrieval — любое из этого может приехать вместе с обновлением. Затем прогнал бы те же входы на старой и новой конфигурации, зафиксировав всё остальное, по нескольку сэмплов на каждый, потому что ответы варьируются, и сравнил бы их попарно вслепую по критериям, которые клиент признаёт описанием сбоя. Если разрыв сохраняется, поискал бы похожие запросы в трафике, чтобы оценить масштаб. Исправление следует из причины: ошибку конфигурации чиним; промпт, подогнанный под особенности старой модели, адаптируем, часто вместе с клиентом; реальная потеря способностей на его срезе оправдывает закрепление прежней версии на ограниченный срок, пока готовится исправление. В любом случае эти кейсы попадают в критерии допуска релизов. Закрепление временное, потому что старые версии выводят из эксплуатации, а если парный прогон не показывает ничего сверх шума сэмплирования, регрессия не подтверждена."
+    reading: ["hamel-evals"]
   - id: "eval-frontier-harness"
     tracks: ["engineering"]
     roles: ["eval-engineer"]
@@ -351,6 +426,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "google"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Pin everything that shapes a score: dataset version, prompt template, decoding settings, grader and seeds."
+        - "Run model-generated code in isolated, network-restricted sandboxes with resource limits and clean state per task."
+        - "Report means over repeated samples with confidence intervals, and rerun a baseline model to detect harness drift."
+      ru:
+        - "Закрепить всё, что влияет на оценку: версию датасета, шаблон промпта, параметры декодирования, оценщика и seed."
+        - "Исполнять сгенерированный моделью код в изолированных песочницах с ограничением сети и ресурсов и чистым состоянием на задачу."
+        - "Показывать средние по повторным сэмплам с доверительными интервалами и перезапускать baseline-модель, чтобы ловить дрейф harness."
+    reading: ["anthropic-evals-for-agents","openai-evaluation-best-practices"]
   - id: "eval-production-actions"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -365,6 +450,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "palantir"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Grade outcomes in the environment, not the proposal text: what changed, and was it permitted."
+        - "Weight errors by consequence and reversibility; irreversible actions need near-zero tolerance or human approval."
+        - "Test in sandboxed replicas, then use shadow mode and staged rollout with action logs and a kill switch."
+      ru:
+        - "Оценивать исход в среде, а не текст предложения: что изменилось и было ли это разрешено."
+        - "Взвешивать ошибки по последствиям и обратимости; для необратимых действий нужен почти нулевой допуск или одобрение человека."
+        - "Проверять в изолированных копиях среды, затем переходить к теневому режиму и поэтапной выкатке с журналом действий и аварийным отключением."
+    reading: ["anthropic-evals-for-agents","owasp-llm-top-10"]
   - id: "eval-multiple-good-answers"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -378,6 +473,15 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Score against a checklist of clinically required facts from the consultation, not similarity to one note."
+        - "Check every statement in the generated note for support in the transcript, and flag unsupported content separately."
+        - "Treat agreement between the two clinicians as the ceiling, and calibrate any automated judge against them."
+      ru:
+        - "Оценивать по перечню клинически обязательных фактов из консультации, а не по сходству с одной записью."
+        - "Проверять каждое утверждение сгенерированной записи на подтверждение в расшифровке и отдельно отмечать неподтверждённое."
+        - "Принять согласие двух врачей за потолок и калибровать любого автоматического оценщика по их оценкам."
   - id: "eval-behaviour-brainstorm"
     tracks: ["engineering"]
     roles: ["research-engineer", "eval-engineer"]
@@ -393,6 +497,16 @@ questions:
       - source: "goncharov-anthropic-fellowship"
         company: "anthropic"
     added: "2026-09-29"
+    outline:
+      en:
+        - "State each idea as a behaviour, a controlled prompt change and the measurable outcome you expect."
+        - "Draw on observable levers: position of information, option order, length, persona, language and repeated sampling."
+        - "Say how many samples and which control would separate a real effect from noise or prompt wording."
+      ru:
+        - "Формулировать каждую идею как поведение, контролируемое изменение промпта и ожидаемый измеримый результат."
+        - "Опираться на наблюдаемые рычаги: позицию информации, порядок вариантов, длину, персону, язык и повторные сэмплы."
+        - "Назвать, сколько сэмплов и какой контроль отличат реальный эффект от шума или формулировки промпта."
+    reading: ["paper-lost-in-the-middle"]
   - id: "eval-ml-task-framing"
     tracks: ["engineering"]
     roles: ["ml-engineer"]
@@ -409,6 +523,16 @@ questions:
         company: "t-bank"
         role: "ml-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Translate the business decision into a prediction target, the action it triggers and the cost of each error."
+        - "Pick the offline metric from those error costs, and name the online business metric it should move."
+        - "Validate the data: label delay and leakage, time-based splits, and drift between training and serving."
+      ru:
+        - "Перевести бизнес-решение в целевую переменную, действие, которое она запускает, и цену каждой ошибки."
+        - "Выбрать офлайн-метрику исходя из цены ошибок и назвать онлайн-метрику бизнеса, которую она должна сдвинуть."
+        - "Проверить данные: задержку и утечку меток, разбиение по времени и расхождение между обучением и продакшеном."
+    reading: ["google-rules-of-ml"]
   - id: "eval-prompt-target-share"
     tracks: ["engineering"]
     roles: ["applied-ai-engineer", "eval-engineer"]
@@ -425,3 +549,13 @@ questions:
         company: "anthropic"
         observed: "2023-09"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Define the desired result as a pass-fail check, and build a representative case set first."
+        - "Change one thing at a time and sample each case several times, since outputs vary between runs."
+        - "Report the share with a confidence interval on held-out cases, so the gain is not overfitting."
+      ru:
+        - "Сначала задать нужный результат как проверку с бинарным исходом и собрать представительный набор примеров."
+        - "Менять по одному элементу за раз и сэмплировать каждый пример несколько раз, поскольку ответы различаются между прогонами."
+        - "Показать долю с доверительным интервалом на отложенных примерах, чтобы прирост не оказался подгонкой."
+    reading: ["openai-evaluation-best-practices","hamel-evals"]

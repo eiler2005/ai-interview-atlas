@@ -40,6 +40,10 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 - **[Walk through the product you built that had the greatest impact, including the business case and evidence of results.](../themes/ai-product-strategy.md#prod-impactful-product)**
   - Self-presentation · Senior · Asked at: Monzo ✅
   - Tests: Whether you can connect personal decisions, experiments and realised impact.
+  - A strong answer covers:
+    - Pick the product where your own decisions changed the outcome, not the biggest team effort.
+    - State the business case you made, the bet's riskiest assumption and the experiment that tested it.
+    - Close with measured impact against a baseline, your share of it, and what you would change.
 
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 

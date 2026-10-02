@@ -38,17 +38,17 @@ AI-инженерия · Роли: Research-инженер
 - **[Сравните DPO с RLHF на PPO, включая предпосылки обучения по офлайн-предпочтениям и причины собирать новые траектории.](../themes/post-training.md#pt-dpo)**
   - Знания · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-dpo)
 - **[Объясните GRPO и компромиссы оценки advantage без обученной value model.](../themes/post-training.md#pt-grpo)**
-  - Знания · [Дообучение и post-training](../themes/post-training.md)
+  - Знания · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-grpo)
 - **[Выведите низкоранговое обновление весов LoRA и предложите эксперимент для выбора ранга.](../themes/post-training.md#pt-lora)**
   - Знания · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-lora)
 - **[Выберите между изменением промпта, retrieval и дообучением для неудачной AI-функции; учтите свежесть данных, задержку и полную стоимость.](../themes/post-training.md#pt-method-choice)**
   - Прикладной сценарий · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-method-choice)
 - **[Награда политики растёт, а людям ответы нравятся всё меньше. Как выявить и ограничить reward hacking?](../themes/post-training.md#pt-reward-hacking)**
-  - Прикладной сценарий · [Дообучение и post-training](../themes/post-training.md)
+  - Прикладной сценарий · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-reward-hacking)
 - **[В длинном запуске предобучения внезапно расходится loss. Как проверить данные, численную устойчивость и оптимизатор перед продолжением с checkpoint?](../themes/post-training.md#pt-loss-divergence)**
   - Прикладной сценарий · [Дообучение и post-training](../themes/post-training.md)
 - **[Спроектируйте обучение модели, не помещающейся на одном ускорителе: как разделить состояние и ограничить стоимость коммуникаций?](../themes/post-training.md#pt-distributed-training)**
-  - System design · [Дообучение и post-training](../themes/post-training.md)
+  - System design · [Дообучение и post-training](../themes/post-training.md) · ✍ [Ответ](../answers/engineering.md#pt-distributed-training)
 - **[Спроектируйте эксперимент для предполагаемой новой способности или смещения большой модели с контролем влияния формулировки задачи.](../themes/evals-observability.md#eval-emergent-capability)**
   - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md)
 - **[В коротком разговоре без подготовки предложите проверяемые идеи о поведении языковой модели, для которых нужен не внутренний доступ, а внимательное наблюдение.](../themes/evals-observability.md#eval-behaviour-brainstorm)**

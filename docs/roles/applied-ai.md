@@ -101,12 +101,12 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[Design a customer-support agent that can execute service actions and transfer the case to a human when needed.](../themes/ai-system-design.md#sd-support-agent)**
   - System design · [AI system design](../themes/ai-system-design.md) · ✍ [Answer](../answers/engineering.md#sd-support-agent)
 - **[Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](../themes/ai-system-design.md#sd-text-to-sql)**
-  - System design · [AI system design](../themes/ai-system-design.md)
+  - System design · [AI system design](../themes/ai-system-design.md) · ✍ [Answer](../answers/engineering.md#sd-text-to-sql)
 - **[Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.](../themes/coding-practical.md#code-agent-loop)**
   - Coding · [Practical coding](../themes/coding-practical.md) · ✍ [Answer](../answers/engineering.md#code-agent-loop)
 - **[In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?](../themes/coding-practical.md#code-ai-assisted-ownership)**
-  - Applied scenario · [Practical coding](../themes/coding-practical.md)
-- **[Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first) and «по первое число» (through the first).](../themes/applied-scenarios.md#app-prompt-date-range)**
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · ✍ [Answer](../answers/engineering.md#code-ai-assisted-ownership)
+- **[Write a prompt that extracts a date range from a customer's request in Russian and tells apart near-identical phrasings such as «с первого числа» (from the first), «по первое число» (through the first) and «за первое число» (for the first).](../themes/applied-scenarios.md#app-prompt-date-range)**
   - Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md)
 
 ## <a id="prep"></a>Preparation

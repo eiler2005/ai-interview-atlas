@@ -18,12 +18,21 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Set stopping and fallback rules; report total spend per successful task and deadline misses.
   - Read: [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) (Snell et al., arXiv) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 - <a id="inf-latency-metrics"></a>**Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems.**
-  - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-latency-metrics&title=%5BCorrection%5D%20inf-latency-metrics)
+  - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#inf-latency-metrics) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-latency-metrics&title=%5BCorrection%5D%20inf-latency-metrics)
   - Tests: Whether user-visible delay is separated from aggregate capacity.
+  - A strong answer covers:
+    - Define TTFT as queueing plus prefill, TPOT and inter-token latency as decode pace, throughput as aggregate capacity.
+    - Explain how larger batches trade each user's decode speed for throughput, and how admitted prefills stall decodes.
+    - Compare at matched load and length distributions: p50 and p99 per latency metric, throughput within the targets.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - <a id="inf-runtime-choice"></a>**How would you benchmark vLLM, SGLang, TensorRT-LLM and a custom runtime for a specific workload?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-runtime-choice&title=%5BCorrection%5D%20inf-runtime-choice)
   - Tests: Whether a reproducible workload drives the choice instead of a generic ranking.
-  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
+  - A strong answer covers:
+    - Replay a captured workload: real prompt and output length distributions, arrival pattern, shared prefixes and concurrency.
+    - Hold model, precision, parallelism and hardware fixed, tune each engine fairly, and count the custom runtime's maintenance cost.
+    - Report goodput, requests per second within TTFT and inter-token latency SLOs, and check outputs match a baseline implementation.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving](https://arxiv.org/abs/2401.09670) (Zhong et al., arXiv)
 - <a id="inf-cost-reduction"></a>**You are asked to reduce serving cost by an order of magnitude. Rank the levers and explain how you would test whether that target is achievable.**
   - Applied scenario · Asked at: [Amazon](../companies/amazon.md) †, [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/engineering.md#inf-cost-reduction) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-cost-reduction&title=%5BCorrection%5D%20inf-cost-reduction)
   - Tests: Whether savings are measured under explicit quality and latency constraints.
@@ -36,7 +45,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 ## <a id="track-engineering"></a>AI Engineering
 
 - <a id="inf-reasoning-incomplete"></a>**A reasoning API request consumes tokens but returns no usable answer. How would you diagnose it and design a bounded recovery policy?**
-  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-incomplete&title=%5BCorrection%5D%20inf-reasoning-incomplete)
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#inf-reasoning-incomplete) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-reasoning-incomplete&title=%5BCorrection%5D%20inf-reasoning-incomplete)
   - Tests: Whether token accounting, completion status and retry budgets are treated separately.
   - A strong answer covers:
     - Inspect completion status, token usage, context size and the provider's output-limit semantics.
@@ -86,9 +95,19 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="inf-precision"></a>**Compare floating-point and integer serving formats down to four bits; how would you validate an acceptable reduction in precision?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-precision&title=%5BCorrection%5D%20inf-precision)
   - Tests: Whether memory savings are checked against quality, kernels and hardware support.
+  - A strong answer covers:
+    - Contrast non-uniform FP8 and FP4 grids with uniform INT8 and INT4 grids, and the per-group scales low bit widths need.
+    - Separate weight-only 4-bit, which speeds memory-bound decode, from activation quantisation needing native FP8 or INT8 kernels on the target GPU.
+    - Validate against bf16 on task evals and per-token KL, with long-context, code and maths slices, then measure real throughput.
+  - Read: [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314) (Dettmers et al., arXiv) · [Optimizing inference](https://huggingface.co/docs/transformers/main/en/llm_optims) (Hugging Face Transformers docs) · [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://arxiv.org/abs/2210.17323) (Frantar et al., arXiv) · [SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models](https://arxiv.org/abs/2211.10438) (Xiao et al., arXiv) · [FP8 Formats for Deep Learning](https://arxiv.org/abs/2209.05433) (Micikevicius et al., arXiv)
 - <a id="inf-parallelism"></a>**Compare tensor, pipeline, data, sequence and expert parallelism for a large model deployment.**
   - Knowledge · Asked at: [Amazon](../companies/amazon.md) †, [Google and Google DeepMind](../companies/google.md) †, [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-parallelism&title=%5BCorrection%5D%20inf-parallelism)
   - Tests: Whether communication patterns and memory limits determine the choice.
+  - A strong answer covers:
+    - Name each split and its traffic: TP per-layer all-reduce, PP stage activations, SP key-value exchange, EP token all-to-all.
+    - Fit weights and KV first: TP inside the NVLink domain, PP across nodes, then traffic-free data-parallel replicas for throughput.
+    - Measure per-GPU memory headroom, communication share of step time, pipeline bubbles and expert load imbalance at target latency.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv) · [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv) · [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) (Shoeybi et al., arXiv)
 - <a id="inf-memory-budget"></a>**Estimate a serving memory budget for a 70-billion-parameter model, explicitly choosing precision, context and concurrency assumptions.**
   - Applied scenario · ✍ [Answer](../answers/engineering.md#inf-memory-budget) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-memory-budget&title=%5BCorrection%5D%20inf-memory-budget)
   - Tests: Whether weights, cache and runtime headroom are all budgeted.
@@ -100,6 +119,11 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="inf-roofline"></a>**Build a roofline estimate for single-request decoding of a 70B model on an H100; check first whether the chosen representation fits.**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-roofline&title=%5BCorrection%5D%20inf-roofline)
   - Tests: Whether bandwidth, capacity and achievable utilisation constrain the estimate.
+  - A strong answer covers:
+    - Check fit first: 70B in bf16 is about 140 GB, beyond one 80 GB H100; FP8 leaves little KV room.
+    - Compare bytes read per token, all weights plus KV, with about 2 FLOPs per parameter: batch-one decode is bandwidth-bound.
+    - Bound tokens per second by achievable rather than peak HBM bandwidth, then check the estimate against a measured profile.
+  - Read: [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv)
 - <a id="inf-tail-regression"></a>**After a deployment, p99 latency doubles although model weights are unchanged. How do you isolate the cause?**
   - Applied scenario · Asked at: [Amazon](../companies/amazon.md) †, [Databricks](../companies/databricks.md) †, [OpenAI](../companies/openai.md) †, [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#inf-tail-regression) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-tail-regression&title=%5BCorrection%5D%20inf-tail-regression)
   - Tests: Whether diagnosis separates queueing, scheduling, dependencies and traffic changes.
@@ -111,11 +135,26 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
 - <a id="inf-chunked-prefill"></a>**Why can splitting prefill into chunks help mixed prompt and decode traffic, and what trade-off does chunk size introduce?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-chunked-prefill&title=%5BCorrection%5D%20inf-chunked-prefill)
   - Tests: Whether throughput and decode stalls are considered together.
+  - A strong answer covers:
+    - Explain the stall: a long prefill monopolises an iteration, so every running decode waits and inter-token latency spikes.
+    - Mix prefill chunks with decodes under a per-iteration token budget; smaller chunks smooth decode but raise TTFT and overhead.
+    - Sweep the token budget on mixed traffic, plotting p99 inter-token latency against TTFT and throughput.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve](https://arxiv.org/abs/2403.02310) (Agrawal et al., arXiv)
 - <a id="inf-disaggregation"></a>**When would you separate prefill and decode onto different workers, and how would you price the KV transfer overhead?**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-disaggregation&title=%5BCorrection%5D%20inf-disaggregation)
   - Tests: Whether independent scaling is weighed against transport and operational complexity.
+  - A strong answer covers:
+    - Separate phases when prefill bursts break decode latency SLOs or the two phases want different parallelism and hardware.
+    - Price transfer as KV bytes per token times prompt length over link bandwidth, overlapped layer by layer with prefill.
+    - Compare goodput per GPU against colocated chunked prefill, including transfer tail latency and rebalancing the worker ratio.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving](https://arxiv.org/abs/2401.09670) (Zhong et al., arXiv)
 - <a id="inf-accelerator-takehome"></a>**In Anthropic's original performance-engineering take-home, introduced in 2024 and subsequently retired, optimise a serial program for a simulated accelerator using multicore, vector and instruction-level parallelism.**
   - Coding · Asked at: [Anthropic](../companies/anthropic.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=inf-accelerator-takehome&title=%5BCorrection%5D%20inf-accelerator-takehome)
   - Tests: Whether you find parallelism methodically and build tooling to measure and debug each step.
+  - A strong answer covers:
+    - Lock correctness first: check every output against the serial version, and fix any existing bug before optimising.
+    - Find independent iterations from data dependencies, then spread them across cores, SIMD lanes and per-cycle instruction slots.
+    - Measure simulated cycles after every change, and use a per-instruction trace to find stalls and idle units.
+  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 
 ← [LLM fundamentals](llm-fundamentals.md) · [RAG and retrieval](rag-retrieval.md) →

@@ -30,20 +30,35 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
 - **[Compare greedy decoding, beam search and temperature, top-k and nucleus sampling; give a failure mode for each.](../themes/llm-fundamentals.md#llm-decoding)**
   - Knowledge · Asked at: Google and Google DeepMind †, [Perplexity](perplexity.md) †
   - Tests: Whether probability manipulation is connected to output diversity and quality.
+  - A strong answer covers:
+    - Describe each as a transform: argmax, approximate sequence-likelihood search, logit division by T, top-k truncation, cumulative-mass truncation.
+    - Name failures: greedy and beam repeat or go bland, high temperature derails, top-k ignores distribution shape, top-p admits flat tails.
+    - Choose by task, deterministic for extraction and sampled for generation, and measure accuracy together with diversity across seeds.
+  - Read: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ### [Inference, serving and cost](../themes/inference-economics.md)
 
 - **[Compare tensor, pipeline, data, sequence and expert parallelism for a large model deployment.](../themes/inference-economics.md#inf-parallelism)**
   - Knowledge · Asked at: [Amazon](amazon.md) †, Google and Google DeepMind †, [Meta](meta.md) †
   - Tests: Whether communication patterns and memory limits determine the choice.
+  - A strong answer covers:
+    - Name each split and its traffic: TP per-layer all-reduce, PP stage activations, SP key-value exchange, EP token all-to-all.
+    - Fit weights and KV first: TP inside the NVLink domain, PP across nodes, then traffic-free data-parallel replicas for throughput.
+    - Measure per-GPU memory headroom, communication share of step time, pipeline bubbles and expert load imbalance at target latency.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project) · [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) (Fedus et al., arXiv) · [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) (Pope et al., arXiv) · [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) (Shoeybi et al., arXiv)
 
 ### [Fine-tuning and post-training](../themes/post-training.md)
 
 - **[A long pretraining run suddenly diverges. How do you investigate data, numerics and optimiser state before resuming from a checkpoint?](../themes/post-training.md#pt-loss-divergence)**
   - Applied scenario · Asked at: Google and Google DeepMind †
   - Tests: Whether recovery is based on a reproducible diagnosis.
+  - A strong answer covers:
+    - Locate the first anomalous step in gradient norm, attention-logit and activation magnitudes, and update-to-weight ratios.
+    - Replay from the prior checkpoint with identical data order; a reproduced spike implicates data or numerics, otherwise suspect hardware.
+    - Apply one targeted fix, such as skipping batches, a lower learning rate, tighter clipping or z-loss, and compare the replayed trajectory.
+  - Read: [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/abs/2204.02311) (Chowdhery et al., arXiv) · [Small-scale proxies for large-scale Transformer training instabilities](https://arxiv.org/abs/2309.14322) (Wortsman et al., arXiv)
 - **[Design training for a model that cannot fit on one accelerator; explain how you partition state and keep communication affordable.](../themes/post-training.md#pt-distributed-training)**
-  - System design · Asked at: Google and Google DeepMind †
+  - System design · Asked at: Google and Google DeepMind † · ✍ [Answer](../answers/engineering.md#pt-distributed-training)
   - Tests: Whether model state, activations and network topology determine the parallel plan.
   - A strong answer covers:
     - Separate parameters, gradients, optimiser state and activations before choosing a partitioning plan.
@@ -56,6 +71,11 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
 - **[Build the evaluation harness for a new model release, covering reproducibility, execution isolation and comparable results.](../themes/evals-observability.md#eval-frontier-harness)**
   - System design · Asked at: Google and Google DeepMind †
   - Tests: Whether evaluation infrastructure can support trustworthy comparisons.
+  - A strong answer covers:
+    - Pin everything that shapes a score: dataset version, prompt template, decoding settings, grader and seeds.
+    - Run model-generated code in isolated, network-restricted sandboxes with resource limits and clean state per task.
+    - Report means over repeated samples with confidence intervals, and rerun a baseline model to detect harness drift.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) (OpenAI API documentation)
 
 ### [AI system design](../themes/ai-system-design.md)
 
@@ -81,9 +101,19 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
 - **[Implement multi-head attention, then modify the implementation so several query heads share each pair of key and value heads.](../themes/coding-practical.md#code-grouped-attention)**
   - Coding · Asked at: Google and Google DeepMind †
   - Tests: Whether tensor layout and head grouping are implemented consistently.
+  - A strong answer covers:
+    - Fix shapes first: batch, sequence, heads and head dimension; require query heads divisible by KV heads.
+    - Map query head h to KV head h // group_size; when expanding, use repeat_interleave, not tile.
+    - Test that equal head counts reproduce multi-head attention and a single KV head gives multi-query attention.
+  - Read: [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) (Ainslie et al., arXiv) · [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (Vaswani et al., arXiv)
 - **[Implement temperature scaling, top-k filtering and nucleus sampling for a logits vector, including boundary cases.](../themes/coding-practical.md#code-sampling)**
   - Coding · Asked at: Google and Google DeepMind †
   - Tests: Whether probability mass, ties and invalid parameters are handled correctly.
+  - A strong answer covers:
+    - Define the parameter contract: temperature zero as argmax, valid ranges for k and p, non-finite logits.
+    - Use a stable softmax; nucleus keeps the smallest sorted prefix reaching mass p, an O(V log V) sort.
+    - Test ties at the cutoff, p near one, k above vocabulary size, and frequencies under a fixed seed.
+  - Read: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ### [AI product strategy and metrics](../themes/ai-product-strategy.md)
 
@@ -147,13 +177,22 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
     - Make a small number of justified changes and check their effect.
   - Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - **[Describe a team disagreement that you resolved without discarding the valid concerns on either side.](../themes/engineering-leadership.md#lead-two-valid-views)**
-  - Behavioral · Senior · Asked at: Google and Google DeepMind 🗣
+  - Behavioral · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-two-valid-views)
   - Tests: Whether you uncover underlying needs instead of forcing a superficial compromise.
+  - A strong answer covers:
+    - Pick a disagreement where both positions protected something real, and state each in its strongest form.
+    - Show how you moved from positions to the needs behind them and found an option meeting both.
+    - Close with what was decided, whether both concerns stayed addressed, and how you checked.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ### [Behavioral and values](../themes/behavioral-values.md)
 
 - **[Describe a disagreement with a researcher or technical lead about priorities and what followed.](../themes/behavioral-values.md#beh-research-priorities)**
   - Behavioral · Senior · Asked at: Google and Google DeepMind †
   - Tests: Whether you can reason across research and engineering incentives.
+  - A strong answer covers:
+    - Pick a dispute over priorities where research and engineering goals genuinely pulled in different directions.
+    - Explain what each side was rewarded for — new findings or reliable delivery — and what each choice cost.
+    - Show how it was settled, for example by a time-boxed experiment, and what followed for both sides.
 
 ← [Canva](canva.md) · [Meta](meta.md) →

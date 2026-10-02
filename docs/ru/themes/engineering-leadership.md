@@ -13,9 +13,9 @@
   - Поведенческий · Senior · Где спрашивали: [Monzo](../companies/monzo.md) ✅ · ✍ [Ответ](../answers/leadership.md#lead-opportunity-coalition) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-opportunity-coalition&title=%5BCorrection%5D%20lead-opportunity-coalition)
   - Что проверяет: Умеете ли вы влиять через данные, согласование интересов и общую ответственность.
   - Сильный ответ покрывает:
-    - Объясните значение возможности и как вы её обнаружили.
-    - Опишите конкурирующие приоритеты, возражения и вклад участников в план.
-    - Покажите выполнение и эффект, обозначив границы своего влияния.
+    - Объяснить значение возможности и как вы её обнаружили.
+    - Описать конкурирующие приоритеты, возражения и вклад участников в план.
+    - Показать выполнение и эффект, обозначив границы своего влияния.
   - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 
 ## <a id="track-leadership"></a>AI-лидерство
@@ -24,68 +24,88 @@
   - Поведенческий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-low-performance) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-low-performance&title=%5BCorrection%5D%20lead-low-performance)
   - Что проверяет: Умеете ли вы справедливо разобраться в причинах и превратить ожидания в конкретные действия.
   - Сильный ответ покрывает:
-    - Покажите отклонение от ожиданий на наблюдаемых примерах.
-    - Объясните обратную связь, обсуждение и оказанную поддержку.
-    - Опишите согласованные действия и результат последующей проверки.
+    - Показать отклонение от ожиданий на наблюдаемых примерах.
+    - Объяснить обратную связь, обсуждение и оказанную поддержку.
+    - Описать согласованные действия и результат последующей проверки.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-disruptive-star"></a>**Как вы работали с сильным инженером, чьё поведение вызывало конфликты с коллегами?**
   - Поведенческий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-disruptive-star) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-disruptive-star&title=%5BCorrection%5D%20lead-disruptive-star)
   - Что проверяет: Предъявляете ли вы понятные требования и к результатам, и к взаимодействию.
   - Сильный ответ покрывает:
-    - Разделите технические результаты и последствия конкретного поведения.
-    - Объясните обратную связь и то, как вы выслушали сотрудника.
-    - Опишите согласованные изменения поведения и последующие наблюдения.
+    - Разделить технические результаты и последствия конкретного поведения.
+    - Объяснить обратную связь и то, как вы выслушали сотрудника.
+    - Описать согласованные изменения поведения и последующие наблюдения.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-mentee-growth"></a>**Расскажите, как развивалась карьера человека, которого вы наставляли.**
   - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-mentee-growth) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-mentee-growth&title=%5BCorrection%5D%20lead-mentee-growth)
   - Что проверяет: Помогаете ли вы развиваться через задачи и обратную связь, не присваивая чужие достижения.
   - Сильный ответ покрывает:
-    - Опишите цель развития сотрудника и исходную ситуацию.
-    - Объясните, как наставничество помогло выбрать действия.
-    - Отделите достижения сотрудника от вашей поддержки.
+    - Описать цель развития сотрудника и исходную ситуацию.
+    - Объяснить, как наставничество помогло выбрать действия.
+    - Отделить достижения сотрудника от вашей поддержки.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-team-disagrees"></a>**Что вы делаете, когда команда не согласна с предложенным вами направлением?**
   - Прикладной сценарий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-disagrees) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-team-disagrees&title=%5BCorrection%5D%20lead-team-disagrees)
   - Что проверяет: Готовы ли вы обсуждать возражения, сохраняя ответственность за решение.
   - Сильный ответ покрывает:
-    - Уточните спорные предположения и разберите самое сильное возражение.
-    - Используйте данные или ограниченный эксперимент, если это поможет разрешить спор.
-    - Объясните полномочия, сообщите решение и условия его пересмотра.
+    - Уточнить спорные предположения и разобрать самое сильное возражение.
+    - Использовать данные или ограниченный эксперимент, если это поможет разрешить спор.
+    - Объяснить полномочия, сообщить решение и условия его пересмотра.
   - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="lead-reorganisation-retention"></a>**Как вы поступите, если сильный сотрудник собирается уйти во время реорганизации?**
   - Прикладной сценарий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-reorganisation-retention) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-reorganisation-retention&title=%5BCorrection%5D%20lead-reorganisation-retention)
   - Что проверяет: Умеете ли вы разобраться в причинах ухода без невыполнимых обещаний.
   - Сильный ответ покрывает:
-    - Выясните причины и отделите неопределённость перемен от устойчивых проблем.
-    - Объясните, что известно, на что вы влияете и какие решения ещё не приняты.
-    - Обсудите доступную поддержку, нерешённые вопросы и последующую встречу.
+    - Выяснить причины и отделить неопределённость перемен от устойчивых проблем.
+    - Объяснить, что известно, на что вы влияете и какие решения ещё не приняты.
+    - Обсудить доступную поддержку, нерешённые вопросы и последующую встречу.
   - Читать: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - <a id="lead-team-after-change"></a>**Как вы стабилизируете инженерную команду после смены руководства?**
   - Прикладной сценарий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-after-change) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-team-after-change&title=%5BCorrection%5D%20lead-team-after-change)
   - Что проверяет: Умеете ли вы восстановить доверие и ясность работы до масштабных изменений.
   - Сильный ответ покрывает:
-    - Выслушайте команду и партнёров и выявите срочные риски для работы и людей.
-    - Уточните приоритеты, ответственность за решения и регулярное взаимодействие.
-    - Внесите ограниченное число обоснованных изменений и проверьте их эффект.
+    - Выслушать команду и партнёров и выявить срочные риски для работы и людей.
+    - Уточнить приоритеты, ответственность за решения и регулярное взаимодействие.
+    - Внести ограниченное число обоснованных изменений и проверить их эффект.
   - Читать: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - <a id="lead-team-scale"></a>**Какой самой большой командой вы руководили и как при таком масштабе менялись ваши обязанности?**
-  - Самопрезентация · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-team-scale&title=%5BCorrection%5D%20lead-team-scale)
+  - Самопрезентация · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-scale) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-team-scale&title=%5BCorrection%5D%20lead-team-scale)
   - Что проверяет: Соответствовал ли ваш способ управления реальному масштабу и сложности.
+  - Сильный ответ покрывает:
+    - Назвать размер точно: прямые подчинённые, руководители под вами, общая численность и за что отвечала команда.
+    - Объяснить, что вы перестали делать сами и какие механизмы заменили ваше прямое участие.
+    - Закончить сигналом, по которому было видно, работает ли модель управления, и тем, что вы поменяли в ответ.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-high-performer-development"></a>**Как вы руководили самыми сильными сотрудниками и помогали им развиваться?**
   - Поведенческий · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-high-performer-development&title=%5BCorrection%5D%20lead-high-performer-development)
   - Что проверяет: Создаёте ли вы возможности роста без особых правил для отдельных сотрудников.
+  - Сильный ответ покрывает:
+    - Начать с того, чего дальше хочет каждый сильный сотрудник, и давать рост через более трудные задачи, а не через объём.
+    - Не делать из них исключение: те же требования к совместной работе, а сложные задачи распределять открыто, не по симпатии.
+    - Закончить свидетельствами их роста, например зоной, которую они теперь ведут сами, и тем, остались ли они.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-partner-feedback"></a>**Коллега из другой функции критически оценивает ваше руководство. Как вы реагируете?**
   - Прикладной сценарий · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-partner-feedback&title=%5BCorrection%5D%20lead-partner-feedback)
   - Что проверяет: Проверяете ли вы обратную связь и меняете ли на её основе поведение.
+  - Сильный ответ покрывает:
+    - Попросить конкретные случаи и описание того, как это сказалось на команде партнёра, поначалу удерживаясь от оправданий.
+    - Проверить у других партнёров и своей команды, системно ли это, отделяя своё поведение от структурных трений между функциями.
+    - Взять на себя одно заметное изменение, сообщить о нём партнёру и позже спросить, сработало ли оно.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-two-valid-views"></a>**Расскажите о споре в команде, который вы разрешили, сохранив обоснованные доводы обеих сторон.**
-  - Поведенческий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-two-valid-views&title=%5BCorrection%5D%20lead-two-valid-views)
+  - Поведенческий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-two-valid-views) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-two-valid-views&title=%5BCorrection%5D%20lead-two-valid-views)
   - Что проверяет: Выявляете ли вы реальные потребности вместо поверхностного компромисса.
+  - Сильный ответ покрывает:
+    - Выбрать спор, где обе позиции защищали что-то настоящее, и изложить каждую в сильнейшей форме.
+    - Показать, как вы перешли от позиций к стоящим за ними потребностям и нашли вариант, закрывающий обе.
+    - Закончить принятым решением, тем, остались ли закрыты оба опасения, и тем, как вы это проверили.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-strategic-hiring"></a>**Как вы определяете, какие инженерные компетенции нужно нанимать?**
   - Прикладной сценарий · Senior · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-strategic-hiring) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
   - Что проверяет: Следуют ли кадровые решения из стратегии и пробелов в компетенциях.
   - Сильный ответ покрывает:
     - Начать с обязательств следующего периода и требуемых для них компетенций.
-    - Отличить пробел, который стоит закрывать найм, от решаемого обучением, заимствованием или отказом от работы.
+    - Отличить пробел, который стоит закрывать наймом, от решаемого обучением, заимствованием или отказом от работы.
     - Писать роль из пробела и определить, какие доказательства должно дать интервью.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-quality-standard"></a>**Как вы задаёте стандарты инженерного качества в команде?**
@@ -99,9 +119,18 @@
 - <a id="lead-engineering-persuasion"></a>**Как вы убедите инженеров, что предложенную продуктовую функцию стоит делать?**
   - Прикладной сценарий · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-engineering-persuasion&title=%5BCorrection%5D%20lead-engineering-persuasion)
   - Что проверяет: Учитываете ли вы технические возражения и формируете ли общее обоснование работы.
+  - Сильный ответ покрывает:
+    - Принести проблему пользователя и данные за ней, а не саму функцию, чтобы инженеры могли проверить логику.
+    - Считать возражения о цене, сложности и поддержке входными данными, способными изменить объём, а не сопротивлением.
+    - Договориться о метрике успеха и дешёвой первой версии и обещать убрать функцию, если метрика не будет достигнута.
 - <a id="lead-personal-growth"></a>**Что вы изменили в своём подходе к управлению по мере профессионального роста?**
   - Поведенческий · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-personal-growth&title=%5BCorrection%5D%20lead-personal-growth)
   - Что проверяет: Приводит ли рефлексия к конкретным изменениям в руководстве.
+  - Сильный ответ покрывает:
+    - Назвать одну-две конкретные практики, которые вы изменили, а не общий сдвиг в философии.
+    - Объяснить, что вызвало каждое изменение, например обратная связь или результат команды, и во что вы верили раньше.
+    - Показать эффект так, как его описала бы команда, и назвать, что вы меняете до сих пор.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-research-product-boundary"></a>**Исследователям нужно продолжать эксперименты, а продуктовым инженерам — выпустить надёжный сервис. Как вы распределите ответственность и передачу работы?**
   - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-research-product-boundary) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-research-product-boundary&title=%5BCorrection%5D%20lead-research-product-boundary)
   - Что проверяет: Учитываете ли вы неопределённость исследований, сохраняя ответственность за эксплуатацию.
@@ -116,14 +145,23 @@
   - Сильный ответ покрывает:
     - Назвать настоящий пробел: ревью крупного изменения, которого никто не писал руками, а не владение инструментом.
     - Оставить автора ответственным за объяснение и тестирование изменения, чем бы оно ни было создано.
-    - Учить ревью навыкам проверки и измерять пропущенные дефекты, а не число внедрений.
+    - Учить ревьюеров навыкам проверки и измерять пропущенные дефекты, а не охват использования инструмента.
   - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
 - <a id="lead-platform-team-charter"></a>**Двум продуктовым командам нужна общая AI-инфраструктура, но ни одна не может выделить инженера. Как организовать работу без обещаний платформы, под которые нет людей?**
-  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-platform-team-charter&title=%5BCorrection%5D%20lead-platform-team-charter)
+  - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-platform-team-charter) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-platform-team-charter&title=%5BCorrection%5D%20lead-platform-team-charter)
   - Что проверяет: Решаете ли вы вопросы ресурсов и ответственности до создания новой командной структуры.
+  - Сильный ответ покрывает:
+    - Точно определить общую потребность и сравнить её стоимость с тем, что каждая команда сделает сама.
+    - Явно выбрать модель ресурсов: новые ставки, ёмкость из планов обеих команд или одна команда-владелец.
+    - Написать узкий устав с названным владельцем, условиями поддержки и триггером для выделенной команды.
+  - Читать: [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html) (Martin Fowler)
 - <a id="lead-ai-interview-redesign"></a>**Кандидаты используют AI-ассистентов на технических интервью. Как вы перестроите процесс, чтобы он по-прежнему давал пригодный сигнал для найма?**
   - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-interview-redesign&title=%5BCorrection%5D%20lead-ai-interview-redesign)
   - Что проверяет: Измеряет ли процесс суждение и ответственность вместо запрета или игнорирования инструментов.
-  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
+  - Сильный ответ покрывает:
+    - Определить, какие прежние задания теперь решают ассистенты, и переформулировать сигнал как суждение, проверку и ответственность.
+    - Открыто разрешить инструменты в одинаковой для всех среде и оценивать, как кандидат проверяет, исправляет и объясняет результат.
+    - Откалибровать новые задания на действующих инженерах с теми же инструментами и отслеживать, предсказывают ли оценки последующую работу.
+  - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 
 ← [AI-платформа и операционная модель](ai-operating-model.md) · [Программы и delivery](program-delivery.md) →

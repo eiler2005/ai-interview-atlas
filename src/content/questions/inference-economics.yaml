@@ -24,8 +24,8 @@ questions:
         - "Измерить успех по сложности задач и выбрать правило маршрутизации, которому не нужен правильный ответ."
         - "Задать остановку и резервный сценарий; показать все расходы на успешную задачу и нарушения срока."
     answer:
-      en: "I would treat this as an empirical allocation question, not a preference. On the same held-out tasks I would run one long reasoning pass and a sample-and-verify strategy at several budgets, then compare success per unit of spend and per unit of wall-clock time, counting the verifier's own tokens and latency as part of the cost: a verifier that doubles latency can lose on a deadline it would win on cost. Sampling parallelises, so it often fits a deadline that a single long pass misses, but it only helps when a cheap check can tell candidates apart; without that, extra candidates add spend and no accuracy. Because gains concentrate in harder tasks, I would route by an observable feature available before the answer exists, never by correctness. Then a hard token and time ceiling with a defined fallback, reporting spend per successful task and deadline misses."
-      ru: "Я бы решал это измерением, а не предпочтением. На одних и тех же отложенных задачах я бы прогнал один длинный reasoning-проход и стратегию «несколько кандидатов плюс проверка» на нескольких бюджетах, а затем сравнил успех на единицу расходов и на единицу полного времени, считая токены и задержку проверяющего частью стоимости: проверяющий, удваивающий задержку, проигрывает по сроку там, где выиграл бы по деньгам. Сэмплирование распараллеливается и потому часто укладывается в срок, который один длинный проход не выдерживает, но помогает лишь тогда, когда дешёвая проверка действительно различает кандидатов; иначе лишние кандидаты добавляют расход и не добавляют точности. Так как выигрыш сосредоточен в сложных задачах, я бы маршрутизировал по наблюдаемому признаку, доступному до появления ответа, а никогда по правильности. Дальше жёсткий предел по токенам и времени с описанным резервным сценарием и отчёт: расходы на успешную задачу и нарушения срока."
+      en: "I would treat this as an empirical allocation question, not a preference. On the same held-out tasks I would run one long reasoning pass and a sample-and-verify strategy at several budgets, then compare success per unit of spend and per unit of wall-clock time, counting the verifier's own tokens and latency as part of the cost: a verifier that doubles latency can lose on a deadline it would win on cost. Sampling parallelises, so it often fits a deadline that a single long pass misses, but it only helps when a cheap check can tell candidates apart; without that, extra candidates add spend and no accuracy. Because the gain varies with difficulty, small where one pass already succeeds or nothing does and largest in between, I would route by an observable feature available before the answer exists, never by correctness. Then a hard token and time ceiling with a defined fallback, reporting spend per successful task and deadline misses. Where no strategy succeeds at any budget, extra test-time compute is wasted and a stronger model is the lever."
+      ru: "Я бы решал это измерением, а не предпочтением. На одних и тех же отложенных задачах я бы прогнал один длинный reasoning-проход и стратегию «несколько кандидатов плюс проверка» на нескольких бюджетах, а затем сравнил успех на единицу расходов и на единицу полного времени, считая токены и задержку проверяющего частью стоимости: проверяющий, удваивающий задержку, может проиграть по сроку там, где выиграл бы по деньгам. Сэмплирование распараллеливается и потому часто укладывается в срок, который один длинный проход не выдерживает, но помогает лишь тогда, когда дешёвая проверка действительно различает кандидатов; иначе лишние кандидаты добавляют расход и не добавляют точности. Так как выигрыш зависит от сложности — он мал там, где уже справляется один проход или не справляется ничто, и максимален между ними, — я бы маршрутизировал по наблюдаемому признаку, доступному до появления ответа, а никогда по правильности. Дальше жёсткий предел по токенам и времени с описанным резервным сценарием и отчёт: расходы на успешную задачу и нарушения срока. Там, где ни одна стратегия не справляется ни при каком бюджете, дополнительные вычисления на инференсе уходят впустую, и рычагом становится более сильная модель."
     reading: ["paper-test-time-compute", "openai-evaluation-best-practices"]
   - id: "inf-reasoning-incomplete"
     tracks: ["engineering"]
@@ -39,6 +39,8 @@ questions:
     provenance: "generated"
     basis: ["radar:inference-economics"]
     added: "2026-09-29"
+    start_here: ["engineering"]
+    priority: 70
     outline:
       en:
         - "Inspect completion status, token usage, context size and the provider's output-limit semantics."
@@ -48,6 +50,9 @@ questions:
         - "Проверить статус, расход токенов, размер контекста и смысл выходного лимита у провайдера."
         - "До восстановления отличить исчерпание лимита от ошибки инструмента, отказа и таймаута."
         - "Ограничить попытки, расходы и полное время; измерять успех восстановления и исключать повторные действия инструментов."
+    answer:
+      en: "Billed tokens and a usable answer are separate facts, so I'd read the completion status first. A reasoning model's hidden tokens count against the same output limit and are billed, so a request can hit that limit mid-reasoning and come back incomplete with little or no visible text. That's a different failure from a refusal, a content-filter stop, a tool error inside an agent loop, or a client timeout where the server may still finish and charge. So I'd log the status and its reason, reasoning versus visible tokens, input size, and the configured limit and effort. Recovery follows the cause: for exhaustion, one retry with a larger output allowance, lower effort or a smaller context, never an identical replay that mostly reproduces the failure. Everything sits under one cap on attempts, spend and elapsed time, and tool calls carry idempotency keys so a retry can't repeat a side effect. I'd track recovered-answer rate and spend per recovery. A task that exhausts generous budgets needs decomposition or a human, not more tokens."
+      ru: "Оплаченные токены и пригодный ответ — разные факты, поэтому первым делом я бы посмотрел статус завершения. Скрытые токены рассуждения у reasoning-модели входят в тот же выходной лимит и оплачиваются, так что запрос может упереться в лимит посреди рассуждения и вернуться незавершённым почти без видимого текста. Это другой сбой, чем отказ модели, остановка фильтром контента, ошибка инструмента внутри агентного цикла или клиентский таймаут, при котором сервер может всё же доработать и выставить счёт. Поэтому в лог идут статус и его причина, токены рассуждения отдельно от видимых, размер входа, заданный лимит и уровень усилий. Восстановление зависит от причины: при исчерпании — один повтор с большим выходным лимитом, меньшим уровнем усилий или более коротким контекстом, но никогда не точная копия запроса, которая в основном воспроизводит тот же сбой. Всё это живёт под одним потолком на попытки, расходы и общее время, а вызовы инструментов несут ключи идемпотентности, чтобы повтор не продублировал побочный эффект. Отслеживал бы долю восстановленных ответов и расходы на каждое восстановление. Задачу, которая исчерпывает щедрый бюджет, надо декомпозировать или отдать человеку, а не заливать токенами."
     reading: ["openai-reasoning-models"]
   - id: "inf-prefill-decode"
     tracks: ["engineering"]
@@ -72,11 +77,11 @@ questions:
         - "Profile sequence lengths and batching before declaring either phase compute- or bandwidth-bound."
       ru:
         - "Prefill обрабатывает позиции промпта параллельно, decode идёт авторегрессионно."
-        - "При малом батче decode часто читает веса с низким повторным использованием вычислений."
+        - "При малом батче decode часто читает веса и почти не переиспользует их в арифметике."
         - "Профилировать длины и батчинг до вывода о вычислительном или memory-bound ограничении."
     answer:
-      en: "Prefill computes all prompt positions in one pass and fills large matrix blocks, so it's usually compute bound. Decode runs autoregressively, one token per iteration: every step has to read all the weights of a layer to do arithmetic over a single token per sequence, so at small batch the arithmetic intensity is low and memory bandwidth becomes the limit. Batching moves that boundary: the more sequences run together, the better the weights you've read are reused and the closer decode gets to the compute limit, but the KV cache grows and so does reading the cache itself. So before any optimisation I'd take a profile on the real distribution of prompt and output lengths and look per phase at achieved memory bandwidth and compute utilisation. The limit: at very long contexts cache reads dominate, and splitting the world into two phases stops explaining what you observe."
-      ru: "Prefill считает все позиции промпта за один проход и заполняет матричные блоки, поэтому обычно упирается в вычисления. Decode идёт авторегрессионно, по токену за итерацию: на каждом шаге приходится прочитать все веса слоя ради арифметики над одним токеном каждой последовательности, так что при малом батче арифметическая интенсивность низкая и ограничением становится пропускная способность памяти. Батчинг сдвигает границу — чем больше последовательностей идёт одновременно, тем лучше переиспользуются прочитанные веса и тем ближе decode к вычислительному пределу, но растёт KV-кеш и чтение самого кеша. Поэтому до любой оптимизации я бы снял профиль на реальном распределении длин промпта и ответа и посмотрел раздельно по фазам на достигнутую полосу памяти и утилизацию вычислителей. Граница: на очень длинных контекстах доминирует чтение кеша, и простое деление на две фазы перестаёт объяснять наблюдаемое."
+      en: "Prefill computes all prompt positions in one pass and fills large matrix blocks, so unless the prompt is very short it's compute bound. Decode runs autoregressively, one token per iteration: every step has to read all the weights of a layer to do arithmetic over a single token per sequence, so at small batch the arithmetic intensity is low and memory bandwidth becomes the limit. Batching moves that boundary: the more sequences run together, the better the weights you've read are reused and the closer decode gets to the compute limit, but the KV cache grows and so does reading the cache itself. So before any optimisation I'd take a profile on the real distribution of prompt and output lengths and look per phase at achieved memory bandwidth and compute utilisation. The limit: at long contexts decode stays bandwidth bound however large the batch, because each sequence reads its own cache and that traffic isn't shared, so batching stops helping and only a smaller cache does."
+      ru: "Prefill считает все позиции промпта за один проход и заполняет матричные блоки, поэтому, если промпт не совсем короткий, упирается в вычисления. Decode идёт авторегрессионно, по токену за итерацию: на каждом шаге приходится прочитать все веса слоя ради арифметики над одним токеном каждой последовательности, так что при малом батче арифметическая интенсивность низкая и ограничением становится пропускная способность памяти. Батчинг сдвигает границу — чем больше последовательностей идёт одновременно, тем лучше переиспользуются прочитанные веса и тем ближе decode к вычислительному пределу, но растёт KV-кеш и чтение самого кеша. Поэтому до любой оптимизации я бы снял профиль на реальном распределении длин промпта и ответа и посмотрел раздельно по фазам на достигнутую пропускную способность памяти и утилизацию вычислителей. Граница: на длинных контекстах decode остаётся ограниченным пропускной способностью памяти при любом батче, потому что каждая последовательность читает собственный кеш и этот трафик не разделяется, так что батчинг перестаёт помогать и выручает только уменьшение кеша."
     reading: ["hf-llm-optims"]
   - id: "inf-continuous-batching"
     tracks: ["engineering"]
@@ -134,7 +139,7 @@ questions:
         - "Назвать нерешённое: приём, вытеснение и справедливость остаются политикой планировщика."
     answer:
       en: "Paging attacks fragmentation, not scarcity. If each request reserves one contiguous span sized for the longest answer it might produce, most of that reservation sits idle, and the free memory left over is unusable because it is scattered, so concurrency collapses well before the device is full. Paging stores the cache in fixed-size blocks with a per-request table mapping logical positions to physical blocks, so growth is incremental, internal waste is bounded by one partly filled block, and identical prefixes or parallel samples can point at shared blocks copied only on write. What it leaves untouched is policy: who is admitted when blocks run out, whose blocks are evicted or recomputed, and how long a request may wait. I would measure achieved batch size, the share of memory actually holding live tokens, preemption rate and p99 latency — paging widens the pipe, and a poor scheduler can still starve requests."
-      ru: "Страничная организация борется с фрагментацией, а не с нехваткой памяти. Если каждый запрос резервирует один непрерывный отрезок под самый длинный возможный ответ, большая часть резерва простаивает, а оставшаяся свободная память непригодна, потому что разбросана, — и параллелизм падает задолго до реального заполнения устройства. Страницы хранят кеш блоками фиксированного размера с таблицей на запрос, отображающей логические позиции в физические блоки: рост идёт постепенно, внутренние потери ограничены одним неполным блоком, а одинаковые префиксы или параллельные сэмплы могут ссылаться на общие блоки, копируемые только при записи. Нетронутой остаётся политика: кого принимать, когда блоки закончились, чьи блоки вытеснять или пересчитывать и сколько запрос может ждать. Я бы измерял достигнутый размер батча, долю памяти, реально занятой живыми токенами, частоту вытеснений и p99 задержки: страницы расширяют трубу, но плохой планировщик всё равно способен морить запросы голодом."
+      ru: "Страничная организация борется с фрагментацией, а не с нехваткой памяти. Если каждый запрос резервирует один непрерывный отрезок под самый длинный возможный ответ, большая часть резерва простаивает, а оставшаяся свободная память непригодна, потому что разбросана, — и параллелизм падает задолго до реального заполнения устройства. Страницы хранят кеш блоками фиксированного размера с таблицей на запрос, отображающей логические позиции в физические блоки: рост идёт постепенно, внутренние потери ограничены одним неполным блоком, а одинаковые префиксы или параллельные сэмплы могут ссылаться на общие блоки, копируемые только при записи. Нетронутой остаётся политика: кого принимать, когда блоки закончились, чьи блоки вытеснять или пересчитывать и сколько запрос может ждать. Я бы измерял достигнутый размер батча, долю памяти, реально занятой живыми токенами, частоту вытеснений и p99 задержки: страницы увеличивают вместимость, но плохой планировщик всё равно может оставить часть запросов голодать."
     reading: ["paper-pagedattention"]
   - id: "inf-speculation"
     tracks: ["engineering"]
@@ -189,8 +194,8 @@ questions:
         - "Расположить промпт так, чтобы стабильная часть шла первой, а изменчивая — последней."
         - "Ограничить срок жизни кеша и область записей, чтобы один клиент не читал префикс другого."
     answer:
-      en: "Reuse is exact and token-level, not semantic: the cache holds attention state for a prefix, and a request reuses it only while its tokens match from position zero under the same model version, precision and parallel layout. One changed character near the start invalidates everything after it, which dictates prompt layout — system rules, tool definitions and long documents first; the user turn, timestamps, retrieved snippets and per-request identifiers last. Cache memory competes with the KV cache of live requests, and entries expire, so I would measure hit rate, the share of prefill tokens served from cache, time to first token with and without it, and cost per request. Two limits: caching removes prefill work only, so a short-prompt long-answer workload gains almost nothing, and entries must be scoped per tenant, because a prefix shared across tenants leaks their content."
-      ru: "Переиспользование точное и на уровне токенов, а не семантическое: кеш хранит состояние внимания для префикса, и запрос использует его лишь пока его токены совпадают с нулевой позиции при той же версии модели, точности и схеме параллелизма. Один изменённый символ в начале обесценивает всё, что идёт после, — отсюда порядок промпта: системные правила, описания инструментов и длинные документы вперёд; реплика пользователя, метки времени, найденные фрагменты и идентификаторы запроса в конец. Память кеша конкурирует с KV-кешем живых запросов, а записи истекают, поэтому я бы измерял долю попаданий, долю токенов prefill, отданных из кеша, время до первого токена с ним и без него и стоимость запроса. Два ограничения: кеш убирает только prefill, поэтому короткий промпт с длинным ответом почти ничего не выигрывает, а записи обязаны быть в области одного клиента, иначе общий префикс раскрывает его содержимое."
+      en: "Reuse is exact and token-level, not semantic: the cache holds attention state for a prefix, and a request reuses it only while its tokens match from position zero under the same model version, precision and parallel layout. One changed character near the start invalidates everything after it, which dictates prompt layout — system rules, tool definitions and long documents first; the user turn, timestamps, retrieved snippets and per-request identifiers last. Cache memory competes with the KV cache of live requests, and entries expire, so I would measure hit rate, the share of prefill tokens served from cache, time to first token with and without it, and cost per request. Two limits: caching removes prefill work only, so a short-prompt long-answer workload gains almost nothing, and entries must be scoped per tenant, because a shared cache turns time to first token into a side channel: a fast response confirms that someone else sent the same prefix, which lets an attacker test guesses about another tenant's prompt."
+      ru: "Переиспользование точное и на уровне токенов, а не семантическое: кеш хранит состояние внимания для префикса, и запрос использует его лишь пока его токены совпадают с нулевой позиции при той же версии модели, точности и схеме параллелизма. Один изменённый символ в начале обесценивает всё, что идёт после, — отсюда порядок промпта: системные правила, описания инструментов и длинные документы вперёд; реплика пользователя, метки времени, найденные фрагменты и идентификаторы запроса в конец. Память кеша конкурирует с KV-кешем живых запросов, а записи истекают, поэтому я бы измерял долю попаданий, долю токенов prefill, отданных из кеша, время до первого токена с ним и без него и стоимость запроса. Два ограничения: кеш убирает только prefill, поэтому короткий промпт с длинным ответом почти ничего не выигрывает, а записи должны быть изолированы по клиентам, иначе общий кеш превращает время до первого токена в побочный канал: быстрый ответ подтверждает, что такой же префикс уже присылал кто-то другой, и это позволяет проверять догадки о чужом промпте."
     reading: ["claude-prompt-caching"]
   - id: "inf-precision"
     tracks: ["engineering"]
@@ -205,6 +210,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Contrast non-uniform FP8 and FP4 grids with uniform INT8 and INT4 grids, and the per-group scales low bit widths need."
+        - "Separate weight-only 4-bit, which speeds memory-bound decode, from activation quantisation needing native FP8 or INT8 kernels on the target GPU."
+        - "Validate against bf16 on task evals and per-token KL, with long-context, code and maths slices, then measure real throughput."
+      ru:
+        - "Сравнить неравномерную сетку FP8 и FP4 с равномерной сеткой INT8 и INT4 и масштабы по группам, без которых не обойтись при малой разрядности."
+        - "Отделить квантование только весов до 4 бит, ускоряющее memory-bound декодирование, от квантования активаций, которому нужны нативные ядра FP8 или INT8 на целевом GPU."
+        - "Сравнить с bf16 по задачным оценкам и KL на токен, отдельно на длинном контексте, коде и математике, затем измерить реальную пропускную способность."
+    reading: ["paper-qlora","hf-llm-optims","paper-gptq","paper-smoothquant","paper-fp8-formats"]
   - id: "inf-parallelism"
     tracks: ["engineering"]
     type: "knowledge"
@@ -223,6 +238,16 @@ questions:
       - source: "outcome-school-company-wise"
         company: "amazon"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Name each split and its traffic: TP per-layer all-reduce, PP stage activations, SP key-value exchange, EP token all-to-all."
+        - "Fit weights and KV first: TP inside the NVLink domain, PP across nodes, then traffic-free data-parallel replicas for throughput."
+        - "Measure per-GPU memory headroom, communication share of step time, pipeline bubbles and expert load imbalance at target latency."
+      ru:
+        - "Назвать, что делит каждая схема и какой обмен добавляет: all-reduce в каждом слое у TP, активации между стадиями у PP, обмен KV у SP, all-to-all у EP."
+        - "Сначала уместить веса и KV: TP внутри NVLink-домена, PP между узлами, затем реплики data parallel без обмена ради пропускной способности."
+        - "Измерить запас памяти на GPU, долю обмена во времени шага, простои конвейера и перекос нагрузки экспертов при целевой задержке."
+    reading: ["vllm-docs","paper-switch-transformers","paper-scaling-inference","paper-megatron-lm"]
   - id: "inf-memory-budget"
     tracks: ["engineering"]
     roles: ["inference-engineer"]
@@ -249,8 +274,8 @@ questions:
         - "Добавить KV-память конкретной архитектуры для заданных параллельных последовательностей."
         - "Заложить активации, рабочие буферы и запас аллокатора; явно указать шардирование."
     answer:
-      en: "I would state a hypothetical architecture before budgeting: 70 billion parameters, 80 layers, eight KV heads and head width 128. BF16 weights occupy about 140 GB; int8 roughly 70 GB and four-bit roughly 35 GB, excluding quantisation metadata. For BF16 KV, bytes equal 2 times concurrency times layers times tokens times KV heads times head width times two. Choosing 8,192 tokens and four concurrent sequences gives 10 GiB of KV cache. On two hypothetical 80 GiB accelerators, tensor parallelism could split weights and KV heads, leaving roughly 9.8 GiB per device for activations, buffers, fragmentation and headroom. I would verify actual usable memory and peak allocations, then lower concurrency if needed. This is a capacity estimate, not evidence that the configuration meets a latency SLO."
-      ru: "Сначала задаю условную архитектуру: 70 млрд параметров, 80 слоёв, восемь KV-голов размерности 128. Веса BF16 занимают около 140 ГБ, int8 — 70 ГБ, четыре бита — 35 ГБ без метаданных квантования. Для KV в BF16 число байтов равно 2 × конкурентность × слои × токены × KV-головы × размер головы × 2. Выбираю контекст 8192 токена и четыре одновременные последовательности: KV-кеш занимает 10 ГиБ. На двух условных ускорителях по 80 ГиБ tensor parallelism может разделить веса и KV-головы, оставив примерно по 9,8 ГиБ на активации, буферы, фрагментацию и запас. Проверяю реально доступную память и пиковые выделения, при необходимости снижаю конкурентность. Это оценка вместимости, а не доказательство выполнения SLO по задержке."
+      en: "I would state a hypothetical architecture before budgeting: 70 billion parameters, 80 layers, eight KV heads and head width 128. BF16 weights occupy about 140 GB, which is about 130 GiB; int8 roughly 70 GB and four-bit roughly 35 GB, excluding quantisation metadata. For BF16 KV, bytes equal 2 times concurrency times layers times tokens times KV heads times head width times two. Choosing 8,192 tokens and four concurrent sequences gives 10 GiB of KV cache. On two hypothetical 80 GiB accelerators, tensor parallelism could split weights and KV heads, leaving roughly 9.8 GiB per device for activations, buffers, fragmentation and headroom. I would verify actual usable memory and peak allocations, then lower concurrency if needed. This is a capacity estimate, not evidence that the configuration meets a latency SLO."
+      ru: "Сначала задаю условную архитектуру: 70 млрд параметров, 80 слоёв, восемь KV-голов размерности 128. Веса BF16 занимают около 140 ГБ, то есть примерно 130 ГиБ; int8 — 70 ГБ, четыре бита — 35 ГБ без метаданных квантования. Для KV в BF16 число байтов равно 2 × конкурентность × слои × токены × KV-головы × размер головы × 2. Выбираю контекст 8192 токена и четыре одновременные последовательности: KV-кеш занимает 10 ГиБ. На двух условных ускорителях по 80 ГиБ tensor parallelism может разделить веса и KV-головы, оставив примерно по 9,8 ГиБ на активации, буферы, фрагментацию и запас. Проверяю реально доступную память и пиковые выделения, при необходимости снижаю конкурентность. Это оценка вместимости, а не доказательство выполнения SLO по задержке."
     reading: ["paper-pagedattention"]
   - id: "inf-latency-metrics"
     tracks: ["engineering","leadership"]
@@ -269,6 +294,21 @@ questions:
       - source: "outcome-school-company-wise"
         company: "perplexity"
     added: "2026-09-26"
+    start_here: ["engineering"]
+    priority: 56
+    outline:
+      en:
+        - "Define TTFT as queueing plus prefill, TPOT and inter-token latency as decode pace, throughput as aggregate capacity."
+        - "Explain how larger batches trade each user's decode speed for throughput, and how admitted prefills stall decodes."
+        - "Compare at matched load and length distributions: p50 and p99 per latency metric, throughput within the targets."
+      ru:
+        - "Определить TTFT как очередь плюс prefill, TPOT и inter-token latency как темп декодирования, throughput как ёмкость."
+        - "Объяснить, как больший батч обменивает скорость декодирования для пользователя на throughput и как prefill прерывает декодирование."
+        - "Сравнивать при одинаковой нагрузке и распределении длин: p50 и p99 по каждой задержке, throughput в пределах целей."
+    answer:
+      en: "Three of these describe what one user experiences and throughput describes capacity, so under load they pull in opposite directions. Time to first token runs from request arrival to the first token: queueing plus prefill, so it grows with prompt length and queue depth. Time per output token is the average decode pace after that, end-to-end time minus TTFT divided by the remaining tokens. Inter-token latency is that pace as a distribution of individual gaps, exposing stalls an average hides, for example when the scheduler admits a long prefill and every running decode pauses. Throughput is aggregate tokens or requests per second. Larger batches raise throughput and slow each user's decode, so a throughput figure means nothing without the latency it was bought at. I'd compare systems at matched request rate and length distributions, report p50 and p99 for each latency metric, and quote throughput as the highest load still meeting the latency targets. Token counts aren't comparable across tokenisers, and offline batch jobs care only about throughput and cost."
+      ru: "Три из этих метрик описывают то, что чувствует один пользователь, а throughput — ёмкость системы, поэтому под нагрузкой они тянут в разные стороны. Time to first token — от поступления запроса до первого токена: ожидание в очереди плюс prefill, так что он растёт с длиной промпта и глубиной очереди. Time per output token — средний темп декодирования после этого: сквозное время минус TTFT, делённое на оставшиеся токены. Inter-token latency — тот же темп как распределение отдельных интервалов, и оно показывает остановки, которые прячет среднее, например когда планировщик берёт длинный prefill и все идущие декодирования замирают. Throughput — суммарные токены или запросы в секунду. Батч побольше поднимает throughput и замедляет декодирование для каждого пользователя, поэтому цифра пропускной способности ничего не значит без задержки, которой она куплена. Я бы сравнивал системы при одинаковой интенсивности запросов и одинаковых распределениях длин, показывал p50 и p99 по каждой метрике задержки, а throughput указывал как максимальную нагрузку, при которой цели по задержке ещё выполняются. Число токенов несопоставимо между токенизаторами, а офлайн-обработке батчами важны только throughput и стоимость."
+    reading: ["vllm-docs"]
   - id: "inf-roofline"
     tracks: ["engineering"]
     roles: ["inference-engineer"]
@@ -283,6 +323,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Check fit first: 70B in bf16 is about 140 GB, beyond one 80 GB H100; FP8 leaves little KV room."
+        - "Compare bytes read per token, all weights plus KV, with about 2 FLOPs per parameter: batch-one decode is bandwidth-bound."
+        - "Bound tokens per second by achievable rather than peak HBM bandwidth, then check the estimate against a measured profile."
+      ru:
+        - "Сначала проверить, помещается ли модель: 70B в bf16 — около 140 ГБ, больше одной H100 на 80 ГБ; в FP8 почти не остаётся места под KV."
+        - "Сопоставить байты, читаемые на токен (все веса плюс KV), с примерно 2 FLOP на параметр: декодирование одного запроса упирается в пропускную способность памяти."
+        - "Ограничить число токенов в секунду достижимой, а не пиковой пропускной способностью HBM и сверить оценку с профилем реального запуска."
+    reading: ["paper-scaling-inference"]
   - id: "inf-runtime-choice"
     tracks: ["engineering","leadership"]
     roles: ["inference-engineer"]
@@ -297,7 +347,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
-    reading: ["vllm-docs"]
+    outline:
+      en:
+        - "Replay a captured workload: real prompt and output length distributions, arrival pattern, shared prefixes and concurrency."
+        - "Hold model, precision, parallelism and hardware fixed, tune each engine fairly, and count the custom runtime's maintenance cost."
+        - "Report goodput, requests per second within TTFT and inter-token latency SLOs, and check outputs match a baseline implementation."
+      ru:
+        - "Воспроизвести снятую нагрузку: реальные распределения длин промптов и ответов, характер поступления запросов, общие префиксы и параллельность."
+        - "Зафиксировать модель, точность, параллелизм и оборудование, честно настроить каждый движок и учесть стоимость сопровождения собственного runtime."
+        - "Сравнивать goodput — запросы в секунду в пределах SLO по TTFT и задержке между токенами — и совпадение выходов с базовой реализацией."
+    reading: ["vllm-docs","paper-distserve"]
   - id: "inf-cost-reduction"
     tracks: ["engineering","leadership"]
     roles: ["inference-engineer"]
@@ -327,8 +386,8 @@ questions:
         - "Сравнить меньшие модели, сокращение контекста, переиспользование, батчинг и точность."
         - "Измерить каждое изменение и проверить, достигается ли цель в совокупности."
     answer:
-      en: "First I fix the metric: not price per million tokens, but the cost of one successfully completed task at a given quality and SLO, otherwise any saving turns into a quiet product regression. Then the levers in decreasing order of expected effect: a smaller model or a distilled one where quality holds; cutting context and reusing work, meaning prompt caching and caching of repeated answers; server side measures such as continuous batching and decent utilisation; and only then quantisation and precision work. The first levers reduce work and the last reduce price per unit, and their ceilings differ. I'd turn each change on separately, measuring quality on an eval set and latency at the tails. An important limit: a tenfold saving rarely comes from one lever, and if the product of honestly measured effects falls short, say so before the work starts."
-      ru: "Первым делом фиксирую метрику: не цена за миллион токенов, а стоимость одной успешно решённой задачи при заданном качестве и SLO, иначе любая экономия окажется тихим ухудшением продукта. Дальше меры по убыванию ожидаемого эффекта: модель поменьше или дистиллят там, где качество выдерживает; сокращение контекста и переиспользование, то есть кеширование промпта и повторяющихся ответов; серверные меры вроде непрерывного батчинга и нормальной утилизации; и лишь потом квантование и работа с точностью. Порядок такой потому, что первые меры уменьшают объём работы, а последние — цену единицы работы, и потолок у них разный. Каждое изменение включал бы отдельно, с замером качества на eval-наборе и задержки на хвостах. Важная граница: десятикратную экономию редко даёт одна мера, и если произведение честно измеренных эффектов не дотягивает, сказать об этом надо до начала работ."
+      en: "I'd rank levers by where the money goes, starting from a breakdown in cost per successful task at the required quality and latency SLO: input versus output tokens, the repeated share of input, and accelerator utilisation. Each output token needs its own decode step, so if output dominates, prompt caching barely helps; the levers are a smaller or distilled model for the traffic it can handle, and shorter answers. If long repeated prompts dominate, prefix caching and trimmed context come first. If utilisation is low, batching and right-sized capacity can beat any model change. Quantisation makes each step cheaper but removes no work, and its ceiling is a few-fold gain, not tenfold. Levers interact: a smaller model shrinks what caching and quantisation can still save, so multiplying separate gains overstates the total. I'd measure each lever alone, then prove the combined stack on replayed production traffic against the quality bar and p99. If cost is mostly output from a model that can't shrink without failing the bar, tenfold may not exist, and I'd say so upfront."
+      ru: "Меры я бы ранжировал по тому, куда реально уходят деньги, начиная с разбивки в стоимости успешной задачи при нужном качестве и SLO по задержке: входные токены против выходных, повторяющаяся доля входа и утилизация ускорителей. Каждый выходной токен требует своего шага decode, поэтому если доминирует выход, кеширование промпта почти не помогает, и рычаги другие: модель поменьше или дистиллят для той части трафика, с которой она справляется, и более короткие ответы. Если доминируют длинные повторяющиеся промпты, первыми идут кеширование префикса и сокращение контекста. Если утилизация низкая, батчинг и подгонка мощностей под нагрузку могут дать больше любой смены модели. Квантование удешевляет каждый шаг, но не убирает работу, и его потолок — выигрыш в несколько раз, а не на порядок. Меры взаимодействуют: меньшая модель сокращает то, что ещё могут сэкономить кеш и квантование, так что произведение отдельных выигрышей завышает итог. Каждую меру мерил бы отдельно, а связку целиком проверял на воспроизведённом продовом трафике против планки качества и p99. Если стоимость — это в основном выход модели, которую нельзя уменьшить без провала по качеству, десятикратной экономии может не существовать, и сказать это надо заранее."
     reading: ["hf-llm-optims","google-sre-book"]
   - id: "inf-tail-regression"
     tracks: ["engineering"]
@@ -363,8 +422,8 @@ questions:
         - "Проверить попадания в кеш, батчинг, хвосты зависимостей и насыщение ресурсов."
         - "Проверять гипотезы по одной и подтвердить причинность откатом или canary."
     answer:
-      en: "With unchanged weights, I examine traffic, scheduling and infrastructure. First I compare prompt and output lengths, request types and new clients before and after release. On slow request traces, I inspect queueing, prefill, decode and dependency durations; adding separate stage p99 values would not give end-to-end p99. Then I check prompt-cache hits, batch sizes, KV evictions, dependency tails and saturation of memory, bandwidth and threads, including neighbouring workloads. I change one factor at a time to keep effects distinguishable. A rollback provides useful evidence, but causal confidence requires comparable traffic and conditions, ideally a controlled canary. I would verify that both the workload mix and tail latency recover before attributing the regression to a release. Several bottlenecks can contribute, so there may be no single cause."
-      ru: "Веса не менялись, значит, причину ищу в трафике, планировании и окружении. Сначала сравниваю до и после релиза состав нагрузки: распределение длин промпта и ответа, доли типов запросов, появление новых клиентов. В трассах медленных запросов проверяю длительности очереди, prefill, decode и вызовов зависимостей: складывать отдельные p99 этапов для получения сквозного p99 нельзя. Затем проверяю попадания в кеш промптов, фактические размеры батчей и вытеснения KV, хвосты зависимостей и насыщение по памяти, полосе и потокам, включая соседей по железу. Гипотезы проверяю по одной, иначе несколько одновременных правок смешают эффекты. Откат даёт полезное свидетельство, но причинный вывод требует сопоставимого трафика и условий, лучше контролируемого canary. Проверяю восстановление хвоста вместе с составом нагрузки, прежде чем связывать регрессию с релизом. Стоит помнить, что хвост часто складывается из множества мелких независимых задержек, и единственной причины может не оказаться вовсе."
+      en: "With weights unchanged I'd search around the model, starting with where slow requests spend their time: queue wait, prefill, decode and dependency calls, read from traces of tail requests before and after the release, because stage p99s don't add up to the end-to-end p99. Each component points somewhere different. Longer queueing means capacity fell or load rose: a lower batch limit, a missing replica or a new co-located workload pushes utilisation toward one, where waiting grows nonlinearly, so a small loss can double the tail. Longer prefill suggests a changed system prompt or template broke the shared prefix and collapsed the prefix-cache hit rate. Longer decode points to longer outputs or KV evictions forcing recomputation. Longer dependency time is a retrieval or tool tail. I'd also compare the traffic mix, since a new client brings longer prompts without any code change. Then one hypothesis at a time, confirmed by rollback or canary; a canary proves causality only under comparable traffic and neighbours, otherwise I'd replay recorded traffic against both versions."
+      ru: "Раз веса не менялись, ищу вокруг модели и начинаю с того, на что медленные запросы тратят время: ожидание в очереди, prefill, decode и вызовы зависимостей, по трассам хвостовых запросов до и после релиза, потому что p99 отдельных этапов не складываются в сквозной p99. Каждая составляющая указывает в свою сторону. Выросла очередь — значит, упала мощность или выросла нагрузка: меньший лимит батча, пропавшая реплика или новый сосед по железу толкают утилизацию к единице, где ожидание растёт нелинейно, и небольшая потеря способна удвоить хвост. Вырос prefill — вероятно, изменённый системный промпт или шаблон сломал общий префикс и обрушил долю попаданий в кеш префиксов. Вырос decode — ищу удлинившиеся ответы или вытеснения KV с пересчётом. Выросло время зависимостей — это хвост поиска или инструмента. Ещё сравниваю состав трафика: новый клиент приносит длинные промпты без единой правки кода. Дальше проверяю гипотезы по одной и подтверждаю откатом или canary; canary доказывает причинность только при сопоставимом трафике и соседях, иначе прогоняю записанный трафик через обе версии."
     reading: ["paper-tail-at-scale"]
   - id: "inf-chunked-prefill"
     tracks: ["engineering"]
@@ -379,6 +438,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Explain the stall: a long prefill monopolises an iteration, so every running decode waits and inter-token latency spikes."
+        - "Mix prefill chunks with decodes under a per-iteration token budget; smaller chunks smooth decode but raise TTFT and overhead."
+        - "Sweep the token budget on mixed traffic, plotting p99 inter-token latency against TTFT and throughput."
+      ru:
+        - "Объяснить паузу: длинный prefill занимает итерацию целиком, все идущие декодирования ждут, и задержка между токенами подскакивает."
+        - "Смешивать в итерации части prefill с decode в пределах бюджета токенов; мелкие части сглаживают decode, но растят TTFT и накладные расходы."
+        - "Перебрать бюджет токенов на итерацию на смешанном трафике и сопоставить p99 задержки между токенами с TTFT и пропускной способностью."
+    reading: ["vllm-docs","paper-sarathi-serve"]
   - id: "inf-disaggregation"
     tracks: ["engineering"]
     type: "system_design"
@@ -392,6 +461,16 @@ questions:
     evidence:
       - source: "outcome-school-company-wise"
     added: "2026-09-26"
+    outline:
+      en:
+        - "Separate phases when prefill bursts break decode latency SLOs or the two phases want different parallelism and hardware."
+        - "Price transfer as KV bytes per token times prompt length over link bandwidth, overlapped layer by layer with prefill."
+        - "Compare goodput per GPU against colocated chunked prefill, including transfer tail latency and rebalancing the worker ratio."
+      ru:
+        - "Разделять фазы, когда всплески prefill ломают SLO по задержке decode или фазам нужны разный параллелизм и оборудование."
+        - "Оценить передачу как байты KV на токен, умноженные на длину промпта и делённые на пропускную способность канала, с послойным перекрытием с prefill."
+        - "Сравнить goodput на GPU с совмещённой схемой и chunked prefill, учитывая хвост задержки передачи и перебалансировку числа воркеров."
+    reading: ["vllm-docs","paper-distserve"]
   - id: "inf-accelerator-takehome"
     tracks: ["engineering"]
     roles: ["inference-engineer"]
@@ -408,3 +487,13 @@ questions:
         company: "anthropic"
         role: "inference-engineer"
     added: "2026-09-29"
+    outline:
+      en:
+        - "Lock correctness first: check every output against the serial version, and fix any existing bug before optimising."
+        - "Find independent iterations from data dependencies, then spread them across cores, SIMD lanes and per-cycle instruction slots."
+        - "Measure simulated cycles after every change, and use a per-instruction trace to find stalls and idle units."
+      ru:
+        - "Сначала обеспечить корректность: сверять каждый выход с последовательной версией и исправить имеющиеся ошибки до оптимизации."
+        - "Найти независимые итерации по зависимостям данных и разложить их по ядрам, SIMD-полосам и слотам инструкций за такт."
+        - "Измерять циклы симулятора после каждого изменения и по трассе инструкций искать простои и незанятые исполнительные блоки."
+    reading: ["anthropic-ai-resistant-evaluations"]

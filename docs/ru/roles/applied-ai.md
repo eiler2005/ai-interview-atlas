@@ -101,11 +101,11 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
 - **[Спроектируйте агента поддержки, который выполняет сервисные действия и при необходимости передаёт обращение человеку.](../themes/ai-system-design.md#sd-support-agent)**
   - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · ✍ [Ответ](../answers/engineering.md#sd-support-agent)
 - **[Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения.](../themes/ai-system-design.md#sd-text-to-sql)**
-  - System design · [Дизайн AI-систем](../themes/ai-system-design.md)
+  - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · ✍ [Ответ](../answers/engineering.md#sd-text-to-sql)
 - **[Реализуйте минимальный агентный runner с проверяемой диспетчеризацией инструментов, обработкой ошибок и жёстким лимитом шагов.](../themes/coding-practical.md#code-agent-loop)**
   - Кодинг · [Практический кодинг](../themes/coding-practical.md) · ✍ [Ответ](../answers/engineering.md#code-agent-loop)
 - **[На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?](../themes/coding-practical.md#code-ai-assisted-ownership)**
-  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md)
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-ownership)
 - **[Напишите промпт, который извлекает период из запроса клиента и различает почти одинаковые формулировки вроде «с первого числа», «по первое число» и «за первое число».](../themes/applied-scenarios.md#app-prompt-date-range)**
   - Прикладной сценарий · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md)
 

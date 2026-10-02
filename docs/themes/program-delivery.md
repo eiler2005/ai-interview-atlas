@@ -20,12 +20,26 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (8)](#track-leade
 - <a id="prog-technical-ownership"></a>**Walk through a project you owned from beginning to end and its key technical decisions.**
   - Self-presentation · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-technical-ownership&title=%5BCorrection%5D%20prog-technical-ownership)
   - Tests: Whether technical choices are connected to constraints, sequencing and outcomes.
+  - A strong answer covers:
+    - Pick a project you owned end to end, and show how its constraints set the order of work.
+    - Walk through two or three key decisions, each with the alternative you rejected and the reason.
+    - Close by tying each decision to the measured outcome, including one whose cost showed up later.
+  - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="prog-delayed-by-judgement"></a>**Tell me about a technical misjudgement that delayed a project.**
-  - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-delayed-by-judgement&title=%5BCorrection%5D%20prog-delayed-by-judgement)
+  - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#prog-delayed-by-judgement) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-delayed-by-judgement&title=%5BCorrection%5D%20prog-delayed-by-judgement)
   - Tests: Whether you recognise faulty assumptions and change planning practice afterward.
+  - A strong answer covers:
+    - Pick a misjudgement that was technical and yours, stated as the assumption you believed then.
+    - Show when contrary evidence first appeared, how long you took to act, and what the delay cost.
+    - Name the planning practice you changed, such as testing risky assumptions first, and where it later helped.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="prog-four-hour-demo"></a>**You have four hours to build and demonstrate an AI-powered product. How do you allocate the time?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-four-hour-demo&title=%5BCorrection%5D%20prog-four-hour-demo)
   - Tests: Whether you scope a credible demonstration and protect time for integration.
+  - A strong answer covers:
+    - Spend the opening minutes fixing one user, one task and the exact demo path before building anything.
+    - Use hosted models and existing parts, and get a thin end-to-end path working early before deepening it.
+    - Freeze features well before the end, rehearse on prepared inputs, and state plainly what is stubbed.
 
 ## <a id="track-leadership"></a>AI Leadership
 
@@ -54,14 +68,29 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (8)](#track-leade
     - Distinguish actual delivery and impact from initial targets.
   - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="prog-initiative-retrospective"></a>**Present a major initiative you led: what worked, what did not, and what you learned.**
-  - Self-presentation · Senior · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-initiative-retrospective&title=%5BCorrection%5D%20prog-initiative-retrospective)
+  - Self-presentation · Senior · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Answer](../answers/leadership.md#prog-initiative-retrospective) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-initiative-retrospective&title=%5BCorrection%5D%20prog-initiative-retrospective)
   - Tests: Whether you can assess an initiative honestly across planning and execution.
+  - A strong answer covers:
+    - Pick an initiative you owned end to end and state its original goal in measurable terms.
+    - Separate planning errors from execution errors, and name one decision of yours you would now reverse.
+    - Close with the result against the original goal and a practice you changed afterwards.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - <a id="prog-zero-to-one-ai"></a>**Describe an AI product you built from scratch and how you took it through delivery.**
   - Self-presentation · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-zero-to-one-ai&title=%5BCorrection%5D%20prog-zero-to-one-ai)
   - Tests: Whether you can explain a complete delivery path rather than only a prototype.
+  - A strong answer covers:
+    - Pick a product that reached real users, and open with the problem and why AI fitted it.
+    - Spend most of the answer on the prototype-to-production gap: evaluation set, quality bar, failure handling, launch decision.
+    - Close with adoption and outcome after launch, and how quality was monitored and improved once real traffic arrived.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="prog-dependency-slip"></a>**An upstream data team will miss a milestone on your AI programme. How do you revise the plan and communicate the impact?**
-  - Applied scenario · Senior · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-dependency-slip&title=%5BCorrection%5D%20prog-dependency-slip)
+  - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-dependency-slip) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-dependency-slip&title=%5BCorrection%5D%20prog-dependency-slip)
   - Tests: Whether you quantify dependency impact and present actionable alternatives.
+  - A strong answer covers:
+    - Establish exactly what slipped: which data, by how much, and how reliable the new date is.
+    - Trace the slip through the critical path and price re-sequencing, partial data, descoping and moving the date.
+    - Bring sponsors priced options with a decision owner, and add intermediate checkpoints with the upstream team.
+  - Read: [Dependency Mapping](https://www.atlassian.com/team-playbook/plays/dependency-mapping) (Atlassian Team Playbook)
 - <a id="prog-research-milestones"></a>**How would you plan an AI programme whose central research hypothesis may fail?**
   - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-research-milestones) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-research-milestones&title=%5BCorrection%5D%20prog-research-milestones)
   - Tests: Whether milestones retire uncertainty and support explicit stop decisions.

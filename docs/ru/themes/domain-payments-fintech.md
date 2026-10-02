@@ -13,24 +13,34 @@ AI в платежах, банках и других регулируемых о
   - System design · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#pay-agent-authority) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-agent-authority&title=%5BCorrection%5D%20pay-agent-authority)
   - Что проверяет: Разделяете ли вы предложение агента и проверяемое разрешение на платёж.
   - Сильный ответ покрывает:
-    - Явно представьте намерение пользователя и ограничения операции, включая сумму и получателя.
-    - Проверяйте полномочия при выполнении; запрашивайте новое подтверждение изменений за пределами разрешения.
-    - Сохраняйте аудиторский след и различайте подтверждение полномочий и успешное завершение расчётов.
+    - Явно представить намерение пользователя и ограничения операции, включая сумму и получателя.
+    - Проверять полномочия при выполнении; запрашивать новое подтверждение изменений за пределами разрешения.
+    - Сохранять аудиторский след и различать подтверждение полномочий и успешное завершение расчётов.
   - Читать: [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) (AP2 project) · [Agentic Commerce Protocol](https://docs.stripe.com/agentic-commerce/acp) (Stripe Documentation) · [Universal Commerce Protocol (UCP)](https://ucp.dev/) (UCP project)
 - <a id="pay-ambiguous-timeout"></a>**AI-агент поддержки инициировал возврат, после чего платёжный API не ответил вовремя. Как восстановить работу без двойного возврата?**
   - System design · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#pay-ambiguous-timeout) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-ambiguous-timeout&title=%5BCorrection%5D%20pay-ambiguous-timeout)
   - Что проверяет: Рассматриваете ли вы неизвестный исход как задачу сверки, а не повод бездумно повторить операцию.
   - Сильный ответ покрывает:
-    - Задайте стабильный идентификатор операции и сохраните намерение до повторов.
-    - Используйте контракт идемпотентности поставщика и сверяйте статус после неоднозначного сбоя.
-    - Учтите срок хранения ключей, конкурентные попытки и ручную эскалацию; не обещайте сквозное выполнение строго один раз.
+    - Задать стабильный идентификатор операции и сохранить намерение до повторов.
+    - Использовать контракт идемпотентности поставщика и сверять статус после неоднозначного сбоя.
+    - Учесть срок хранения ключей, конкурентные попытки и ручную эскалацию; не обещать сквозное выполнение строго один раз.
   - Читать: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="pay-clinical-data-boundary"></a>**Клинический AI-сервис обрабатывает аудио, расшифровки и записи с защищённой медицинской информацией. Как это влияет на архитектуру и использование сторонних API моделей?**
-  - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-clinical-data-boundary&title=%5BCorrection%5D%20pay-clinical-data-boundary)
+  - System design · Senior · ✍ [Ответ](../answers/leadership.md#pay-clinical-data-boundary) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-clinical-data-boundary&title=%5BCorrection%5D%20pay-clinical-data-boundary)
   - Что проверяет: Умеете ли вы описать потоки чувствительных данных и определить допустимую обработку до интеграции.
+  - Сильный ответ покрывает:
+    - Найти каждую копию записей, расшифровок и заметок, включая логи, трассировки, кеши и наборы для оценки.
+    - Передавать защищённые данные в API модели только по договору, покрывающему медицинские данные, хранение и обучение.
+    - Минимизировать данные на каждом шаге, журналировать доступ, измерить пропуски маскирования и проверить удаление до интеграции.
+  - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project)
 - <a id="pay-clinical-writeback"></a>**Как записать подготовленный AI медицинский документ обратно в систему электронных медицинских карт и какие сбои возможны?**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-clinical-writeback&title=%5BCorrection%5D%20pay-clinical-writeback)
   - Что проверяет: Учитываете ли вы идентификацию пациента, статус проверки, повторные записи и восстановление.
+  - Сильный ответ покрывает:
+    - Сопоставлять пациента и визит по устойчивым идентификаторам и блокировать запись при любом расхождении.
+    - Записывать неподписанный черновик, который попадает в карту только после проверки и подписи врача.
+    - Сделать запись идемпотентной, сверять статус после тайм-аутов и исправлять подписанные документы дополнением, а не перезаписью.
+  - Читать: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 
 ## <a id="track-leadership"></a>AI-лидерство
 
@@ -38,9 +48,9 @@ AI в платежах, банках и других регулируемых о
   - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#pay-bank-copilot-release) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=pay-bank-copilot-release&title=%5BCorrection%5D%20pay-bank-copilot-release)
   - Что проверяет: Соразмерны ли ответственность и проверка последствиям решения.
   - Сильный ответ покрывает:
-    - Определите решения, затронутых клиентов и границы полномочий ассистента.
-    - Оцените типичные случаи и опасные ошибки, включая принятие и отмену рекомендаций сотрудниками.
-    - Зафиксируйте владельцев, мониторинг, эскалацию и контролируемое расширение; отдельно проверьте применимые требования юрисдикции.
+    - Определить решения, затронутых клиентов и границы полномочий ассистента.
+    - Оценить типичные случаи и опасные ошибки, включая принятие и отмену рекомендаций сотрудниками.
+    - Зафиксировать владельцев, мониторинг, эскалацию и контролируемое расширение; отдельно проверить применимые требования юрисдикции.
   - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) (Board of Governors of the Federal Reserve System)
 
 ← [Прикладные и клиентские сценарии](applied-scenarios.md) · [Поведенческие вопросы и ценности](behavioral-values.md) →

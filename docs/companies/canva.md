@@ -31,8 +31,12 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 ### [Practical coding](../themes/coding-practical.md)
 
 - **[In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?](../themes/coding-practical.md#code-ai-assisted-ownership)**
-  - Applied scenario · Asked at: Canva ✅
+  - Applied scenario · Asked at: Canva ✅ · ✍ [Answer](../answers/engineering.md#code-ai-assisted-ownership)
   - Tests: Whether ownership and verification survive delegation to a model under time pressure.
-  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic)
+  - A strong answer covers:
+    - State the interface, constraints and edge cases yourself before prompting, so generated code has a specification.
+    - Accept only code you can explain; decline invented APIs, swallowed errors, weakened tests and unrequested scope.
+    - Verify by running tests on the edge cases you named, and say aloud what you checked or rejected.
+  - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 
 ← [Amazon](amazon.md) · [Google and Google DeepMind](google.md) →

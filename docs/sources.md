@@ -104,9 +104,12 @@ Questions marked † that come from [AI Engineering Interview Questions Company 
 
 ## <a id="kind-reference"></a>Reference material
 
+- [On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes](https://arxiv.org/abs/2306.13649) · Agarwal et al., arXiv · published 2023-06 · retrieved 2026-10-02
+- [Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve](https://arxiv.org/abs/2403.02310) · Agrawal et al., arXiv · published 2024-03 · retrieved 2026-10-02
 - [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) · Ainslie et al., arXiv · published 2023-05 · retrieved 2026-09-26
 - [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) · Alayrac et al., arXiv · published 2022-04 · retrieved 2026-09-26
 - [Leadership Principles](https://amazon.jobs/content/en/our-workplace/leadership-principles) · Amazon Jobs · retrieved 2026-09-26
+- [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) · Amodei et al., arXiv · published 2016-06 · retrieved 2026-10-02
 - [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/responsible-scaling-policy) · Anthropic · retrieved 2026-09-26
 - [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) · Anthropic · published 2024-12 · retrieved 2026-09-26
 - [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) · Anthropic · published 2024-09 · retrieved 2026-09-26
@@ -115,9 +118,14 @@ Questions marked † that come from [AI Engineering Interview Questions Company 
 - [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) · Anthropic · published 2025-06-13 · retrieved 2026-09-29. First-party account of a research product, including coordination and token costs. Its internal results are workload-specific; not evidence of interview questions.
 - [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) · Anthropic · retrieved 2026-09-26
 - [AP2 - Agent Payments Protocol Documentation](https://ap2-protocol.org/) · AP2 project · retrieved 2026-09-26
+- [Dependency Mapping](https://www.atlassian.com/team-playbook/plays/dependency-mapping) · Atlassian Team Playbook · retrieved 2026-10-02
 - [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) · Bai et al., arXiv · published 2022-12 · retrieved 2026-09-26
+- [LoRA Learns Less and Forgets Less](https://arxiv.org/abs/2405.09673) · Biderman et al., arXiv · published 2024-05 · retrieved 2026-10-02
 - [Supervisory Letter SR 11-7 on guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm) · Board of Governors of the Federal Reserve System · published 2011-04-04 · retrieved 2026-09-26
+- [RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control](https://arxiv.org/abs/2307.15818) · Brohan et al., arXiv · published 2023-07 · retrieved 2026-10-02
+- [Extending Context Window of Large Language Models via Positional Interpolation](https://arxiv.org/abs/2306.15595) · Chen et al., arXiv · published 2023-06 · retrieved 2026-10-02
 - [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) · Chen et al., arXiv · published 2025-05-08 · retrieved 2026-09-29
+- [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/abs/2204.02311) · Chowdhery et al., arXiv · published 2022-04 · retrieved 2026-10-02
 - [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) · Claude Platform Docs · retrieved 2026-09-26
 - [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) · Claude Platform Docs · retrieved 2026-09-26
 - [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) · Dao et al., arXiv · published 2022-05 · retrieved 2026-09-26
@@ -129,50 +137,87 @@ Questions marked † that come from [AI Engineering Interview Questions Company 
 - [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) · European Commission · retrieved 2026-09-26
 - [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) · Faiss maintainers · retrieved 2026-09-28. Primary implementation documentation for HNSW, IVF and product quantisation; reference reading, not interview evidence.
 - [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) · Fedus et al., arXiv · published 2021-01 · retrieved 2026-09-26
+- [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://arxiv.org/abs/2210.17323) · Frantar et al., arXiv · published 2022-10 · retrieved 2026-10-02
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) · Gao et al., arXiv · published 2022-12 · retrieved 2026-09-26
 - [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760) · Gao, Schulman and Hilton, arXiv · published 2022-10-19 · retrieved 2026-09-29. Studies overoptimisation with a synthetic gold-standard reward model; technical reading, not interview evidence or a direct measurement of human preferences.
+- [Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?](https://arxiv.org/abs/2405.05904) · Gekhman et al., arXiv · published 2024-05 · retrieved 2026-10-02
+- [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/) · GitLab Handbook · retrieved 2026-10-02
 - [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) · GitLab Handbook · retrieved 2026-09-26
 - [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) · Google · retrieved 2026-09-26
 - [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · Google · published 2016 · retrieved 2026-09-26
 - [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) · Google for Developers · retrieved 2026-09-26
 - [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) · Google re:Work · retrieved 2026-09-26
 - [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) · Hamel Husain · published 2024-03 · retrieved 2026-09-26
+- [Distilling the Knowledge in a Neural Network](https://arxiv.org/abs/1503.02531) · Hinton et al., arXiv · published 2015-03 · retrieved 2026-10-02
 - [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556) · Hoffmann et al., arXiv · published 2022-03 · retrieved 2026-09-26
+- [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) · Holtzman et al., arXiv · published 2019-04 · retrieved 2026-10-02
+- [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654) · Hsieh et al., arXiv · published 2024-04 · retrieved 2026-10-02
 - [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) · Hu et al., arXiv · published 2021-06 · retrieved 2026-09-26
 - [Optimizing inference](https://huggingface.co/docs/transformers/main/en/llm_optims) · Hugging Face Transformers docs · retrieved 2026-09-26
+- [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) · Inan et al., arXiv · published 2023-12 · retrieved 2026-10-02
 - [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) · Industrial Empathy · retrieved 2026-09-26
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) · Kwon et al., arXiv · published 2023-09 · retrieved 2026-09-26
+- [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) · Lei et al., arXiv · published 2024-11 · retrieved 2026-10-02
+- [The Power of Scale for Parameter-Efficient Prompt Tuning](https://arxiv.org/abs/2104.08691) · Lester et al., arXiv · published 2021-04 · retrieved 2026-10-02
 - [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192) · Leviathan et al., arXiv · published 2022-11 · retrieved 2026-09-26
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) · Lewis et al., arXiv · published 2020-05 · retrieved 2026-09-26
+- [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://arxiv.org/abs/2101.00190) · Li et al., arXiv · published 2021-01 · retrieved 2026-10-02
+- [Mind the Gap: Understanding the Modality Gap in Multi-modal Contrastive Representation Learning](https://arxiv.org/abs/2203.02053) · Liang et al., arXiv · published 2022-03 · retrieved 2026-10-02
 - [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) · Lightman et al., arXiv · published 2023-05-31 · retrieved 2026-09-29
 - [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) · Liu et al., arXiv · published 2023-07 · retrieved 2026-09-26
 - [Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs](https://arxiv.org/abs/1603.09320) · Malkov and Yashunin, arXiv · published 2016-03 · retrieved 2026-09-26
+- [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) · Markov et al., arXiv · published 2022-08 · retrieved 2026-10-02
+- [Refactoring](https://refactoring.com/) · Martin Fowler · retrieved 2026-10-02
+- [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html) · Martin Fowler · published 2023-07-25 · retrieved 2026-10-02
+- [FP8 Formats for Deep Learning](https://arxiv.org/abs/2209.05433) · Micikevicius et al., arXiv · published 2022-09 · retrieved 2026-10-02
 - [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) · Microsoft Learn · retrieved 2026-09-26
+- [Compensating Transaction pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/compensating-transaction) · Microsoft Learn · retrieved 2026-10-02
 - [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview) · Microsoft Learn · retrieved 2026-09-26
 - [Model Context Protocol specification](https://modelcontextprotocol.io/specification) · Model Context Protocol · retrieved 2026-09-26
 - [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · NIST · published 2023-01 · retrieved 2026-09-26
+- [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](https://csrc.nist.gov/pubs/sp/800/226/final) · NIST · published 2025-03-06 · retrieved 2026-10-02
 - [What We Learned from a Year of Building with LLMs (Part I)](https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/) · O'Reilly Radar · published 2024-05 · retrieved 2026-09-26
+- [Open X-Embodiment: Robotic Learning Datasets and RT-X Models](https://arxiv.org/abs/2310.08864) · Open X-Embodiment Collaboration, arXiv · published 2023-10 · retrieved 2026-10-02
 - [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) · OpenAI API documentation · retrieved 2026-09-29
 - [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning) · OpenAI API documentation · retrieved 2026-09-29
+- [Proving Test Set Contamination in Black Box Language Models](https://arxiv.org/abs/2310.17623) · Oren et al., arXiv · published 2023-10 · retrieved 2026-10-02
 - [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) · Ouyang et al., arXiv · published 2022-03 · retrieved 2026-09-26
 - [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) · OWASP Gen AI Security Project · retrieved 2026-09-26
+- [YaRN: Efficient Context Window Extension of Large Language Models](https://arxiv.org/abs/2309.00071) · Peng et al., arXiv · published 2023-08 · retrieved 2026-10-02
+- [Language Model Tokenizers Introduce Unfairness Between Languages](https://arxiv.org/abs/2305.15425) · Petrov et al., arXiv · published 2023-05 · retrieved 2026-10-02
+- [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102) · Pope et al., arXiv · published 2022-11 · retrieved 2026-10-02
+- [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) · PostgreSQL documentation · retrieved 2026-10-02
+- [Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation](https://arxiv.org/abs/2108.12409) · Press et al., arXiv · published 2021-08 · retrieved 2026-10-02
+- [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020) · Radford et al., arXiv · published 2021-02 · retrieved 2026-10-02
 - [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) · Radford et al., arXiv · published 2022-12 · retrieved 2026-09-26
 - [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) · Rafailov et al., arXiv · published 2023-05 · retrieved 2026-09-26
 - [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) · Rajbhandari et al., arXiv · published 2019-10-04 · retrieved 2026-09-29. Technical reading on training-state memory and partitioning. The publication date is the first submission; the linked record also lists later revisions. Not interview evidence.
 - [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) · Rodden, Hutchinson and Fu, Google Research · published 2010 · retrieved 2026-09-26
+- [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004) · Schaeffer et al., arXiv · published 2023-04 · retrieved 2026-10-02
+- [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909) · Sennrich et al., arXiv · published 2015-08 · retrieved 2026-10-02
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) · Shao et al., arXiv · published 2024-02 · retrieved 2026-09-26
+- [GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202) · Shazeer, arXiv · published 2020-02 · retrieved 2026-10-02
+- [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) · Shoeybi et al., arXiv · published 2019-09 · retrieved 2026-10-02
 - [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) · Simon Willison · retrieved 2026-09-26
 - [The lethal trifecta for AI agents: private data, untrusted content, and external communication](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) · Simon Willison · published 2025-06-16 · retrieved 2026-09-26
 - [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314) · Snell et al., arXiv · published 2024-08-06 · retrieved 2026-09-29
+- [RNN Approaches to Text Normalization: A Challenge](https://arxiv.org/abs/1611.00068) · Sproat et al., arXiv · published 2016-10 · retrieved 2026-10-02
+- [Standard Webhooks specification](https://github.com/standard-webhooks/standard-webhooks/blob/main/spec/standard-webhooks.md) · Standard Webhooks · retrieved 2026-10-02
 - [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) · Stripe · published 2017 · retrieved 2026-09-26
 - [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) · Stripe · published 2017 · retrieved 2026-09-26
 - [Agentic Commerce Protocol](https://docs.stripe.com/agentic-commerce/acp) · Stripe Documentation · retrieved 2026-09-26
 - [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) · Su et al., arXiv · published 2021-04 · retrieved 2026-09-26
 - [Universal Commerce Protocol (UCP)](https://ucp.dev/) · UCP project · retrieved 2026-09-26
+- [International AI Safety Report](https://www.gov.uk/government/publications/international-ai-safety-report-2025) · UK Department for Science, Innovation and Technology · retrieved 2026-10-02
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) · Vaswani et al., arXiv · published 2017-06 · retrieved 2026-09-26
 - [vLLM documentation](https://docs.vllm.ai/) · vLLM project · retrieved 2026-09-26
+- [Small-scale proxies for large-scale Transformer training instabilities](https://arxiv.org/abs/2309.14322) · Wortsman et al., arXiv · published 2023-09 · retrieved 2026-10-02
+- [SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models](https://arxiv.org/abs/2211.10438) · Xiao et al., arXiv · published 2022-11 · retrieved 2026-10-02
+- [On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745) · Xiong et al., arXiv · published 2020-02 · retrieved 2026-10-02
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) · Yao et al., arXiv · published 2022-10 · retrieved 2026-09-26
+- [Root Mean Square Layer Normalization](https://arxiv.org/abs/1910.07467) · Zhang et al., arXiv · published 2019-10 · retrieved 2026-10-02
 - [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) · Zheng et al., arXiv · published 2023-06 · retrieved 2026-09-26
+- [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving](https://arxiv.org/abs/2401.09670) · Zhong et al., arXiv · published 2024-01 · retrieved 2026-10-02
 
 ## <a id="kind-posting"></a>Job postings (role scope only)
 

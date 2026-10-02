@@ -11,85 +11,89 @@
   - Продуктовый кейс · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#prod-enterprise-assistant) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-assistant&title=%5BCorrection%5D%20prod-enterprise-assistant)
   - Что проверяет: Умеете ли вы выбрать конкретный рабочий процесс и обосновать его ценность.
   - Сильный ответ покрывает:
-    - Выберите сегмент клиентов, пользователя и существенную проблему рабочего процесса.
-    - Сравните AI- и обычные решения, сложность интеграции и требования к доверию.
-    - Определите результат пилота, ограничения по качеству и условие расширения запуска.
+    - Выбрать сегмент клиентов, пользователя и существенную проблему рабочего процесса.
+    - Сравнить AI- и обычные решения, сложность интеграции и требования к доверию.
+    - Определить результат пилота, ограничения по качеству и условие расширения запуска.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="prod-capability-cost"></a>**Модель существенно мощнее, но стоит в десять раз дороже. Как решить, какой продукт на ней создавать?**
   - Продуктовый кейс · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/leadership.md#prod-capability-cost) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-capability-cost&title=%5BCorrection%5D%20prod-capability-cost)
   - Что проверяет: Умеете ли вы связать возможности модели с готовностью платить и экономикой продукта.
   - Сильный ответ покрывает:
-    - Найдите задачи, где улучшение делает возможным новый результат.
-    - Оцените стоимость успешно выполненного процесса с повторами и проверкой человеком.
-    - Проверьте готовность платить и выборочное использование модели до массового внедрения.
+    - Найти задачи, где улучшение делает возможным новый результат.
+    - Оценить стоимость успешно выполненного процесса с повторами и проверкой человеком.
+    - Проверить готовность платить и выборочное использование модели до массового внедрения.
   - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-ai-suitability"></a>**Как определить, полезна ли LLM для предложенной продуктовой задачи?**
   - Продуктовый кейс · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · ✍ [Ответ](../answers/leadership.md#prod-ai-suitability) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-ai-suitability&title=%5BCorrection%5D%20prod-ai-suitability)
   - Что проверяет: Начинаете ли вы с задачи и данных, а не с технологии.
   - Сильный ответ покрывает:
-    - Опишите задачу пользователя, базовое решение и цену ошибки.
-    - Проверьте доступ к данным, возможность оценки, задержку и требования к предсказуемости.
-    - Проведите ограниченное сравнение и назовите основание отказаться от LLM.
+    - Описать задачу пользователя, базовое решение и цену ошибки.
+    - Проверить доступ к данным, возможность оценки, задержку и требования к предсказуемости.
+    - Провести ограниченное сравнение и назвать основание отказаться от LLM.
   - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="prod-student-assistant"></a>**Спроектируйте ассистента на основе Gemini для студентов университета.**
   - Продуктовый кейс · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · ✍ [Ответ](../answers/leadership.md#prod-student-assistant) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-student-assistant&title=%5BCorrection%5D%20prod-student-assistant)
   - Что проверяет: Определяет ли понятная потребность пользователя функции, учебные результаты и защитные меры.
   - Сильный ответ покрывает:
-    - Выберите сегмент студентов и одну регулярную неудовлетворённую потребность.
-    - Спроектируйте удобный сценарий с учётом неопределённости, проверки и злоупотреблений.
-    - Измеряйте успешность задачи и пользу для обучения наряду с удержанием.
+    - Выбрать сегмент студентов и одну регулярную неудовлетворённую потребность.
+    - Спроектировать удобный сценарий с учётом неопределённости, проверки и злоупотреблений.
+    - Измерять успешность задачи и пользу для обучения наряду с удержанием.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="prod-confident-errors"></a>**Пользователи жалуются, что Gemini уверенно даёт неверные ответы. Что вы измените?**
   - Продуктовый кейс · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · ✍ [Ответ](../answers/leadership.md#prod-confident-errors) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-confident-errors&title=%5BCorrection%5D%20prod-confident-errors)
   - Что проверяет: Умеете ли вы различать причины ошибок и формировать обоснованное доверие.
   - Сильный ответ покрывает:
-    - Соберите типичные ошибки и разделите проблемы знаний, поиска и подачи ответа.
-    - Сравните опору на источники, отказ от ответа и изменения интерфейса на одинаковых задачах.
-    - Отслеживайте неподтверждённые утверждения, полезное выполнение задач и регрессии по сегментам.
+    - Собрать типичные ошибки и разделить проблемы знаний, поиска и подачи ответа.
+    - Сравнить опору на источники, отказ от ответа и изменения интерфейса на одинаковых задачах.
+    - Отслеживать неподтверждённые утверждения, полезное выполнение задач и регрессии по сегментам.
   - Читать: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="prod-writing-priorities"></a>**Как вы расставите приоритеты функций AI-ассистента для письма в Microsoft Word?**
   - Продуктовый кейс · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-writing-priorities) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-writing-priorities&title=%5BCorrection%5D%20prod-writing-priorities)
   - Что проверяет: Учитывает ли приоритизация пользу, надёжность и соответствие рабочему процессу.
   - Сильный ответ покрывает:
-    - Разделите задачи письма и найдите трудности в текущем процессе.
-    - Сопоставьте ожидаемую пользу, риск качества, трудоёмкость и зависимости.
-    - Выберите узкий первый релиз и измеряйте принятую пользователем полезную помощь.
+    - Разделить задачи письма и найти трудности в текущем процессе.
+    - Сопоставить ожидаемую пользу, риск качества, трудоёмкость и зависимости.
+    - Выбрать узкий первый релиз и измерять принятую пользователем полезную помощь.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 - <a id="prod-ai-feature-metrics"></a>**Как вы измерите успех AI-функции в продукте Microsoft?**
   - Продуктовый кейс · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-ai-feature-metrics) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-ai-feature-metrics&title=%5BCorrection%5D%20prod-ai-feature-metrics)
   - Что проверяет: Связывают ли метрики поведение модели с результатами для пользователя и бизнеса.
   - Сильный ответ покрывает:
-    - Назовите цель пользователя и наблюдаемый признак успешно выполненной задачи.
-    - Разделите внедрение, удержание, качество задачи, задержку и стоимость.
-    - Используйте базовую линию или эксперимент и учитывайте манипулирование метриками.
+    - Назвать цель пользователя и наблюдаемый признак успешно выполненной задачи.
+    - Разделить внедрение, удержание, качество задачи, задержку и стоимость.
+    - Использовать базовую линию или эксперимент и учитывать манипулирование метриками.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-search-north-star"></a>**Какую главную метрику вы выберете для AI-поиска и какими ограничениями её дополните?**
   - Продуктовый кейс · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/leadership.md#prod-search-north-star) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-north-star&title=%5BCorrection%5D%20prod-search-north-star)
   - Что проверяет: Остаётся ли главная метрика связанной с доверием и выполнением задачи.
   - Сильный ответ покрывает:
-    - Определите полезно завершённую поисковую задачу и способ её наблюдать.
-    - Добавьте ограничения по качеству, безопасности, задержке и стоимости.
-    - Объясните знаменатель, сегментацию и ситуации, когда метрика вводит в заблуждение.
+    - Определить полезно завершённую поисковую задачу и способ её наблюдать.
+    - Добавить ограничения по качеству, безопасности, задержке и стоимости.
+    - Объяснить знаменатель, сегментацию и ситуации, когда метрика вводит в заблуждение.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-notification-paradox"></a>**Вовлечённость в уведомления растёт, а общее время в продукте не меняется. Как вы объясните результат?**
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · ✍ [Ответ](../answers/leadership.md#prod-notification-paradox) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-notification-paradox&title=%5BCorrection%5D%20prod-notification-paradox)
   - Что проверяет: Различаете ли вы замещение активности, артефакты измерения и пользу пользователю.
   - Сильный ответ покрывает:
-    - Проверьте определения, показы, когорты и устройство эксперимента.
-    - Проверьте, перераспределяют ли уведомления активность или создают новые полезные действия.
-    - Учтите отключения уведомлений, удовлетворённость и долгосрочный эффект.
+    - Проверить определения, показы, когорты и устройство эксперимента.
+    - Проверить, перераспределяют ли уведомления активность или создают новые полезные действия.
+    - Учесть отключения уведомлений, удовлетворённость и долгосрочный эффект.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-favorite-agent"></a>**Выберите AI-агента или продукт, которым пользуетесь, и предложите самое полезное улучшение.**
   - Продуктовый кейс · Senior · Где спрашивали: [Amazon](../companies/amazon.md) † · ✍ [Ответ](../answers/leadership.md#prod-favorite-agent) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-favorite-agent&title=%5BCorrection%5D%20prod-favorite-agent)
   - Что проверяет: Основано ли продуктовое суждение на наблюдаемой проблеме и проверяемой гипотезе.
   - Сильный ответ покрывает:
-    - Опишите реальный сценарий и момент, в котором продукт подводит пользователя.
-    - Объясните, почему выбранное улучшение важнее альтернатив.
-    - Определите прототип, критерий успеха и возможный негативный эффект.
+    - Описать реальный сценарий и момент, в котором продукт подводит пользователя.
+    - Объяснить, почему выбранное улучшение важнее альтернатив.
+    - Определить прототип, критерий успеха и возможный негативный эффект.
   - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-memory-machine-launch"></a>**Вы изобрели «машину воспоминаний», которая создаёт видео, изображения, запахи и звуки. Как вывести её на рынок?**
   - Продуктовый кейс · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-memory-machine-launch&title=%5BCorrection%5D%20prod-memory-machine-launch)
   - Что проверяет: Умеете ли вы превратить непривычную возможность в конкретную стратегию выхода на рынок.
+  - Сильный ответ покрывает:
+    - Выбрать первый сегмент и повод и оставить только те модальности, без которых этот повод не работает.
+    - Измерять повторное платное использование с ограничениями по дистрессу пользователей и согласию изображённых людей.
+    - Проверить готовность платить на пилоте, проводимом вручную, до разработки устройства для запахов.
 - <a id="prod-agent-use-cases"></a>**Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?**
   - Продуктовый кейс · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-agent-use-cases) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-agent-use-cases&title=%5BCorrection%5D%20prod-agent-use-cases)
   - Что проверяет: Различаете ли вы пользу автономных действий и их эксплуатационную цену.
@@ -109,18 +113,39 @@
 - <a id="prod-new-search-feature"></a>**Предложите новую функцию для Perplexity и объясните, для кого она нужна.**
   - Продуктовый кейс · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-new-search-feature&title=%5BCorrection%5D%20prod-new-search-feature)
   - Что проверяет: Умеете ли вы сформулировать отличающееся от существующих решений предложение и способ его проверить.
+  - Сильный ответ покрывает:
+    - Выбрать один сегмент и регулярную исследовательскую задачу, которую пользователи пока доделывают вне продукта.
+    - Объяснить, почему конкурентам не скопировать функцию просто так, и измерять завершённые задачи с ограничением по точности ссылок.
+    - Дёшево проверить самое рискованное предположение: тест фиктивной кнопки или ручной прототип на целевых пользователях.
+  - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-roadmap"></a>**Как вы расставляете приоритеты дорожной карты, когда конкурируют несколько ценных возможностей?**
   - Продуктовый кейс · Senior · Где спрашивали: [Databricks](../companies/databricks.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-roadmap&title=%5BCorrection%5D%20prod-roadmap)
   - Что проверяет: Выявляете ли вы предположения и упущенные возможности при приоритизации.
+  - Сильный ответ покрывает:
+    - Привязать каждую возможность к её пользователю, одной метрике результата и предположению, на котором она держится.
+    - Сравнить ожидаемую ценность с затратами и уверенностью и назвать, что каждый выбор откладывает или исключает.
+    - Сначала вложиться в дешёвые проверки самых шатких предположений и назначить дату пересмотра порядка.
 - <a id="prod-handyman-marketplace"></a>**Спроектируйте продукт, связывающий местных мастеров с заказчиками.**
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-handyman-marketplace&title=%5BCorrection%5D%20prod-handyman-marketplace)
   - Что проверяет: Учитываете ли вы обе стороны маркетплейса и его запуск при малом числе участников.
+  - Сильный ответ покрывает:
+    - Назвать обе стороны, решение каждой и то, в чём каждой нужна уверенность: проверка мастеров, цена, оплата.
+    - Измерять долю заявок, закрытых выполненной работой, и время до подбора с ограничениями по спорам и повторным заказам.
+    - Запуститься в одном районе и одной специальности, набирая мастеров вручную до автоматизации подбора.
 - <a id="prod-product-cannibalisation"></a>**Новый сервис растёт, а месячная аудитория Facebook сокращается. Как оценить, успешен ли сервис?**
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-product-cannibalisation&title=%5BCorrection%5D%20prod-product-cannibalisation)
   - Что проверяет: Умеете ли вы исследовать влияние на весь продуктовый портфель, а не одну метрику.
+  - Сильный ответ покрывает:
+    - Выяснить, должен ли сервис приносить новых пользователей и время или перераспределять время между приложениями.
+    - Оценить замещение через контрольную группу или сопоставимые когорты, а не сравнением двух кривых.
+    - Оценивать по чистому приросту пользователей и ценности портфеля с ограничением по здоровью основного продукта.
 - <a id="prod-volunteer-cold-start"></a>**Спроектируйте продукт подбора волонтёров и объясните, как преодолеть холодный старт.**
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-volunteer-cold-start&title=%5BCorrection%5D%20prod-volunteer-cold-start)
   - Что проверяет: Умеете ли вы обеспечить первые полезные совпадения до появления масштаба.
+  - Сильный ответ покрывает:
+    - Определить, какая сторона в дефиците, и сузиться до одного города и направления, где совпадения реально возможны.
+    - Измерять долю опубликованных потребностей, закрытых состоявшейся сменой, с ограничениями по неявкам и оттоку организаций.
+    - Первые пары организаций и волонтёров подбирать вручную, проверяя, превращаются ли совпадения в смены.
 - <a id="prod-search-versus-answer"></a>**В чём AI-сервис ответов лучше обычного поиска, а в чём уступает? Что вы улучшите первым?**
   - Продуктовый кейс · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/leadership.md#prod-search-versus-answer) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-versus-answer&title=%5BCorrection%5D%20prod-search-versus-answer)
   - Что проверяет: Сравниваете ли вы продукты через задачи пользователя и качество доказательств.
@@ -132,6 +157,10 @@
 - <a id="prod-impactful-product"></a>**Расскажите о созданном вами продукте с наибольшим влиянием: бизнес-обосновании и данных о результате.**
   - Самопрезентация · Senior · Где спрашивали: [Monzo](../companies/monzo.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-impactful-product&title=%5BCorrection%5D%20prod-impactful-product)
   - Что проверяет: Умеете ли вы связать собственные решения, эксперименты и достигнутый результат.
+  - Сильный ответ покрывает:
+    - Выбрать продукт, где результат изменили именно ваши решения, а не самый масштабный командный проект.
+    - Изложить бизнес-обоснование, самое рискованное предположение ставки и эксперимент, который его проверил.
+    - Закончить измеренным эффектом относительно базовой линии, вашим вкладом в него и тем, что сделали бы иначе.
 - <a id="prod-enterprise-ai-pricing"></a>**Как вы установите цену корпоративного AI-продукта, какие затраты обязательно учтёте и как кастомизация под каждого клиента влияет на маржинальность?**
   - Продуктовый кейс · ✍ [Ответ](../answers/leadership.md#prod-enterprise-ai-pricing) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
   - Что проверяет: Умение рассуждать о юнит-экономике и марже, а не только о ценности продукта.
@@ -141,10 +170,20 @@
     - Считать кастомизацию под клиента повторяющимися затратами и осознанно продавать её или продуктизировать.
   - Читать: [What We Learned from a Year of Building with LLMs (Part I)](https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/) (O'Reilly Radar)
 - <a id="prod-enterprise-discovery"></a>**Кто в дискавери корпоративного AI-продукта является «персоной», где вы найдёте B2B-респондентов и как поймёте, что проблему стоит решать?**
-  - Продуктовый кейс · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
+  - Продуктовый кейс · ✍ [Ответ](../answers/leadership.md#prod-enterprise-discovery) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-discovery&title=%5BCorrection%5D%20prod-enterprise-discovery)
   - Что проверяет: Умение адаптировать исследование клиентов к корпоративным покупателям, пользователям и лицам, принимающим решения.
+  - Сильный ответ покрывает:
+    - Разделить персону на пользователя, спонсора с бюджетом и блокирующих: безопасность, юристов, ИТ.
+    - Искать респондентов через текущих клиентов, аккаунт-менеджеров и партнёров, опрашивая несколько ролей в одной компании.
+    - Оценивать проблему по текущим затратам на обходные пути и готовности спонсора вложить дефицитные ресурсы.
+  - Читать: [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/) (GitLab Handbook)
 - <a id="prod-expensive-mvp"></a>**Что вы будете делать, если MVP корпоративного AI-продукта слишком дорого или долго делать?**
-  - Продуктовый кейс · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-expensive-mvp&title=%5BCorrection%5D%20prod-expensive-mvp)
+  - Продуктовый кейс · ✍ [Ответ](../answers/leadership.md#prod-expensive-mvp) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-expensive-mvp&title=%5BCorrection%5D%20prod-expensive-mvp)
   - Что проверяет: Умение проверить самые рискованные гипотезы более дешёвыми прототипами до решения строить продукт.
+  - Сильный ответ покрывает:
+    - Считать MVP экспериментом: выписать его допущения и ранжировать по неопределённости и цене ошибки.
+    - Проверить самое рискованное дёшево: модель офлайн на данных клиента, ручной пилот или обязательство платного пилота.
+    - Заранее договориться, какие данные оправдывают разработку, и назвать, чего дешёвая проверка доказать не может.
+  - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ← [Практический кодинг](coding-practical.md) · [AI-платформа и операционная модель](ai-operating-model.md) →

@@ -30,12 +30,22 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
 - **[Compare greedy decoding, beam search and temperature, top-k and nucleus sampling; give a failure mode for each.](../themes/llm-fundamentals.md#llm-decoding)**
   - Knowledge · Asked at: [Google and Google DeepMind](google.md) †, Perplexity †
   - Tests: Whether probability manipulation is connected to output diversity and quality.
+  - A strong answer covers:
+    - Describe each as a transform: argmax, approximate sequence-likelihood search, logit division by T, top-k truncation, cumulative-mass truncation.
+    - Name failures: greedy and beam repeat or go bland, high temperature derails, top-k ignores distribution shape, top-p admits flat tails.
+    - Choose by task, deterministic for extraction and sampled for generation, and measure accuracy together with diversity across seeds.
+  - Read: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
 
 ### [Inference, serving and cost](../themes/inference-economics.md)
 
 - **[Distinguish time to first token, time per output token, inter-token latency and throughput when comparing serving systems.](../themes/inference-economics.md#inf-latency-metrics)**
-  - Knowledge · Asked at: [Microsoft](microsoft.md) †, Perplexity †
+  - Knowledge · Asked at: [Microsoft](microsoft.md) †, Perplexity † · ✍ [Answer](../answers/engineering.md#inf-latency-metrics)
   - Tests: Whether user-visible delay is separated from aggregate capacity.
+  - A strong answer covers:
+    - Define TTFT as queueing plus prefill, TPOT and inter-token latency as decode pace, throughput as aggregate capacity.
+    - Explain how larger batches trade each user's decode speed for throughput, and how admitted prefills stall decodes.
+    - Compare at matched load and length distributions: p50 and p99 per latency metric, throughput within the targets.
+  - Read: [vLLM documentation](https://docs.vllm.ai/) (vLLM project)
 - **[After a deployment, p99 latency doubles although model weights are unchanged. How do you isolate the cause?](../themes/inference-economics.md#inf-tail-regression)**
   - Applied scenario · Asked at: [Amazon](amazon.md) †, [Databricks](databricks.md) †, [OpenAI](openai.md) †, Perplexity † · ✍ [Answer](../answers/engineering.md#inf-tail-regression)
   - Tests: Whether diagnosis separates queueing, scheduling, dependencies and traffic changes.
@@ -66,6 +76,10 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
 - **[Design continuous index updates, including changed documents, deletions and queries during a rebuild.](../themes/rag-retrieval.md#rag-freshness)**
   - System design · Asked at: Perplexity †
   - Tests: Whether freshness has consistency guarantees and an observable lag.
+  - A strong answer covers:
+    - Drive updates from change events, upserting by document id and version and replacing all its chunks atomically.
+    - Honour deletions at query time through tombstones; rebuild into a new index with dual writes, then switch an alias.
+    - Measure lag from source change to searchable with canary documents, and reconcile document counts between source and index.
 - **[How would you connect each factual claim in an answer to the retrieved passage that supports it?](../themes/rag-retrieval.md#rag-citations)**
   - System design · Asked at: Perplexity † · ✍ [Answer](../answers/engineering.md#rag-citations)
   - Tests: Whether a citation is checked for support rather than merely attached.
@@ -88,6 +102,11 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
 - **[Design online evaluation for an AI feature: choose what to log, review manually and compare in an experiment.](../themes/evals-observability.md#eval-online)**
   - System design · Asked at: Perplexity †
   - Tests: Whether experimental outcomes are distinguished from passive correlations.
+  - A strong answer covers:
+    - Log inputs, outputs, versions and downstream outcomes per request, within consent and retention limits.
+    - Review a stratified sample manually to find failure types, but treat logged correlations as hypotheses.
+    - Establish causal effects with a randomised experiment, a pre-registered primary metric, guardrails and adequate power.
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 
 ### [AI system design](../themes/ai-system-design.md)
 
@@ -124,6 +143,11 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
 - **[Propose a new feature for Perplexity and explain whom it serves.](../themes/ai-product-strategy.md#prod-new-search-feature)**
   - Product case · Senior · Asked at: Perplexity †
   - Tests: Whether you can make a differentiated, evidence-seeking product proposal.
+  - A strong answer covers:
+    - Pick one segment and a recurring research job that users still finish outside the product.
+    - Explain why rivals cannot simply copy it, and measure completed tasks with a citation-accuracy guardrail.
+    - Test the riskiest assumption cheaply with a fake-door test or a manual prototype for target users.
+  - Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?](../themes/ai-product-strategy.md#prod-search-versus-answer)**
   - Product case · Senior · Asked at: Perplexity † · ✍ [Answer](../answers/leadership.md#prod-search-versus-answer)
   - Tests: Whether you compare products through user tasks and evidence quality.
@@ -138,5 +162,9 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
 - **[How would you convince engineers that a proposed product feature is worth building?](../themes/engineering-leadership.md#lead-engineering-persuasion)**
   - Applied scenario · Senior · Asked at: Perplexity †
   - Tests: Whether you engage technical concerns and establish a shared reason to invest.
+  - A strong answer covers:
+    - Bring the user problem and the evidence behind it, not the feature, so engineers can judge the reasoning.
+    - Treat objections about cost, complexity or maintenance as inputs that can reshape scope, not as resistance.
+    - Agree a success metric and a cheap first version, and commit to cutting it if the metric misses.
 
 ← [Cursor (Anysphere)](cursor.md) · [Sierra](sierra.md) →

@@ -101,7 +101,7 @@ Questions whose source says they were asked for one of these roles.
 An editorial selection: relevant to the role, but not reported for it.
 
 - **[Design an agent that creates and updates work orders in a live ERP without duplicating or silently corrupting business operations.](../themes/agents-tools.md#agt-erp-writes)**
-  - System design · [Agents, tools and protocols](../themes/agents-tools.md)
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/leadership.md#agt-erp-writes)
 - **[Design a release gate for prompt and model updates, including what happens when aggregate gains hide a critical regression.](../themes/evals-observability.md#eval-release-gate)**
   - System design · [Evaluation and observability](../themes/evals-observability.md) · ✍ [Answer](../answers/engineering.md#eval-release-gate)
 - **[Design a knowledge assistant over ten million enterprise documents with per-user permissions and a continuously changing corpus.](../themes/ai-system-design.md#sd-enterprise-rag)**
@@ -117,7 +117,7 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[An enterprise wants document Q&A over two million internal files within four weeks, with no data leaving its VPC. How would you scope the pilot?](../themes/applied-scenarios.md#app-vpc-pilot)**
   - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md) · ✍ [Answer](../answers/leadership.md#app-vpc-pilot)
 - **[An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?](../themes/applied-scenarios.md#app-rag-account-triage)**
-  - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md)
+  - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md) · ✍ [Answer](../answers/leadership.md#app-rag-account-triage)
 - **[How would you explain a complex AI research result to a nontechnical audience?](../themes/applied-scenarios.md#app-research-explanation)**
   - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md)
 - **[A freight railway loses substantial revenue to unexpected locomotive downtime. Turn the problem into an engineering plan.](../themes/applied-scenarios.md#app-rail-downtime)**
