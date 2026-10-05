@@ -82,6 +82,10 @@ LABELS = {
         "banner_alt": (
             "AI Interview Atlas — Engineering & Leadership. Questions, answers and learning paths."
         ),
+        "banner_stats_alt": (
+            "The atlas in numbers: questions, written answers, company loops and dated "
+            "sources, across the AI Engineering and AI Leadership tracks."
+        ),
         "evidence_alt": (
             "What backs the atlas: the question bank by strongest evidence, and company "
             "interview-loop stages by the strength of their claim."
@@ -502,6 +506,10 @@ LABELS = {
         ),
         "banner_alt": (
             "AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы."
+        ),
+        "banner_stats_alt": (
+            "Атлас в цифрах: вопросы, написанные ответы, процессы интервью и источники с "
+            "датами по трекам AI-инженерии и AI-лидерства."
         ),
         "evidence_alt": (
             "На чём держится атлас: банк вопросов по сильнейшему свидетельству и этапы "
@@ -1373,7 +1381,12 @@ class Renderer:
             "",
             self.switch(lang, page, readme(other(lang))),
             "",
-            figure(page, "banner", lang, labels["banner_alt"]),
+            f"![{labels['banner_alt']}]({BANNER})",
+            "",
+            # The hero above is a fixed image; this card is generated, so its figures move
+            # with the content. Its alt text differs so a screen reader does not hear the
+            # same sentence twice.
+            figure(page, "banner", lang, labels["banner_stats_alt"]),
             "",
             BADGES,
             "",

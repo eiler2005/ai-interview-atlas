@@ -3,9 +3,11 @@
 
 [English](README.md) · Русский
 
+![AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы.](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.1/hero-banner-v2.png)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner.ru.dark.svg">
-  <img alt="AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы." src="docs/assets/banner.ru.svg">
+  <img alt="Атлас в цифрах: вопросы, написанные ответы, процессы интервью и источники с датами по трекам AI-инженерии и AI-лидерства." src="docs/assets/banner.ru.svg">
 </picture>
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
