@@ -6,7 +6,10 @@ English · [Русский](ru/radar.md) · [AI Interview Atlas](../README.md) �
 - **Period:** 2026-09-15 — 2026-09-19
 - **Sample:** 79 postings: engineering 17, leadership 62; markets: international 79, Russia 0, unknown 0
 
-![Share of postings that mention each theme](assets/radar.en.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/radar.en.dark.svg">
+  <img alt="Share of postings that mention each theme" src="assets/radar.en.svg">
+</picture>
 
 | Theme | AI Engineering | AI Leadership |
 | --- | ---: | ---: |

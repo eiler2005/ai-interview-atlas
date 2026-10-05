@@ -5,7 +5,7 @@
 
 Prompt injection, утечка данных, guardrails, приватность, red-teaming, а также регулирование и риск-фреймворки, за которые отвечают руководители.
 
-На этой странице: [Оба трека (10)](#track-both) · [AI-лидерство (8)](#track-leadership)
+На этой странице: [Оба трека (11)](#track-both) · [AI-лидерство (8)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -89,6 +89,14 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Поставить под обученной политикой независимый слой безопасности, обеспечивающий пределы скорости, силы и рабочих зон.
     - Сделать безопасную остановку режимом отказа, проверить её внесением неисправностей и считать лишние остановки ценой.
   - Читать: [OSHA Technical Manual: Industrial Robot Systems and Industrial Robot System Safety](https://www.osha.gov/otm/section-4-safety-hazards/chapter-4) (Occupational Safety and Health Administration) · [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., arXiv)
+- <a id="sec-red-team"></a>**Перед запуском ассистента с доступом к инструментам: как вы организуете состязательное тестирование и что позволит утверждать чистый результат?**
+  - System design · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#sec-red-team) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-red-team&title=%5BCorrection%5D%20sec-red-team)
+  - Что проверяет: Планируется ли состязательное тестирование ради покрытия и связано ли оно с решением о запуске, и честно ли названы его границы.
+  - Сильный ответ покрывает:
+    - Сначала назвать ущерб и обе позиции атакующего — пользователь, злоупотребляющий продуктом, и недоверенный текст, который читает модель, — и подобрать случаи под каждую.
+    - Сочетать автоматическую генерацию с людьми, которые систему не строили, и записывать все попытки, а не только удачные, чтобы покрытие было видно и его можно было повторить на следующей версии.
+    - Связать находки с решением о запуске, назначив владельцев и исправления, и отличать заблокированный класс атак от одного переставшего работать примера.
+  - Читать: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) (Simon Willison)
 
 ## <a id="track-leadership"></a>AI-лидерство
 

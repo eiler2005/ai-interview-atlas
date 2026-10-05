@@ -7,7 +7,7 @@ AI Engineering · Roles covered: Applied AI engineer, Agent engineer, AI / LLM e
 
 Turns model capabilities into working product behaviour: interfaces, agent runtimes, tools and recoverable failures.
 
-On this page: [What the role involves](#scope) · [How it is interviewed (12)](#interviews) · [Questions (25)](#role-questions) · [Preparation](#prep)
+On this page: [What the role involves](#scope) · [How it is interviewed (12)](#interviews) · [Questions (27)](#role-questions) · [Preparation](#prep)
 
 ## <a id="scope"></a>What the role involves
 
@@ -94,8 +94,12 @@ An editorial selection: relevant to the role, but not reported for it.
   - System design · [Agents, tools and protocols](../themes/agents-tools.md)
 - **[What are a language model's generation parameters?](../themes/agents-tools.md#agt-api-level-features)**
   - Knowledge · [Agents, tools and protocols](../themes/agents-tools.md)
+- **[An agent's context fills up over a long task. How would you decide what stays in the window, what is summarised and what moves out of it?](../themes/agents-tools.md#agt-context-budget)**
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#agt-context-budget)
 - **[Modify a prompt so that a target share of the model's outputs matches the desired result, and show how you measured it.](../themes/evals-observability.md#eval-prompt-target-share)**
   - Applied scenario · [Evaluation and observability](../themes/evals-observability.md)
+- **[Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Safety, security and governance](../themes/safety-security-governance.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#sec-red-team)
 - **[Design a repository-aware coding assistant, from indexing and context assembly to applying edits and checking results.](../themes/ai-system-design.md#sd-code-assistant)**
   - System design · [AI system design](../themes/ai-system-design.md)
 - **[Design a customer-support agent that can execute service actions and transfer the case to a human when needed.](../themes/ai-system-design.md#sd-support-agent)**

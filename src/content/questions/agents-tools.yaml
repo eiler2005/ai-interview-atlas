@@ -506,3 +506,64 @@ questions:
         - "Отделить их от инструкций в промпте о роли, тоне и формате; принудительная схема вывода — это настройка API."
         - "Показать влияние каждого параметра на повторных сэмплах и проверить, какие из них действительно принимает конкретный API."
     reading: ["paper-nucleus-sampling"]
+  - id: agt-context-budget
+    tracks:
+    - engineering
+    roles:
+    - agent-engineer
+    - ai-engineer
+    type: system_design
+    text:
+      en: An agent's context fills up over a long task. How would you decide what stays in the window, what is summarised
+        and what moves out of it?
+      ru: За время долгой задачи контекст агента заполняется. Как вы решите, что остаётся в окне, что сворачивается
+        в резюме, а что выносится наружу?
+    tests:
+      en: Whether you treat the context window as a budget with measurable costs rather than as space to fill.
+      ru: Относитесь ли вы к контекстному окну как к бюджету с измеримой ценой, а не как к месту, которое нужно
+        заполнить.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:agents-tools
+    start_here:
+    - engineering
+    priority: 83
+    outline:
+      en:
+      - 'Separate what the next step needs from what only the record needs: keep the goal, the current plan and
+        recent observations, and move finished detail to a store the agent can search.'
+      - Compact at boundaries you choose, such as a completed sub-task, and keep identifiers, open questions and
+        decisions verbatim, because a later step reads those back.
+      - 'Measure the cost: tokens and latency per step, and task success as the window fills; effective context
+        is usually well short of the advertised limit.'
+      ru:
+      - 'Отделить то, что нужно следующему шагу, от того, что нужно только истории: держать цель, текущий план и
+        последние наблюдения, а завершённые детали выносить в хранилище, по которому агент умеет искать.'
+      - 'Сворачивать контекст на границах, которые вы выбрали сами, например после завершённой подзадачи, и дословно
+        сохранять идентификаторы, открытые вопросы и принятые решения: именно их читает следующий шаг.'
+      - 'Измерять цену: токены и задержку на шаг и успешность задачи по мере заполнения окна; полезный контекст
+        обычно заметно меньше заявленного предела.'
+    answer:
+      en: 'I would treat the window as a budget, not a container. The model attends to everything in it, so stale
+        history costs money, latency and accuracy: retrieval of material placed mid-context degrades, and measured
+        effective context falls well short of the advertised limit. I would hold a small working set — the goal,
+        the current plan, the last few observations and whatever the next tool call needs — and write finished results
+        to an external store the agent can search, so the record survives without riding in every request. Compaction
+        happens at boundaries I choose, such as a completed sub-task, and preserves identifiers, open questions
+        and decisions verbatim, since those are what a later step reads back. I would track tokens and latency per
+        step and watch task success as the window fills. This stops holding when the task genuinely needs global
+        comparison across everything retrieved; then I would split the work rather than compress it.'
+      ru: 'Я отношусь к окну как к бюджету, а не как к контейнеру. Модель учитывает всё, что в нём лежит, поэтому
+        устаревшая история стоит денег, задержки и точности: материал в середине длинного контекста извлекается
+        хуже, а измеренный полезный контекст заметно меньше заявленного предела. Я держу небольшой рабочий набор
+        — цель, текущий план, последние наблюдения и то, что нужно следующему вызову инструмента, — а завершённые
+        результаты записываю во внешнее хранилище с поиском, чтобы история сохранялась, не переезжая в каждый запрос.
+        Свёртку делаю на границах, которые выбираю сам, например после завершённой подзадачи, и дословно сохраняю
+        идентификаторы, открытые вопросы и решения: именно их прочитает следующий шаг. Я слежу за токенами и задержкой
+        на шаг и за успешностью задачи по мере заполнения окна. Подход перестаёт работать, когда задаче действительно
+        нужно сравнить всё найденное целиком: тогда работу лучше разделить, а не сжать.'
+    reading:
+    - anthropic-context-engineering
+    - paper-lost-in-the-middle
+    - paper-ruler

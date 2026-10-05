@@ -7,7 +7,7 @@ AI Engineering · Roles covered: AI evaluation engineer
 
 Produces trustworthy evidence about system behaviour: measurement strategy, regressions and release decisions.
 
-On this page: [What the role involves](#scope) · [How it is interviewed (0)](#interviews) · [Questions (13)](#role-questions) · [Preparation](#prep)
+On this page: [What the role involves](#scope) · [How it is interviewed (0)](#interviews) · [Questions (14)](#role-questions) · [Preparation](#prep)
 
 ## <a id="scope"></a>What the role involves
 
@@ -53,6 +53,8 @@ An editorial selection: relevant to the role, but not reported for it.
   - Knowledge · [Evaluation and observability](../themes/evals-observability.md)
 - **[Modify a prompt so that a target share of the model's outputs matches the desired result, and show how you measured it.](../themes/evals-observability.md#eval-prompt-target-share)**
   - Applied scenario · [Evaluation and observability](../themes/evals-observability.md)
+- **[Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Safety, security and governance](../themes/safety-security-governance.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#sec-red-team)
 
 ## <a id="prep"></a>Preparation
 

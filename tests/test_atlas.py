@@ -281,6 +281,12 @@ def test_build_then_check_detects_drift_stale_pages_and_links(tmp_path):
     stale.write_text("old\n", encoding="utf-8")
     assert cli.main(["--root", str(root), "--check"]) == 1
     assert cli.main(["--root", str(root)]) == 0 and not stale.exists()
+    # A figure whose source content is gone is just as stale as a page, and `docs/assets`
+    # is the one folder where a leftover file is an image rather than Markdown.
+    orphan = root / "docs" / "assets" / "gone.en.svg"
+    orphan.write_text('<svg xmlns="http://www.w3.org/2000/svg"></svg>\n', encoding="utf-8")
+    assert cli.main(["--root", str(root), "--check"]) == 1
+    assert cli.main(["--root", str(root)]) == 0 and not orphan.exists()
     (root / "docs" / "ru" / "METHODOLOGY.md").unlink()
     errors = links.check(root)
     assert any("missing METHODOLOGY.md" in e or "Missing Russian page" in e for e in errors)

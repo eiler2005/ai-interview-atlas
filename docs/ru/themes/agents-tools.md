@@ -5,7 +5,7 @@
 
 Агентные циклы, дизайн инструментов, память, завершение, одобрение человеком и протоколы вроде MCP.
 
-На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (14)](#track-engineering)
+На этой странице: [Оба трека (4)](#track-both) · [AI-инженерия (15)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -156,5 +156,13 @@
     - Отделить их от инструкций в промпте о роли, тоне и формате; принудительная схема вывода — это настройка API.
     - Показать влияние каждого параметра на повторных сэмплах и проверить, какие из них действительно принимает конкретный API.
   - Читать: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
+- <a id="agt-context-budget"></a>**За время долгой задачи контекст агента заполняется. Как вы решите, что остаётся в окне, что сворачивается в резюме, а что выносится наружу?**
+  - System design · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#agt-context-budget) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-context-budget&title=%5BCorrection%5D%20agt-context-budget)
+  - Что проверяет: Относитесь ли вы к контекстному окну как к бюджету с измеримой ценой, а не как к месту, которое нужно заполнить.
+  - Сильный ответ покрывает:
+    - Отделить то, что нужно следующему шагу, от того, что нужно только истории: держать цель, текущий план и последние наблюдения, а завершённые детали выносить в хранилище, по которому агент умеет искать.
+    - Сворачивать контекст на границах, которые вы выбрали сами, например после завершённой подзадачи, и дословно сохранять идентификаторы, открытые вопросы и принятые решения: именно их читает следующий шаг.
+    - Измерять цену: токены и задержку на шаг и успешность задачи по мере заполнения окна; полезный контекст обычно заметно меньше заявленного предела.
+  - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic) · [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv) · [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654) (Hsieh et al., arXiv)
 
 ← [RAG и поиск](rag-retrieval.md) · [Дообучение и post-training](post-training.md) →

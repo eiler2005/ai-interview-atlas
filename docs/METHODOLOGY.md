@@ -4,6 +4,11 @@
 
 The atlas collects what is publicly known about interviews for AI engineering and AI leadership roles and shows how well each claim is supported. It does not contain leaked or confidential material.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/evidence.en.dark.svg">
+  <img alt="What backs the atlas: the question bank by strongest evidence, and company interview-loop stages by the strength of their claim." src="assets/evidence.en.svg">
+</picture>
+
 ## Tracks and roles
 
 - **AI Engineering:** AI/LLM engineers, applied AI engineers, forward deployed engineers, AI solutions architects, agent engineers, AI evaluation engineers, AI platform and MLOps engineers, inference and performance engineers, research engineers, and ML engineers and data scientists where a company's evidence concerns them.

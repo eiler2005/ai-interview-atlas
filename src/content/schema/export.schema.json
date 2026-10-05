@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eiler2005/ai-interview-atlas/schema/export.schema.json",
+  "title": "AI Interview Atlas export",
+  "description": "The question bank as data, for practice tools. Written by `scripts/build.py --export`. schema_version follows semantic versioning: a new optional field is a minor bump, a removed or re-typed field a major one.",
+  "type": "object",
+  "required": ["schema_version", "license", "repository", "markers", "counts", "tracks", "themes", "roles", "questions", "companies", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^\\d+\\.\\d+$"},
+    "license": {"type": "string"},
+    "repository": {"type": "string", "pattern": "^https://"},
+    "markers": {"type": "object", "additionalProperties": {"type": "string"}},
+    "counts": {
+      "type": "object",
+      "required": ["questions", "answers", "themes", "companies", "sources", "tracks"],
+      "additionalProperties": false,
+      "properties": {
+        "questions": {"type": "integer", "minimum": 0},
+        "answers": {"type": "integer", "minimum": 0},
+        "themes": {"type": "integer", "minimum": 0},
+        "companies": {"type": "integer", "minimum": 0},
+        "sources": {"type": "integer", "minimum": 0},
+        "tracks": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
+      }
+    },
+    "tracks": {"type": "array", "items": {"type": "object"}},
+    "themes": {"type": "array", "items": {"type": "object"}},
+    "roles": {"type": "array", "items": {"type": "object"}},
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "theme", "tracks", "type", "text", "tests", "provenance", "marker", "evidence", "asked_at", "reading"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "theme": {"type": "string"},
+          "tracks": {"type": "array", "items": {"enum": ["engineering", "leadership"]}},
+          "type": {"type": "string"},
+          "level": {"type": ["string", "null"]},
+          "roles": {"type": "array", "items": {"type": "string"}},
+          "text": {"$ref": "#/$defs/text"},
+          "tests": {"$ref": "#/$defs/text"},
+          "outline": {"type": ["object", "null"]},
+          "answer": {"type": ["object", "null"]},
+          "start_here": {"type": "array", "items": {"type": "string"}},
+          "priority": {"type": ["integer", "null"]},
+          "provenance": {"enum": ["published", "generated"]},
+          "marker": {"enum": ["✅", "🗣", "†", "🧪"]},
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["source", "kind", "marker"],
+              "additionalProperties": false,
+              "properties": {
+                "source": {"type": "string"},
+                "kind": {"type": "string"},
+                "marker": {"enum": ["✅", "🗣", "†"]},
+                "company": {"type": ["string", "null"]},
+                "role": {"type": ["string", "null"]},
+                "observed": {"type": ["string", "null"]}
+              }
+            }
+          },
+          "basis": {"type": "array", "items": {"type": "string"}},
+          "asked_at": {"type": "object", "additionalProperties": {"type": "string"}},
+          "reading": {"type": "array", "items": {"type": "string"}},
+          "added": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "companies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "segment", "markets", "coding", "reviewed", "loop", "questions"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"$ref": "#/$defs/text"},
+          "segment": {"type": "string"},
+          "markets": {"type": "array", "items": {"type": "string"}},
+          "roles": {"type": "object"},
+          "summary": {"type": ["object", "null"]},
+          "coding": {"type": "object"},
+          "reviewed": {"type": "string"},
+          "loop": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["stage", "claim"],
+              "additionalProperties": false,
+              "properties": {
+                "stage": {"$ref": "#/$defs/text"},
+                "detail": {"type": ["object", "null"]},
+                "claim": {"enum": ["confirmed", "participant_report", "secondary", "assumption"]},
+                "sources": {"type": "array", "items": {"type": "string"}},
+                "roles": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "questions": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "title", "publisher", "url", "retrieved"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "kind": {"type": "string"},
+          "title": {"type": "string"},
+          "publisher": {"type": "string"},
+          "url": {"type": "string", "pattern": "^https://"},
+          "retrieved": {"type": "string"},
+          "published": {"type": ["string", "null"]},
+          "lang": {"type": ["string", "null"]},
+          "license": {"type": ["string", "null"]}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": ["en", "ru"],
+      "properties": {"en": {"type": "string"}, "ru": {"type": "string"}}
+    }
+  }
+}

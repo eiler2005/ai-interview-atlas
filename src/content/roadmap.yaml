@@ -1,0 +1,77 @@
+# The project roadmap as data: the stages and items drawn in docs/assets/roadmap.*.svg.
+# The prose in docs/ROADMAP.md explains each item; this file is the short form of the same
+# plan, so the figure and the page cannot drift apart silently. Statuses: done, progress,
+# planned, declined. An item moves when the evidence for it exists, not on a date.
+
+stages:
+  - id: "now"
+    name:
+      en: "Now"
+      ru: "Сейчас"
+    items:
+      - status: "progress"
+        text:
+          en: "Independent review of the newest content in a separate session, then PDF production checks"
+          ru: "Независимое ревью новейшего контента в отдельной сессии, затем проверки печати PDF"
+      - status: "progress"
+        text:
+          en: "Source freshness: a weekly link check that opens one issue, and a staleness mark that follows the calendar"
+          ru: "Свежесть источников: недельная проверка ссылок с одним issue и метка устаревания по календарю"
+      - status: "done"
+        text:
+          en: "A checklist and reading for every question, not only the priority set"
+          ru: "Чеклист и материалы для чтения у каждого вопроса, а не только у приоритетных"
+      - status: "done"
+        text:
+          en: "A machine-readable export of the bank, so the questions can be drilled outside a Markdown page"
+          ru: "Машиночитаемый экспорт банка, чтобы тренироваться вне Markdown-страниц"
+
+  - id: "next"
+    name:
+      en: "Next"
+      ru: "Далее"
+    items:
+      - status: "planned"
+        text:
+          en: "Better company evidence: independent corroboration where a page rests on one publisher or a general-role baseline"
+          ru: "Лучшие свидетельства по компаниям: независимое подтверждение там, где страница держится на одном издателе"
+      - status: "planned"
+        text:
+          en: "Written answers beyond the priority set, starting with the themes the radar shows employers ask for"
+          ru: "Написанные ответы за пределами приоритетного набора, начиная с тем, которые чаще требуют работодатели"
+      - status: "planned"
+        text:
+          en: "A refreshed radar on a larger sample, so the engineering track clears the minimum and can be published"
+          ru: "Обновлённый радар на большей выборке, чтобы инженерный трек прошёл минимум и был опубликован"
+
+  - id: "later"
+    name:
+      en: "Later, if there is demand"
+      ru: "Позже, если будет спрос"
+    items:
+      - status: "planned"
+        text:
+          en: "Filtering by level and role, but only where the sources actually state them"
+          ru: "Фильтры по уровню и роли, но только там, где это прямо сказано в источниках"
+      - status: "planned"
+        text:
+          en: "A third language, with the schema, renderer and validation changes it needs"
+          ru: "Третий язык — со всеми нужными изменениями схемы, генератора и проверок"
+
+  - id: "never"
+    name:
+      en: "What this project will not do"
+      ru: "Чего проект делать не будет"
+    items:
+      - status: "declined"
+        text:
+          en: "Confidential or NDA material, and anything described as leaked"
+          ru: "Конфиденциальные материалы, NDA и всё, что описано как утечка"
+      - status: "declined"
+        text:
+          en: "Interview claims without a dated public source, or an answer that is a link to a paid course"
+          ru: "Утверждения об интервью без публичного источника с датой и ответы-ссылки на платный курс"
+      - status: "declined"
+        text:
+          en: "Scraping behind login walls or against a site's terms, and any personal data"
+          ru: "Сбор данных за логином или против правил сайта и любые персональные данные"

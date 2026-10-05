@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/engineering-leadership.md) · [AI Inter
 
 Hiring, coaching, performance, team design and delivery for teams that build AI.
 
-On this page: [Both tracks (1)](#track-both) · [AI Leadership (19)](#track-leadership)
+On this page: [Both tracks (1)](#track-both) · [AI Leadership (20)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -172,5 +172,13 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (19)](#track-lead
     - Assign an accountable decision owner and interfaces while managers retain staffing and delivery responsibility.
     - Agree evidence-based options with the sponsor, coach managers privately and review whether the organisation can resolve the next conflict without you.
   - Read: [Director, Engineering](https://handbook.gitlab.com/job-description-library/engineering/development/management/director/) (GitLab Handbook) · [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook) · [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html) (Martin Fowler)
+- <a id="lead-ai-productivity-claim"></a>**Your organisation adopted AI coding tools and leadership wants to know whether they worked. How would you answer that credibly?**
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-productivity-claim) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-productivity-claim&title=%5BCorrection%5D%20lead-ai-productivity-claim)
+  - Tests: Whether you choose a measure that survives scrutiny and admit what the available data cannot settle.
+  - A strong answer covers:
+    - Make the claim precise first — faster delivery, more change, better quality or less toil — because each needs different evidence and they can move in opposite directions.
+    - Prefer outcomes a customer feels, such as delivery lead time and change failure rate, over activity counts like accepted suggestions, which rise when the tool is used rather than when the work improves.
+    - Compare against something — a staged rollout, comparable teams, or the same teams before and after — and name the confounders you could not remove.
+  - Read: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) (Microsoft Research) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ← [AI platform and operating model](ai-operating-model.md) · [Programmes and delivery](program-delivery.md) →

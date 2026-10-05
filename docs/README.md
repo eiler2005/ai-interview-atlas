@@ -5,7 +5,7 @@ English · [Русский](ru/README.md) · ← [AI Interview Atlas](../README.
 
 Every page of the atlas in one place. Start with the priority questions of your track, then go deeper by theme or by employer.
 
-Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 21 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
 
 Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide or compilation without a first-hand source · 🧪 generated from job-posting themes. Interview loops change often, so check the retrieval date.
 
@@ -14,13 +14,13 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 - **AI Engineering.** Engineers who build, ship and run AI systems: applications, agents, platforms, inference and research code.
   - Roles covered: Software engineer (general interview baseline), AI / LLM engineer, Software engineer on AI products, Applied AI engineer, Forward deployed engineer (FDE), AI solutions architect / customer engineer, AI evaluation engineer, ML engineer / data scientist, Agent engineer, AI platform / MLOps engineer, Inference and performance engineer, Research engineer
   - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Applied AI / agent product engineer](roles/applied-ai.md) · [AI evaluation and reliability engineer](roles/eval-reliability.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [Research engineer](roles/research-engineering.md)
-  - [Start here](start/engineering.md): 82 priority questions in study order
-  - [Answers](answers/engineering.md): 82 of 82 written
+  - [Start here](start/engineering.md): 87 priority questions in study order
+  - [Answers](answers/engineering.md): 87 of 87 written
 - **AI Leadership.** People who decide what AI to build and lead the teams, programmes and organisations that build it.
   - Roles covered: Product manager (general interview baseline), AI product manager (senior to group), Director or head of product, Engineering manager, Director or head of engineering, Technical program manager, AI platform lead, Head of AI adoption / chief AI officer, Deployment strategist, Forward-deployed or solutions leader
   - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [AI product leadership](roles/product-leadership.md)
-  - [Start here](start/leadership.md): 76 priority questions in study order
-  - [Answers](answers/leadership.md): 76 of 76 written
+  - [Start here](start/leadership.md): 82 priority questions in study order
+  - [Answers](answers/leadership.md): 82 of 82 written
 
 ## <a id="themes"></a>Themes
 
@@ -29,16 +29,16 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 | [LLM fundamentals](themes/llm-fundamentals.md) | How transformers and LLMs work: attention, tokens, context, sampling, scaling. Engineers derive and implement; leaders need the intuition behind cost, quality and limits. | 18 | 2 |
 | [Inference, serving and cost](themes/inference-economics.md) | Serving models at scale: prefill and decode, batching, caching, quantisation, latency metrics and the levers that move cost. | 18 | 4 |
 | [RAG and retrieval](themes/rag-retrieval.md) | Grounding answers in documents: chunking, hybrid search, reranking, permissions, freshness and citation. | 14 | 2 |
-| [Agents, tools and protocols](themes/agents-tools.md) | Agent loops, tool design, memory, termination, human approval and protocols such as MCP. | 18 | 4 |
+| [Agents, tools and protocols](themes/agents-tools.md) | Agent loops, tool design, memory, termination, human approval and protocols such as MCP. | 19 | 4 |
 | [Fine-tuning and post-training](themes/post-training.md) | Supervised fine-tuning, preference optimisation, reinforcement learning, parameter-efficient methods and distillation. | 15 | 2 |
 | [Evaluation and observability](themes/evals-observability.md) | Knowing whether an AI system works: eval sets, LLM judges, regression gates, online measurement and production traces. | 21 | 8 |
-| [Safety, security and governance](themes/safety-security-governance.md) | Prompt injection, data exfiltration, guardrails, privacy, red-teaming, and the regulation and risk frameworks leaders are accountable for. | 10 | 18 |
+| [Safety, security and governance](themes/safety-security-governance.md) | Prompt injection, data exfiltration, guardrails, privacy, red-teaming, and the regulation and risk frameworks leaders are accountable for. | 11 | 19 |
 | [Multimodal and voice](themes/multimodal-voice.md) | Vision-language models, real-time voice agents, speech quality and multimodal retrieval. | 14 | 1 |
 | [AI system design](themes/ai-system-design.md) | End-to-end design of AI products and platforms, explained aloud with requirements, trade-offs and failure modes. | 16 | 5 |
 | [Practical coding](themes/coding-practical.md) | Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review. | 28 | 1 |
 | [AI product strategy and metrics](themes/ai-product-strategy.md) | When AI is worth it, how to design AI features, measure them and build the business case. | 0 | 24 |
-| [AI platform and operating model](themes/ai-operating-model.md) | Internal AI platforms, adoption across an organisation, enablement, cost governance and centres of excellence. | 3 | 6 |
-| [Leading engineering teams](themes/engineering-leadership.md) | Hiring, coaching, performance, team design and delivery for teams that build AI. | 1 | 20 |
+| [AI platform and operating model](themes/ai-operating-model.md) | Internal AI platforms, adoption across an organisation, enablement, cost governance and centres of excellence. | 6 | 10 |
+| [Leading engineering teams](themes/engineering-leadership.md) | Hiring, coaching, performance, team design and delivery for teams that build AI. | 1 | 21 |
 | [Programmes and delivery](themes/program-delivery.md) | Planning and running cross-team work: dependencies, launches, risk and communication. | 4 | 13 |
 | [Applied and customer scenarios](themes/applied-scenarios.md) | Open-ended situations with customers and messy problems: the first 48 hours, rescuing a pilot, decomposing a business problem. | 20 | 21 |
 | [Payments and regulated domains](themes/domain-payments-fintech.md) | AI in payments, banking and other regulated industries, including agentic commerce. | 4 | 5 |

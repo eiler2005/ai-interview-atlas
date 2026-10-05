@@ -165,3 +165,15 @@
   - Прикладной сценарий · [Программы и delivery](../themes/program-delivery.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-incident-without-rollback)
 - **76. [Кандидаты используют AI-ассистентов на технических интервью. Как вы перестроите процесс, чтобы он по-прежнему давал пригодный сигнал для найма?](../themes/engineering-leadership.md#lead-ai-interview-redesign)**
   - Прикладной сценарий · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-ai-interview-redesign)
+- **77. [Несколько продуктовых команд работают через один внутренний AI-шлюз. Как сделать так, чтобы трафик, данные и кеши одной команды не влияли на другую?](../themes/ai-operating-model.md#ops-tenant-isolation)**
+  - System design · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-tenant-isolation)
+- **78. [Провайдер объявил, что версия модели, от которой зависят ваши продукты, будет отключена через три месяца. Как вы проведёте переход во всех командах, которые её используют?](../themes/ai-operating-model.md#ops-model-deprecation)**
+  - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-model-deprecation)
+- **79. [Расходы на инференс общей AI-платформы за квартал удвоились, и ни одна команда не признаёт счёт своим. Как сделать расходы относимыми и управляемыми?](../themes/ai-operating-model.md#ops-cost-attribution)**
+  - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-cost-attribution)
+- **80. [Задержка и доступность вашей AI-платформы зависят от внешнего провайдера моделей. Что вы пообещаете внутренним командам и как будете это обещание выполнять?](../themes/ai-operating-model.md#ops-platform-slo)**
+  - System design · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-platform-slo)
+- **81. [Перед запуском ассистента с доступом к инструментам: как вы организуете состязательное тестирование и что позволит утверждать чистый результат?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Безопасность, защита и governance](../themes/safety-security-governance.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#sec-red-team)
+- **82. [Организация внедрила AI-инструменты для разработки, и руководство хочет знать, дали ли они результат. Как вы ответите на этот вопрос убедительно?](../themes/engineering-leadership.md#lead-ai-productivity-claim)**
+  - Прикладной сценарий · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-ai-productivity-claim)

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="275" viewBox="0 0 740 275" role="img" aria-labelledby="figure-title figure-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="figure-title">На чём держится атлас</title>
+<desc id="figure-desc">Две составные полосы: банк вопросов по сильнейшему свидетельству и этапы интервью компаний по силе утверждения.</desc>
+<rect x="0.5" y="0.5" width="739" height="274" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="20" y="32" font-size="16" fill="#0b0b0b" font-weight="600">На чём держится атлас</text>
+<text x="20" y="62" font-size="13" fill="#0b0b0b" font-weight="600">306 вопросов</text>
+<rect x="20" y="74" width="23.16" height="30" rx="3" fill="#1c5cab"/>
+<rect x="45.16" y="74" width="82.64" height="30" rx="3" fill="#2a78d6"/>
+<rect x="129.8" y="74" width="524.14" height="30" rx="3" fill="#5598e7"/>
+<rect x="655.95" y="74" width="62.05" height="30" rx="3" fill="#898781"/>
+<rect x="20" y="114" width="9" height="9" rx="2" fill="#1c5cab"/>
+<text x="35" y="123" font-size="11" fill="#52514e">Подтверждено компанией 11 (4%)</text>
+<rect x="248" y="114" width="9" height="9" rx="2" fill="#2a78d6"/>
+<text x="263" y="123" font-size="11" fill="#52514e">Рассказ участника 37 (12%)</text>
+<rect x="450.8" y="114" width="9" height="9" rx="2" fill="#5598e7"/>
+<text x="465.8" y="123" font-size="11" fill="#52514e">Подборка или гайд 230 (75%)</text>
+<rect x="20" y="131" width="9" height="9" rx="2" fill="#898781"/>
+<text x="35" y="140" font-size="11" fill="#52514e">Учебная практика 28 (9%)</text>
+<text x="20" y="164" font-size="13" fill="#0b0b0b" font-weight="600">128 этапов интервью</text>
+<rect x="20" y="176" width="337.06" height="30" rx="3" fill="#1c5cab"/>
+<rect x="359.06" y="176" width="151.12" height="30" rx="3" fill="#2a78d6"/>
+<rect x="512.19" y="176" width="205.81" height="30" rx="3" fill="#5598e7"/>
+<rect x="20" y="216" width="9" height="9" rx="2" fill="#1c5cab"/>
+<text x="35" y="225" font-size="11" fill="#52514e">Подтверждено компанией 62 (48%)</text>
+<rect x="254.3" y="216" width="9" height="9" rx="2" fill="#2a78d6"/>
+<text x="269.3" y="225" font-size="11" fill="#52514e">Рассказ участника 28 (22%)</text>
+<rect x="457.1" y="216" width="9" height="9" rx="2" fill="#5598e7"/>
+<text x="472.1" y="225" font-size="11" fill="#52514e">Подборка или гайд 38 (30%)</text>
+<text x="20" y="261" font-size="11" fill="#898781">Свидетельства из первых рук сосредоточены в этапах интервью; большинство вопросов пересказано из вторичных подборок.</text>
+</svg>

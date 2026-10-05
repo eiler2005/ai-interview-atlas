@@ -5,7 +5,7 @@ English · [Русский](../ru/answers/engineering.md) · [AI Interview Atlas
 
 Written answers to the priority questions of this track, in the same order and numbering as *Start here*. Answer each question yourself first: what follows is one good answer, not the only correct one, and an interviewer is listening to your reasoning rather than checking your wording.
 
-Answers written: 82 of 82.
+Answers written: 87 of 87.
 
 ## <a id="contents"></a>Contents
 
@@ -53,6 +53,7 @@ Answers written: 82 of 82.
   - [75. How do schema-constrained responses differ from function calls, and which component actually executes an action?](#agt-structured-output)
   - [76. A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?](#agt-goal-drift)
   - [77. For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?](#agt-coding-harness)
+  - [83. An agent's context fills up over a long task. How would you decide what stays in the window, what is summarised and what moves out of it?](#agt-context-budget)
 - **Fine-tuning and post-training**
   - [22. Walk through a preference-based RLHF pipeline and explain the roles of the reward model and reference-policy penalty.](#pt-rlhf)
   - [23. Compare DPO with PPO-based RLHF, including the assumptions behind offline preference learning and reasons to collect fresh rollouts.](#pt-dpo)
@@ -100,6 +101,12 @@ Answers written: 82 of 82.
   - [72. Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.](#code-agent-pr-review)
   - [73. Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.](#code-product-structure)
   - [74. In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.](#code-agent-session-choices)
+- **AI platform and operating model**
+  - [84. Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?](#ops-tenant-isolation)
+  - [85. A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?](#ops-model-deprecation)
+  - [86. Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?](#ops-platform-slo)
+- **Safety, security and governance**
+  - [87. Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?](#sec-red-team)
 
 ### <a id="llm-attention"></a>1. Derive scaled dot-product attention and explain how its scale affects softmax gradients.
 
@@ -918,5 +925,55 @@ Read: [Interpret and improve model accuracy and confidence scores](https://learn
 I would treat indexing as a versioned projection of the source system, with stable document IDs, change ordering and explicit deletion records. Incremental workers need idempotent updates and a checkpoint so a retry neither skips a change nor resurrects deleted content. For a rebuild, I would create a separate index, load a consistent snapshot, catch up subsequent changes and validate counts, representative queries and permissions before switching the read alias. An atomic alias change helps the cutover, but it does not by itself solve stale writes or access revocation. Those need their own propagation and enforcement policy, including caches. I would monitor source-to-search lag and test updates, deletes and a query during cutover. A retained old index can support rollback only if deleted or newly restricted documents cannot become visible again; freshness includes authority as well as content.
 
 Read: [Aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html) · [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview)
+
+[↑ Contents](#contents)
+
+### <a id="agt-context-budget"></a>83. An agent's context fills up over a long task. How would you decide what stays in the window, what is summarised and what moves out of it?
+
+*System design · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-context-budget)*
+
+I would treat the window as a budget, not a container. The model attends to everything in it, so stale history costs money, latency and accuracy: retrieval of material placed mid-context degrades, and measured effective context falls well short of the advertised limit. I would hold a small working set — the goal, the current plan, the last few observations and whatever the next tool call needs — and write finished results to an external store the agent can search, so the record survives without riding in every request. Compaction happens at boundaries I choose, such as a completed sub-task, and preserves identifiers, open questions and decisions verbatim, since those are what a later step reads back. I would track tokens and latency per step and watch task success as the window fills. This stops holding when the task genuinely needs global comparison across everything retrieved; then I would split the work rather than compress it.
+
+Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) · [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) · [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654)
+
+[↑ Contents](#contents)
+
+### <a id="ops-tenant-isolation"></a>84. Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?
+
+*System design · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-tenant-isolation)*
+
+I would decide isolation per shared resource rather than once for the gateway. The resources are provider quota, the gateway's own capacity, prompt and embedding caches, request logs and evaluation data. Each tenant gets its own credentials, quota and rate limit, so a retry storm in one team degrades only that team; without per-tenant limits one incident consumes the shared quota. Caches are keyed by tenant by default. A shared prefix cache does not hand one tenant another's text, but a cache hit is faster than a miss, so timing reveals whether a prefix has been seen before — worth closing where prompts are themselves sensitive. Logs carry prompts and completions, so I would scope read access per tenant and set retention, while aggregate cost and latency telemetry stays central. I would test isolation by loading one tenant and watching the others. Strict isolation costs cache hit rate and money; where every tenant is one legal entity under one data policy, I would say so and relax it deliberately.
+
+Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) · [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters)
+
+[↑ Contents](#contents)
+
+### <a id="ops-model-deprecation"></a>85. A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?
+
+*Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-model-deprecation)*
+
+The deadline is fixed and the risk is schedule, not technology, so I would start with an inventory: which services, prompts, evaluation baselines and tuned models name that version, and what each depends on. A model version is a dependency, and treating it as a configuration value is how a quiet regression ships. Each owning team re-runs its evaluation against the replacement before anything moves, because a new version changes behaviour: prompts, output formats and thresholds usually need work, and that work is part of the migration rather than a follow-up. I would move services one at a time behind a flag while the old version still answers, so rollback is real rather than theoretical, and I would keep the riskiest and the highest-traffic cases apart. What I would leave behind matters as much: pinned versions, an inventory that stays current and an owner per integration. This is harder where a tuned model has no equivalent on the new version; then retraining, not migration, is the real plan.
+
+Read: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml)
+
+[↑ Contents](#contents)
+
+### <a id="ops-platform-slo"></a>86. Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?
+
+*System design · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-platform-slo)*
+
+I would promise an end-to-end objective the platform can actually hold, stated in what a caller feels: latency at a high percentile and the share of requests that finish usefully, measured at our edge rather than taken from the provider's uptime page. Availability I do not control is not a promise I can make, so the objective rests on the controls I own — a timeout that matches the caller's deadline, a bounded retry budget, a smaller fallback model, a degraded but honest answer, and a queue for work that can wait. Retries deserve care: naive retries during provider overload add load to a system already failing. The fallback changes answer quality, so it needs its own evaluation and the caller needs to know which path served them. I would publish an error budget, say what happens when it is spent, and name the failure modes that stay outside my control. Where a team needs a stronger guarantee than that, the answer is a second provider or capacity we reserve, and both cost money.
+
+Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters)
+
+[↑ Contents](#contents)
+
+### <a id="sec-red-team"></a>87. Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?
+
+*System design · [Safety, security and governance](../themes/safety-security-governance.md) · [Checklist](../themes/safety-security-governance.md#sec-red-team)*
+
+I would start from the harms rather than the techniques, and from two different attackers: a user trying to make the product do something it should not, and untrusted content the model reads — a web page, a document, a tool result — that carries instructions. The second matters more once the assistant has tools, because the damage is an action, not a sentence. Coverage comes from mixing automated generation of many variants with people who did not build the system, and from logging every attempt rather than the successes alone, so the suite can be re-run against the next version and coverage can be argued. Findings go to named owners with fixes, and I would distinguish blocking a class of attack from one phrasing that stopped working. The honest claim at the end is narrow: the attacks we tried, at this version, mostly failed. That is not a safety proof — prompt injection has no complete fix today — so it has to sit on top of least privilege and confirmation for consequential actions.
+
+Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/)
 
 [↑ Contents](#contents)

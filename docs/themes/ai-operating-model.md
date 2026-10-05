@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/ai-operating-model.md) · [AI Interview
 
 Internal AI platforms, adoption across an organisation, enablement, cost governance and centres of excellence.
 
-On this page: [Both tracks (3)](#track-both) · [AI Leadership (3)](#track-leadership)
+On this page: [Both tracks (6)](#track-both) · [AI Leadership (4)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -33,6 +33,30 @@ On this page: [Both tracks (3)](#track-both) · [AI Leadership (3)](#track-leade
     - Enforce policy in the service: caller identity, query rewriting, row and column controls, output checks.
     - Defend against differencing and repeated slicing, log every query, and test with re-identification attempts.
   - Read: [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](https://csrc.nist.gov/pubs/sp/800/226/final) (NIST)
+- <a id="ops-tenant-isolation"></a>**Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?**
+  - System design · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-tenant-isolation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-tenant-isolation&title=%5BCorrection%5D%20ops-tenant-isolation)
+  - Tests: Whether isolation is decided per shared resource instead of being assumed from the fact that the platform is managed centrally.
+  - A strong answer covers:
+    - Name the shared resources — provider quota, gateway capacity, prompt and embedding caches, logs and evaluation data — because each needs its own isolation decision.
+    - Give each tenant its own credentials, quota and rate limit, and key caches by tenant unless the cached content is demonstrably public.
+    - Decide what may cross the boundary: aggregate cost and latency telemetry may, prompts and completions may not; scope who can read traces, and for how long.
+  - Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn) · [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) (Claude Platform Docs) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
+- <a id="ops-model-deprecation"></a>**A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?**
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-model-deprecation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-model-deprecation&title=%5BCorrection%5D%20ops-model-deprecation)
+  - Tests: Whether a model version is treated as a dependency with a lifecycle rather than a setting that can be swapped.
+  - A strong answer covers:
+    - Find the real usage first: which services, prompts, evaluations and tuned models are pinned to that version, and which behaviour each one relies on.
+    - Re-run each team's evaluation on the replacement before anything moves; a model change is a behaviour change, so prompt and threshold work belongs inside the migration.
+    - Sequence the move behind a flag while the old version still answers, so rollback is real, and leave behind the pinning and inventory the next deprecation will need.
+  - Read: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
+- <a id="ops-platform-slo"></a>**Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?**
+  - System design · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-platform-slo) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-platform-slo&title=%5BCorrection%5D%20ops-platform-slo)
+  - Tests: Whether a service level comes from measured behaviour and controls you own, rather than from a provider's published figure.
+  - A strong answer covers:
+    - Measure what a user feels — end-to-end latency at a high percentile and the share of requests that finish usefully — not the provider's own uptime number.
+    - Promise only what your own controls can hold: timeouts, a retry budget, a smaller fallback model, a degraded answer, and a queue for work that can wait.
+    - Publish the error budget and what happens when it is spent, and say plainly which failure modes remain outside your control.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
 
 ## <a id="track-leadership"></a>AI Leadership
 
@@ -60,5 +84,13 @@ On this page: [Both tracks (3)](#track-both) · [AI Leadership (3)](#track-leade
     - Inventory portable data, evaluations, integrations and undocumented behaviour; demonstrate the hardest replacement dependency.
     - Approve an accountable option, reserve exit capacity and define contract dates, acceptance gates and a continuity fallback.
   - Read: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office) · [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services)
+- <a id="ops-cost-attribution"></a>**Inference spend on a shared AI platform doubles in a quarter and no team recognises the bill as theirs. How would you make the cost attributable and controllable?**
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-cost-attribution) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-cost-attribution&title=%5BCorrection%5D%20ops-cost-attribution)
+  - Tests: Whether spend is connected to a unit someone owns, and whether control changes behaviour without stopping useful work.
+  - A strong answer covers:
+    - Attribute before you limit: tag every call with team, feature and environment, and report cost per request and per successful task, not only the monthly total.
+    - Find what actually moved — traffic, longer context, a model change, retries or evaluation runs — because each has a different remedy.
+    - Give each team a budget and an alert it owns, and keep a route for deliberate overspend; a hard cap with no exception pushes work onto unmanaged accounts.
+  - Read: [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services) · [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) (Claude Platform Docs)
 
 ← [AI product strategy and metrics](ai-product-strategy.md) · [Leading engineering teams](engineering-leadership.md) →

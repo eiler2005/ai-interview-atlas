@@ -3,7 +3,10 @@
 
 English · [Русский](README.ru.md)
 
-![AI Interview Atlas — Engineering & Leadership. Questions, answers and learning paths.](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.1/hero-banner-v2.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner.en.dark.svg">
+  <img alt="AI Interview Atlas — Engineering &amp; Leadership. Questions, answers and learning paths." src="docs/assets/banner.en.svg">
+</picture>
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
@@ -15,14 +18,19 @@ English · [Русский](README.ru.md)
 
 Two tracks — AI Engineering and AI Leadership — with company interview guides and answer checklists. Each reported question cites its evidence; the markers distinguish company confirmation, candidate reports and secondary compilations. Generated practice questions are labelled separately.
 
-Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 21 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](docs/sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](docs/sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/evidence.en.dark.svg">
+  <img alt="What backs the atlas: the question bank by strongest evidence, and company interview-loop stages by the strength of their claim." src="docs/assets/evidence.en.svg">
+</picture>
 
 Released PDF books are dated snapshots for offline reading. The website may contain newer questions and guides; check the release date before using a book as the current edition.
 
 ## What is inside
 
-- **299 questions** across 17 themes: 225 for engineering, 160 for leadership. Each says what it tests and what a strong answer covers.
-- **158 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
+- **306 questions** across 17 themes: 230 for engineering, 166 for leadership. Each says what it tests and what a strong answer covers.
+- **165 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
 - **29 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
 - **6 role pages** in the [AI roles guide](docs/AI_ROLES.md): what each role involves, how it is interviewed and which questions to practise.
 - **247 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
@@ -68,20 +76,25 @@ Questions reported at two or more companies, strongest basis first.
 | [LLM fundamentals](docs/themes/llm-fundamentals.md) | 18 | 2 |
 | [Inference, serving and cost](docs/themes/inference-economics.md) | 18 | 4 |
 | [RAG and retrieval](docs/themes/rag-retrieval.md) | 14 | 2 |
-| [Agents, tools and protocols](docs/themes/agents-tools.md) | 18 | 4 |
+| [Agents, tools and protocols](docs/themes/agents-tools.md) | 19 | 4 |
 | [Fine-tuning and post-training](docs/themes/post-training.md) | 15 | 2 |
 | [Evaluation and observability](docs/themes/evals-observability.md) | 21 | 8 |
-| [Safety, security and governance](docs/themes/safety-security-governance.md) | 10 | 18 |
+| [Safety, security and governance](docs/themes/safety-security-governance.md) | 11 | 19 |
 | [Multimodal and voice](docs/themes/multimodal-voice.md) | 14 | 1 |
 | [AI system design](docs/themes/ai-system-design.md) | 16 | 5 |
 | [Practical coding](docs/themes/coding-practical.md) | 28 | 1 |
 | [AI product strategy and metrics](docs/themes/ai-product-strategy.md) | 0 | 24 |
-| [AI platform and operating model](docs/themes/ai-operating-model.md) | 3 | 6 |
-| [Leading engineering teams](docs/themes/engineering-leadership.md) | 1 | 20 |
+| [AI platform and operating model](docs/themes/ai-operating-model.md) | 6 | 10 |
+| [Leading engineering teams](docs/themes/engineering-leadership.md) | 1 | 21 |
 | [Programmes and delivery](docs/themes/program-delivery.md) | 4 | 13 |
 | [Applied and customer scenarios](docs/themes/applied-scenarios.md) | 20 | 21 |
 | [Payments and regulated domains](docs/themes/domain-payments-fintech.md) | 4 | 5 |
 | [Behavioral and values](docs/themes/behavioral-values.md) | 21 | 24 |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/coverage.en.dark.svg">
+  <img alt="Questions and written answers by theme, for the engineering and leadership tracks." src="docs/assets/coverage.en.svg">
+</picture>
 
 ## Companies
 
@@ -122,7 +135,10 @@ Questions reported at two or more companies, strongest basis first.
 Sample: 79 postings (2026-09-15 to 2026-09-19). Percentages use each track's denominator: engineering n=17, leadership n=62. Tracks below n=20 are suppressed; a dash does not mean zero. [Method and full table](docs/radar.md).
 Leadership postings in the sample: the role itself involves AI or machine learning in 42% (26 of 62).
 
-![Share of postings that mention each theme](docs/assets/radar.en.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/radar.en.dark.svg">
+  <img alt="Share of postings that mention each theme" src="docs/assets/radar.en.svg">
+</picture>
 
 ## About
 
@@ -132,4 +148,5 @@ Leadership postings in the sample: the role itself involves AI or machine learni
 - [Contributing](CONTRIBUTING.md): add a question with a dated public source.
 - [Roadmap](docs/ROADMAP.md): what comes next, and what this project will not do.
 - [Learning path](docs/LEARNING_PATH.md) — a study curriculum; the project roadmap describes repository development.
+- Use the questions elsewhere: `uv run python scripts/build.py --export dist/atlas.json` writes the whole bank as JSON, each question carrying the marker that says what backs it. The same file is attached to every release.
 - License: Apache-2.0 · © 2026 ai-interview-atlas contributors. Paraphrased material from licensed compilations is attributed on the sources page.

@@ -4,15 +4,22 @@
 
 What this repository plans to improve next, and what it will not do. This is the project's development roadmap, not a personal interview-preparation schedule; for practice, start with either track's *Start here* page. There are no delivery dates here on purpose: an item moves when the evidence for it exists, not when a calendar says it should.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/roadmap.en.dark.svg">
+  <img alt="Project roadmap: each item marked done, in progress, planned or ruled out." src="assets/roadmap.en.svg">
+</picture>
+
 ## Where the atlas is today
 
 As of 2026-10-05:
 
-- 299 questions across 17 themes, all with EN/RU checklists and reading.
-- 158 priority questions with answers in both languages: 82 Engineering and 76 Leadership. The original priority order is retained; this iteration adds 18 answer pairs and revises four Leadership answer pairs.
+- 306 questions across 17 themes, all with EN/RU checklists and reading.
+- 165 priority questions with answers in both languages: 86 Engineering and 80 Leadership. The original priority order is retained; the seven newest are editorial practice questions, marked 🧪, on context budgets, platform tenancy, model deprecation, cost attribution, platform service levels, adversarial testing and measuring an AI coding rollout.
 - 29 company pages. Amazon now includes an official general TPM process alongside its separate secondary AI-PM path; general-role evidence does not establish a specialist AI loop.
 - 247 sources with recorded reading dates and publication dates when established.
 - The unchanged requirements radar over 79 September 2026 postings.
+- Generated figures for the postings radar, the evidence behind the atlas, coverage by theme and this roadmap, each drawn for a light and a dark surface.
+- A machine-readable export of the bank (`scripts/build.py --export`), validated against its own published schema.
 - A question-led learning roadmap and specialised Engineering and four-branch Leadership guides. These provide explanations, checks and reading; no Python exercise package, labs or automated evaluator was added.
 
 The contribution workflow requires schema/provenance validation, language and link checks, privacy checks and independent content review. Mechanical checks do not establish factual accuracy or publication approval. Earlier answer reviews apply to their dated versions; the new and revised October 5 content requires its own separate-session review.
@@ -36,7 +43,7 @@ Retained local manifests and matching PDF hashes establish 2026-10-02 builds of 
 ## Later, if there is demand
 
 - A third language, with the necessary schema, renderer and validation changes as well as translation.
-- A machine-readable export of the question bank for practice tools, so the questions can be drilled somewhere other than a Markdown page.
+- Practice tools built on the export: a random-question page on the site, or a flashcard deck. The data is there; the tools are not, and they are only worth building if people ask for them.
 
 ## What this project will not do
 
