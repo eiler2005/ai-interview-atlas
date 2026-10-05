@@ -2,6 +2,20 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-10-05: figures, a machine-readable export and platform questions
+
+### Added
+
+- Generated figures in `docs/assets/`, drawn from the same validated content as the pages: the postings radar (redrawn), the evidence behind the atlas, questions and written answers by theme, the project roadmap and a title banner. Each is written twice — once for a light surface and once for a dark one — and the pages wrap the pair in a `<picture>` element, so a reader on a dark theme gets steps chosen for a dark surface rather than an inverted light chart. The repository's privacy checker admits no `style` element inside an SVG, so a figure carries no CSS at all; that also keeps the PDF rasteriser, which resolves no stylesheets, on a correct light figure. The README's banner is now one of these files instead of a PNG attached to an old release.
+- `scripts/build.py --export dist/atlas.json` writes the question bank as data for practice tools, validated against the new `src/content/schema/export.schema.json` and attached to every release. Every question carries the marker a reader would see on the page, so a consumer cannot present a compilation as a first-hand report. This closes the roadmap item that had been held under "later, if there is demand".
+- `src/content/roadmap.yaml`: the roadmap's stages and items as data, with a status on each, so the figure on the roadmap page and the prose beside it come from one place.
+- Seven questions, each filling a gap the bank did not cover, with checklists, reading and written answers in both languages: the context budget of a long agent run; tenant isolation, model deprecation, cost attribution and service levels on a shared AI platform; adversarial testing before launching an assistant with tools; and how a leader would credibly measure whether AI coding tools helped. All seven are editorial practice questions marked 🧪 — no source shows any of them being asked — and four of them take the thinnest theme, AI platform and operating model, from six questions to ten.
+
+### Changed
+
+- The check for stale generated files now covers `docs/assets`, not only the Markdown folders. A figure whose source content is removed is deleted on the next build instead of lingering, and `--check` reports it.
+- The priority set grows from 158 to 165 questions: 86 Engineering and 80 Leadership. Existing priorities and question ids are unchanged.
+
 ## Unreleased — 2026-10-05: content expansion and source-aligned Leadership
 
 ### Added

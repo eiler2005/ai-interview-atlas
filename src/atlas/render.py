@@ -8,6 +8,7 @@ from datetime import date, timedelta
 from urllib.parse import quote
 from xml.sax.saxutils import escape
 
+from . import charts
 from .content import ROLE_LINK, STRENGTH, TRACKS, Content
 
 LANGS = ("en", "ru")
@@ -47,7 +48,6 @@ SOURCE_KINDS = (
     "reference",
     "posting",
 )
-COLORS = {"engineering": "#1f6feb", "leadership": "#bc4c00"}
 _GUIDE_PATHS = {
     "learning_roadmap": "LEARNING_ROADMAP.md",
     "ai_assisted_coding": "learning/AI_ASSISTED_CODING.md",
@@ -81,6 +81,13 @@ LABELS = {
         ),
         "banner_alt": (
             "AI Interview Atlas — Engineering & Leadership. Questions, answers and learning paths."
+        ),
+        "evidence_alt": (
+            "What backs the atlas: the question bank by strongest evidence, and company "
+            "interview-loop stages by the strength of their claim."
+        ),
+        "coverage_alt": (
+            "Questions and written answers by theme, for the engineering and leadership tracks."
         ),
         "hero": (
             "Prepare for AI interviews with attributed questions, practice prompts and primary "
@@ -271,6 +278,11 @@ LABELS = {
             (
                 "[Learning path]({learning_path}) — a study curriculum; the project roadmap "
                 "describes repository development."
+            ),
+            (
+                "Use the questions elsewhere: `uv run python scripts/build.py --export "
+                "dist/atlas.json` writes the whole bank as JSON, each question carrying the "
+                "marker that says what backs it. The same file is attached to every release."
             ),
             (
                 "License: Apache-2.0 · © 2026 ai-interview-atlas contributors. Paraphrased "
@@ -491,6 +503,13 @@ LABELS = {
         "banner_alt": (
             "AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы."
         ),
+        "evidence_alt": (
+            "На чём держится атлас: банк вопросов по сильнейшему свидетельству и этапы "
+            "интервью компаний по силе утверждения."
+        ),
+        "coverage_alt": (
+            "Вопросы и написанные ответы по темам для треков AI-инженерии и AI-лидерства."
+        ),
         "hero": (
             "Готовьтесь к AI-интервью: вопросы с указанием источников, учебные задачи и "
             "первоисточники для изучения."
@@ -684,6 +703,11 @@ LABELS = {
             (
                 "[Учебный план]({learning_path}) — программа подготовки; дорожная карта "
                 "проекта описывает развитие репозитория."
+            ),
+            (
+                "Использовать вопросы вне репозитория: `uv run python scripts/build.py --export "
+                "dist/atlas.json` выгружает весь банк в JSON, и у каждого вопроса остаётся метка "
+                "того, на чём он держится. Тот же файл прикладывается к каждому релизу."
             ),
             (
                 "Лицензия Apache-2.0 · © 2026 ai-interview-atlas contributors. Пересказанный "
@@ -1000,8 +1024,27 @@ def anchor(name: str) -> str:
     return f'<a id="{name}"></a>'
 
 
-def svg_file(lang: str) -> str:
-    return f"docs/assets/radar.{lang}.svg"
+def asset(name: str, lang: str, mode: str = "light") -> str:
+    """A generated figure. Only `docs/assets` may hold images, and only as SVG."""
+    suffix = "" if mode == "light" else f".{mode}"
+    return f"docs/assets/{name}.{lang}{suffix}.svg"
+
+
+def figure(page: str, name: str, lang: str, alt: str) -> str:
+    """A figure as a light/dark pair.
+
+    The privacy checker forbids a `<style>` element inside an SVG, so a figure cannot carry
+    its own media query. `<picture>` does the switching outside the image instead, and a
+    reader whose renderer ignores it still gets the light file.
+    """
+    dark = rel(page, asset(name, lang, "dark"))
+    light = rel(page, asset(name, lang))
+    return (
+        "<picture>\n"
+        f'  <source media="(prefers-color-scheme: dark)" srcset="{dark}">\n'
+        f'  <img alt="{escape(alt, {chr(34): "&quot;"})}" src="{light}">\n'
+        "</picture>"
+    )
 
 
 def other(lang: str) -> str:
@@ -1052,9 +1095,16 @@ class Renderer:
                 pages[roles_page(lang)] = self.roles_overview(lang)
                 for family in self.content.families:
                     pages[role_page(lang, family["id"])] = self.role(lang, family)
+            figures = charts.Figures(self.content)
+            for mode in charts.MODES:
+                for name in ("banner", "evidence", "coverage"):
+                    pages[asset(name, lang, mode)] = getattr(figures, name)(lang, mode)
+                if self.content.roadmap:
+                    pages[asset("roadmap", lang, mode)] = figures.roadmap(lang, mode)
+                if self.content.radar:
+                    pages[asset("radar", lang, mode)] = figures.postings(lang, mode)
             if self.content.radar:
                 pages[radar_page(lang)] = self.radar(lang)
-                pages[svg_file(lang)] = self.svg(lang)
         return {path: text.rstrip("\n") + "\n" for path, text in sorted(pages.items())}
 
     # Shared pieces
@@ -1323,7 +1373,7 @@ class Renderer:
             "",
             self.switch(lang, page, readme(other(lang))),
             "",
-            f"![{labels['banner_alt']}]({BANNER})",
+            figure(page, "banner", lang, labels["banner_alt"]),
             "",
             BADGES,
             "",
@@ -1334,6 +1384,8 @@ class Renderer:
             labels["intro"],
             "",
             self._source_mix(lang, page),
+            "",
+            figure(page, "evidence", lang, labels["evidence_alt"]),
             "",
             labels["offline"].format(releases=RELEASES),
             "",
@@ -1424,6 +1476,7 @@ class Renderer:
             lines.append(
                 f"| [{cell(theme['name'][lang])}]({link}) | {per_track[0]} | {per_track[1]} |"
             )
+        lines += ["", figure(page, "coverage", lang, labels["coverage_alt"])]
         if content.companies:
             lines += [
                 "",
@@ -1462,7 +1515,7 @@ class Renderer:
                 ),
                 *self.ai_share(lang),
                 "",
-                f"![{labels['svg_title']}]({svg_file(lang)})",
+                figure(readme(lang), "radar", lang, labels["svg_title"]),
             ]
         lines += ["", f"## {labels['about']}", ""]
         for item in labels["about_items"]:
@@ -2076,7 +2129,7 @@ class Renderer:
                 unknown=sample["markets"].get("unknown", 0),
             ),
             "",
-            f"![{labels['svg_title']}]({rel(page, svg_file(lang))})",
+            figure(page, "radar", lang, labels["svg_title"]),
             "",
             f"| {labels['theme']} | {names['engineering']} | {names['leadership']} |",
             "| --- | ---: | ---: |",
@@ -2111,84 +2164,6 @@ class Renderer:
                 if criterion:
                     lines.append(f"- **{theme['name'][lang]}:** {md(criterion[lang])}")
         return "\n".join(lines)
-
-    def svg(self, lang: str) -> str:
-        labels, sample = LABELS[lang], self.content.radar["sample"]
-        cells = self.radar_cells()
-        label_width, bar_width, row_height, top = 300, 380, 34, 70
-        width = label_width + bar_width + 80
-        height = top + row_height * len(cells) + 90
-        font = 'font-family="Segoe UI, Helvetica, Arial, sans-serif"'
-        parts = [
-            (
-                f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
-                f'viewBox="0 0 {width} {height}" role="img" '
-                f'aria-label="{escape(labels["svg_title"], {chr(34): "&quot;"})}">'
-            ),
-            f"<title>{escape(labels['svg_title'])}</title>",
-            (
-                f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="8" '
-                'fill="#f6f8fa" stroke="#d0d7de"/>'
-            ),
-            (
-                f'<text x="16" y="28" {font} font-size="16" font-weight="600" fill="#1f2328">'
-                f"{escape(labels['svg_title'])}</text>"
-            ),
-        ]
-        x = 16
-        for track in TRACKS:
-            name = escape(self.track_names[track][lang])
-            parts.append(f'<rect x="{x}" y="42" width="12" height="12" fill="{COLORS[track]}"/>')
-            parts.append(
-                f'<text x="{x + 18}" y="53" {font} font-size="13" fill="#1f2328">{name}</text>'
-            )
-            x += 200
-        for index, (theme, row_cells) in enumerate(cells):
-            y = top + index * row_height
-            parts.append(
-                f'<text x="{label_width - 10}" y="{y + 17}" {font} font-size="13" '
-                f'text-anchor="end" fill="#1f2328">{escape(theme["name"][lang])}</text>'
-            )
-            for offset, track in enumerate(TRACKS):
-                row = row_cells[track]
-                bar_y = y + 4 + offset * 13
-                if not row:
-                    parts.append(
-                        f'<text x="{label_width}" y="{bar_y + 10}" {font} font-size="11" '
-                        'fill="#59636e">—</text>'
-                    )
-                    continue
-                share = percent(row["postings"], sample["tracks"].get(track, 0))
-                length = max(1, round(bar_width * share / 100))
-                parts.append(
-                    f'<rect x="{label_width}" y="{bar_y}" width="{length}" height="11" '
-                    f'fill="{COLORS[track]}"/>'
-                )
-                parts.append(
-                    f'<text x="{label_width + length + 6}" y="{bar_y + 10}" {font} '
-                    f'font-size="11" fill="#1f2328">{share}%</text>'
-                )
-        radar = self.content.radar
-        denominators = "; ".join(
-            f"{labels['sample_names'][track]} n={sample['tracks'].get(track, 0)}"
-            for track in TRACKS
-        )
-        footer = [
-            denominators,
-            (
-                f"— = suppressed, not zero (track n < {radar['min_track']} or theme n < {radar['min_cell']})."
-                if lang == "en"
-                else f"— = скрыто, не ноль (трек n < {radar['min_track']} или тема n < {radar['min_cell']})."
-            ),
-            f"{radar['period']['from']} — {radar['period']['to']}",
-        ]
-        for index, line in enumerate(footer):
-            y = top + row_height * len(cells) + 22 + index * 20
-            parts.append(
-                f'<text x="16" y="{y}" {font} font-size="12" fill="#59636e">{escape(line)}</text>'
-            )
-        parts.append("</svg>")
-        return "\n".join(parts)
 
 
 def render(content: Content) -> dict[str, str]:

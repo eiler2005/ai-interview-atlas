@@ -3,7 +3,10 @@
 
 [English](README.md) · Русский
 
-![AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы.](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.1/hero-banner-v2.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner.ru.dark.svg">
+  <img alt="AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы." src="docs/assets/banner.ru.svg">
+</picture>
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
@@ -15,14 +18,19 @@
 
 Два трека — AI Engineering и AI Leadership, процессы интервью в компаниях и планы ответов. У каждого вопроса из публикаций указано основание; метки различают подтверждение компании, отчёт кандидата и вторичную подборку. Сгенерированные учебные вопросы отмечены отдельно.
 
-Из 278 вопросов с опубликованными источниками 230 опираются только на подготовительные гайды или подборки (†). Ещё 21 — сгенерированные учебные вопросы (🧪). Первоисточники для чтения помогают разобраться в теме, но не доказывают, что работодатель задавал вопрос. Число вопросов, ссылающихся на одну подборку: 194 — [AI Engineering Interview Questions Company Wise](docs/ru/sources.md#kind-secondary-compilation). Это ограничивает независимое подтверждение; указания компаний из этой подборки остаются вторичными свидетельствами.
+Из 278 вопросов с опубликованными источниками 230 опираются только на подготовительные гайды или подборки (†). Ещё 28 — сгенерированные учебные вопросы (🧪). Первоисточники для чтения помогают разобраться в теме, но не доказывают, что работодатель задавал вопрос. Число вопросов, ссылающихся на одну подборку: 194 — [AI Engineering Interview Questions Company Wise](docs/ru/sources.md#kind-secondary-compilation). Это ограничивает независимое подтверждение; указания компаний из этой подборки остаются вторичными свидетельствами.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/evidence.ru.dark.svg">
+  <img alt="На чём держится атлас: банк вопросов по сильнейшему свидетельству и этапы интервью компаний по силе утверждения." src="docs/assets/evidence.ru.svg">
+</picture>
 
 Опубликованные PDF-книги — снимки атласа на дату выпуска для чтения офлайн. На сайте могут быть более новые вопросы и гайды; сверяйте дату релиза, прежде чем считать книгу текущей редакцией.
 
 ## Что внутри
 
-- **299 вопросов** в 17 темах: 225 по инженерии, 160 по лидерству. У каждого указано, что он проверяет и что покрывает сильный ответ.
-- **158 написанных ответов** на приоритетные вопросы — абзац, который можно произнести вслух, а не ссылка на платный курс.
+- **306 вопросов** в 17 темах: 230 по инженерии, 166 по лидерству. У каждого указано, что он проверяет и что покрывает сильный ответ.
+- **165 написанных ответов** на приоритетные вопросы — абзац, который можно произнести вслух, а не ссылка на платный курс.
 - **29 страниц компаний**: этапы интервью по шагам, требование к кодингу и вопросы, о которых сообщали для этой компании.
 - **6 страниц профессий** в [путеводителе](docs/ru/AI_ROLES.md): чем занимается каждая AI-роль, как проходит собеседование и какие вопросы готовить.
 - **247 источников**, у каждого дата прочтения: любое утверждение можно проверить самому и увидеть, что устарело.
@@ -68,20 +76,25 @@
 | [Основы LLM](docs/ru/themes/llm-fundamentals.md) | 18 | 2 |
 | [Инференс, serving и стоимость](docs/ru/themes/inference-economics.md) | 18 | 4 |
 | [RAG и поиск](docs/ru/themes/rag-retrieval.md) | 14 | 2 |
-| [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md) | 18 | 4 |
+| [Агенты, инструменты и протоколы](docs/ru/themes/agents-tools.md) | 19 | 4 |
 | [Дообучение и post-training](docs/ru/themes/post-training.md) | 15 | 2 |
 | [Оценка качества и наблюдаемость](docs/ru/themes/evals-observability.md) | 21 | 8 |
-| [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) | 10 | 18 |
+| [Безопасность, защита и governance](docs/ru/themes/safety-security-governance.md) | 11 | 19 |
 | [Мультимодальность и голос](docs/ru/themes/multimodal-voice.md) | 14 | 1 |
 | [Дизайн AI-систем](docs/ru/themes/ai-system-design.md) | 16 | 5 |
 | [Практический кодинг](docs/ru/themes/coding-practical.md) | 28 | 1 |
 | [Стратегия и метрики AI-продукта](docs/ru/themes/ai-product-strategy.md) | 0 | 24 |
-| [AI-платформа и операционная модель](docs/ru/themes/ai-operating-model.md) | 3 | 6 |
-| [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) | 1 | 20 |
+| [AI-платформа и операционная модель](docs/ru/themes/ai-operating-model.md) | 6 | 10 |
+| [Руководство инженерными командами](docs/ru/themes/engineering-leadership.md) | 1 | 21 |
 | [Программы и delivery](docs/ru/themes/program-delivery.md) | 4 | 13 |
 | [Прикладные и клиентские сценарии](docs/ru/themes/applied-scenarios.md) | 20 | 21 |
 | [Платежи и регулируемые отрасли](docs/ru/themes/domain-payments-fintech.md) | 4 | 5 |
 | [Поведенческие вопросы и ценности](docs/ru/themes/behavioral-values.md) | 21 | 24 |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/coverage.ru.dark.svg">
+  <img alt="Вопросы и написанные ответы по темам для треков AI-инженерии и AI-лидерства." src="docs/assets/coverage.ru.svg">
+</picture>
 
 ## Компании
 
@@ -122,7 +135,10 @@
 Выборка: 79 вакансий (2026-09-15 — 2026-09-19). Проценты рассчитаны внутри каждого трека: инженерия n=17, лидерство n=62. Треки с n < 20 скрыты; прочерк не означает ноль. [Методика и полная таблица](docs/ru/radar.md).
 Вакансии трека «лидерство» в выборке: сама роль связана с AI или машинным обучением в 42% (26 из 62).
 
-![Доля вакансий, где упоминается тема](docs/assets/radar.ru.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/radar.ru.dark.svg">
+  <img alt="Доля вакансий, где упоминается тема" src="docs/assets/radar.ru.svg">
+</picture>
 
 ## О проекте
 
@@ -132,4 +148,5 @@
 - [Как участвовать](CONTRIBUTING.ru.md): добавить вопрос с датированным публичным источником.
 - [Дорожная карта](docs/ru/ROADMAP.md): что будет дальше и чего проект делать не будет.
 - [Учебный план](docs/ru/LEARNING_PATH.md) — программа подготовки; дорожная карта проекта описывает развитие репозитория.
+- Использовать вопросы вне репозитория: `uv run python scripts/build.py --export dist/atlas.json` выгружает весь банк в JSON, и у каждого вопроса остаётся метка того, на чём он держится. Тот же файл прикладывается к каждому релизу.
 - Лицензия Apache-2.0 · © 2026 ai-interview-atlas contributors. Пересказанный материал из лицензированных подборок указан на странице источников.

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="264" viewBox="0 0 820 264" role="img" aria-labelledby="figure-title figure-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="figure-title">AI Interview Atlas</title>
+<desc id="figure-desc">AI Interview Atlas — Interview questions, answers and learning paths — every claim dated</desc>
+<rect x="0.5" y="0.5" width="819" height="263" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="32" y="74" font-size="38" fill="#0b0b0b" font-weight="700">AI Interview Atlas</text>
+<text x="32" y="104" font-size="14" fill="#52514e">Interview questions, answers and learning paths — every claim dated</text>
+<rect x="32" y="126" width="127.6" height="26" rx="13" fill="#2a78d6"/>
+<text x="95.8" y="144" font-size="12" fill="#ffffff" font-weight="600" text-anchor="middle">AI Engineering</text>
+<rect x="169.6" y="126" width="120.2" height="26" rx="13" fill="#eb6834"/>
+<text x="229.7" y="144" font-size="12" fill="#ffffff" font-weight="600" text-anchor="middle">AI Leadership</text>
+<rect x="32" y="172" width="180" height="58" rx="8" fill="none" stroke="#e1e0d9"/>
+<text x="46" y="202" font-size="25" fill="#0b0b0b" font-weight="700">306</text>
+<text x="46" y="220" font-size="11" fill="#898781">questions</text>
+<rect x="224" y="172" width="180" height="58" rx="8" fill="none" stroke="#e1e0d9"/>
+<text x="238" y="202" font-size="25" fill="#0b0b0b" font-weight="700">165</text>
+<text x="238" y="220" font-size="11" fill="#898781">written answers</text>
+<rect x="416" y="172" width="180" height="58" rx="8" fill="none" stroke="#e1e0d9"/>
+<text x="430" y="202" font-size="25" fill="#0b0b0b" font-weight="700">29</text>
+<text x="430" y="220" font-size="11" fill="#898781">company loops</text>
+<rect x="608" y="172" width="180" height="58" rx="8" fill="none" stroke="#e1e0d9"/>
+<text x="622" y="202" font-size="25" fill="#0b0b0b" font-weight="700">247</text>
+<text x="622" y="220" font-size="11" fill="#898781">dated sources</text>
+<text x="32" y="246" font-size="11" fill="#898781">Apache-2.0 · English and Russian · nothing behind a paywall</text>
+</svg>

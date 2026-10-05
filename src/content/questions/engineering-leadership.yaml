@@ -778,3 +778,67 @@ questions:
     - gitlab-engineering-director-process
     - gitlab-communication
     - fowler-team-topologies
+  - id: lead-ai-productivity-claim
+    tracks:
+    - leadership
+    roles:
+    - engineering-manager
+    - engineering-director
+    - ai-transformation-lead
+    type: applied_scenario
+    text:
+      en: Your organisation adopted AI coding tools and leadership wants to know whether they worked. How would
+        you answer that credibly?
+      ru: Организация внедрила AI-инструменты для разработки, и руководство хочет знать, дали ли они результат.
+        Как вы ответите на этот вопрос убедительно?
+    tests:
+      en: Whether you choose a measure that survives scrutiny and admit what the available data cannot settle.
+      ru: Выбираете ли вы показатель, который выдержит проверку, и признаёте ли, что имеющиеся данные не могут решить.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:engineering-leadership
+    start_here:
+    - leadership
+    priority: 89
+    outline:
+      en:
+      - Make the claim precise first — faster delivery, more change, better quality or less toil — because each
+        needs different evidence and they can move in opposite directions.
+      - Prefer outcomes a customer feels, such as delivery lead time and change failure rate, over activity counts
+        like accepted suggestions, which rise when the tool is used rather than when the work improves.
+      - Compare against something — a staged rollout, comparable teams, or the same teams before and after — and
+        name the confounders you could not remove.
+      ru:
+      - 'Сначала уточнить само утверждение — быстрее поставка, больше изменений, выше качество или меньше рутины:
+        для каждого нужны свои данные, и двигаться они могут в разные стороны.'
+      - 'Предпочитать результаты, которые чувствует заказчик, такие как время от задачи до поставки и доля неудачных
+        изменений, счётчикам активности вроде принятых подсказок: те растут от использования инструмента, а не от
+        улучшения работы.'
+      - Сравнивать с чем-то — поэтапное внедрение, сопоставимые команды или те же команды до и после — и прямо назвать
+        мешающие факторы, которые устранить не удалось.
+    answer:
+      en: 'I would first make the question answerable, because "did they work" hides four different claims: faster
+        delivery, more change shipped, better quality, or less drudgery. They need different evidence and can move
+        in opposite directions — more code merged with a higher change failure rate is not a win. I would report
+        outcomes a customer feels, such as delivery lead time and change failure rate, rather than accepted suggestions
+        or lines generated, which measure adoption and rise whenever people use the tool. Any number needs a comparison:
+        a staged rollout gives the cleanest one, otherwise comparable teams, or before and after with the confounders
+        named — hiring, reorganisation, seasonality, a big migration. I would also measure where the effort moved,
+        since generated code shifts load onto review, and a gain in authoring that reappears as review backlog is
+        not a gain. Developer surveys are weak evidence of time saved but good evidence of where friction is. I
+        would state plainly what this design cannot settle rather than imply causation.'
+      ru: 'Сначала я делаю вопрос отвечаемым, потому что за «дали ли результат» прячутся четыре разных утверждения:
+        быстрее поставка, больше выпущенных изменений, выше качество, меньше рутины. Им нужны разные данные, и двигаться
+        они могут в разные стороны: больше влитого кода при большей доле неудачных изменений — не победа. Я показываю
+        результаты, которые чувствует заказчик, — время от задачи до поставки и долю неудачных изменений, — а не
+        принятые подсказки и сгенерированные строки: те измеряют принятие инструмента и растут просто от его использования.
+        Любому числу нужна база сравнения: чище всего её даёт поэтапное внедрение, иначе — сопоставимые команды
+        или те же команды до и после с прямо названными мешающими факторами: найм, реорганизация, сезонность, крупная
+        миграция. Я также измеряю, куда переехали усилия: сгенерированный код перекладывает нагрузку на ревью, и
+        выигрыш в написании, который возвращается очередью на ревью, выигрышем не является. Опросы разработчиков
+        — слабое свидетельство сэкономленного времени, но хорошее свидетельство того, где трение. Я прямо говорю,
+        что такая схема решить не может, вместо намёка на причинность.'
+    reading:
+    - ms-experiment-design
+    - google-rules-of-ml

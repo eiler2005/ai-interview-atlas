@@ -5,7 +5,7 @@
 
 Внутренние AI-платформы, внедрение AI в организации, обучение людей, управление затратами и центры компетенций.
 
-На этой странице: [Оба трека (3)](#track-both) · [AI-лидерство (3)](#track-leadership)
+На этой странице: [Оба трека (6)](#track-both) · [AI-лидерство (4)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -33,6 +33,30 @@
     - Применять политику в сервисе: идентичность вызывающего, переписывание запросов, контроль строк и столбцов, проверка результата.
     - Защититься от вычитания и многократной нарезки, журналировать каждый запрос и проверить попытками повторной идентификации.
   - Читать: [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](https://csrc.nist.gov/pubs/sp/800/226/final) (NIST)
+- <a id="ops-tenant-isolation"></a>**Несколько продуктовых команд работают через один внутренний AI-шлюз. Как сделать так, чтобы трафик, данные и кеши одной команды не влияли на другую?**
+  - System design · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-tenant-isolation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-tenant-isolation&title=%5BCorrection%5D%20ops-tenant-isolation)
+  - Что проверяет: Решаете ли вы вопрос изоляции по каждому общему ресурсу, а не считаете её следствием того, что платформа управляется централизованно.
+  - Сильный ответ покрывает:
+    - Перечислить общие ресурсы — квоту провайдера, мощность шлюза, кеши промптов и эмбеддингов, логи и данные оценки: по каждому нужно отдельное решение об изоляции.
+    - Выдать каждому арендатору свои ключи, квоту и ограничение частоты, а кеши разделять по арендаторам, если содержимое не является заведомо публичным.
+    - Определить, что пересекает границу: агрегированная телеметрия стоимости и задержек — да, промпты и ответы — нет; ограничить, кто и как долго может читать трассировки.
+  - Читать: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) (Microsoft Learn) · [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) (Claude Platform Docs) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
+- <a id="ops-model-deprecation"></a>**Провайдер объявил, что версия модели, от которой зависят ваши продукты, будет отключена через три месяца. Как вы проведёте переход во всех командах, которые её используют?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-model-deprecation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-model-deprecation&title=%5BCorrection%5D%20ops-model-deprecation)
+  - Что проверяет: Считаете ли вы версию модели зависимостью с жизненным циклом, а не настройкой, которую можно просто поменять.
+  - Сильный ответ покрывает:
+    - Сначала выяснить реальное использование: какие сервисы, промпты, оценки и дообученные модели закреплены за этой версией и на какое поведение каждый из них опирается.
+    - Прогнать оценки каждой команды на замене до любого переключения: смена модели меняет поведение, поэтому работа с промптами и порогами входит в сам переход.
+    - Переключать по этапам под флагом, пока старая версия ещё отвечает, чтобы откат был настоящим, и оставить после себя закрепление версий и реестр, которые понадобятся при следующем отключении.
+  - Читать: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
+- <a id="ops-platform-slo"></a>**Задержка и доступность вашей AI-платформы зависят от внешнего провайдера моделей. Что вы пообещаете внутренним командам и как будете это обещание выполнять?**
+  - System design · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-platform-slo) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-platform-slo&title=%5BCorrection%5D%20ops-platform-slo)
+  - Что проверяет: Опирается ли уровень сервиса на измеренное поведение и собственные механизмы, а не на опубликованные цифры провайдера.
+  - Сильный ответ покрывает:
+    - Измерять то, что чувствует пользователь, — сквозную задержку на высоком перцентиле и долю запросов, завершившихся с пользой, — а не показатель доступности самого провайдера.
+    - Обещать лишь то, что удержат собственные механизмы: таймауты, бюджет повторов, меньшая резервная модель, упрощённый ответ и очередь для работы, которая может подождать.
+    - Опубликовать бюджет ошибок и то, что происходит после его исчерпания, и прямо назвать отказы, которые остаются вне вашего контроля.
+  - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) (Stripe)
 
 ## <a id="track-leadership"></a>AI-лидерство
 
@@ -60,5 +84,13 @@
     - Разобрать переносимость данных, оценок, интеграций и недокументированного поведения; проверить самую трудную зависимость замены.
     - Утвердить вариант с владельцем, выделить ресурсы выхода и определить договорные сроки, критерии приёмки и резерв непрерывности.
   - Читать: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office) · [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services)
+- <a id="ops-cost-attribution"></a>**Расходы на инференс общей AI-платформы за квартал удвоились, и ни одна команда не признаёт счёт своим. Как сделать расходы относимыми и управляемыми?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-cost-attribution) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-cost-attribution&title=%5BCorrection%5D%20ops-cost-attribution)
+  - Что проверяет: Связываете ли вы расходы с единицей, у которой есть владелец, и меняет ли контроль поведение, не останавливая полезную работу.
+  - Сильный ответ покрывает:
+    - Сначала научиться относить, потом ограничивать: помечать каждый вызов командой, функцией и средой и показывать стоимость запроса и успешно решённой задачи, а не только сумму за месяц.
+    - Выяснить, что именно изменилось — трафик, длина контекста, смена модели, повторы или прогоны оценок: у каждой причины своё лечение.
+    - Дать каждой команде бюджет и оповещение, которыми она владеет, и сохранить путь для осознанного перерасхода: жёсткий потолок без исключений выталкивает работу в неуправляемые аккаунты.
+  - Читать: [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services) · [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) (Claude Platform Docs)
 
 ← [Стратегия и метрики AI-продукта](ai-product-strategy.md) · [Руководство инженерными командами](engineering-leadership.md) →

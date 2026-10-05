@@ -6,29 +6,33 @@ import argparse
 import sys
 from pathlib import Path
 
-from . import links
+from . import export, links
 from .content import ContentError, load
 from .render import render
 
+# Folders the build owns entirely, and the files it owns in each. Anything matching that
+# is on disk but not in the current output is left over from older content: a removed
+# company, a theme that lost its last question, or a figure whose source file is gone.
 GENERATED_DIRS = (
-    "docs/themes",
-    "docs/companies",
-    "docs/answers",
-    "docs/start",
-    "docs/ru/start",
-    "docs/ru/themes",
-    "docs/ru/companies",
-    "docs/ru/answers",
-    "docs/roles",
-    "docs/ru/roles",
+    ("docs/themes", "*.md"),
+    ("docs/companies", "*.md"),
+    ("docs/answers", "*.md"),
+    ("docs/start", "*.md"),
+    ("docs/roles", "*.md"),
+    ("docs/assets", "*.svg"),
+    ("docs/ru/themes", "*.md"),
+    ("docs/ru/companies", "*.md"),
+    ("docs/ru/answers", "*.md"),
+    ("docs/ru/start", "*.md"),
+    ("docs/ru/roles", "*.md"),
 )
 
 
 def stale_files(root: Path, pages: dict[str, str]) -> list[str]:
-    """Generated pages on disk that the current content no longer produces."""
+    """Generated files on disk that the current content no longer produces."""
     found = []
-    for folder in GENERATED_DIRS:
-        for path in sorted((root / folder).glob("*.md")):
+    for folder, pattern in GENERATED_DIRS:
+        for path in sorted((root / folder).glob(pattern)):
             name = path.relative_to(root).as_posix()
             if name not in pages:
                 found.append(name)
@@ -39,6 +43,12 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--check", action="store_true", help="fail instead of writing")
+    parser.add_argument(
+        "--export",
+        type=Path,
+        metavar="PATH",
+        help="also write the question bank as JSON, for practice tools",
+    )
     args = parser.parse_args(argv)
     root = args.root.resolve()
     try:
@@ -48,6 +58,10 @@ def main(argv: list[str] | None = None) -> int:
         for problem in error.problems:
             print(f"- {problem}", file=sys.stderr)
         return 1
+    if args.export:
+        args.export.parent.mkdir(parents=True, exist_ok=True)
+        args.export.write_text(export.dumps(content), encoding="utf-8")
+        print(f"Exported {len(content.questions)} questions to {args.export}")
     pages = render(content)
     if args.check:
         problems = [

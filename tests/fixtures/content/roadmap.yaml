@@ -1,0 +1,27 @@
+stages:
+  - id: "now"
+    name:
+      en: "Now"
+      ru: "Сейчас"
+    items:
+      - status: "progress"
+        text:
+          en: "A synthetic item in progress, long enough that the figure has to wrap it onto a second line"
+          ru: "Синтетический пункт в работе, достаточно длинный, чтобы на рисунке перенестись на вторую строку"
+      - status: "done"
+        text:
+          en: "A synthetic item that is done"
+          ru: "Синтетический выполненный пункт"
+  - id: "never"
+    name:
+      en: "What this project will not do"
+      ru: "Чего проект делать не будет"
+    items:
+      - status: "declined"
+        text:
+          en: "A synthetic item that was ruled out"
+          ru: "Синтетический отклонённый пункт"
+      - status: "planned"
+        text:
+          en: "A synthetic item that is planned"
+          ru: "Синтетический запланированный пункт"

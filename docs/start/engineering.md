@@ -177,3 +177,13 @@ See the [coverage audit](../research/ATLAS_COVERAGE_AUDIT.md), [Engineering rese
   - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#sd-document-intelligence)
 - **82. [Design continuous index updates, including changed documents, deletions and queries during a rebuild.](../themes/rag-retrieval.md#rag-freshness)**
   - System design · [RAG and retrieval](../themes/rag-retrieval.md) · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-freshness)
+- **83. [An agent's context fills up over a long task. How would you decide what stays in the window, what is summarised and what moves out of it?](../themes/agents-tools.md#agt-context-budget)**
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#agt-context-budget)
+- **84. [Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?](../themes/ai-operating-model.md#ops-tenant-isolation)**
+  - System design · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-tenant-isolation)
+- **85. [A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?](../themes/ai-operating-model.md#ops-model-deprecation)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-model-deprecation)
+- **86. [Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?](../themes/ai-operating-model.md#ops-platform-slo)**
+  - System design · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-platform-slo)
+- **87. [Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Safety, security and governance](../themes/safety-security-governance.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#sec-red-team)

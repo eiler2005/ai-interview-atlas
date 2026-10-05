@@ -39,6 +39,11 @@ jobs:
           uv sync --frozen --group pdf
           uv run --group pdf python scripts/build_pdf.py
 
+      # The question bank as data, so practice tools can use a release rather than
+      # parsing the Markdown pages.
+      - name: Machine-readable export
+        run: uv run python scripts/build.py --check --export dist/atlas.json
+
       - name: Create or update the draft release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -51,6 +56,7 @@ jobs:
             echo "No PDF outputs found in dist/pdf" >&2
             exit 1
           fi
+          assets+=(dist/atlas.json)
           if gh release view "$tag" >/dev/null 2>&1; then
             if [ "$(gh release view "$tag" --json isDraft --jq .isDraft)" != "true" ]; then
               echo "Release $tag is already published; refusing to replace its assets." >&2

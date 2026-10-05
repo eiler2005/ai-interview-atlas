@@ -177,3 +177,13 @@
   - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#sd-document-intelligence)
 - **82. [Спроектируйте непрерывное обновление индекса с изменениями, удалениями и запросами во время перестроения.](../themes/rag-retrieval.md#rag-freshness)**
   - System design · [RAG и поиск](../themes/rag-retrieval.md) · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-freshness)
+- **83. [За время долгой задачи контекст агента заполняется. Как вы решите, что остаётся в окне, что сворачивается в резюме, а что выносится наружу?](../themes/agents-tools.md#agt-context-budget)**
+  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#agt-context-budget)
+- **84. [Несколько продуктовых команд работают через один внутренний AI-шлюз. Как сделать так, чтобы трафик, данные и кеши одной команды не влияли на другую?](../themes/ai-operating-model.md#ops-tenant-isolation)**
+  - System design · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-tenant-isolation)
+- **85. [Провайдер объявил, что версия модели, от которой зависят ваши продукты, будет отключена через три месяца. Как вы проведёте переход во всех командах, которые её используют?](../themes/ai-operating-model.md#ops-model-deprecation)**
+  - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-model-deprecation)
+- **86. [Задержка и доступность вашей AI-платформы зависят от внешнего провайдера моделей. Что вы пообещаете внутренним командам и как будете это обещание выполнять?](../themes/ai-operating-model.md#ops-platform-slo)**
+  - System design · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-platform-slo)
+- **87. [Перед запуском ассистента с доступом к инструментам: как вы организуете состязательное тестирование и что позволит утверждать чистый результат?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Безопасность, защита и governance](../themes/safety-security-governance.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#sec-red-team)

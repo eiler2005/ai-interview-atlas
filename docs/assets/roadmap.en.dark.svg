@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="669" viewBox="0 0 820 669" role="img" aria-labelledby="figure-title figure-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="figure-title">Project roadmap</title>
+<desc id="figure-desc">Stages of work, each listing its items with a status: done, in progress, planned, or ruled out.</desc>
+<rect x="0.5" y="0.5" width="819" height="668" rx="10" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
+<text x="20" y="32" font-size="16" fill="#ffffff" font-weight="600">Project roadmap</text>
+<circle cx="25" cy="52" r="5.5" fill="#0ca30c"/>
+<path d="M22.4 51.8l1.8 1.9 3.2-3.5" fill="none" stroke="#1a1a19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="37" y="56" font-size="11" fill="#c3c2b7">Done</text>
+<circle cx="83.4" cy="52" r="4.6" fill="none" stroke="#fab219" stroke-width="2.2"/>
+<path d="M83.4 47.4A4.6 4.6 0 0 1 83.4 56.6z" fill="#fab219"/>
+<text x="95.4" y="56" font-size="11" fill="#c3c2b7">In progress</text>
+<circle cx="188" cy="52" r="4.4" fill="none" stroke="#898781" stroke-width="1.6"/>
+<text x="200" y="56" font-size="11" fill="#c3c2b7">Planned</text>
+<path d="M262.6 48.4l7.2 7.2m0-7.2l-7.2 7.2" fill="none" stroke="#d03b3b" stroke-width="2" stroke-linecap="round"/>
+<text x="278.2" y="56" font-size="11" fill="#c3c2b7">Ruled out</text>
+<line x1="26" y1="82" x2="26" y2="637" stroke="#383835" stroke-width="1"/>
+<circle cx="26" cy="91" r="5" fill="#3987e5"/>
+<text x="48" y="96" font-size="13" fill="#ffffff" font-weight="600">Now</text>
+<circle cx="53" cy="113" r="4.6" fill="none" stroke="#fab219" stroke-width="2.2"/>
+<path d="M53 108.4A4.6 4.6 0 0 1 53 117.6z" fill="#fab219"/>
+<text x="66" y="117" font-size="12" fill="#ffffff">Independent review of the newest content in a separate session, then PDF production</text>
+<text x="66" y="138" font-size="12" fill="#ffffff">checks</text>
+<circle cx="53" cy="159" r="4.6" fill="none" stroke="#fab219" stroke-width="2.2"/>
+<path d="M53 154.4A4.6 4.6 0 0 1 53 163.6z" fill="#fab219"/>
+<text x="66" y="163" font-size="12" fill="#ffffff">Source freshness: a weekly link check that opens one issue, and a staleness mark that</text>
+<text x="66" y="184" font-size="12" fill="#ffffff">follows the calendar</text>
+<circle cx="53" cy="205" r="5.5" fill="#0ca30c"/>
+<path d="M50.4 204.8l1.8 1.9 3.2-3.5" fill="none" stroke="#1a1a19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="66" y="209" font-size="12" fill="#ffffff">A checklist and reading for every question, not only the priority set</text>
+<circle cx="53" cy="230" r="5.5" fill="#0ca30c"/>
+<path d="M50.4 229.8l1.8 1.9 3.2-3.5" fill="none" stroke="#1a1a19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="66" y="234" font-size="12" fill="#ffffff">A machine-readable export of the bank, so the questions can be drilled outside a</text>
+<text x="66" y="255" font-size="12" fill="#ffffff">Markdown page</text>
+<circle cx="26" cy="284" r="5" fill="#3987e5"/>
+<text x="48" y="289" font-size="13" fill="#ffffff" font-weight="600">Next</text>
+<circle cx="53" cy="306" r="4.4" fill="none" stroke="#898781" stroke-width="1.6"/>
+<text x="66" y="310" font-size="12" fill="#ffffff">Better company evidence: independent corroboration where a page rests on one publisher</text>
+<text x="66" y="331" font-size="12" fill="#ffffff">or a general-role baseline</text>
+<circle cx="53" cy="352" r="4.4" fill="none" stroke="#898781" stroke-width="1.6"/>
+<text x="66" y="356" font-size="12" fill="#ffffff">Written answers beyond the priority set, starting with the themes the radar shows</text>
+<text x="66" y="377" font-size="12" fill="#ffffff">employers ask for</text>
+<circle cx="53" cy="398" r="4.4" fill="none" stroke="#898781" stroke-width="1.6"/>
+<text x="66" y="402" font-size="12" fill="#ffffff">A refreshed radar on a larger sample, so the engineering track clears the minimum and</text>
+<text x="66" y="423" font-size="12" fill="#ffffff">can be published</text>
+<circle cx="26" cy="452" r="5" fill="#3987e5"/>
+<text x="48" y="457" font-size="13" fill="#ffffff" font-weight="600">Later, if there is demand</text>
+<circle cx="53" cy="474" r="4.4" fill="none" stroke="#898781" stroke-width="1.6"/>
+<text x="66" y="478" font-size="12" fill="#ffffff">Filtering by level and role, but only where the sources actually state them</text>
+<circle cx="53" cy="499" r="4.4" fill="none" stroke="#898781" stroke-width="1.6"/>
+<text x="66" y="503" font-size="12" fill="#ffffff">A third language, with the schema, renderer and validation changes it needs</text>
+<circle cx="26" cy="532" r="5" fill="#3987e5"/>
+<text x="48" y="537" font-size="13" fill="#ffffff" font-weight="600">What this project will not do</text>
+<path d="M49.4 550.4l7.2 7.2m0-7.2l-7.2 7.2" fill="none" stroke="#d03b3b" stroke-width="2" stroke-linecap="round"/>
+<text x="66" y="558" font-size="12" fill="#ffffff">Confidential or NDA material, and anything described as leaked</text>
+<path d="M49.4 575.4l7.2 7.2m0-7.2l-7.2 7.2" fill="none" stroke="#d03b3b" stroke-width="2" stroke-linecap="round"/>
+<text x="66" y="583" font-size="12" fill="#ffffff">Interview claims without a dated public source, or an answer that is a link to a paid</text>
+<text x="66" y="604" font-size="12" fill="#ffffff">course</text>
+<path d="M49.4 621.4l7.2 7.2m0-7.2l-7.2 7.2" fill="none" stroke="#d03b3b" stroke-width="2" stroke-linecap="round"/>
+<text x="66" y="629" font-size="12" fill="#ffffff">Scraping behind login walls or against a site's terms, and any personal data</text>
+<text x="20" y="655" font-size="11" fill="#898781">An item moves when the evidence for it exists, not on a date.</text>
+</svg>

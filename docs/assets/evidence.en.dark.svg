@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="275" viewBox="0 0 740 275" role="img" aria-labelledby="figure-title figure-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="figure-title">What backs the atlas</title>
+<desc id="figure-desc">Two stacked bars: the question bank by its strongest evidence, and company interview-loop stages by the strength of their claim.</desc>
+<rect x="0.5" y="0.5" width="739" height="274" rx="10" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
+<text x="20" y="32" font-size="16" fill="#ffffff" font-weight="600">What backs the atlas</text>
+<text x="20" y="62" font-size="13" fill="#ffffff" font-weight="600">306 questions</text>
+<rect x="20" y="74" width="23.16" height="30" rx="3" fill="#b7d3f6"/>
+<rect x="45.16" y="74" width="82.64" height="30" rx="3" fill="#6da7ec"/>
+<rect x="129.8" y="74" width="524.14" height="30" rx="3" fill="#2a78d6"/>
+<rect x="655.95" y="74" width="62.05" height="30" rx="3" fill="#898781"/>
+<rect x="20" y="114" width="9" height="9" rx="2" fill="#b7d3f6"/>
+<text x="35" y="123" font-size="11" fill="#c3c2b7">Company-confirmed 11 (4%)</text>
+<rect x="216.5" y="114" width="9" height="9" rx="2" fill="#6da7ec"/>
+<text x="231.5" y="123" font-size="11" fill="#c3c2b7">First-hand report 37 (12%)</text>
+<rect x="419.3" y="114" width="9" height="9" rx="2" fill="#2a78d6"/>
+<text x="434.3" y="123" font-size="11" fill="#c3c2b7">Prep guide or compilation 230 (75%)</text>
+<rect x="20" y="131" width="9" height="9" rx="2" fill="#898781"/>
+<text x="35" y="140" font-size="11" fill="#c3c2b7">Generated practice 28 (9%)</text>
+<text x="20" y="164" font-size="13" fill="#ffffff" font-weight="600">128 company loop stages</text>
+<rect x="20" y="176" width="337.06" height="30" rx="3" fill="#b7d3f6"/>
+<rect x="359.06" y="176" width="151.12" height="30" rx="3" fill="#6da7ec"/>
+<rect x="512.19" y="176" width="205.81" height="30" rx="3" fill="#2a78d6"/>
+<rect x="20" y="216" width="9" height="9" rx="2" fill="#b7d3f6"/>
+<text x="35" y="225" font-size="11" fill="#c3c2b7">Company-confirmed 62 (48%)</text>
+<rect x="222.8" y="216" width="9" height="9" rx="2" fill="#6da7ec"/>
+<text x="237.8" y="225" font-size="11" fill="#c3c2b7">First-hand report 28 (22%)</text>
+<rect x="425.6" y="216" width="9" height="9" rx="2" fill="#2a78d6"/>
+<text x="440.6" y="225" font-size="11" fill="#c3c2b7">Prep guide or compilation 38 (30%)</text>
+<text x="20" y="261" font-size="11" fill="#898781">First-hand evidence concentrates in loop stages; most questions are paraphrased from secondary compilations.</text>
+</svg>

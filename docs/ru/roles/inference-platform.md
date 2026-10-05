@@ -7,7 +7,7 @@ AI-инженерия / AI-лидерство · Роли: Инженер инф
 
 Отвечает за производительность AI-вычислений и общих сервисов: узкие места, проверенные оптимизации и телеметрия.
 
-На этой странице: [Чем занимается роль](#scope) · [Как проходит собеседование (4)](#interviews) · [Вопросы (14)](#role-questions) · [Подготовка](#prep)
+На этой странице: [Чем занимается роль](#scope) · [Как проходит собеседование (4)](#interviews) · [Вопросы (19)](#role-questions) · [Подготовка](#prep)
 
 ## <a id="scope"></a>Чем занимается роль
 
@@ -60,6 +60,8 @@ AI-инженерия / AI-лидерство · Роли: Инженер инф
   - Прикладной сценарий · [Инференс, serving и стоимость](../themes/inference-economics.md) · ✍ [Ответ](../answers/engineering.md#inf-cost-reduction)
 - **[После релиза p99 задержки удвоился, хотя веса модели не менялись. Как локализовать причину?](../themes/inference-economics.md#inf-tail-regression)**
   - Прикладной сценарий · [Инференс, serving и стоимость](../themes/inference-economics.md) · ✍ [Ответ](../answers/engineering.md#inf-tail-regression)
+- **[Перед запуском ассистента с доступом к инструментам: как вы организуете состязательное тестирование и что позволит утверждать чистый результат?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Безопасность, защита и governance](../themes/safety-security-governance.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#sec-red-team)
 - **[Спроектируйте LLM gateway с маршрутизацией, failover, кешированием, лимитами запросов и обязательными бюджетами.](../themes/ai-system-design.md#sd-gateway)**
   - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · ✍ [Ответ](../answers/engineering.md#sd-gateway)
 - **[Определите стратегию внутренней AI-платформы и распределите ответственность за её метрики успеха.](../themes/ai-operating-model.md#ops-platform-ownership)**
@@ -68,6 +70,14 @@ AI-инженерия / AI-лидерство · Роли: Инженер инф
   - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · ✍ [Ответ](../answers/leadership.md#ops-restricted-models)
 - **[Как владелец инвестиций решите, продлевать ли управляемый AI-сервис или финансировать внутреннюю замену. Через шесть месяцев цена поставщика удвоится, а экспорт данных не воспроизводит поведение сервиса. Какое решение и план выхода вы утвердите?](../themes/ai-operating-model.md#ops-ai-build-buy-exit)**
   - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-ai-build-buy-exit)
+- **[Несколько продуктовых команд работают через один внутренний AI-шлюз. Как сделать так, чтобы трафик, данные и кеши одной команды не влияли на другую?](../themes/ai-operating-model.md#ops-tenant-isolation)**
+  - System design · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-tenant-isolation)
+- **[Провайдер объявил, что версия модели, от которой зависят ваши продукты, будет отключена через три месяца. Как вы проведёте переход во всех командах, которые её используют?](../themes/ai-operating-model.md#ops-model-deprecation)**
+  - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-model-deprecation)
+- **[Расходы на инференс общей AI-платформы за квартал удвоились, и ни одна команда не признаёт счёт своим. Как сделать расходы относимыми и управляемыми?](../themes/ai-operating-model.md#ops-cost-attribution)**
+  - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-cost-attribution)
+- **[Задержка и доступность вашей AI-платформы зависят от внешнего провайдера моделей. Что вы пообещаете внутренним командам и как будете это обещание выполнять?](../themes/ai-operating-model.md#ops-platform-slo)**
+  - System design · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#ops-platform-slo)
 - **[Во время AI-развёртывания поставщик меняет поведение модели, и вредные действия затрагивают клиентов. Немедленно вернуть прежнюю модель невозможно. Как руководитель программы вы организуете сдерживание инцидента, работу с клиентами и обоснованный повторный запуск?](../themes/program-delivery.md#prog-incident-without-rollback)**
   - Прикладной сценарий · [Программы и delivery](../themes/program-delivery.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-incident-without-rollback)
 

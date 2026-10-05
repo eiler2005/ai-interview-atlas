@@ -86,6 +86,7 @@ class Content:
     questions: list[dict]
     radar: dict | None
     guide: dict | None = None
+    roadmap: dict | None = None
 
     @property
     def families(self) -> list[dict]:
@@ -168,6 +169,8 @@ def load(content_dir: Path, *, today: date | None = None) -> Content:
     radar = document(radar_path, "radar") if radar_path.is_file() else None
     guide_path = content_dir / "roles.yaml"
     guide = document(guide_path, "rolesFile") if guide_path.is_file() else None
+    roadmap_path = content_dir / "roadmap.yaml"
+    roadmap = document(roadmap_path, "roadmap") if roadmap_path.is_file() else None
     for name, text in raw.items():
         problems.extend(_scan_text(name, text))
     if problems:
@@ -179,7 +182,7 @@ def load(content_dir: Path, *, today: date | None = None) -> Content:
         if data["theme"] != stem:
             problems.append(f"questions/{stem}.yaml: theme must match the file name")
         questions += [{**question, "theme": data["theme"]} for question in data["questions"]]
-    content = Content(taxonomy, sources, companies, questions, radar, guide)
+    content = Content(taxonomy, sources, companies, questions, radar, guide, roadmap)
     problems += _check_taxonomy(content)
     problems += _check_sources(content, today)
     problems += _check_companies(content, today)

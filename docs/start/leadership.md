@@ -165,3 +165,15 @@ See the [coverage audit](../research/ATLAS_COVERAGE_AUDIT.md), [Engineering rese
   - Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-incident-without-rollback)
 - **76. [Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?](../themes/engineering-leadership.md#lead-ai-interview-redesign)**
   - Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-interview-redesign)
+- **77. [Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?](../themes/ai-operating-model.md#ops-tenant-isolation)**
+  - System design · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-tenant-isolation)
+- **78. [A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?](../themes/ai-operating-model.md#ops-model-deprecation)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-model-deprecation)
+- **79. [Inference spend on a shared AI platform doubles in a quarter and no team recognises the bill as theirs. How would you make the cost attributable and controllable?](../themes/ai-operating-model.md#ops-cost-attribution)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-cost-attribution)
+- **80. [Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?](../themes/ai-operating-model.md#ops-platform-slo)**
+  - System design · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-platform-slo)
+- **81. [Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Safety, security and governance](../themes/safety-security-governance.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#sec-red-team)
+- **82. [Your organisation adopted AI coding tools and leadership wants to know whether they worked. How would you answer that credibly?](../themes/engineering-leadership.md#lead-ai-productivity-claim)**
+  - Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-productivity-claim)

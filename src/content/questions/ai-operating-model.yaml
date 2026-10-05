@@ -267,3 +267,264 @@ questions:
     reading:
     - uk-cloud-lock-in
     - aws-cost-optimization
+  - id: ops-tenant-isolation
+    tracks:
+    - engineering
+    - leadership
+    roles:
+    - ai-platform-engineer
+    - ai-platform-lead
+    type: system_design
+    text:
+      en: Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches
+        from affecting another's?
+      ru: Несколько продуктовых команд работают через один внутренний AI-шлюз. Как сделать так, чтобы трафик, данные
+        и кеши одной команды не влияли на другую?
+    tests:
+      en: Whether isolation is decided per shared resource instead of being assumed from the fact that the platform
+        is managed centrally.
+      ru: Решаете ли вы вопрос изоляции по каждому общему ресурсу, а не считаете её следствием того, что платформа
+        управляется централизованно.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:ai-operating-model
+    start_here:
+    - engineering
+    - leadership
+    priority: 84
+    outline:
+      en:
+      - Name the shared resources — provider quota, gateway capacity, prompt and embedding caches, logs and evaluation
+        data — because each needs its own isolation decision.
+      - Give each tenant its own credentials, quota and rate limit, and key caches by tenant unless the cached content
+        is demonstrably public.
+      - 'Decide what may cross the boundary: aggregate cost and latency telemetry may, prompts and completions may
+        not; scope who can read traces, and for how long.'
+      ru:
+      - 'Перечислить общие ресурсы — квоту провайдера, мощность шлюза, кеши промптов и эмбеддингов, логи и данные
+        оценки: по каждому нужно отдельное решение об изоляции.'
+      - Выдать каждому арендатору свои ключи, квоту и ограничение частоты, а кеши разделять по арендаторам, если
+        содержимое не является заведомо публичным.
+      - 'Определить, что пересекает границу: агрегированная телеметрия стоимости и задержек — да, промпты и ответы
+        — нет; ограничить, кто и как долго может читать трассировки.'
+    answer:
+      en: I would decide isolation per shared resource rather than once for the gateway. The resources are provider
+        quota, the gateway's own capacity, prompt and embedding caches, request logs and evaluation data. Each tenant
+        gets its own credentials, quota and rate limit, so a retry storm in one team degrades only that team; without
+        per-tenant limits one incident consumes the shared quota. Caches are keyed by tenant by default. A shared
+        prefix cache does not hand one tenant another's text, but a cache hit is faster than a miss, so timing reveals
+        whether a prefix has been seen before — worth closing where prompts are themselves sensitive. Logs carry
+        prompts and completions, so I would scope read access per tenant and set retention, while aggregate cost
+        and latency telemetry stays central. I would test isolation by loading one tenant and watching the others.
+        Strict isolation costs cache hit rate and money; where every tenant is one legal entity under one data policy,
+        I would say so and relax it deliberately.
+      ru: Я решаю вопрос изоляции по каждому общему ресурсу, а не один раз для шлюза целиком. Общие ресурсы — квота
+        провайдера, мощность самого шлюза, кеши промптов и эмбеддингов, логи запросов и данные оценки. Каждый арендатор
+        получает свои ключи, квоту и ограничение частоты, поэтому шторм повторов у одной команды ухудшает работу
+        только этой команды; без персональных лимитов один инцидент съедает общую квоту. Кеши по умолчанию разделяются
+        по арендаторам. Общий кеш префиксов не передаёт чужой текст, но попадание в кеш быстрее промаха, поэтому
+        по времени ответа видно, встречался ли префикс раньше; там, где сами промпты чувствительны, этот канал стоит
+        закрыть. В логах лежат промпты и ответы, поэтому доступ к трассировкам я ограничиваю арендатором и задаю
+        срок хранения, а агрегированная телеметрия стоимости и задержек остаётся общей. Изоляцию проверяю нагрузкой
+        на одного арендатора, наблюдая за остальными. Строгая изоляция стоит попаданий в кеш и денег; если все арендаторы
+        — одно юридическое лицо с одной политикой данных, я скажу это прямо и ослаблю её осознанно.
+    reading:
+    - azure-multitenant
+    - claude-prompt-caching
+    - stripe-rate-limiters
+  - id: ops-model-deprecation
+    tracks:
+    - engineering
+    - leadership
+    roles:
+    - ai-platform-engineer
+    - ai-platform-lead
+    - engineering-director
+    type: applied_scenario
+    text:
+      en: A provider announces that a model version your products depend on retires in three months. How would you
+        run the migration across the teams that use it?
+      ru: Провайдер объявил, что версия модели, от которой зависят ваши продукты, будет отключена через три месяца.
+        Как вы проведёте переход во всех командах, которые её используют?
+    tests:
+      en: Whether a model version is treated as a dependency with a lifecycle rather than a setting that can be
+        swapped.
+      ru: Считаете ли вы версию модели зависимостью с жизненным циклом, а не настройкой, которую можно просто поменять.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:ai-operating-model
+    start_here:
+    - engineering
+    - leadership
+    priority: 85
+    outline:
+      en:
+      - 'Find the real usage first: which services, prompts, evaluations and tuned models are pinned to that version,
+        and which behaviour each one relies on.'
+      - Re-run each team's evaluation on the replacement before anything moves; a model change is a behaviour change,
+        so prompt and threshold work belongs inside the migration.
+      - Sequence the move behind a flag while the old version still answers, so rollback is real, and leave behind
+        the pinning and inventory the next deprecation will need.
+      ru:
+      - 'Сначала выяснить реальное использование: какие сервисы, промпты, оценки и дообученные модели закреплены
+        за этой версией и на какое поведение каждый из них опирается.'
+      - 'Прогнать оценки каждой команды на замене до любого переключения: смена модели меняет поведение, поэтому
+        работа с промптами и порогами входит в сам переход.'
+      - Переключать по этапам под флагом, пока старая версия ещё отвечает, чтобы откат был настоящим, и оставить
+        после себя закрепление версий и реестр, которые понадобятся при следующем отключении.
+    answer:
+      en: 'The deadline is fixed and the risk is schedule, not technology, so I would start with an inventory: which
+        services, prompts, evaluation baselines and tuned models name that version, and what each depends on. A
+        model version is a dependency, and treating it as a configuration value is how a quiet regression ships.
+        Each owning team re-runs its evaluation against the replacement before anything moves, because a new version
+        changes behaviour: prompts, output formats and thresholds usually need work, and that work is part of the
+        migration rather than a follow-up. I would move services one at a time behind a flag while the old version
+        still answers, so rollback is real rather than theoretical, and I would keep the riskiest and the highest-traffic
+        cases apart. What I would leave behind matters as much: pinned versions, an inventory that stays current
+        and an owner per integration. This is harder where a tuned model has no equivalent on the new version; then
+        retraining, not migration, is the real plan.'
+      ru: 'Срок задан извне, и риск здесь в расписании, а не в технологии, поэтому я начинаю с реестра: какие сервисы,
+        промпты, базовые оценки и дообученные модели ссылаются на эту версию и на что именно каждый из них опирается.
+        Версия модели — это зависимость, и отношение к ней как к значению в конфигурации — обычный путь к незаметной
+        деградации. Каждая команда-владелец прогоняет свои оценки на замене до любого переключения: новая версия
+        меняет поведение, поэтому промпты, форматы вывода и пороги обычно требуют доработки, и эта доработка входит
+        в переход, а не следует за ним. Сервисы я перевожу по одному под флагом, пока старая версия ещё отвечает,
+        чтобы откат был настоящим, и развожу во времени самые рискованные и самые нагруженные случаи. Не менее важно,
+        что останется после: закреплённые версии, поддерживаемый реестр и владелец у каждой интеграции. Сложнее
+        там, где у дообученной модели нет аналога на новой версии: тогда настоящий план — переобучение, а не переход.'
+    reading:
+    - uk-cloud-lock-in
+    - google-rules-of-ml
+  - id: ops-cost-attribution
+    tracks:
+    - leadership
+    roles:
+    - ai-platform-lead
+    - engineering-director
+    - ai-transformation-lead
+    type: applied_scenario
+    text:
+      en: Inference spend on a shared AI platform doubles in a quarter and no team recognises the bill as theirs.
+        How would you make the cost attributable and controllable?
+      ru: Расходы на инференс общей AI-платформы за квартал удвоились, и ни одна команда не признаёт счёт своим.
+        Как сделать расходы относимыми и управляемыми?
+    tests:
+      en: Whether spend is connected to a unit someone owns, and whether control changes behaviour without stopping
+        useful work.
+      ru: Связываете ли вы расходы с единицей, у которой есть владелец, и меняет ли контроль поведение, не останавливая
+        полезную работу.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:ai-operating-model
+    start_here:
+    - leadership
+    priority: 86
+    outline:
+      en:
+      - 'Attribute before you limit: tag every call with team, feature and environment, and report cost per request
+        and per successful task, not only the monthly total.'
+      - Find what actually moved — traffic, longer context, a model change, retries or evaluation runs — because
+        each has a different remedy.
+      - Give each team a budget and an alert it owns, and keep a route for deliberate overspend; a hard cap with
+        no exception pushes work onto unmanaged accounts.
+      ru:
+      - 'Сначала научиться относить, потом ограничивать: помечать каждый вызов командой, функцией и средой и показывать
+        стоимость запроса и успешно решённой задачи, а не только сумму за месяц.'
+      - 'Выяснить, что именно изменилось — трафик, длина контекста, смена модели, повторы или прогоны оценок: у
+        каждой причины своё лечение.'
+      - 'Дать каждой команде бюджет и оповещение, которыми она владеет, и сохранить путь для осознанного перерасхода:
+        жёсткий потолок без исключений выталкивает работу в неуправляемые аккаунты.'
+    answer:
+      en: 'Nobody owns a number they cannot see, so attribution comes before control. I would tag every call with
+        team, feature and environment at the gateway, then report cost per request and cost per successful task
+        alongside the total; the second unit is the honest one, because a cheaper model that fails more often can
+        raise the bill. Then I would find what moved. Doubling has different causes — more traffic, longer prompts
+        or retrieved context, a switch to a more capable model, retries after timeouts, or evaluation runs charged
+        to production — and each has its own remedy: caching a stable prefix, trimming context, routing easy work
+        to a smaller model, or fixing the retry policy. Each team then gets a budget and an alert it owns, with
+        a documented way to ask for more. I would avoid a hard cap with no exception path: it does not remove the
+        demand, it moves it to accounts nobody is watching. Showback is usually enough; chargeback is worth it only
+        where teams genuinely control their own volume.'
+      ru: 'Никто не владеет числом, которого не видит, поэтому отнесение расходов идёт раньше контроля. На шлюзе
+        я помечаю каждый вызов командой, функцией и средой, а затем показываю рядом с общей суммой стоимость запроса
+        и стоимость успешно решённой задачи; честнее вторая единица, потому что более дешёвая модель, которая чаще
+        ошибается, способна увеличить счёт. Дальше ищу, что изменилось. У удвоения разные причины — рост трафика,
+        удлинение промптов или найденного контекста, переход на более сильную модель, повторы после таймаутов, прогоны
+        оценок, отнесённые на продакшен, — и у каждой своё лечение: кеширование стабильного префикса, сокращение
+        контекста, маршрутизация простых задач на меньшую модель, исправление политики повторов. После этого каждая
+        команда получает бюджет и оповещение, которыми владеет, и понятный способ попросить больше. Жёсткого потолка
+        без исключений я избегаю: он не убирает потребность, а переносит её в аккаунты, за которыми никто не следит.
+        Обычно достаточно показывать расходы; перекладывать их на команды стоит лишь там, где команда действительно
+        управляет своим объёмом.'
+    reading:
+    - aws-cost-optimization
+    - claude-prompt-caching
+  - id: ops-platform-slo
+    tracks:
+    - engineering
+    - leadership
+    roles:
+    - ai-platform-engineer
+    - ai-platform-lead
+    type: system_design
+    text:
+      en: Your AI platform's latency and availability depend on an external model provider. What would you promise
+        internal teams, and how would you keep that promise?
+      ru: Задержка и доступность вашей AI-платформы зависят от внешнего провайдера моделей. Что вы пообещаете внутренним
+        командам и как будете это обещание выполнять?
+    tests:
+      en: Whether a service level comes from measured behaviour and controls you own, rather than from a provider's
+        published figure.
+      ru: Опирается ли уровень сервиса на измеренное поведение и собственные механизмы, а не на опубликованные цифры
+        провайдера.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:ai-operating-model
+    start_here:
+    - engineering
+    - leadership
+    priority: 87
+    outline:
+      en:
+      - Measure what a user feels — end-to-end latency at a high percentile and the share of requests that finish
+        usefully — not the provider's own uptime number.
+      - 'Promise only what your own controls can hold: timeouts, a retry budget, a smaller fallback model, a degraded
+        answer, and a queue for work that can wait.'
+      - Publish the error budget and what happens when it is spent, and say plainly which failure modes remain outside
+        your control.
+      ru:
+      - Измерять то, что чувствует пользователь, — сквозную задержку на высоком перцентиле и долю запросов, завершившихся
+        с пользой, — а не показатель доступности самого провайдера.
+      - 'Обещать лишь то, что удержат собственные механизмы: таймауты, бюджет повторов, меньшая резервная модель,
+        упрощённый ответ и очередь для работы, которая может подождать.'
+      - Опубликовать бюджет ошибок и то, что происходит после его исчерпания, и прямо назвать отказы, которые остаются
+        вне вашего контроля.
+    answer:
+      en: 'I would promise an end-to-end objective the platform can actually hold, stated in what a caller feels:
+        latency at a high percentile and the share of requests that finish usefully, measured at our edge rather
+        than taken from the provider''s uptime page. Availability I do not control is not a promise I can make,
+        so the objective rests on the controls I own — a timeout that matches the caller''s deadline, a bounded
+        retry budget, a smaller fallback model, a degraded but honest answer, and a queue for work that can wait.
+        Retries deserve care: naive retries during provider overload add load to a system already failing. The fallback
+        changes answer quality, so it needs its own evaluation and the caller needs to know which path served them.
+        I would publish an error budget, say what happens when it is spent, and name the failure modes that stay
+        outside my control. Where a team needs a stronger guarantee than that, the answer is a second provider or
+        capacity we reserve, and both cost money.'
+      ru: 'Я обещаю сквозной показатель, который платформа действительно удержит, и формулирую его в том, что чувствует
+        вызывающая сторона: задержка на высоком перцентиле и доля запросов, завершившихся с пользой, измеренные
+        на нашей границе, а не взятые со страницы доступности провайдера. Доступность, которой я не управляю, обещанием
+        быть не может, поэтому цель опирается на собственные механизмы: таймаут под срок вызывающей стороны, ограниченный
+        бюджет повторов, меньшая резервная модель, упрощённый, но честный ответ и очередь для работы, которая может
+        подождать. С повторами нужно быть осторожным: наивные повторы во время перегрузки провайдера добавляют нагрузку
+        системе, которая уже отказывает. Резервный путь меняет качество ответа, поэтому у него должна быть своя
+        оценка, а вызывающая сторона должна видеть, каким путём её обслужили. Я публикую бюджет ошибок, описываю,
+        что происходит после его исчерпания, и прямо называю отказы, которые остаются вне моего контроля. Если команде
+        нужна более сильная гарантия, ответ — второй провайдер или зарезервированная мощность, и то и другое стоит
+        денег.'
+    reading:
+    - google-sre-book
+    - stripe-rate-limiters

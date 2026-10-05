@@ -5,7 +5,7 @@ English · [Русский](../ru/answers/leadership.md) · [AI Interview Atlas]
 
 Written answers to the priority questions of this track, in the same order and numbering as *Start here*. Answer each question yourself first: what follows is one good answer, not the only correct one, and an interviewer is listening to your reasoning rather than checking your wording.
 
-Answers written: 76 of 76.
+Answers written: 82 of 82.
 
 ## <a id="contents"></a>Contents
 
@@ -17,6 +17,7 @@ Answers written: 76 of 76.
   - [5. Describe a situation where delivery pressure conflicted with security or safety concerns. How did you decide what to do?](#sec-delivery-pressure)
   - [53. A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?](#sec-guardrail-exception)
   - [68. How would you weigh a performance improvement against reduced model interpretability?](#sec-interpretability-tradeoff)
+  - [81. Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?](#sec-red-team)
 - **AI product strategy and metrics**
   - [6. How would you improve ChatGPT for enterprise customers?](#prod-enterprise-assistant)
   - [7. A model offers much greater capability but costs ten times as much. How would you decide what product to build with it?](#prod-capability-cost)
@@ -42,6 +43,10 @@ Answers written: 76 of 76.
   - [69. Design a service that lets several teams query a shared dataset without exposing the underlying raw records.](#ops-shared-data-access)
   - [71. You own the next quarter’s AI investment portfolio. A 30% budget cut affects a revenue pilot, a mandatory risk-control project and shared evaluation infrastructure. How would you reallocate money and people and secure executive agreement?](#ops-ai-portfolio-allocation)
   - [72. As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?](#ops-ai-build-buy-exit)
+  - [77. Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?](#ops-tenant-isolation)
+  - [78. A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?](#ops-model-deprecation)
+  - [79. Inference spend on a shared AI platform doubles in a quarter and no team recognises the bill as theirs. How would you make the cost attributable and controllable?](#ops-cost-attribution)
+  - [80. Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?](#ops-platform-slo)
 - **Leading engineering teams**
   - [18. How would you handle an engineer who is not meeting performance expectations?](#lead-low-performance)
   - [19. How would you handle a high-performing engineer whose behaviour repeatedly creates conflict with teammates?](#lead-disruptive-star)
@@ -59,6 +64,7 @@ Answers written: 76 of 76.
   - [61. Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?](#lead-platform-team-charter)
   - [73. You manage three engineering managers delivering a shared AI initiative. Two blame each other for an evaluation gap while the executive sponsor has promised a launch date. How would you restore accountability without taking over their teams?](#lead-managers-accountability)
   - [76. Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?](#lead-ai-interview-redesign)
+  - [82. Your organisation adopted AI coding tools and leadership wants to know whether they worked. How would you answer that credibly?](#lead-ai-productivity-claim)
 - **Programmes and delivery**
   - [25. Walk through the most difficult product launch you led.](#prog-difficult-launch)
   - [26. Three weeks before launching an LLM feature, evaluation reveals substantial hallucinations on edge cases. What happens next?](#prog-prelaunch-hallucinations)
@@ -854,5 +860,65 @@ Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-conten
 I would start with the work the hire must perform: framing a problem, checking an unfamiliar change, diagnosing failure and explaining a decision. Then I would identify which existing tasks now mostly measure access to an assistant. Each stage needs an explicit policy: tools may be permitted for realistic work, restricted for a particular independent skill, or supplied in a controlled environment. Candidates should know the policy beforehand and have comparable access. I would score observable reasoning, verification, corrections and ownership, using a follow-up change that exposes whether the candidate understands the result. Before rollout, current engineers and trained interviewers should try the tasks and reconcile scoring disagreements. I would monitor candidate experience and later work outcomes, while acknowledging that small, selectively hired samples cannot establish predictive validity. The goal is a defensible hiring decision, not winning an arms race with assistants.
 
 Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/)
+
+[↑ Contents](#contents)
+
+### <a id="ops-tenant-isolation"></a>77. Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?
+
+*System design · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-tenant-isolation)*
+
+I would decide isolation per shared resource rather than once for the gateway. The resources are provider quota, the gateway's own capacity, prompt and embedding caches, request logs and evaluation data. Each tenant gets its own credentials, quota and rate limit, so a retry storm in one team degrades only that team; without per-tenant limits one incident consumes the shared quota. Caches are keyed by tenant by default. A shared prefix cache does not hand one tenant another's text, but a cache hit is faster than a miss, so timing reveals whether a prefix has been seen before — worth closing where prompts are themselves sensitive. Logs carry prompts and completions, so I would scope read access per tenant and set retention, while aggregate cost and latency telemetry stays central. I would test isolation by loading one tenant and watching the others. Strict isolation costs cache hit rate and money; where every tenant is one legal entity under one data policy, I would say so and relax it deliberately.
+
+Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview) · [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters)
+
+[↑ Contents](#contents)
+
+### <a id="ops-model-deprecation"></a>78. A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?
+
+*Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-model-deprecation)*
+
+The deadline is fixed and the risk is schedule, not technology, so I would start with an inventory: which services, prompts, evaluation baselines and tuned models name that version, and what each depends on. A model version is a dependency, and treating it as a configuration value is how a quiet regression ships. Each owning team re-runs its evaluation against the replacement before anything moves, because a new version changes behaviour: prompts, output formats and thresholds usually need work, and that work is part of the migration rather than a follow-up. I would move services one at a time behind a flag while the old version still answers, so rollback is real rather than theoretical, and I would keep the riskiest and the highest-traffic cases apart. What I would leave behind matters as much: pinned versions, an inventory that stays current and an owner per integration. This is harder where a tuned model has no equivalent on the new version; then retraining, not migration, is the real plan.
+
+Read: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml)
+
+[↑ Contents](#contents)
+
+### <a id="ops-cost-attribution"></a>79. Inference spend on a shared AI platform doubles in a quarter and no team recognises the bill as theirs. How would you make the cost attributable and controllable?
+
+*Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-cost-attribution)*
+
+Nobody owns a number they cannot see, so attribution comes before control. I would tag every call with team, feature and environment at the gateway, then report cost per request and cost per successful task alongside the total; the second unit is the honest one, because a cheaper model that fails more often can raise the bill. Then I would find what moved. Doubling has different causes — more traffic, longer prompts or retrieved context, a switch to a more capable model, retries after timeouts, or evaluation runs charged to production — and each has its own remedy: caching a stable prefix, trimming context, routing easy work to a smaller model, or fixing the retry policy. Each team then gets a budget and an alert it owns, with a documented way to ask for more. I would avoid a hard cap with no exception path: it does not remove the demand, it moves it to accounts nobody is watching. Showback is usually enough; chargeback is worth it only where teams genuinely control their own volume.
+
+Read: [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) · [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+
+[↑ Contents](#contents)
+
+### <a id="ops-platform-slo"></a>80. Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?
+
+*System design · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-platform-slo)*
+
+I would promise an end-to-end objective the platform can actually hold, stated in what a caller feels: latency at a high percentile and the share of requests that finish usefully, measured at our edge rather than taken from the provider's uptime page. Availability I do not control is not a promise I can make, so the objective rests on the controls I own — a timeout that matches the caller's deadline, a bounded retry budget, a smaller fallback model, a degraded but honest answer, and a queue for work that can wait. Retries deserve care: naive retries during provider overload add load to a system already failing. The fallback changes answer quality, so it needs its own evaluation and the caller needs to know which path served them. I would publish an error budget, say what happens when it is spent, and name the failure modes that stay outside my control. Where a team needs a stronger guarantee than that, the answer is a second provider or capacity we reserve, and both cost money.
+
+Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters)
+
+[↑ Contents](#contents)
+
+### <a id="sec-red-team"></a>81. Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?
+
+*System design · [Safety, security and governance](../themes/safety-security-governance.md) · [Checklist](../themes/safety-security-governance.md#sec-red-team)*
+
+I would start from the harms rather than the techniques, and from two different attackers: a user trying to make the product do something it should not, and untrusted content the model reads — a web page, a document, a tool result — that carries instructions. The second matters more once the assistant has tools, because the damage is an action, not a sentence. Coverage comes from mixing automated generation of many variants with people who did not build the system, and from logging every attempt rather than the successes alone, so the suite can be re-run against the next version and coverage can be argued. Findings go to named owners with fixes, and I would distinguish blocking a class of attack from one phrasing that stopped working. The honest claim at the end is narrow: the attacks we tried, at this version, mostly failed. That is not a safety proof — prompt injection has no complete fix today — so it has to sit on top of least privilege and confirmation for consequential actions.
+
+Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/)
+
+[↑ Contents](#contents)
+
+### <a id="lead-ai-productivity-claim"></a>82. Your organisation adopted AI coding tools and leadership wants to know whether they worked. How would you answer that credibly?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-ai-productivity-claim)*
+
+I would first make the question answerable, because "did they work" hides four different claims: faster delivery, more change shipped, better quality, or less drudgery. They need different evidence and can move in opposite directions — more code merged with a higher change failure rate is not a win. I would report outcomes a customer feels, such as delivery lead time and change failure rate, rather than accepted suggestions or lines generated, which measure adoption and rise whenever people use the tool. Any number needs a comparison: a staged rollout gives the cleanest one, otherwise comparable teams, or before and after with the confounders named — hiring, reorganisation, seasonality, a big migration. I would also measure where the effort moved, since generated code shifts load onto review, and a gain in authoring that reappears as review backlog is not a gain. Developer surveys are weak evidence of time saved but good evidence of where friction is. I would state plainly what this design cannot settle rather than imply causation.
+
+Read: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml)
 
 [↑ Contents](#contents)

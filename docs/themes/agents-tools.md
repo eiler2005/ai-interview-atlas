@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/agents-tools.md) · [AI Interview Atlas
 
 Agent loops, tool design, memory, termination, human approval and protocols such as MCP.
 
-On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-engineering)
+On this page: [Both tracks (4)](#track-both) · [AI Engineering (15)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -156,5 +156,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Separate them from prompt instructions on role, tone and format; an enforced output schema is an API setting.
     - Show each setting's effect on repeated samples, and check which ones a given API actually accepts.
   - Read: [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (Holtzman et al., arXiv)
+- <a id="agt-context-budget"></a>**An agent's context fills up over a long task. How would you decide what stays in the window, what is summarised and what moves out of it?**
+  - System design · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#agt-context-budget) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-context-budget&title=%5BCorrection%5D%20agt-context-budget)
+  - Tests: Whether you treat the context window as a budget with measurable costs rather than as space to fill.
+  - A strong answer covers:
+    - Separate what the next step needs from what only the record needs: keep the goal, the current plan and recent observations, and move finished detail to a store the agent can search.
+    - Compact at boundaries you choose, such as a completed sub-task, and keep identifiers, open questions and decisions verbatim, because a later step reads those back.
+    - Measure the cost: tokens and latency per step, and task success as the window fills; effective context is usually well short of the advertised limit.
+  - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic) · [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (Liu et al., arXiv) · [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654) (Hsieh et al., arXiv)
 
 ← [RAG and retrieval](rag-retrieval.md) · [Fine-tuning and post-training](post-training.md) →

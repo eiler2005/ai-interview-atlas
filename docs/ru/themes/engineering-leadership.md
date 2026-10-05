@@ -5,7 +5,7 @@
 
 Найм, развитие, работа с результативностью, устройство команд и доставка для команд, которые строят AI.
 
-На этой странице: [Оба трека (1)](#track-both) · [AI-лидерство (19)](#track-leadership)
+На этой странице: [Оба трека (1)](#track-both) · [AI-лидерство (20)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -172,5 +172,13 @@
     - Назначить ответственного за решение и границы взаимодействия, сохранив кадровую и исполнительскую ответственность менеджеров.
     - Согласовать со спонсором варианты на основе данных, отдельно развивать менеджеров и проверить, решит ли организация следующий конфликт без вас.
   - Читать: [Director, Engineering](https://handbook.gitlab.com/job-description-library/engineering/development/management/director/) (GitLab Handbook) · [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook) · [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html) (Martin Fowler)
+- <a id="lead-ai-productivity-claim"></a>**Организация внедрила AI-инструменты для разработки, и руководство хочет знать, дали ли они результат. Как вы ответите на этот вопрос убедительно?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-ai-productivity-claim) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-productivity-claim&title=%5BCorrection%5D%20lead-ai-productivity-claim)
+  - Что проверяет: Выбираете ли вы показатель, который выдержит проверку, и признаёте ли, что имеющиеся данные не могут решить.
+  - Сильный ответ покрывает:
+    - Сначала уточнить само утверждение — быстрее поставка, больше изменений, выше качество или меньше рутины: для каждого нужны свои данные, и двигаться они могут в разные стороны.
+    - Предпочитать результаты, которые чувствует заказчик, такие как время от задачи до поставки и доля неудачных изменений, счётчикам активности вроде принятых подсказок: те растут от использования инструмента, а не от улучшения работы.
+    - Сравнивать с чем-то — поэтапное внедрение, сопоставимые команды или те же команды до и после — и прямо назвать мешающие факторы, которые устранить не удалось.
+  - Читать: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) (Microsoft Research) · [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
 
 ← [AI-платформа и операционная модель](ai-operating-model.md) · [Программы и delivery](program-delivery.md) →

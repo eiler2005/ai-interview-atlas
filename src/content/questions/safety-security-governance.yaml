@@ -546,3 +546,70 @@ questions:
         - "Поставить под обученной политикой независимый слой безопасности, обеспечивающий пределы скорости, силы и рабочих зон."
         - "Сделать безопасную остановку режимом отказа, проверить её внесением неисправностей и считать лишние остановки ценой."
     reading: ["osha-robot-safety", "paper-concrete-problems"]
+  - id: sec-red-team
+    tracks:
+    - engineering
+    - leadership
+    roles:
+    - eval-engineer
+    - ai-engineer
+    - ai-platform-lead
+    type: system_design
+    text:
+      en: Before launching an assistant that can use tools, how would you organise adversarial testing, and what
+        would a clean result let you claim?
+      ru: 'Перед запуском ассистента с доступом к инструментам: как вы организуете состязательное тестирование и
+        что позволит утверждать чистый результат?'
+    tests:
+      en: Whether adversarial testing is planned for coverage and tied to a decision, and whether its limits are
+        stated honestly.
+      ru: Планируется ли состязательное тестирование ради покрытия и связано ли оно с решением о запуске, и честно
+        ли названы его границы.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:safety-security-governance
+    start_here:
+    - engineering
+    - leadership
+    priority: 88
+    outline:
+      en:
+      - Name the harms and both attacker positions first — a user misusing the product, and untrusted content the
+        model reads — then choose cases that cover each.
+      - Combine automated generation with people who did not build the system, and record every attempt rather than
+        only the successes, so coverage is visible and can be re-run on the next version.
+      - Tie findings to the release decision with owners and fixes, and separate a class of attack that is now blocked
+        from one example that stopped working.
+      ru:
+      - Сначала назвать ущерб и обе позиции атакующего — пользователь, злоупотребляющий продуктом, и недоверенный
+        текст, который читает модель, — и подобрать случаи под каждую.
+      - Сочетать автоматическую генерацию с людьми, которые систему не строили, и записывать все попытки, а не только
+        удачные, чтобы покрытие было видно и его можно было повторить на следующей версии.
+      - Связать находки с решением о запуске, назначив владельцев и исправления, и отличать заблокированный класс
+        атак от одного переставшего работать примера.
+    answer:
+      en: 'I would start from the harms rather than the techniques, and from two different attackers: a user trying
+        to make the product do something it should not, and untrusted content the model reads — a web page, a document,
+        a tool result — that carries instructions. The second matters more once the assistant has tools, because
+        the damage is an action, not a sentence. Coverage comes from mixing automated generation of many variants
+        with people who did not build the system, and from logging every attempt rather than the successes alone,
+        so the suite can be re-run against the next version and coverage can be argued. Findings go to named owners
+        with fixes, and I would distinguish blocking a class of attack from one phrasing that stopped working. The
+        honest claim at the end is narrow: the attacks we tried, at this version, mostly failed. That is not a safety
+        proof — prompt injection has no complete fix today — so it has to sit on top of least privilege and confirmation
+        for consequential actions.'
+      ru: 'Я иду от ущерба, а не от приёмов, и от двух разных атакующих: пользователя, который пытается заставить
+        продукт сделать недопустимое, и недоверенного текста, который читает модель, — страницы, документа, результата
+        инструмента, — содержащего инструкции. Второй важнее, когда у ассистента есть инструменты: там ущерб — это
+        действие, а не фраза. Покрытие даёт сочетание автоматической генерации множества вариантов с людьми, которые
+        систему не строили, и запись всех попыток, а не только удачных: тогда набор можно прогнать на следующей
+        версии и обсуждать покрытие предметно. Находки уходят названным владельцам вместе с исправлениями, и я отличаю
+        заблокированный класс атак от одной формулировки, которая перестала срабатывать. Честное итоговое утверждение
+        узкое: атаки, которые мы пробовали, на этой версии в основном не прошли. Это не доказательство безопасности
+        — полного решения против внедрения инструкций сегодня нет, — поэтому оно должно опираться на минимальные
+        права и подтверждение значимых действий.'
+    reading:
+    - owasp-llm-top-10
+    - nist-ai-rmf
+    - willison-prompt-injection

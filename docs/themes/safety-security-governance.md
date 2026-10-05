@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/safety-security-governance.md) · [AI I
 
 Prompt injection, data exfiltration, guardrails, privacy, red-teaming, and the regulation and risk frameworks leaders are accountable for.
 
-On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-leadership)
+On this page: [Both tracks (11)](#track-both) · [AI Leadership (8)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -89,6 +89,14 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Put an independent safety layer under the policy that enforces speed, force and zone limits.
     - Make a safe stop the fallback, verify it by fault injection, and count needless stops as cost.
   - Read: [OSHA Technical Manual: Industrial Robot Systems and Industrial Robot System Safety](https://www.osha.gov/otm/section-4-safety-hazards/chapter-4) (Occupational Safety and Health Administration) · [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., arXiv)
+- <a id="sec-red-team"></a>**Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?**
+  - System design · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#sec-red-team) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-red-team&title=%5BCorrection%5D%20sec-red-team)
+  - Tests: Whether adversarial testing is planned for coverage and tied to a decision, and whether its limits are stated honestly.
+  - A strong answer covers:
+    - Name the harms and both attacker positions first — a user misusing the product, and untrusted content the model reads — then choose cases that cover each.
+    - Combine automated generation with people who did not build the system, and record every attempt rather than only the successes, so coverage is visible and can be re-run on the next version.
+    - Tie findings to the release decision with owners and fixes, and separate a class of attack that is now blocked from one example that stopped working.
+  - Read: [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) (OWASP Gen AI Security Project) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST) · [Prompt injection (series)](https://simonwillison.net/series/prompt-injection/) (Simon Willison)
 
 ## <a id="track-leadership"></a>AI Leadership
 

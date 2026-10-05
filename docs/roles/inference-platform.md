@@ -7,7 +7,7 @@ AI Engineering / AI Leadership · Roles covered: Inference and performance engin
 
 Makes AI computation and shared services perform: bottlenecks, validated optimisations and telemetry.
 
-On this page: [What the role involves](#scope) · [How it is interviewed (4)](#interviews) · [Questions (14)](#role-questions) · [Preparation](#prep)
+On this page: [What the role involves](#scope) · [How it is interviewed (4)](#interviews) · [Questions (19)](#role-questions) · [Preparation](#prep)
 
 ## <a id="scope"></a>What the role involves
 
@@ -60,6 +60,8 @@ An editorial selection: relevant to the role, but not reported for it.
   - Applied scenario · [Inference, serving and cost](../themes/inference-economics.md) · ✍ [Answer](../answers/engineering.md#inf-cost-reduction)
 - **[After a deployment, p99 latency doubles although model weights are unchanged. How do you isolate the cause?](../themes/inference-economics.md#inf-tail-regression)**
   - Applied scenario · [Inference, serving and cost](../themes/inference-economics.md) · ✍ [Answer](../answers/engineering.md#inf-tail-regression)
+- **[Before launching an assistant that can use tools, how would you organise adversarial testing, and what would a clean result let you claim?](../themes/safety-security-governance.md#sec-red-team)**
+  - System design · [Safety, security and governance](../themes/safety-security-governance.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#sec-red-team)
 - **[Design an LLM gateway with provider routing, failover, caching, rate limits and enforceable spending budgets.](../themes/ai-system-design.md#sd-gateway)**
   - System design · [AI system design](../themes/ai-system-design.md) · ✍ [Answer](../answers/engineering.md#sd-gateway)
 - **[Define a strategy for an internal AI platform, including who owns its success metrics.](../themes/ai-operating-model.md#ops-platform-ownership)**
@@ -68,6 +70,14 @@ An editorial selection: relevant to the role, but not reported for it.
   - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · ✍ [Answer](../answers/leadership.md#ops-restricted-models)
 - **[As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?](../themes/ai-operating-model.md#ops-ai-build-buy-exit)**
   - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-build-buy-exit)
+- **[Several product teams share one internal AI gateway. How would you keep one team's traffic, data and caches from affecting another's?](../themes/ai-operating-model.md#ops-tenant-isolation)**
+  - System design · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-tenant-isolation)
+- **[A provider announces that a model version your products depend on retires in three months. How would you run the migration across the teams that use it?](../themes/ai-operating-model.md#ops-model-deprecation)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-model-deprecation)
+- **[Inference spend on a shared AI platform doubles in a quarter and no team recognises the bill as theirs. How would you make the cost attributable and controllable?](../themes/ai-operating-model.md#ops-cost-attribution)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-cost-attribution)
+- **[Your AI platform's latency and availability depend on an external model provider. What would you promise internal teams, and how would you keep that promise?](../themes/ai-operating-model.md#ops-platform-slo)**
+  - System design · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#ops-platform-slo)
 - **[During an AI rollout, a provider changes model behaviour and harmful actions reach customers. The previous model cannot be restored immediately. As the programme lead, how do you coordinate containment, customer response and a defensible restart?](../themes/program-delivery.md#prog-incident-without-rollback)**
   - Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-incident-without-rollback)
 
