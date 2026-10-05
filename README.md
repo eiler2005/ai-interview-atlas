@@ -3,9 +3,11 @@
 
 English · [Русский](README.ru.md)
 
+![AI Interview Atlas — Engineering & Leadership. Questions, answers and learning paths.](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.1/hero-banner-v2.png)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner.en.dark.svg">
-  <img alt="AI Interview Atlas — Engineering &amp; Leadership. Questions, answers and learning paths." src="docs/assets/banner.en.svg">
+  <img alt="The atlas in numbers: questions, written answers, company loops and dated sources, across the AI Engineering and AI Leadership tracks." src="docs/assets/banner.en.svg">
 </picture>
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
