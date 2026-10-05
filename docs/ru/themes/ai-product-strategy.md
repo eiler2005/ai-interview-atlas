@@ -94,6 +94,7 @@
     - Выбрать первый сегмент и повод и оставить только те модальности, без которых этот повод не работает.
     - Измерять повторное платное использование с ограничениями по дистрессу пользователей и согласию изображённых людей.
     - Проверить готовность платить на пилоте, проводимом вручную, до разработки устройства для запахов.
+  - Читать: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 - <a id="prod-agent-use-cases"></a>**Какие бизнес-сценарии подходят для AI-агентов и как их сравнить?**
   - Продуктовый кейс · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · ✍ [Ответ](../answers/leadership.md#prod-agent-use-cases) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-agent-use-cases&title=%5BCorrection%5D%20prod-agent-use-cases)
   - Что проверяет: Различаете ли вы пользу автономных действий и их эксплуатационную цену.
@@ -125,6 +126,7 @@
     - Привязать каждую возможность к её пользователю, одной метрике результата и предположению, на котором она держится.
     - Сравнить ожидаемую ценность с затратами и уверенностью и назвать, что каждый выбор откладывает или исключает.
     - Сначала вложиться в дешёвые проверки самых шатких предположений и назначить дату пересмотра порядка.
+  - Читать: [Product Management - Leadership](https://handbook.gitlab.com/job-description-library/product/product-management-leadership/) (GitLab Handbook) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-handyman-marketplace"></a>**Спроектируйте продукт, связывающий местных мастеров с заказчиками.**
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-handyman-marketplace&title=%5BCorrection%5D%20prod-handyman-marketplace)
   - Что проверяет: Учитываете ли вы обе стороны маркетплейса и его запуск при малом числе участников.
@@ -132,6 +134,7 @@
     - Назвать обе стороны, решение каждой и то, в чём каждой нужна уверенность: проверка мастеров, цена, оплата.
     - Измерять долю заявок, закрытых выполненной работой, и время до подбора с ограничениями по спорам и повторным заказам.
     - Запуститься в одном районе и одной специальности, набирая мастеров вручную до автоматизации подбора.
+  - Читать: [How to match supply and demand in your marketplace](https://www.sharetribe.com/academy/match-marketplace-supply-and-demand/) (Sharetribe)
 - <a id="prod-product-cannibalisation"></a>**Новый сервис растёт, а месячная аудитория Facebook сокращается. Как оценить, успешен ли сервис?**
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-product-cannibalisation&title=%5BCorrection%5D%20prod-product-cannibalisation)
   - Что проверяет: Умеете ли вы исследовать влияние на весь продуктовый портфель, а не одну метрику.
@@ -139,6 +142,7 @@
     - Выяснить, должен ли сервис приносить новых пользователей и время или перераспределять время между приложениями.
     - Оценить замещение через контрольную группу или сопоставимые когорты, а не сравнением двух кривых.
     - Оценивать по чистому приросту пользователей и ценности портфеля с ограничением по здоровью основного продукта.
+  - Читать: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) (Microsoft Research) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="prod-volunteer-cold-start"></a>**Спроектируйте продукт подбора волонтёров и объясните, как преодолеть холодный старт.**
   - Продуктовый кейс · Senior · Где спрашивали: [Meta](../companies/meta.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-volunteer-cold-start&title=%5BCorrection%5D%20prod-volunteer-cold-start)
   - Что проверяет: Умеете ли вы обеспечить первые полезные совпадения до появления масштаба.
@@ -146,6 +150,7 @@
     - Определить, какая сторона в дефиците, и сузиться до одного города и направления, где совпадения реально возможны.
     - Измерять долю опубликованных потребностей, закрытых состоявшейся сменой, с ограничениями по неявкам и оттоку организаций.
     - Первые пары организаций и волонтёров подбирать вручную, проверяя, превращаются ли совпадения в смены.
+  - Читать: [How to match supply and demand in your marketplace](https://www.sharetribe.com/academy/match-marketplace-supply-and-demand/) (Sharetribe)
 - <a id="prod-search-versus-answer"></a>**В чём AI-сервис ответов лучше обычного поиска, а в чём уступает? Что вы улучшите первым?**
   - Продуктовый кейс · Senior · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/leadership.md#prod-search-versus-answer) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-search-versus-answer&title=%5BCorrection%5D%20prod-search-versus-answer)
   - Что проверяет: Сравниваете ли вы продукты через задачи пользователя и качество доказательств.
@@ -161,6 +166,7 @@
     - Выбрать продукт, где результат изменили именно ваши решения, а не самый масштабный командный проект.
     - Изложить бизнес-обоснование, самое рискованное предположение ставки и эксперимент, который его проверил.
     - Закончить измеренным эффектом относительно базовой линии, вашим вкладом в него и тем, что сделали бы иначе.
+  - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) (HM Treasury)
 - <a id="prod-enterprise-ai-pricing"></a>**Как вы установите цену корпоративного AI-продукта, какие затраты обязательно учтёте и как кастомизация под каждого клиента влияет на маржинальность?**
   - Продуктовый кейс · ✍ [Ответ](../answers/leadership.md#prod-enterprise-ai-pricing) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-enterprise-ai-pricing&title=%5BCorrection%5D%20prod-enterprise-ai-pricing)
   - Что проверяет: Умение рассуждать о юнит-экономике и марже, а не только о ценности продукта.
@@ -185,5 +191,13 @@
     - Проверить самое рискованное дёшево: модель офлайн на данных клиента, ручной пилот или обязательство платного пилота.
     - Заранее договориться, какие данные оправдывают разработку, и назвать, чего дешёвая проверка доказать не может.
   - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers)
+- <a id="prod-ai-stop-investment"></a>**Использование AI-продукта растёт, но достоверного улучшения результата клиента нет, а затраты на проверку увеличиваются. Спонсор хочет ещё квартал инвестиций. По каким данным вы расширите, сузите, приостановите или закроете продукт и что сделаете для текущих пользователей?**
+  - Продуктовый кейс · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prod-ai-stop-investment) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prod-ai-stop-investment&title=%5BCorrection%5D%20prod-ai-stop-investment)
+  - Что проверяет: Умеете ли вы отличать использование от дополнительной пользы, оценивать цену оставшейся неопределённости и отвечать за обоснованную остановку.
+  - Сильный ответ покрывает:
+    - Сравнить результат клиента и полную стоимость с обоснованным вариантом без AI или существующим процессом.
+    - Выделить полезный сегмент за средним использованием; определить минимальный эксперимент, способный изменить решение, его бюджет и срок.
+    - Зафиксировать критерии расширения или остановки и полномочия; при закрытии спланировать переход пользователей, поддержку и обращение с данными.
+  - Читать: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) (Microsoft Research) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR)
 
 ← [Практический кодинг](coding-practical.md) · [AI-платформа и операционная модель](ai-operating-model.md) →

@@ -54,13 +54,13 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
   - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [LangChain](../companies/langchain.md) †
   - Источники (Разработчик AI-продуктов): † [LangChain Software Engineer Interview Guide](https://www.tryexponent.com/guides/langchain-software-engineer-interview-guide), Aced (formerly Exponent), проверено 2026-09-29
 - **[Спланируйте продукт вместе с интервьюером, затем примерно за два часа соберите его с любыми AI-инструментами для программирования и защитите решения, код и путь в продакшен.](../themes/coding-practical.md#code-ai-assisted-build)**
-  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Sierra](../companies/sierra.md) ✅
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-build)
   - Источники (Разработчик AI-продуктов): ✅ [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview), Sierra, опубликовано 2026-04-22, проверено 2026-09-29
 - **[Проверьте и доработайте черновой pull request коллеги со сквозной функцией в незнакомой кодовой базе, работая вместе с coding-агентами.](../themes/coding-practical.md#code-agent-pr-review)**
-  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Sierra](../companies/sierra.md) ✅
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-agent-pr-review)
   - Источники (Разработчик AI-продуктов): ✅ [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview), Sierra, опубликовано 2026-04-22, проверено 2026-09-29
 - **[В клоне репозитория продукта реализуйте структуру данных, которую продукт действительно использует; к AI обращайтесь только с точечными вопросами по синтаксису.](../themes/coding-practical.md#code-product-structure)**
-  - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣
+  - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · ✍ [Ответ](../answers/engineering.md#code-product-structure)
   - Источники (Разработчик AI-продуктов): 🗣 [Cursor Software Engineer (New Grad) Interview Experience](https://www.tryexponent.com/experiences/cursor-software-engineer-interview-a9c32f), Aced (formerly Exponent), candidate report, проверено 2026-09-29
 - **[Получив реальную кодовую базу на рабочий день, решите, что построить, выпустите это и объясните свои решения и компромиссы.](../themes/coding-practical.md#code-self-scoped-onsite)**
   - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣
@@ -69,7 +69,7 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
   - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Sierra](../companies/sierra.md) 🗣
   - Источники (Инженер агентов): 🗣 [Sierra AI Agent Engineer Interview Experience](https://www.tryexponent.com/experiences/sierra-ai-machine-learning-engineer-interview-8549fc), Aced (formerly Exponent), candidate report, проверено 2026-09-29
 - **[На сессии с AI-кодингом объясните, какими моделями пользуетесь и почему, как следите за расходом токенов и как задаёте агенту контекст и задачу.](../themes/coding-practical.md#code-agent-session-choices)**
-  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md)
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · ✍ [Ответ](../answers/engineering.md#code-agent-session-choices)
   - Источники (AI/LLM-инженер): 🗣 [Что теперь нужно знать современному LLM-инженеру](https://habr.com/ru/articles/1074242/), Хабр, рассказ кандидата, опубликовано 2026-08-25, проверено 2026-09-29
 
 ### Для практики
@@ -89,7 +89,7 @@ AI-инженерия · Роли: Прикладной AI-инженер, Ин�
 - **[Спроектируйте подтверждение человеком значимых действий агента, связав разрешение с конкретным исполняемым действием.](../themes/agents-tools.md#agt-approval)**
   - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-approval)
 - **[После долгой работы агент уверенно решает не ту задачу. Как найти момент расхождения состояния с целью и восстановить работу?](../themes/agents-tools.md#agt-goal-drift)**
-  - Прикладной сценарий · [Агенты, инструменты и протоколы](../themes/agents-tools.md)
+  - Прикладной сценарий · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-goal-drift)
 - **[Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна.](../themes/agents-tools.md#agt-mcp-long-running)**
   - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md)
 - **[Какие параметры управляют генерацией языковой модели?](../themes/agents-tools.md#agt-api-level-features)**

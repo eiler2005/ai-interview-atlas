@@ -7,6 +7,10 @@
 
 Порядок изучения, еженедельная практика и критерии готовности — в [учебном плане](../LEARNING_PATH.md).
 
+Выберите предметный маршрут по [карте обучения](../LEARNING_ROADMAP.md): [AI-ассистированный кодинг](../learning/AI_ASSISTED_CODING.md), [прикладная AI-инженерия](../learning/PRODUCTION_AI_ENGINEERING.md) или [AI Leadership](../learning/AI_LEADERSHIP.md).
+
+Границы свидетельств и следующие шаги описаны в [аудите покрытия](../research/ATLAS_COVERAGE_AUDIT.md), [исследовании Engineering](../research/ENGINEERING_RESEARCH.md), [аудите Leadership](../research/LEADERSHIP_AUDIT.md) и [плане расширения](../plans/ATLAS_EXPANSION.md).
+
 [Ответы на эти вопросы](../answers/engineering.md)
 
 - **1. [Выведите формулу scaled dot-product attention и объясните, как масштаб влияет на градиенты softmax.](../themes/llm-fundamentals.md#llm-attention)**
@@ -149,3 +153,27 @@
   - Знания · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#eval-reasoning-supervision)
 - **70. [Запрос к reasoning API расходует токены, но не возвращает пригодный ответ. Как найти причину и организовать восстановление с ограниченным бюджетом?](../themes/inference-economics.md#inf-reasoning-incomplete)**
   - Прикладной сценарий · [Инференс, serving и стоимость](../themes/inference-economics.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/engineering.md#inf-reasoning-incomplete)
+- **71. [Спланируйте продукт вместе с интервьюером, затем примерно за два часа соберите его с любыми AI-инструментами для программирования и защитите решения, код и путь в продакшен.](../themes/coding-practical.md#code-ai-assisted-build)**
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-build)
+- **72. [Проверьте и доработайте черновой pull request коллеги со сквозной функцией в незнакомой кодовой базе, работая вместе с coding-агентами.](../themes/coding-practical.md#code-agent-pr-review)**
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-agent-pr-review)
+- **73. [В клоне репозитория продукта реализуйте структуру данных, которую продукт действительно использует; к AI обращайтесь только с точечными вопросами по синтаксису.](../themes/coding-practical.md#code-product-structure)**
+  - Кодинг · [Практический кодинг](../themes/coding-practical.md) · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · ✍ [Ответ](../answers/engineering.md#code-product-structure)
+- **74. [На сессии с AI-кодингом объясните, какими моделями пользуетесь и почему, как следите за расходом токенов и как задаёте агенту контекст и задачу.](../themes/coding-practical.md#code-agent-session-choices)**
+  - Прикладной сценарий · [Практический кодинг](../themes/coding-practical.md) · ✍ [Ответ](../answers/engineering.md#code-agent-session-choices)
+- **75. [Чем ответ по схеме отличается от function calling и какой компонент действительно исполняет действие?](../themes/agents-tools.md#agt-structured-output)**
+  - Знания · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-structured-output)
+- **76. [После долгой работы агент уверенно решает не ту задачу. Как найти момент расхождения состояния с целью и восстановить работу?](../themes/agents-tools.md#agt-goal-drift)**
+  - Прикладной сценарий · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · ✍ [Ответ](../answers/engineering.md#agt-goal-drift)
+- **77. [Как для coding agent отделить вклад модели от вклада harness в надёжное завершение задачи?](../themes/agents-tools.md#agt-coding-harness)**
+  - System design · [Агенты, инструменты и протоколы](../themes/agents-tools.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#agt-coding-harness)
+- **78. [Как собрать полезный eval-набор без эталонных ответов и при дефиците экспертного времени?](../themes/evals-observability.md#eval-scarce-labels)**
+  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-scarce-labels)
+- **79. [Как изменить оценку LLM-процесса при переходе от предложений к исполнению действий в production?](../themes/evals-observability.md#eval-production-actions)**
+  - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#eval-production-actions)
+- **80. [Как версионировать промпты и зависимые настройки для воспроизводимого отката обнаруженной регрессии?](../themes/evals-observability.md#eval-prompt-rollback)**
+  - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-prompt-rollback)
+- **81. [Спроектируйте извлечение структурированных полей из десяти миллионов сканов с возможностью проверки сомнительных результатов.](../themes/ai-system-design.md#sd-document-intelligence)**
+  - System design · [Дизайн AI-систем](../themes/ai-system-design.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#sd-document-intelligence)
+- **82. [Спроектируйте непрерывное обновление индекса с изменениями, удалениями и запросами во время перестроения.](../themes/rag-retrieval.md#rag-freshness)**
+  - System design · [RAG и поиск](../themes/rag-retrieval.md) · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-freshness)

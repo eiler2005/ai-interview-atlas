@@ -2,11 +2,13 @@
 
 [English](LEARNING_PATH.md) · [Русский](ru/LEARNING_PATH.md) · [AI Interview Atlas](../README.md)
 
-Use this curriculum to turn reading into explanations, working examples and defensible decisions. Choose **AI Engineering** or **AI Leadership**; leadership has product, engineering/platform and programme emphases. The separate [project roadmap](ROADMAP.md) describes repository development.
+Use this curriculum to turn reading into explanations, working examples and defensible decisions. Choose **AI Engineering** or **AI Leadership**; leadership has Product, EM/Platform, Head/Director and TPM/Delivery emphases. The separate [project roadmap](ROADMAP.md) describes repository development.
 
 The baseline is **eight weeks at 6–8 hours a week**, an editorial estimate for experienced software or product practitioners who meet the entry checks below. It is not a beginner-to-expert promise or a research-validated preparation time. Remediation and the advanced branch need additional time. Move on when the evidence meets a gate, not when the week ends.
 
-The atlas has 70 priority questions per track, with checklists, reading and example answers. Every question in the wider 294-question bank says what a strong answer covers, but only the priority questions have written answers. Here **E12** means question 12 on [Engineering: Start here](start/engineering.md), and **L12** means question 12 on [Leadership: Start here](start/leadership.md). These numbers select practice material; they do not establish what a particular employer will ask. This curriculum and its exercises are editorial recommendations, not company interview evidence.
+The [learning roadmap](LEARNING_ROADMAP.md) helps select a route and connect the specialised guides to this baseline. The [AI Leadership cases](learning/AI_LEADERSHIP.md) add Product, EM/Platform, Head/Director and TPM/Delivery practice; they supplement the eight-week tables below. Use them within the practice budget or extend the schedule when the selected scope needs more work.
+
+As of 2026-10-05, the atlas has 82 Engineering and 76 Leadership priority questions with checklists, reading and example answers. All 299 bank questions have a checklist and reading; 158 have written answers in English and Russian. The eight-week tables retain their original 1–70 selections; the specialised guides route to appended priorities E71–82 and L71–76. Here **E12** means question 12 on [Engineering: Start here](start/engineering.md), and **L12** means question 12 on [Leadership: Start here](start/leadership.md). These numbers select practice material; they do not establish what a particular employer will ask. This curriculum and its exercises are editorial recommendations, not company interview evidence.
 
 ## 1. Check your starting point
 
@@ -46,6 +48,8 @@ Score each attempt using the rubric below. If a prerequisite scores 0 or 1, use 
 | [Behavioural and values](themes/behavioral-values.md) | P0 | P0 | Real examples reveal judgement, accountability and learning |
 
 Choose one role emphasis. **PM/product:** deepen discovery, value metrics, UX and experimentation. **EM/platform:** deepen architecture, reliability, cost, team development and operating ownership. **TPM/programme:** deepen dependency maps, decision records, readiness and rollout coordination. These are emphases, not exemptions from shared P0 work. Use the actual role description and dated company evidence to choose electives; a title alone is insufficient.
+
+**Head/Director:** when the role owns a portfolio, budget or several teams, add the supplement's H1–H3 cases on investment allocation, build/buy and organisation change. The bank now includes direct editorial questions on portfolio allocation, vendor exit and management through managers, with answers and reading; these do not establish a complete director curriculum or AI-specific director interview loop; the [Leadership audit](research/LEADERSHIP_AUDIT.md) makes those gaps explicit. A Director title without that authority calls for a different practice scope.
 
 Do not copy radar percentages into your timetable. The [radar](radar.md) has 79 postings: 17 engineering and 62 leadership. Engineering is suppressed below the minimum of 20; the published leadership sample leans towards fintech and business software. Its 40% domain figure does not make payments a universal prerequisite. The [methodology](METHODOLOGY.md) explains these limits.
 

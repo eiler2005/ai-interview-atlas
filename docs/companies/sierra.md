@@ -46,21 +46,21 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
 ### [Practical coding](../themes/coding-practical.md)
 
 - **[Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production.](../themes/coding-practical.md#code-ai-assisted-build)**
-  - Applied scenario · Asked at: Sierra ✅
+  - Applied scenario · Asked at: Sierra ✅ · ✍ [Answer](../answers/engineering.md#code-ai-assisted-build)
   - Tests: Whether you scope, build and defend a working product with AI assistance under a time limit.
   - A strong answer covers:
-    - Agree on the smallest end-to-end slice that demonstrates the product, and name what you will cut.
-    - Delegate well-specified pieces to the tool, read every diff, and run the app after each step.
-    - Be ready to explain each design choice and what production still needs: tests, data model, failure handling.
+    - Agree the user flow, smallest working slice, time budget and deliberate omissions before delegating bounded pieces.
+    - Give each AI task interfaces, relevant context and acceptance checks; inspect diffs and demonstrate behaviour instead of counting generated code.
+    - Defend architecture, algorithm assumptions and rejected suggestions; distinguish verified behaviour from production gaps and an unfinished prototype.
   - Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - **[Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.](../themes/coding-practical.md#code-agent-pr-review)**
-  - Applied scenario · Asked at: Sierra ✅
+  - Applied scenario · Asked at: Sierra ✅ · ✍ [Answer](../answers/engineering.md#code-agent-pr-review)
   - Tests: Whether you judge someone else's change critically instead of accepting what an agent proposes.
   - A strong answer covers:
-    - Understand the intended behaviour and the codebase's conventions before reading the diff or asking an agent.
-    - Check cross-cutting risks: every call site, error paths, concurrency, migrations and missing tests.
-    - Verify each agent suggestion by running tests or reproducing it, and explain which changes you rejected.
-  - Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
+    - Trace the intended behaviour, entry points, callers and existing invariants before asking the agent to explain or change the diff.
+    - Check every affected path, especially authorisation, retries, shared state and migrations; construct a counterexample and a focused regression check.
+    - Separate observed defects from hypotheses, verify agent suggestions and explain the approval decision and residual risks; respect the session's AI limits.
+  - Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - **[In a spreadsheet where cells can reference other cells, detect whether there is a circular reference.](../themes/coding-practical.md#code-spreadsheet-cycles)**
   - Coding · Asked at: Sierra 🗣
   - Tests: Whether you model dependencies as a graph and detect cycles correctly and efficiently.
@@ -68,5 +68,6 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Clarify reference forms, ranges and self-references, and whether to report any cycle or every cell in one.
     - Build a dependency graph and run three-colour DFS or Kahn's algorithm in O(cells + references).
     - Test self-loops, long chains against recursion depth, disconnected parts, and rechecking after one formula changes.
+  - Read: [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/) (Robert Sedgewick and Kevin Wayne, Princeton University)
 
 ← [Perplexity](perplexity.md) · [Atlassian](atlassian.md) →

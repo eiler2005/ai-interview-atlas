@@ -26,13 +26,13 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
     - Treat summaries and available traces as incomplete diagnostic signals, not access to hidden reasoning or a safety guarantee.
   - Read: [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) (Chen et al., arXiv)
 - <a id="eval-scarce-labels"></a>**How would you build a useful evaluation set when reference answers are missing and expert time is scarce?**
-  - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
+  - Applied scenario · ✍ [Answer](../answers/engineering.md#eval-scarce-labels) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
   - Tests: Whether sampling and annotation effort target consequential uncertainty.
   - A strong answer covers:
     - Start from error analysis of real traces to learn which failures matter, before labelling anything.
     - Spend expert time on uncertain, high-stakes cases, judged by pass-fail criteria rather than one answer to match.
     - Calibrate cheaper graders against expert labels and track agreement before trusting them at scale.
-  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
+  - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="eval-release-gate"></a>**Design a release gate for prompt and model updates, including what happens when aggregate gains hide a critical regression.**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#eval-release-gate) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-release-gate&title=%5BCorrection%5D%20eval-release-gate)
   - Tests: Whether release decisions account for failure severity and uncertainty.
@@ -66,7 +66,7 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
     - Choose the remedy by cause: fix configuration, adapt the prompt or pin the version; add cases to the release gate.
   - Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-production-actions"></a>**How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?**
-  - System design · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-production-actions&title=%5BCorrection%5D%20eval-production-actions)
+  - System design · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#eval-production-actions) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-production-actions&title=%5BCorrection%5D%20eval-production-actions)
   - Tests: Whether action consequences change the acceptance criteria.
   - A strong answer covers:
     - Grade outcomes in the environment, not the proposal text: what changed, and was it permitted.
@@ -117,7 +117,7 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
     - Use traces to diagnose stage failures and convert recurring failures into eval cases.
   - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="eval-prompt-rollback"></a>**How would you version prompts and dependent configuration so an observed regression can be rolled back reproducibly?**
-  - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-rollback&title=%5BCorrection%5D%20eval-prompt-rollback)
+  - System design · ✍ [Answer](../answers/engineering.md#eval-prompt-rollback) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-rollback&title=%5BCorrection%5D%20eval-prompt-rollback)
   - Tests: Whether rollback restores the actual system configuration.
   - A strong answer covers:
     - Version the full configuration as one immutable bundle: prompt, model snapshot, parameters, tools and retrieval index.
@@ -155,6 +155,7 @@ On this page: [Both tracks (8)](#track-both) · [AI Engineering (13)](#track-eng
     - Score against a checklist of clinically required facts from the consultation, not similarity to one note.
     - Check every statement in the generated note for support in the transcript, and flag unsupported content separately.
     - Treat agreement between the two clinicians as the ceiling, and calibrate any automated judge against them.
+  - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization)
 - <a id="eval-behaviour-brainstorm"></a>**In a short unscripted call, propose testable ideas about a language model's behaviour that need no insider access, only careful observation.**
   - Knowledge · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-behaviour-brainstorm&title=%5BCorrection%5D%20eval-behaviour-brainstorm)
   - Tests: Whether you generate concrete, testable hypotheses about model behaviour quickly.

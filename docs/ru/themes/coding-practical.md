@@ -67,6 +67,7 @@
     - Уточнить ёмкость, обновляет ли чтение давность и учитываются ли просроченные записи до их удаления.
     - Использовать хеш-таблицу с двусвязным списком для O(1); один путь удаления обслуживает и истечение, и вытеснение.
     - Проверить ёмкость, равную единице, обновление существующего ключа и истечение ровно на границе с подменяемыми часами.
+  - Читать: [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation)
 - <a id="code-token-bucket"></a>**Реализуйте token-bucket limiter и объясните изменения для общего лимита, применяемого несколькими воркерами.**
   - Кодинг · Где спрашивали: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Ответ](../answers/engineering.md#code-token-bucket) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-token-bucket&title=%5BCorrection%5D%20code-token-bucket)
   - Что проверяет: Умение сохранить квоту при учёте времени и параллельных обновлениях.
@@ -90,6 +91,7 @@
     - Буферизовать данные между чанками, декодировать UTF-8 инкрементально, делить строки по CRLF, LF или CR и не пересканировать уже разобранное.
     - Склеивать строки data в одно событие и разбирать JSON только тогда, когда пустая строка завершает событие.
     - Проверить разрез на каждом байтовом смещении, в том числе внутри многобайтовых символов, пары CRLF и последнего события.
+  - Читать: [HTML Standard: Server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html) (WHATWG)
 - <a id="code-semantic-chunks"></a>**Реализуйте перекрывающиеся чанки текста с сохранением смысловых единиц; задайте поведение, если единица больше целевого размера.**
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-semantic-chunks&title=%5BCorrection%5D%20code-semantic-chunks)
   - Что проверяет: Умение уточнить неоднозначные требования к размеру и границам до реализации.
@@ -97,6 +99,7 @@
     - Уточнить единицу размера (токены или символы), что считается смысловой единицей и как измеряется перекрытие.
     - Жадно укладывать целые единицы за один линейный проход; слишком большую единицу делить по следующей, более мелкой границе.
     - Проверить слишком большие единицы, пустой ввод, перекрытие не меньше целевого размера и восстановление текста по смещениям без потерь.
+  - Читать: [Chunk and vectorize with the Document Layout skill](https://learn.microsoft.com/en-us/azure/search/search-how-to-semantic-chunking) (Microsoft Learn)
 - <a id="code-cosine-search"></a>**Реализуйте точный поиск по cosine similarity и объясните ограничения, требующие иной production-архитектуры.**
   - Кодинг · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-cosine-search&title=%5BCorrection%5D%20code-cosine-search)
   - Что проверяет: Умение отличать корректный baseline от масштабируемого сервиса.
@@ -128,30 +131,31 @@
     - Предпочесть курсорную пагинацию: при смещениях параллельные вставки и удаления сдвигают страницы и дают пропуски или дубли.
     - Завершать по отсутствию следующего курсора, а не по короткой странице, и защититься от зацикливания на повторном курсоре.
     - Проверять каждую страницу, повторять сбои с backoff, отсеивать дубли по id; проверить пустой результат и кратность размеру страницы.
+  - Читать: [AIP-158: Pagination](https://google.aip.dev/158) (Google)
 - <a id="code-ai-assisted-build"></a>**Спланируйте продукт вместе с интервьюером, затем примерно за два часа соберите его с любыми AI-инструментами для программирования и защитите решения, код и путь в продакшен.**
-  - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-build&title=%5BCorrection%5D%20code-ai-assisted-build)
+  - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-build) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-build&title=%5BCorrection%5D%20code-ai-assisted-build)
   - Что проверяет: Умение ограничить задачу, собрать и защитить рабочий продукт с помощью AI за отведённое время.
   - Сильный ответ покрывает:
-    - Договориться о минимальном сквозном срезе, который показывает продукт, и назвать, что будет отрезано.
-    - Отдавать инструменту чётко поставленные части, читать каждый diff и запускать приложение после каждого шага.
-    - Быть готовым объяснить каждое проектное решение и то, чего не хватает до продакшена: тесты, модель данных, обработка сбоев.
+    - До делегирования ограниченных частей согласовать пользовательский сценарий, минимальный результат, бюджет времени и сознательные исключения.
+    - Давать AI интерфейсы, нужный контекст и критерии приёмки; проверять diff и поведение вместо подсчёта сгенерированного кода.
+    - Защитить архитектуру, допущения алгоритмов и отвергнутые предложения; отделить проверенное поведение от production-пробелов и незавершённого прототипа.
   - Читать: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - <a id="code-agent-pr-review"></a>**Проверьте и доработайте черновой pull request коллеги со сквозной функцией в незнакомой кодовой базе, работая вместе с coding-агентами.**
-  - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-pr-review&title=%5BCorrection%5D%20code-agent-pr-review)
+  - Прикладной сценарий · Где спрашивали: [Sierra](../companies/sierra.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-agent-pr-review) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-pr-review&title=%5BCorrection%5D%20code-agent-pr-review)
   - Что проверяет: Умение критически оценить чужое изменение, а не принимать всё, что предлагает агент.
   - Сильный ответ покрывает:
-    - Понять задуманное поведение и соглашения кодовой базы до чтения diff и обращения к агенту.
-    - Проверить сквозные риски: все места вызова, пути ошибок, конкурентность, миграции и недостающие тесты.
-    - Проверять каждое предложение агента тестами или воспроизведением и объяснять, какие изменения вы отклонили.
-  - Читать: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
+    - До объяснения или правки diff агентом проследить ожидаемое поведение, точки входа, вызывающий код и инварианты.
+    - Проверить все затронутые пути, особенно авторизацию, повторы, общее состояние и миграции; построить контрпример и регрессионную проверку.
+    - Отделить найденные дефекты от гипотез, проверить советы агента и объяснить решение ревью и остаточные риски; соблюдать ограничения AI на сессии.
+  - Читать: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="code-product-structure"></a>**В клоне репозитория продукта реализуйте структуру данных, которую продукт действительно использует; к AI обращайтесь только с точечными вопросами по синтаксису.**
-  - Кодинг · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-product-structure&title=%5BCorrection%5D%20code-product-structure)
+  - Кодинг · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · ✍ [Ответ](../answers/engineering.md#code-product-structure) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-product-structure&title=%5BCorrection%5D%20code-product-structure)
   - Что проверяет: Умение разобраться в незнакомом реальном коде и правильно реализовать ключевую структуру.
   - Сильный ответ покрывает:
-    - Выяснить, как продукт использует структуру: вызывающий код, нужные операции, их частоту и существующие тесты.
-    - Выбрать представление и инварианты исходя из этих операций и назвать сложность каждой из них.
-    - Следовать соглашениям репозитория, обращаться к AI только по синтаксису и проверить граничные случаи вызывающего кода.
-  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
+    - Найти вызывающий код, нужные операции, их частоту и тесты; вывести представление из этого контракта.
+    - Задать инварианты и затраты времени/памяти; проверить выбор дублями, пустым входом и изменённым ограничением.
+    - Соблюдать соглашения репозитория и проверять поведение у вызывающего кода; помощь AI ограничить вопросами синтаксиса, разрешёнными в описанной сессии.
+  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers) · [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/) (Robert Sedgewick and Kevin Wayne, Princeton University)
 - <a id="code-self-scoped-onsite"></a>**Получив реальную кодовую базу на рабочий день, решите, что построить, выпустите это и объясните свои решения и компромиссы.**
   - Прикладной сценарий · Где спрашивали: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-self-scoped-onsite&title=%5BCorrection%5D%20code-self-scoped-onsite)
   - Что проверяет: Умение самому определить объём работы, довести её до результата и защитить без пошаговых указаний.
@@ -167,6 +171,7 @@
     - Уточнить формы ссылок, диапазоны и ссылки на себя, а также что вернуть: факт цикла или все ячейки в нём.
     - Построить граф зависимостей и запустить DFS с тремя цветами или алгоритм Кана за O(ячейки + ссылки).
     - Проверить петли на себя, длинные цепочки на глубину рекурсии, несвязные части и повторную проверку после изменения одной формулы.
+  - Читать: [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/) (Robert Sedgewick and Kevin Wayne, Princeton University)
 - <a id="code-catalogue-search-tool"></a>**Сделайте семантический поиск по каталогу товаров, который чат-модель может вызывать как инструмент.**
   - Кодинг · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-catalogue-search-tool&title=%5BCorrection%5D%20code-catalogue-search-tool)
   - Что проверяет: Умение совместить поиск с понятным, проверяемым интерфейсом инструмента, которым модель может надёжно пользоваться.
@@ -182,6 +187,7 @@
     - Моделировать кредиты как начисления с суммой, сроком и условиями, а списания — как записи в журнале только на добавление.
     - Вынести политику списания, например сначала ближайший срок через кучу, чтобы новые правила подключались без переписывания.
     - Проверить истечение ровно в момент срока, списание из нескольких начислений, нехватку баланса и пересчёт остатков по журналу.
+  - Читать: [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation) · [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) (PostgreSQL documentation)
 - <a id="code-pair-sum"></a>**Найдите в массиве пару чисел с заданной суммой: уточните условия, протестируйте код и обсудите сложность и граничные случаи.**
   - Кодинг · Где спрашивали: [Яндекс](../companies/yandex.md) ✅ · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pair-sum&title=%5BCorrection%5D%20code-pair-sum)
   - Что проверяет: Уверенность в базовых структурах данных, тестировании и граничных случаях при живом кодинге.
@@ -197,6 +203,7 @@
     - Профилировать на реалистичной нагрузке до любых изменений и назвать размеры входа, которые важны.
     - Заменить доминирующую стоимость более подходящей структурой, например кучей или индексом интервалов, за прежним интерфейсом.
     - Сохранить прохождение существующих тестов, добавить бенчмарк и показать сложность и замеры до и после.
+  - Читать: [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="code-debug-api-service"></a>**Отладьте сломанный API-сервис: разберите логи, найдите узкое место и устраните утечку памяти.**
   - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-debug-api-service&title=%5BCorrection%5D%20code-debug-api-service)
   - Что проверяет: Умение системно отлаживать работающий сервис по фактам, а не по догадкам.
@@ -212,21 +219,22 @@
     - Переформулировать каждый вопрос через гранулярность результата: что означает одна строка и какие строки в него попадают.
     - Следить за размножением строк при join, семантикой NULL в фильтрах и агрегатах и разницей между WHERE и HAVING.
     - Прогнать каждый запрос вручную на нескольких строках, включая равные значения, NULL и пустые группы.
+  - Читать: [Table Expressions](https://www.postgresql.org/docs/current/queries-table-expressions.html) (PostgreSQL Global Development Group)
 - <a id="code-agent-session-choices"></a>**На сессии с AI-кодингом объясните, какими моделями пользуетесь и почему, как следите за расходом токенов и как задаёте агенту контекст и задачу.**
-  - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
+  - Прикладной сценарий · ✍ [Ответ](../answers/engineering.md#code-agent-session-choices) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
   - Что проверяет: Умение осознанно управлять coding-агентами, а не полагаться на их настройки по умолчанию.
   - Сильный ответ покрывает:
-    - Подбирать модели под шаги: более сильную для планирования и ревью, более быструю для рутинных правок.
-    - Давать агенту ограниченную задачу, нужные файлы, ограничения и критерий готовности, а не весь репозиторий.
-    - Следить за токенами через размер контекста и число повторов и начинать заново с кратким резюме, когда сессия уходит в сторону.
+    - Выбирать разрешённые модели по сложности, наблюдаемой надёжности, задержке и бюджету, а не универсальному рейтингу.
+    - Разбить работу на проверяемые шаги; дать нужные файлы, интерфейсы, инварианты, исключения и готовность; текст репозитория считать недоверенным входом.
+    - Учитывать контекст, вывод и повторы; сохранять проверенные решения в краткой передаче и останавливаться или восстанавливаться при превышении лимита затрат, отклонения или неопределённости.
   - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - <a id="code-ai-assisted-ownership"></a>**На интервью, где от вас ждут работы с AI-инструментами, как вы сохраняете ответственность за код, который не писали руками, и где отказываетесь от того, что предложила модель?**
   - Прикладной сценарий · Где спрашивали: [Canva](../companies/canva.md) ✅ · ✍ [Ответ](../answers/engineering.md#code-ai-assisted-ownership) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-ownership&title=%5BCorrection%5D%20code-ai-assisted-ownership)
   - Что проверяет: Сохраняются ли ответственность и проверка при делегировании модели в условиях нехватки времени.
   - Сильный ответ покрывает:
-    - Самому задать интерфейс, ограничения и граничные случаи до промпта, чтобы у сгенерированного кода была спецификация.
-    - Принимать только код, который можете объяснить; отклонять выдуманные API, проглоченные ошибки, ослабленные тесты и лишний объём.
-    - Проверять прогоном тестов на названных граничных случаях и вслух говорить, что проверили или отвергли.
+    - До промпта самому задать интерфейс, ограничения, допущения алгоритма и границы; прочитать соответствующий вызывающий код.
+    - Принимать лишь объяснимые изменения; отклонять выдуманные API, скрытые ошибки, ослабленные тесты, лишний scope и инструкции в недоверенном содержимом.
+    - Независимо проверить выбранные контрпримеры, объяснить принятые и отвергнутые советы и раскрыть непроверенное с учётом правил инструментов интервью.
   - Читать: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 
 ← [Дизайн AI-систем](ai-system-design.md) · [Стратегия и метрики AI-продукта](ai-product-strategy.md) →

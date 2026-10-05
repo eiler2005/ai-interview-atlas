@@ -88,6 +88,7 @@ AI-инфраструктура · Международный · Этапы пр
     - Привязать каждую возможность к её пользователю, одной метрике результата и предположению, на котором она держится.
     - Сравнить ожидаемую ценность с затратами и уверенностью и назвать, что каждый выбор откладывает или исключает.
     - Сначала вложиться в дешёвые проверки самых шатких предположений и назначить дату пересмотра порядка.
+  - Читать: [Product Management - Leadership](https://handbook.gitlab.com/job-description-library/product/product-management-leadership/) (GitLab Handbook) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 
 ### [Прикладные и клиентские сценарии](../themes/applied-scenarios.md)
 

@@ -69,12 +69,13 @@ On this page: [Both tracks (5)](#track-both) · [AI Engineering (11)](#track-eng
     - Measure relevance on judged queries by segment, and online track zero-result rate and out-of-stock items shown.
   - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="sd-document-intelligence"></a>**Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable.**
-  - System design · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-document-intelligence&title=%5BCorrection%5D%20sd-document-intelligence)
+  - System design · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#sd-document-intelligence) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-document-intelligence&title=%5BCorrection%5D%20sd-document-intelligence)
   - Tests: Whether extraction quality, provenance and scalable processing are planned together.
   - A strong answer covers:
     - Process documents as idempotent jobs, storing each field with page, region, model version and confidence.
     - Route fields with low calibrated confidence or failed validation rules to review, sized to reviewer capacity.
     - Measure per-field accuracy on a stratified audit sample, and feed reviewer corrections back into evaluation.
+  - Read: [Interpret and improve model accuracy and confidence scores](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0) (Microsoft Learn) · [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) (Anthropic)
 - <a id="sd-text-to-sql"></a>**Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.**
   - System design · Asked at: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#sd-text-to-sql) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-text-to-sql&title=%5BCorrection%5D%20sd-text-to-sql)
   - Tests: Whether semantic correctness and query permissions constrain generation.

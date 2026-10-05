@@ -18,12 +18,12 @@ On this page: [Interview loop](#loop) · [Questions (3)](#questions)
 
 | Stage | What happens | Basis |
 | --- | --- | --- |
-| Recruiter screen | About 30 minutes, including motivation and Stripe's operating principles. | † prep guide or compilation<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-09-26 |
-| Technical assessment | Live coding for engineers; a hiring manager call or take-home case for product managers; questions on people and organisation for engineering managers. | † prep guide or compilation<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-09-26 |
-| Onsite | Four to six rounds of 45–60 minutes: coding, debugging, integration, system design with API design, and behavioral; managers add a project presentation. | † prep guide or compilation<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-09-26 |
+| Recruiter screen | About 30 minutes, including motivation and Stripe's operating principles. | † prep guide or compilation<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-10-05 |
+| Technical assessment | Live coding for engineers; a hiring manager call or take-home case for product managers; questions on people and organisation for engineering managers. | † prep guide or compilation<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-10-05 |
+| Onsite | Four to six rounds of 45–60 minutes: coding, debugging, integration, system design with API design, and behavioral; managers add a project presentation. | † prep guide or compilation<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-10-05 |
 | Bug squash | 45–60 minutes side by side with an engineer on a real historical bug in an open-source project. The process counts more than finishing: reproduce first, work from hypotheses, fix narrowly and add a regression test. | † prep guide or compilation<br>[Stripe SWE Interview: Bug Squash Guide](https://www.coditioning.com/blog/804/stripe-swe-bug-squash-interview), Coditioning, published 2026-06-25, retrieved 2026-09-26 |
 
-**Coding:** unknown. Guides describe engineering coding, but no company or first-hand source verifies the requirement here. ([Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-09-26)
+**Coding:** unknown. Guides describe engineering coding, but no company or first-hand source verifies the requirement here. ([Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), retrieved 2026-10-05)
 
 ## <a id="questions"></a>Questions reported for Stripe
 
@@ -40,13 +40,13 @@ On this page: [Interview loop](#loop) · [Questions (3)](#questions)
 
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 
-- **[How do you decide which engineering capabilities to hire for?](../themes/engineering-leadership.md#lead-strategic-hiring)**
-  - Applied scenario · Senior · Asked at: Stripe † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring)
-  - Tests: Whether staffing choices follow strategy and gaps in team capability.
+- **[Describe your most recent strategic engineering hire. How did you define the hiring bar and assess whether the hire met the need?](../themes/engineering-leadership.md#lead-strategic-hiring)**
+  - Behavioral · Senior · Asked at: Stripe † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring)
+  - Tests: Whether a real hiring decision connects a capability need, a consistent assessment and observed results.
   - A strong answer covers:
-    - Start from the next period's commitments and the capabilities they require.
-    - Separate a gap worth hiring for from one solved by training, borrowing or not doing the work.
-    - Write the role from the gap, and define what evidence the loop must produce.
+    - State the real strategic need, your role in the decision and why hiring was chosen.
+    - Explain the role-specific bar, assessment evidence and important tradeoffs.
+    - Describe onboarding and observed results; distinguish early signals from a proven long-term outcome.
   - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[How do you establish engineering quality standards across a team?](../themes/engineering-leadership.md#lead-quality-standard)**
   - Applied scenario · Senior · Asked at: Stripe † · ✍ [Answer](../answers/leadership.md#lead-quality-standard)

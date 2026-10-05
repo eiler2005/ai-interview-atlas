@@ -40,6 +40,7 @@
     - Выбрать случай с реальной ставкой, где разумные люди могли разойтись, а не очевидное нарушение.
     - Выразить ценность через последствия: кого и как это затронуло бы и какие у вас были варианты.
     - Описать, что вы сделали, чего это вам стоило и какую границу будете держать в следующий раз.
+  - Читать: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="beh-ai-safety-view"></a>**Какие риски развитых AI-систем вы считаете существенными?**
   - Знания · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ai-safety-view&title=%5BCorrection%5D%20beh-ai-safety-view)
   - Что проверяет: Умеете ли вы последовательно изложить позицию о рисках AI и её основания.
@@ -55,6 +56,7 @@
     - Выбрать проект по тому, что изменилось для пользователей или бизнеса, а не по технологии или громкому имени.
     - Отделить то, что вы лично решили и сделали, от работы команды, и назвать самое трудное своё решение.
     - Закончить подтверждением результата и тем, почему вам важен именно этот проект, а не более крупный.
+  - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="beh-interpersonal-conflict"></a>**Расскажите о конфликте с коллегой: как вы его разрешали и чему научились.**
   - Поведенческий · Senior · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-interpersonal-conflict&title=%5BCorrection%5D%20beh-interpersonal-conflict)
   - Что проверяет: Понимаете ли вы позицию другого человека и свою роль в конфликте.
@@ -62,6 +64,7 @@
     - Выбрать конфликт, в который внесло вклад и ваше поведение, а не историю о просто трудном коллеге.
     - Изложить позицию коллеги так, как изложил бы её он сам, с учётом давления на него, и только потом свою.
     - Закончить тем, какими стали рабочие отношения и что вы сами теперь делаете иначе.
+  - Читать: [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - <a id="beh-research-priorities"></a>**Расскажите о разногласии с исследователем или техническим лидером по приоритетам и о том, что произошло дальше.**
   - Поведенческий · Senior · Где спрашивали: [Google и Google DeepMind](../companies/google.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-research-priorities&title=%5BCorrection%5D%20beh-research-priorities)
   - Что проверяет: Умеете ли вы учитывать различия мотивации исследователей и инженеров.
@@ -69,6 +72,7 @@
     - Выбрать спор о приоритетах, где цели исследования и инженерной работы действительно тянули в разные стороны.
     - Объяснить, за что поощряли каждую сторону — за новые результаты или за надёжный выпуск, — и чего стоил каждый вариант.
     - Показать, как спор разрешился, например экспериментом с ограниченным сроком, и что было дальше для обеих сторон.
+  - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - <a id="beh-ml-project-obstacles"></a>**Расскажите о проекте с данными и машинным обучением. С какими препятствиями вы столкнулись?**
   - Поведенческий · Senior · Где спрашивали: [Meta](../companies/meta.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ml-project-obstacles&title=%5BCorrection%5D%20beh-ml-project-obstacles)
   - Что проверяет: Связываете ли вы технические препятствия с действиями и достигнутыми результатами.
@@ -84,6 +88,7 @@
     - Выбрать случай, где неясны были сама цель или задача, а не только ресурсы или сроки.
     - Показать, какую неизвестность вы сняли первой, каким небольшим решением или пробным шагом и как обратная связь меняла план.
     - Закончить значимым результатом и свидетельством того, что вы решили именно ту задачу.
+  - Читать: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 - <a id="beh-wrong-technical-choice"></a>**Расскажите о техническом решении, которое вы отстаивали, но которое оказалось ошибочным.**
   - Поведенческий · Senior · Где спрашивали: [Microsoft](../companies/microsoft.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-wrong-technical-choice&title=%5BCorrection%5D%20beh-wrong-technical-choice)
   - Что проверяет: Умеете ли вы пересмотреть позицию и исправить последствия.
@@ -115,6 +120,7 @@
     - Показать сложность через ограничения задачи — масштаб, задержка, корректность, унаследованный код, — а не через громкое имя технологии.
     - Разобрать самое трудное решение, отвергнутые альтернативы и вашу личную роль в нём.
     - Назвать конкретное изменение, которое сделали бы сегодня, опираясь на то, что позже показала эксплуатация.
+  - Читать: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - <a id="beh-ml-business-impact"></a>**Расскажите об одной выпущенной модели, улучшившей бизнес-результат, и о другой, которая этого не сделала.**
   - Поведенческий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ml-business-impact&title=%5BCorrection%5D%20beh-ml-business-impact)
   - Что проверяет: Различаете ли вы выпуск модели и достигнутую пользу и можете ли объяснить разницу.
@@ -130,6 +136,7 @@
     - Выбрать жертву, заметную другим, например отложенную функцию или пропущенную краткосрочную цель.
     - Объяснить ставку: ожидаемую долгосрочную пользу, как вы её обосновали и кто согласился заплатить цену.
     - Закончить проверкой, наступила ли польза на деле, с подтверждением, и прямо сказать, если лишь отчасти.
+  - Читать: [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) (HM Treasury)
 - <a id="beh-customer-pushback"></a>**Расскажите о случае, когда вы возразили против запроса клиента.**
   - Поведенческий · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-customer-pushback&title=%5BCorrection%5D%20beh-customer-pushback)
   - Что проверяет: Умеете ли вы защищать настоящую цель клиента, оспаривая предложенное решение.
@@ -137,6 +144,7 @@
     - Выбрать запрос, где предложенное клиентом решение навредило бы его же настоящей цели.
     - Показать, как вы выяснили цель за запросом и предложили альтернативу, которая служила ей лучше.
     - Закончить тем, что решил клиент, как сохранились отношения и чем подтверждается, что цель достигнута.
+  - Читать: [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - <a id="beh-sensitive-mission"></a>**Как вы относитесь к работе для оборонных или разведывательных заказчиков и что сделаете, если проект противоречит вашим ценностям?**
   - Поведенческий · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-sensitive-mission&title=%5BCorrection%5D%20beh-sensitive-mission)
   - Что проверяет: Умеете ли вы рассуждать о конкретных границах и профессиональной ответственности.
@@ -144,6 +152,7 @@
     - Честно изложить свою позицию о работе для оборонных и разведывательных заказчиков и её основания, какой бы она ни была.
     - Провести конкретную границу — какие применения, какой надзор, чьё решение, — а не общее заявление о ценностях.
     - Описать свои шаги при конфликте: поднять вопрос, эскалировать, уйти с проекта, и в какой момент вы уйдёте из компании.
+  - Читать: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="beh-critical-feedback"></a>**Расскажите об обратной связи, которую было трудно услышать, и о том, как вы её использовали.**
   - Поведенческий · Senior · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#beh-critical-feedback) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
   - Что проверяет: Умеете ли вы отвечать на критику конкретными выводами и действиями.
@@ -170,6 +179,7 @@
     - Ответить честно, назвав, что на самом деле удерживает вас в этой работе: миссия, задачи, люди.
     - Отличить потребность в справедливой зарплате от расчёта на рост стоимости акций и признать, что деньги важны.
     - Подкрепить ответ прошлым выбором, если он был, когда работа перевесила деньги.
+  - Читать: [Compensation at Gitlab](https://handbook.gitlab.com/handbook/total-rewards/compensation/) (GitLab Handbook)
 
 ## <a id="track-leadership"></a>AI-лидерство
 
@@ -204,6 +214,7 @@
     - Выбрать по-настоящему крупную неудачу, коренящуюся в вашем собственном продуктовом суждении, а не в чужом исполнении.
     - Восстановить, во что вы тогда верили, какой сигнал недооценили и чего это стоило пользователям и бизнесу.
     - Закончить изменённой практикой, например тем, как вы проверяете спрос, и более поздним решением, которое она улучшила.
+  - Читать: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - <a id="beh-might-not-succeed"></a>**Что может помешать вам добиться успеха в этой работе?**
   - Самопрезентация · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-might-not-succeed&title=%5BCorrection%5D%20beh-might-not-succeed)
   - Что проверяет: Насколько честно вы оцениваете свою пригодность к неопределённой роли с работой на клиента.
@@ -211,5 +222,6 @@
     - Назвать реальный риск, связанный с требованиями роли, — неопределённость, давление клиента, переключение контекста, — а не замаскированное достоинство.
     - Выбрать риск существенный, но не делающий вас непригодным, и объяснить, как он проявлялся раньше.
     - Описать, как вы его компенсируете на практике и по какому раннему сигналу руководитель поймёт, что он проявился.
+  - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ← [Платежи и регулируемые отрасли](domain-payments-fintech.md)

@@ -147,6 +147,7 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (16)](#track-eng
     - Show cross-entropy equals data entropy plus KL from data to model, so for fixed data minimising either is equivalent.
     - Define perplexity as exp of mean per-token cross-entropy in nats; it shifts with tokeniser, eval text and context length.
     - Compare across tokenisers in bits per byte, fixing the text, context handling and log base before drawing conclusions.
+  - Read: [Deep Learning: Probability and Information Theory](https://www.deeplearningbook.org/contents/prob.html) (Ian Goodfellow, Yoshua Bengio and Aaron Courville)
 - <a id="llm-long-attention"></a>**Explain how self-attention cost grows with context length and compare ways to reduce that cost.**
   - Knowledge · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-long-attention&title=%5BCorrection%5D%20llm-long-attention)
   - Tests: Whether efficiency changes are distinguished from changes to model behaviour.

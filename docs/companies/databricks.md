@@ -88,6 +88,7 @@ On this page: [Interview loop](#loop) · [Questions (8)](#questions)
     - Tie each opportunity to its user, one outcome metric and the assumption it rests on.
     - Compare expected value with cost and confidence, and name what each choice delays or forgoes.
     - Fund cheap tests of the shakiest assumptions first, and set a date to revisit the order.
+  - Read: [Product Management - Leadership](https://handbook.gitlab.com/job-description-library/product/product-management-leadership/) (GitLab Handbook) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 
 ### [Applied and customer scenarios](../themes/applied-scenarios.md)
 

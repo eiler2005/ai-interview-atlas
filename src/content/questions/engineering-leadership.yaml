@@ -1,73 +1,106 @@
 theme: "engineering-leadership"
 questions:
-  - id: "lead-low-performance"
-    tracks: ["leadership"]
-    type: "behavioral"
-    level: "senior"
+  - id: lead-low-performance
+    tracks:
+    - leadership
+    type: applied_scenario
+    level: senior
     text:
-      en: >-
-        Tell me how you handled an engineer who was not meeting expectations.
-      ru: >-
-        Расскажите, как вы работали с инженером, который не справлялся с ожиданиями.
+      en: How would you handle an engineer who is not meeting performance expectations?
+      ru: Как вы будете действовать, если инженер не соответствует ожиданиям по результатам работы?
     tests:
-      en: >-
-        Whether you diagnose performance fairly and make expectations actionable.
-      ru: >-
-        Умеете ли вы справедливо разобраться в причинах и превратить ожидания в конкретные действия.
-    provenance: "published"
-    added: "2026-09-26"
+      en: Whether you diagnose a performance gap, provide fair support and make expectations and follow-up explicit.
+      ru: Умеете ли вы разобраться в причинах отставания, обеспечить справедливую поддержку и явно задать ожидания
+        и дальнейшие шаги.
+    provenance: published
+    added: '2026-09-26'
     evidence:
-      - source: "exponent-report-google-em-l6"
-        company: "google"
-    start_here: ["leadership"]
+    - source: exponent-report-google-em-l6
+      company: google
+    start_here:
+    - leadership
     priority: 18
     outline:
       en:
-        - "Identify the performance gap using observable examples."
-        - "Explain the feedback, listening and support you provided."
-        - "Describe agreed next steps and the follow-up result."
+      - Establish observable expectations and examples of the gap; check role clarity and working conditions.
+      - Hear the engineer’s account, agree support and define measurable improvement with review dates.
+      - Follow the organisation’s people process, distinguish improvement from reassignment or exit, and protect confidentiality.
       ru:
-        - "Показать отклонение от ожиданий на наблюдаемых примерах."
-        - "Объяснить обратную связь, обсуждение и оказанную поддержку."
-        - "Описать согласованные действия и результат последующей проверки."
+      - Уточнить наблюдаемые ожидания и примеры отставания; проверить ясность роли и условия работы.
+      - Выслушать инженера, согласовать поддержку и измеримое улучшение со сроками проверки.
+      - Следовать кадровому процессу организации, различать улучшение, смену роли и расставание; соблюдать конфиденциальность.
     answer:
-      en: "Choose a case where expectations were clear before the gap and your diagnosis changed what you did; a case decided on day one shows nothing. The interviewer is scoring whether you separate facts from impressions, so open with the expectation and the observable misses in deadlines, quality or scope, not with the person's character. The substance is diagnosis: did they not know what good looked like, know but lack the skill, have the skill but not the will, or face something in their circumstances? Each leads elsewhere — clearer expectations, coaching, a direct conversation, adjusted load — so explain how you told them apart. Then the trade-off: support is time-boxed because the team carries the gap meanwhile, so say how long you gave it and what made you move to a formal plan or not. A red flag is expectations written down only after the problem was declared; if that was you, say so. Close with evidence: what was agreed with dates, what the check showed, how it ended, including an exit, and what you now catch earlier."
-      ru: "Выбирайте случай, где ожидания были ясны до появления разрыва и ваш диагноз изменил ваши действия: история, решённая в первый же день, ничего не показывает. Интервьюер оценивает, отделяете ли вы факты от впечатлений, поэтому начинайте с ожидания и наблюдаемых промахов по срокам, качеству или объёму, а не с характера человека. Суть ответа — в диагнозе: человек не знал, как выглядит хороший результат, знал, но не хватало навыка, умел, но не хотел, или мешали обстоятельства? Каждый вариант ведёт к своему — к более ясным ожиданиям, к коучингу, к прямому разговору, к перераспределению нагрузки, — поэтому объясните, как вы их различили. Дальше компромисс: поддержка ограничена по времени, потому что всё это время разрыв несёт команда, так что скажите, сколько времени вы дали и что заставило перейти к формальному плану или отказаться от него. Тревожный сигнал — ожидания, записанные только после того, как проблему объявили; если так было у вас, скажите об этом сами. Закончите свидетельствами: о чём договорились и к каким датам, что показала проверка, чем всё кончилось, включая уход, и что вы теперь замечаете раньше."
-    reading: ["google-manager-training"]
-  - id: "lead-disruptive-star"
-    tracks: ["leadership"]
-    type: "behavioral"
-    level: "senior"
+      en: I would first establish the expected outcomes for the role and collect specific examples of the gap, rather
+        than treating reputation or one missed deadline as a diagnosis. In a private conversation I would ask for
+        the engineer’s perspective and check whether unclear priorities, missing access, workload or skill gaps are
+        contributing. We would agree what improvement looks like, the support I will provide and a realistic review
+        date. I would record the agreement and give timely feedback against the same criteria, including when performance
+        improves. If the gap persists, I would work with the relevant people partner through the organisation’s established
+        process, considering role fit as well as continued support. I would protect confidentiality and avoid making
+        promises about outcomes I cannot control. The team still needs clear delivery expectations; supporting one
+        person should not mean silently transferring an unlimited workload to colleagues.
+      ru: 'Сначала я уточню ожидаемые результаты для этой роли и соберу конкретные примеры отставания: репутация или
+        один сорванный срок ещё не объясняют проблему. В личном разговоре попрошу инженера описать ситуацию и проверю,
+        не мешают ли неясные приоритеты, отсутствие доступа, перегрузка или недостаток навыков. Мы договоримся, что
+        будет считаться улучшением, какую поддержку предоставлю я и когда вернёмся к оценке. Зафиксирую договорённость
+        и буду давать своевременную обратную связь по тем же критериям, отмечая также прогресс. Если разрыв сохранится,
+        вместе с ответственным кадровым специалистом пройду установленный процесс организации, рассмотрев соответствие
+        роли и доступную поддержку. Сохраню конфиденциальность и не стану обещать исход, который не могу гарантировать.
+        У команды при этом должны оставаться понятные ожидания по работе: помощь одному человеку не означает незаметную
+        передачу его неограниченной нагрузки коллегам.'
+    reading:
+    - google-manager-training
+  - id: lead-disruptive-star
+    tracks:
+    - leadership
+    type: applied_scenario
+    level: senior
     text:
-      en: >-
-        How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?
-      ru: >-
-        Как вы работали с сильным инженером, чьё поведение вызывало конфликты с коллегами?
+      en: How would you handle a high-performing engineer whose behaviour repeatedly creates conflict with teammates?
+      ru: Как вы будете действовать, если сильный инженер своим поведением регулярно создаёт конфликты с коллегами?
     tests:
-      en: >-
-        Whether you hold performance and collaboration to explicit standards.
-      ru: >-
-        Предъявляете ли вы понятные требования и к результатам, и к взаимодействию.
-    provenance: "published"
-    added: "2026-09-26"
+      en: Whether you address observable collaboration problems without exempting high performers or deciding the
+        case before hearing those involved.
+      ru: Умеете ли вы разбирать конкретные проблемы взаимодействия, не делая исключений для сильных сотрудников и
+        не вынося решения до разговора с участниками.
+    provenance: published
+    added: '2026-09-26'
     evidence:
-      - source: "exponent-report-google-em-l6"
-        company: "google"
-    start_here: ["leadership"]
+    - source: exponent-report-google-em-l6
+      company: google
+    start_here:
+    - leadership
     priority: 19
     outline:
       en:
-        - "Separate technical results from the impact of specific behaviour."
-        - "Explain your feedback and how you heard their perspective."
-        - "Describe agreed behaviour changes and subsequent observations."
+      - Establish specific behaviour and team impact; hear different accounts without public blame.
+      - Explain that collaboration is part of performance and agree observable changes and support.
+      - Review both delivery and collaboration; use the established people process if harmful behaviour persists.
       ru:
-        - "Разделить технические результаты и последствия конкретного поведения."
-        - "Объяснить обратную связь и то, как вы выслушали сотрудника."
-        - "Описать согласованные изменения поведения и последующие наблюдения."
+      - Установить конкретные действия и последствия для команды; выслушать разные стороны без публичных обвинений.
+      - Объяснить, что взаимодействие входит в оценку работы; согласовать наблюдаемые изменения и поддержку.
+      - Проверять и результаты, и сотрудничество; при сохранении вредного поведения следовать кадровому процессу.
     answer:
-      en: "Separate two things in your first sentence: the person's technical contribution and the consequences of specific behaviour. Otherwise the answer sounds like a complaint about someone's character. Describe what was observable: whose work got held up, who stopped bringing ideas, which meetings ended without a decision. What's being tested is whether you set standards for collaboration as clearly as you set them for results, and whether you quietly make an exception for a strong engineer. Say how you talked one on one, what you heard back, since sharpness often covers overload, unclear authority, or a sense that quality is being sacrificed, and what behaviour changes you agreed in checkable terms. End with what you saw afterwards and what would have followed if nothing changed. The mistake is finishing with \"we talked and it went away\"; the interviewer wants the follow-up, not a happy ending."
-      ru: "Разделите две вещи с первой фразы: технический вклад человека и последствия конкретного поведения — иначе ответ звучит как жалоба на характер. Опишите наблюдаемое: чьи задачи тормозились, кто перестал приносить идеи, какие встречи заканчивались без решения. Проверяют здесь, предъявляете ли вы требования к взаимодействию так же ясно, как к результату, и не делаете ли исключение для сильного инженера. Расскажите, как вы говорили один на один, что услышали в ответ — за резкостью нередко стоят перегрузка, непонятные полномочия или ощущение, что качеством жертвуют, — и о каких изменениях поведения договорились, в проверяемых формулировках. Закончите тем, что наблюдали дальше и что было бы, если бы ничего не поменялось. Ошибка — финал вида «поговорили, и всё прошло»: интервьюеру нужна последующая проверка, а не благополучная развязка."
-    reading: ["google-manager-training"]
+      en: I would separate the engineer’s valuable output from the behaviours causing harm, then gather concrete examples
+        and hear the people involved. A technical disagreement is not automatically misconduct; repeated interruptions,
+        withheld information or personal attacks need a different response from a well-founded objection. In private
+        I would describe the observed impact and make clear that collaboration is part of performance, including for
+        the strongest contributor. We would agree specific changes, support such as coaching, and a review date. I
+        would check whether team incentives or unclear decision rights are rewarding the behaviour and correct those
+        conditions too. Follow-up should use observable evidence from delivery and collaboration, without turning
+        colleagues into a public jury. If harmful behaviour persists, I would use the organisation’s established people
+        process. Protecting one person’s output cannot justify accepting an indefinite cost to the rest of the team.
+      ru: 'Я разделю ценный результат инженера и поведение, которое наносит вред, затем соберу конкретные примеры
+        и выслушаю участников. Техническое несогласие само по себе не является нарушением: обоснованное возражение
+        требует другого ответа, чем постоянные перебивания, сокрытие информации или личные нападки. На личной встрече
+        объясню наблюдаемые последствия и обозначу, что сотрудничество входит в оценку работы, в том числе для самого
+        сильного специалиста. Мы согласуем конкретные изменения, поддержку, например коучинг, и срок проверки. Также
+        проверю, не поощряют ли такое поведение командные стимулы или неясные права принятия решений, и исправлю эти
+        условия. Дальнейшая оценка должна опираться на наблюдаемые результаты и взаимодействие, не превращая коллег
+        в публичное жюри. Если вредное поведение продолжится, воспользуюсь установленным кадровым процессом организации.
+        Сохранение индивидуального результата не оправдывает бессрочный ущерб для всей остальной команды.'
+    reading:
+    - google-manager-training
   - id: "lead-mentee-growth"
     tracks: ["leadership"]
     type: "behavioral"
@@ -136,40 +169,59 @@ questions:
       en: "First I work out what the disagreement is about: facts, a forecast, or priorities. Otherwise the discussion goes in circles. I ask people to name the assumptions my proposal rests on, then take the strongest objection and state it better than its author did: if it falls apart, the direction is firmer; if it doesn't, I'm the one who has to change the decision. Where the argument turns on an unknown quantity, it's cheaper to run a bounded experiment or prototype with an agreed criterion than to keep arguing; the price is time, so I fix the deadline up front. Then I say plainly whose call it is: the discussion is open, the responsibility is mine. The decision, reasons and rejected options go into a design doc with the conditions for revisiting it. This is overkill when a decision is cheap and reversible: then trying is faster than aligning."
       ru: "Сначала выясняю, о чём именно спор: о фактах, о прогнозе или о приоритетах — иначе обсуждение идёт по кругу. Прошу назвать предположения, на которых держится моё предложение, и беру самое сильное возражение, формулируя его вслух лучше, чем это сделал автор: если оно рассыпается, направление крепче, если нет — менять решение надо мне. Там, где спор упирается в неизвестную величину, дешевле не спорить, а поставить ограниченный эксперимент или прототип с заранее согласованным критерием; плата за это — время, поэтому срок фиксирую сразу. Дальше прямо говорю, чьё это решение: обсуждение открытое, ответственность моя. Решение, причины и отвергнутые варианты записываю в design-документ вместе с условиями пересмотра. Такой порядок избыточен, когда решение дёшево и обратимо: тогда быстрее попробовать, чем согласовывать."
     reading: ["design-docs-at-google"]
-  - id: "lead-reorganisation-retention"
-    tracks: ["leadership"]
-    type: "applied_scenario"
-    level: "senior"
+  - id: lead-reorganisation-retention
+    tracks:
+    - leadership
+    type: behavioral
+    level: senior
     text:
-      en: >-
-        How would you respond when a high performer considers leaving during a reorganisation?
-      ru: >-
-        Как вы поступите, если сильный сотрудник собирается уйти во время реорганизации?
+      en: Tell me about a difficult organisational change you managed that involved high-performing engineers leaving.
+        How did you respond?
+      ru: Расскажите о сложном организационном изменении, которым вы управляли и при котором уходили сильные инженеры.
+        Как вы действовали?
     tests:
-      en: >-
-        Whether you listen honestly and address retention without making promises you cannot keep.
-      ru: >-
-        Умеете ли вы разобраться в причинах ухода без невыполнимых обещаний.
-    provenance: "published"
-    added: "2026-09-26"
+      en: Whether you can explain actual attrition, your responsibility and the effect of your response on the remaining
+        team.
+      ru: Умеете ли вы объяснить реальные уходы сотрудников, собственную ответственность и последствия ваших действий
+        для оставшейся команды.
+    provenance: published
+    added: '2026-09-26'
     evidence:
-      - source: "exponent-report-google-em-l6"
-        company: "google"
-    start_here: ["leadership"]
+    - source: exponent-report-google-em-l6
+      company: google
+    start_here:
+    - leadership
     priority: 22
     outline:
       en:
-        - "Understand the person's concerns and separate change uncertainty from persistent problems."
-        - "Explain what is known, what you can change and what remains undecided."
-        - "Discuss feasible support, surface unresolved concerns and agree a follow-up."
+      - Use a real change and actual departures; state your authority and distinguish known reasons from inference.
+      - Explain how remaining engineers reacted and what you changed in workload, communication or management practice.
+      - Give follow-up evidence, limits of attribution and what you would handle differently.
       ru:
-        - "Выяснить причины и отделить неопределённость перемен от устойчивых проблем."
-        - "Объяснить, что известно, на что вы влияете и какие решения ещё не приняты."
-        - "Обсудить доступную поддержку, нерешённые вопросы и последующую встречу."
+      - Взять реальное изменение и состоявшиеся уходы; назвать свои полномочия и отделить известные причины от предположений.
+      - Объяснить реакцию оставшихся инженеров и изменения нагрузки, коммуникации или управления.
+      - Привести последующие наблюдения, пределы причинных выводов и то, что теперь сделали бы иначе.
     answer:
-      en: "I start with a conversation that isn't a negotiation: I want the reason, not retention at any price. Then I separate the temporary uncertainty of a reorganisation, an unclear manager, an unsettled team shape, plans on hold, from problems that predate it: a growth ceiling, pay, relationships, the content of the work. The mechanism is simple: the first is treated with information and dates, the second only with real changes. Confusing them is expensive, because a promise I can't keep speeds the exit and costs the team's trust. So I say honestly what is decided, what I influence, what is still open and when it will be known. I offer support I can actually give, write down unresolved questions and set a follow-up on a specific date. If the reason is beyond my influence, the goal changes: a decent exit, a handover and a preserved relationship are a result too."
-      ru: "Начинаю с разговора без торга: мне нужно понять причину, а не удержать любой ценой. Дальше разделяю временную неопределённость реорганизации — неясный руководитель, непонятный контур команды, подвешенные планы — и устойчивые проблемы, которые были и до неё: потолок роста, вознаграждение, отношения, содержание работы. Механизм простой: первое лечится информацией и сроками, второе — только реальными изменениями, а путать их дорого, потому что невыполнимое обещание ускорит уход и ударит по доверию всей команды. Поэтому честно говорю, что уже решено, на что влияю я, что ещё открыто и когда станет известно. Предлагаю доступную поддержку, записываю нерешённые вопросы и назначаю следующую встречу с конкретной датой. Если причина вне моего влияния, задача меняется: достойный выход, передача знаний и сохранённые отношения тоже результат."
-    reading: ["gitlab-organizational-change"]
+      en: 'Choose a real organisational change where strong engineers actually left, and state what you personally
+        controlled. Explain the purpose of the change and the evidence you had about why people departed; distinguish
+        exit feedback from your interpretation. Describe the effect on the remaining team, including workload, trust
+        and delivery commitments. Then explain your response: conversations you held, commitments you renegotiated,
+        responsibilities you clarified or practices you changed. A retention payment or a new meeting is an action,
+        not proof of success. Give the follow-up evidence you genuinely have, such as subsequent departures, workload
+        indicators or feedback, and acknowledge other factors that could explain it. End with what you would now do
+        earlier or differently. If you have not managed this situation, say so and offer the closest relevant experience,
+        clearly naming the difference rather than inventing departures or claiming authority you did not hold.'
+      ru: 'Выберите реальное организационное изменение, во время которого сильные инженеры действительно ушли, и назовите
+        то, чем управляли лично вы. Объясните цель изменения и известные вам причины ухода; отделите обратную связь
+        сотрудников от собственных предположений. Покажите последствия для оставшейся команды: нагрузку, доверие и
+        обязательства по поставке. Затем разберите свои действия: проведённые разговоры, пересмотренные обещания,
+        уточнённые зоны ответственности или изменённые практики. Выплата за удержание или новая встреча — действие,
+        а не доказательство успеха. Приведите действительно доступные последующие наблюдения: новые уходы, показатели
+        нагрузки или обратную связь, — и признайте другие возможные причины результата. Завершите тем, что теперь
+        сделали бы раньше или иначе. Если вы не управляли такой ситуацией, прямо скажите об этом и предложите ближайший
+        подходящий опыт, обозначив отличие: не нужно выдумывать уходы сотрудников или приписывать себе чужие полномочия.'
+    reading:
+    - gitlab-organizational-change
   - id: "lead-team-after-change"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -364,40 +416,59 @@ questions:
       en: "Choose a disagreement where both sides were defending something real, say delivery speed against operability, rather than one where somebody was simply wrong, because the question is about keeping valid concerns, not about picking a winner. State each position in its strongest form. The interviewer is listening for the step from positions to needs: what each person feared would happen if the other prevailed. Positions conflict far more often than needs do, and once the needs are visible there's often an option that meets both — a staged rollout, a guardrail with a deadline, a reversible first step. Make clear this isn't splitting the difference, which usually leaves both concerns half addressed; that's the superficial compromise being tested. Say who decided, and what you'd have done if the needs had genuinely conflicted. The usual mistake is casting yourself as the wise mediator whose idea solved everything. Close with evidence: what was built, whether both concerns stayed addressed, and how the two people worked together afterwards."
       ru: "Выбирайте спор, где обе стороны защищали что-то настоящее, например скорость выпуска и удобство эксплуатации, а не тот, где кто-то просто ошибался: вопрос о том, чтобы сохранить обоснованные опасения, а не выбрать победителя. Изложите каждую позицию в сильнейшей форме. Интервьюер слушает переход от позиций к потребностям: чего каждый боялся, если победит другой. Позиции конфликтуют гораздо чаще, чем потребности, и когда потребности видны, нередко находится вариант, закрывающий обе, — поэтапный выпуск, ограничитель со сроком, обратимый первый шаг. Подчеркните, что это не деление пополам: оно обычно оставляет оба опасения закрытыми наполовину, и именно такой поверхностный компромисс здесь проверяют. Скажите, кто принимал решение и что бы вы сделали, если бы потребности действительно противоречили друг другу. Частая ошибка — роль мудрого посредника, чья идея всё решила. Заканчивайте свидетельствами: что в итоге сделали, остались ли закрыты оба опасения и как эти двое работали вместе дальше."
     reading: ["google-manager-training"]
-  - id: "lead-strategic-hiring"
-    tracks: ["leadership"]
-    type: "applied_scenario"
-    level: "senior"
+  - id: lead-strategic-hiring
+    tracks:
+    - leadership
+    type: behavioral
+    level: senior
     text:
-      en: >-
-        How do you decide which engineering capabilities to hire for?
-      ru: >-
-        Как вы определяете, какие инженерные компетенции нужно нанимать?
+      en: Describe your most recent strategic engineering hire. How did you define the hiring bar and assess whether
+        the hire met the need?
+      ru: Расскажите о своём последнем стратегически важном найме инженера. Как вы определили планку и оценили, решил
+        ли найм исходную задачу?
     tests:
-      en: >-
-        Whether staffing choices follow strategy and gaps in team capability.
-      ru: >-
-        Следуют ли кадровые решения из стратегии и пробелов в компетенциях.
-    provenance: "published"
-    added: "2026-09-26"
+      en: Whether a real hiring decision connects a capability need, a consistent assessment and observed results.
+      ru: Связываете ли вы в реальном кадровом решении потребность в компетенции, последовательную оценку и наблюдаемые
+        результаты.
+    provenance: published
+    added: '2026-09-26'
     evidence:
-      - source: "exponent-stripe"
-        company: "stripe"
-    start_here: ["leadership"]
+    - source: exponent-stripe
+      company: stripe
+    start_here:
+    - leadership
     priority: 47
     outline:
       en:
-        - "Start from the next period's commitments and the capabilities they require."
-        - "Separate a gap worth hiring for from one solved by training, borrowing or not doing the work."
-        - "Write the role from the gap, and define what evidence the loop must produce."
+      - State the real strategic need, your role in the decision and why hiring was chosen.
+      - Explain the role-specific bar, assessment evidence and important tradeoffs.
+      - Describe onboarding and observed results; distinguish early signals from a proven long-term outcome.
       ru:
-        - "Начать с обязательств следующего периода и требуемых для них компетенций."
-        - "Отличить пробел, который стоит закрывать наймом, от решаемого обучением, заимствованием или отказом от работы."
-        - "Писать роль из пробела и определить, какие доказательства должно дать интервью."
+      - Назвать реальную стратегическую потребность, свою роль в решении и причины выбора найма.
+      - Объяснить требования роли, доказательства из оценки и существенные компромиссы.
+      - Описать адаптацию и наблюдаемые результаты; отделить ранние признаки от подтверждённого долгосрочного эффекта.
     answer:
-      en: "I work backwards from commitments, not from granted headcount. I ask what the team has promised for the next few quarters, which capabilities that requires, and where the team is thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to."
-      ru: "Я иду от обязательств, а не от выделенной численности. Смотрю, что команда обещала на ближайшие кварталы, какие компетенции для этого нужны и где ей не хватает именно компетенций, а не людей. Дальше по каждому пробелу спрашиваю, вообще ли найм — подходящий инструмент: часть закрывается быстрее обучением человека, который уже знает предметную область, часть — временным заимствованием специалиста, а часть должна закрыться решением эту работу не делать. Остальное оправдывает роль, и роль я пишу из пробела, а не из общей карьерной лестницы, затем определяю, какие доказательства должно дать интервью, чтобы оно проверяло сам пробел, а не его подобие. Я взвешиваю и долговечность: компетенция, нужная стратегии годами, заслуживает найма, а полугодовой всплеск — обычно нет. Провал, от которого я страхуюсь, — найм под ту архитектуру, которая есть, а не под ту, к которой мы идём."
-    reading: ["google-manager-training"]
+      en: 'Use your most recent real strategic hire and explain the capability the organisation needed, rather than
+        presenting a generic staffing philosophy. State your authority: you may have owned the role, designed the
+        assessment or contributed an interview without making the final decision. Explain why hiring was preferable
+        to training, borrowing expertise or reducing scope in that situation. Describe the hiring bar in terms of
+        work the person needed to perform and the evidence used to assess it consistently. Include a meaningful tradeoff,
+        such as immediate domain knowledge versus the ability to build a new capability, without disclosing candidate
+        details. Then describe onboarding and what you observed after the hire. If the person has only recently joined,
+        say that the strategic outcome is not yet known. If you have no such hire, be explicit and discuss the closest
+        staffing decision without recasting participation as ownership.'
+      ru: 'Возьмите последний реальный стратегически важный найм и объясните, какая компетенция была нужна организации,
+        вместо изложения общей кадровой философии. Назовите свои полномочия: вы могли отвечать за роль, проектировать
+        оценку или проводить интервью, не принимая окончательного решения. Объясните, почему в той ситуации найм оказался
+        предпочтительнее обучения, временного привлечения эксперта или сокращения объёма работы. Сформулируйте планку
+        через задачи, которые предстояло выполнять человеку, и доказательства, которыми последовательно проверяли
+        готовность к ним. Покажите существенный компромисс, например между немедленным знанием предметной области
+        и способностью создать новую компетенцию, не раскрывая данные кандидатов. Затем опишите адаптацию и наблюдаемые
+        результаты найма. Если человек пришёл недавно, прямо скажите, что стратегический эффект пока неизвестен. Если
+        такого найма не было, обозначьте это и разберите ближайшее кадровое решение, не превращая участие в ответственность
+        за весь процесс.'
+    reading:
+    - google-manager-training
   - id: "lead-quality-standard"
     tracks: ["leadership"]
     type: "applied_scenario"
@@ -460,6 +531,7 @@ questions:
         - "Принести проблему пользователя и данные за ней, а не саму функцию, чтобы инженеры могли проверить логику."
         - "Считать возражения о цене, сложности и поддержке входными данными, способными изменить объём, а не сопротивлением."
         - "Договориться о метрике успеха и дешёвой первой версии и обещать убрать функцию, если метрика не будет достигнута."
+    reading: ["google-pair-user-needs", "design-docs-at-google"]
   - id: "lead-personal-growth"
     tracks: ["leadership"]
     type: "behavioral"
@@ -585,26 +657,124 @@ questions:
       en: "The thing to prevent is a platform announced before anyone is staffed to run it: teams start depending on it, it degrades, and its failures belong to no one. I'd first define what's actually shared — model access, an evaluation harness, logging with redaction — and what each team would build alone, because a quarter of duplication can be cheaper than a premature shared dependency that couples two roadmaps. If it's genuinely shared, capacity must come from somewhere, and the honest options are few: fund headcount, take an explicit share out of both teams' plans, or make one team the owner, with the other as a customer on written terms. A volunteer working group isn't one of them. Then a narrow charter: the owner, what's in and out of scope, response expectations, how changes are requested, and the trigger for a dedicated team, such as a third consumer or growing support load. If neither team will give up roadmap capacity, that's a priority decision for their common manager, not an org-design problem."
       ru: "Предотвратить нужно платформу, объявленную раньше, чем появились люди для её поддержки: команды начинают от неё зависеть, она деградирует, а за её сбои не отвечает никто. Поэтому сначала определяю, что действительно общее — доступ к моделям, стенд оценки, журналирование с маскированием, — и что каждая команда сделала бы сама: квартал дублирования бывает дешевле преждевременной общей зависимости, которая связывает два роадмапа. Если потребность действительно общая, ёмкость должна откуда-то взяться, и честных вариантов немного: выделить ставки, явно забрать долю из планов обеих команд или назначить одну команду владельцем, а другую — клиентом на письменно зафиксированных условиях. Рабочая группа добровольцев в этот список не входит. Дальше узкий устав: владелец, что входит в зону ответственности и что нет, ожидаемые сроки реакции, порядок запроса изменений и триггер для выделенной команды, например третий потребитель или растущая нагрузка на поддержку. Если ни одна команда не готова отдать часть плана, это вопрос приоритетов для их общего руководителя, а не задача оргдизайна."
     reading: ["fowler-team-topologies"]
-  - id: "lead-ai-interview-redesign"
-    tracks: ["leadership"]
-    roles: ["engineering-manager"]
-    type: "applied_scenario"
+  - id: lead-ai-interview-redesign
+    tracks:
+    - leadership
+    roles:
+    - engineering-manager
+    type: applied_scenario
     text:
-      en: "Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?"
-      ru: "Кандидаты используют AI-ассистентов на технических интервью. Как вы перестроите процесс, чтобы он по-прежнему давал пригодный сигнал для найма?"
+      en: Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it
+        still produces a usable hiring signal?
+      ru: Кандидаты используют AI-ассистентов на технических интервью. Как вы перестроите процесс, чтобы он по-прежнему
+        давал пригодный сигнал для найма?
     tests:
-      en: "Whether the loop measures judgement and ownership instead of banning or ignoring the tools."
-      ru: "Измеряет ли процесс суждение и ответственность вместо запрета или игнорирования инструментов."
-    provenance: "generated"
-    added: "2026-09-30"
-    basis: ["radar:engineering-leadership"]
+      en: Whether you define the hiring signal, set a clear tool policy and evaluate individual judgement consistently.
+      ru: Умеете ли вы определить сигнал для найма, задать понятные правила инструментов и последовательно оценивать
+        индивидуальное суждение.
+    provenance: generated
+    added: '2026-09-30'
+    basis:
+    - radar:engineering-leadership
     outline:
       en:
-        - "Identify which old tasks assistants now solve, and restate the signal as judgement, verification and ownership."
-        - "Allow tools openly with the same setup for everyone, and score how candidates check, correct and explain output."
-        - "Calibrate the new tasks on current engineers using the same tools, and track whether scores predict later performance."
+      - Define the job capabilities and identify tasks whose score no longer distinguishes candidates.
+      - Choose and disclose a tool policy for each stage; give candidates comparable access and evaluate verification
+        and explanation.
+      - Calibrate on representative work, review scoring disagreements and examine later performance without overclaiming
+        small samples.
       ru:
-        - "Определить, какие прежние задания теперь решают ассистенты, и переформулировать сигнал как суждение, проверку и ответственность."
-        - "Открыто разрешить инструменты в одинаковой для всех среде и оценивать, как кандидат проверяет, исправляет и объясняет результат."
-        - "Откалибровать новые задания на действующих инженерах с теми же инструментами и отслеживать, предсказывают ли оценки последующую работу."
-    reading: ["anthropic-ai-resistant-evaluations","canva-ai-interview-success"]
+      - Определить необходимые рабочие навыки и задания, оценка которых больше не различает кандидатов.
+      - Выбрать и заранее объявить правила инструментов для каждого этапа; обеспечить сопоставимый доступ и оценивать
+        проверку и объяснение.
+      - Калибровать на типичной работе, разбирать расхождения оценок и сопоставлять с дальнейшей работой без сильных
+        выводов по малой выборке.
+    reading:
+    - anthropic-ai-resistant-evaluations
+    - canva-ai-interview-success
+    start_here:
+    - leadership
+    priority: 76
+    answer:
+      en: 'I would start with the work the hire must perform: framing a problem, checking an unfamiliar change, diagnosing
+        failure and explaining a decision. Then I would identify which existing tasks now mostly measure access to
+        an assistant. Each stage needs an explicit policy: tools may be permitted for realistic work, restricted for
+        a particular independent skill, or supplied in a controlled environment. Candidates should know the policy
+        beforehand and have comparable access. I would score observable reasoning, verification, corrections and ownership,
+        using a follow-up change that exposes whether the candidate understands the result. Before rollout, current
+        engineers and trained interviewers should try the tasks and reconcile scoring disagreements. I would monitor
+        candidate experience and later work outcomes, while acknowledging that small, selectively hired samples cannot
+        establish predictive validity. The goal is a defensible hiring decision, not winning an arms race with assistants.'
+      ru: 'Я начну с работы, которую предстоит выполнять нанятому человеку: постановки задачи, проверки незнакомого
+        изменения, диагностики сбоя и объяснения решения. Затем выделю старые задания, которые теперь преимущественно
+        измеряют доступ к ассистенту. Для каждого этапа нужны явные правила: инструменты можно разрешить в реалистичной
+        работе, ограничить ради отдельного самостоятельного навыка или предоставить в контролируемой среде. Кандидаты
+        должны узнать правила заранее и получить сопоставимый доступ. Я буду оценивать наблюдаемую логику, проверку,
+        исправления и ответственность, добавляя изменение условий, которое показывает понимание результата. До запуска
+        задания пройдут действующие инженеры и подготовленные интервьюеры; расхождения оценок необходимо разобрать.
+        После запуска буду отслеживать опыт кандидатов и результаты дальнейшей работы, признавая, что небольшая выборка
+        только нанятых людей не доказывает прогностическую точность. Цель — обоснованное решение о найме, а не соревнование
+        с возможностями ассистентов.'
+  - id: lead-managers-accountability
+    tracks:
+    - leadership
+    roles:
+    - engineering-director
+    - ai-transformation-lead
+    type: applied_scenario
+    text:
+      en: You manage three engineering managers delivering a shared AI initiative. Two blame each other for an evaluation
+        gap while the executive sponsor has promised a launch date. How would you restore accountability without taking
+        over their teams?
+      ru: Вы руководите тремя инженерными менеджерами, которые ведут общую AI-инициативу. Двое обвиняют друг друга
+        в пробеле оценки качества, а исполнительный спонсор уже обещал дату запуска. Как вы восстановите ответственность,
+        не подменяя руководителей команд?
+    tests:
+      en: Whether you lead through managers, resolve cross-team decision rights and negotiate executive commitments
+        using evidence.
+      ru: Умеете ли вы руководить через менеджеров, разрешать вопросы межкомандных полномочий и пересматривать обещания
+        руководству на основании данных.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:engineering-leadership
+    start_here:
+    - leadership
+    priority: 73
+    outline:
+      en:
+      - Establish the missing outcome, prior agreements and each manager’s account; separate unclear structure from
+        individual avoidance.
+      - Assign an accountable decision owner and interfaces while managers retain staffing and delivery responsibility.
+      - Agree evidence-based options with the sponsor, coach managers privately and review whether the organisation
+        can resolve the next conflict without you.
+      ru:
+      - Установить недостающий результат, прежние договорённости и позицию каждого менеджера; отличить неясную структуру
+        от уклонения от ответственности.
+      - Назначить ответственного за решение и границы взаимодействия, сохранив кадровую и исполнительскую ответственность
+        менеджеров.
+      - Согласовать со спонсором варианты на основе данных, отдельно развивать менеджеров и проверить, решит ли организация
+        следующий конфликт без вас.
+    answer:
+      en: 'I would establish which evaluation outcome is missing, what was previously agreed and which decisions each
+        manager could actually make. The immediate objective is to close the risk, but taking over every task would
+        hide a broken management interface. I would name an accountable owner for the shared outcome, agree contributions
+        and escalation conditions with the managers, and leave team planning and execution with them. In parallel,
+        I would take the sponsor a small set of evidenced options: narrow the launch, move the date or accept only
+        risks that the authorised owner can legitimately accept. The promise is a constraint to renegotiate, not proof
+        of readiness. I would coach each manager privately on their part in the conflict and change incentives or
+        boundaries that encouraged it. Success includes the next cross-team decision being resolved through the agreed
+        structure without my intervention.'
+      ru: 'Я установлю, какого результата оценки не хватает, о чём договорились раньше и какие решения каждый менеджер
+        действительно мог принимать. Ближайшая задача — закрыть риск, но перехват всех задач скроет проблему взаимодействия
+        руководителей. Назначу ответственного за общий результат, согласую вклады команд и условия эскалации с менеджерами,
+        оставив им планирование и выполнение внутри команд. Одновременно представлю спонсору несколько вариантов с
+        подтверждениями: сузить запуск, перенести дату или принять только те риски, которые уполномоченный владелец
+        действительно вправе принять. Обещание даты — ограничение для пересмотра, а не доказательство готовности.
+        С каждым менеджером отдельно разберу его вклад в конфликт и изменю стимулы или границы, которые его поддерживали.
+        Признаком успеха станет не только закрытый текущий пробел, но и следующее межкомандное решение, принятое через
+        согласованный порядок без моего вмешательства в работу команд.'
+    reading:
+    - gitlab-engineering-director-process
+    - gitlab-communication
+    - fowler-team-topologies

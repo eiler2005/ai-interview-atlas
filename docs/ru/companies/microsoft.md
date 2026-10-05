@@ -86,7 +86,7 @@
     - Отделить выбор вызова моделью от того, как клиент находит сервер и обращается к нему.
     - Назвать, что фиксирует протокол: транспорт, обнаружение возможностей и типизированные инструменты, ресурсы и промпты.
     - Обсудить границу доверия: подключённый сервер поставляет и возможности, и недоверенный контент.
-  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
+  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) (Model Context Protocol)
 
 ### [Дообучение и post-training](../themes/post-training.md)
 

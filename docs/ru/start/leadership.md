@@ -7,6 +7,10 @@
 
 Порядок изучения, еженедельная практика и критерии готовности — в [учебном плане](../LEARNING_PATH.md).
 
+Выберите предметный маршрут по [карте обучения](../LEARNING_ROADMAP.md): [AI-ассистированный кодинг](../learning/AI_ASSISTED_CODING.md), [прикладная AI-инженерия](../learning/PRODUCTION_AI_ENGINEERING.md) или [AI Leadership](../learning/AI_LEADERSHIP.md).
+
+Границы свидетельств и следующие шаги описаны в [аудите покрытия](../research/ATLAS_COVERAGE_AUDIT.md), [исследовании Engineering](../research/ENGINEERING_RESEARCH.md), [аудите Leadership](../research/LEADERSHIP_AUDIT.md) и [плане расширения](../plans/ATLAS_EXPANSION.md).
+
 [Ответы на эти вопросы](../answers/leadership.md)
 
 - **1. [Ассистент читает внешнюю почту, ищет внутренние документы и отправляет ответы. Как атакующий может изменить его поведение и как ограничить ущерб?](../themes/safety-security-governance.md#sec-mail-agent-boundaries)**
@@ -43,16 +47,16 @@
   - Продуктовый кейс · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#ops-platform-ownership)
 - **17. [Как поддерживать несколько поставщиков моделей, если в отдельных средах разрешена только часть моделей?](../themes/ai-operating-model.md#ops-restricted-models)**
   - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/leadership.md#ops-restricted-models)
-- **18. [Расскажите, как вы работали с инженером, который не справлялся с ожиданиями.](../themes/engineering-leadership.md#lead-low-performance)**
-  - Поведенческий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-low-performance)
-- **19. [Как вы работали с сильным инженером, чьё поведение вызывало конфликты с коллегами?](../themes/engineering-leadership.md#lead-disruptive-star)**
-  - Поведенческий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-disruptive-star)
+- **18. [Как вы будете действовать, если инженер не соответствует ожиданиям по результатам работы?](../themes/engineering-leadership.md#lead-low-performance)**
+  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-low-performance)
+- **19. [Как вы будете действовать, если сильный инженер своим поведением регулярно создаёт конфликты с коллегами?](../themes/engineering-leadership.md#lead-disruptive-star)**
+  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-disruptive-star)
 - **20. [Расскажите, как развивалась карьера человека, которого вы наставляли.](../themes/engineering-leadership.md#lead-mentee-growth)**
   - Поведенческий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-mentee-growth)
 - **21. [Что вы делаете, когда команда не согласна с предложенным вами направлением?](../themes/engineering-leadership.md#lead-team-disagrees)**
   - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-disagrees)
-- **22. [Как вы поступите, если сильный сотрудник собирается уйти во время реорганизации?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
-  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-reorganisation-retention)
+- **22. [Расскажите о сложном организационном изменении, которым вы управляли и при котором уходили сильные инженеры. Как вы действовали?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
+  - Поведенческий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-reorganisation-retention)
 - **23. [Как вы стабилизируете инженерную команду после смены руководства?](../themes/engineering-leadership.md#lead-team-after-change)**
   - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Google и Google DeepMind](../companies/google.md) 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-after-change)
 - **24. [Расскажите, как вы нашли ценную возможность и убедили группу людей её реализовать.](../themes/engineering-leadership.md#lead-opportunity-coalition)**
@@ -101,8 +105,8 @@
   - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · ✍ [Ответ](../answers/leadership.md#ops-private-evaluation)
 - **46. [Команда внедрила AI-инструменты программирования, но ревьюерам трудно проверять изменения. Как вы разовьёте недостающие навыки?](../themes/engineering-leadership.md#lead-ai-review-skills)**
   - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-ai-review-skills)
-- **47. [Как вы определяете, какие инженерные компетенции нужно нанимать?](../themes/engineering-leadership.md#lead-strategic-hiring)**
-  - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-strategic-hiring)
+- **47. [Расскажите о своём последнем стратегически важном найме инженера. Как вы определили планку и оценили, решил ли найм исходную задачу?](../themes/engineering-leadership.md#lead-strategic-hiring)**
+  - Поведенческий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-strategic-hiring)
 - **48. [Как вы задаёте стандарты инженерного качества в команде?](../themes/engineering-leadership.md#lead-quality-standard)**
   - Прикладной сценарий · Senior · [Руководство инженерными командами](../themes/engineering-leadership.md) · Где спрашивали: [Stripe](../companies/stripe.md) † · ✍ [Ответ](../answers/leadership.md#lead-quality-standard)
 - **49. [Исследователям нужно продолжать эксперименты, а продуктовым инженерам — выпустить надёжный сервис. Как вы распределите ответственность и передачу работы?](../themes/engineering-leadership.md#lead-research-product-boundary)**
@@ -149,3 +153,15 @@
   - System design · Senior · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/leadership.md#ops-shared-data-access)
 - **70. [Корпоративный клиент сообщает, что Claude галлюцинирует в ассистенте с поиском по базе знаний. Как вы начнёте разбор ошибок?](../themes/applied-scenarios.md#app-rag-account-triage)**
   - Прикладной сценарий · Senior · [Прикладные и клиентские сценарии](../themes/applied-scenarios.md) · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/leadership.md#app-rag-account-triage)
+- **71. [Вы отвечаете за портфель AI-инвестиций следующего квартала. Бюджет сокращён на 30%; конкурируют коммерческий пилот, обязательный проект контроля рисков и общая инфраструктура оценки. Как вы перераспределите деньги и людей и согласуете решение с руководством?](../themes/ai-operating-model.md#ops-ai-portfolio-allocation)**
+  - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-ai-portfolio-allocation)
+- **72. [Как владелец инвестиций решите, продлевать ли управляемый AI-сервис или финансировать внутреннюю замену. Через шесть месяцев цена поставщика удвоится, а экспорт данных не воспроизводит поведение сервиса. Какое решение и план выхода вы утвердите?](../themes/ai-operating-model.md#ops-ai-build-buy-exit)**
+  - Прикладной сценарий · [AI-платформа и операционная модель](../themes/ai-operating-model.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-ai-build-buy-exit)
+- **73. [Вы руководите тремя инженерными менеджерами, которые ведут общую AI-инициативу. Двое обвиняют друг друга в пробеле оценки качества, а исполнительный спонсор уже обещал дату запуска. Как вы восстановите ответственность, не подменяя руководителей команд?](../themes/engineering-leadership.md#lead-managers-accountability)**
+  - Прикладной сценарий · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-managers-accountability)
+- **74. [Использование AI-продукта растёт, но достоверного улучшения результата клиента нет, а затраты на проверку увеличиваются. Спонсор хочет ещё квартал инвестиций. По каким данным вы расширите, сузите, приостановите или закроете продукт и что сделаете для текущих пользователей?](../themes/ai-product-strategy.md#prod-ai-stop-investment)**
+  - Продуктовый кейс · [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prod-ai-stop-investment)
+- **75. [Во время AI-развёртывания поставщик меняет поведение модели, и вредные действия затрагивают клиентов. Немедленно вернуть прежнюю модель невозможно. Как руководитель программы вы организуете сдерживание инцидента, работу с клиентами и обоснованный повторный запуск?](../themes/program-delivery.md#prog-incident-without-rollback)**
+  - Прикладной сценарий · [Программы и delivery](../themes/program-delivery.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#prog-incident-without-rollback)
+- **76. [Кандидаты используют AI-ассистентов на технических интервью. Как вы перестроите процесс, чтобы он по-прежнему давал пригодный сигнал для найма?](../themes/engineering-leadership.md#lead-ai-interview-redesign)**
+  - Прикладной сценарий · [Руководство инженерными командами](../themes/engineering-leadership.md) · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#lead-ai-interview-redesign)

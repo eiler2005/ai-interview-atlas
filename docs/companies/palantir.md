@@ -52,6 +52,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Explain why top-k retrieval fails: it returns similar passages, not a complete filtered set, so any count is a sample.
     - Route to the system of record: a governed query over order status and block reason, with the model only translating intent.
     - Pin down what counts as blocked by a supplier, show the query and data timestamp, and test against known counts.
+  - Read: [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) (Lei et al., arXiv) · [Table Expressions](https://www.postgresql.org/docs/current/queries-table-expressions.html) (PostgreSQL Global Development Group)
 
 ### [Agents, tools and protocols](../themes/agents-tools.md)
 
@@ -91,7 +92,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 ### [Evaluation and observability](../themes/evals-observability.md)
 
 - **[How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?](../themes/evals-observability.md#eval-production-actions)**
-  - System design · Asked at: Palantir †
+  - System design · Asked at: Palantir † · ✍ [Answer](../answers/engineering.md#eval-production-actions)
   - Tests: Whether action consequences change the acceptance criteria.
   - A strong answer covers:
     - Grade outcomes in the environment, not the proposal text: what changed, and was it permitted.
@@ -102,12 +103,13 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 ### [AI system design](../themes/ai-system-design.md)
 
 - **[Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable.](../themes/ai-system-design.md#sd-document-intelligence)**
-  - System design · Asked at: Palantir †
+  - System design · Asked at: Palantir † · ✍ [Answer](../answers/engineering.md#sd-document-intelligence)
   - Tests: Whether extraction quality, provenance and scalable processing are planned together.
   - A strong answer covers:
     - Process documents as idempotent jobs, storing each field with page, region, model version and confidence.
     - Route fields with low calibrated confidence or failed validation rules to review, sized to reviewer capacity.
     - Measure per-field accuracy on a stratified audit sample, and feed reviewer corrections back into evaluation.
+  - Read: [Interpret and improve model accuracy and confidence scores](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0) (Microsoft Learn) · [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) (Anthropic)
 - **[Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](../themes/ai-system-design.md#sd-text-to-sql)**
   - System design · Asked at: [Databricks](databricks.md) †, Palantir † · ✍ [Answer](../answers/engineering.md#sd-text-to-sql)
   - Tests: Whether semantic correctness and query permissions constrain generation.
@@ -134,6 +136,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Prefer cursor pagination: with offsets, concurrent inserts and deletes shift pages and cause gaps or duplicates.
     - Terminate on an absent next cursor, not a short page, and guard against a repeated cursor looping forever.
     - Validate each page, retry failures with backoff, dedupe by id; test empty results and exact page-size multiples.
+  - Read: [AIP-158: Pagination](https://google.aip.dev/158) (Google)
 - **[Optimise the implementation of a given scheduling system, keeping the code clean.](../themes/coding-practical.md#code-optimise-scheduler)**
   - Coding · Asked at: Palantir 🗣
   - Tests: Whether you find the real bottleneck and improve it without making the code harder to read.
@@ -141,6 +144,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Profile on a realistic workload before changing anything, and state the input sizes that matter.
     - Replace the dominant cost with a better structure, such as a heap or interval index, keeping the interface.
     - Keep existing tests passing, add a benchmark, and report complexity and timings before and after.
+  - Read: [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - **[Debug a broken API service: trace the logs, find the bottleneck and fix a memory leak.](../themes/coding-practical.md#code-debug-api-service)**
   - Coding · Asked at: Palantir 🗣
   - Tests: Whether you debug a running service systematically from evidence rather than guesses.
@@ -156,6 +160,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Restate each question as the result's grain: what one row represents and which rows qualify.
     - Watch for join fan-out, NULL semantics in filters and aggregates, and WHERE versus HAVING.
     - Trace each query by hand on a few sample rows, including ties, NULLs and empty groups.
+  - Read: [Table Expressions](https://www.postgresql.org/docs/current/queries-table-expressions.html) (PostgreSQL Global Development Group)
 
 ### [AI platform and operating model](../themes/ai-operating-model.md)
 
@@ -193,6 +198,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Ask which failure modes cost most and which decision an early warning would change.
     - Check whether sensor and repair logs label failures, then price false alarms against missed breakdowns.
     - Close on a pilot fleet, comparing unplanned downtime and cost with matched locomotives.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - **[How would you design a system to improve traffic in New York City?](../themes/applied-scenarios.md#app-city-traffic)**
   - System design · Senior · Asked at: Palantir †
   - Tests: Whether you decompose an ambiguous city-scale objective into measurable interventions.
@@ -200,6 +206,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Ask what improving traffic means and for whom: travel time, safety, emissions, buses or freight.
     - Choose levers the system actually controls, such as signal timing or bus lanes, and their data.
     - Evaluate one corridor against a comparable control, watching for traffic displaced onto nearby streets.
+  - Read: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - **[Design synchronisation between two systems that hold employee records.](../themes/applied-scenarios.md#app-employee-sync)**
   - System design · Senior · Asked at: Palantir †
   - Tests: Whether you identify record ownership, conflicts and recovery semantics.
@@ -215,6 +222,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Ask about field constraints first: connectivity, battery, gloves, light and who records.
     - Design capture to work offline with location, time and photo, and resolve sync conflicts later.
     - Store the model's suggestion apart from the observer's call, and audit a sample against experts.
+  - Read: [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first) (Android Developers)
 - **[After an introduction to insider trading, explain how you would detect it: what data would you need, what would you ask the customer and what patterns would you look for?](../themes/applied-scenarios.md#app-financial-crime-decomposition)**
   - Applied scenario · Asked at: Palantir 🗣
   - Tests: Whether you turn a vague, high-stakes problem into a scoped first system that can be tested.
@@ -222,6 +230,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Ask which instruments and data exist, and what an analyst must decide from an alert.
     - Scope one pattern first: unusual trading by connected accounts before price-moving announcements.
     - Backtest on confirmed past cases, and cap alert volume at what analysts can review.
+  - Read: [Insider Trading Detection: FINRA’s Vital Role in Ensuring Market Integrity](https://www.finra.org/media-center/finra-unscripted/insider-trading-detection-program-update) (FINRA)
 - **[Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures.](../themes/applied-scenarios.md#app-learn-then-design)**
   - Applied scenario · Asked at: Palantir 🗣
   - Tests: Whether you learn an unfamiliar tool quickly and carry it into sound design decisions.
@@ -240,6 +249,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Choose a request where the customer's proposed solution would have hurt their own underlying goal.
     - Show how you uncovered the goal behind the request and offered an alternative that served it better.
     - Close with what the customer decided, how the relationship held, and evidence the goal was met.
+  - Read: [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - **[How do you think about work for defence or intelligence customers, and what would you do if a requested project conflicted with your values?](../themes/behavioral-values.md#beh-sensitive-mission)**
   - Behavioral · Senior · Asked at: Palantir †
   - Tests: Whether you reason about concrete boundaries and professional responsibility.
@@ -247,6 +257,7 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - State your actual position on defence and intelligence work and its reasoning, whichever way it points.
     - Draw a concrete boundary — which uses, what oversight, whose decision — rather than a general statement of values.
     - Lay out your steps on conflict: raise it, escalate, leave the project, and when you would quit.
+  - Read: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - **[Why this company, and why the forward deployed role rather than engineering on the core product?](../themes/behavioral-values.md#beh-why-forward-deployed)**
   - Self-presentation · Asked at: Palantir 🗣
   - Tests: Whether your motivation fits customer-facing delivery work, not only the company's name.
@@ -262,5 +273,6 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
     - Name a real risk tied to this role's demands — ambiguity, customer pressure, context switching — not a disguised strength.
     - Pick a risk that matters but is not disqualifying, and explain how it has shown up before.
     - Describe how you mitigate it in practice and what early signal would tell your manager it is happening.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ← [Atlassian](atlassian.md) · [Adyen](adyen.md) →

@@ -16,6 +16,7 @@ Vision-language модели, голосовые агенты в реально�
     - Назвать, что теряется на текстовом узком месте: интонация, эмоции, паузы и признаки говорящего не доходят до модели каскада.
     - Сопоставить проверяемые расшифровки, ограничители, вызовы инструментов и заменяемые компоненты каскада с задержкой и выразительностью единой модели.
     - Сравнить оба варианта на одних и тех же диалогах: время до первого звука, успех задачи, следование инструкциям и возможность аудита.
+  - Читать: [Moshi: a speech-text foundation model for real-time dialogue](https://arxiv.org/abs/2410.00037) (Alexandre Defossez et al., arXiv) · [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
@@ -50,6 +51,7 @@ Vision-language модели, голосовые агенты в реально�
     - Распознавать речь поверх воспроизведения с эхоподавлением и отличать короткие поддакивания от настоящего перебивания.
     - При перебивании остановить воспроизведение и генерацию, записать в историю только реально проигранное и не откатывать уже выполненные действия инструментов.
     - Измерить задержку остановки, ложные и пропущенные перебивания и по логам убедиться, что модель не считает услышанным непроигранный текст.
+  - Читать: [How to use the Voice Live API](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to) (Microsoft Learn) · [Moshi: a speech-text foundation model for real-time dialogue](https://arxiv.org/abs/2410.00037) (Alexandre Defossez et al., arXiv)
 - <a id="mm-speech-quality"></a>**Как оценивать распознавание речи помимо WER, а синтез — при множестве допустимых вариантов звучания?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-speech-quality&title=%5BCorrection%5D%20mm-speech-quality)
   - Что проверяет: Умение отдельно измерять критические ошибки задачи и воспринимаемое качество.
@@ -73,6 +75,7 @@ Vision-language модели, голосовые агенты в реально�
     - Резать синтез по границам клауз или знакам препинания с заглядыванием вперёд, оставляя короткую первую часть для быстрого первого звука.
     - Задавать буфер воспроизведения по измеренному джиттеру: маленький опустошается и заикается, большой задерживает каждую реплику.
     - Измерять время до первого звука, долю опустошений буфера и длительность пауз на воспроизведённых сетевых трассах, а также просодию на стыках.
+  - Читать: [How to use the Voice Live API](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to) (Microsoft Learn) · [Speech marks](https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html) (Amazon Web Services)
 - <a id="mm-diarisation"></a>**Спроектируйте диаризацию и назначение ролей в беседе, не приравнивая кластер голоса к личности.**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-diarisation&title=%5BCorrection%5D%20mm-diarisation)
   - Что проверяет: Умение различать сегментацию, кластеризацию и вывод о роли.
@@ -80,6 +83,7 @@ Vision-language модели, голосовые агенты в реально�
     - Разделить этапы: детекция речи и смены говорящего, обработка наложений, эмбеддинги голоса, затем кластеризация при неизвестном числе говорящих.
     - Считать кластеры анонимными метками: роль выводить из содержания и очерёдности реплик, а личность — только по регистрации голоса с согласия.
     - Раскладывать ошибку диаризации на пропуски, ложные срабатывания и путаницу, включая наложения, и отдельно оценивать точность ролей.
+  - Читать: [The Third DIHARD Diarization Challenge](https://arxiv.org/abs/2012.01477) (Neville Ryant et al., arXiv)
 - <a id="mm-cross-modal-retrieval"></a>**Спроектируйте поиск по текстам, изображениям и видео, задав сопоставимое представление запросов и результатов.**
   - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-cross-modal-retrieval&title=%5BCorrection%5D%20mm-cross-modal-retrieval)
   - Что проверяет: Умение явно задать выравнивание модальностей и единицу поиска.
@@ -103,6 +107,7 @@ Vision-language модели, голосовые агенты в реально�
     - Отделить речь от музыки и эффектов, затем распознать с пословными метками времени и провести диаризацию, чтобы каждый фрагмент сохранил говорящего.
     - Ограничивать длину перевода длительностью фрагмента, предпочитая перефразирование сильному растяжению по времени; клонировать голос только с согласия.
     - Измерить выход за тайминг, сходство голоса, адекватность перевода по оценке двуязычных экспертов и естественность после сведения.
+  - Читать: [Seamless: Multilingual Expressive and Streaming Speech Translation](https://arxiv.org/abs/2312.05187) (Seamless Communication et al., arXiv) · [Text to speech transparency note](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/text-to-speech/transparency-note) (Microsoft Learn)
 - <a id="mm-clinical-audio"></a>**Как улучшить распознавание шумной консультации с пересекающимися репликами и специализированной медицинской лексикой?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-clinical-audio&title=%5BCorrection%5D%20mm-clinical-audio)
   - Что проверяет: Умение отдельно диагностировать шум, наложение речи и редкие термины.
@@ -110,6 +115,7 @@ Vision-language модели, голосовые агенты в реально�
     - Разложить ошибки по отношению сигнал/шум, участкам наложения речи и медицинским терминам, чтобы у каждой причины был свой показатель.
     - Подбирать меры под причину: микрофоны и аугментация против шума, разделение источников против наложений, смещение словаря или дообучение для терминов.
     - Проверять на отложенных врачах и кабинетах, считая вставленные термины и ошибки в дозировках, а не только общий WER.
+  - Читать: [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv) · [Improve recognition accuracy with phrase list](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/improve-accuracy-phrase-list) (Microsoft Learn) · [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization)
 - <a id="mm-vision-language-action"></a>**Чем vision-language-action policy отличается от языковой модели, просто вызывающей внешние инструменты?**
   - Знания · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-vision-language-action&title=%5BCorrection%5D%20mm-vision-language-action)
   - Что проверяет: Понимание различий в представлении действий и обратной связи управления.

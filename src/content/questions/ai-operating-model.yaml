@@ -138,3 +138,132 @@ questions:
       en: "The central decision is what counts as a permissible result, because no raw records isn't a policy until it says which outputs are allowed. Per team and purpose I'd define fields, aggregations and a minimum group size below which a result is suppressed. Teams never touch the store: they query a service that authenticates the caller, applies that purpose's policy, rewrites the query to enforce row and column restrictions, and checks the result before release. The non-obvious leak is through aggregates: two allowed queries whose difference isolates one person, or the same small group sliced repeatedly. So I'd add small-cell suppression, limits on overlapping queries, and for the most sensitive data differential privacy, calibrated noise under a privacy budget, which costs accuracy most on small segments. Every query is logged with caller and purpose, and I'd test by trying to re-identify individuals through the allowed interface. If a team genuinely needs record-level analysis, a de-identified extract or a controlled workspace where code runs next to the data is more honest than stretching the aggregate API."
       ru: "Главное решение — что считать допустимым результатом: запрет доступа к исходным записям не становится политикой, пока не сказано, какие выходные данные разрешены. Для каждой команды и цели я бы определил поля, агрегаты и минимальный размер группы, ниже которого результат скрывается. Напрямую к хранилищу команды не обращаются: они отправляют запросы сервису, который аутентифицирует вызывающего, применяет политику заявленной цели, переписывает запрос, чтобы соблюсти ограничения по строкам и столбцам, и проверяет результат перед выдачей. Неочевидная утечка идёт через агрегаты: два разрешённых запроса, разность которых выделяет одного человека, или одна и та же маленькая группа, нарезанная многократно. Поэтому добавил бы подавление малых ячеек, ограничения на пересекающиеся запросы, а для самых чувствительных данных — дифференциальную приватность, то есть откалиброванный шум в рамках бюджета приватности, который сильнее всего бьёт по точности на малых сегментах. Каждый запрос журналируется с вызывающим и целью, а проверял бы я попытками повторно идентифицировать людей через разрешённый интерфейс. Если команде действительно нужен анализ на уровне записей, честнее деидентифицированная выгрузка или контролируемая среда, где код выполняется рядом с данными, чем растягивать API агрегатов."
     reading: ["nist-sp-800-226"]
+  - id: ops-ai-portfolio-allocation
+    tracks:
+    - leadership
+    roles:
+    - engineering-director
+    - product-director
+    - ai-transformation-lead
+    type: applied_scenario
+    text:
+      en: You own the next quarter’s AI investment portfolio. A 30% budget cut affects a revenue pilot, a mandatory
+        risk-control project and shared evaluation infrastructure. How would you reallocate money and people and secure
+        executive agreement?
+      ru: Вы отвечаете за портфель AI-инвестиций следующего квартала. Бюджет сокращён на 30%; конкурируют коммерческий
+        пилот, обязательный проект контроля рисков и общая инфраструктура оценки. Как вы перераспределите деньги и
+        людей и согласуете решение с руководством?
+    tests:
+      en: Whether you exercise portfolio authority, distinguish constraints from preferences and make the cost of
+        displaced work explicit.
+      ru: Умеете ли вы принимать решения на уровне портфеля, отделять ограничения от предпочтений и явно показывать
+        цену отложенной работы.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:ai-operating-model
+    start_here:
+    - leadership
+    priority: 71
+    outline:
+      en:
+      - Establish the budget boundary, non-negotiable obligations, committed spend and decision authority.
+      - Compare complete options with ranges for value, remaining cost, dependencies and people capacity; exclude
+        sunk cost from the forward choice.
+      - Fund, narrow, defer or stop named work; record executive tradeoffs, transition costs and conditions for revisiting
+        the allocation.
+      ru:
+      - Уточнить границы бюджета, обязательные требования, уже принятые обязательства и полномочия решения.
+      - Сравнить целостные варианты по диапазонам пользы, будущих затрат, зависимостей и доступности людей; не оправдывать
+        выбор уже понесёнными расходами.
+      - Назвать финансируемую, сокращаемую, откладываемую и останавливаемую работу; зафиксировать компромиссы, переходные
+        затраты и условия пересмотра.
+    answer:
+      en: I would first confirm what the 30% cut applies to and which commitments cannot be changed within the quarter.
+        A mandatory control needs a viable minimum scope; its label does not justify every proposed feature. I would
+        compare portfolio options using remaining cost, evidence of value, uncertainty, dependencies and the actual
+        skills available. Shared evaluation may enable both other projects, so cutting each budget equally could destroy
+        more value than stopping one initiative. I would propose a specific allocation with named work to stop or
+        defer, transition costs and owners for affected commitments. The executive discussion should expose the foregone
+        opportunity and residual risk, identify who can accept each tradeoff and produce a recorded decision. I would
+        release discretionary funding in stages against evidence and set a review trigger. Past spending explains
+        the situation but does not, by itself, justify further investment.
+      ru: Сначала я уточню, к чему относится сокращение на 30% и какие обязательства нельзя изменить в пределах квартала.
+        Для обязательного контроля нужен жизнеспособный минимальный объём; само название не оправдывает все предложенные
+        функции. Сравню варианты портфеля по будущим затратам, подтверждённой пользе, неопределённости, зависимостям
+        и реально доступным навыкам. Общая инфраструктура оценки может быть нужна двум другим проектам, поэтому одинаковое
+        сокращение всех бюджетов способно уничтожить больше пользы, чем остановка одной инициативы. Предложу конкретное
+        распределение с перечнем прекращаемой или откладываемой работы, переходными затратами и владельцами затронутых
+        обязательств. Обсуждение с руководством должно показать упущенные возможности и остаточные риски, определить,
+        кто вправе принять каждый компромисс, и завершиться записанным решением. Необязательное финансирование буду
+        выдавать этапами по мере появления подтверждений и заранее задам повод пересмотреть выбор. Прошлые расходы
+        объясняют ситуацию, но сами по себе не оправдывают новые инвестиции.
+    reading:
+    - uk-green-book-2026
+    - gitlab-product-leadership-process
+  - id: ops-ai-build-buy-exit
+    tracks:
+    - leadership
+    roles:
+    - engineering-director
+    - product-director
+    - ai-platform-lead
+    type: applied_scenario
+    text:
+      en: As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The
+        vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision
+        and exit plan would you approve?
+      ru: Как владелец инвестиций решите, продлевать ли управляемый AI-сервис или финансировать внутреннюю замену.
+        Через шесть месяцев цена поставщика удвоится, а экспорт данных не воспроизводит поведение сервиса. Какое решение
+        и план выхода вы утвердите?
+    tests:
+      en: Whether build-versus-buy includes organisational capacity, contract timing, validated replacement quality
+        and a funded exit rather than just model cost.
+      ru: Учитываете ли вы при выборе разработки или покупки возможности организации, сроки договора, проверенное
+        качество замены и профинансированный выход, а не только цену модели.
+    provenance: generated
+    added: '2026-10-05'
+    basis:
+    - radar:ai-operating-model
+    start_here:
+    - leadership
+    priority: 72
+    outline:
+      en:
+      - Compare renewal, renegotiation, partial replacement and internal build over a common period, including staff
+        and transition costs.
+      - Inventory portable data, evaluations, integrations and undocumented behaviour; demonstrate the hardest replacement
+        dependency.
+      - Approve an accountable option, reserve exit capacity and define contract dates, acceptance gates and a continuity
+        fallback.
+      ru:
+      - Сравнить продление, пересмотр условий, частичную замену и собственную разработку за один период, включая людей
+        и переход.
+      - Разобрать переносимость данных, оценок, интеграций и недокументированного поведения; проверить самую трудную
+        зависимость замены.
+      - Утвердить вариант с владельцем, выделить ресурсы выхода и определить договорные сроки, критерии приёмки и
+        резерв непрерывности.
+    answer:
+      en: I would compare renewal, renegotiation, partial replacement and internal build over the same planning period.
+        The estimate must include hiring or displaced engineering work, evaluation, integration, operations and a
+        period of parallel running. I would ask procurement to establish the real notice and renewal dates, while
+        the technical team tests the hardest portability assumption on representative workflows. Data export is insufficient
+        if prompts, retrieval behaviour, tooling or evaluation assets cannot be recreated. A replacement must meet
+        agreed task-quality and operational thresholds before customers depend on it. I would approve the option with
+        the best supported value under these constraints, which may be a temporary renewal while reducing dependency.
+        The decision includes an owner, reserved migration capacity, spending limits and a continuity fallback if
+        acceptance fails. An exit plan that has neither funded people nor a demonstrated first migration is only an
+        intention.
+      ru: 'Я сравню продление, пересмотр условий, частичную замену и внутреннюю разработку на одном горизонте планирования.
+        В оценку войдут найм или вытесненная инженерная работа, проверка качества, интеграция, эксплуатация и период
+        параллельной работы. Закупочная функция уточнит реальные даты уведомления и продления, а техническая команда
+        проверит самое трудное допущение о переносимости на типичных сценариях. Одного экспорта данных недостаточно,
+        если нельзя восстановить промпты, поведение поиска, инструменты или материалы оценки. До перевода клиентов
+        замена должна пройти согласованные пороги качества задачи и эксплуатационной готовности. Утвержу вариант с
+        наиболее обоснованной ценностью при этих ограничениях: возможно, временное продление с последовательным снижением
+        зависимости. Решение включает владельца, выделенную ёмкость миграции, предел расходов и резерв непрерывности
+        на случай непрохождения приёмки. План выхода без профинансированных людей и продемонстрированного первого
+        переноса остаётся только намерением, а не готовой возможностью организации.'
+    reading:
+    - uk-cloud-lock-in
+    - aws-cost-optimization

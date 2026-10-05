@@ -72,6 +72,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask which failure modes cost most and which decision an early warning would change.
     - Check whether sensor and repair logs label failures, then price false alarms against missed breakdowns.
     - Close on a pilot fleet, comparing unplanned downtime and cost with matched locomotives.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="app-city-traffic"></a>**How would you design a system to improve traffic in New York City?**
   - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-city-traffic&title=%5BCorrection%5D%20app-city-traffic)
   - Tests: Whether you decompose an ambiguous city-scale objective into measurable interventions.
@@ -79,6 +80,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask what improving traffic means and for whom: travel time, safety, emissions, buses or freight.
     - Choose levers the system actually controls, such as signal timing or bus lanes, and their data.
     - Evaluate one corridor against a comparable control, watching for traffic displaced onto nearby streets.
+  - Read: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="app-employee-sync"></a>**Design synchronisation between two systems that hold employee records.**
   - System design · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-employee-sync&title=%5BCorrection%5D%20app-employee-sync)
   - Tests: Whether you identify record ownership, conflicts and recovery semantics.
@@ -94,6 +96,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask about field constraints first: connectivity, battery, gloves, light and who records.
     - Design capture to work offline with location, time and photo, and resolve sync conflicts later.
     - Store the model's suggestion apart from the observer's call, and audit a sample against experts.
+  - Read: [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first) (Android Developers)
 - <a id="app-open-model-engagement"></a>**A customer wants to replace a proprietary frontier-model API with an open model. How would you run the engagement?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-open-model-engagement&title=%5BCorrection%5D%20app-open-model-engagement)
   - Tests: Whether the migration plan tests quality, operating costs and ownership assumptions.
@@ -117,6 +120,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - State workload assumptions: pages per document, tokens per page, passes and questions per document.
     - Compare model cost with lawyers' review time, which may dominate, and find the turnaround bottleneck.
     - First test what cuts the dominant driver, such as triaging documents for review, on a labelled sample.
+  - Read: [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services)
 - <a id="app-missed-contract-clause"></a>**A lawyer reports that the assistant missed a change-of-control clause during contract review. How would you investigate?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-missed-contract-clause&title=%5BCorrection%5D%20app-missed-contract-clause)
   - Tests: Whether you trace the failure through ingestion, retrieval, reasoning and review.
@@ -132,6 +136,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask which instruments and data exist, and what an analyst must decide from an alert.
     - Scope one pattern first: unusual trading by connected accounts before price-moving announcements.
     - Backtest on confirmed past cases, and cap alert volume at what analysts can review.
+  - Read: [Insider Trading Detection: FINRA’s Vital Role in Ensuring Market Integrity](https://www.finra.org/media-center/finra-unscripted/insider-trading-detection-program-update) (FINRA)
 
 ## <a id="track-engineering"></a>AI Engineering
 
@@ -142,6 +147,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask who the customer's user is and which task in their day the product takes over.
     - Build with the product's own features as a customer would, not custom code that bypasses them.
     - Demo the flow end to end on realistic input, including a failure and how the user recovers.
+  - Read: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 - <a id="app-customer-case-call"></a>**Lead a timed case-study call with a simulated customer: uncover the real problem, propose an approach and agree on next steps.**
   - Applied scenario · Asked at: [Cognition](../companies/cognition.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-customer-case-call&title=%5BCorrection%5D%20app-customer-case-call)
   - Tests: Whether you run a customer conversation under time pressure and leave with a concrete plan.
@@ -149,6 +155,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Open with questions on the outcome they need, the current workflow and who decides.
     - Propose the smallest approach that tests their biggest risk, and say what you would not do.
     - Close on dated next steps, owners, success criteria and the data they will send.
+  - Read: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/) (GitLab Handbook)
 - <a id="app-learn-then-design"></a>**Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures.**
   - Applied scenario · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-learn-then-design&title=%5BCorrection%5D%20app-learn-then-design)
   - Tests: Whether you learn an unfamiliar tool quickly and carry it into sound design decisions.
@@ -175,6 +182,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask who the audience is and which of their decisions the result should inform.
     - Cut detail, never accuracy: one honest analogy, what was measured and against which baseline.
     - State what the result does not show, and check the audience can restate its limits.
+  - Read: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="app-decline-migration"></a>**A prospective customer already runs on H100 GPUs. When would you recommend that they keep their current setup?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-decline-migration&title=%5BCorrection%5D%20app-decline-migration)
   - Tests: Whether you can reject a migration when customer economics do not justify it.
@@ -182,6 +190,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask what prompted the conversation: cost, capacity, latency or pressure from a vendor.
     - Compare cost per useful output after migration effort, porting risk and remaining hardware commitments.
     - Recommend staying when the gain does not clear switching costs, and name what would reopen it.
+  - Read: [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services) · [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office)
 - <a id="app-hospital-scheduling"></a>**A hospital group schedules outpatient visits manually by phone. What would you build for them?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-hospital-scheduling&title=%5BCorrection%5D%20app-hospital-scheduling)
   - Tests: Whether you design around workflow, integration and safe exception handling.
@@ -189,6 +198,7 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
     - Ask how a booking happens today: who calls, which rules apply, which system holds the schedule.
     - Write into the existing scheduling system, automate routine bookings, and route urgent or clinical requests to staff.
     - Pilot in one clinic, measuring completed bookings, no-shows and correct escalations against the phone baseline.
+  - Read: [NHS service standard](https://service-manual.nhs.uk/standards-and-technology/service-standard) (NHS Digital Service Manual)
 - <a id="app-contact-centre"></a>**A contact centre wants voice agents to replace its phone menus. How would you lead the engagement?**
   - Applied scenario · Senior · ✍ [Answer](../answers/leadership.md#app-contact-centre) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-contact-centre&title=%5BCorrection%5D%20app-contact-centre)
   - Tests: Whether you scope user journeys, handoff and operational readiness together.

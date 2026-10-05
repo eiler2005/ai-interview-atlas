@@ -14,6 +14,7 @@ from urllib.parse import urlsplit
 
 from .content import TRACKS, Content
 from .render import (
+    _GUIDE_PATHS,
     LABELS,
     LANGS,
     REPO,
@@ -54,6 +55,11 @@ def section(lang: str, renderer: Renderer) -> list[dict]:
     menu: list[dict] = [{labels["map"]: in_docs(hub_page(lang))}]
     start = [{names[t]: in_docs(start_page(lang, t))} for t in TRACKS]
     start.append({reference_name(lang, "learning_path"): in_docs(f"{base(lang)}/LEARNING_PATH.md")})
+    start += [
+        {reference_name(lang, key): in_docs(f"{base(lang)}/{path}")}
+        for key, path in _GUIDE_PATHS.items()
+        if path == "LEARNING_ROADMAP.md" or path.startswith("learning/")
+    ]
     if content.families:
         roles = [{labels["roles_overview"]: in_docs(roles_page(lang))}]
         roles += [{f["name"][lang]: in_docs(role_page(lang, f["id"]))} for f in content.families]
@@ -100,6 +106,11 @@ def section(lang: str, renderer: Renderer) -> list[dict]:
         {reference_name(lang, "sources"): in_docs(sources_page(lang))},
         {reference_name(lang, "attribution"): in_docs(f"{base(lang)}/ATTRIBUTION.md")},
         {reference_name(lang, "roadmap"): in_docs(f"{base(lang)}/ROADMAP.md")},
+    ]
+    reference += [
+        {reference_name(lang, key): in_docs(f"{base(lang)}/{path}")}
+        for key, path in _GUIDE_PATHS.items()
+        if path.startswith(("research/", "plans/"))
     ]
     if lang == "ru":
         # English keeps its changelog at the repository root, outside the site.

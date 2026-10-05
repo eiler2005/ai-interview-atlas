@@ -5,7 +5,7 @@ English · [Русский](../ru/answers/leadership.md) · [AI Interview Atlas]
 
 Written answers to the priority questions of this track, in the same order and numbering as *Start here*. Answer each question yourself first: what follows is one good answer, not the only correct one, and an interviewer is listening to your reasoning rather than checking your wording.
 
-Answers written: 70 of 70.
+Answers written: 76 of 76.
 
 ## <a id="contents"></a>Contents
 
@@ -34,26 +34,31 @@ Answers written: 70 of 70.
   - [44. Where does an AI answer engine outperform traditional search, and where does it fall short? What would you improve first?](#prod-search-versus-answer)
   - [65. What do you do when an MVP of an enterprise AI product is too expensive or too slow to build?](#prod-expensive-mvp)
   - [66. In discovery for an enterprise AI product, who is the persona, where do you find B2B respondents, and how will you tell that a problem is worth solving?](#prod-enterprise-discovery)
+  - [74. An AI product has rising usage but no credible improvement in customer outcomes; review costs keep increasing. The sponsor wants another quarter of investment. What evidence would make you expand, narrow, pause or stop it, and how would you handle existing users?](#prod-ai-stop-investment)
 - **AI platform and operating model**
   - [16. Define a strategy for an internal AI platform, including who owns its success metrics.](#ops-platform-ownership)
   - [17. How would you support multiple model providers when some deployment environments permit only a subset of models?](#ops-restricted-models)
   - [45. How would you evaluate an enterprise AI assistant when your team cannot inspect customer data?](#ops-private-evaluation)
   - [69. Design a service that lets several teams query a shared dataset without exposing the underlying raw records.](#ops-shared-data-access)
+  - [71. You own the next quarter’s AI investment portfolio. A 30% budget cut affects a revenue pilot, a mandatory risk-control project and shared evaluation infrastructure. How would you reallocate money and people and secure executive agreement?](#ops-ai-portfolio-allocation)
+  - [72. As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?](#ops-ai-build-buy-exit)
 - **Leading engineering teams**
-  - [18. Tell me how you handled an engineer who was not meeting expectations.](#lead-low-performance)
-  - [19. How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?](#lead-disruptive-star)
+  - [18. How would you handle an engineer who is not meeting performance expectations?](#lead-low-performance)
+  - [19. How would you handle a high-performing engineer whose behaviour repeatedly creates conflict with teammates?](#lead-disruptive-star)
   - [20. Describe how someone you mentored progressed in their career.](#lead-mentee-growth)
   - [21. What do you do when your team disagrees with your proposed direction?](#lead-team-disagrees)
-  - [22. How would you respond when a high performer considers leaving during a reorganisation?](#lead-reorganisation-retention)
+  - [22. Tell me about a difficult organisational change you managed that involved high-performing engineers leaving. How did you respond?](#lead-reorganisation-retention)
   - [23. How would you stabilise an engineering team after a change in management?](#lead-team-after-change)
   - [24. Describe how you identified a valuable opportunity and persuaded a group to deliver it.](#lead-opportunity-coalition)
   - [46. An engineering team adopts AI coding tools, but reviewers struggle to verify the resulting changes. How would you build the missing capability?](#lead-ai-review-skills)
-  - [47. How do you decide which engineering capabilities to hire for?](#lead-strategic-hiring)
+  - [47. Describe your most recent strategic engineering hire. How did you define the hiring bar and assess whether the hire met the need?](#lead-strategic-hiring)
   - [48. How do you establish engineering quality standards across a team?](#lead-quality-standard)
   - [49. Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?](#lead-research-product-boundary)
   - [59. What is the largest team you have managed, and how did your responsibilities change at that scale?](#lead-team-scale)
   - [60. Describe a team disagreement that you resolved without discarding the valid concerns on either side.](#lead-two-valid-views)
   - [61. Two product teams need shared AI infrastructure, but neither can spare an engineer. How would you establish ownership without creating an unstaffed platform promise?](#lead-platform-team-charter)
+  - [73. You manage three engineering managers delivering a shared AI initiative. Two blame each other for an evaluation gap while the executive sponsor has promised a launch date. How would you restore accountability without taking over their teams?](#lead-managers-accountability)
+  - [76. Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?](#lead-ai-interview-redesign)
 - **Programmes and delivery**
   - [25. Walk through the most difficult product launch you led.](#prog-difficult-launch)
   - [26. Three weeks before launching an LLM feature, evaluation reveals substantial hallucinations on edge cases. What happens next?](#prog-prelaunch-hallucinations)
@@ -64,6 +69,7 @@ Answers written: 70 of 70.
   - [56. Present a major initiative you led: what worked, what did not, and what you learned.](#prog-initiative-retrospective)
   - [57. Tell me about a technical misjudgement that delayed a project.](#prog-delayed-by-judgement)
   - [58. An upstream data team will miss a milestone on your AI programme. How do you revise the plan and communicate the impact?](#prog-dependency-slip)
+  - [75. During an AI rollout, a provider changes model behaviour and harmful actions reach customers. The previous model cannot be restored immediately. As the programme lead, how do you coordinate containment, customer response and a defensible restart?](#prog-incident-without-rollback)
 - **Applied and customer scenarios**
   - [29. A customer wants to automate claims processing with AI. What would you do in the first two weeks?](#app-claims-discovery)
   - [30. A customer executive wants to cancel an AI pilot because it keeps producing wrong results. What would you do over the next 48 hours?](#app-pilot-rescue)
@@ -261,21 +267,21 @@ Read: [Architect multitenant solutions on Azure](https://learn.microsoft.com/en-
 
 [↑ Contents](#contents)
 
-### <a id="lead-low-performance"></a>18. Tell me how you handled an engineer who was not meeting expectations.
+### <a id="lead-low-performance"></a>18. How would you handle an engineer who is not meeting performance expectations?
 
-*Behavioral · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-low-performance)*
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-low-performance)*
 
-Choose a case where expectations were clear before the gap and your diagnosis changed what you did; a case decided on day one shows nothing. The interviewer is scoring whether you separate facts from impressions, so open with the expectation and the observable misses in deadlines, quality or scope, not with the person's character. The substance is diagnosis: did they not know what good looked like, know but lack the skill, have the skill but not the will, or face something in their circumstances? Each leads elsewhere — clearer expectations, coaching, a direct conversation, adjusted load — so explain how you told them apart. Then the trade-off: support is time-boxed because the team carries the gap meanwhile, so say how long you gave it and what made you move to a formal plan or not. A red flag is expectations written down only after the problem was declared; if that was you, say so. Close with evidence: what was agreed with dates, what the check showed, how it ended, including an exit, and what you now catch earlier.
+I would first establish the expected outcomes for the role and collect specific examples of the gap, rather than treating reputation or one missed deadline as a diagnosis. In a private conversation I would ask for the engineer’s perspective and check whether unclear priorities, missing access, workload or skill gaps are contributing. We would agree what improvement looks like, the support I will provide and a realistic review date. I would record the agreement and give timely feedback against the same criteria, including when performance improves. If the gap persists, I would work with the relevant people partner through the organisation’s established process, considering role fit as well as continued support. I would protect confidentiality and avoid making promises about outcomes I cannot control. The team still needs clear delivery expectations; supporting one person should not mean silently transferring an unlimited workload to colleagues.
 
 Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
 
 [↑ Contents](#contents)
 
-### <a id="lead-disruptive-star"></a>19. How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?
+### <a id="lead-disruptive-star"></a>19. How would you handle a high-performing engineer whose behaviour repeatedly creates conflict with teammates?
 
-*Behavioral · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-disruptive-star)*
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-disruptive-star)*
 
-Separate two things in your first sentence: the person's technical contribution and the consequences of specific behaviour. Otherwise the answer sounds like a complaint about someone's character. Describe what was observable: whose work got held up, who stopped bringing ideas, which meetings ended without a decision. What's being tested is whether you set standards for collaboration as clearly as you set them for results, and whether you quietly make an exception for a strong engineer. Say how you talked one on one, what you heard back, since sharpness often covers overload, unclear authority, or a sense that quality is being sacrificed, and what behaviour changes you agreed in checkable terms. End with what you saw afterwards and what would have followed if nothing changed. The mistake is finishing with "we talked and it went away"; the interviewer wants the follow-up, not a happy ending.
+I would separate the engineer’s valuable output from the behaviours causing harm, then gather concrete examples and hear the people involved. A technical disagreement is not automatically misconduct; repeated interruptions, withheld information or personal attacks need a different response from a well-founded objection. In private I would describe the observed impact and make clear that collaboration is part of performance, including for the strongest contributor. We would agree specific changes, support such as coaching, and a review date. I would check whether team incentives or unclear decision rights are rewarding the behaviour and correct those conditions too. Follow-up should use observable evidence from delivery and collaboration, without turning colleagues into a public jury. If harmful behaviour persists, I would use the organisation’s established people process. Protecting one person’s output cannot justify accepting an indefinite cost to the rest of the team.
 
 Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
 
@@ -301,11 +307,11 @@ Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-doc
 
 [↑ Contents](#contents)
 
-### <a id="lead-reorganisation-retention"></a>22. How would you respond when a high performer considers leaving during a reorganisation?
+### <a id="lead-reorganisation-retention"></a>22. Tell me about a difficult organisational change you managed that involved high-performing engineers leaving. How did you respond?
 
-*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-reorganisation-retention)*
+*Behavioral · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-reorganisation-retention)*
 
-I start with a conversation that isn't a negotiation: I want the reason, not retention at any price. Then I separate the temporary uncertainty of a reorganisation, an unclear manager, an unsettled team shape, plans on hold, from problems that predate it: a growth ceiling, pay, relationships, the content of the work. The mechanism is simple: the first is treated with information and dates, the second only with real changes. Confusing them is expensive, because a promise I can't keep speeds the exit and costs the team's trust. So I say honestly what is decided, what I influence, what is still open and when it will be known. I offer support I can actually give, write down unresolved questions and set a follow-up on a specific date. If the reason is beyond my influence, the goal changes: a decent exit, a handover and a preserved relationship are a result too.
+Choose a real organisational change where strong engineers actually left, and state what you personally controlled. Explain the purpose of the change and the evidence you had about why people departed; distinguish exit feedback from your interpretation. Describe the effect on the remaining team, including workload, trust and delivery commitments. Then explain your response: conversations you held, commitments you renegotiated, responsibilities you clarified or practices you changed. A retention payment or a new meeting is an action, not proof of success. Give the follow-up evidence you genuinely have, such as subsequent departures, workload indicators or feedback, and acknowledge other factors that could explain it. End with what you would now do earlier or differently. If you have not managed this situation, say so and offer the closest relevant experience, clearly naming the difference rather than inventing departures or claiming authority you did not hold.
 
 Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/)
 
@@ -551,11 +557,11 @@ Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/e
 
 [↑ Contents](#contents)
 
-### <a id="lead-strategic-hiring"></a>47. How do you decide which engineering capabilities to hire for?
+### <a id="lead-strategic-hiring"></a>47. Describe your most recent strategic engineering hire. How did you define the hiring bar and assess whether the hire met the need?
 
-*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-strategic-hiring)*
+*Behavioral · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-strategic-hiring)*
 
-I work backwards from commitments, not from granted headcount. I ask what the team has promised for the next few quarters, which capabilities that requires, and where the team is thin in capability rather than in people. Then for each gap I ask whether hiring is the right instrument at all: some close faster by training someone who already knows the domain, some by borrowing a specialist temporarily, and some should close by deciding not to do that work. What remains justifies a role, and I write the role from the gap rather than from a generic ladder, then define what the loop must evidence so it tests the gap and not a proxy. I also weigh durability: a capability needed for years deserves a hire; a six-month spike usually does not. The failure I plan against is hiring for the architecture we have rather than the one we are moving to.
+Use your most recent real strategic hire and explain the capability the organisation needed, rather than presenting a generic staffing philosophy. State your authority: you may have owned the role, designed the assessment or contributed an interview without making the final decision. Explain why hiring was preferable to training, borrowing expertise or reducing scope in that situation. Describe the hiring bar in terms of work the person needed to perform and the evidence used to assess it consistently. Include a meaningful tradeoff, such as immediate domain knowledge versus the ability to build a new capability, without disclosing candidate details. Then describe onboarding and what you observed after the hire. If the person has only recently joined, say that the strategic outcome is not yet known. If you have no such hire, be explicit and discuss the closest staffing decision without recasting participation as ownership.
 
 Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent)
 
@@ -788,5 +794,65 @@ Read: [Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)](h
 Hallucination is a symptom, so I'd begin by getting concrete cases, a few dozen if they exist, each with its full trace: the question, what retrieval returned, the assembled prompt and the answer. Without traces the conversation is about impressions. Then I sort every case into one of three buckets, because each has a different fix. Retrieval failure: the right passage existed but wasn't returned, or a stale or contradictory document was. Unsupported generation: the right passage was in context, yet the answer added to it or contradicted it. Expectation mismatch: the corpus doesn't contain the answer, or the user wanted judgement rather than lookup; even then, filling the gap instead of saying the sources don't cover it is part of the defect. I'd show the customer the split with counts, fix the dominant bucket first, and keep the cases as a regression set. The limit is that escalated examples overrepresent vivid failures, so before claiming improvement I'd also measure a random sample of ordinary traffic.
 
 Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/)
+
+[↑ Contents](#contents)
+
+### <a id="ops-ai-portfolio-allocation"></a>71. You own the next quarter’s AI investment portfolio. A 30% budget cut affects a revenue pilot, a mandatory risk-control project and shared evaluation infrastructure. How would you reallocate money and people and secure executive agreement?
+
+*Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-ai-portfolio-allocation)*
+
+I would first confirm what the 30% cut applies to and which commitments cannot be changed within the quarter. A mandatory control needs a viable minimum scope; its label does not justify every proposed feature. I would compare portfolio options using remaining cost, evidence of value, uncertainty, dependencies and the actual skills available. Shared evaluation may enable both other projects, so cutting each budget equally could destroy more value than stopping one initiative. I would propose a specific allocation with named work to stop or defer, transition costs and owners for affected commitments. The executive discussion should expose the foregone opportunity and residual risk, identify who can accept each tradeoff and produce a recorded decision. I would release discretionary funding in stages against evidence and set a review trigger. Past spending explains the situation but does not, by itself, justify further investment.
+
+Read: [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) · [Product Management - Leadership](https://handbook.gitlab.com/job-description-library/product/product-management-leadership/)
+
+[↑ Contents](#contents)
+
+### <a id="ops-ai-build-buy-exit"></a>72. As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?
+
+*Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · [Checklist](../themes/ai-operating-model.md#ops-ai-build-buy-exit)*
+
+I would compare renewal, renegotiation, partial replacement and internal build over the same planning period. The estimate must include hiring or displaced engineering work, evaluation, integration, operations and a period of parallel running. I would ask procurement to establish the real notice and renewal dates, while the technical team tests the hardest portability assumption on representative workflows. Data export is insufficient if prompts, retrieval behaviour, tooling or evaluation assets cannot be recreated. A replacement must meet agreed task-quality and operational thresholds before customers depend on it. I would approve the option with the best supported value under these constraints, which may be a temporary renewal while reducing dependency. The decision includes an owner, reserved migration capacity, spending limits and a continuity fallback if acceptance fails. An exit plan that has neither funded people nor a demonstrated first migration is only an intention.
+
+Read: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) · [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html)
+
+[↑ Contents](#contents)
+
+### <a id="lead-managers-accountability"></a>73. You manage three engineering managers delivering a shared AI initiative. Two blame each other for an evaluation gap while the executive sponsor has promised a launch date. How would you restore accountability without taking over their teams?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-managers-accountability)*
+
+I would establish which evaluation outcome is missing, what was previously agreed and which decisions each manager could actually make. The immediate objective is to close the risk, but taking over every task would hide a broken management interface. I would name an accountable owner for the shared outcome, agree contributions and escalation conditions with the managers, and leave team planning and execution with them. In parallel, I would take the sponsor a small set of evidenced options: narrow the launch, move the date or accept only risks that the authorised owner can legitimately accept. The promise is a constraint to renegotiate, not proof of readiness. I would coach each manager privately on their part in the conflict and change incentives or boundaries that encouraged it. Success includes the next cross-team decision being resolved through the agreed structure without my intervention.
+
+Read: [Director, Engineering](https://handbook.gitlab.com/job-description-library/engineering/development/management/director/) · [Communication](https://handbook.gitlab.com/handbook/communication/) · [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html)
+
+[↑ Contents](#contents)
+
+### <a id="prod-ai-stop-investment"></a>74. An AI product has rising usage but no credible improvement in customer outcomes; review costs keep increasing. The sponsor wants another quarter of investment. What evidence would make you expand, narrow, pause or stop it, and how would you handle existing users?
+
+*Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · [Checklist](../themes/ai-product-strategy.md#prod-ai-stop-investment)*
+
+I would separate usage from incremental customer value and calculate the cost of delivering a successful outcome, including human review, support and rework. The comparison needs a credible existing workflow or non-AI baseline and enough attention to selection effects to avoid crediting the product for already successful users. I would look for a segment where the benefit is real before treating the average as a universal failure. If one remaining uncertainty could change the decision, I would propose a bounded experiment with a spending cap, deadline and thresholds agreed with the decision owner. Otherwise, another quarter simply postpones the choice. Stopping requires a plan for current users: notice, an alternative workflow, support ownership and appropriate data handling. I would record what evidence would justify restarting. The objective is to preserve customer value and learning while ending unsupported expenditure, not to defend the original launch.
+
+Read: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) · [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/)
+
+[↑ Contents](#contents)
+
+### <a id="prog-incident-without-rollback"></a>75. During an AI rollout, a provider changes model behaviour and harmful actions reach customers. The previous model cannot be restored immediately. As the programme lead, how do you coordinate containment, customer response and a defensible restart?
+
+*Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · [Checklist](../themes/program-delivery.md#prog-incident-without-rollback)*
+
+I would activate the incident process and ensure there is one incident commander with clear operational authority. My programme role is to coordinate dependencies and decisions, not to improvise commands outside that structure. If the old model is unavailable, containment may mean disabling actions, limiting traffic or moving customers to a verified manual workflow. I would preserve model and configuration versions, action traces and the affected population while customer owners establish an accurate communication cadence. Provider escalation should seek a bounded remedy without making recovery promises we cannot support. Containment does not establish recovery: the proposed configuration needs representative regression and safety checks, capacity for the degraded path and an authorised restart decision. I would restore scope gradually with stop thresholds and named monitoring owners. Afterwards, the review should address provider-change detection, action reversibility and continuity planning, with follow-up work owned and scheduled.
+
+Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) · [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+
+[↑ Contents](#contents)
+
+### <a id="lead-ai-interview-redesign"></a>76. Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?
+
+*Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · [Checklist](../themes/engineering-leadership.md#lead-ai-interview-redesign)*
+
+I would start with the work the hire must perform: framing a problem, checking an unfamiliar change, diagnosing failure and explaining a decision. Then I would identify which existing tasks now mostly measure access to an assistant. Each stage needs an explicit policy: tools may be permitted for realistic work, restricted for a particular independent skill, or supplied in a controlled environment. Candidates should know the policy beforehand and have comparable access. I would score observable reasoning, verification, corrections and ownership, using a follow-up change that exposes whether the candidate understands the result. Before rollout, current engineers and trained interviewers should try the tasks and reconcile scoring disagreements. I would monitor candidate experience and later work outcomes, while acknowledging that small, selectively hired samples cannot establish predictive validity. The goal is a defensible hiring decision, not winning an arms race with assistants.
+
+Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/)
 
 [↑ Contents](#contents)

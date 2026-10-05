@@ -48,6 +48,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Разделить вред по тяжести и для каждого уровня выбрать: блокировка при загрузке, ограничение показа или очередь на проверку.
     - Сочетать сравнение хешей для известного контента с классификаторами для нового, отправляя неуверенные случаи модераторам.
     - Измерять распространённость, точность по каждому правилу и долю решений, отменённых по апелляции, взвешивая ошибочные удаления и пропуски.
+  - Читать: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) (Markov et al., arXiv) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv)
 - <a id="sec-guardrail-exception"></a>**Продуктовая команда просит исключение из правила безопасности AI для одного корпоративного клиента. Как оценить, согласовать и ограничить срок такого исключения?**
   - Прикладной сценарий · Senior · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#sec-guardrail-exception) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
   - Что проверяет: Есть ли у исключения ответственный владелец, компенсирующие меры и решение о прекращении его действия.
@@ -71,6 +72,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Назвать вред, который накапливается за много реплик: самоповреждение, сексуализированный контент с несовершеннолетними, эмоциональная зависимость.
     - Оценивать траекторию всего диалога, а не отдельные ответы, и эскалировать к кризисным ресурсам или проверке человеком.
     - Проверять на длинных сценарных диалогах, считая пропущенные эскалации и лишние прерывания безобидной ролевой игры.
+  - Читать: [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="sec-generation-intervention"></a>**Когда стоит вмешиваться во время генерации токенов, а не фильтровать готовый ответ?**
   - Знания · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-generation-intervention&title=%5BCorrection%5D%20sec-generation-intervention)
   - Что проверяет: Учитываете ли вы риск раскрытия, задержку и последствия частичного ответа.
@@ -78,6 +80,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Вмешиваться во время генерации, когда вред наносит уже сам показ текста: утечка секретов, опасные инструкции.
     - Взвесить задержку и риск раскрытия: буферизация задерживает поток, а отзыв показанного текста его не отменяет.
     - Измерять, сколько вредного текста показано до обрыва, ложные обрывы безобидных ответов и добавленную задержку.
+  - Читать: [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv) · [How to use the Voice Live API](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to) (Microsoft Learn)
 - <a id="sec-robot-safety"></a>**Спроектируйте архитектуру безопасности обученной политики робота, работающего рядом с людьми.**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-robot-safety&title=%5BCorrection%5D%20sec-robot-safety)
   - Что проверяет: Предусматриваете ли вы независимые ограничения и безопасный режим отказа.
@@ -85,6 +88,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Назвать опасности рядом с людьми: сила контакта, скорость, зоны защемления и неожиданное движение.
     - Поставить под обученной политикой независимый слой безопасности, обеспечивающий пределы скорости, силы и рабочих зон.
     - Сделать безопасную остановку режимом отказа, проверить её внесением неисправностей и считать лишние остановки ценой.
+  - Читать: [OSHA Technical Manual: Industrial Robot Systems and Industrial Robot System Safety](https://www.osha.gov/otm/section-4-safety-hazards/chapter-4) (Occupational Safety and Health Administration) · [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., arXiv)
 
 ## <a id="track-leadership"></a>AI-лидерство
 
@@ -119,6 +123,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Назвать вред: метки перестают отражать человеческое суждение и загрязняют данные для обучения и оценки.
     - Опираться на контрольные вопросы, согласованность и время выполнения, а не на детектор, чьи ложные срабатывания бьют по честным разметчикам.
     - Подтверждать случаи до санкций, переразметить затронутые данные и исправить стимулы и устройство задания, толкающие к обходу.
+  - Читать: [Prevalence and prevention of large language model use in crowd work](https://arxiv.org/abs/2310.15683) (Veniamin Veselovsky et al., arXiv)
 - <a id="sec-stale-legal-authority"></a>**AI-меморандум ссылается на судебное решение, которое утратило силу. На каком этапе это должен выявить процесс?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-stale-legal-authority&title=%5BCorrection%5D%20sec-stale-legal-authority)
   - Что проверяет: Проверяете ли вы актуальность правового основания наряду с точностью цитирования.
@@ -126,6 +131,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Разделить две проверки: меморандум точно передаёт решение, и решение по-прежнему сохраняет силу.
     - Проверять последующую судьбу каждого решения по правовой базе с отметками об отмене при поиске и ещё раз перед подписанием.
     - Подмешивать отменённые решения в тестовые меморандумы, измеряя долю пойманных, и следить за флагами, которые юристы начинают игнорировать.
+  - Читать: [KeyCite](https://legal.thomsonreuters.com/en/products/westlaw/keycite) (Thomson Reuters)
 - <a id="sec-age-assurance"></a>**Как организовать проверку возраста, если продукт для несовершеннолетних существенно отличается?**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-age-assurance&title=%5BCorrection%5D%20sec-age-assurance)
   - Что проверяет: Учитываете ли вы приватность, обход проверки и последствия ошибок определения возраста.
@@ -133,6 +139,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Назвать цену каждой ошибки: несовершеннолетний во взрослом продукте против ошибочно ограниченного взрослого.
     - Наслаивать сигналы по уровню риска, переходя к верификации только при необходимости и храня минимум данных.
     - Измерять ошибки по возрастным группам, попытки обхода и отток из-за трудностей проверки и предусмотреть апелляцию.
+  - Читать: [Age assurance duties under the Online Safety Act](https://www.ofcom.org.uk/online-safety/protecting-children/age-assurance) (Ofcom)
 - <a id="sec-voice-consent"></a>**Спроектируйте защиту сервиса клонирования голоса: согласие, происхождение аудио и реагирование на злоупотребления.**
   - System design · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-voice-consent&title=%5BCorrection%5D%20sec-voice-consent)
   - Что проверяет: Рассматриваете ли вы согласие как проверяемое требование на всём жизненном цикле.
@@ -140,6 +147,7 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Проверять согласие самого говорящего, например по живой произнесённой фразе, до создания голоса.
     - Привязать согласие к голосовой модели, чтобы отзыв её отключал, и маркировать или журналировать сгенерированное аудио.
     - Быстро разбирать жалобы на подделку и запросы на удаление, измеряя пойманные злоупотребления и ошибочные блокировки.
+  - Читать: [Text to speech transparency note](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/text-to-speech/transparency-note) (Microsoft Learn)
 - <a id="sec-clinical-invention"></a>**В сгенерированной медицинской записи появился препарат, который не обсуждался на приёме. Как выявить и локализовать этот инцидент?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-clinical-invention&title=%5BCorrection%5D%20sec-clinical-invention)
   - Что проверяет: Ставите ли вы предотвращение вреда пациенту и проверку выше среднего качества текста.
@@ -147,5 +155,6 @@ Prompt injection, утечка данных, guardrails, приватность,
     - Отнестись к этому как к инциденту безопасности пациента: найти затронутые подписанные записи и выяснить, опиралось ли на них лечение.
     - Локализовать проверкой, помечающей препараты, которых нет в расшифровке, и требовать подтверждения врача до подписи.
     - Измерять неподтверждённые упоминания препаратов на аудируемых выборках и следить за усталостью от ложных предупреждений.
+  - Читать: [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization) · [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 
 ← [Оценка качества и наблюдаемость](evals-observability.md) · [Мультимодальность и голос](multimodal-voice.md) →

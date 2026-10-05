@@ -61,13 +61,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Bound attempts and deadlines; add backoff, jitter and an escalation path.
   - Read: [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) (Stripe)
 - <a id="agt-structured-output"></a>**How do schema-constrained responses differ from function calls, and which component actually executes an action?**
-  - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-structured-output&title=%5BCorrection%5D%20agt-structured-output)
+  - Knowledge · ✍ [Answer](../answers/engineering.md#agt-structured-output) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-structured-output&title=%5BCorrection%5D%20agt-structured-output)
   - Tests: Whether valid syntax is distinguished from authorised execution.
   - A strong answer covers:
-    - Explain that both only constrain what the model emits; neither executes anything by itself.
-    - Contrast a typed answer for the caller with a call request the application may run, refuse or modify.
-    - Keep authorisation in application code: a schema-valid call can still be forbidden, harmful or wrong.
-  - Read: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs)
+    - Separate constrained response formatting from a request to call a tool; neither executes or authorises an action by itself.
+    - Validate completion status, schema and business rules, including refusal, truncation and unsupported evidence; syntactic validity is not factual correctness.
+    - Keep execution, least privilege, confirmation and bounded recovery in application code; test a valid-looking but unauthorised request.
+  - Read: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) (Claude Platform Docs) · [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) (Anthropic)
 - <a id="agt-mcp"></a>**What does MCP standardise between an AI application and an external service that a model's function-call format does not?**
   - Knowledge · Asked at: [Microsoft](../companies/microsoft.md) † · ✍ [Answer](../answers/engineering.md#agt-mcp) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-mcp&title=%5BCorrection%5D%20agt-mcp)
   - Tests: Whether protocol transport and capabilities are separated from model decisions.
@@ -75,7 +75,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Separate the model's choice of a call from how a client discovers and reaches a server.
     - Name what the protocol fixes: transport, capability discovery, and typed tools, resources and prompts.
     - Discuss the trust boundary: a connected server supplies both capabilities and untrusted content.
-  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) (Model Context Protocol)
 - <a id="agt-tool-surface"></a>**How would you select, name and document tools so that a model chooses the right operation and arguments?**
   - System design · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#agt-tool-surface) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-tool-surface&title=%5BCorrection%5D%20agt-tool-surface)
   - Tests: Whether tool design reduces ambiguity and measurable misuse.
@@ -109,7 +109,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Checkpoint enough state to resume or hand off without repeating side effects.
   - Read: [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic)
 - <a id="agt-goal-drift"></a>**A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?**
-  - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-goal-drift&title=%5BCorrection%5D%20agt-goal-drift)
+  - Applied scenario · ✍ [Answer](../answers/engineering.md#agt-goal-drift) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-goal-drift&title=%5BCorrection%5D%20agt-goal-drift)
   - Tests: Whether diagnosis uses task state and observations rather than confidence in prose.
   - A strong answer covers:
     - Compare persisted task state and tool observations against the original goal, ignoring the agent's narrative.
@@ -117,12 +117,12 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Resume from the last consistent checkpoint, and add periodic checks of progress against the written goal.
   - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-coding-harness"></a>**For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?**
-  - System design · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-coding-harness&title=%5BCorrection%5D%20agt-coding-harness)
+  - System design · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#agt-coding-harness) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-coding-harness&title=%5BCorrection%5D%20agt-coding-harness)
   - Tests: Whether controlled comparisons can identify the source of improvements.
   - A strong answer covers:
-    - Define the harness precisely: tools, context assembly, retries, test feedback and stopping rules.
-    - Run a factorial comparison: swap the model with the harness fixed, then swap the harness.
-    - On a fixed task set, repeat trials, grade the final repository by tests and report variance.
+    - Define task success through independent behavioural checks, execution boundaries and resource budgets, not a model's assertion of completion.
+    - Compare model and harness changes separately on the same tasks and repeat stochastic attempts; version context, tools and test environment.
+    - Inspect traces for invalid edits, test weakening, environment failures and retries; report uncertainty and failures that an aggregate score hides.
   - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="agt-ontology"></a>**Why might an enterprise agent operate on an ontology of business objects and actions instead of raw tables and documents?**
   - Knowledge · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-ontology&title=%5BCorrection%5D%20agt-ontology)
@@ -147,7 +147,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Engineering (14)](#track-eng
     - Keep the plan and progress in durable state outside the context, not only in the transcript.
     - Budget the context: paginate and trim tool results, compact history, fetch details only when needed.
     - Make tool steps resumable and idempotent, and test recovery from a server failure mid-run.
-  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - <a id="agt-api-level-features"></a>**What are a language model's generation parameters?**
   - Knowledge · Asked at: [Tochka](../companies/tochka.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=agt-api-level-features&title=%5BCorrection%5D%20agt-api-level-features)
   - Tests: Whether you distinguish model generation settings from instructions about role, style or response structure.

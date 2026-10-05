@@ -7,6 +7,10 @@ The priority questions of this track, in study order. Answer each one aloud befo
 
 For a study sequence with weekly practice and completion checks, use the [learning path](../LEARNING_PATH.md).
 
+Choose a focused route from the [learning roadmap](../LEARNING_ROADMAP.md): [AI-assisted coding](../learning/AI_ASSISTED_CODING.md), [production AI engineering](../learning/PRODUCTION_AI_ENGINEERING.md) or [AI Leadership](../learning/AI_LEADERSHIP.md).
+
+See the [coverage audit](../research/ATLAS_COVERAGE_AUDIT.md), [Engineering research](../research/ENGINEERING_RESEARCH.md), [Leadership audit](../research/LEADERSHIP_AUDIT.md) and [expansion plan](../plans/ATLAS_EXPANSION.md) for evidence limits and next steps.
+
 [Answers to these questions](../answers/leadership.md)
 
 - **1. [An assistant reads external email, searches internal documents and sends replies. Where could an attacker redirect it, and how would you constrain the damage?](../themes/safety-security-governance.md#sec-mail-agent-boundaries)**
@@ -43,16 +47,16 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - Product case · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#ops-platform-ownership)
 - **17. [How would you support multiple model providers when some deployment environments permit only a subset of models?](../themes/ai-operating-model.md#ops-restricted-models)**
   - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/leadership.md#ops-restricted-models)
-- **18. [Tell me how you handled an engineer who was not meeting expectations.](../themes/engineering-leadership.md#lead-low-performance)**
-  - Behavioral · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-low-performance)
-- **19. [How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?](../themes/engineering-leadership.md#lead-disruptive-star)**
-  - Behavioral · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-disruptive-star)
+- **18. [How would you handle an engineer who is not meeting performance expectations?](../themes/engineering-leadership.md#lead-low-performance)**
+  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-low-performance)
+- **19. [How would you handle a high-performing engineer whose behaviour repeatedly creates conflict with teammates?](../themes/engineering-leadership.md#lead-disruptive-star)**
+  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-disruptive-star)
 - **20. [Describe how someone you mentored progressed in their career.](../themes/engineering-leadership.md#lead-mentee-growth)**
   - Behavioral · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-mentee-growth)
 - **21. [What do you do when your team disagrees with your proposed direction?](../themes/engineering-leadership.md#lead-team-disagrees)**
   - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-team-disagrees)
-- **22. [How would you respond when a high performer considers leaving during a reorganisation?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
-  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-reorganisation-retention)
+- **22. [Tell me about a difficult organisational change you managed that involved high-performing engineers leaving. How did you respond?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
+  - Behavioral · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-reorganisation-retention)
 - **23. [How would you stabilise an engineering team after a change in management?](../themes/engineering-leadership.md#lead-team-after-change)**
   - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-team-after-change)
 - **24. [Describe how you identified a valuable opportunity and persuaded a group to deliver it.](../themes/engineering-leadership.md#lead-opportunity-coalition)**
@@ -101,8 +105,8 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · ✍ [Answer](../answers/leadership.md#ops-private-evaluation)
 - **46. [An engineering team adopts AI coding tools, but reviewers struggle to verify the resulting changes. How would you build the missing capability?](../themes/engineering-leadership.md#lead-ai-review-skills)**
   - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-review-skills)
-- **47. [How do you decide which engineering capabilities to hire for?](../themes/engineering-leadership.md#lead-strategic-hiring)**
-  - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring)
+- **47. [Describe your most recent strategic engineering hire. How did you define the hiring bar and assess whether the hire met the need?](../themes/engineering-leadership.md#lead-strategic-hiring)**
+  - Behavioral · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring)
 - **48. [How do you establish engineering quality standards across a team?](../themes/engineering-leadership.md#lead-quality-standard)**
   - Applied scenario · Senior · [Leading engineering teams](../themes/engineering-leadership.md) · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-quality-standard)
 - **49. [Researchers want more exploration while product engineers need a reliable release. How would you structure ownership and handoffs?](../themes/engineering-leadership.md#lead-research-product-boundary)**
@@ -149,3 +153,15 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/leadership.md#ops-shared-data-access)
 - **70. [An enterprise customer says Claude hallucinates in their retrieval-based knowledge assistant. How would you investigate the first failures?](../themes/applied-scenarios.md#app-rag-account-triage)**
   - Applied scenario · Senior · [Applied and customer scenarios](../themes/applied-scenarios.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#app-rag-account-triage)
+- **71. [You own the next quarter’s AI investment portfolio. A 30% budget cut affects a revenue pilot, a mandatory risk-control project and shared evaluation infrastructure. How would you reallocate money and people and secure executive agreement?](../themes/ai-operating-model.md#ops-ai-portfolio-allocation)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-portfolio-allocation)
+- **72. [As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?](../themes/ai-operating-model.md#ops-ai-build-buy-exit)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-build-buy-exit)
+- **73. [You manage three engineering managers delivering a shared AI initiative. Two blame each other for an evaluation gap while the executive sponsor has promised a launch date. How would you restore accountability without taking over their teams?](../themes/engineering-leadership.md#lead-managers-accountability)**
+  - Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-managers-accountability)
+- **74. [An AI product has rising usage but no credible improvement in customer outcomes; review costs keep increasing. The sponsor wants another quarter of investment. What evidence would make you expand, narrow, pause or stop it, and how would you handle existing users?](../themes/ai-product-strategy.md#prod-ai-stop-investment)**
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prod-ai-stop-investment)
+- **75. [During an AI rollout, a provider changes model behaviour and harmful actions reach customers. The previous model cannot be restored immediately. As the programme lead, how do you coordinate containment, customer response and a defensible restart?](../themes/program-delivery.md#prog-incident-without-rollback)**
+  - Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-incident-without-rollback)
+- **76. [Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?](../themes/engineering-leadership.md#lead-ai-interview-redesign)**
+  - Applied scenario · [Leading engineering teams](../themes/engineering-leadership.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-interview-redesign)

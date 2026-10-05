@@ -30,7 +30,7 @@ AI-инженерия · Роли: Инженер оценки качества 
 - **[Спроектируйте LLM-судью и калибровку, выявляющую смещения из-за порядка, многословия и предпочтения собственных ответов.](../themes/evals-observability.md#eval-judge)**
   - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-judge)
 - **[Как собрать полезный eval-набор без эталонных ответов и при дефиците экспертного времени?](../themes/evals-observability.md#eval-scarce-labels)**
-  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md)
+  - Прикладной сценарий · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-scarce-labels)
 - **[Как измерять неподтверждённые утверждения в работающем RAG-приложении, не принимая гладкий текст за правильный ответ?](../themes/evals-observability.md#eval-hallucination)**
   - System design · [Оценка качества и наблюдаемость](../themes/evals-observability.md) · ✍ [Ответ](../answers/engineering.md#eval-hallucination)
 - **[Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию.](../themes/evals-observability.md#eval-release-gate)**

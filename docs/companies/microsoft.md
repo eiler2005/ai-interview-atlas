@@ -86,7 +86,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Separate the model's choice of a call from how a client discovers and reaches a server.
     - Name what the protocol fixes: transport, capability discovery, and typed tools, resources and prompts.
     - Discuss the trust boundary: a connected server supplies both capabilities and untrusted content.
-  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol)
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) (Model Context Protocol)
 
 ### [Fine-tuning and post-training](../themes/post-training.md)
 

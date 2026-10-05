@@ -27,13 +27,13 @@ On this page: [Interview loop](#loop) · [Questions (2)](#questions)
 ### [Practical coding](../themes/coding-practical.md)
 
 - **[Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.](../themes/coding-practical.md#code-product-structure)**
-  - Coding · Asked at: Cursor (Anysphere) 🗣
+  - Coding · Asked at: Cursor (Anysphere) 🗣 · ✍ [Answer](../answers/engineering.md#code-product-structure)
   - Tests: Whether you can read an unfamiliar real codebase and implement a core structure correctly.
   - A strong answer covers:
-    - Find how the product uses the structure: callers, required operations, their frequency and existing tests.
-    - Choose the representation and invariants from those operations, and state each operation's complexity.
-    - Follow the repository's conventions, keep AI to syntax questions, and test the edge cases callers hit.
-  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
+    - Locate callers, required operations, operation frequency and tests; derive the representation from that contract.
+    - State invariants and time/memory costs, then challenge the choice with duplicate, empty and changed-constraint examples.
+    - Follow repository conventions and verify behaviour at callers; keep AI help to the targeted syntax questions permitted by this reported session.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers) · [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/) (Robert Sedgewick and Kevin Wayne, Princeton University)
 - **[Given a real codebase for a working day, decide what to build, ship it, and explain your implementation choices and trade-offs.](../themes/coding-practical.md#code-self-scoped-onsite)**
   - Applied scenario · Asked at: Cursor (Anysphere) 🗣
   - Tests: Whether you scope your own work, deliver it and defend it without step-by-step direction.

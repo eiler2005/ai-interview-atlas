@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/ai-operating-model.md) · [AI Interview
 
 Internal AI platforms, adoption across an organisation, enablement, cost governance and centres of excellence.
 
-On this page: [Both tracks (3)](#track-both) · [AI Leadership (1)](#track-leadership)
+On this page: [Both tracks (3)](#track-both) · [AI Leadership (3)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -44,5 +44,21 @@ On this page: [Both tracks (3)](#track-both) · [AI Leadership (1)](#track-leade
     - Separate platform reliability and adoption from the business outcomes owned by consuming teams.
     - Choose a first supported workflow, service boundaries and a review of continued investment.
   - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
+- <a id="ops-ai-portfolio-allocation"></a>**You own the next quarter’s AI investment portfolio. A 30% budget cut affects a revenue pilot, a mandatory risk-control project and shared evaluation infrastructure. How would you reallocate money and people and secure executive agreement?**
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-portfolio-allocation) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-ai-portfolio-allocation&title=%5BCorrection%5D%20ops-ai-portfolio-allocation)
+  - Tests: Whether you exercise portfolio authority, distinguish constraints from preferences and make the cost of displaced work explicit.
+  - A strong answer covers:
+    - Establish the budget boundary, non-negotiable obligations, committed spend and decision authority.
+    - Compare complete options with ranges for value, remaining cost, dependencies and people capacity; exclude sunk cost from the forward choice.
+    - Fund, narrow, defer or stop named work; record executive tradeoffs, transition costs and conditions for revisiting the allocation.
+  - Read: [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) (HM Treasury) · [Product Management - Leadership](https://handbook.gitlab.com/job-description-library/product/product-management-leadership/) (GitLab Handbook)
+- <a id="ops-ai-build-buy-exit"></a>**As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?**
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-build-buy-exit) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-ai-build-buy-exit&title=%5BCorrection%5D%20ops-ai-build-buy-exit)
+  - Tests: Whether build-versus-buy includes organisational capacity, contract timing, validated replacement quality and a funded exit rather than just model cost.
+  - A strong answer covers:
+    - Compare renewal, renegotiation, partial replacement and internal build over a common period, including staff and transition costs.
+    - Inventory portable data, evaluations, integrations and undocumented behaviour; demonstrate the hardest replacement dependency.
+    - Approve an accountable option, reserve exit capacity and define contract dates, acceptance gates and a continuity fallback.
+  - Read: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office) · [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services)
 
 ← [AI product strategy and metrics](ai-product-strategy.md) · [Leading engineering teams](engineering-leadership.md) →

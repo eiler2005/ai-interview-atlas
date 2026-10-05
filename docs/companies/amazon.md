@@ -3,21 +3,23 @@
 
 English · [Русский](../ru/companies/amazon.md) · [AI Interview Atlas](../../README.md) › [Companies](../README.md#companies)
 
-Big Tech · International · Loop reviewed 2026-09-26
+Big Tech · International · Loop reviewed 2026-10-05
 
-A secondary AI-product guide describes Leadership Principles, a written exercise and a Bar Raiser. Engineering topics come from a compilation. Neither source establishes a universal current loop.
+Amazon’s official preparation page describes a general TPM process. The AI-product path remains a secondary guide, and Engineering topics come from a compilation. The general TPM stages do not establish an AI-specific loop.
 
 On this page: [Interview loop](#loop) · [Questions (12)](#questions)
 
 ## Roles covered
 
 - **AI Engineering:** AI / LLM engineer
-- **AI Leadership:** AI product manager (senior to group)
+- **AI Leadership:** AI product manager (senior to group), Technical program manager
 
 ## <a id="loop"></a>Interview loop
 
 | Stage | What happens | Basis |
 | --- | --- | --- |
+| General TPM technical phone screen<br>*Technical program manager* | The official TPM preparation page describes a 60-minute screen with behavioural, situational and technical discussion; a second phone screen may follow. This is general TPM guidance, not an AI-specialist process. | ✅ confirmed by the company<br>[TPM Interview Prep](https://amazon.jobs/content/en/how-we-hire/tpm-interview-prep), Amazon Jobs, retrieved 2026-10-05 |
+| General TPM writing assessment and interview loop<br>*Technical program manager* | The page describes a writing assessment before a loop of five 55-minute interviews, including at least one systems-design question. Management preparation covers metrics, dependencies, escalation and tradeoffs. These published stages describe the general TPM path at retrieval. | ✅ confirmed by the company<br>[TPM Interview Prep](https://amazon.jobs/content/en/how-we-hire/tpm-interview-prep), Amazon Jobs, retrieved 2026-10-05 |
 | AI product manager path | A recruiter screen on ownership and customer obsession, a one- to two-page written answer to a Leadership Principles prompt, product screening rounds, then a final loop of four or five rounds with Leadership Principles deep dives, product thinking, generative-AI evaluation, system design for technical PM roles and a Bar Raiser. | † prep guide or compilation<br>[Amazon AI Product Manager Interview Guide](https://www.tryexponent.com/guides/amazon-ai-product-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
 | Engineering questions | A compilation attributes to Amazon questions on implementing attention, serving cost, parallelism, enterprise RAG design and diagnosing latency regressions. | † prep guide or compilation<br>[AI Engineering Interview Questions Company Wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise), Outcome School, published 2026-09-19, retrieved 2026-09-26 |
 

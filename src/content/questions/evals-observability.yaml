@@ -134,7 +134,12 @@ questions:
         - "Начать с разбора ошибок на реальных трассах, чтобы понять, какие сбои важны, до всякой разметки."
         - "Тратить время экспертов на неочевидные случаи с высокой ценой ошибки, оценивая по бинарным критериям, а не по совпадению с единственным ответом."
         - "Калибровать более дешёвых оценщиков по экспертной разметке и следить за согласием, прежде чем доверять им в масштабе."
-    reading: ["hamel-evals"]
+    reading: ["hamel-evals", "anthropic-evals-for-agents"]
+    start_here: ["engineering"]
+    priority: 78
+    answer:
+      en: "I would begin with a small set of representative requests and a failure taxonomy, then spend expert time where a wrong judgement changes the product decision. Not every case needs a single reference answer: some can be checked through required evidence, forbidden claims, valid state transitions or an explicit abstention rule. Experts should define those criteria and adjudicate ambiguous examples before I automate grading. I would separate development cases from a held-out check set and keep their provenance and revisions visible. Synthetic cases can probe boundaries, but they do not establish the frequency of real user failures. A model judge can help prioritise review only after comparison with human labels; disagreement remains an inspection queue. I would report coverage gaps and uncertainty instead of treating a small, convenient dataset as proof of quality. More labels are valuable when they change a decision, not merely increase a count."
+      ru: "Я начал бы с небольшого набора характерных запросов и классификации ошибок, затем тратил экспертное время там, где неверная оценка меняет продуктовый выбор. Не каждому кейсу нужен единственный эталонный ответ: часть проверяется по обязательным основаниям, запрещённым утверждениям, допустимым переходам состояния или правилу отказа. До автоматизации эксперты должны определить критерии и разобрать неоднозначные примеры. Я отделил бы случаи для разработки от отложенной проверки и сохранил происхождение и историю изменений. Синтетические кейсы полезны для границ, но не показывают частоту реальных пользовательских ошибок. Модель-судья помогает приоритизировать просмотр только после сравнения с человеческими метками; разногласие остаётся задачей для разбора. Вместо доказательства качества маленьким удобным набором я показал бы непокрытые области и неопределённость. Дополнительная разметка ценна, когда меняет решение, а не только увеличивает число; критические редкие ошибки следует рассматривать отдельно от среднего."
   - id: "eval-hallucination"
     tracks: ["engineering"]
     roles: ["eval-engineer"]
@@ -302,6 +307,11 @@ questions:
         - "Закреплять конкретные снимки моделей, а не псевдонимы: плавающий псевдоним меняет поведение без деплоя."
         - "Записывать id набора в каждом запросе и подтверждать откат повторным прогоном упавших кейсов на восстановленном наборе."
     reading: ["google-sre-book"]
+    start_here: ["engineering"]
+    priority: 80
+    answer:
+      en: "I would version a release bundle, not just a prompt string: model identifier, decoding settings, tool schemas, retrieval configuration, relevant index version and application code all affect behaviour. Each trace should identify that bundle so a reported regression can be reproduced as closely as the provider allows. I would compare the candidate and previous bundle on held-out cases, inspect critical failures separately and define a rollback trigger before rollout. Returning traffic to a known bundle is useful only if its dependencies still exist and remain authorised. Index changes may need a retained compatible version, while an external action cannot be undone merely by restoring a prompt. I would therefore separate configuration rollback from reconciliation of side effects. The operational check is a rehearsed switch and recovery path; perfect reproducibility cannot be promised when a provider changes an unpinned model or service."
+      ru: "Я версионировал бы пакет релиза, а не только строку промпта: идентификатор модели, параметры генерации, схемы инструментов, поиск, нужная версия индекса и код приложения влияют на поведение. Каждая трасса указывает пакет, чтобы воспроизвести регрессию настолько точно, насколько позволяет провайдер. Я сравнил бы новый и прежний пакеты на отложенных кейсах, отдельно разобрал критические ошибки и определил триггер отката до rollout. Возврат трафика полезен лишь тогда, когда зависимости прежнего пакета ещё существуют и разрешены. Для изменения индекса может понадобиться сохранённая совместимая версия, а внешнее действие не отменяется восстановлением промпта. Поэтому откат конфигурации нужно отделить от сверки побочных эффектов. Эксплуатационная проверка — отрепетированное переключение и восстановление; идеальная воспроизводимость невозможна, если провайдер меняет незакреплённую модель или сервис. Эти ограничения я записал бы заранее и предусмотрел понятный отказ, если безопасного возврата уже нет."
   - id: "eval-online"
     tracks: ["engineering","leadership"]
     roles: ["eval-engineer"]
@@ -460,6 +470,11 @@ questions:
         - "Взвешивать ошибки по последствиям и обратимости; для необратимых действий нужен почти нулевой допуск или одобрение человека."
         - "Проверять в изолированных копиях среды, затем переходить к теневому режиму и поэтапной выкатке с журналом действий и аварийным отключением."
     reading: ["anthropic-evals-for-agents","owasp-llm-top-10"]
+    start_here: ["engineering"]
+    priority: 79
+    answer:
+      en: "Once a workflow executes actions, evaluating fluent advice is insufficient: I need to inspect the resulting state and whether the action was permitted. I would test tool selection, arguments, authority, confirmation where required, and the consequences of partial failure. A timeout after a write is especially important because retrying may duplicate an operation that already succeeded. The evaluation should reconcile by operation identity and distinguish safe recovery from a repeated effect. I would use isolated synthetic services for destructive cases and check tenant boundaries, revoked access, exhausted budgets and stopping behaviour. A high average task-success rate cannot compensate for an unauthorised action, so critical failures block the release separately. Logs should identify the versions and external effects without retaining unnecessary sensitive content. These tests provide evidence for the scenarios covered; they do not make every future model-driven action safe."
+      ru: "Когда workflow исполняет действия, оценки убедительного совета недостаточно: нужно проверять итоговое состояние и разрешённость операции. Я проверял бы выбор инструмента, аргументы, полномочия, нужное подтверждение и последствия частичного отказа. Особенно важен таймаут после записи: повтор способен продублировать уже успешную операцию. Оценка должна сверять результат по идентичности операции и отличать безопасное восстановление от повторного эффекта. Для разрушительных кейсов я использовал бы изолированные синтетические сервисы и проверял границы арендаторов, отозванный доступ, исчерпанный бюджет и остановку. Высокая средняя успешность не компенсирует запрещённое действие, поэтому критические ошибки блокируют релиз отдельно. Логи связывают версии и внешние эффекты без ненужного чувствительного содержимого. Проверки дают свидетельства по покрытым сценариям, но не делают безопасным любое будущее действие модели. Новые полномочия или инструменты требуют пересмотра набора и границ, а не доверия прежнему общему баллу."
   - id: "eval-multiple-good-answers"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -482,6 +497,7 @@ questions:
         - "Оценивать по перечню клинически обязательных фактов из консультации, а не по сходству с одной записью."
         - "Проверять каждое утверждение сгенерированной записи на подтверждение в расшифровке и отдельно отмечать неподтверждённое."
         - "Принять согласие двух врачей за потолок и калибровать любого автоматического оценщика по их оценкам."
+    reading: ["anthropic-evals-for-agents", "who-large-multimodal-health"]
   - id: "eval-behaviour-brainstorm"
     tracks: ["engineering"]
     roles: ["research-engineer", "eval-engineer"]

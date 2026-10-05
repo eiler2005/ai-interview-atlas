@@ -44,6 +44,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Pick the product where your own decisions changed the outcome, not the biggest team effort.
     - State the business case you made, the bet's riskiest assumption and the experiment that tested it.
     - Close with measured impact against a baseline, your share of it, and what you would change.
+  - Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) (HM Treasury)
 
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 

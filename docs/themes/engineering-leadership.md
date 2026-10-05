@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/engineering-leadership.md) · [AI Inter
 
 Hiring, coaching, performance, team design and delivery for teams that build AI.
 
-On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-leadership)
+On this page: [Both tracks (1)](#track-both) · [AI Leadership (19)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -20,21 +20,21 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
 
 ## <a id="track-leadership"></a>AI Leadership
 
-- <a id="lead-low-performance"></a>**Tell me how you handled an engineer who was not meeting expectations.**
-  - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-low-performance) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-low-performance&title=%5BCorrection%5D%20lead-low-performance)
-  - Tests: Whether you diagnose performance fairly and make expectations actionable.
+- <a id="lead-low-performance"></a>**How would you handle an engineer who is not meeting performance expectations?**
+  - Applied scenario · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-low-performance) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-low-performance&title=%5BCorrection%5D%20lead-low-performance)
+  - Tests: Whether you diagnose a performance gap, provide fair support and make expectations and follow-up explicit.
   - A strong answer covers:
-    - Identify the performance gap using observable examples.
-    - Explain the feedback, listening and support you provided.
-    - Describe agreed next steps and the follow-up result.
+    - Establish observable expectations and examples of the gap; check role clarity and working conditions.
+    - Hear the engineer’s account, agree support and define measurable improvement with review dates.
+    - Follow the organisation’s people process, distinguish improvement from reassignment or exit, and protect confidentiality.
   - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
-- <a id="lead-disruptive-star"></a>**How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?**
-  - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-disruptive-star) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-disruptive-star&title=%5BCorrection%5D%20lead-disruptive-star)
-  - Tests: Whether you hold performance and collaboration to explicit standards.
+- <a id="lead-disruptive-star"></a>**How would you handle a high-performing engineer whose behaviour repeatedly creates conflict with teammates?**
+  - Applied scenario · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-disruptive-star) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-disruptive-star&title=%5BCorrection%5D%20lead-disruptive-star)
+  - Tests: Whether you address observable collaboration problems without exempting high performers or deciding the case before hearing those involved.
   - A strong answer covers:
-    - Separate technical results from the impact of specific behaviour.
-    - Explain your feedback and how you heard their perspective.
-    - Describe agreed behaviour changes and subsequent observations.
+    - Establish specific behaviour and team impact; hear different accounts without public blame.
+    - Explain that collaboration is part of performance and agree observable changes and support.
+    - Review both delivery and collaboration; use the established people process if harmful behaviour persists.
   - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-mentee-growth"></a>**Describe how someone you mentored progressed in their career.**
   - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-mentee-growth) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-mentee-growth&title=%5BCorrection%5D%20lead-mentee-growth)
@@ -52,13 +52,13 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
     - Use evidence or a bounded experiment where it can resolve the disagreement.
     - Explain decision rights, communicate the choice and define when to revisit it.
   - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
-- <a id="lead-reorganisation-retention"></a>**How would you respond when a high performer considers leaving during a reorganisation?**
-  - Applied scenario · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-reorganisation-retention) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-reorganisation-retention&title=%5BCorrection%5D%20lead-reorganisation-retention)
-  - Tests: Whether you listen honestly and address retention without making promises you cannot keep.
+- <a id="lead-reorganisation-retention"></a>**Tell me about a difficult organisational change you managed that involved high-performing engineers leaving. How did you respond?**
+  - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-reorganisation-retention) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-reorganisation-retention&title=%5BCorrection%5D%20lead-reorganisation-retention)
+  - Tests: Whether you can explain actual attrition, your responsibility and the effect of your response on the remaining team.
   - A strong answer covers:
-    - Understand the person's concerns and separate change uncertainty from persistent problems.
-    - Explain what is known, what you can change and what remains undecided.
-    - Discuss feasible support, surface unresolved concerns and agree a follow-up.
+    - Use a real change and actual departures; state your authority and distinguish known reasons from inference.
+    - Explain how remaining engineers reacted and what you changed in workload, communication or management practice.
+    - Give follow-up evidence, limits of attribution and what you would handle differently.
   - Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - <a id="lead-team-after-change"></a>**How would you stabilise an engineering team after a change in management?**
   - Applied scenario · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) 🗣 · ✍ [Answer](../answers/leadership.md#lead-team-after-change) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-team-after-change&title=%5BCorrection%5D%20lead-team-after-change)
@@ -100,13 +100,13 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
     - Show how you moved from positions to the needs behind them and found an option meeting both.
     - Close with what was decided, whether both concerns stayed addressed, and how you checked.
   - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
-- <a id="lead-strategic-hiring"></a>**How do you decide which engineering capabilities to hire for?**
-  - Applied scenario · Senior · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
-  - Tests: Whether staffing choices follow strategy and gaps in team capability.
+- <a id="lead-strategic-hiring"></a>**Describe your most recent strategic engineering hire. How did you define the hiring bar and assess whether the hire met the need?**
+  - Behavioral · Senior · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-strategic-hiring) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-strategic-hiring&title=%5BCorrection%5D%20lead-strategic-hiring)
+  - Tests: Whether a real hiring decision connects a capability need, a consistent assessment and observed results.
   - A strong answer covers:
-    - Start from the next period's commitments and the capabilities they require.
-    - Separate a gap worth hiring for from one solved by training, borrowing or not doing the work.
-    - Write the role from the gap, and define what evidence the loop must produce.
+    - State the real strategic need, your role in the decision and why hiring was chosen.
+    - Explain the role-specific bar, assessment evidence and important tradeoffs.
+    - Describe onboarding and observed results; distinguish early signals from a proven long-term outcome.
   - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - <a id="lead-quality-standard"></a>**How do you establish engineering quality standards across a team?**
   - Applied scenario · Senior · Asked at: [Stripe](../companies/stripe.md) † · ✍ [Answer](../answers/leadership.md#lead-quality-standard) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-quality-standard&title=%5BCorrection%5D%20lead-quality-standard)
@@ -123,6 +123,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
     - Bring the user problem and the evidence behind it, not the feature, so engineers can judge the reasoning.
     - Treat objections about cost, complexity or maintenance as inputs that can reshape scope, not as resistance.
     - Agree a success metric and a cheap first version, and commit to cutting it if the metric misses.
+  - Read: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 - <a id="lead-personal-growth"></a>**What have you changed about your management approach as you have grown?**
   - Behavioral · Senior · Asked at: [Meta](../companies/meta.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-personal-growth&title=%5BCorrection%5D%20lead-personal-growth)
   - Tests: Whether reflection produces concrete changes in how you lead.
@@ -156,12 +157,20 @@ On this page: [Both tracks (1)](#track-both) · [AI Leadership (18)](#track-lead
     - Write a narrow charter with a named owner, support terms and the trigger for a dedicated team.
   - Read: [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html) (Martin Fowler)
 - <a id="lead-ai-interview-redesign"></a>**Candidates now use AI assistants during technical interviews. How would you redesign your loop so that it still produces a usable hiring signal?**
-  - Applied scenario · 🧪 generated from job-posting themes · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-interview-redesign&title=%5BCorrection%5D%20lead-ai-interview-redesign)
-  - Tests: Whether the loop measures judgement and ownership instead of banning or ignoring the tools.
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-ai-interview-redesign) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-ai-interview-redesign&title=%5BCorrection%5D%20lead-ai-interview-redesign)
+  - Tests: Whether you define the hiring signal, set a clear tool policy and evaluate individual judgement consistently.
   - A strong answer covers:
-    - Identify which old tasks assistants now solve, and restate the signal as judgement, verification and ownership.
-    - Allow tools openly with the same setup for everyone, and score how candidates check, correct and explain output.
-    - Calibrate the new tasks on current engineers using the same tools, and track whether scores predict later performance.
+    - Define the job capabilities and identify tasks whose score no longer distinguishes candidates.
+    - Choose and disclose a tool policy for each stage; give candidates comparable access and evaluate verification and explanation.
+    - Calibrate on representative work, review scoring disagreements and examine later performance without overclaiming small samples.
   - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
+- <a id="lead-managers-accountability"></a>**You manage three engineering managers delivering a shared AI initiative. Two blame each other for an evaluation gap while the executive sponsor has promised a launch date. How would you restore accountability without taking over their teams?**
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#lead-managers-accountability) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=lead-managers-accountability&title=%5BCorrection%5D%20lead-managers-accountability)
+  - Tests: Whether you lead through managers, resolve cross-team decision rights and negotiate executive commitments using evidence.
+  - A strong answer covers:
+    - Establish the missing outcome, prior agreements and each manager’s account; separate unclear structure from individual avoidance.
+    - Assign an accountable decision owner and interfaces while managers retain staffing and delivery responsibility.
+    - Agree evidence-based options with the sponsor, coach managers privately and review whether the organisation can resolve the next conflict without you.
+  - Read: [Director, Engineering](https://handbook.gitlab.com/job-description-library/engineering/development/management/director/) (GitLab Handbook) · [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook) · [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html) (Martin Fowler)
 
 ← [AI platform and operating model](ai-operating-model.md) · [Programmes and delivery](program-delivery.md) →

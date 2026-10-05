@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/program-delivery.md) · [AI Interview A
 
 Planning and running cross-team work: dependencies, launches, risk and communication.
 
-On this page: [Both tracks (4)](#track-both) · [AI Leadership (8)](#track-leadership)
+On this page: [Both tracks (4)](#track-both) · [AI Leadership (9)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -40,6 +40,7 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (8)](#track-leade
     - Spend the opening minutes fixing one user, one task and the exact demo path before building anything.
     - Use hosted models and existing parts, and get a thin end-to-end path working early before deepening it.
     - Freeze features well before the end, rehearse on prepared inputs, and state plainly what is stubbed.
+  - Read: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 
 ## <a id="track-leadership"></a>AI Leadership
 
@@ -107,5 +108,13 @@ On this page: [Both tracks (4)](#track-both) · [AI Leadership (8)](#track-leade
     - State who decides, who must be consulted and who holds a veto, before the room meets.
     - Record the decision, the accepted residual risk, its owner and a review date.
   - Read: [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
+- <a id="prog-incident-without-rollback"></a>**During an AI rollout, a provider changes model behaviour and harmful actions reach customers. The previous model cannot be restored immediately. As the programme lead, how do you coordinate containment, customer response and a defensible restart?**
+  - Applied scenario · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-incident-without-rollback) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=prog-incident-without-rollback&title=%5BCorrection%5D%20prog-incident-without-rollback)
+  - Tests: Whether you coordinate an incident when rollback is unavailable, preserve decision authority and separate containment from demonstrated recovery.
+  - A strong answer covers:
+    - Establish incident command, stop or constrain harmful actions, preserve evidence and identify affected customers.
+    - Coordinate operational and customer owners, provider escalation and update cadence; use a safe degraded workflow if available.
+    - Require representative quality and safety evidence, explicit restart authority and staged monitoring before restoring autonomy.
+  - Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 
 ← [Leading engineering teams](engineering-leadership.md) · [Applied and customer scenarios](applied-scenarios.md) →

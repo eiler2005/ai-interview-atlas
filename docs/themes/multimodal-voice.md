@@ -16,6 +16,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
     - Identify what the text bottleneck drops: prosody, emotion, hesitation and speaker cues never reach the cascade's model.
     - Weigh the cascade's inspectable transcripts, guardrails, tool use and swappable parts against end-to-end latency and expressiveness.
     - Compare both on the same conversations: time to first audio, task success, instruction adherence and auditability.
+  - Read: [Moshi: a speech-text foundation model for real-time dialogue](https://arxiv.org/abs/2410.00037) (Alexandre Defossez et al., arXiv) · [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv)
 
 ## <a id="track-engineering"></a>AI Engineering
 
@@ -50,6 +51,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
     - Detect speech over playback with echo cancellation, and tell short backchannels apart from real interruptions.
     - On barge-in, stop playback and generation, record only the audio actually played, and keep committed tool actions.
     - Measure stop latency, false and missed interruptions, and check transcripts so the model never assumes unheard text was heard.
+  - Read: [How to use the Voice Live API](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to) (Microsoft Learn) · [Moshi: a speech-text foundation model for real-time dialogue](https://arxiv.org/abs/2410.00037) (Alexandre Defossez et al., arXiv)
 - <a id="mm-speech-quality"></a>**How would you evaluate speech recognition beyond word error rate, and synthesised speech when many renditions are acceptable?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-speech-quality&title=%5BCorrection%5D%20mm-speech-quality)
   - Tests: Whether task-critical errors and perceptual quality are measured separately.
@@ -73,6 +75,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
     - Cut synthesis at clause or punctuation boundaries with lookahead, keeping a short first chunk for fast first audio.
     - Size the playback buffer from measured jitter: too small underruns and stutters, too large delays every turn.
     - Measure time to first audio, underrun rate and stall duration on replayed network traces, plus prosody at chunk joins.
+  - Read: [How to use the Voice Live API](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to) (Microsoft Learn) · [Speech marks](https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html) (Amazon Web Services)
 - <a id="mm-diarisation"></a>**Design speaker diarisation and explain how you would assign conversational roles without assuming speaker clusters imply identity.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-diarisation&title=%5BCorrection%5D%20mm-diarisation)
   - Tests: Whether segmentation, clustering and role inference are distinguished.
@@ -80,6 +83,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
     - Separate stages: speech activity and change detection, overlap handling, speaker embeddings, then clustering with unknown speaker count.
     - Treat clusters as anonymous labels: roles come from content and turn patterns, identity only from consented enrolment.
     - Report diarisation error split into miss, false alarm and confusion, including overlap, and score role accuracy separately.
+  - Read: [The Third DIHARD Diarization Challenge](https://arxiv.org/abs/2012.01477) (Neville Ryant et al., arXiv)
 - <a id="mm-cross-modal-retrieval"></a>**Design search across text, images and video, including how queries and results share a comparable representation.**
   - System design · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-cross-modal-retrieval&title=%5BCorrection%5D%20mm-cross-modal-retrieval)
   - Tests: Whether cross-modal alignment and retrieval granularity are explicit.
@@ -103,6 +107,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
     - Separate dialogue from music and effects, then transcribe with word timestamps and diarise so each segment keeps its speaker.
     - Constrain translation length to each segment's duration, preferring rephrasing to extreme time-stretching; clone voices only with consent.
     - Measure timing overruns, speaker similarity, translation adequacy judged by bilingual reviewers, and naturalness after remixing.
+  - Read: [Seamless: Multilingual Expressive and Streaming Speech Translation](https://arxiv.org/abs/2312.05187) (Seamless Communication et al., arXiv) · [Text to speech transparency note](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/text-to-speech/transparency-note) (Microsoft Learn)
 - <a id="mm-clinical-audio"></a>**How would you improve recognition in a noisy consultation with overlapping speakers and specialised medical vocabulary?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-clinical-audio&title=%5BCorrection%5D%20mm-clinical-audio)
   - Tests: Whether noise, overlap and rare terminology have separate diagnostics.
@@ -110,6 +115,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (13)](#track-eng
     - Slice errors by signal-to-noise ratio, overlapping segments and medical terms, so each cause gets its own error rate.
     - Match fixes to causes: microphones and augmentation for noise, source separation for overlap, vocabulary biasing or finetuning for terms.
     - Validate on held-out clinicians and rooms, counting inserted terms and dosage errors, not only overall WER.
+  - Read: [Robust Speech Recognition via Large-Scale Weak Supervision](https://arxiv.org/abs/2212.04356) (Radford et al., arXiv) · [Improve recognition accuracy with phrase list](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/improve-accuracy-phrase-list) (Microsoft Learn) · [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization)
 - <a id="mm-vision-language-action"></a>**What distinguishes a vision-language-action policy from a language model that merely invokes external tools?**
   - Knowledge · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=mm-vision-language-action&title=%5BCorrection%5D%20mm-vision-language-action)
   - Tests: Whether action representation and control feedback are distinguished.

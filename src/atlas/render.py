@@ -48,6 +48,16 @@ SOURCE_KINDS = (
     "posting",
 )
 COLORS = {"engineering": "#1f6feb", "leadership": "#bc4c00"}
+_GUIDE_PATHS = {
+    "learning_roadmap": "LEARNING_ROADMAP.md",
+    "ai_assisted_coding": "learning/AI_ASSISTED_CODING.md",
+    "production_ai_engineering": "learning/PRODUCTION_AI_ENGINEERING.md",
+    "ai_leadership": "learning/AI_LEADERSHIP.md",
+    "coverage_audit": "research/ATLAS_COVERAGE_AUDIT.md",
+    "engineering_research": "research/ENGINEERING_RESEARCH.md",
+    "leadership_audit": "research/LEADERSHIP_AUDIT.md",
+    "atlas_expansion": "plans/ATLAS_EXPANSION.md",
+}
 
 
 def ru_count(count: int, one: str, few: str, many: str) -> str:
@@ -149,6 +159,18 @@ LABELS = {
         "learning_path": (
             "For a study sequence with weekly practice and completion checks, use the "
             "[learning path]({page})."
+        ),
+        "learning_routes": (
+            "Choose a focused route from the [learning roadmap]({learning_roadmap}): "
+            "[AI-assisted coding]({ai_assisted_coding}), "
+            "[production AI engineering]({production_ai_engineering}) or "
+            "[AI Leadership]({ai_leadership})."
+        ),
+        "learning_evidence": (
+            "See the [coverage audit]({coverage_audit}), "
+            "[Engineering research]({engineering_research}), "
+            "[Leadership audit]({leadership_audit}) and [expansion plan]({atlas_expansion}) "
+            "for evidence limits and next steps."
         ),
         "quickstart_items": [
             (
@@ -274,6 +296,46 @@ LABELS = {
             ("common", "Asked across companies", "questions reported at two or more companies"),
             ("radar", "Requirements radar", "what job postings ask for, by theme"),
             ("learning_path", "Learning path", "a study curriculum with weekly practice"),
+            (
+                "learning_roadmap",
+                "Learning roadmap",
+                "Choose a focused route alongside the existing eight-week baseline",
+            ),
+            (
+                "ai_assisted_coding",
+                "AI-assisted coding",
+                "Four weeks of code reading, bounded AI assistance, testing and review",
+            ),
+            (
+                "production_ai_engineering",
+                "Production AI engineering",
+                "Eight weeks of contracts, evaluation, retrieval, tools and operations",
+            ),
+            (
+                "ai_leadership",
+                "AI Leadership",
+                "An eight-week route through decisions, evidence and delivery",
+            ),
+            (
+                "coverage_audit",
+                "Coverage audit",
+                "Repository coverage, evidence limits and remaining gaps",
+            ),
+            (
+                "engineering_research",
+                "Engineering research",
+                "Source comparison and the basis for two Engineering routes",
+            ),
+            (
+                "leadership_audit",
+                "Leadership audit",
+                "Evidence and practice coverage for leadership responsibilities",
+            ),
+            (
+                "atlas_expansion",
+                "Expansion plan",
+                "Priorities, dependencies and acceptance criteria for future work",
+            ),
             (
                 "reasoning_models",
                 "Reasoning models",
@@ -507,6 +569,18 @@ LABELS = {
             "Порядок изучения, еженедельная практика и критерии готовности — в "
             "[учебном плане]({page})."
         ),
+        "learning_routes": (
+            "Выберите предметный маршрут по [карте обучения]({learning_roadmap}): "
+            "[AI-ассистированный кодинг]({ai_assisted_coding}), "
+            "[прикладная AI-инженерия]({production_ai_engineering}) или "
+            "[AI Leadership]({ai_leadership})."
+        ),
+        "learning_evidence": (
+            "Границы свидетельств и следующие шаги описаны в "
+            "[аудите покрытия]({coverage_audit}), "
+            "[исследовании Engineering]({engineering_research}), "
+            "[аудите Leadership]({leadership_audit}) и [плане расширения]({atlas_expansion})."
+        ),
         "quickstart_items": [
             (
                 "Выберите трек и пройдите его приоритетные вопросы: "
@@ -639,6 +713,46 @@ LABELS = {
             ),
             ("radar", "Радар требований", "что требуют вакансии, по темам"),
             ("learning_path", "Учебный план", "программа подготовки с еженедельной практикой"),
+            (
+                "learning_roadmap",
+                "Карта обучения",
+                "Выберите предметный маршрут в дополнение к существующему восьминедельному плану",
+            ),
+            (
+                "ai_assisted_coding",
+                "AI-ассистированный кодинг",
+                "Четыре недели чтения кода, ограниченной помощи AI, тестирования и ревью",
+            ),
+            (
+                "production_ai_engineering",
+                "Прикладная AI-инженерия",
+                "Восемь недель контрактов, оценки, поиска, инструментов и эксплуатации",
+            ),
+            (
+                "ai_leadership",
+                "AI Leadership",
+                "Восьминедельный маршрут по решениям, свидетельствам и реализации",
+            ),
+            (
+                "coverage_audit",
+                "Аудит покрытия",
+                "Покрытие репозитория, границы свидетельств и оставшиеся пробелы",
+            ),
+            (
+                "engineering_research",
+                "Исследование Engineering",
+                "Сравнение источников и обоснование двух маршрутов Engineering",
+            ),
+            (
+                "leadership_audit",
+                "Аудит Leadership",
+                "Свидетельства и учебное покрытие лидерских обязанностей",
+            ),
+            (
+                "atlas_expansion",
+                "План расширения",
+                "Приоритеты, зависимости и критерии приёмки дальнейшей работы",
+            ),
             (
                 "reasoning_models",
                 "Reasoning-модели",
@@ -1168,6 +1282,7 @@ class Renderer:
             "",
             labels["learning_path"].format(page=rel(page, f"{base(lang)}/LEARNING_PATH.md")),
         ]
+        lines += self._learning_links(lang, page)
         if self.answered(lang, track):
             link = rel(page, answers_page(lang, track))
             lines += ["", labels["answers_link"].format(page=link)]
@@ -1278,6 +1393,7 @@ class Renderer:
         lines += [
             "",
             labels["learning_path"].format(page=rel(page, f"{base(lang)}/LEARNING_PATH.md")),
+            *self._learning_links(lang, page),
             "",
             labels["legend"],
             "",
@@ -1400,6 +1516,15 @@ class Renderer:
             )
         return text
 
+    def _learning_links(self, lang: str, page: str) -> list[str]:
+        targets = {key: rel(page, f"{base(lang)}/{path}") for key, path in _GUIDE_PATHS.items()}
+        return [
+            "",
+            LABELS[lang]["learning_routes"].format(**targets),
+            "",
+            LABELS[lang]["learning_evidence"].format(**targets),
+        ]
+
     def navigation(self, lang: str) -> str:
         """The README's one-line menu: the map, both start pages and the main sections."""
         labels, page = LABELS[lang], readme(lang)
@@ -1506,6 +1631,7 @@ class Renderer:
             "roadmap": f"{base(lang)}/ROADMAP.md",
             "changelog": changelog_page(lang),
             "contributing": contributing_page(lang),
+            **{key: f"{base(lang)}/{path}" for key, path in _GUIDE_PATHS.items()},
         }
         lines += ["", f"## {anchor('reference')}{labels['reference']}", ""]
         for key, name, summary in labels["reference_items"]:

@@ -69,12 +69,13 @@
     - Измерять релевантность на размеченных запросах по сегментам, а онлайн — долю пустых выдач и показов отсутствующих товаров.
   - Читать: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="sd-document-intelligence"></a>**Спроектируйте извлечение структурированных полей из десяти миллионов сканов с возможностью проверки сомнительных результатов.**
-  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-document-intelligence&title=%5BCorrection%5D%20sd-document-intelligence)
+  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#sd-document-intelligence) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-document-intelligence&title=%5BCorrection%5D%20sd-document-intelligence)
   - Что проверяет: Совместный учёт качества извлечения, происхождения данных и масштабирования.
   - Сильный ответ покрывает:
     - Обрабатывать документы идемпотентными заданиями, сохраняя для каждого поля страницу, область, версию модели и уверенность.
     - Отправлять на проверку поля с низкой откалиброванной уверенностью или проваленными правилами валидации, с учётом пропускной способности проверяющих.
     - Измерять точность по каждому полю на стратифицированной контрольной выборке и возвращать исправления проверяющих в оценку.
+  - Читать: [Interpret and improve model accuracy and confidence scores](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0) (Microsoft Learn) · [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) (Anthropic)
 - <a id="sd-text-to-sql"></a>**Спроектируйте запросы на естественном языке к хранилищу с тысячами таблиц: от выбора схемы до безопасного исполнения.**
   - System design · Где спрашивали: [Databricks](../companies/databricks.md) †, [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#sd-text-to-sql) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sd-text-to-sql&title=%5BCorrection%5D%20sd-text-to-sql)
   - Что проверяет: Учёт смысловой корректности и разрешений при генерации запросов.

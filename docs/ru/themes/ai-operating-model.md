@@ -5,7 +5,7 @@
 
 Внутренние AI-платформы, внедрение AI в организации, обучение людей, управление затратами и центры компетенций.
 
-На этой странице: [Оба трека (3)](#track-both) · [AI-лидерство (1)](#track-leadership)
+На этой странице: [Оба трека (3)](#track-both) · [AI-лидерство (3)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -44,5 +44,21 @@
     - Разделить надёжность и использование платформы и бизнес-результаты команд-потребителей.
     - Выбрать первый поддерживаемый процесс, границы сервиса и порядок пересмотра инвестиций.
   - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
+- <a id="ops-ai-portfolio-allocation"></a>**Вы отвечаете за портфель AI-инвестиций следующего квартала. Бюджет сокращён на 30%; конкурируют коммерческий пилот, обязательный проект контроля рисков и общая инфраструктура оценки. Как вы перераспределите деньги и людей и согласуете решение с руководством?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-ai-portfolio-allocation) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-ai-portfolio-allocation&title=%5BCorrection%5D%20ops-ai-portfolio-allocation)
+  - Что проверяет: Умеете ли вы принимать решения на уровне портфеля, отделять ограничения от предпочтений и явно показывать цену отложенной работы.
+  - Сильный ответ покрывает:
+    - Уточнить границы бюджета, обязательные требования, уже принятые обязательства и полномочия решения.
+    - Сравнить целостные варианты по диапазонам пользы, будущих затрат, зависимостей и доступности людей; не оправдывать выбор уже понесёнными расходами.
+    - Назвать финансируемую, сокращаемую, откладываемую и останавливаемую работу; зафиксировать компромиссы, переходные затраты и условия пересмотра.
+  - Читать: [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) (HM Treasury) · [Product Management - Leadership](https://handbook.gitlab.com/job-description-library/product/product-management-leadership/) (GitLab Handbook)
+- <a id="ops-ai-build-buy-exit"></a>**Как владелец инвестиций решите, продлевать ли управляемый AI-сервис или финансировать внутреннюю замену. Через шесть месяцев цена поставщика удвоится, а экспорт данных не воспроизводит поведение сервиса. Какое решение и план выхода вы утвердите?**
+  - Прикладной сценарий · 🧪 сгенерировано по темам вакансий · ✍ [Ответ](../answers/leadership.md#ops-ai-build-buy-exit) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=ops-ai-build-buy-exit&title=%5BCorrection%5D%20ops-ai-build-buy-exit)
+  - Что проверяет: Учитываете ли вы при выборе разработки или покупки возможности организации, сроки договора, проверенное качество замены и профинансированный выход, а не только цену модели.
+  - Сильный ответ покрывает:
+    - Сравнить продление, пересмотр условий, частичную замену и собственную разработку за один период, включая людей и переход.
+    - Разобрать переносимость данных, оценок, интеграций и недокументированного поведения; проверить самую трудную зависимость замены.
+    - Утвердить вариант с владельцем, выделить ресурсы выхода и определить договорные сроки, критерии приёмки и резерв непрерывности.
+  - Читать: [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office) · [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services)
 
 ← [Стратегия и метрики AI-продукта](ai-product-strategy.md) · [Руководство инженерными командами](engineering-leadership.md) →

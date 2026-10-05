@@ -99,12 +99,12 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Retrieve by relevance to the current task and expire or supersede stale entries.
   - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - **[For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?](../themes/agents-tools.md#agt-coding-harness)**
-  - System design · Asked at: Anthropic †
+  - System design · Asked at: Anthropic † · ✍ [Answer](../answers/engineering.md#agt-coding-harness)
   - Tests: Whether controlled comparisons can identify the source of improvements.
   - A strong answer covers:
-    - Define the harness precisely: tools, context assembly, retries, test feedback and stopping rules.
-    - Run a factorial comparison: swap the model with the harness fixed, then swap the harness.
-    - On a fixed task set, repeat trials, grade the final repository by tests and report variance.
+    - Define task success through independent behavioural checks, execution boundaries and resource budgets, not a model's assertion of completion.
+    - Compare model and harness changes separately on the same tasks and repeat stochastic attempts; version context, tools and test environment.
+    - Inspect traces for invalid edits, test weakening, environment failures and retries; report uncertainty and failures that an aggregate score hides.
   - Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - **[Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.](../themes/agents-tools.md#agt-mcp-long-running)**
   - System design · Asked at: Anthropic †
@@ -113,7 +113,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Keep the plan and progress in durable state outside the context, not only in the transcript.
     - Budget the context: paginate and trim tool results, compact history, fetch details only when needed.
     - Make tool steps resumable and idempotent, and test recovery from a server failure mid-run.
-  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
+  - Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 
 ### [Fine-tuning and post-training](../themes/post-training.md)
 
@@ -345,6 +345,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Ask who the audience is and which of their decisions the result should inform.
     - Cut detail, never accuracy: one honest analogy, what was measured and against which baseline.
     - State what the result does not show, and check the audience can restate its limits.
+  - Read: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 
 ### [Behavioral and values](../themes/behavioral-values.md)
 
@@ -363,6 +364,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Choose a case with real stakes where reasonable people could disagree, not an obvious wrongdoing.
     - State the value through its consequences: who would be affected and how, and which options you had.
     - Describe the action you took, what it cost you, and the line you would hold next time.
+  - Read: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - **[What do you see as the significant risks of advanced AI systems?](../themes/behavioral-values.md#beh-ai-safety-view)**
   - Knowledge · Senior · Asked at: Anthropic †
   - Tests: Whether you articulate a coherent, evidence-sensitive view of AI risk.
@@ -386,5 +388,6 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Answer honestly, naming what actually holds you to this work: the mission, the problems, the people.
     - Distinguish needing a fair salary from depending on equity upside, and admit that pay matters.
     - Back it with a past choice, if you have one, where the work outweighed the money.
+  - Read: [Compensation at Gitlab](https://handbook.gitlab.com/handbook/total-rewards/compensation/) (GitLab Handbook)
 
 [OpenAI](openai.md) →

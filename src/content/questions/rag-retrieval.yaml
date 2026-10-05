@@ -191,6 +191,7 @@ questions:
         - "Держать замороженный набор релевантности и снимок корпуса: стабильный результат на них оправдывает модель и указывает на новый контент или индексацию."
         - "Проверить индексацию напрямую: число документов против источника, версию модели эмбеддингов у каждого вектора, сбои парсинга, полноту ANN против точного поиска."
         - "Разрезать продовый трафик по возрасту и теме документов: промахи по новым терминам, которые находит лексический поиск, указывают на настоящий дрейф."
+    reading: ["google-rules-of-ml", "faiss-indexes"]
   - id: "rag-permissions"
     tracks: ["engineering","leadership"]
     type: "system_design"
@@ -291,13 +292,19 @@ questions:
     added: "2026-09-26"
     outline:
       en:
-        - "Drive updates from change events, upserting by document id and version and replacing all its chunks atomically."
-        - "Honour deletions at query time through tombstones; rebuild into a new index with dual writes, then switch an alias."
-        - "Measure lag from source change to searchable with canary documents, and reconcile document counts between source and index."
+        - "Apply ordered changes idempotently by document ID and version; define when a complete new chunk set becomes visible."
+        - "Enforce deletions and revoked access at query time; rebuild from a consistent snapshot, catch up changes and validate before switching the read alias."
+        - "Measure source-to-search lag and reconcile counts, representative queries and permissions; rollback must not resurrect deleted or forbidden content."
       ru:
-        - "Обновлять по событиям изменений: upsert по идентификатору и версии документа с атомарной заменой всех его чанков."
-        - "Учитывать удаления уже при запросе через tombstone-метки; перестраивать в новый индекс с двойной записью и затем переключать алиас."
-        - "Измерять лаг от изменения в источнике до появления в поиске канареечными документами и сверять число документов в источнике и индексе."
+        - "Идемпотентно применять упорядоченные изменения по ID и версии документа; задать момент видимости полного нового набора чанков."
+        - "Проверять удаления и отзыв доступа при запросе; пересобирать из согласованного снимка, догонять изменения и проверять до смены read alias."
+        - "Измерять задержку от источника до поиска, сверять количества, характерные запросы и права; откат не должен возвращать удалённое или запрещённое содержимое."
+    reading: ["elastic-index-aliases", "azure-search-document-access"]
+    start_here: ["engineering"]
+    priority: 82
+    answer:
+      en: "I would treat indexing as a versioned projection of the source system, with stable document IDs, change ordering and explicit deletion records. Incremental workers need idempotent updates and a checkpoint so a retry neither skips a change nor resurrects deleted content. For a rebuild, I would create a separate index, load a consistent snapshot, catch up subsequent changes and validate counts, representative queries and permissions before switching the read alias. An atomic alias change helps the cutover, but it does not by itself solve stale writes or access revocation. Those need their own propagation and enforcement policy, including caches. I would monitor source-to-search lag and test updates, deletes and a query during cutover. A retained old index can support rollback only if deleted or newly restricted documents cannot become visible again; freshness includes authority as well as content."
+      ru: "Я рассматривал бы индекс как версионированную проекцию источника со стабильными ID документов, порядком изменений и явными записями удаления. Инкрементальным workers нужны идемпотентные обновления и checkpoint, чтобы повтор не пропустил изменение и не воскресил удалённое содержимое. При пересборке я создал бы отдельный индекс, загрузил согласованный снимок, догнал последующие изменения и проверил количества, характерные запросы и права до переключения read alias. Атомарная смена alias помогает переключению, но сама не решает запоздавшие записи и отзыв доступа. Для них нужна отдельная политика распространения и проверки, включая кеши. Я наблюдал бы задержку от источника до поиска и проверял обновление, удаление и запрос во время перехода. Старый индекс пригоден для отката только тогда, когда удалённые или вновь ограниченные документы не становятся видимыми снова; свежесть относится и к полномочиям, и к содержимому."
   - id: "rag-citations"
     tracks: ["engineering"]
     type: "system_design"
@@ -350,6 +357,7 @@ questions:
         - "Объяснить провал top-k поиска: он возвращает похожие фрагменты, а не полный отфильтрованный набор, поэтому любой подсчёт — лишь выборка."
         - "Направить запрос в систему учёта: управляемый запрос по статусу заказа и причине блокировки, а модель лишь переводит намерение."
         - "Уточнить, что считается блокировкой из-за поставщика, показать запрос и момент среза данных и проверить на заранее известных значениях."
+    reading: ["paper-spider-2", "postgresql-table-expressions"]
   - id: "rag-clinical-context"
     tracks: ["engineering"]
     type: "applied_scenario"
@@ -372,3 +380,4 @@ questions:
         - "Использовать список как ограниченное смещение декодирования в пользу акустически правдоподобных совпадений, а не как текст для вставки."
         - "Защититься от подтверждающего смещения: сравнивать гипотезы со смещением и без и отправлять на проверку препараты из списка со слабой акустической опорой."
         - "Проверить случаи с препаратом из списка, новым препаратом вне списка и без упоминания; подобрать силу смещения по полноте против вставок и подмен."
+    reading: ["azure-speech-phrase-list", "who-large-multimodal-health"]

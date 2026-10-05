@@ -44,6 +44,7 @@
     - Выбрать продукт, где результат изменили именно ваши решения, а не самый масштабный командный проект.
     - Изложить бизнес-обоснование, самое рискованное предположение ставки и эксперимент, который его проверил.
     - Закончить измеренным эффектом относительно базовой линии, вашим вкладом в него и тем, что сделали бы иначе.
+  - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research) · [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) (HM Treasury)
 
 ### [Руководство инженерными командами](../themes/engineering-leadership.md)
 

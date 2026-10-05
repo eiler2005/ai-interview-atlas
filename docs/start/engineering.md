@@ -7,6 +7,10 @@ The priority questions of this track, in study order. Answer each one aloud befo
 
 For a study sequence with weekly practice and completion checks, use the [learning path](../LEARNING_PATH.md).
 
+Choose a focused route from the [learning roadmap](../LEARNING_ROADMAP.md): [AI-assisted coding](../learning/AI_ASSISTED_CODING.md), [production AI engineering](../learning/PRODUCTION_AI_ENGINEERING.md) or [AI Leadership](../learning/AI_LEADERSHIP.md).
+
+See the [coverage audit](../research/ATLAS_COVERAGE_AUDIT.md), [Engineering research](../research/ENGINEERING_RESEARCH.md), [Leadership audit](../research/LEADERSHIP_AUDIT.md) and [expansion plan](../plans/ATLAS_EXPANSION.md) for evidence limits and next steps.
+
 [Answers to these questions](../answers/engineering.md)
 
 - **1. [Derive scaled dot-product attention and explain how its scale affects softmax gradients.](../themes/llm-fundamentals.md#llm-attention)**
@@ -149,3 +153,27 @@ For a study sequence with weekly practice and completion checks, use the [learni
   - Knowledge · [Evaluation and observability](../themes/evals-observability.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#eval-reasoning-supervision)
 - **70. [A reasoning API request consumes tokens but returns no usable answer. How would you diagnose it and design a bounded recovery policy?](../themes/inference-economics.md#inf-reasoning-incomplete)**
   - Applied scenario · [Inference, serving and cost](../themes/inference-economics.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/engineering.md#inf-reasoning-incomplete)
+- **71. [Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production.](../themes/coding-practical.md#code-ai-assisted-build)**
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Sierra](../companies/sierra.md) ✅ · ✍ [Answer](../answers/engineering.md#code-ai-assisted-build)
+- **72. [Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.](../themes/coding-practical.md#code-agent-pr-review)**
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Sierra](../companies/sierra.md) ✅ · ✍ [Answer](../answers/engineering.md#code-agent-pr-review)
+- **73. [Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.](../themes/coding-practical.md#code-product-structure)**
+  - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · ✍ [Answer](../answers/engineering.md#code-product-structure)
+- **74. [In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.](../themes/coding-practical.md#code-agent-session-choices)**
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · ✍ [Answer](../answers/engineering.md#code-agent-session-choices)
+- **75. [How do schema-constrained responses differ from function calls, and which component actually executes an action?](../themes/agents-tools.md#agt-structured-output)**
+  - Knowledge · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-structured-output)
+- **76. [A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?](../themes/agents-tools.md#agt-goal-drift)**
+  - Applied scenario · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-goal-drift)
+- **77. [For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?](../themes/agents-tools.md#agt-coding-harness)**
+  - System design · [Agents, tools and protocols](../themes/agents-tools.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#agt-coding-harness)
+- **78. [How would you build a useful evaluation set when reference answers are missing and expert time is scarce?](../themes/evals-observability.md#eval-scarce-labels)**
+  - Applied scenario · [Evaluation and observability](../themes/evals-observability.md) · ✍ [Answer](../answers/engineering.md#eval-scarce-labels)
+- **79. [How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?](../themes/evals-observability.md#eval-production-actions)**
+  - System design · [Evaluation and observability](../themes/evals-observability.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#eval-production-actions)
+- **80. [How would you version prompts and dependent configuration so an observed regression can be rolled back reproducibly?](../themes/evals-observability.md#eval-prompt-rollback)**
+  - System design · [Evaluation and observability](../themes/evals-observability.md) · ✍ [Answer](../answers/engineering.md#eval-prompt-rollback)
+- **81. [Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable.](../themes/ai-system-design.md#sd-document-intelligence)**
+  - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Palantir](../companies/palantir.md) † · ✍ [Answer](../answers/engineering.md#sd-document-intelligence)
+- **82. [Design continuous index updates, including changed documents, deletions and queries during a rebuild.](../themes/rag-retrieval.md#rag-freshness)**
+  - System design · [RAG and retrieval](../themes/rag-retrieval.md) · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-freshness)

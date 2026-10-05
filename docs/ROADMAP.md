@@ -6,21 +6,24 @@ What this repository plans to improve next, and what it will not do. This is the
 
 ## Where the atlas is today
 
-As of 2026-10-02:
+As of 2026-10-05:
 
-- 294 questions across 17 themes, each saying what it tests and what a strong answer covers, split between the engineering and the leadership track.
-- 140 priority questions — 70 per track — each with reading and a written answer in English and Russian. All 280 answer texts have passed independent content review: the first 160 on 2026-09-28, the rest, including answers deepened since, on 2026-10-02.
-- 29 company pages showing sourced loop stages, coding requirements and reported questions where evidence exists. Some describe general software or product roles rather than specialist AI roles; secondary evidence and assumptions remain visible.
-- 207 sources, recording when each was read and its publication date when known.
-- A requirements radar over 79 job postings from September 2026.
-- A PDF builder for the main books and separate answers editions. New local builds are not released assets: the [releases page](https://github.com/eiler2005/ai-interview-atlas/releases/latest) lists what has actually been published.
+- 299 questions across 17 themes, all with EN/RU checklists and reading.
+- 158 priority questions with answers in both languages: 82 Engineering and 76 Leadership. The original priority order is retained; this iteration adds 18 answer pairs and revises four Leadership answer pairs.
+- 29 company pages. Amazon now includes an official general TPM process alongside its separate secondary AI-PM path; general-role evidence does not establish a specialist AI loop.
+- 247 sources with recorded reading dates and publication dates when established.
+- The unchanged requirements radar over 79 September 2026 postings.
+- A question-led learning roadmap and specialised Engineering and four-branch Leadership guides. These provide explanations, checks and reading; no Python exercise package, labs or automated evaluator was added.
 
-The contribution workflow requires schema and provenance validation, language and link checks, and privacy checks with distinct worktree, index and history scopes. These checks do not establish factual accuracy or publication approval. The written answers have passed independent content review. The four local PDF books checked on 2026-09-29 contain only the first 80 answers per language, so they need rebuilding and fresh production checks before any release. Publication remains a separate decision.
+The contribution workflow requires schema/provenance validation, language and link checks, privacy checks and independent content review. Mechanical checks do not establish factual accuracy or publication approval. Earlier answer reviews apply to their dated versions; the new and revised October 5 content requires its own separate-session review.
+
+Retained local manifests and matching PDF hashes establish 2026-10-02 builds of all four books: main editions of 236 English and 258 Russian pages, and answers editions of 72 and 87 pages. These predate the current content. They establish neither visual QA nor publication of a new edition; the [releases page](https://github.com/eiler2005/ai-interview-atlas/releases/latest) identifies published assets.
 
 ## Next
 
-- **Independent content review and PDF production checks.** *Done for the answers; the books are pending.* Separate sessions reviewed every answer in each language for factual accuracy, agreement with the checklists and language quality: the first 80 on 2026-09-28, the rest on 2026-10-02. The local books checked on 2026-09-29 predate the later answers and must be rebuilt and checked again. These are distinct checks; neither publishes a release. Answers remain examples of good reasoning, not reference answers.
-- **Checklists beyond the priority set.** *Done.* Every question now says what a strong answer covers, and most list primary reading. Written answers remain limited to the priority questions.
+- **Independent content review and PDF production checks.** Review the exact October 5 content in a separate session, resolve findings, then verify the deliverables before a maintainer release decision. The October 2 PDF manifests do not cover this expansion. Answers are examples of reasoning, not reference answers.
+- **Curriculum expansion.** *Content added; review remains separate.* The [expansion plan](plans/ATLAS_EXPANSION.md), [coverage audit](research/ATLAS_COVERAGE_AUDIT.md) and [Leadership audit](research/LEADERSHIP_AUDIT.md) separate current evidence from educational gaps. The [learning roadmap](LEARNING_ROADMAP.md) connects the existing eight-week baseline to specialised guides. Leadership has four explicit branches and five new editorial bank questions on portfolio allocation, vendor exit, management through managers, stopping investment and an incident without rollback; these do not establish new employer interview claims.
+- **Checklists beyond the priority set.** *Done.* Every question now says what a strong answer covers and lists reading. Written answers remain limited to the priority questions.
 - **Better company evidence and more companies.** *Planned.* Seek independent corroboration and specialist AI evidence where current pages have only general-role baselines or limited public evidence. The current 29 are not a ranking and have not all cleared a two-independent-source threshold. As the [methodology](METHODOLOGY.md) explains, each claim carries its own evidence marker; two documents from one publisher do not count as independent corroboration.
 - **Source freshness.** *In progress.* A weekly job now checks that cited URLs still resolve (sites that block automated checks are skipped) and keeps one issue listing the failures; a failing link is a prompt to re-read the source, not proof that the claim is wrong. Company pages already mark a review date more than a year older than the newest content; the mark should also follow the calendar, not only newer content. Interview loops change, and a page that quietly ages is worse than one that admits it.
 

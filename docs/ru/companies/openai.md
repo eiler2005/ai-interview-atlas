@@ -45,6 +45,7 @@
     - Показать, что cross-entropy равна энтропии данных плюс KL от данных к модели, поэтому при фиксированных данных минимизировать одно и другое равносильно.
     - Определить перплексию как экспоненту среднего cross-entropy на токен в натах; она зависит от токенизатора, текста оценки и длины контекста.
     - Сравнивать разные токенизаторы в битах на байт, зафиксировав текст, обработку контекста и основание логарифма.
+  - Читать: [Deep Learning: Probability and Information Theory](https://www.deeplearningbook.org/contents/prob.html) (Ian Goodfellow, Yoshua Bengio and Aaron Courville)
 - **[Объясните рост стоимости self-attention с длиной контекста и сравните способы её уменьшить.](../themes/llm-fundamentals.md#llm-long-attention)**
   - Знания · Где спрашивали: OpenAI †
   - Что проверяет: Умение отличать оптимизацию исполнения от изменения поведения модели.
@@ -169,6 +170,7 @@
     - Уточнить ёмкость, обновляет ли чтение давность и учитываются ли просроченные записи до их удаления.
     - Использовать хеш-таблицу с двусвязным списком для O(1); один путь удаления обслуживает и истечение, и вытеснение.
     - Проверить ёмкость, равную единице, обновление существующего ключа и истечение ровно на границе с подменяемыми часами.
+  - Читать: [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation)
 - **[Реализуйте token-bucket limiter и объясните изменения для общего лимита, применяемого несколькими воркерами.](../themes/coding-practical.md#code-token-bucket)**
   - Кодинг · Где спрашивали: [Anthropic](anthropic.md) †, OpenAI † · ✍ [Ответ](../answers/engineering.md#code-token-bucket)
   - Что проверяет: Умение сохранить квоту при учёте времени и параллельных обновлениях.
@@ -208,6 +210,7 @@
     - Моделировать кредиты как начисления с суммой, сроком и условиями, а списания — как записи в журнале только на добавление.
     - Вынести политику списания, например сначала ближайший срок через кучу, чтобы новые правила подключались без переписывания.
     - Проверить истечение ровно в момент срока, списание из нескольких начислений, нехватку баланса и пересчёт остатков по журналу.
+  - Читать: [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation) · [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) (PostgreSQL documentation)
 
 ### [Стратегия и метрики AI-продукта](../themes/ai-product-strategy.md)
 
@@ -234,6 +237,7 @@
     - Выбрать первый сегмент и повод и оставить только те модальности, без которых этот повод не работает.
     - Измерять повторное платное использование с ограничениями по дистрессу пользователей и согласию изображённых людей.
     - Проверить готовность платить на пилоте, проводимом вручную, до разработки устройства для запахов.
+  - Читать: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 
 ### [Программы и delivery](../themes/program-delivery.md)
 
@@ -274,6 +278,7 @@
     - Выбрать проект по тому, что изменилось для пользователей или бизнеса, а не по технологии или громкому имени.
     - Отделить то, что вы лично решили и сделали, от работы команды, и назвать самое трудное своё решение.
     - Закончить подтверждением результата и тем, почему вам важен именно этот проект, а не более крупный.
+  - Читать: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Расскажите о конфликте с коллегой: как вы его разрешали и чему научились.](../themes/behavioral-values.md#beh-interpersonal-conflict)**
   - Поведенческий · Senior · Где спрашивали: OpenAI †
   - Что проверяет: Понимаете ли вы позицию другого человека и свою роль в конфликте.
@@ -281,6 +286,7 @@
     - Выбрать конфликт, в который внесло вклад и ваше поведение, а не историю о просто трудном коллеге.
     - Изложить позицию коллеги так, как изложил бы её он сам, с учётом давления на него, и только потом свою.
     - Закончить тем, какими стали рабочие отношения и что вы сами теперь делаете иначе.
+  - Читать: [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - **[Расскажите о противоречащих приоритетах участников проекта и о том, как вы согласовали действия.](../themes/behavioral-values.md#beh-stakeholder-priorities)**
   - Поведенческий · Senior · Где спрашивали: OpenAI † · ✍ [Ответ](../answers/leadership.md#beh-stakeholder-priorities)
   - Что проверяет: Умеете ли вы явно обсудить конкурирующие цели и договориться о действиях.
@@ -304,5 +310,6 @@
     - Выбрать по-настоящему крупную неудачу, коренящуюся в вашем собственном продуктовом суждении, а не в чужом исполнении.
     - Восстановить, во что вы тогда верили, какой сигнал недооценили и чего это стоило пользователям и бизнесу.
     - Закончить изменённой практикой, например тем, как вы проверяете спрос, и более поздним решением, которое она улучшила.
+  - Читать: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 
 ← [Anthropic](anthropic.md) · [Amazon](amazon.md) →

@@ -147,6 +147,7 @@
     - Показать, что cross-entropy равна энтропии данных плюс KL от данных к модели, поэтому при фиксированных данных минимизировать одно и другое равносильно.
     - Определить перплексию как экспоненту среднего cross-entropy на токен в натах; она зависит от токенизатора, текста оценки и длины контекста.
     - Сравнивать разные токенизаторы в битах на байт, зафиксировав текст, обработку контекста и основание логарифма.
+  - Читать: [Deep Learning: Probability and Information Theory](https://www.deeplearningbook.org/contents/prob.html) (Ian Goodfellow, Yoshua Bengio and Aaron Courville)
 - <a id="llm-long-attention"></a>**Объясните рост стоимости self-attention с длиной контекста и сравните способы её уменьшить.**
   - Знания · Где спрашивали: [OpenAI](../companies/openai.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=llm-long-attention&title=%5BCorrection%5D%20llm-long-attention)
   - Что проверяет: Умение отличать оптимизацию исполнения от изменения поведения модели.

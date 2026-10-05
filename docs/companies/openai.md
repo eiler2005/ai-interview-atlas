@@ -45,6 +45,7 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Show cross-entropy equals data entropy plus KL from data to model, so for fixed data minimising either is equivalent.
     - Define perplexity as exp of mean per-token cross-entropy in nats; it shifts with tokeniser, eval text and context length.
     - Compare across tokenisers in bits per byte, fixing the text, context handling and log base before drawing conclusions.
+  - Read: [Deep Learning: Probability and Information Theory](https://www.deeplearningbook.org/contents/prob.html) (Ian Goodfellow, Yoshua Bengio and Aaron Courville)
 - **[Explain how self-attention cost grows with context length and compare ways to reduce that cost.](../themes/llm-fundamentals.md#llm-long-attention)**
   - Knowledge · Asked at: OpenAI †
   - Tests: Whether efficiency changes are distinguished from changes to model behaviour.
@@ -169,6 +170,7 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Clarify capacity, whether reads refresh recency, and whether expired entries still count until purged.
     - Use a hash map with a doubly linked list for O(1); one removal path serves expiry and eviction.
     - Test capacity one, updating an existing key, and expiry at exact boundaries with an injected clock.
+  - Read: [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation)
 - **[Implement a token-bucket limiter and explain what must change when several workers enforce the same limit.](../themes/coding-practical.md#code-token-bucket)**
   - Coding · Asked at: [Anthropic](anthropic.md) †, OpenAI † · ✍ [Answer](../answers/engineering.md#code-token-bucket)
   - Tests: Whether time accounting and concurrent updates preserve the quota.
@@ -208,6 +210,7 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Model credits as grants with amount, expiry and conditions, and usage as append-only ledger entries.
     - Isolate the consumption policy, such as soonest expiry first via a heap, so new rules plug in.
     - Test expiry at the exact timestamp, consumption spanning grants, insufficient balance and rebuilding balances from the ledger.
+  - Read: [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation) · [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) (PostgreSQL documentation)
 
 ### [AI product strategy and metrics](../themes/ai-product-strategy.md)
 
@@ -234,6 +237,7 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Choose one beachhead user and occasion, and only the senses that occasion actually needs.
     - Measure repeat paid use, with guardrails on user distress and the consent of people depicted.
     - Test willingness to pay with a hand-run concierge pilot before building scent hardware.
+  - Read: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 
 ### [Programmes and delivery](../themes/program-delivery.md)
 
@@ -274,6 +278,7 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Choose the project by what changed for its users or the business, not by its technology or brand.
     - Separate what you personally decided and built from the team's work, and name the hardest call you made.
     - Close with evidence of the impact and why this project, rather than a bigger one, matters to you.
+  - Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Describe a conflict with a colleague, how you handled it and what you learned.](../themes/behavioral-values.md#beh-interpersonal-conflict)**
   - Behavioral · Senior · Asked at: OpenAI †
   - Tests: Whether you understand the other person's perspective and your own part in the conflict.
@@ -281,6 +286,7 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Pick a conflict in which your own behaviour contributed, not one where the colleague was simply difficult.
     - Restate the colleague's view as they would, including the pressure they were under, before your own.
     - Close with how the working relationship stood afterwards and what you now do differently yourself.
+  - Read: [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - **[Tell me about conflicting stakeholder priorities and how you established alignment.](../themes/behavioral-values.md#beh-stakeholder-priorities)**
   - Behavioral · Senior · Asked at: OpenAI † · ✍ [Answer](../answers/leadership.md#beh-stakeholder-priorities)
   - Tests: Whether you make competing objectives explicit and build an actionable agreement.
@@ -304,5 +310,6 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
     - Pick a failure that is truly large and rooted in your own product judgement, not in others' execution.
     - Reconstruct what you believed then, which signal you discounted, and what it cost users and the business.
     - Close with the practice you changed, such as how you validate demand, and a later decision it improved.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 
 ← [Anthropic](anthropic.md) · [Amazon](amazon.md) →

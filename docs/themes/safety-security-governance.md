@@ -48,6 +48,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Tier harms by severity and choose per tier: block at upload, limit distribution or queue review.
     - Combine hash matching for known content with classifiers for new content, routing uncertain cases to reviewers.
     - Measure prevalence, per-policy precision and appeal overturn rate, weighing wrongful removals against missed harm.
+  - Read: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) (Markov et al., arXiv) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv)
 - <a id="sec-guardrail-exception"></a>**A product team requests an exception to an AI safety control for one enterprise customer. How would you assess, authorise and time-limit the exception?**
   - Applied scenario · Senior · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#sec-guardrail-exception) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-guardrail-exception&title=%5BCorrection%5D%20sec-guardrail-exception)
   - Tests: Whether exceptions retain an accountable owner, compensating controls and an expiry decision.
@@ -71,6 +72,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Name harms that build over many turns: self-harm, sexualised content involving minors, emotional dependency.
     - Score the trajectory of the whole conversation, not single replies, and escalate to crisis resources or review.
     - Evaluate on long scripted conversations, counting missed escalations and needless interruptions of benign roleplay.
+  - Read: [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv) · [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (NIST)
 - <a id="sec-generation-intervention"></a>**When would you intervene during token generation rather than filter the completed answer?**
   - Knowledge · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-generation-intervention&title=%5BCorrection%5D%20sec-generation-intervention)
   - Tests: Whether you weigh exposure, latency and partial-output risks.
@@ -78,6 +80,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Intervene mid-stream when showing the text is itself the harm, such as leaked secrets or dangerous instructions.
     - Weigh latency against exposure: buffering delays the stream, while retracting shown text cannot undo it.
     - Measure harmful text shown before cutoff, false truncations of benign answers and added latency.
+  - Read: [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv) · [How to use the Voice Live API](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to) (Microsoft Learn)
 - <a id="sec-robot-safety"></a>**Design the safety architecture for a learned robot policy operating close to people.**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-robot-safety&title=%5BCorrection%5D%20sec-robot-safety)
   - Tests: Whether safety depends on independent constraints and a safe fallback.
@@ -85,6 +88,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Name the hazards near people: contact force, speed, pinch points and unexpected motion.
     - Put an independent safety layer under the policy that enforces speed, force and zone limits.
     - Make a safe stop the fallback, verify it by fault injection, and count needless stops as cost.
+  - Read: [OSHA Technical Manual: Industrial Robot Systems and Industrial Robot System Safety](https://www.osha.gov/otm/section-4-safety-hazards/chapter-4) (Occupational Safety and Health Administration) · [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., arXiv)
 
 ## <a id="track-leadership"></a>AI Leadership
 
@@ -119,6 +123,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Name the harm: labels stop reflecting human judgement and contaminate training and evaluation data.
     - Rely on gold questions, agreement and timing signals, not a detector whose false positives punish honest annotators.
     - Confirm cases before sanctions, re-label affected data, and fix incentives and task design that invite shortcuts.
+  - Read: [Prevalence and prevention of large language model use in crowd work](https://arxiv.org/abs/2310.15683) (Veniamin Veselovsky et al., arXiv)
 - <a id="sec-stale-legal-authority"></a>**An AI research memo relies on a court decision that has been overruled. Where should the workflow catch this?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-stale-legal-authority&title=%5BCorrection%5D%20sec-stale-legal-authority)
   - Tests: Whether you address source validity as well as faithful citation.
@@ -126,6 +131,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Separate two checks: the memo states the decision faithfully, and the decision is still good law.
     - Check each authority's later treatment with a citator at retrieval and again before sign-off.
     - Seed test memos with overruled cases to measure catch rate, and track flags lawyers learn to ignore.
+  - Read: [KeyCite](https://legal.thomsonreuters.com/en/products/westlaw/keycite) (Thomson Reuters)
 - <a id="sec-age-assurance"></a>**How would you design age assurance when minors receive a substantially different product experience?**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-age-assurance&title=%5BCorrection%5D%20sec-age-assurance)
   - Tests: Whether you consider privacy, evasion and the consequences of classification errors.
@@ -133,6 +139,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - State what each error costs: a minor in the adult product versus an adult wrongly restricted.
     - Layer signals by risk, escalating to verification only when needed and keeping as little data as possible.
     - Measure errors by age band, evasion attempts and drop-off from friction, and offer an appeal path.
+  - Read: [Age assurance duties under the Online Safety Act](https://www.ofcom.org.uk/online-safety/protecting-children/age-assurance) (Ofcom)
 - <a id="sec-voice-consent"></a>**Design safeguards for voice cloning, including consent, provenance and abuse response.**
   - System design · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-voice-consent&title=%5BCorrection%5D%20sec-voice-consent)
   - Tests: Whether you treat consent as a verifiable lifecycle requirement.
@@ -140,6 +147,7 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Verify the speaker's own consent, for example with a live spoken phrase, before creating a voice.
     - Bind consent to the voice model so revocation disables it, and watermark or log generated audio.
     - Review impersonation reports and takedown requests fast, measuring abuse caught and wrongful blocks.
+  - Read: [Text to speech transparency note](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/text-to-speech/transparency-note) (Microsoft Learn)
 - <a id="sec-clinical-invention"></a>**A generated clinical note includes a medication never mentioned during the visit. How would you detect and contain this safety incident?**
   - Applied scenario · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=sec-clinical-invention&title=%5BCorrection%5D%20sec-clinical-invention)
   - Tests: Whether you prioritise patient harm and verification over average text quality.
@@ -147,5 +155,6 @@ On this page: [Both tracks (10)](#track-both) · [AI Leadership (8)](#track-lead
     - Treat it as a patient-safety incident: find affected signed notes and whether care relied on them.
     - Contain it with a check that flags medications absent from the transcript, requiring clinician confirmation before signing.
     - Measure unsupported medication mentions on audited samples, and track alert fatigue from false flags.
+  - Read: [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization) · [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 
 ← [Evaluation and observability](evals-observability.md) · [Multimodal and voice](multimodal-voice.md) →

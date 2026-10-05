@@ -7,7 +7,7 @@ AI Leadership · Roles covered: AI product manager (senior to group), Director o
 
 Owns defensible product decisions and measurable customer value for AI products.
 
-On this page: [What the role involves](#scope) · [How it is interviewed (0)](#interviews) · [Questions (11)](#role-questions) · [Preparation](#prep)
+On this page: [What the role involves](#scope) · [How it is interviewed (0)](#interviews) · [Questions (14)](#role-questions) · [Preparation](#prep)
 
 ## <a id="scope"></a>What the role involves
 
@@ -59,6 +59,12 @@ An editorial selection: relevant to the role, but not reported for it.
   - Knowledge · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md) · ✍ [Answer](../answers/leadership.md#prod-model-choice)
 - **[How do you prioritise a product roadmap when several valuable opportunities compete?](../themes/ai-product-strategy.md#prod-roadmap)**
   - Product case · Senior · [AI product strategy and metrics](../themes/ai-product-strategy.md)
+- **[An AI product has rising usage but no credible improvement in customer outcomes; review costs keep increasing. The sponsor wants another quarter of investment. What evidence would make you expand, narrow, pause or stop it, and how would you handle existing users?](../themes/ai-product-strategy.md#prod-ai-stop-investment)**
+  - Product case · [AI product strategy and metrics](../themes/ai-product-strategy.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prod-ai-stop-investment)
+- **[You own the next quarter’s AI investment portfolio. A 30% budget cut affects a revenue pilot, a mandatory risk-control project and shared evaluation infrastructure. How would you reallocate money and people and secure executive agreement?](../themes/ai-operating-model.md#ops-ai-portfolio-allocation)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-portfolio-allocation)
+- **[As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?](../themes/ai-operating-model.md#ops-ai-build-buy-exit)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-build-buy-exit)
 
 ## <a id="prep"></a>Preparation
 

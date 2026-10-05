@@ -99,12 +99,12 @@
     - Извлекать по релевантности текущей задаче, удаляя или замещая устаревшие записи.
   - Читать: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 - **[Как для coding agent отделить вклад модели от вклада harness в надёжное завершение задачи?](../themes/agents-tools.md#agt-coding-harness)**
-  - System design · Где спрашивали: Anthropic †
+  - System design · Где спрашивали: Anthropic † · ✍ [Ответ](../answers/engineering.md#agt-coding-harness)
   - Что проверяет: Умение установить источник улучшения контролируемым сравнением.
   - Сильный ответ покрывает:
-    - Точно определить harness: инструменты, сборку контекста, повторы, обратную связь от тестов и правила остановки.
-    - Провести факторное сравнение: менять модель при фиксированном harness, затем менять harness.
-    - На фиксированном наборе задач повторять прогоны, оценивать итоговое состояние репозитория тестами и показывать разброс.
+    - Задать успех независимыми проверками поведения, границами исполнения и бюджетами, а не заявлением модели о готовности.
+    - Отдельно сравнить изменения модели и обвязки на тех же задачах с повторными попытками; версионировать контекст, инструменты и тестовое окружение.
+    - Разобрать трассы неверных правок, ослабления тестов, сбоев окружения и повторов; показать неопределённость и скрытые средним ошибки.
   - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - **[Спроектируйте, как модель планирует и выполняет долгую задачу через инструменты MCP, оставаясь надёжной в пределах контекстного окна.](../themes/agents-tools.md#agt-mcp-long-running)**
   - System design · Где спрашивали: Anthropic †
@@ -113,7 +113,7 @@
     - Хранить план и прогресс в долговременном состоянии вне контекста, а не только в истории диалога.
     - Распределять бюджет контекста: отдавать результаты инструментов постранично и кратко, сжимать историю, подгружать детали по необходимости.
     - Сделать шаги с инструментами возобновляемыми и идемпотентными; проверить восстановление после отказа сервера посреди выполнения.
-  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
+  - Читать: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) (Model Context Protocol) · [Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) (Model Context Protocol) · [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic)
 
 ### [Дообучение и post-training](../themes/post-training.md)
 
@@ -345,6 +345,7 @@
     - Выяснить, кто аудитория и какое её решение должен помочь принять этот результат.
     - Жертвовать деталями, но не точностью: одна честная аналогия, что измеряли и с чем сравнивали.
     - Назвать, чего результат не показывает, и проверить, что слушатели могут пересказать его пределы.
+  - Читать: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 
 ### [Поведенческие вопросы и ценности](../themes/behavioral-values.md)
 
@@ -363,6 +364,7 @@
     - Выбрать случай с реальной ставкой, где разумные люди могли разойтись, а не очевидное нарушение.
     - Выразить ценность через последствия: кого и как это затронуло бы и какие у вас были варианты.
     - Описать, что вы сделали, чего это вам стоило и какую границу будете держать в следующий раз.
+  - Читать: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - **[Какие риски развитых AI-систем вы считаете существенными?](../themes/behavioral-values.md#beh-ai-safety-view)**
   - Знания · Senior · Где спрашивали: Anthropic †
   - Что проверяет: Умеете ли вы последовательно изложить позицию о рисках AI и её основания.
@@ -386,5 +388,6 @@
     - Ответить честно, назвав, что на самом деле удерживает вас в этой работе: миссия, задачи, люди.
     - Отличить потребность в справедливой зарплате от расчёта на рост стоимости акций и признать, что деньги важны.
     - Подкрепить ответ прошлым выбором, если он был, когда работа перевесила деньги.
+  - Читать: [Compensation at Gitlab](https://handbook.gitlab.com/handbook/total-rewards/compensation/) (GitLab Handbook)
 
 [OpenAI](openai.md) →

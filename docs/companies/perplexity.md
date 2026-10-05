@@ -74,12 +74,13 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
     - Sweep candidate and final-context counts against held-out answer quality and end-to-end latency.
   - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - **[Design continuous index updates, including changed documents, deletions and queries during a rebuild.](../themes/rag-retrieval.md#rag-freshness)**
-  - System design · Asked at: Perplexity †
+  - System design · Asked at: Perplexity † · ✍ [Answer](../answers/engineering.md#rag-freshness)
   - Tests: Whether freshness has consistency guarantees and an observable lag.
   - A strong answer covers:
-    - Drive updates from change events, upserting by document id and version and replacing all its chunks atomically.
-    - Honour deletions at query time through tombstones; rebuild into a new index with dual writes, then switch an alias.
-    - Measure lag from source change to searchable with canary documents, and reconcile document counts between source and index.
+    - Apply ordered changes idempotently by document ID and version; define when a complete new chunk set becomes visible.
+    - Enforce deletions and revoked access at query time; rebuild from a consistent snapshot, catch up changes and validate before switching the read alias.
+    - Measure source-to-search lag and reconcile counts, representative queries and permissions; rollback must not resurrect deleted or forbidden content.
+  - Read: [Aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html) (Elastic) · [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview) (Microsoft Learn)
 - **[How would you connect each factual claim in an answer to the retrieved passage that supports it?](../themes/rag-retrieval.md#rag-citations)**
   - System design · Asked at: Perplexity † · ✍ [Answer](../answers/engineering.md#rag-citations)
   - Tests: Whether a citation is checked for support rather than merely attached.
@@ -166,5 +167,6 @@ On this page: [Interview loop](#loop) · [Questions (15)](#questions)
     - Bring the user problem and the evidence behind it, not the feature, so engineers can judge the reasoning.
     - Treat objections about cost, complexity or maintenance as inputs that can reshape scope, not as resistance.
     - Agree a success metric and a cheap first version, and commit to cutting it if the metric misses.
+  - Read: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy)
 
 ← [Cursor (Anysphere)](cursor.md) · [Sierra](sierra.md) →

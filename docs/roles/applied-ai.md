@@ -54,13 +54,13 @@ Questions whose source says they were asked for one of these roles.
   - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [LangChain](../companies/langchain.md) †
   - Sources (Software engineer on AI products): † [LangChain Software Engineer Interview Guide](https://www.tryexponent.com/guides/langchain-software-engineer-interview-guide), Aced (formerly Exponent), retrieved 2026-09-29
 - **[Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production.](../themes/coding-practical.md#code-ai-assisted-build)**
-  - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Sierra](../companies/sierra.md) ✅
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Sierra](../companies/sierra.md) ✅ · ✍ [Answer](../answers/engineering.md#code-ai-assisted-build)
   - Sources (Software engineer on AI products): ✅ [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview), Sierra, published 2026-04-22, retrieved 2026-09-29
 - **[Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.](../themes/coding-practical.md#code-agent-pr-review)**
-  - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Sierra](../companies/sierra.md) ✅
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Sierra](../companies/sierra.md) ✅ · ✍ [Answer](../answers/engineering.md#code-agent-pr-review)
   - Sources (Software engineer on AI products): ✅ [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview), Sierra, published 2026-04-22, retrieved 2026-09-29
 - **[Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.](../themes/coding-practical.md#code-product-structure)**
-  - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣
+  - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · ✍ [Answer](../answers/engineering.md#code-product-structure)
   - Sources (Software engineer on AI products): 🗣 [Cursor Software Engineer (New Grad) Interview Experience](https://www.tryexponent.com/experiences/cursor-software-engineer-interview-a9c32f), Aced (formerly Exponent), candidate report, retrieved 2026-09-29
 - **[Given a real codebase for a working day, decide what to build, ship it, and explain your implementation choices and trade-offs.](../themes/coding-practical.md#code-self-scoped-onsite)**
   - Applied scenario · [Practical coding](../themes/coding-practical.md) · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣
@@ -69,7 +69,7 @@ Questions whose source says they were asked for one of these roles.
   - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Sierra](../companies/sierra.md) 🗣
   - Sources (Agent engineer): 🗣 [Sierra AI Agent Engineer Interview Experience](https://www.tryexponent.com/experiences/sierra-ai-machine-learning-engineer-interview-8549fc), Aced (formerly Exponent), candidate report, retrieved 2026-09-29
 - **[In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.](../themes/coding-practical.md#code-agent-session-choices)**
-  - Applied scenario · [Practical coding](../themes/coding-practical.md)
+  - Applied scenario · [Practical coding](../themes/coding-practical.md) · ✍ [Answer](../answers/engineering.md#code-agent-session-choices)
   - Sources (AI / LLM engineer): 🗣 [Что теперь нужно знать современному LLM-инженеру](https://habr.com/ru/articles/1074242/), Хабр, рассказ кандидата, published 2026-08-25, retrieved 2026-09-29
 
 ### Also practise
@@ -89,7 +89,7 @@ An editorial selection: relevant to the role, but not reported for it.
 - **[Design human approval for consequential agent actions, including how approval remains bound to the exact action being executed.](../themes/agents-tools.md#agt-approval)**
   - System design · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-approval)
 - **[A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?](../themes/agents-tools.md#agt-goal-drift)**
-  - Applied scenario · [Agents, tools and protocols](../themes/agents-tools.md)
+  - Applied scenario · [Agents, tools and protocols](../themes/agents-tools.md) · ✍ [Answer](../answers/engineering.md#agt-goal-drift)
 - **[Design how a model plans and executes a long-running task through MCP tools while staying reliable within context-window limits.](../themes/agents-tools.md#agt-mcp-long-running)**
   - System design · [Agents, tools and protocols](../themes/agents-tools.md)
 - **[What are a language model's generation parameters?](../themes/agents-tools.md#agt-api-level-features)**

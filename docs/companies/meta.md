@@ -86,6 +86,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Tier harms by severity and choose per tier: block at upload, limit distribution or queue review.
     - Combine hash matching for known content with classifiers for new content, routing uncertain cases to reviewers.
     - Measure prevalence, per-policy precision and appeal overturn rate, weighing wrongful removals against missed harm.
+  - Read: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) (Markov et al., arXiv) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv)
 
 ### [Multimodal and voice](../themes/multimodal-voice.md)
 
@@ -142,6 +143,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Name both sides, the decision each makes, and what each must trust: vetting, price, payment.
     - Measure requests ending in a completed job and time to match, guarded by disputes and repeat bookings.
     - Launch in one area and one trade, recruiting tradespeople by hand before automating the match.
+  - Read: [How to match supply and demand in your marketplace](https://www.sharetribe.com/academy/match-marketplace-supply-and-demand/) (Sharetribe)
 - **[A new service grows while Facebook monthly active users decline. How would you assess whether the service is succeeding?](../themes/ai-product-strategy.md#prod-product-cannibalisation)**
   - Product case · Senior · Asked at: Meta 🗣
   - Tests: Whether you investigate portfolio effects instead of reading one metric in isolation.
@@ -149,6 +151,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Ask whether the service should add new users and time or move existing time between apps.
     - Estimate substitution with a holdout or matched cohorts, not by comparing the two curves.
     - Judge it on net portfolio users and value, with the core product's health as a guardrail.
+  - Read: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) (Microsoft Research) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Design a volunteer-matching product and explain how it gets through cold start.](../themes/ai-product-strategy.md#prod-volunteer-cold-start)**
   - Product case · Senior · Asked at: Meta 🗣
   - Tests: Whether you make the first useful matches possible before scale arrives.
@@ -156,6 +159,7 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Pick which side is scarce, then narrow to one city and cause where matches can happen.
     - Measure posted needs filled by a completed shift, with no-shows and organiser churn as guardrails.
     - Match the first organisations and volunteers by hand to test whether matches turn into shifts.
+  - Read: [How to match supply and demand in your marketplace](https://www.sharetribe.com/academy/match-marketplace-supply-and-demand/) (Sharetribe)
 
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 
@@ -212,5 +216,6 @@ On this page: [Interview loop](#loop) · [Official preparation material](#prep) 
     - Choose a case where the goal or the problem itself was unclear, not just resources or time.
     - Show which unknown you resolved first, with what small decision or probe, and how feedback changed the plan.
     - Close with the meaningful result and the evidence that you had solved the right problem.
+  - Read: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 
 ← [Google and Google DeepMind](google.md) · [Microsoft](microsoft.md) →

@@ -18,10 +18,10 @@
 | Этап | Что происходит | Основание |
 | --- | --- | --- |
 | Путь руководителя разработки | Скрининг с рекрутером, технический телефонный скрининг с кодингом, затем финальные интервью по кодингу, system design и лидерству; отзывы рассматривает hiring committee, после чего идёт подбор команды. | † гайд или подборка<br>[Google Engineering Manager (EM) Interview Guide](https://www.tryexponent.com/guides/google-engineering-manager-interview), Aced (formerly Exponent), проверено 2026-09-26 |
-| Отчёт кандидата на EM (L6) | Googleyness и поведенческие вопросы (разногласия в команде, уход людей во время реорганизации), два раунда system design с погружением в детали реализации, EM-раунд о слабых сотрудниках и обязательный к прохождению раунд code review и отладки на 200+ строках в общем документе без IDE. | 🗣 отчёт кандидата<br>[Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, проверено 2026-09-26 |
+| Отчёт кандидата на EM (L6) | Googleyness и поведенческие вопросы (разногласия в команде, уход людей во время реорганизации), два раунда system design с погружением в детали реализации, EM-раунд о слабых сотрудниках и обязательный к прохождению раунд code review и отладки на 200+ строках в общем документе без IDE. | 🗣 отчёт кандидата<br>[Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, проверено 2026-10-05 |
 | Путь продакт-менеджера Gemini | Скрининги с рекрутером и нанимающим менеджером об AI-first мышлении, раунд продуктового дизайна с примерно 15 минутами vibe coding прототипа, раунд execution и стратегии об отладке LLM-систем, раунд system design генеративного AI и раунд лидерства. | † гайд или подборка<br>[Gemini Product Manager Interview Guide](https://www.tryexponent.com/guides/gemini-product-manager-interview), Aced (formerly Exponent), проверено 2026-09-26 |
 
-**Кодинг:** зависит от роли. Один кандидат на EM сообщает о code review/отладке; AI-прототипирование для PM описано во вторичном гайде. Уточните формат своей роли. ([Google Engineering Manager (EM) Interview Guide](https://www.tryexponent.com/guides/google-engineering-manager-interview), Aced (formerly Exponent), проверено 2026-09-26, [Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, проверено 2026-09-26, [Gemini Product Manager Interview Guide](https://www.tryexponent.com/guides/gemini-product-manager-interview), Aced (formerly Exponent), проверено 2026-09-26)
+**Кодинг:** зависит от роли. Один кандидат на EM сообщает о code review/отладке; AI-прототипирование для PM описано во вторичном гайде. Уточните формат своей роли. ([Google Engineering Manager (EM) Interview Guide](https://www.tryexponent.com/guides/google-engineering-manager-interview), Aced (formerly Exponent), проверено 2026-09-26, [Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, проверено 2026-10-05, [Gemini Product Manager Interview Guide](https://www.tryexponent.com/guides/gemini-product-manager-interview), Aced (formerly Exponent), проверено 2026-09-26)
 
 ## <a id="questions"></a>Вопросы, о которых сообщали для Google и Google DeepMind
 
@@ -144,29 +144,29 @@
 
 ### [Руководство инженерными командами](../themes/engineering-leadership.md)
 
-- **[Расскажите, как вы работали с инженером, который не справлялся с ожиданиями.](../themes/engineering-leadership.md#lead-low-performance)**
-  - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-low-performance)
-  - Что проверяет: Умеете ли вы справедливо разобраться в причинах и превратить ожидания в конкретные действия.
+- **[Как вы будете действовать, если инженер не соответствует ожиданиям по результатам работы?](../themes/engineering-leadership.md#lead-low-performance)**
+  - Прикладной сценарий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-low-performance)
+  - Что проверяет: Умеете ли вы разобраться в причинах отставания, обеспечить справедливую поддержку и явно задать ожидания и дальнейшие шаги.
   - Сильный ответ покрывает:
-    - Показать отклонение от ожиданий на наблюдаемых примерах.
-    - Объяснить обратную связь, обсуждение и оказанную поддержку.
-    - Описать согласованные действия и результат последующей проверки.
+    - Уточнить наблюдаемые ожидания и примеры отставания; проверить ясность роли и условия работы.
+    - Выслушать инженера, согласовать поддержку и измеримое улучшение со сроками проверки.
+    - Следовать кадровому процессу организации, различать улучшение, смену роли и расставание; соблюдать конфиденциальность.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
-- **[Как вы работали с сильным инженером, чьё поведение вызывало конфликты с коллегами?](../themes/engineering-leadership.md#lead-disruptive-star)**
-  - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-disruptive-star)
-  - Что проверяет: Предъявляете ли вы понятные требования и к результатам, и к взаимодействию.
+- **[Как вы будете действовать, если сильный инженер своим поведением регулярно создаёт конфликты с коллегами?](../themes/engineering-leadership.md#lead-disruptive-star)**
+  - Прикладной сценарий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-disruptive-star)
+  - Что проверяет: Умеете ли вы разбирать конкретные проблемы взаимодействия, не делая исключений для сильных сотрудников и не вынося решения до разговора с участниками.
   - Сильный ответ покрывает:
-    - Разделить технические результаты и последствия конкретного поведения.
-    - Объяснить обратную связь и то, как вы выслушали сотрудника.
-    - Описать согласованные изменения поведения и последующие наблюдения.
+    - Установить конкретные действия и последствия для команды; выслушать разные стороны без публичных обвинений.
+    - Объяснить, что взаимодействие входит в оценку работы; согласовать наблюдаемые изменения и поддержку.
+    - Проверять и результаты, и сотрудничество; при сохранении вредного поведения следовать кадровому процессу.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
-- **[Как вы поступите, если сильный сотрудник собирается уйти во время реорганизации?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
-  - Прикладной сценарий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-reorganisation-retention)
-  - Что проверяет: Умеете ли вы разобраться в причинах ухода без невыполнимых обещаний.
+- **[Расскажите о сложном организационном изменении, которым вы управляли и при котором уходили сильные инженеры. Как вы действовали?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
+  - Поведенческий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-reorganisation-retention)
+  - Что проверяет: Умеете ли вы объяснить реальные уходы сотрудников, собственную ответственность и последствия ваших действий для оставшейся команды.
   - Сильный ответ покрывает:
-    - Выяснить причины и отделить неопределённость перемен от устойчивых проблем.
-    - Объяснить, что известно, на что вы влияете и какие решения ещё не приняты.
-    - Обсудить доступную поддержку, нерешённые вопросы и последующую встречу.
+    - Взять реальное изменение и состоявшиеся уходы; назвать свои полномочия и отделить известные причины от предположений.
+    - Объяснить реакцию оставшихся инженеров и изменения нагрузки, коммуникации или управления.
+    - Привести последующие наблюдения, пределы причинных выводов и то, что теперь сделали бы иначе.
   - Читать: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - **[Как вы стабилизируете инженерную команду после смены руководства?](../themes/engineering-leadership.md#lead-team-after-change)**
   - Прикладной сценарий · Senior · Где спрашивали: Google и Google DeepMind 🗣 · ✍ [Ответ](../answers/leadership.md#lead-team-after-change)
@@ -194,5 +194,6 @@
     - Выбрать спор о приоритетах, где цели исследования и инженерной работы действительно тянули в разные стороны.
     - Объяснить, за что поощряли каждую сторону — за новые результаты или за надёжный выпуск, — и чего стоил каждый вариант.
     - Показать, как спор разрешился, например экспериментом с ограниченным сроком, и что было дальше для обеих сторон.
+  - Читать: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 
 ← [Canva](canva.md) · [Meta](meta.md) →

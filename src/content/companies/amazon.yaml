@@ -10,10 +10,31 @@ roles:
   - "ai-engineer"
   leadership:
   - "ai-pm"
+  - "tpm"
 summary:
-  en: "A secondary AI-product guide describes Leadership Principles, a written exercise and a Bar Raiser. Engineering topics come from a compilation. Neither source establishes a universal current loop."
-  ru: "Вторичный гайд для AI-продактов описывает принципы лидерства, письменное задание и Bar Raiser. Инженерные темы взяты из подборки. Ни один источник не подтверждает единый актуальный цикл."
+  en: "Amazon’s official preparation page describes a general TPM process. The AI-product path remains a secondary guide, and Engineering topics come from a compilation. The general TPM stages do not establish an AI-specific loop."
+  ru: "Официальная страница Amazon описывает общий процесс TPM. Путь AI-продакта по-прежнему основан на вторичном гайде, а инженерные темы взяты из подборки. Общие этапы TPM не подтверждают отдельный AI-цикл."
 loop:
+- stage:
+    en: "General TPM technical phone screen"
+    ru: "Технический телефонный скрининг общего TPM-профиля"
+  detail:
+    en: "The official TPM preparation page describes a 60-minute screen with behavioural, situational and technical discussion; a second phone screen may follow. This is general TPM guidance, not an AI-specialist process."
+    ru: "Официальная подготовка TPM описывает 60-минутный скрининг с поведенческим, ситуационным и техническим обсуждением; возможен второй телефонный этап. Это общие рекомендации TPM, не процесс для AI-специалистов."
+  claim: "confirmed"
+  roles: ["tpm"]
+  sources:
+  - "amazon-tpm-interview"
+- stage:
+    en: "General TPM writing assessment and interview loop"
+    ru: "Письменное задание и цикл интервью общего TPM-профиля"
+  detail:
+    en: "The page describes a writing assessment before a loop of five 55-minute interviews, including at least one systems-design question. Management preparation covers metrics, dependencies, escalation and tradeoffs. These published stages describe the general TPM path at retrieval."
+    ru: "Страница описывает письменное задание перед циклом из пяти интервью по 55 минут, включающим как минимум один вопрос по системному дизайну. Подготовка к управленческой части охватывает метрики, зависимости, эскалацию и компромиссы. Эти опубликованные этапы описывают общий путь TPM на дату чтения."
+  claim: "confirmed"
+  roles: ["tpm"]
+  sources:
+  - "amazon-tpm-interview"
 - stage:
     en: "AI product manager path"
     ru: "Путь AI-продакт-менеджера"
@@ -40,4 +61,4 @@ coding:
   sources:
   - "exponent-amazon-ai-pm"
   - "outcome-school-company-wise"
-reviewed: "2026-09-26"
+reviewed: "2026-10-05"

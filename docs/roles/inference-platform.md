@@ -7,7 +7,7 @@ AI Engineering / AI Leadership · Roles covered: Inference and performance engin
 
 Makes AI computation and shared services perform: bottlenecks, validated optimisations and telemetry.
 
-On this page: [What the role involves](#scope) · [How it is interviewed (4)](#interviews) · [Questions (12)](#role-questions) · [Preparation](#prep)
+On this page: [What the role involves](#scope) · [How it is interviewed (4)](#interviews) · [Questions (14)](#role-questions) · [Preparation](#prep)
 
 ## <a id="scope"></a>What the role involves
 
@@ -66,6 +66,10 @@ An editorial selection: relevant to the role, but not reported for it.
   - Product case · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · ✍ [Answer](../answers/leadership.md#ops-platform-ownership)
 - **[How would you support multiple model providers when some deployment environments permit only a subset of models?](../themes/ai-operating-model.md#ops-restricted-models)**
   - System design · Senior · [AI platform and operating model](../themes/ai-operating-model.md) · ✍ [Answer](../answers/leadership.md#ops-restricted-models)
+- **[As the investment owner, decide whether to renew a managed AI service or fund an internal replacement. The vendor’s price doubles in six months and exported data alone cannot reproduce its behaviour. What decision and exit plan would you approve?](../themes/ai-operating-model.md#ops-ai-build-buy-exit)**
+  - Applied scenario · [AI platform and operating model](../themes/ai-operating-model.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#ops-ai-build-buy-exit)
+- **[During an AI rollout, a provider changes model behaviour and harmful actions reach customers. The previous model cannot be restored immediately. As the programme lead, how do you coordinate containment, customer response and a defensible restart?](../themes/program-delivery.md#prog-incident-without-rollback)**
+  - Applied scenario · [Programmes and delivery](../themes/program-delivery.md) · 🧪 generated from job-posting themes · ✍ [Answer](../answers/leadership.md#prog-incident-without-rollback)
 
 ## <a id="prep"></a>Preparation
 

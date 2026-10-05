@@ -34,6 +34,7 @@ On this page: [Interview loop](#loop) · [Questions (2)](#questions)
     - Ask who the customer's user is and which task in their day the product takes over.
     - Build with the product's own features as a customer would, not custom code that bypasses them.
     - Demo the flow end to end on realistic input, including a failure and how the user recovers.
+  - Read: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 - **[Lead a timed case-study call with a simulated customer: uncover the real problem, propose an approach and agree on next steps.](../themes/applied-scenarios.md#app-customer-case-call)**
   - Applied scenario · Asked at: Cognition †
   - Tests: Whether you run a customer conversation under time pressure and leave with a concrete plan.
@@ -41,5 +42,6 @@ On this page: [Interview loop](#loop) · [Questions (2)](#questions)
     - Open with questions on the outcome they need, the current workflow and who decides.
     - Propose the smallest approach that tests their biggest risk, and say what you would not do.
     - Close on dated next steps, owners, success criteria and the data they will send.
+  - Read: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/) (GitLab Handbook)
 
 ← [NVIDIA](nvidia.md) · [Cursor (Anysphere)](cursor.md) →

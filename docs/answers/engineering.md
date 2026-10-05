@@ -5,7 +5,7 @@ English · [Русский](../ru/answers/engineering.md) · [AI Interview Atlas
 
 Written answers to the priority questions of this track, in the same order and numbering as *Start here*. Answer each question yourself first: what follows is one good answer, not the only correct one, and an interviewer is listening to your reasoning rather than checking your wording.
 
-Answers written: 70 of 70.
+Answers written: 82 of 82.
 
 ## <a id="contents"></a>Contents
 
@@ -39,6 +39,7 @@ Answers written: 70 of 70.
   - [46. Where should a cross-encoder reranker sit in a retrieval pipeline, and when does its quality gain justify latency?](#rag-reranking)
   - [47. How would you connect each factual claim in an answer to the retrieved passage that supports it?](#rag-citations)
   - [66. Explain hypothetical-document retrieval and how you would establish whether it improves your query distribution.](#rag-hyde)
+  - [82. Design continuous index updates, including changed documents, deletions and queries during a rebuild.](#rag-freshness)
 - **Agents, tools and protocols**
   - [17. What does interleaving reasoning with tool observations add to a language-model agent compared with reasoning alone?](#agt-react)
   - [18. Design recovery from tool errors and timeouts, including cases where a timed-out call may already have changed external state.](#agt-retries)
@@ -49,6 +50,9 @@ Answers written: 70 of 70.
   - [49. Design memory for an agent that works across many sessions: what is persisted, retrieved, revised and forgotten?](#agt-memory)
   - [50. When does splitting work among agents improve results, and when do coordination costs dominate?](#agt-multi-agent)
   - [60. How would you make an agent's production actions reversible where possible and auditable where reversal is impossible?](#agt-reversibility)
+  - [75. How do schema-constrained responses differ from function calls, and which component actually executes an action?](#agt-structured-output)
+  - [76. A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?](#agt-goal-drift)
+  - [77. For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?](#agt-coding-harness)
 - **Fine-tuning and post-training**
   - [22. Walk through a preference-based RLHF pipeline and explain the roles of the reward model and reference-policy penalty.](#pt-rlhf)
   - [23. Compare DPO with PPO-based RLHF, including the assumptions behind offline preference learning and reasons to collect fresh rollouts.](#pt-dpo)
@@ -71,6 +75,9 @@ Answers written: 70 of 70.
   - [59. A customer reports worse answers after a model upgrade. How do you verify the regression and decide what to restore or change?](#eval-upgrade-complaint)
   - [68. A team attributes better results to a reasoning model, but it also changed prompts, tools and compute budget. Design a comparison that identifies what improved.](#eval-reasoning-counterfactual)
   - [69. Distinguish outcome rewards, process supervision and inference-time verification. What evidence would justify each for a new reasoning task?](#eval-reasoning-supervision)
+  - [78. How would you build a useful evaluation set when reference answers are missing and expert time is scarce?](#eval-scarce-labels)
+  - [79. How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?](#eval-production-actions)
+  - [80. How would you version prompts and dependent configuration so an observed regression can be rolled back reproducibly?](#eval-prompt-rollback)
 - **Multimodal and voice**
   - [32. Compare projection layers, cross-attention and token-based integration for giving a language model access to images.](#mm-visual-input)
   - [33. How would you improve and evaluate speech recognition for mixed-language utterances and different accents?](#mm-accents)
@@ -82,12 +89,17 @@ Answers written: 70 of 70.
   - [37. Design a streaming chat service for hundreds of millions of users, including capacity, conversation storage and graceful overload behaviour.](#sd-consumer-chat)
   - [53. Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.](#sd-model-api)
   - [58. Design natural-language querying over a warehouse with thousands of tables, from schema selection to safe query execution.](#sd-text-to-sql)
+  - [81. Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable.](#sd-document-intelligence)
 - **Practical coding**
   - [38. Implement scaled dot-product attention with a causal mask and tests that would expose attention to future tokens.](#code-causal-attention)
   - [39. Implement a token-bucket limiter and explain what must change when several workers enforce the same limit.](#code-token-bucket)
   - [40. Write an asynchronous API batch processor with bounded concurrency, retry jitter and isolated per-item failures.](#code-async-batches)
   - [55. Implement a minimal agent runner with validated tool dispatch, error handling and a hard step limit.](#code-agent-loop)
   - [67. In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?](#code-ai-assisted-ownership)
+  - [71. Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production.](#code-ai-assisted-build)
+  - [72. Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.](#code-agent-pr-review)
+  - [73. Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.](#code-product-structure)
+  - [74. In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.](#code-agent-session-choices)
 
 ### <a id="llm-attention"></a>1. Derive scaled dot-product attention and explain how its scale affects softmax gradients.
 
@@ -565,7 +577,7 @@ Read: [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com
 
 A function-call format describes only the shape of the arguments a model emits. It says nothing about where the tool lives, how the application learns the tool exists, or how the result comes back. MCP standardises that surrounding layer — a client-server handshake, capability discovery, and typed primitives for tools, resources and prompts over a defined transport — so the same server works with any compliant application, within the capabilities both sides declare at the handshake, and a tool can be added without changing the model or redeploying the client. Execution and authority stay outside the model: the host application still decides which servers are connected and what each may do. I would judge it by how much integration code disappears per new tool. The trade-off is the trust boundary it creates: a connected server contributes tool descriptions and returns content, both of which reach the context as untrusted input, so a third-party server is a supply-chain and prompt-injection surface.
 
-Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification)
+Read: [Model Context Protocol specification](https://modelcontextprotocol.io/specification) · [Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices)
 
 [↑ Contents](#contents)
 
@@ -786,5 +798,125 @@ Read: [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement
 Billed tokens and a usable answer are separate facts, so I'd read the completion status first. A reasoning model's hidden tokens count against the same output limit and are billed, so a request can hit that limit mid-reasoning and come back incomplete with little or no visible text. That's a different failure from a refusal, a content-filter stop, a tool error inside an agent loop, or a client timeout where the server may still finish and charge. So I'd log the status and its reason, reasoning versus visible tokens, input size, and the configured limit and effort. Recovery follows the cause: for exhaustion, one retry with a larger output allowance, lower effort or a smaller context, never an identical replay that mostly reproduces the failure. Everything sits under one cap on attempts, spend and elapsed time, and tool calls carry idempotency keys so a retry can't repeat a side effect. I'd track recovered-answer rate and spend per recovery. A task that exhausts generous budgets needs decomposition or a human, not more tokens.
 
 Read: [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning)
+
+[↑ Contents](#contents)
+
+### <a id="code-ai-assisted-build"></a>71. Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production.
+
+*Applied scenario · [Practical coding](../themes/coding-practical.md) · [Checklist](../themes/coding-practical.md#code-ai-assisted-build)*
+
+I would first agree what the user must be able to do and demonstrate the smallest complete flow, rather than treat the time limit as a target for generating code. I would split that flow at clear interfaces, give the assistant only the relevant context and acceptance checks, and inspect each change before integrating it. My review would concentrate on the data model, error handling and assumptions that could invalidate the approach. A short decision log would preserve what I rejected and why. In the demonstration I would show an ordinary case and a failure case, then explain what is measured, what is assumed and what remains unfinished. If a dependency or model stalls, I would cut scope while preserving the core flow. A working prototype is evidence of a bounded result; production still needs appropriate access controls, operational checks and validation.
+
+Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/)
+
+[↑ Contents](#contents)
+
+### <a id="code-agent-pr-review"></a>72. Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.
+
+*Applied scenario · [Practical coding](../themes/coding-practical.md) · [Checklist](../themes/coding-practical.md#code-agent-pr-review)*
+
+I would first reconstruct the intended behaviour and trace the entry points affected by the change. An agent's summary can help navigate, but I would verify it against callers and existing invariants before trusting its recommendations. For a cross-cutting feature, the main risk is inconsistent application: one endpoint may check permission while another, a cache or a background job bypasses it. I would separate observed defects from hypotheses and seek a small counterexample for each important concern. The review decision would cite the behaviour demonstrated by a test or trace, rather than the assistant's confidence. I would also inspect error paths, retries and shared state, and reject fixes that weaken tests or broaden scope without justification. A clean diff is not enough for approval when critical paths remain unexamined; I would explain the residual uncertainty and respect the interview's actual limits on AI use.
+
+Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
+
+[↑ Contents](#contents)
+
+### <a id="code-product-structure"></a>73. Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.
+
+*Coding · [Practical coding](../themes/coding-practical.md) · [Checklist](../themes/coding-practical.md#code-product-structure)*
+
+I would begin with the callers: which operations they require, how often they run, and what behaviour existing tests promise. That contract determines the representation. A fast lookup alone is not enough if updates, ordering or expiry dominate the workload. I would state the invariants and time and memory costs, then trace small counterexamples before committing to the design. For example, updating an expiring entry must not let an old queued expiry delete its replacement. Empty input, duplicate keys and boundary times make useful probes because they expose assumptions that normal examples hide. I would follow the repository's conventions and keep AI assistance to targeted syntax questions, as this reported task specifies. The final explanation would connect the chosen structure to product behaviour and identify the workload change that would justify replacing it; a structure is not universally best because its average lookup is constant time.
+
+Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) · [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) · [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/)
+
+[↑ Contents](#contents)
+
+### <a id="code-agent-session-choices"></a>74. In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.
+
+*Applied scenario · [Practical coding](../themes/coding-practical.md) · [Checklist](../themes/coding-practical.md#code-agent-session-choices)*
+
+I would choose among the models permitted in the session using the task's difficulty, observed reliability, latency and remaining budget. There is no universal rule that a named model should perform every planning or editing step. Before delegating, I would inspect the relevant code and give the agent a bounded objective, interfaces, invariants, exclusions and a concrete done criterion. Repository text and tool results are evidence to inspect, not authority to change those constraints. I would track context size, output and retries, because repeated failed attempts can dominate both cost and time. If the session drifts, I would return to the last verified state and supply a compact summary of decisions and open questions. A context reset is useful only if it preserves what matters. I remain responsible for accepting the result and would stop delegation when I cannot review the proposed change reliably.
+
+Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/)
+
+[↑ Contents](#contents)
+
+### <a id="agt-structured-output"></a>75. How do schema-constrained responses differ from function calls, and which component actually executes an action?
+
+*Knowledge · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-structured-output)*
+
+A schema-constrained response controls the shape of returned data; a tool call requests an operation with arguments. Neither one executes an action or proves that it is authorised. The application must inspect completion status, validate the payload and enforce domain rules before dispatch. A response can be refused or truncated, and even a structurally valid object can contain a wrong account, an invented evidence identifier or an impossible amount. I would distinguish a recoverable formatting failure from a denied action, cap retries and return an explicit failure when recovery is exhausted. For consequential operations, permissions and any required confirmation remain bound to the actual arguments in application code. I would test a valid-looking request that crosses a tenant boundary as well as malformed output. Structured generation reduces parsing failures, but it does not establish truth, business validity or permission.
+
+Read: [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) · [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+[↑ Contents](#contents)
+
+### <a id="agt-goal-drift"></a>76. A long-running agent confidently pursues the wrong objective. How do you locate where its task state diverged and recover?
+
+*Applied scenario · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-goal-drift)*
+
+I would compare the current plan with the last verified objective, constraints and completion criteria, then find the first decision that introduced a different goal. The cause might be an ambiguous handoff, stale memory, a misleading tool result or an instruction embedded in retrieved content. I would not simply ask the same drifting session to try harder. I would preserve useful verified work, discard unsupported assumptions and restart from a concise task state that distinguishes facts, decisions and open questions. Any external effects need reconciliation before replaying steps. To reduce recurrence, I would checkpoint the objective at meaningful transitions and keep a bounded budget and explicit stop reasons. The check is whether subsequent actions advance the agreed outcome without violating constraints. Summarisation helps with context pressure, but a summary that removes a critical restriction can itself cause the drift.
+
+Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+
+[↑ Contents](#contents)
+
+### <a id="agt-coding-harness"></a>77. For a coding agent, how would you separate the model's contribution from the harness's contribution to reliable task completion?
+
+*System design · [Agents, tools and protocols](../themes/agents-tools.md) · [Checklist](../themes/agents-tools.md#agt-coding-harness)*
+
+I would define success through behaviour checked outside the coding agent, then hold the tasks and resource budget fixed while changing the model or the harness separately. The harness includes context assembly, tool permissions, execution isolation, tests, retries and stopping rules; an improvement in any of these can look like a smarter model. I would version those components, repeat uncertain cases and inspect failed traces rather than report only an aggregate pass rate. A patch that passes because the agent weakened the tests is a harness failure, so acceptance checks need protection from the submitted change. Conversely, a broken dependency or timeout can make capable model output fail for environmental reasons. I would report those categories and total cost per accepted task separately. This comparison identifies contributions within the tested setup; it does not establish a universal ranking across repositories or budgets.
+
+Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
+
+[↑ Contents](#contents)
+
+### <a id="eval-scarce-labels"></a>78. How would you build a useful evaluation set when reference answers are missing and expert time is scarce?
+
+*Applied scenario · [Evaluation and observability](../themes/evals-observability.md) · [Checklist](../themes/evals-observability.md#eval-scarce-labels)*
+
+I would begin with a small set of representative requests and a failure taxonomy, then spend expert time where a wrong judgement changes the product decision. Not every case needs a single reference answer: some can be checked through required evidence, forbidden claims, valid state transitions or an explicit abstention rule. Experts should define those criteria and adjudicate ambiguous examples before I automate grading. I would separate development cases from a held-out check set and keep their provenance and revisions visible. Synthetic cases can probe boundaries, but they do not establish the frequency of real user failures. A model judge can help prioritise review only after comparison with human labels; disagreement remains an inspection queue. I would report coverage gaps and uncertainty instead of treating a small, convenient dataset as proof of quality. More labels are valuable when they change a decision, not merely increase a count.
+
+Read: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
+
+[↑ Contents](#contents)
+
+### <a id="eval-production-actions"></a>79. How would you change evaluation when an LLM workflow moves from suggesting actions to executing them in production?
+
+*System design · [Evaluation and observability](../themes/evals-observability.md) · [Checklist](../themes/evals-observability.md#eval-production-actions)*
+
+Once a workflow executes actions, evaluating fluent advice is insufficient: I need to inspect the resulting state and whether the action was permitted. I would test tool selection, arguments, authority, confirmation where required, and the consequences of partial failure. A timeout after a write is especially important because retrying may duplicate an operation that already succeeded. The evaluation should reconcile by operation identity and distinguish safe recovery from a repeated effect. I would use isolated synthetic services for destructive cases and check tenant boundaries, revoked access, exhausted budgets and stopping behaviour. A high average task-success rate cannot compensate for an unauthorised action, so critical failures block the release separately. Logs should identify the versions and external effects without retaining unnecessary sensitive content. These tests provide evidence for the scenarios covered; they do not make every future model-driven action safe.
+
+Read: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) · [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
+
+[↑ Contents](#contents)
+
+### <a id="eval-prompt-rollback"></a>80. How would you version prompts and dependent configuration so an observed regression can be rolled back reproducibly?
+
+*System design · [Evaluation and observability](../themes/evals-observability.md) · [Checklist](../themes/evals-observability.md#eval-prompt-rollback)*
+
+I would version a release bundle, not just a prompt string: model identifier, decoding settings, tool schemas, retrieval configuration, relevant index version and application code all affect behaviour. Each trace should identify that bundle so a reported regression can be reproduced as closely as the provider allows. I would compare the candidate and previous bundle on held-out cases, inspect critical failures separately and define a rollback trigger before rollout. Returning traffic to a known bundle is useful only if its dependencies still exist and remain authorised. Index changes may need a retained compatible version, while an external action cannot be undone merely by restoring a prompt. I would therefore separate configuration rollback from reconciliation of side effects. The operational check is a rehearsed switch and recovery path; perfect reproducibility cannot be promised when a provider changes an unpinned model or service.
+
+Read: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
+
+[↑ Contents](#contents)
+
+### <a id="sd-document-intelligence"></a>81. Design a pipeline that extracts structured fields from ten million scanned documents and makes uncertain results reviewable.
+
+*System design · [AI system design](../themes/ai-system-design.md) · [Checklist](../themes/ai-system-design.md#sd-document-intelligence)*
+
+I would separate ingestion, extraction, validation and review so uncertain fields do not silently become trusted records. Documents need stable identifiers, versions and durable processing state; workers can then retry bounded stages without creating duplicate results. Each extracted field should retain its source page or region and extraction version. Schema checks catch malformed output, while domain checks and sampled expert review address plausible but wrong values. I would calibrate any confidence threshold on representative documents instead of assuming a vendor score has the same meaning for every form. Low-confidence or high-consequence fields enter a review queue with the original evidence and a correction history. Capacity planning includes that queue, not only model throughput. I would measure field-level errors, review load, delay and cost by document class. Ten million processed documents are not success if the rare critical errors become invisible.
+
+Read: [Interpret and improve model accuracy and confidence scores](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0) · [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+[↑ Contents](#contents)
+
+### <a id="rag-freshness"></a>82. Design continuous index updates, including changed documents, deletions and queries during a rebuild.
+
+*System design · [RAG and retrieval](../themes/rag-retrieval.md) · [Checklist](../themes/rag-retrieval.md#rag-freshness)*
+
+I would treat indexing as a versioned projection of the source system, with stable document IDs, change ordering and explicit deletion records. Incremental workers need idempotent updates and a checkpoint so a retry neither skips a change nor resurrects deleted content. For a rebuild, I would create a separate index, load a consistent snapshot, catch up subsequent changes and validate counts, representative queries and permissions before switching the read alias. An atomic alias change helps the cutover, but it does not by itself solve stale writes or access revocation. Those need their own propagation and enforcement policy, including caches. I would monitor source-to-search lag and test updates, deletes and a query during cutover. A retained old index can support rollback only if deleted or newly restricted documents cannot become visible again; freshness includes authority as well as content.
+
+Read: [Aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html) · [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview)
 
 [↑ Contents](#contents)

@@ -34,6 +34,7 @@ AI-native продукты · Международный · Этапы пров�
     - Спросить, кто пользователь у клиента и какую задачу из его дня продукт берёт на себя.
     - Собирать на штатных возможностях продукта, как сделал бы клиент, а не на своём коде в обход них.
     - Показать сценарий целиком на реалистичных данных, включая сбой и то, как пользователь из него выходит.
+  - Читать: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 - **[Проведите ограниченный по времени звонок с условным клиентом: выясните настоящую проблему, предложите подход и договоритесь о следующих шагах.](../themes/applied-scenarios.md#app-customer-case-call)**
   - Прикладной сценарий · Где спрашивали: Cognition †
   - Что проверяет: Умение вести разговор с клиентом в условиях нехватки времени и прийти к конкретному плану.
@@ -41,5 +42,6 @@ AI-native продукты · Международный · Этапы пров�
     - Начать с вопросов о нужном результате, текущем процессе и о том, кто принимает решение.
     - Предложить минимальный подход, проверяющий их главный риск, и назвать, чего делать не будете.
     - Закончить следующими шагами с датами, ответственными, критериями успеха и данными, которые они пришлют.
+  - Читать: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/) (GitLab Handbook)
 
 ← [NVIDIA](nvidia.md) · [Cursor (Anysphere)](cursor.md) →

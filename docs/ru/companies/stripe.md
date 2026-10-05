@@ -18,12 +18,12 @@
 
 | Этап | Что происходит | Основание |
 | --- | --- | --- |
-| Скрининг с рекрутером | Около 30 минут, включая мотивацию и принципы работы Stripe. | † гайд или подборка<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-09-26 |
-| Техническая оценка | Живой кодинг для инженеров; разговор с нанимающим менеджером или домашний кейс для продакт-менеджеров; вопросы о людях и организации для руководителей разработки. | † гайд или подборка<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-09-26 |
-| Финальные раунды | Четыре–шесть раундов по 45–60 минут: кодинг, отладка, интеграция, system design с дизайном API и поведенческий раунд; у руководителей — ещё презентация проекта. | † гайд или подборка<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-09-26 |
+| Скрининг с рекрутером | Около 30 минут, включая мотивацию и принципы работы Stripe. | † гайд или подборка<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-10-05 |
+| Техническая оценка | Живой кодинг для инженеров; разговор с нанимающим менеджером или домашний кейс для продакт-менеджеров; вопросы о людях и организации для руководителей разработки. | † гайд или подборка<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-10-05 |
+| Финальные раунды | Четыре–шесть раундов по 45–60 минут: кодинг, отладка, интеграция, system design с дизайном API и поведенческий раунд; у руководителей — ещё презентация проекта. | † гайд или подборка<br>[Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-10-05 |
 | Bug squash | 45–60 минут рядом с инженером над реальным историческим багом в open-source проекте. Процесс важнее результата: сначала воспроизвести, двигаться от гипотез, чинить точечно и добавить регрессионный тест. | † гайд или подборка<br>[Stripe SWE Interview: Bug Squash Guide](https://www.coditioning.com/blog/804/stripe-swe-bug-squash-interview), Coditioning, опубликовано 2026-06-25, проверено 2026-09-26 |
 
-**Кодинг:** неизвестно. Гайды описывают инженерный кодинг, но здесь нет подтверждения требования компанией или участником интервью. ([Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-09-26)
+**Кодинг:** неизвестно. Гайды описывают инженерный кодинг, но здесь нет подтверждения требования компанией или участником интервью. ([Get a Job at Stripe: Interview Process and Top Questions](https://www.tryexponent.com/blog/stripe-interview-process), Aced (formerly Exponent), проверено 2026-10-05)
 
 ## <a id="questions"></a>Вопросы, о которых сообщали для Stripe
 
@@ -40,13 +40,13 @@
 
 ### [Руководство инженерными командами](../themes/engineering-leadership.md)
 
-- **[Как вы определяете, какие инженерные компетенции нужно нанимать?](../themes/engineering-leadership.md#lead-strategic-hiring)**
-  - Прикладной сценарий · Senior · Где спрашивали: Stripe † · ✍ [Ответ](../answers/leadership.md#lead-strategic-hiring)
-  - Что проверяет: Следуют ли кадровые решения из стратегии и пробелов в компетенциях.
+- **[Расскажите о своём последнем стратегически важном найме инженера. Как вы определили планку и оценили, решил ли найм исходную задачу?](../themes/engineering-leadership.md#lead-strategic-hiring)**
+  - Поведенческий · Senior · Где спрашивали: Stripe † · ✍ [Ответ](../answers/leadership.md#lead-strategic-hiring)
+  - Что проверяет: Связываете ли вы в реальном кадровом решении потребность в компетенции, последовательную оценку и наблюдаемые результаты.
   - Сильный ответ покрывает:
-    - Начать с обязательств следующего периода и требуемых для них компетенций.
-    - Отличить пробел, который стоит закрывать наймом, от решаемого обучением, заимствованием или отказом от работы.
-    - Писать роль из пробела и определить, какие доказательства должно дать интервью.
+    - Назвать реальную стратегическую потребность, свою роль в решении и причины выбора найма.
+    - Объяснить требования роли, доказательства из оценки и существенные компромиссы.
+    - Описать адаптацию и наблюдаемые результаты; отделить ранние признаки от подтверждённого долгосрочного эффекта.
   - Читать: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 - **[Как вы задаёте стандарты инженерного качества в команде?](../themes/engineering-leadership.md#lead-quality-standard)**
   - Прикладной сценарий · Senior · Где спрашивали: Stripe † · ✍ [Ответ](../answers/leadership.md#lead-quality-standard)

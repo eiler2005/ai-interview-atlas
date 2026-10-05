@@ -75,6 +75,7 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
     - Hold a frozen relevance set and corpus snapshot; stable scores there clear the model and point to new content or indexing.
     - Check indexing directly: document counts against the source, embedding model version per vector, parse failures, ANN recall against exact search.
     - Slice production queries by document age and topic; new-term misses that lexical search catches signal genuine drift.
+  - Read: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) (Faiss maintainers)
 - <a id="rag-ann-index"></a>**Compare exact search, HNSW and IVF-PQ for an embedding index under memory, recall and latency constraints.**
   - Knowledge · ✍ [Answer](../answers/engineering.md#rag-ann-index) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-ann-index&title=%5BCorrection%5D%20rag-ann-index)
   - Tests: Whether approximation is evaluated against a measurable exact baseline.
@@ -92,12 +93,13 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
     - Audit parsing on sampled pages against the rendered originals, then evaluate retrieval on questions answerable only from tables or figures.
   - Read: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="rag-freshness"></a>**Design continuous index updates, including changed documents, deletions and queries during a rebuild.**
-  - System design · Asked at: [Perplexity](../companies/perplexity.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-freshness&title=%5BCorrection%5D%20rag-freshness)
+  - System design · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-freshness) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-freshness&title=%5BCorrection%5D%20rag-freshness)
   - Tests: Whether freshness has consistency guarantees and an observable lag.
   - A strong answer covers:
-    - Drive updates from change events, upserting by document id and version and replacing all its chunks atomically.
-    - Honour deletions at query time through tombstones; rebuild into a new index with dual writes, then switch an alias.
-    - Measure lag from source change to searchable with canary documents, and reconcile document counts between source and index.
+    - Apply ordered changes idempotently by document ID and version; define when a complete new chunk set becomes visible.
+    - Enforce deletions and revoked access at query time; rebuild from a consistent snapshot, catch up changes and validate before switching the read alias.
+    - Measure source-to-search lag and reconcile counts, representative queries and permissions; rollback must not resurrect deleted or forbidden content.
+  - Read: [Aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html) (Elastic) · [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview) (Microsoft Learn)
 - <a id="rag-citations"></a>**How would you connect each factual claim in an answer to the retrieved passage that supports it?**
   - System design · Asked at: [Perplexity](../companies/perplexity.md) † · ✍ [Answer](../answers/engineering.md#rag-citations) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-citations&title=%5BCorrection%5D%20rag-citations)
   - Tests: Whether a citation is checked for support rather than merely attached.
@@ -113,6 +115,7 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
     - Explain why top-k retrieval fails: it returns similar passages, not a complete filtered set, so any count is a sample.
     - Route to the system of record: a governed query over order status and block reason, with the model only translating intent.
     - Pin down what counts as blocked by a supplier, show the query and data timestamp, and test against known counts.
+  - Read: [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) (Lei et al., arXiv) · [Table Expressions](https://www.postgresql.org/docs/current/queries-table-expressions.html) (PostgreSQL Global Development Group)
 - <a id="rag-clinical-context"></a>**How can a patient's existing medication list help transcribe drug names without causing the recogniser to insert drugs that were never spoken?**
   - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-clinical-context&title=%5BCorrection%5D%20rag-clinical-context)
   - Tests: Whether contextual retrieval is balanced against confirmation bias.
@@ -120,5 +123,6 @@ On this page: [Both tracks (2)](#track-both) · [AI Engineering (12)](#track-eng
     - Use the list as a bounded decoding bias toward acoustically plausible matches, never as text to insert.
     - Guard against confirmation bias: compare biased and unbiased hypotheses, and flag listed drugs with weak acoustic evidence for review.
     - Test listed, new unlisted and unmentioned drugs; tune bias strength on recall against false insertions and substitutions.
+  - Read: [Improve recognition accuracy with phrase list](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/improve-accuracy-phrase-list) (Microsoft Learn) · [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization)
 
 ← [Inference, serving and cost](inference-economics.md) · [Agents, tools and protocols](agents-tools.md) →

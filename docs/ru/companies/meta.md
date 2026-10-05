@@ -86,6 +86,7 @@
     - Разделить вред по тяжести и для каждого уровня выбрать: блокировка при загрузке, ограничение показа или очередь на проверку.
     - Сочетать сравнение хешей для известного контента с классификаторами для нового, отправляя неуверенные случаи модераторам.
     - Измерять распространённость, точность по каждому правилу и долю решений, отменённых по апелляции, взвешивая ошибочные удаления и пропуски.
+  - Читать: [A Holistic Approach to Undesired Content Detection in the Real World](https://arxiv.org/abs/2208.03274) (Markov et al., arXiv) · [Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations](https://arxiv.org/abs/2312.06674) (Inan et al., arXiv)
 
 ### [Мультимодальность и голос](../themes/multimodal-voice.md)
 
@@ -142,6 +143,7 @@
     - Назвать обе стороны, решение каждой и то, в чём каждой нужна уверенность: проверка мастеров, цена, оплата.
     - Измерять долю заявок, закрытых выполненной работой, и время до подбора с ограничениями по спорам и повторным заказам.
     - Запуститься в одном районе и одной специальности, набирая мастеров вручную до автоматизации подбора.
+  - Читать: [How to match supply and demand in your marketplace](https://www.sharetribe.com/academy/match-marketplace-supply-and-demand/) (Sharetribe)
 - **[Новый сервис растёт, а месячная аудитория Facebook сокращается. Как оценить, успешен ли сервис?](../themes/ai-product-strategy.md#prod-product-cannibalisation)**
   - Продуктовый кейс · Senior · Где спрашивали: Meta 🗣
   - Что проверяет: Умеете ли вы исследовать влияние на весь продуктовый портфель, а не одну метрику.
@@ -149,6 +151,7 @@
     - Выяснить, должен ли сервис приносить новых пользователей и время или перераспределять время между приложениями.
     - Оценить замещение через контрольную группу или сопоставимые когорты, а не сравнением двух кривых.
     - Оценивать по чистому приросту пользователей и ценности портфеля с ограничением по здоровью основного продукта.
+  - Читать: [Patterns of Trustworthy Experimentation: Pre-Experiment Stage](https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/) (Microsoft Research) · [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - **[Спроектируйте продукт подбора волонтёров и объясните, как преодолеть холодный старт.](../themes/ai-product-strategy.md#prod-volunteer-cold-start)**
   - Продуктовый кейс · Senior · Где спрашивали: Meta 🗣
   - Что проверяет: Умеете ли вы обеспечить первые полезные совпадения до появления масштаба.
@@ -156,6 +159,7 @@
     - Определить, какая сторона в дефиците, и сузиться до одного города и направления, где совпадения реально возможны.
     - Измерять долю опубликованных потребностей, закрытых состоявшейся сменой, с ограничениями по неявкам и оттоку организаций.
     - Первые пары организаций и волонтёров подбирать вручную, проверяя, превращаются ли совпадения в смены.
+  - Читать: [How to match supply and demand in your marketplace](https://www.sharetribe.com/academy/match-marketplace-supply-and-demand/) (Sharetribe)
 
 ### [Руководство инженерными командами](../themes/engineering-leadership.md)
 
@@ -212,5 +216,6 @@
     - Выбрать случай, где неясны были сама цель или задача, а не только ресурсы или сроки.
     - Показать, какую неизвестность вы сняли первой, каким небольшим решением или пробным шагом и как обратная связь меняла план.
     - Закончить значимым результатом и свидетельством того, что вы решили именно ту задачу.
+  - Читать: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 
 ← [Google и Google DeepMind](google.md) · [Microsoft](microsoft.md) →

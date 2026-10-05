@@ -93,16 +93,16 @@
   note:
     en: On retrieval, the page said updated 10 days earlier; publication date unknown.
     ru: При чтении страница указывала обновление 10 дней назад; дата публикации неизвестна.
-- id: exponent-report-google-em-l6
-  kind: participant_report
-  title: Google Engineering Manager (L6) Interview Experience
-  publisher: Aced (formerly Exponent), candidate report
-  url: https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1
-  retrieved: '2026-09-26'
-  lang: en
+- id: "exponent-report-google-em-l6"
+  kind: "participant_report"
+  title: "Google Engineering Manager (L6) Interview Experience"
+  publisher: "Aced (formerly Exponent), candidate report"
+  url: "https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1"
+  retrieved: "2026-10-05"
+  lang: "en"
   note:
-    en: The retained digest gives submission four months earlier and interview six months prior, with an ambiguous reference point for the latter. No exact interview or publication date is established.
-    ru: Сохранённый пересказ указывает отправку четыре месяца назад и интервью за шесть месяцев до этого, но точка отсчёта для интервью неоднозначна. Точная дата интервью или публикации не установлена.
+    en: "The original URL redirected to the same participant report on Aced when read on 2026-10-05. Low performance and disruptive high performance are hypothetical prompts; the organisational-change prompt asks about actual high-performer attrition. This report concerns general engineering management, not a specialist AI loop."
+    ru: "При чтении 2026-10-05 исходный URL перенаправил на тот же отчёт участника на Aced. Вопросы о низкой результативности и конфликтном сильном сотруднике гипотетические; вопрос об организационном изменении касается реального ухода сильных сотрудников. Отчёт относится к общему инженерному менеджменту, не к отдельному AI-циклу."
 - id: exponent-gemini-pm
   kind: prep_guide
   title: Gemini Product Manager Interview Guide
@@ -127,16 +127,16 @@
   url: "https://www.metacareers.com/tpm-prep-onsite/"
   retrieved: "2026-09-26"
   lang: "en"
-- id: exponent-report-meta-em-m1
-  kind: participant_report
-  title: Meta Engineering Manager (M1) Interview Experience
-  publisher: Aced (formerly Exponent), candidate report
-  url: https://www.tryexponent.com/experiences/meta-facebook-engineering-manager-interview-916dc8
-  retrieved: '2026-09-26'
-  lang: en
+- id: "exponent-report-meta-em-m1"
+  kind: "participant_report"
+  title: "Meta Engineering Manager (M1) Interview Experience"
+  publisher: "Aced (formerly Exponent), candidate report"
+  url: "https://www.tryexponent.com/experiences/meta-facebook-engineering-manager-interview-916dc8"
+  retrieved: "2026-09-26"
+  lang: "en"
   note:
-    en: The retained digest gives a report date five months earlier and interview six months prior, with an ambiguous reference point for the latter. No exact interview or publication date is established.
-    ru: Сохранённый пересказ указывает дату отчёта пять месяцев назад и интервью за шесть месяцев до этого, но точка отсчёта для интервью неоднозначна. Точная дата интервью или публикации не установлена.
+    en: "The existing participant report was unavailable on a new access attempt on 2026-10-05, including its Aced redirect. Keep the last successful retrieval date; this attempt does not freshly verify the cross-team delivery question."
+    ru: "Существующий отчёт участника оказался недоступен при новой попытке чтения 2026-10-05, включая перенаправление на Aced. Сохраняется дата последнего успешного чтения; эта попытка не подтверждает заново вопрос о межкомандной поставке."
 - id: exponent-report-meta-ai-pm
   kind: participant_report
   title: Meta Product Manager, AI Interview Experience (level unverified)
@@ -211,16 +211,16 @@
   note:
     en: On retrieval, the page said updated 19 days earlier; publication date unknown.
     ru: При чтении страница указывала обновление 19 дней назад; дата публикации неизвестна.
-- id: exponent-stripe
-  kind: prep_guide
-  title: 'Get a Job at Stripe: Interview Process and Top Questions'
-  publisher: Aced (formerly Exponent)
-  url: https://www.tryexponent.com/blog/stripe-interview-process
-  retrieved: '2026-09-26'
-  lang: en
+- id: "exponent-stripe"
+  kind: "prep_guide"
+  title: "Get a Job at Stripe: Interview Process and Top Questions"
+  publisher: "Aced (formerly Exponent)"
+  url: "https://www.tryexponent.com/blog/stripe-interview-process"
+  retrieved: "2026-10-05"
+  lang: "en"
   note:
-    en: On retrieval, the page said updated two months earlier; publication date unknown.
-    ru: При чтении страница указывала обновление два месяца назад; дата публикации неизвестна.
+    en: "Reopened on 2026-10-05 through the original URL, which redirected to Aced. The engineering-management section discusses the hiring bar and the candidate’s last strategic hire. This is a preparation guide, not a participant report; the atlas paraphrase was narrowed accordingly."
+    ru: "Повторно прочитан 2026-10-05 по исходному URL с перенаправлением на Aced. Раздел инженерного менеджмента обсуждает планку найма и последний стратегический найм кандидата. Это подготовительный гайд, не отчёт участника; пересказ в атласе сужен до этой области."
 - id: "exponent-stripe-questions"
   kind: "prep_guide"
   title: "Interviewing at Stripe"
@@ -1714,3 +1714,391 @@
   published: "2023-07-25"
   retrieved: "2026-10-02"
   lang: "en"
+
+- id: "whatwg-server-sent-events"
+  kind: "reference"
+  title: "HTML Standard: Server-sent events"
+  publisher: "WHATWG"
+  url: "https://html.spec.whatwg.org/multipage/server-sent-events.html"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "python-ordered-dict"
+  kind: "reference"
+  title: "collections: OrderedDict objects"
+  publisher: "Python Software Foundation"
+  url: "https://docs.python.org/3/library/collections.html#collections.OrderedDict"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "google-aip-pagination"
+  kind: "reference"
+  title: "AIP-158: Pagination"
+  publisher: "Google"
+  url: "https://google.aip.dev/158"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "azure-document-confidence"
+  kind: "reference"
+  title: "Interpret and improve model accuracy and confidence scores"
+  publisher: "Microsoft Learn"
+  url: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "azure-layout-chunking"
+  kind: "reference"
+  title: "Chunk and vectorize with the Document Layout skill"
+  publisher: "Microsoft Learn"
+  url: "https://learn.microsoft.com/en-us/azure/search/search-how-to-semantic-chunking"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "princeton-directed-graphs"
+  kind: "reference"
+  title: "Algorithms, fourth edition: Directed Graphs"
+  publisher: "Robert Sedgewick and Kevin Wayne, Princeton University"
+  url: "https://algs4.cs.princeton.edu/42digraph/"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "python-heapq"
+  kind: "reference"
+  title: "heapq: Heap queue algorithm"
+  publisher: "Python Software Foundation"
+  url: "https://docs.python.org/3/library/heapq.html"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "postgresql-table-expressions"
+  kind: "reference"
+  title: "Table Expressions"
+  publisher: "PostgreSQL Global Development Group"
+  url: "https://www.postgresql.org/docs/current/queries-table-expressions.html"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "deep-learning-information-theory"
+  kind: "reference"
+  title: "Deep Learning: Probability and Information Theory"
+  publisher: "Ian Goodfellow, Yoshua Bengio and Aaron Courville"
+  url: "https://www.deeplearningbook.org/contents/prob.html"
+  published: "2016"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "paper-moshi"
+  kind: "reference"
+  title: "Moshi: a speech-text foundation model for real-time dialogue"
+  publisher: "Alexandre Defossez et al., arXiv"
+  url: "https://arxiv.org/abs/2410.00037"
+  published: "2024-09-17"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "azure-voice-live"
+  kind: "reference"
+  title: "How to use the Voice Live API"
+  publisher: "Microsoft Learn"
+  url: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "aws-polly-speechmarks"
+  kind: "reference"
+  title: "Speech marks"
+  publisher: "Amazon Web Services"
+  url: "https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "paper-dihard-3"
+  kind: "reference"
+  title: "The Third DIHARD Diarization Challenge"
+  publisher: "Neville Ryant et al., arXiv"
+  url: "https://arxiv.org/abs/2012.01477"
+  published: "2020-12-02"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "paper-seamless"
+  kind: "reference"
+  title: "Seamless: Multilingual Expressive and Streaming Speech Translation"
+  publisher: "Seamless Communication et al., arXiv"
+  url: "https://arxiv.org/abs/2312.05187"
+  published: "2023-12-08"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "azure-speech-phrase-list"
+  kind: "reference"
+  title: "Improve recognition accuracy with phrase list"
+  publisher: "Microsoft Learn"
+  url: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/improve-accuracy-phrase-list"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "who-large-multimodal-health"
+  kind: "reference"
+  title: "Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models"
+  publisher: "World Health Organization"
+  url: "https://www.who.int/publications/i/item/9789240084759"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Health-governance reading, not a clinical validation protocol or deployment approval."
+    ru: "Материал об управлении рисками в здравоохранении, не протокол клинической валидации и не допуск к эксплуатации."
+
+- id: "elastic-index-aliases"
+  kind: "reference"
+  title: "Aliases"
+  publisher: "Elastic"
+  url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "paper-crowd-llm-use"
+  kind: "reference"
+  title: "Prevalence and prevention of large language model use in crowd work"
+  publisher: "Veniamin Veselovsky et al., arXiv"
+  url: "https://arxiv.org/abs/2310.15683"
+  published: "2023-10-24"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "westlaw-keycite"
+  kind: "reference"
+  title: "KeyCite"
+  publisher: "Thomson Reuters"
+  url: "https://legal.thomsonreuters.com/en/products/westlaw/keycite"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Public vendor explanation of citation treatment; no paid search was accessed. It is not legal advice or a claim of complete jurisdiction coverage."
+    ru: "Публичное описание проверки правового статуса цитат; платный поиск не использовался. Не юридическая консультация и не утверждение о полном охвате юрисдикций."
+
+- id: "ofcom-age-assurance"
+  kind: "reference"
+  title: "Age assurance duties under the Online Safety Act"
+  publisher: "Ofcom"
+  url: "https://www.ofcom.org.uk/online-safety/protecting-children/age-assurance"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "UK-specific regulator guidance; requirements and applicability must be checked for the actual service and jurisdiction."
+    ru: "Руководство регулятора Великобритании; требования и применимость проверяются для конкретного сервиса и юрисдикции."
+
+- id: "azure-tts-transparency"
+  kind: "reference"
+  title: "Text to speech transparency note"
+  publisher: "Microsoft Learn"
+  url: "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/text-to-speech/transparency-note"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "osha-robot-safety"
+  kind: "reference"
+  title: "OSHA Technical Manual: Industrial Robot Systems and Industrial Robot System Safety"
+  publisher: "Occupational Safety and Health Administration"
+  url: "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Industrial robot hazard-control guidance; a learning reference, not a complete safety case or certification for a learned policy."
+    ru: "Руководство по опасностям промышленных роботов; учебный источник, не полное обоснование безопасности и не сертификация обученной политики."
+
+- id: "claude-structured-outputs"
+  kind: "reference"
+  title: "Structured outputs"
+  publisher: "Anthropic"
+  url: "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "mcp-security-20260728"
+  kind: "reference"
+  title: "Security Best Practices"
+  publisher: "Model Context Protocol"
+  url: "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices"
+  retrieved: "2026-10-05"
+  lang: "en"
+
+- id: "gitlab-total-rewards"
+  kind: "reference"
+  title: "Compensation at Gitlab"
+  publisher: "GitLab Handbook"
+  url: "https://handbook.gitlab.com/handbook/total-rewards/compensation/"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Content last updated 2026-02-19. Primary explanation separating salary, variable pay and equity; reading for an honest discussion of mission and compensation tradeoffs. GitLab-specific terms do not describe another employer’s offer or interview."
+    ru: "Содержимое обновлено 2026-02-19. Первичное объяснение различий оклада, переменной части и акций; чтение для честного обсуждения миссии и вознаграждения. Условия GitLab не описывают предложение или интервью другого работодателя."
+
+- id: "amazon-tpm-interview"
+  kind: "official"
+  title: "TPM Interview Prep"
+  publisher: "Amazon Jobs"
+  url: "https://amazon.jobs/content/en/how-we-hire/tpm-interview-prep"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Undated official preparation page for general TPM interviews: technical phone screen, writing assessment and interview loop. It does not establish an AI-specific loop or supply the atlas editorial questions."
+    ru: "Официальная страница подготовки к общим интервью TPM без установленной даты публикации: технический телефонный скрининг, письменное задание и цикл интервью. Не подтверждает отдельный AI-цикл и не является источником редакционных вопросов атласа."
+
+- id: "gitlab-engineering-director-process"
+  kind: "official"
+  title: "Director, Engineering"
+  publisher: "GitLab Handbook"
+  url: "https://handbook.gitlab.com/job-description-library/engineering/development/management/director/"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Public role-family page with an actual Hiring Process section; last modified 2026-03-12. Supports general Engineering Director responsibilities and interview stages, not reported AI interview questions."
+    ru: "Публичная страница семейства ролей с разделом Hiring Process; последнее изменение 2026-03-12. Подтверждает общие обязанности Engineering Director и этапы интервью, но не реальные вопросы AI-интервью."
+
+- id: "gitlab-product-leadership-process"
+  kind: "official"
+  title: "Product Management - Leadership"
+  publisher: "GitLab Handbook"
+  url: "https://handbook.gitlab.com/job-description-library/product/product-management-leadership/"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Role-family responsibilities and a Director hiring process were readable. General product leadership scope; no AI-specific interview questions. Publication date not established."
+    ru: "Прочитаны обязанности семейства ролей и процесс найма Director. Область — общее продуктовое руководство; конкретных вопросов AI-интервью нет. Дата публикации не установлена."
+
+- id: "google-pair-user-needs"
+  kind: "reference"
+  title: "User Needs + Defining Success"
+  publisher: "Google PAIR"
+  url: "https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Primary design guidance on user problems, the value of AI and success criteria. Undated chapter; reference reading, not interview evidence."
+    ru: "Первичное руководство о задачах пользователя, пользе AI и критериях успеха. Глава без установленной даты; чтение, не свидетельство интервью."
+
+- id: "gds-alpha"
+  kind: "reference"
+  title: "How the alpha phase works"
+  publisher: "Government Digital Service"
+  url: "https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Primary public-service guidance on prototypes and testing risky assumptions. Method transfer to product cases; not employer interview evidence. Publication date not established in this check."
+    ru: "Первичное руководство для государственных сервисов о прототипах и проверке рискованных допущений. Перенос метода в продуктовые кейсы, не свидетельство интервью работодателя. Дата публикации при этой проверке не установлена."
+
+- id: "android-offline-first"
+  kind: "reference"
+  title: "Build an offline-first app"
+  publisher: "Android Developers"
+  url: "https://developer.android.com/topic/architecture/data-layer/offline-first"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Primary architecture guidance on local and network data, synchronisation and conflicting writes. Reference for the field-catalogue case; no interview attribution."
+    ru: "Первичное архитектурное руководство о локальных и сетевых данных, синхронизации и конфликтах записи. Чтение для кейса полевого каталога; без атрибуции интервью."
+
+- id: "sharetribe-concierge-marketplace"
+  kind: "reference"
+  title: "How to match supply and demand in your marketplace"
+  publisher: "Sharetribe"
+  url: "https://www.sharetribe.com/academy/match-marketplace-supply-and-demand/"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Original practitioner account of manual marketplace matching. Vendor-published learning material, not a candidate interview report. Publication date not established."
+    ru: "Авторский практический рассказ о ручном сопоставлении спроса и предложения на маркетплейсе. Учебный материал поставщика, не отчёт кандидата об интервью. Дата публикации не установлена."
+
+- id: "ms-experiment-design"
+  kind: "reference"
+  title: "Patterns of Trustworthy Experimentation: Pre-Experiment Stage"
+  publisher: "Microsoft Research"
+  url: "https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-pre-experiment-stage/"
+  published: "2020-07-31"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Primary experimentation guidance covering hypotheses, guardrails, randomisation units and contamination. Supports experiment design, not an employer interview claim."
+    ru: "Первичное руководство по экспериментам: гипотезы, защитные метрики, единицы рандомизации и смешение воздействий. Поддерживает дизайн эксперимента, не утверждение об интервью."
+
+- id: "uk-green-book-2026"
+  kind: "reference"
+  title: "The Green Book (2026)"
+  publisher: "HM Treasury"
+  url: "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "2026 edition, page updated 2026-02-05. Public-sector appraisal guidance used for option comparison and uncertainty; its social valuation and discount assumptions are not corporate finance defaults."
+    ru: "Редакция 2026 года, страница обновлена 2026-02-05. Руководство государственного сектора используется для сравнения вариантов и неопределённости; социальная оценка и ставки дисконтирования не переносятся автоматически в корпоративные финансы."
+
+- id: "uk-cloud-lock-in"
+  kind: "reference"
+  title: "Managing technical lock-in in the cloud"
+  publisher: "Government Digital Service and Central Digital and Data Office"
+  url: "https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud"
+  published: "2019-12-17"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Updated 2026-09-03. Primary guidance on balancing service value against switching cost and maintaining an exit strategy. Reference reading, not an AI interview report."
+    ru: "Обновлено 2026-09-03. Первичное руководство о соотношении ценности сервиса и стоимости смены поставщика и о плане выхода. Чтение, не отчёт об AI-интервью."
+
+- id: "gitlab-communication"
+  kind: "reference"
+  title: "Communication"
+  publisher: "GitLab Handbook"
+  url: "https://handbook.gitlab.com/handbook/communication/"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Scoped reading: decision ownership, explaining a decision after consultation, and internal alignment before external commitments. This is one employer’s operating practice, not a universal interview rubric."
+    ru: "Область чтения: ответственность за решение, объяснение после обсуждения и внутреннее согласование внешних обязательств. Практика одного работодателя, не универсальная шкала интервью."
+
+- id: "nhs-service-standard"
+  kind: "reference"
+  title: "NHS service standard"
+  publisher: "NHS Digital Service Manual"
+  url: "https://service-manual.nhs.uk/standards-and-technology/service-standard"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Primary service-design standard for health and care services. Reading for whole patient journeys and service constraints; not a clinical decision protocol or interview report."
+    ru: "Первичный стандарт проектирования медицинских сервисов. Чтение о полном пути пациента и ограничениях сервиса; не клинический протокол и не отчёт об интервью."
+
+- id: "finra-insider-detection"
+  kind: "reference"
+  title: "Insider Trading Detection: FINRA’s Vital Role in Ensuring Market Integrity"
+  publisher: "FINRA"
+  url: "https://www.finra.org/media-center/finra-unscripted/insider-trading-detection-program-update"
+  published: "2024-05-14"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "FINRA staff describe investigation inputs and suspicious trading detection in a published discussion. Domain reading for decomposition; no claim that these are employer interview questions."
+    ru: "Сотрудники FINRA описывают исходные данные расследования и выявление подозрительных сделок в опубликованной беседе. Предметное чтение для декомпозиции; без утверждения, что это вопросы интервью работодателя."
+
+- id: "aws-cost-optimization"
+  kind: "reference"
+  title: "Cost Optimization Pillar — AWS Well-Architected Framework"
+  publisher: "Amazon Web Services"
+  url: "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Primary cloud cost framework: financial management, expenditure awareness, resource selection and demand. It supplies categories to investigate, not case-specific prices or savings estimates."
+    ru: "Первичная рамка облачных затрат: финансовое управление, учёт расходов, выбор ресурсов и спрос. Даёт направления анализа, а не цены или оценку экономии для конкретного кейса."
+
+- id: "gds-data-ai-ethics"
+  kind: "reference"
+  title: "Data and AI Ethics Framework"
+  publisher: "Government Digital Service"
+  url: "https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework"
+  retrieved: "2026-10-05"
+  lang: "en"
+  note:
+    en: "Updated 2025-12-18. Primary public-sector framework covering accountability, affected people and ethical tradeoffs. Transfer the questions with context; this is not legal advice or employer interview evidence."
+    ru: "Обновлено 2025-12-18. Первичная рамка государственного сектора об ответственности, затронутых людях и этических компромиссах. Вопросы переносятся с учётом контекста; это не юридическая консультация и не свидетельство интервью работодателя."

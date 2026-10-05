@@ -26,13 +26,13 @@
     - Считать резюме и доступные трассы неполными диагностическими сигналами, а не доступом к скрытым рассуждениям или гарантией безопасности.
   - Читать: [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) (Chen et al., arXiv)
 - <a id="eval-scarce-labels"></a>**Как собрать полезный eval-набор без эталонных ответов и при дефиците экспертного времени?**
-  - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
+  - Прикладной сценарий · ✍ [Ответ](../answers/engineering.md#eval-scarce-labels) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-scarce-labels&title=%5BCorrection%5D%20eval-scarce-labels)
   - Что проверяет: Умение направить выборку и разметку на значимую неопределённость.
   - Сильный ответ покрывает:
     - Начать с разбора ошибок на реальных трассах, чтобы понять, какие сбои важны, до всякой разметки.
     - Тратить время экспертов на неочевидные случаи с высокой ценой ошибки, оценивая по бинарным критериям, а не по совпадению с единственным ответом.
     - Калибровать более дешёвых оценщиков по экспертной разметке и следить за согласием, прежде чем доверять им в масштабе.
-  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
+  - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="eval-release-gate"></a>**Спроектируйте критерии допуска изменений промпта и модели, включая ситуацию, когда общий рост скрывает критическую регрессию.**
   - System design · Где спрашивали: [Anthropic](../companies/anthropic.md) † · ✍ [Ответ](../answers/engineering.md#eval-release-gate) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-release-gate&title=%5BCorrection%5D%20eval-release-gate)
   - Что проверяет: Учёт тяжести ошибок и неопределённости при выпуске.
@@ -66,7 +66,7 @@
     - Выбрать исправление по причине: починить конфигурацию, адаптировать промпт или закрепить версию; добавить кейсы в критерии допуска.
   - Читать: [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (Hamel Husain)
 - <a id="eval-production-actions"></a>**Как изменить оценку LLM-процесса при переходе от предложений к исполнению действий в production?**
-  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-production-actions&title=%5BCorrection%5D%20eval-production-actions)
+  - System design · Где спрашивали: [Palantir](../companies/palantir.md) † · ✍ [Ответ](../answers/engineering.md#eval-production-actions) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-production-actions&title=%5BCorrection%5D%20eval-production-actions)
   - Что проверяет: Умение учитывать последствия действий в критериях допуска.
   - Сильный ответ покрывает:
     - Оценивать исход в среде, а не текст предложения: что изменилось и было ли это разрешено.
@@ -117,7 +117,7 @@
     - Локализовать по трассировкам ошибки этапов и превращать повторы в eval-кейсы.
   - Читать: [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="eval-prompt-rollback"></a>**Как версионировать промпты и зависимые настройки для воспроизводимого отката обнаруженной регрессии?**
-  - System design · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-rollback&title=%5BCorrection%5D%20eval-prompt-rollback)
+  - System design · ✍ [Ответ](../answers/engineering.md#eval-prompt-rollback) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-prompt-rollback&title=%5BCorrection%5D%20eval-prompt-rollback)
   - Что проверяет: Умение восстановить при откате реальную конфигурацию системы.
   - Сильный ответ покрывает:
     - Версионировать всю конфигурацию одним неизменяемым набором: промпт, снимок модели, параметры, инструменты и индекс поиска.
@@ -155,6 +155,7 @@
     - Оценивать по перечню клинически обязательных фактов из консультации, а не по сходству с одной записью.
     - Проверять каждое утверждение сгенерированной записи на подтверждение в расшифровке и отдельно отмечать неподтверждённое.
     - Принять согласие двух врачей за потолок и калибровать любого автоматического оценщика по их оценкам.
+  - Читать: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic) · [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization)
 - <a id="eval-behaviour-brainstorm"></a>**В коротком разговоре без подготовки предложите проверяемые идеи о поведении языковой модели, для которых нужен не внутренний доступ, а внимательное наблюдение.**
   - Знания · Где спрашивали: [Anthropic](../companies/anthropic.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=eval-behaviour-brainstorm&title=%5BCorrection%5D%20eval-behaviour-brainstorm)
   - Что проверяет: Умение быстро выдвигать конкретные проверяемые гипотезы о поведении модели.

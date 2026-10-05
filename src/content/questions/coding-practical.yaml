@@ -150,6 +150,7 @@ questions:
         - "Уточнить ёмкость, обновляет ли чтение давность и учитываются ли просроченные записи до их удаления."
         - "Использовать хеш-таблицу с двусвязным списком для O(1); один путь удаления обслуживает и истечение, и вытеснение."
         - "Проверить ёмкость, равную единице, обновление существующего ключа и истечение ровно на границе с подменяемыми часами."
+    reading: ["python-ordered-dict", "python-heapq"]
   - id: "code-token-bucket"
     tracks: ["engineering"]
     type: "coding"
@@ -234,6 +235,7 @@ questions:
         - "Буферизовать данные между чанками, декодировать UTF-8 инкрементально, делить строки по CRLF, LF или CR и не пересканировать уже разобранное."
         - "Склеивать строки data в одно событие и разбирать JSON только тогда, когда пустая строка завершает событие."
         - "Проверить разрез на каждом байтовом смещении, в том числе внутри многобайтовых символов, пары CRLF и последнего события."
+    reading: ["whatwg-server-sent-events"]
   - id: "code-semantic-chunks"
     tracks: ["engineering"]
     type: "coding"
@@ -256,6 +258,7 @@ questions:
         - "Уточнить единицу размера (токены или символы), что считается смысловой единицей и как измеряется перекрытие."
         - "Жадно укладывать целые единицы за один линейный проход; слишком большую единицу делить по следующей, более мелкой границе."
         - "Проверить слишком большие единицы, пустой ввод, перекрытие не меньше целевого размера и восстановление текста по смещениям без потерь."
+    reading: ["azure-layout-chunking"]
   - id: "code-cosine-search"
     tracks: ["engineering"]
     type: "coding"
@@ -384,6 +387,7 @@ questions:
         - "Предпочесть курсорную пагинацию: при смещениях параллельные вставки и удаления сдвигают страницы и дают пропуски или дубли."
         - "Завершать по отсутствию следующего курсора, а не по короткой странице, и защититься от зацикливания на повторном курсоре."
         - "Проверять каждую страницу, повторять сбои с backoff, отсеивать дубли по id; проверить пустой результат и кратность размеру страницы."
+    reading: ["google-aip-pagination"]
   - id: "code-ai-assisted-build"
     tracks: ["engineering"]
     roles: ["software-engineer", "agent-engineer"]
@@ -402,14 +406,19 @@ questions:
     added: "2026-09-29"
     outline:
       en:
-        - "Agree on the smallest end-to-end slice that demonstrates the product, and name what you will cut."
-        - "Delegate well-specified pieces to the tool, read every diff, and run the app after each step."
-        - "Be ready to explain each design choice and what production still needs: tests, data model, failure handling."
+        - "Agree the user flow, smallest working slice, time budget and deliberate omissions before delegating bounded pieces."
+        - "Give each AI task interfaces, relevant context and acceptance checks; inspect diffs and demonstrate behaviour instead of counting generated code."
+        - "Defend architecture, algorithm assumptions and rejected suggestions; distinguish verified behaviour from production gaps and an unfinished prototype."
       ru:
-        - "Договориться о минимальном сквозном срезе, который показывает продукт, и назвать, что будет отрезано."
-        - "Отдавать инструменту чётко поставленные части, читать каждый diff и запускать приложение после каждого шага."
-        - "Быть готовым объяснить каждое проектное решение и то, чего не хватает до продакшена: тесты, модель данных, обработка сбоев."
+        - "До делегирования ограниченных частей согласовать пользовательский сценарий, минимальный результат, бюджет времени и сознательные исключения."
+        - "Давать AI интерфейсы, нужный контекст и критерии приёмки; проверять diff и поведение вместо подсчёта сгенерированного кода."
+        - "Защитить архитектуру, допущения алгоритмов и отвергнутые предложения; отделить проверенное поведение от production-пробелов и незавершённого прототипа."
     reading: ["sierra-ai-native-interview","canva-ai-interview-success"]
+    start_here: ["engineering"]
+    priority: 71
+    answer:
+      en: "I would first agree what the user must be able to do and demonstrate the smallest complete flow, rather than treat the time limit as a target for generating code. I would split that flow at clear interfaces, give the assistant only the relevant context and acceptance checks, and inspect each change before integrating it. My review would concentrate on the data model, error handling and assumptions that could invalidate the approach. A short decision log would preserve what I rejected and why. In the demonstration I would show an ordinary case and a failure case, then explain what is measured, what is assumed and what remains unfinished. If a dependency or model stalls, I would cut scope while preserving the core flow. A working prototype is evidence of a bounded result; production still needs appropriate access controls, operational checks and validation."
+      ru: "Сначала я бы согласовал, что должен суметь пользователь, и показал минимальный полный сценарий, а не превращал лимит времени в цель по объёму кода. Разделил бы этот сценарий по ясным интерфейсам, дал помощнику только нужный контекст и проверки приёмки, а каждую правку изучил до интеграции. Основное внимание уделил бы модели данных, обработке ошибок и допущениям, которые могут сломать подход. В коротком журнале решений сохранил бы, что отверг и почему. На демонстрации показал бы обычный и отказной сценарии, затем объяснил, что измерено, что предполагается и что не закончено. Если зависимость или модель задерживает работу, сократил бы scope с сохранением главного сценария. Рабочий прототип подтверждает ограниченный результат; для production ещё нужны подходящие контроли доступа, эксплуатационные проверки и валидация. Эти пробелы следует назвать явно, даже если показ прошёл успешно."
   - id: "code-agent-pr-review"
     tracks: ["engineering"]
     roles: ["software-engineer", "agent-engineer"]
@@ -428,14 +437,19 @@ questions:
     added: "2026-09-29"
     outline:
       en:
-        - "Understand the intended behaviour and the codebase's conventions before reading the diff or asking an agent."
-        - "Check cross-cutting risks: every call site, error paths, concurrency, migrations and missing tests."
-        - "Verify each agent suggestion by running tests or reproducing it, and explain which changes you rejected."
+        - "Trace the intended behaviour, entry points, callers and existing invariants before asking the agent to explain or change the diff."
+        - "Check every affected path, especially authorisation, retries, shared state and migrations; construct a counterexample and a focused regression check."
+        - "Separate observed defects from hypotheses, verify agent suggestions and explain the approval decision and residual risks; respect the session's AI limits."
       ru:
-        - "Понять задуманное поведение и соглашения кодовой базы до чтения diff и обращения к агенту."
-        - "Проверить сквозные риски: все места вызова, пути ошибок, конкурентность, миграции и недостающие тесты."
-        - "Проверять каждое предложение агента тестами или воспроизведением и объяснять, какие изменения вы отклонили."
-    reading: ["sierra-ai-native-interview","canva-ai-interview-success"]
+        - "До объяснения или правки diff агентом проследить ожидаемое поведение, точки входа, вызывающий код и инварианты."
+        - "Проверить все затронутые пути, особенно авторизацию, повторы, общее состояние и миграции; построить контрпример и регрессионную проверку."
+        - "Отделить найденные дефекты от гипотез, проверить советы агента и объяснить решение ревью и остаточные риски; соблюдать ограничения AI на сессии."
+    reading: ["sierra-ai-native-interview", "canva-ai-interview-success", "anthropic-evals-for-agents"]
+    start_here: ["engineering"]
+    priority: 72
+    answer:
+      en: "I would first reconstruct the intended behaviour and trace the entry points affected by the change. An agent's summary can help navigate, but I would verify it against callers and existing invariants before trusting its recommendations. For a cross-cutting feature, the main risk is inconsistent application: one endpoint may check permission while another, a cache or a background job bypasses it. I would separate observed defects from hypotheses and seek a small counterexample for each important concern. The review decision would cite the behaviour demonstrated by a test or trace, rather than the assistant's confidence. I would also inspect error paths, retries and shared state, and reject fixes that weaken tests or broaden scope without justification. A clean diff is not enough for approval when critical paths remain unexamined; I would explain the residual uncertainty and respect the interview's actual limits on AI use."
+      ru: "Сначала я бы восстановил ожидаемое поведение и проследил точки входа, затронутые изменением. Резюме агента помогает ориентироваться, но перед доверием рекомендациям я сверил бы его с вызывающим кодом и инвариантами. Главный риск сквозной функции — непоследовательное применение: один endpoint проверяет права, а другой, кеш или фоновая задача обходят проверку. Я отделил бы наблюдаемые дефекты от гипотез и для каждого существенного опасения искал маленький контрпример. Решение ревью опиралось бы на поведение, показанное тестом или трассой, а не на уверенность помощника. Также проверил бы ошибки, повторы и общее состояние, отверг исправления, ослабляющие тесты или необоснованно расширяющие scope. Аккуратного diff недостаточно для одобрения, если критические пути не изучены: остаточную неопределённость нужно объяснить, а действительные ограничения AI на интервью соблюдать. Непроверенный совет не становится найденным багом только потому, что его сформулировала модель."
   - id: "code-product-structure"
     tracks: ["engineering"]
     roles: ["software-engineer"]
@@ -454,14 +468,19 @@ questions:
     added: "2026-09-29"
     outline:
       en:
-        - "Find how the product uses the structure: callers, required operations, their frequency and existing tests."
-        - "Choose the representation and invariants from those operations, and state each operation's complexity."
-        - "Follow the repository's conventions, keep AI to syntax questions, and test the edge cases callers hit."
+        - "Locate callers, required operations, operation frequency and tests; derive the representation from that contract."
+        - "State invariants and time/memory costs, then challenge the choice with duplicate, empty and changed-constraint examples."
+        - "Follow repository conventions and verify behaviour at callers; keep AI help to the targeted syntax questions permitted by this reported session."
       ru:
-        - "Выяснить, как продукт использует структуру: вызывающий код, нужные операции, их частоту и существующие тесты."
-        - "Выбрать представление и инварианты исходя из этих операций и назвать сложность каждой из них."
-        - "Следовать соглашениям репозитория, обращаться к AI только по синтаксису и проверить граничные случаи вызывающего кода."
-    reading: ["palantir-existing-systems"]
+        - "Найти вызывающий код, нужные операции, их частоту и тесты; вывести представление из этого контракта."
+        - "Задать инварианты и затраты времени/памяти; проверить выбор дублями, пустым входом и изменённым ограничением."
+        - "Соблюдать соглашения репозитория и проверять поведение у вызывающего кода; помощь AI ограничить вопросами синтаксиса, разрешёнными в описанной сессии."
+    reading: ["palantir-existing-systems", "python-ordered-dict", "princeton-directed-graphs"]
+    start_here: ["engineering"]
+    priority: 73
+    answer:
+      en: "I would begin with the callers: which operations they require, how often they run, and what behaviour existing tests promise. That contract determines the representation. A fast lookup alone is not enough if updates, ordering or expiry dominate the workload. I would state the invariants and time and memory costs, then trace small counterexamples before committing to the design. For example, updating an expiring entry must not let an old queued expiry delete its replacement. Empty input, duplicate keys and boundary times make useful probes because they expose assumptions that normal examples hide. I would follow the repository's conventions and keep AI assistance to targeted syntax questions, as this reported task specifies. The final explanation would connect the chosen structure to product behaviour and identify the workload change that would justify replacing it; a structure is not universally best because its average lookup is constant time."
+      ru: "Я начал бы с вызывающего кода: какие операции нужны, как часто выполняются и какое поведение обещают существующие тесты. Представление определяется этим контрактом. Быстрого поиска недостаточно, если основную нагрузку дают обновления, порядок или сроки действия. Я задал бы инварианты, затраты времени и памяти, затем разобрал маленькие контрпримеры до окончательного выбора. Например, после обновления записи старое событие истечения не должно удалить её новую версию. Пустой вход, повторные ключи и граничное время полезны тем, что выявляют скрытые обычными примерами допущения. Я следовал бы соглашениям репозитория и ограничил помощь AI точечными вопросами синтаксиса, как требует описанная задача. Финальное объяснение связывает структуру с поведением продукта и называет изменение нагрузки, при котором её стоит заменить. Среднее константное время поиска само по себе не делает структуру универсально лучшей; нужно проверить стоимость остальных операций и поддержания согласованности."
   - id: "code-self-scoped-onsite"
     tracks: ["engineering"]
     roles: ["software-engineer"]
@@ -513,6 +532,7 @@ questions:
         - "Уточнить формы ссылок, диапазоны и ссылки на себя, а также что вернуть: факт цикла или все ячейки в нём."
         - "Построить граф зависимостей и запустить DFS с тремя цветами или алгоритм Кана за O(ячейки + ссылки)."
         - "Проверить петли на себя, длинные цепочки на глубину рекурсии, несвязные части и повторную проверку после изменения одной формулы."
+    reading: ["princeton-directed-graphs"]
   - id: "code-catalogue-search-tool"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -564,6 +584,7 @@ questions:
         - "Моделировать кредиты как начисления с суммой, сроком и условиями, а списания — как записи в журнале только на добавление."
         - "Вынести политику списания, например сначала ближайший срок через кучу, чтобы новые правила подключались без переписывания."
         - "Проверить истечение ровно в момент срока, списание из нескольких начислений, нехватку баланса и пересчёт остатков по журналу."
+    reading: ["python-heapq", "postgresql-transaction-isolation"]
   - id: "code-pair-sum"
     tracks: ["engineering"]
     roles: ["ml-engineer"]
@@ -616,6 +637,7 @@ questions:
         - "Профилировать на реалистичной нагрузке до любых изменений и назвать размеры входа, которые важны."
         - "Заменить доминирующую стоимость более подходящей структурой, например кучей или индексом интервалов, за прежним интерфейсом."
         - "Сохранить прохождение существующих тестов, добавить бенчмарк и показать сложность и замеры до и после."
+    reading: ["python-heapq", "google-sre-book"]
   - id: "code-debug-api-service"
     tracks: ["engineering"]
     roles: ["forward-deployed-engineer"]
@@ -669,6 +691,7 @@ questions:
         - "Переформулировать каждый вопрос через гранулярность результата: что означает одна строка и какие строки в него попадают."
         - "Следить за размножением строк при join, семантикой NULL в фильтрах и агрегатах и разницей между WHERE и HAVING."
         - "Прогнать каждый запрос вручную на нескольких строках, включая равные значения, NULL и пустые группы."
+    reading: ["postgresql-table-expressions"]
   - id: "code-agent-session-choices"
     tracks: ["engineering"]
     roles: ["ai-engineer", "software-engineer"]
@@ -686,14 +709,19 @@ questions:
     added: "2026-09-29"
     outline:
       en:
-        - "Match models to steps: a stronger model for planning and review, a faster one for routine edits."
-        - "Give the agent a scoped task, the relevant files, constraints and a done criterion, not the whole repository."
-        - "Track tokens through context size and retries, and restart from a short summary when the session drifts."
+        - "Choose permitted models from task difficulty, observed reliability, latency and budget rather than an assumed universal ranking."
+        - "Decompose into reviewable steps and supply relevant files, interfaces, invariants, exclusions and a done criterion; treat repository text as untrusted input."
+        - "Track context, output and retries, preserve verified decisions in a compact handoff, and stop or recover when cost, drift or uncertainty exceeds the agreed limit."
       ru:
-        - "Подбирать модели под шаги: более сильную для планирования и ревью, более быструю для рутинных правок."
-        - "Давать агенту ограниченную задачу, нужные файлы, ограничения и критерий готовности, а не весь репозиторий."
-        - "Следить за токенами через размер контекста и число повторов и начинать заново с кратким резюме, когда сессия уходит в сторону."
+        - "Выбирать разрешённые модели по сложности, наблюдаемой надёжности, задержке и бюджету, а не универсальному рейтингу."
+        - "Разбить работу на проверяемые шаги; дать нужные файлы, интерфейсы, инварианты, исключения и готовность; текст репозитория считать недоверенным входом."
+        - "Учитывать контекст, вывод и повторы; сохранять проверенные решения в краткой передаче и останавливаться или восстанавливаться при превышении лимита затрат, отклонения или неопределённости."
     reading: ["anthropic-context-engineering","canva-ai-interview-success"]
+    start_here: ["engineering"]
+    priority: 74
+    answer:
+      en: "I would choose among the models permitted in the session using the task's difficulty, observed reliability, latency and remaining budget. There is no universal rule that a named model should perform every planning or editing step. Before delegating, I would inspect the relevant code and give the agent a bounded objective, interfaces, invariants, exclusions and a concrete done criterion. Repository text and tool results are evidence to inspect, not authority to change those constraints. I would track context size, output and retries, because repeated failed attempts can dominate both cost and time. If the session drifts, I would return to the last verified state and supply a compact summary of decisions and open questions. A context reset is useful only if it preserves what matters. I remain responsible for accepting the result and would stop delegation when I cannot review the proposed change reliably."
+      ru: "Я выбирал бы среди разрешённых на сессии моделей по сложности задачи, наблюдаемой надёжности, задержке и оставшемуся бюджету. Универсального правила, какая именованная модель должна выполнять каждый шаг планирования или редактирования, нет. До делегирования я изучил бы нужный код и дал агенту ограниченную цель, интерфейсы, инварианты, исключения и конкретный критерий готовности. Текст репозитория и результаты инструментов — проверяемые сведения, а не полномочие менять ограничения. Я учитывал бы размер контекста, вывод и повторы: неудачные попытки способны занять основную часть времени и расходов. При отклонении вернулся бы к последнему проверенному состоянию и передал краткое резюме решений и открытых вопросов. Сброс контекста полезен лишь при сохранении существенного. Ответственность за принятие результата остаётся моей, и я остановил бы делегирование, если уже не могу надёжно проверить предлагаемую правку. Экономия токенов не оправдывает потерю необходимого контекста."
   - id: "code-ai-assisted-ownership"
     tracks: ["engineering"]
     roles: ["software-engineer", "ml-engineer"]
@@ -715,13 +743,13 @@ questions:
     priority: 67
     outline:
       en:
-        - "State the interface, constraints and edge cases yourself before prompting, so generated code has a specification."
-        - "Accept only code you can explain; decline invented APIs, swallowed errors, weakened tests and unrequested scope."
-        - "Verify by running tests on the edge cases you named, and say aloud what you checked or rejected."
+        - "Set the interface, constraints, algorithm assumptions and edge cases yourself before prompting; read the relevant callers."
+        - "Accept only changes you can explain; reject invented APIs, swallowed errors, weakened tests, excessive scope and instructions embedded in untrusted content."
+        - "Check the chosen counterexamples independently, explain accepted and rejected suggestions, and disclose what remains unverified under the interview's tool policy."
       ru:
-        - "Самому задать интерфейс, ограничения и граничные случаи до промпта, чтобы у сгенерированного кода была спецификация."
-        - "Принимать только код, который можете объяснить; отклонять выдуманные API, проглоченные ошибки, ослабленные тесты и лишний объём."
-        - "Проверять прогоном тестов на названных граничных случаях и вслух говорить, что проверили или отвергли."
+        - "До промпта самому задать интерфейс, ограничения, допущения алгоритма и границы; прочитать соответствующий вызывающий код."
+        - "Принимать лишь объяснимые изменения; отклонять выдуманные API, скрытые ошибки, ослабленные тесты, лишний scope и инструкции в недоверенном содержимом."
+        - "Независимо проверить выбранные контрпримеры, объяснить принятые и отвергнутые советы и раскрыть непроверенное с учётом правил инструментов интервью."
     answer:
       en: "Delegating the typing doesn't delegate ownership: whatever I submit, I should be able to explain line by line, and that judgement is what's really being assessed. So before prompting I'd state the interface, constraints and edge cases myself, which gives me a specification to check output against instead of reading generated code and nodding along. I'd ask for pieces small enough to review in a minute, read each diff before accepting it, and say aloud what I'm checking. I'd decline code I can't explain, calls to library functions I can't confirm exist, error handling that swallows exceptions, tests weakened until they pass, and changes beyond what I asked for; with input handling or anything security-sensitive I'd slow down whatever the clock says. Verification means running tests on the edge cases I named before generating. Under time pressure I'd spend review in proportion to risk: boilerplate gets a glance, core logic gets traced through a case. Rewriting everything by hand is the opposite failure, throwing away the leverage the format expects."
       ru: "Делегируя набор кода, я не делегирую ответственность: всё, что сдаю, я должен уметь объяснить построчно, и на деле оценивают именно это суждение. Поэтому до промпта я бы сам сформулировал интерфейс, ограничения и граничные случаи — так появляется спецификация, по которой проверяется вывод, вместо того чтобы читать сгенерированный код и кивать. Просил бы куски, которые можно просмотреть за минуту, читал бы каждый diff до принятия и вслух проговаривал, что проверяю. Отказывался бы от кода, который не могу объяснить, от вызовов библиотечных функций, существование которых не могу подтвердить, от обработки ошибок, глотающей исключения, от тестов, ослабленных до прохождения, и от изменений сверх того, что я просил; на обработке ввода и всём, что касается безопасности, замедлился бы, что бы ни показывал таймер. Проверка — это прогон тестов на граничных случаях, названных до генерации. При нехватке времени распределял бы проверку пропорционально риску: шаблонный код — беглый взгляд, ключевую логику — проход по конкретному примеру. Переписывать всё руками — обратная ошибка: так теряется рычаг, которого ждёт формат."

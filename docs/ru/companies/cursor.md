@@ -27,13 +27,13 @@ AI-native продукты · Международный · Этапы пров�
 ### [Практический кодинг](../themes/coding-practical.md)
 
 - **[В клоне репозитория продукта реализуйте структуру данных, которую продукт действительно использует; к AI обращайтесь только с точечными вопросами по синтаксису.](../themes/coding-practical.md#code-product-structure)**
-  - Кодинг · Где спрашивали: Cursor (Anysphere) 🗣
+  - Кодинг · Где спрашивали: Cursor (Anysphere) 🗣 · ✍ [Ответ](../answers/engineering.md#code-product-structure)
   - Что проверяет: Умение разобраться в незнакомом реальном коде и правильно реализовать ключевую структуру.
   - Сильный ответ покрывает:
-    - Выяснить, как продукт использует структуру: вызывающий код, нужные операции, их частоту и существующие тесты.
-    - Выбрать представление и инварианты исходя из этих операций и назвать сложность каждой из них.
-    - Следовать соглашениям репозитория, обращаться к AI только по синтаксису и проверить граничные случаи вызывающего кода.
-  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
+    - Найти вызывающий код, нужные операции, их частоту и тесты; вывести представление из этого контракта.
+    - Задать инварианты и затраты времени/памяти; проверить выбор дублями, пустым входом и изменённым ограничением.
+    - Соблюдать соглашения репозитория и проверять поведение у вызывающего кода; помощь AI ограничить вопросами синтаксиса, разрешёнными в описанной сессии.
+  - Читать: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers) · [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/) (Robert Sedgewick and Kevin Wayne, Princeton University)
 - **[Получив реальную кодовую базу на рабочий день, решите, что построить, выпустите это и объясните свои решения и компромиссы.](../themes/coding-practical.md#code-self-scoped-onsite)**
   - Прикладной сценарий · Где спрашивали: Cursor (Anysphere) 🗣
   - Что проверяет: Умение самому определить объём работы, довести её до результата и защитить без пошаговых указаний.

@@ -72,6 +72,7 @@
     - Спросить, какие отказы обходятся дороже всего и какое решение изменило бы раннее предупреждение.
     - Проверить, размечены ли отказы в данных датчиков и журналах ремонта, и сопоставить цену ложной тревоги с пропущенной поломкой.
     - Завершить пилотом на части парка, сравнив внеплановые простои и затраты с сопоставимыми локомотивами.
+  - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="app-city-traffic"></a>**Как бы вы спроектировали систему улучшения дорожного движения в Нью-Йорке?**
   - System design · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-city-traffic&title=%5BCorrection%5D%20app-city-traffic)
   - Что проверяет: Умеете ли вы разложить неопределённую городскую задачу на измеримые меры.
@@ -79,6 +80,7 @@
     - Уточнить, что значит улучшить движение и для кого: время в пути, безопасность, выбросы, автобусы или грузы.
     - Выбрать рычаги, которыми система реально управляет, например фазы светофоров или выделенные полосы, и данные для них.
     - Оценить один коридор против сопоставимого контрольного, следя за вытеснением потока на соседние улицы.
+  - Читать: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="app-employee-sync"></a>**Спроектируйте синхронизацию двух систем с данными о сотрудниках.**
   - System design · Senior · Где спрашивали: [Palantir](../companies/palantir.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-employee-sync&title=%5BCorrection%5D%20app-employee-sync)
   - Что проверяет: Умеете ли вы определить владельца записи, правила конфликтов и восстановление.
@@ -94,6 +96,7 @@
     - Сначала выяснить полевые ограничения: связь, заряд, перчатки, освещение и кто именно ведёт записи.
     - Проектировать запись для работы без сети, с координатами, временем и фото, а конфликты синхронизации разбирать позже.
     - Хранить подсказку модели отдельно от определения наблюдателя и сверять выборку записей с экспертами.
+  - Читать: [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first) (Android Developers)
 - <a id="app-open-model-engagement"></a>**Клиент хочет заменить API закрытой передовой модели открытой моделью. Как вы организуете проект?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-open-model-engagement&title=%5BCorrection%5D%20app-open-model-engagement)
   - Что проверяет: Проверяет ли план миграции качество, эксплуатационные расходы и предположения об ответственности.
@@ -117,6 +120,7 @@
     - Назвать предположения о нагрузке: страниц на документ, токенов на страницу, проходов и вопросов на документ.
     - Сравнить стоимость модели со временем проверки юристами, которое может доминировать, и найти узкое место по срокам.
     - Первым проверить то, что снижает главную статью затрат, например сортировку документов для проверки, на размеченной выборке.
+  - Читать: [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services)
 - <a id="app-missed-contract-clause"></a>**Юрист сообщает, что ассистент пропустил условие о смене контроля при проверке договора. Как вы разберёте случай?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-missed-contract-clause&title=%5BCorrection%5D%20app-missed-contract-clause)
   - Что проверяет: Умеете ли вы проследить ошибку от загрузки и поиска до анализа и проверки.
@@ -132,6 +136,7 @@
     - Спросить, какие инструменты и данные есть и что аналитик должен решать по каждому сигналу.
     - Начать с одной закономерности: необычные сделки связанных счетов перед существенными объявлениями, влияющими на цену.
     - Проверить на подтверждённых прошлых случаях и ограничить поток сигналов тем, что аналитики успевают разобрать.
+  - Читать: [Insider Trading Detection: FINRA’s Vital Role in Ensuring Market Integrity](https://www.finra.org/media-center/finra-unscripted/insider-trading-detection-program-update) (FINRA)
 
 ## <a id="track-engineering"></a>AI-инженерия
 
@@ -142,6 +147,7 @@
     - Спросить, кто пользователь у клиента и какую задачу из его дня продукт берёт на себя.
     - Собирать на штатных возможностях продукта, как сделал бы клиент, а не на своём коде в обход них.
     - Показать сценарий целиком на реалистичных данных, включая сбой и то, как пользователь из него выходит.
+  - Читать: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 - <a id="app-customer-case-call"></a>**Проведите ограниченный по времени звонок с условным клиентом: выясните настоящую проблему, предложите подход и договоритесь о следующих шагах.**
   - Прикладной сценарий · Где спрашивали: [Cognition](../companies/cognition.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-customer-case-call&title=%5BCorrection%5D%20app-customer-case-call)
   - Что проверяет: Умение вести разговор с клиентом в условиях нехватки времени и прийти к конкретному плану.
@@ -149,6 +155,7 @@
     - Начать с вопросов о нужном результате, текущем процессе и о том, кто принимает решение.
     - Предложить минимальный подход, проверяющий их главный риск, и назвать, чего делать не будете.
     - Закончить следующими шагами с датами, ответственными, критериями успеха и данными, которые они пришлют.
+  - Читать: [User Needs + Defining Success](https://pair.withgoogle.com/guidebook-v2/chapter/user-needs/) (Google PAIR) · [How to recruit UX Research participants](https://handbook.gitlab.com/handbook/upstream-studios/experience-research/recruiting-participants/) (GitLab Handbook)
 - <a id="app-learn-then-design"></a>**За несколько минут встройте незнакомую библиотеку в существующую систему, затем спроектируйте систему вокруг неё с учётом масштаба, хранения данных и отказов.**
   - Прикладной сценарий · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-learn-then-design&title=%5BCorrection%5D%20app-learn-then-design)
   - Что проверяет: Умение быстро освоить незнакомый инструмент и перенести его в обоснованные проектные решения.
@@ -175,6 +182,7 @@
     - Выяснить, кто аудитория и какое её решение должен помочь принять этот результат.
     - Жертвовать деталями, но не точностью: одна честная аналогия, что измеряли и с чем сравнивали.
     - Назвать, чего результат не показывает, и проверить, что слушатели могут пересказать его пределы.
+  - Читать: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="app-decline-migration"></a>**Потенциальный клиент уже использует GPU H100. В каких случаях вы посоветуете сохранить текущую систему?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-decline-migration&title=%5BCorrection%5D%20app-decline-migration)
   - Что проверяет: Умеете ли вы отказаться от миграции, если экономика клиента её не оправдывает.
@@ -182,6 +190,7 @@
     - Спросить, что вызвало разговор: стоимость, нехватка мощностей, задержка или давление поставщика.
     - Сравнить стоимость полезного результата с учётом затрат на миграцию, риска портирования и оставшихся обязательств по оборудованию.
     - Советовать сохранить систему, если выигрыш не покрывает затрат на переход, и назвать, что заставит вернуться к вопросу.
+  - Читать: [Cost Optimization Pillar — AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) (Amazon Web Services) · [Managing technical lock-in in the cloud](https://www.gov.uk/guidance/managing-technical-lock-in-in-the-cloud) (Government Digital Service and Central Digital and Data Office)
 - <a id="app-hospital-scheduling"></a>**Сеть клиник вручную записывает пациентов на амбулаторный приём по телефону. Что вы предложите создать?**
   - Прикладной сценарий · Senior · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-hospital-scheduling&title=%5BCorrection%5D%20app-hospital-scheduling)
   - Что проверяет: Учитываете ли вы рабочий процесс, интеграцию и безопасную обработку исключений.
@@ -189,6 +198,7 @@
     - Спросить, как запись устроена сейчас: кто звонит, по каким правилам и в какой системе хранится расписание.
     - Записывать в существующую систему расписания, автоматизировать типовые записи, а срочные и медицинские вопросы передавать сотрудникам.
     - Запустить пилот в одной клинике, измеряя завершённые записи, неявки и правильность эскалаций относительно телефонного процесса.
+  - Читать: [NHS service standard](https://service-manual.nhs.uk/standards-and-technology/service-standard) (NHS Digital Service Manual)
 - <a id="app-contact-centre"></a>**Контакт-центр хочет заменить телефонное меню голосовыми агентами. Как вы проведёте проект?**
   - Прикладной сценарий · Senior · ✍ [Ответ](../answers/leadership.md#app-contact-centre) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-contact-centre&title=%5BCorrection%5D%20app-contact-centre)
   - Что проверяет: Умеете ли вы одновременно проработать сценарии, перевод на оператора и готовность эксплуатации.

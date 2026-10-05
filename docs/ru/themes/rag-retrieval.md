@@ -75,6 +75,7 @@
     - Держать замороженный набор релевантности и снимок корпуса: стабильный результат на них оправдывает модель и указывает на новый контент или индексацию.
     - Проверить индексацию напрямую: число документов против источника, версию модели эмбеддингов у каждого вектора, сбои парсинга, полноту ANN против точного поиска.
     - Разрезать продовый трафик по возрасту и теме документов: промахи по новым терминам, которые находит лексический поиск, указывают на настоящий дрейф.
+  - Читать: [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) (Google for Developers) · [Faiss indexes](https://github.com/facebookresearch/faiss/wiki/Faiss-indexes) (Faiss maintainers)
 - <a id="rag-ann-index"></a>**Сравните точный поиск, HNSW и IVF-PQ для индекса эмбеддингов при ограничениях памяти, полноты и задержки.**
   - Знания · ✍ [Ответ](../answers/engineering.md#rag-ann-index) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-ann-index&title=%5BCorrection%5D%20rag-ann-index)
   - Что проверяет: Умение проверять приближённый поиск относительно точного эталона.
@@ -92,12 +93,13 @@
     - Проверить парсинг на выборке страниц против отрисованных оригиналов, затем оценить поиск на вопросах, ответ на которые есть только в таблицах или рисунках.
   - Читать: [Contextual Retrieval in AI Systems](https://www.anthropic.com/news/contextual-retrieval) (Anthropic)
 - <a id="rag-freshness"></a>**Спроектируйте непрерывное обновление индекса с изменениями, удалениями и запросами во время перестроения.**
-  - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-freshness&title=%5BCorrection%5D%20rag-freshness)
+  - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-freshness) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-freshness&title=%5BCorrection%5D%20rag-freshness)
   - Что проверяет: Умение задать гарантии согласованности и измеримый лаг свежести.
   - Сильный ответ покрывает:
-    - Обновлять по событиям изменений: upsert по идентификатору и версии документа с атомарной заменой всех его чанков.
-    - Учитывать удаления уже при запросе через tombstone-метки; перестраивать в новый индекс с двойной записью и затем переключать алиас.
-    - Измерять лаг от изменения в источнике до появления в поиске канареечными документами и сверять число документов в источнике и индексе.
+    - Идемпотентно применять упорядоченные изменения по ID и версии документа; задать момент видимости полного нового набора чанков.
+    - Проверять удаления и отзыв доступа при запросе; пересобирать из согласованного снимка, догонять изменения и проверять до смены read alias.
+    - Измерять задержку от источника до поиска, сверять количества, характерные запросы и права; откат не должен возвращать удалённое или запрещённое содержимое.
+  - Читать: [Aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html) (Elastic) · [Document-level access control](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview) (Microsoft Learn)
 - <a id="rag-citations"></a>**Как связать каждое фактическое утверждение ответа с подтверждающим найденным фрагментом?**
   - System design · Где спрашивали: [Perplexity](../companies/perplexity.md) † · ✍ [Ответ](../answers/engineering.md#rag-citations) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-citations&title=%5BCorrection%5D%20rag-citations)
   - Что проверяет: Умение проверять, подтверждает ли ссылка утверждение.
@@ -113,6 +115,7 @@
     - Объяснить провал top-k поиска: он возвращает похожие фрагменты, а не полный отфильтрованный набор, поэтому любой подсчёт — лишь выборка.
     - Направить запрос в систему учёта: управляемый запрос по статусу заказа и причине блокировки, а модель лишь переводит намерение.
     - Уточнить, что считается блокировкой из-за поставщика, показать запрос и момент среза данных и проверить на заранее известных значениях.
+  - Читать: [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763) (Lei et al., arXiv) · [Table Expressions](https://www.postgresql.org/docs/current/queries-table-expressions.html) (PostgreSQL Global Development Group)
 - <a id="rag-clinical-context"></a>**Как использовать список лекарств пациента для распознавания названий, не заставляя систему добавлять не произнесённые препараты?**
   - Прикладной сценарий · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=rag-clinical-context&title=%5BCorrection%5D%20rag-clinical-context)
   - Что проверяет: Умение учитывать риск подтверждающего смещения при использовании контекста.
@@ -120,5 +123,6 @@
     - Использовать список как ограниченное смещение декодирования в пользу акустически правдоподобных совпадений, а не как текст для вставки.
     - Защититься от подтверждающего смещения: сравнивать гипотезы со смещением и без и отправлять на проверку препараты из списка со слабой акустической опорой.
     - Проверить случаи с препаратом из списка, новым препаратом вне списка и без упоминания; подобрать силу смещения по полноте против вставок и подмен.
+  - Читать: [Improve recognition accuracy with phrase list](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/improve-accuracy-phrase-list) (Microsoft Learn) · [Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759) (World Health Organization)
 
 ← [Инференс, serving и стоимость](inference-economics.md) · [Агенты, инструменты и протоколы](agents-tools.md) →

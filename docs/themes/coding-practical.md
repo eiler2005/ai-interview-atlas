@@ -67,6 +67,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Clarify capacity, whether reads refresh recency, and whether expired entries still count until purged.
     - Use a hash map with a doubly linked list for O(1); one removal path serves expiry and eviction.
     - Test capacity one, updating an existing key, and expiry at exact boundaries with an injected clock.
+  - Read: [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation)
 - <a id="code-token-bucket"></a>**Implement a token-bucket limiter and explain what must change when several workers enforce the same limit.**
   - Coding · Asked at: [Anthropic](../companies/anthropic.md) †, [OpenAI](../companies/openai.md) † · ✍ [Answer](../answers/engineering.md#code-token-bucket) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-token-bucket&title=%5BCorrection%5D%20code-token-bucket)
   - Tests: Whether time accounting and concurrent updates preserve the quota.
@@ -90,6 +91,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Buffer across chunks, decode UTF-8 incrementally, split lines on CRLF, LF or CR, never rescanning consumed bytes.
     - Accumulate data lines into one event and parse JSON only when a blank line dispatches it.
     - Test a split at every byte offset, including inside multibyte characters, CRLF pairs and the final event.
+  - Read: [HTML Standard: Server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html) (WHATWG)
 - <a id="code-semantic-chunks"></a>**Implement overlapping text chunks that preserve semantic units; define what happens when one unit exceeds the target size.**
   - Coding · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-semantic-chunks&title=%5BCorrection%5D%20code-semantic-chunks)
   - Tests: Whether ambiguous size and boundary requirements are clarified before coding.
@@ -97,6 +99,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Clarify the size unit, tokens or characters, what counts as a semantic unit, and how overlap is measured.
     - Pack whole units greedily in one linear pass; split an oversized unit at the next finer boundary.
     - Test oversized units, empty input, overlap not smaller than the target, and lossless reconstruction from offsets.
+  - Read: [Chunk and vectorize with the Document Layout skill](https://learn.microsoft.com/en-us/azure/search/search-how-to-semantic-chunking) (Microsoft Learn)
 - <a id="code-cosine-search"></a>**Implement exact cosine similarity search over embeddings and explain the limits that would require a different production design.**
   - Coding · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-cosine-search&title=%5BCorrection%5D%20code-cosine-search)
   - Tests: Whether a correct baseline is separated from a scalable serving system.
@@ -128,30 +131,31 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Prefer cursor pagination: with offsets, concurrent inserts and deletes shift pages and cause gaps or duplicates.
     - Terminate on an absent next cursor, not a short page, and guard against a repeated cursor looping forever.
     - Validate each page, retry failures with backoff, dedupe by id; test empty results and exact page-size multiples.
+  - Read: [AIP-158: Pagination](https://google.aip.dev/158) (Google)
 - <a id="code-ai-assisted-build"></a>**Plan a product with the interviewer, then build it in about two hours with the AI coding tools of your choice and defend its design, code and path to production.**
-  - Applied scenario · Asked at: [Sierra](../companies/sierra.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-build&title=%5BCorrection%5D%20code-ai-assisted-build)
+  - Applied scenario · Asked at: [Sierra](../companies/sierra.md) ✅ · ✍ [Answer](../answers/engineering.md#code-ai-assisted-build) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-build&title=%5BCorrection%5D%20code-ai-assisted-build)
   - Tests: Whether you scope, build and defend a working product with AI assistance under a time limit.
   - A strong answer covers:
-    - Agree on the smallest end-to-end slice that demonstrates the product, and name what you will cut.
-    - Delegate well-specified pieces to the tool, read every diff, and run the app after each step.
-    - Be ready to explain each design choice and what production still needs: tests, data model, failure handling.
+    - Agree the user flow, smallest working slice, time budget and deliberate omissions before delegating bounded pieces.
+    - Give each AI task interfaces, relevant context and acceptance checks; inspect diffs and demonstrate behaviour instead of counting generated code.
+    - Defend architecture, algorithm assumptions and rejected suggestions; distinguish verified behaviour from production gaps and an unfinished prototype.
   - Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - <a id="code-agent-pr-review"></a>**Review and improve a colleague's draft pull request that adds a cross-cutting feature to an unfamiliar codebase, working alongside coding agents.**
-  - Applied scenario · Asked at: [Sierra](../companies/sierra.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-pr-review&title=%5BCorrection%5D%20code-agent-pr-review)
+  - Applied scenario · Asked at: [Sierra](../companies/sierra.md) ✅ · ✍ [Answer](../answers/engineering.md#code-agent-pr-review) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-pr-review&title=%5BCorrection%5D%20code-agent-pr-review)
   - Tests: Whether you judge someone else's change critically instead of accepting what an agent proposes.
   - A strong answer covers:
-    - Understand the intended behaviour and the codebase's conventions before reading the diff or asking an agent.
-    - Check cross-cutting risks: every call site, error paths, concurrency, migrations and missing tests.
-    - Verify each agent suggestion by running tests or reproducing it, and explain which changes you rejected.
-  - Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
+    - Trace the intended behaviour, entry points, callers and existing invariants before asking the agent to explain or change the diff.
+    - Check every affected path, especially authorisation, retries, shared state and migrations; construct a counterexample and a focused regression check.
+    - Separate observed defects from hypotheses, verify agent suggestions and explain the approval decision and residual risks; respect the session's AI limits.
+  - Read: [The AI-native interview](https://sierra.ai/blog/the-ai-native-interview) (Sierra) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog) · [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic)
 - <a id="code-product-structure"></a>**Inside a clone of the product's repository, implement a data structure the product actually uses, asking for AI help only on targeted syntax questions.**
-  - Coding · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-product-structure&title=%5BCorrection%5D%20code-product-structure)
+  - Coding · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · ✍ [Answer](../answers/engineering.md#code-product-structure) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-product-structure&title=%5BCorrection%5D%20code-product-structure)
   - Tests: Whether you can read an unfamiliar real codebase and implement a core structure correctly.
   - A strong answer covers:
-    - Find how the product uses the structure: callers, required operations, their frequency and existing tests.
-    - Choose the representation and invariants from those operations, and state each operation's complexity.
-    - Follow the repository's conventions, keep AI to syntax questions, and test the edge cases callers hit.
-  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers)
+    - Locate callers, required operations, operation frequency and tests; derive the representation from that contract.
+    - State invariants and time/memory costs, then challenge the choice with duplicate, empty and changed-constraint examples.
+    - Follow repository conventions and verify behaviour at callers; keep AI help to the targeted syntax questions permitted by this reported session.
+  - Read: [Working Inside Existing Systems](https://www.palantir.com/careers/getting-hired/working-inside-existing-systems/) (Palantir Careers) · [collections: OrderedDict objects](https://docs.python.org/3/library/collections.html#collections.OrderedDict) (Python Software Foundation) · [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/) (Robert Sedgewick and Kevin Wayne, Princeton University)
 - <a id="code-self-scoped-onsite"></a>**Given a real codebase for a working day, decide what to build, ship it, and explain your implementation choices and trade-offs.**
   - Applied scenario · Asked at: [Cursor (Anysphere)](../companies/cursor.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-self-scoped-onsite&title=%5BCorrection%5D%20code-self-scoped-onsite)
   - Tests: Whether you scope your own work, deliver it and defend it without step-by-step direction.
@@ -167,6 +171,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Clarify reference forms, ranges and self-references, and whether to report any cycle or every cell in one.
     - Build a dependency graph and run three-colour DFS or Kahn's algorithm in O(cells + references).
     - Test self-loops, long chains against recursion depth, disconnected parts, and rechecking after one formula changes.
+  - Read: [Algorithms, fourth edition: Directed Graphs](https://algs4.cs.princeton.edu/42digraph/) (Robert Sedgewick and Kevin Wayne, Princeton University)
 - <a id="code-catalogue-search-tool"></a>**Build a semantic search over a product catalogue that a chat model can call as a tool.**
   - Coding · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-catalogue-search-tool&title=%5BCorrection%5D%20code-catalogue-search-tool)
   - Tests: Whether you combine retrieval with a clear, validated tool interface that a model can use reliably.
@@ -182,6 +187,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Model credits as grants with amount, expiry and conditions, and usage as append-only ledger entries.
     - Isolate the consumption policy, such as soonest expiry first via a heap, so new rules plug in.
     - Test expiry at the exact timestamp, consumption spanning grants, insufficient balance and rebuilding balances from the ledger.
+  - Read: [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation) · [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) (PostgreSQL documentation)
 - <a id="code-pair-sum"></a>**Find a pair of numbers in an array with a given sum; clarify the conditions, test the code and discuss complexity and edge cases.**
   - Coding · Asked at: [Yandex](../companies/yandex.md) ✅ · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-pair-sum&title=%5BCorrection%5D%20code-pair-sum)
   - Tests: Whether basic data-structure fluency, testing and edge-case discipline hold up in live coding.
@@ -197,6 +203,7 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Profile on a realistic workload before changing anything, and state the input sizes that matter.
     - Replace the dominant cost with a better structure, such as a heap or interval index, keeping the interface.
     - Keep existing tests passing, add a benchmark, and report complexity and timings before and after.
+  - Read: [heapq: Heap queue algorithm](https://docs.python.org/3/library/heapq.html) (Python Software Foundation) · [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) (Google)
 - <a id="code-debug-api-service"></a>**Debug a broken API service: trace the logs, find the bottleneck and fix a memory leak.**
   - Coding · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-debug-api-service&title=%5BCorrection%5D%20code-debug-api-service)
   - Tests: Whether you debug a running service systematically from evidence rather than guesses.
@@ -212,21 +219,22 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
     - Restate each question as the result's grain: what one row represents and which rows qualify.
     - Watch for join fan-out, NULL semantics in filters and aggregates, and WHERE versus HAVING.
     - Trace each query by hand on a few sample rows, including ties, NULLs and empty groups.
+  - Read: [Table Expressions](https://www.postgresql.org/docs/current/queries-table-expressions.html) (PostgreSQL Global Development Group)
 - <a id="code-agent-session-choices"></a>**In an AI-assisted coding session, explain which models you use and why, how you watch the token budget, and how you give the agent its context and task.**
-  - Applied scenario · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
+  - Applied scenario · ✍ [Answer](../answers/engineering.md#code-agent-session-choices) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-agent-session-choices&title=%5BCorrection%5D%20code-agent-session-choices)
   - Tests: Whether you direct coding agents deliberately rather than accepting their defaults.
   - A strong answer covers:
-    - Match models to steps: a stronger model for planning and review, a faster one for routine edits.
-    - Give the agent a scoped task, the relevant files, constraints and a done criterion, not the whole repository.
-    - Track tokens through context size and retries, and restart from a short summary when the session drifts.
+    - Choose permitted models from task difficulty, observed reliability, latency and budget rather than an assumed universal ranking.
+    - Decompose into reviewable steps and supply relevant files, interfaces, invariants, exclusions and a done criterion; treat repository text as untrusted input.
+    - Track context, output and retries, preserve verified decisions in a compact handoff, and stop or recover when cost, drift or uncertainty exceeds the agreed limit.
   - Read: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 - <a id="code-ai-assisted-ownership"></a>**In an interview where you are expected to use AI tools, how do you stay accountable for code you did not write by hand, and where would you decline what the model produced?**
   - Applied scenario · Asked at: [Canva](../companies/canva.md) ✅ · ✍ [Answer](../answers/engineering.md#code-ai-assisted-ownership) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-ai-assisted-ownership&title=%5BCorrection%5D%20code-ai-assisted-ownership)
   - Tests: Whether ownership and verification survive delegation to a model under time pressure.
   - A strong answer covers:
-    - State the interface, constraints and edge cases yourself before prompting, so generated code has a specification.
-    - Accept only code you can explain; decline invented APIs, swallowed errors, weakened tests and unrequested scope.
-    - Verify by running tests on the edge cases you named, and say aloud what you checked or rejected.
+    - Set the interface, constraints, algorithm assumptions and edge cases yourself before prompting; read the relevant callers.
+    - Accept only changes you can explain; reject invented APIs, swallowed errors, weakened tests, excessive scope and instructions embedded in untrusted content.
+    - Check the chosen counterexamples independently, explain accepted and rejected suggestions, and disclose what remains unverified under the interview's tool policy.
   - Read: [Designing AI resistant technical evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) (Anthropic) · [AI Interview Success: An Interviewer's Inside Guide](https://www.canva.dev/blog/engineering/ai-interview-success/) (Canva Engineering Blog)
 
 ← [AI system design](ai-system-design.md) · [AI product strategy and metrics](ai-product-strategy.md) →

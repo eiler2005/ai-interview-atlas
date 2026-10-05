@@ -40,6 +40,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Choose a case with real stakes where reasonable people could disagree, not an obvious wrongdoing.
     - State the value through its consequences: who would be affected and how, and which options you had.
     - Describe the action you took, what it cost you, and the line you would hold next time.
+  - Read: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="beh-ai-safety-view"></a>**What do you see as the significant risks of advanced AI systems?**
   - Knowledge · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ai-safety-view&title=%5BCorrection%5D%20beh-ai-safety-view)
   - Tests: Whether you articulate a coherent, evidence-sensitive view of AI risk.
@@ -55,6 +56,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Choose the project by what changed for its users or the business, not by its technology or brand.
     - Separate what you personally decided and built from the team's work, and name the hardest call you made.
     - Close with evidence of the impact and why this project, rather than a bigger one, matters to you.
+  - Read: [Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) (Rodden, Hutchinson and Fu, Google Research)
 - <a id="beh-interpersonal-conflict"></a>**Describe a conflict with a colleague, how you handled it and what you learned.**
   - Behavioral · Senior · Asked at: [OpenAI](../companies/openai.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-interpersonal-conflict&title=%5BCorrection%5D%20beh-interpersonal-conflict)
   - Tests: Whether you understand the other person's perspective and your own part in the conflict.
@@ -62,6 +64,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Pick a conflict in which your own behaviour contributed, not one where the colleague was simply difficult.
     - Restate the colleague's view as they would, including the pressure they were under, before your own.
     - Close with how the working relationship stood afterwards and what you now do differently yourself.
+  - Read: [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - <a id="beh-research-priorities"></a>**Describe a disagreement with a researcher or technical lead about priorities and what followed.**
   - Behavioral · Senior · Asked at: [Google and Google DeepMind](../companies/google.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-research-priorities&title=%5BCorrection%5D%20beh-research-priorities)
   - Tests: Whether you can reason across research and engineering incentives.
@@ -69,6 +72,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Pick a dispute over priorities where research and engineering goals genuinely pulled in different directions.
     - Explain what each side was rewarded for — new findings or reliable delivery — and what each choice cost.
     - Show how it was settled, for example by a time-boxed experiment, and what followed for both sides.
+  - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - <a id="beh-ml-project-obstacles"></a>**Describe a project that used data and machine learning. What obstacles did you encounter?**
   - Behavioral · Senior · Asked at: [Meta](../companies/meta.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ml-project-obstacles&title=%5BCorrection%5D%20beh-ml-project-obstacles)
   - Tests: Whether you connect technical obstacles to actions and delivered outcomes.
@@ -84,6 +88,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Choose a case where the goal or the problem itself was unclear, not just resources or time.
     - Show which unknown you resolved first, with what small decision or probe, and how feedback changed the plan.
     - Close with the meaningful result and the evidence that you had solved the right problem.
+  - Read: [How the alpha phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) (Government Digital Service)
 - <a id="beh-wrong-technical-choice"></a>**Describe a technical decision you championed that turned out to be wrong.**
   - Behavioral · Senior · Asked at: [Microsoft](../companies/microsoft.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-wrong-technical-choice&title=%5BCorrection%5D%20beh-wrong-technical-choice)
   - Tests: Whether you can reverse a position and repair its consequences.
@@ -115,6 +120,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Locate the difficulty in the problem's constraints — scale, latency, correctness, legacy — not in the technology's name.
     - Walk through the hardest decision, the alternatives you rejected, and your personal part in it.
     - Give a specific change you would make today, grounded in what production later revealed.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - <a id="beh-ml-business-impact"></a>**Describe one model you shipped that improved a business outcome and another that did not.**
   - Behavioral · Senior · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-ml-business-impact&title=%5BCorrection%5D%20beh-ml-business-impact)
   - Tests: Whether you distinguish deployment from realised value and can explain the difference.
@@ -130,6 +136,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Pick a sacrifice others could see, such as a delayed feature or a missed short-term target.
     - Explain the bet: the expected long-term benefit, how you argued for it, and who accepted the cost.
     - Close by showing whether the benefit materialised, with evidence, and say so plainly if it only partly did.
+  - Read: [The Green Book (2026)](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) (HM Treasury)
 - <a id="beh-customer-pushback"></a>**Describe a time you pushed back on a customer's request.**
   - Behavioral · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-customer-pushback&title=%5BCorrection%5D%20beh-customer-pushback)
   - Tests: Whether you protect the customer's underlying goal while challenging a proposed solution.
@@ -137,6 +144,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Choose a request where the customer's proposed solution would have hurt their own underlying goal.
     - Show how you uncovered the goal behind the request and offered an alternative that served it better.
     - Close with what the customer decided, how the relationship held, and evidence the goal was met.
+  - Read: [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 - <a id="beh-sensitive-mission"></a>**How do you think about work for defence or intelligence customers, and what would you do if a requested project conflicted with your values?**
   - Behavioral · Senior · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-sensitive-mission&title=%5BCorrection%5D%20beh-sensitive-mission)
   - Tests: Whether you reason about concrete boundaries and professional responsibility.
@@ -144,6 +152,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - State your actual position on defence and intelligence work and its reasoning, whichever way it points.
     - Draw a concrete boundary — which uses, what oversight, whose decision — rather than a general statement of values.
     - Lay out your steps on conflict: raise it, escalate, leave the project, and when you would quit.
+  - Read: [Data and AI Ethics Framework](https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework) (Government Digital Service)
 - <a id="beh-critical-feedback"></a>**Describe feedback that was difficult for you to hear and what you did with it.**
   - Behavioral · Senior · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/leadership.md#beh-critical-feedback) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-critical-feedback&title=%5BCorrection%5D%20beh-critical-feedback)
   - Tests: Whether you can respond to criticism with specific learning and action.
@@ -170,6 +179,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Answer honestly, naming what actually holds you to this work: the mission, the problems, the people.
     - Distinguish needing a fair salary from depending on equity upside, and admit that pay matters.
     - Back it with a past choice, if you have one, where the work outweighed the money.
+  - Read: [Compensation at Gitlab](https://handbook.gitlab.com/handbook/total-rewards/compensation/) (GitLab Handbook)
 
 ## <a id="track-leadership"></a>AI Leadership
 
@@ -204,6 +214,7 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Pick a failure that is truly large and rooted in your own product judgement, not in others' execution.
     - Reconstruct what you believed then, which signal you discounted, and what it cost users and the business.
     - Close with the practice you changed, such as how you validate demand, and a later decision it improved.
+  - Read: [Postmortem Culture: Learning from Failure](https://sre.google/sre-book/postmortem-culture/) (Google)
 - <a id="beh-might-not-succeed"></a>**What might keep you from succeeding in this job?**
   - Self-presentation · Asked at: [Palantir](../companies/palantir.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-might-not-succeed&title=%5BCorrection%5D%20beh-might-not-succeed)
   - Tests: Whether you assess your fit for an ambiguous, customer-facing role honestly.
@@ -211,5 +222,6 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
     - Name a real risk tied to this role's demands — ambiguity, customer pressure, context switching — not a disguised strength.
     - Pick a risk that matters but is not disqualifying, and explain how it has shown up before.
     - Describe how you mitigate it in practice and what early signal would tell your manager it is happening.
+  - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
 
 ← [Payments and regulated domains](domain-payments-fintech.md)

@@ -2,6 +2,22 @@
 
 [English](CHANGELOG.md) · [Русский](docs/ru/CHANGELOG.md)
 
+## Unreleased — 2026-10-05: content expansion and source-aligned Leadership
+
+### Added
+
+- 18 EN/RU answer pairs, taking the priority set to 82 Engineering and 76 Leadership questions. Twelve answers deepen existing Engineering coverage; six support Leadership, including five new generated questions on portfolio allocation, vendor exit, management through managers, stopping investment and an incident without rollback.
+- Reading for all 60 questions previously without it and primary reading for the five additions. The bank now contains 299 questions across 17 themes, all with EN/RU checklists and reading; 158 have written answers. The source registry grows from 207 to 247, with dates and scope limits.
+- EN/RU coverage audits, a learning roadmap, specialised guides and a content expansion plan. The eight-week baseline tables remain intact; specialised routes focus on questions, explanations, checklists and reading. No Python exercise package, labs or automated evaluator was added.
+- Official general TPM stages on Amazon's company page, kept separate from the secondary AI-PM path. General Director process research is documented with its scope limits; no new company is inferred from same-publisher material alone.
+
+### Changed
+
+- Three Google EM prompts now preserve their source's hypothetical versus actual-experience distinction; the Stripe strategic-hiring prompt now asks about a real past hire. Stable IDs and evidence kinds remain unchanged; tests, outlines and EN/RU answers were revised together.
+- The existing generated hiring-redesign question gains priority L76 and an answer with stage-specific AI-tool policies, comparable conditions and calibration limits. Existing priorities retain their order.
+- Audits distinguish their 294-question baseline from current additions. The 155-question Leadership semantic review and 20 source checks do not claim full factual verification of the current bank. The unavailable Meta EM report remains unverified on the new access attempt.
+- New and revised public content was authored by actual GPT-6 Astra. Independent review is a separate step for these exact versions; historical review statements below apply to their dated content. Local PDF evidence still refers to the October 2 builds and does not establish publication of this expansion.
+
 ## Unreleased — 2026-10-02 checklists for every question, a third batch of answers and deeper answers
 
 ### Added

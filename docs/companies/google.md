@@ -18,10 +18,10 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
 | Stage | What happens | Basis |
 | --- | --- | --- |
 | Engineering manager path | Recruiter screen, a technical phone screen with coding, then an onsite with coding, system design and leadership interviews; a hiring committee reviews the feedback and team matching follows. | † prep guide or compilation<br>[Google Engineering Manager (EM) Interview Guide](https://www.tryexponent.com/guides/google-engineering-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
-| Engineering manager report (L6) | Googleyness and behavioral questions (a team disagreement, attrition during a reorganisation), two system design rounds pushed down to implementation detail, an EM round on low performers, and a must-pass code review and debugging round on 200+ lines in a shared document without an IDE. | 🗣 candidate report<br>[Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, retrieved 2026-09-26 |
+| Engineering manager report (L6) | Googleyness and behavioral questions (a team disagreement, attrition during a reorganisation), two system design rounds pushed down to implementation detail, an EM round on low performers, and a must-pass code review and debugging round on 200+ lines in a shared document without an IDE. | 🗣 candidate report<br>[Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, retrieved 2026-10-05 |
 | Gemini product manager path | Recruiter and hiring manager screens on AI-first thinking, a product design round with about 15 minutes of vibe-coding a prototype, an execution and strategy round on debugging LLM systems, a generative-AI system design round and a leadership round. | † prep guide or compilation<br>[Gemini Product Manager Interview Guide](https://www.tryexponent.com/guides/gemini-product-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26 |
 
-**Coding:** varies by role. One EM candidate reports code review/debugging; AI prototyping for PMs is a secondary-guide claim. Confirm your role's format. ([Google Engineering Manager (EM) Interview Guide](https://www.tryexponent.com/guides/google-engineering-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26, [Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, retrieved 2026-09-26, [Gemini Product Manager Interview Guide](https://www.tryexponent.com/guides/gemini-product-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26)
+**Coding:** varies by role. One EM candidate reports code review/debugging; AI prototyping for PMs is a secondary-guide claim. Confirm your role's format. ([Google Engineering Manager (EM) Interview Guide](https://www.tryexponent.com/guides/google-engineering-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26, [Google Engineering Manager (L6) Interview Experience](https://www.tryexponent.com/experiences/google-staff-engineering-manager-interview-fd33b1), Aced (formerly Exponent), candidate report, retrieved 2026-10-05, [Gemini Product Manager Interview Guide](https://www.tryexponent.com/guides/gemini-product-manager-interview), Aced (formerly Exponent), retrieved 2026-09-26)
 
 ## <a id="questions"></a>Questions reported for Google and Google DeepMind
 
@@ -144,29 +144,29 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
 
 ### [Leading engineering teams](../themes/engineering-leadership.md)
 
-- **[Tell me how you handled an engineer who was not meeting expectations.](../themes/engineering-leadership.md#lead-low-performance)**
-  - Behavioral · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-low-performance)
-  - Tests: Whether you diagnose performance fairly and make expectations actionable.
+- **[How would you handle an engineer who is not meeting performance expectations?](../themes/engineering-leadership.md#lead-low-performance)**
+  - Applied scenario · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-low-performance)
+  - Tests: Whether you diagnose a performance gap, provide fair support and make expectations and follow-up explicit.
   - A strong answer covers:
-    - Identify the performance gap using observable examples.
-    - Explain the feedback, listening and support you provided.
-    - Describe agreed next steps and the follow-up result.
+    - Establish observable expectations and examples of the gap; check role clarity and working conditions.
+    - Hear the engineer’s account, agree support and define measurable improvement with review dates.
+    - Follow the organisation’s people process, distinguish improvement from reassignment or exit, and protect confidentiality.
   - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
-- **[How did you handle a high-performing engineer whose behaviour caused conflict with colleagues?](../themes/engineering-leadership.md#lead-disruptive-star)**
-  - Behavioral · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-disruptive-star)
-  - Tests: Whether you hold performance and collaboration to explicit standards.
+- **[How would you handle a high-performing engineer whose behaviour repeatedly creates conflict with teammates?](../themes/engineering-leadership.md#lead-disruptive-star)**
+  - Applied scenario · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-disruptive-star)
+  - Tests: Whether you address observable collaboration problems without exempting high performers or deciding the case before hearing those involved.
   - A strong answer covers:
-    - Separate technical results from the impact of specific behaviour.
-    - Explain your feedback and how you heard their perspective.
-    - Describe agreed behaviour changes and subsequent observations.
+    - Establish specific behaviour and team impact; hear different accounts without public blame.
+    - Explain that collaboration is part of performance and agree observable changes and support.
+    - Review both delivery and collaboration; use the established people process if harmful behaviour persists.
   - Read: [[re:Work] Google's New Manager Training Slides](https://docs.google.com/presentation/d/13-rj7ZqlyuHNli9Ybd5D8g-qqUNtG81t3JLq7JV5c2o/htmlpresent) (Google re:Work)
-- **[How would you respond when a high performer considers leaving during a reorganisation?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
-  - Applied scenario · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-reorganisation-retention)
-  - Tests: Whether you listen honestly and address retention without making promises you cannot keep.
+- **[Tell me about a difficult organisational change you managed that involved high-performing engineers leaving. How did you respond?](../themes/engineering-leadership.md#lead-reorganisation-retention)**
+  - Behavioral · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-reorganisation-retention)
+  - Tests: Whether you can explain actual attrition, your responsibility and the effect of your response on the remaining team.
   - A strong answer covers:
-    - Understand the person's concerns and separate change uncertainty from persistent problems.
-    - Explain what is known, what you can change and what remains undecided.
-    - Discuss feasible support, surface unresolved concerns and agree a follow-up.
+    - Use a real change and actual departures; state your authority and distinguish known reasons from inference.
+    - Explain how remaining engineers reacted and what you changed in workload, communication or management practice.
+    - Give follow-up evidence, limits of attribution and what you would handle differently.
   - Read: [Organizational Change Management](https://handbook.gitlab.com/handbook/people-group/organizational-change-management/) (GitLab Handbook)
 - **[How would you stabilise an engineering team after a change in management?](../themes/engineering-leadership.md#lead-team-after-change)**
   - Applied scenario · Senior · Asked at: Google and Google DeepMind 🗣 · ✍ [Answer](../answers/leadership.md#lead-team-after-change)
@@ -194,5 +194,6 @@ On this page: [Interview loop](#loop) · [Questions (18)](#questions)
     - Pick a dispute over priorities where research and engineering goals genuinely pulled in different directions.
     - Explain what each side was rewarded for — new findings or reliable delivery — and what each choice cost.
     - Show how it was settled, for example by a time-boxed experiment, and what followed for both sides.
+  - Read: [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) (Industrial Empathy) · [Communication](https://handbook.gitlab.com/handbook/communication/) (GitLab Handbook)
 
 ← [Canva](canva.md) · [Meta](meta.md) →

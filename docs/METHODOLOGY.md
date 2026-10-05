@@ -13,7 +13,7 @@ A question can belong to both tracks. The same topic is asked differently: an en
 
 The [AI roles guide](AI_ROLES.md) groups these roles into six families, each with a page. A question appears there as *reported for these roles* only when its source names the role; a role tag without such a source is an editorial choice for practice. Likewise a company loop stage is shown on a role page only when its source reports it for that role.
 
-Company pages may also include general software-engineering or product-management interview baselines, explicitly labelled as such. A general-role guide does not establish a specialist AI loop. Separate documents from one publisher count as separate sources, not independent corroboration; translated copies and mirrors do not add another source.
+Company pages may also include general software-engineering, product-management, Director or TPM interview baselines, explicitly labelled as such. A general-role guide does not establish a specialist AI loop. Separate documents from one publisher count as separate sources, not independent corroboration; translated copies and mirrors do not add another source.
 
 ## Sources
 
@@ -44,7 +44,7 @@ We read sources without logging in, bypassing a CAPTCHA or scraping against a si
 
 ## Questions and answers
 
-Each question states what it tests and lists what a strong answer covers; priority questions, and many others, also say what to read, and priority questions have a written answer. These outlines are checklists grounded in primary material where reading is listed, not scripts; interviewers reward your own reasoning and your real examples. Numbers in outlines come from the cited reading or are marked as estimates.
+Each question states what it tests, lists what a strong answer covers and provides reading. Priority questions have a written answer. These outlines are checklists grounded in primary material where reading is listed, not scripts; interviewers reward your own reasoning and your real examples. Numbers in outlines come from the cited reading or are marked as estimates.
 
 Coding appears only where a company source or candidate reports show that the loop includes it. Leadership candidates should read the practical coding questions anyway: many loops ask them to review or reason about such code.
 
@@ -57,6 +57,14 @@ A model reads responsibilities and requirements against written theme criteria a
 A posting counts once per theme, including explicitly requested optional experience. Theme demand and current AI ownership are different measures: a role may request prior AI experience without explicitly owning AI work. The ownership count requires an explicit remit for AI/ML products, features, models, teams or infrastructure; personal AI-tool use and company boilerplate do not qualify. Conservative exclusions resolve ambiguous ownership. These judgments remain subject to sampling and classification error.
 
 Only aggregates are published: no employer names, job titles, quotes, links or identifiers. A theme is shown for a track only when at least five postings mention it and the track has at least twenty postings, so a track with a thin sample is left out rather than guessed.
+
+## Content expansion of 2026-10-05
+
+The current edition contains 299 questions with EN/RU checklists and reading, and 158 priority questions with EN/RU answers: 82 Engineering and 76 Leadership priorities. Five new Leadership scenarios are explicitly generated from eligible radar themes, with editorial role authority and no employer attribution. The original priorities retain their order. New and revised public content in this iteration was authored by actual GPT-6 Astra; the radar's earlier author history above is unchanged.
+
+Coverage audits retain their baseline counts and source-check results separately from current-content addenda. A semantic review checks whether the prompt, type, outline, answer and role scope agree. A source check separately compares the prompt with readable source content. Adding reading, an explanation or an official general-role process cannot upgrade an unrelated question's evidence. Official role-family pages support interview stages only where an actual hiring-process section says so; responsibilities alone remain role information. Behavioural answers coach truthful experience, while hypothetical answers explain a proposed decision.
+
+A failed access attempt is recorded as unavailable and does not advance the last successful retrieval date. A redirect to the same readable document may support a new retrieval date without changing its kind or treating the mirror as independent corroboration. Publication dates, page updates, interview dates and retrieval dates are distinct.
 
 ## Freshness and review
 
