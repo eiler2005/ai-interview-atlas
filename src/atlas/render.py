@@ -309,6 +309,7 @@ LABELS = {
         "theme_summary": "What it covers",
         "reference": "Reference",
         "reference_items": [
+            ("careers", "Careers ahead", "emerging roles and practical interview preparation"),
             ("common", "Asked across companies", "questions reported at two or more companies"),
             ("radar", "Requirements radar", "what job postings ask for, by theme"),
             ("learning_path", "Learning path", "a study curriculum with weekly practice"),
@@ -738,6 +739,7 @@ LABELS = {
         "theme_summary": "О чём",
         "reference": "Справка",
         "reference_items": [
+            ("careers", "Профессии будущего", "новые роли и практическая подготовка к интервью"),
             (
                 "common",
                 "Спрашивают в нескольких компаниях",
@@ -1608,6 +1610,9 @@ class Renderer:
                 f"[{reference_name(lang, key)}]({rel(page, f'{base(lang)}/{key.upper()}.md')})"
             )
         items.append(f"[PDF]({RELEASES})")
+        items.append(
+            f"[{reference_name(lang, 'careers')}]({rel(page, f'{base(lang)}/careers/README.md')})"
+        )
         return f"{labels['navigate']} " + " · ".join(items)
 
     @staticmethod
@@ -1690,6 +1695,7 @@ class Renderer:
             "radar": radar_page(lang) if content.radar else None,
             "learning_path": f"{base(lang)}/LEARNING_PATH.md",
             "ai_roles": f"{base(lang)}/AI_ROLES.md",
+            "careers": f"{base(lang)}/careers/README.md",
             "reasoning_models": f"{base(lang)}/REASONING_MODELS.md",
             "methodology": methodology_page(lang),
             "sources": sources_page(lang),

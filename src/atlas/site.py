@@ -70,6 +70,14 @@ def section(lang: str, renderer: Renderer) -> list[dict]:
         {reference_name(lang, "reasoning_models"): in_docs(f"{base(lang)}/REASONING_MODELS.md")}
     )
     menu.append({labels["start_name"]: start})
+    menu.append(
+        {
+            reference_name(lang, "careers"): [
+                {labels["map"]: in_docs(f"{base(lang)}/careers/README.md")},
+                {"Forward Deployed Engineer": in_docs(f"{base(lang)}/careers/fde.md")},
+            ]
+        }
+    )
     answered = [t for t in TRACKS if renderer.answered(lang, t)]
     if answered:
         menu.append(

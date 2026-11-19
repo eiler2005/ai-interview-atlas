@@ -56,6 +56,7 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 
 ## <a id="reference"></a>Reference
 
+- [Careers ahead](careers/README.md): emerging roles and practical interview preparation.
 - [Asked across companies](common.md): questions reported at two or more companies.
 - [Requirements radar](radar.md): what job postings ask for, by theme.
 - [Learning path](LEARNING_PATH.md): a study curriculum with weekly practice.

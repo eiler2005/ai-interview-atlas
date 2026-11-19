@@ -14,7 +14,7 @@ English · [Русский](README.ru.md)
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
 [![PDF editions](https://img.shields.io/badge/PDF-editions-137c80)](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
 
-**Navigate:** [Map of the atlas](docs/README.md) · [Start: AI Engineering](docs/start/engineering.md) · [Start: AI Leadership](docs/start/leadership.md) · [Themes](#themes) · [Companies](#companies) · [Learning path](docs/LEARNING_PATH.md) · [AI roles](docs/AI_ROLES.md) · [Reasoning models](docs/REASONING_MODELS.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
+**Navigate:** [Map of the atlas](docs/README.md) · [Start: AI Engineering](docs/start/engineering.md) · [Start: AI Leadership](docs/start/leadership.md) · [Themes](#themes) · [Companies](#companies) · [Learning path](docs/LEARNING_PATH.md) · [AI roles](docs/AI_ROLES.md) · [Reasoning models](docs/REASONING_MODELS.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest) · [Careers ahead](docs/careers/README.md)
 
 **Prepare for AI interviews with attributed questions, practice prompts and primary reading.**
 

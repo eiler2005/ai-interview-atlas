@@ -14,7 +14,7 @@
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
 [![PDF editions](https://img.shields.io/badge/PDF-editions-137c80)](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
 
-**Навигация:** [Карта атласа](docs/ru/README.md) · [С чего начать: AI-инженерия](docs/ru/start/engineering.md) · [С чего начать: AI-лидерство](docs/ru/start/leadership.md) · [Темы](#темы) · [Компании](#компании) · [Учебный план](docs/ru/LEARNING_PATH.md) · [Профессии в AI](docs/ru/AI_ROLES.md) · [Reasoning-модели](docs/ru/REASONING_MODELS.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
+**Навигация:** [Карта атласа](docs/ru/README.md) · [С чего начать: AI-инженерия](docs/ru/start/engineering.md) · [С чего начать: AI-лидерство](docs/ru/start/leadership.md) · [Темы](#темы) · [Компании](#компании) · [Учебный план](docs/ru/LEARNING_PATH.md) · [Профессии в AI](docs/ru/AI_ROLES.md) · [Reasoning-модели](docs/ru/REASONING_MODELS.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest) · [Профессии будущего](docs/ru/careers/README.md)
 
 **Готовьтесь к AI-интервью: вопросы с указанием источников, учебные задачи и первоисточники для изучения.**
 
