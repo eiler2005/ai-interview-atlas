@@ -29,6 +29,7 @@ NOT_INTERVIEW_EVIDENCE = {"reference", "posting"}
 # Links inside role-guide prose: [label](kind:id). Page keys name the hand-written guides.
 ROLE_LINK = re.compile(r"\[([^\]\n]+)\]\((theme|question|page|role):([a-z0-9-]+)\)")
 ROLE_PAGE_KEYS = {
+    "fde-career",
     "learning-path",
     "reasoning-models",
     "methodology",

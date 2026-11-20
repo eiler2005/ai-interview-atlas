@@ -9,7 +9,7 @@ import yaml
 
 from atlas import cli, links
 from atlas.content import ContentError, load, read_yaml
-from atlas.render import render, ru_count
+from atlas.render import Renderer, render, ru_count
 
 FIXTURE = Path(__file__).parent / "fixtures" / "content"
 TODAY = date(2026, 9, 27)
@@ -54,6 +54,12 @@ def repository(tmp_path: Path) -> Path:
         "docs/ru/careers/README.md",
         "docs/careers/fde.md",
         "docs/ru/careers/fde.md",
+        "docs/careers/product-builder.md",
+        "docs/ru/careers/product-builder.md",
+        "docs/careers/market.md",
+        "docs/ru/careers/market.md",
+        "docs/careers/sources.md",
+        "docs/ru/careers/sources.md",
         "docs/REASONING_MODELS.md",
         "docs/ru/REASONING_MODELS.md",
         "docs/LEARNING_ROADMAP.md",
@@ -76,7 +82,10 @@ def repository(tmp_path: Path) -> Path:
         "docs/ru/CHANGELOG.md",
     ):
         (root / name).parent.mkdir(parents=True, exist_ok=True)
-        (root / name).write_text("# Synthetic\n", encoding="utf-8")
+        body = "# Synthetic\n"
+        if name.endswith("careers/fde.md"):
+            body += '\n<a id="role-requirements"></a>\n'
+        (root / name).write_text(body, encoding="utf-8")
     return root
 
 
@@ -348,7 +357,7 @@ def test_themes_page_forward_and_back_in_taxonomy_order():
 def test_map_of_the_atlas_links_every_section_in_both_languages():
     pages = render(load(FIXTURE, today=TODAY))
     hub, russian = pages["docs/README.md"], pages["docs/ru/README.md"]
-    for anchor in ("tracks", "themes", "companies", "reference"):
+    for anchor in ("tracks", "evidence", "themes", "companies", "reference"):
         assert f'<a id="{anchor}"></a>' in hub and f'<a id="{anchor}"></a>' in russian
     assert "[Start here](start/leadership.md)" in hub
     assert "[Ответы](answers/leadership.md): готово 1 из 1" in russian
@@ -358,6 +367,36 @@ def test_map_of_the_atlas_links_every_section_in_both_languages():
     assert "**Navigate:** [Map of the atlas](docs/README.md)" in readme
     assert "[Themes](#themes) · [Companies](#companies)" in pages["README.md"]
     assert "[Темы](#темы) · [Компании](#компании)" in pages["README.ru.md"]
+
+
+def test_hub_routes_precede_tracks_and_preserve_source_disclosure():
+    content = load(FIXTURE, today=TODAY)
+    pages = render(content)
+    for lang, prefix in (("en", "docs"), ("ru", "docs/ru")):
+        hub = pages[f"{prefix}/README.md"]
+        assert hub.index("(careers/README.md)") < hub.index("(careers/fde.md#role-requirements)")
+        assert hub.index("(careers/fde.md#role-requirements)") < hub.index("(start/engineering.md)")
+        assert hub.index("(start/leadership.md)") < hub.index('<a id="tracks">')
+        assert hub.index('<a id="tracks">') < hub.index('<a id="evidence">')
+        assert hub.index('<a id="evidence">') < hub.index('<a id="themes">')
+        assert Renderer(content)._source_mix(lang, f"{prefix}/README.md") in hub
+    content.companies = {}
+    empty = Renderer(content).hub("en")
+    assert "(#companies)" not in empty
+    assert "(#evidence)" in empty
+
+
+def test_role_bridge_resolves_to_localised_career_guide(content_dir):
+    def bridge(data):
+        data["families"][0]["prep"] = {
+            "en": "[FDE guide](page:fde-career)",
+            "ru": "[Гид FDE](page:fde-career)",
+        }
+
+    edit(content_dir / "roles.yaml", bridge)
+    pages = render(load(content_dir, today=TODAY))
+    for prefix in ("docs", "docs/ru"):
+        assert "(../careers/fde.md)" in pages[f"{prefix}/roles/builders.md"]
 
 
 def test_generated_navigation_passes_the_link_and_anchor_check(tmp_path):

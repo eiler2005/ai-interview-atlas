@@ -16,4 +16,6 @@ def on_config(config):
 
 
 def on_page_markdown(markdown, page, config, files):
-    return site.rewrite_links(site.nest_lists(markdown), page.file.src_uri)
+    source = page.file.src_uri
+    markdown = site.rewrite_links(site.nest_lists(markdown), source)
+    return site.rewrite_picture_paths(markdown, source, page.file.dest_uri)

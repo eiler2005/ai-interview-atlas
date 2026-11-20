@@ -104,13 +104,15 @@ families:
             работодателя.
     prep:
       en: >-
-        take the engineering [learning path](page:learning-path), deepen [customer
+        start with the [FDE career guide](page:fde-career) for requirements, skills and
+        interview practice. Then take the engineering [learning path](page:learning-path), deepen [customer
         scenarios](theme:applied-scenarios), and practise [enterprise access
         design](question:sd-enterprise-rag), [safe ERP writes](question:agt-erp-writes) and
         [release gates](question:eval-release-gate). Add a short discovery conversation: identify
         the user, current workaround, permitted data, useful outcome and owner after launch.
       ru: >-
-        инженерный [учебный план](page:learning-path), углубление в [клиентские
+        начните с [гида по профессии FDE](page:fde-career), где собраны требования,
+        навыки и практика интервью. Затем изучите инженерный [учебный план](page:learning-path), [клиентские
         сценарии](theme:applied-scenarios), затем [доступ к корпоративным
         данным](question:sd-enterprise-rag), [безопасные записи в ERP](question:agt-erp-writes) и
         [критерии выпуска](question:eval-release-gate). Отрепетируйте короткое обсуждение задачи:

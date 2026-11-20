@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="534" viewBox="0 0 520 534" role="img" aria-labelledby="figure-title figure-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="figure-title">Choose your preparation route</title>
+<desc id="figure-desc">Choose FDE or Product Builder, then check requirements, pick a skill, rehearse an answer and build a project.</desc>
+<rect x="0.5" y="0.5" width="519" height="533" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="16" y="34" font-size="20" fill="#0b0b0b" font-weight="700">Choose your preparation route</text>
+<path d="M260 118v11H174v11m86 -11h86v11m-172 64v10h172v-10m-86 10v12" fill="none" stroke="#52514e" stroke-width="1.5"/>
+<path d="M260 290v12m0 64v12m0 64v12" fill="none" stroke="#52514e" stroke-width="1.5"/>
+<rect x="128" y="54" width="264" height="64" rx="6" fill="#fcfcfb" stroke="#c3c2b7"/>
+<text x="260" y="92" font-size="17" fill="#0b0b0b" font-weight="600" text-anchor="middle">Choose a role</text>
+<rect x="96" y="140" width="156" height="64" rx="6" fill="#fcfcfb" stroke="#eb6834"/>
+<text x="174" y="178" font-size="17" fill="#0b0b0b" font-weight="600" text-anchor="middle">FDE</text>
+<rect x="268" y="140" width="156" height="64" rx="6" fill="#fcfcfb" stroke="#eb6834"/>
+<text x="346" y="178" font-size="17" fill="#0b0b0b" font-weight="600" text-anchor="middle">Product Builder</text>
+<rect x="128" y="226" width="264" height="64" rx="6" fill="#fcfcfb" stroke="#eb6834"/>
+<text x="260" y="264" font-size="17" fill="#0b0b0b" font-weight="600" text-anchor="middle">Check requirements</text>
+<rect x="128" y="302" width="264" height="64" rx="6" fill="#fcfcfb" stroke="#c3c2b7"/>
+<text x="260" y="340" font-size="17" fill="#0b0b0b" font-weight="600" text-anchor="middle">Pick a skill</text>
+<rect x="128" y="378" width="264" height="64" rx="6" fill="#fcfcfb" stroke="#c3c2b7"/>
+<text x="260" y="416" font-size="17" fill="#0b0b0b" font-weight="600" text-anchor="middle">Rehearse an answer</text>
+<rect x="128" y="454" width="264" height="64" rx="6" fill="#fcfcfb" stroke="#c3c2b7"/>
+<text x="260" y="492" font-size="17" fill="#0b0b0b" font-weight="600" text-anchor="middle">Build a project</text>
+</svg>

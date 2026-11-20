@@ -3,24 +3,37 @@
 
 English · [Русский](ru/README.md) · ← [AI Interview Atlas](../README.md)
 
-Every page of the atlas in one place. Start with the priority questions of your track, then go deeper by theme or by employer.
+Explore a role, compare a job description, or practise interview questions for your track.
 
-Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+**[Explore a career](careers/README.md)** — Compare the work and its requirements.
 
-Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide or compilation without a first-hand source · 🧪 generated from job-posting themes. Interview loops change often, so check the retrieval date.
+**[Check a job description](careers/fde.md#role-requirements)** — Use FDE to identify requirements and evidence you can show.
+
+**Practise for an interview** — Start with the priority questions for your track. [AI Engineering](start/engineering.md) · [AI Leadership](start/leadership.md)
+
+✅ company-confirmed · 🗣 candidate report · † guide or compilation without first-hand evidence · 🧪 practice question based on job-posting themes. [How questions are sourced](#evidence).
+
+[Themes](#themes) · [Companies](#companies) · [Reference](#reference)
 
 ## <a id="tracks"></a>Tracks and roles
 
 - **AI Engineering.** Engineers who build, ship and run AI systems: applications, agents, platforms, inference and research code.
-  - Roles covered: Software engineer (general interview baseline), AI / LLM engineer, Software engineer on AI products, Applied AI engineer, Forward deployed engineer (FDE), AI solutions architect / customer engineer, AI evaluation engineer, ML engineer / data scientist, Agent engineer, AI platform / MLOps engineer, Inference and performance engineer, Research engineer
-  - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Applied AI / agent product engineer](roles/applied-ai.md) · [AI evaluation and reliability engineer](roles/eval-reliability.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [Research engineer](roles/research-engineering.md)
   - [Start here](start/engineering.md): 87 priority questions in study order
   - [Answers](answers/engineering.md): 87 of 87 written
+  - Roles covered: Software engineer (general interview baseline), AI / LLM engineer, Software engineer on AI products, Applied AI engineer, Forward deployed engineer (FDE), AI solutions architect / customer engineer, AI evaluation engineer, ML engineer / data scientist, Agent engineer, AI platform / MLOps engineer, Inference and performance engineer, Research engineer
+  - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Applied AI / agent product engineer](roles/applied-ai.md) · [AI evaluation and reliability engineer](roles/eval-reliability.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [Research engineer](roles/research-engineering.md)
+  - [FDE career guide](careers/fde.md)
 - **AI Leadership.** People who decide what AI to build and lead the teams, programmes and organisations that build it.
-  - Roles covered: Product manager (general interview baseline), AI product manager (senior to group), Director or head of product, Engineering manager, Director or head of engineering, Technical program manager, AI platform lead, Head of AI adoption / chief AI officer, Deployment strategist, Forward-deployed or solutions leader
-  - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [AI product leadership](roles/product-leadership.md)
   - [Start here](start/leadership.md): 82 priority questions in study order
   - [Answers](answers/leadership.md): 82 of 82 written
+  - Roles covered: Product manager (general interview baseline), AI product manager (senior to group), Director or head of product, Engineering manager, Director or head of engineering, Technical program manager, AI platform lead, Head of AI adoption / chief AI officer, Deployment strategist, Forward-deployed or solutions leader
+  - Role pages: [Forward Deployed Engineer (FDE)](roles/fde.md) · [Inference / AI platform engineer](roles/inference-platform.md) · [AI product leadership](roles/product-leadership.md)
+
+## <a id="evidence"></a>Where the questions come from
+
+Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+
+[Methodology](METHODOLOGY.md) · [Sources](sources.md)
 
 ## <a id="themes"></a>Themes
 

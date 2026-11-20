@@ -131,7 +131,7 @@ An editorial selection: relevant to the role, but not reported for it.
 
 ## <a id="prep"></a>Preparation
 
-**Preparation route:** take the engineering [learning path](../LEARNING_PATH.md), deepen [customer scenarios](../themes/applied-scenarios.md), and practise [enterprise access design](../themes/ai-system-design.md#sd-enterprise-rag), [safe ERP writes](../themes/agents-tools.md#agt-erp-writes) and [release gates](../themes/evals-observability.md#eval-release-gate). Add a short discovery conversation: identify the user, current workaround, permitted data, useful outcome and owner after launch.
+**Preparation route:** start with the [FDE career guide](../careers/fde.md) for requirements, skills and interview practice. Then take the engineering [learning path](../LEARNING_PATH.md), deepen [customer scenarios](../themes/applied-scenarios.md), and practise [enterprise access design](../themes/ai-system-design.md#sd-enterprise-rag), [safe ERP writes](../themes/agents-tools.md#agt-erp-writes) and [release gates](../themes/evals-observability.md#eval-release-gate). Add a short discovery conversation: identify the user, current workaround, permitted data, useful outcome and owner after launch.
 
 **Practice deliverable:** build a small fictional service workflow with one external integration stub. Demonstrate a denied permission, a timeout after a possible write, and a quality regression. Explain the acceptance evidence and handoff. A polished demo without those checks is incomplete preparation. For a target vacancy, clarify who owns implementation, production support, commercial decisions and travel before choosing your strongest real examples.
 

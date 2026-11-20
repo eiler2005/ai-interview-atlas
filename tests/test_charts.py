@@ -14,7 +14,8 @@ from atlas.render import render
 FIXTURE = Path(__file__).parent / "fixtures" / "content"
 TODAY = date(2026, 9, 27)
 LANGS = ("en", "ru")
-FIGURES = ("banner", "evidence", "coverage", "roadmap", "postings")
+CAREER_FIGURES = ("careers-route", "fde-skills", "fde-interviews", "fde-project")
+FIGURES = ("banner", "evidence", "coverage", "roadmap", "postings", *CAREER_FIGURES)
 # Everything the privacy checker's SVG allowlist admits that a figure actually uses.
 ALLOWED_ELEMENTS = {"svg", "title", "desc", "rect", "path", "circle", "line", "text", "g"}
 
@@ -25,6 +26,8 @@ def figures():
 
 
 def document(figures, name: str, lang: str, mode: str = "light") -> str:
+    if name in CAREER_FIGURES:
+        return figures.careers(lang, mode)[name]
     return getattr(figures, name)(lang, mode)
 
 
@@ -140,7 +143,7 @@ def test_wrapping_keeps_every_word_and_respects_the_limit():
 
 def test_the_build_writes_both_surfaces_of_every_figure_in_both_languages():
     pages = render(load(FIXTURE, today=TODAY))
-    for name in ("banner", "evidence", "coverage", "roadmap", "radar"):
+    for name in ("banner", "evidence", "coverage", "roadmap", "radar", *CAREER_FIGURES):
         for lang in LANGS:
             for suffix in ("", ".dark"):
                 path = f"docs/assets/{name}.{lang}{suffix}.svg"

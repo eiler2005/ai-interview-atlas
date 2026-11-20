@@ -348,6 +348,136 @@ class Paint:
         ]
 
 
+CAREER_LABELS = {
+    "en": {
+        "route": [
+            "Choose your preparation route",
+            (
+                "Choose FDE or Product Builder, then check requirements, pick a skill, "
+                "rehearse an answer and build a project."
+            ),
+        ],
+        "skills": [
+            "Choose a skill to practise",
+            "Code and debugging · Data and integrations · Design and operations · LLMs and retrieval · Agents and tools · Evaluation and security · Discovery and impact · Communication and ownership",
+        ],
+        "interviews": [
+            "Choose a practice format",
+            "Code and debugging · System design · Customer problem · Demo and follow-ups · Your own experience",
+        ],
+        "project": [
+            "Build evidence in a project",
+            "Workflow → Baseline → First slice → Validation → Launch decision → Handoff. Revisit after failed checks.",
+        ],
+        "route_steps": [
+            "Choose a role",
+            "FDE",
+            "Product Builder",
+            "Check requirements",
+            "Pick a skill",
+            "Rehearse an answer",
+            "Build a project",
+        ],
+        "skill_groups": [
+            [
+                "Engineering foundations",
+                "Build and diagnose",
+                ["Code and debugging", "Data and integrations", "Design and operations"],
+            ],
+            [
+                "AI systems",
+                "Ground, test, control",
+                ["LLMs and retrieval", "Agents and tools", "Evaluation and security"],
+            ],
+            [
+                "Work with people",
+                "Agree, explain, hand over",
+                ["Discovery and impact", "Communication and ownership"],
+            ],
+        ],
+        "interview_formats": [
+            "Code and debugging",
+            "System design",
+            "Customer problem",
+            "Demo and follow-ups",
+            "Your own experience",
+        ],
+        "project_stages": [
+            "Workflow",
+            "Baseline",
+            "First slice",
+            "Validation",
+            "Launch decision",
+            "Handoff",
+        ],
+        "project_return": "Revisit after failed checks",
+    },
+    "ru": {
+        "route": [
+            "Выберите маршрут подготовки",
+            (
+                "Выберите FDE или Product Builder, затем сверьте требования, выберите навык, "
+                "отрепетируйте ответ и соберите проект."
+            ),
+        ],
+        "skills": [
+            "Выберите навык для практики",
+            "Код и отладка · Данные и интеграции · Архитектура и эксплуатация · LLM и поиск · Агенты и инструменты · Оценка и безопасность · Постановка задачи и эффект · Коммуникация и ответственность",
+        ],
+        "interviews": [
+            "Выберите формат репетиции",
+            "Код и отладка · Проектирование системы · Задача заказчика · Демо и уточнения · Собственный опыт",
+        ],
+        "project": [
+            "Подтвердите навыки проектом",
+            "Процесс → Исходный замер → Первый срез → Проверка → Решение о запуске → Передача. Доработайте после проверки.",
+        ],
+        "route_steps": [
+            "Выбрать роль",
+            "FDE",
+            "Product Builder",
+            "Сверить требования",
+            "Выбрать навык",
+            "Отрепетировать ответ",
+            "Собрать проект",
+        ],
+        "skill_groups": [
+            [
+                "Инженерная основа",
+                "Собрать и найти причину",
+                ["Код и отладка", "Данные и интеграции", "Архитектура и эксплуатация"],
+            ],
+            [
+                "ИИ-системы",
+                "Обосновать, проверить, ограничить",
+                ["LLM и поиск", "Агенты и инструменты", "Оценка и безопасность"],
+            ],
+            [
+                "Работа с людьми",
+                "Согласовать, объяснить, передать",
+                ["Постановка задачи и эффект", "Коммуникация и ответственность"],
+            ],
+        ],
+        "interview_formats": [
+            "Код и отладка",
+            "Проектирование системы",
+            "Задача заказчика",
+            "Демо и уточнения",
+            "Собственный опыт",
+        ],
+        "project_stages": [
+            "Процесс",
+            "Исходный замер",
+            "Первый срез",
+            "Проверка",
+            "Решение о запуске",
+            "Передача",
+        ],
+        "project_return": "Доработайте после проверки",
+    },
+}
+
+
 class Figures:
     """Every generated figure for one content set, in both languages."""
 
@@ -411,6 +541,106 @@ class Figures:
         return cells
 
     # The figures
+
+    def careers(self, lang: str, mode: str) -> dict[str, str]:
+        """The four editorial diagrams used by the bilingual career guides."""
+        paint = Paint(mode)
+        labels = CAREER_LABELS[lang]
+        width = 520
+        box = 156
+        columns = (16, 182, 348)
+
+        def card(x: int, y: int, w: int, title: str, *, focus: bool = False) -> list[str]:
+            lines = wrap_text(title, w // 10)
+            return [
+                (
+                    f'<rect x="{x}" y="{y}" width="{w}" height="64" rx="6" '
+                    f"{paint.both('surface', 'leadership' if focus else 'axis')}/>"
+                ),
+                *[
+                    paint.label(
+                        x + w / 2,
+                        y + 38 + (i - (len(lines) - 1) / 2) * 21,
+                        line,
+                        size=17,
+                        weight=600,
+                        anchor="middle",
+                    )
+                    for i, line in enumerate(lines)
+                ],
+            ]
+
+        def line(path: str, *, focus: bool = False) -> str:
+            color = "leadership" if focus else "ink2"
+            return f'<path d="{path}" fill="none" {paint.stroke(color)} stroke-width="1.5"/>'
+
+        def frame(key: str, height: int, body: list[str]) -> str:
+            title, desc = labels[key]
+            return paint.frame(
+                width,
+                height,
+                title,
+                desc,
+                [paint.label(16, 34, title, size=20, weight=700), *body],
+            )
+
+        start, fde, builder, *steps = labels["route_steps"]
+        route = [
+            line("M260 118v11H174v11m86 -11h86v11m-172 64v10h172v-10m-86 10v12"),
+            line("M260 290v12m0 64v12m0 64v12"),
+            *card(128, 54, 264, start),
+            *card(96, 140, box, fde, focus=True),
+            *card(268, 140, box, builder, focus=True),
+        ]
+        for index, title in enumerate(steps):
+            route.extend(card(128, 226 + index * 76, 264, title, focus=index == 0))
+
+        skills = []
+        index = 1
+        for row, (group, hint, topics) in enumerate(labels["skill_groups"]):
+            y = 54 + row * 136
+            skills += [
+                paint.label(16, y + 17, group, size=18, weight=650),
+                paint.label(16, y + 38, hint, role="ink2", size=14),
+            ]
+            positions = columns if len(topics) == 3 else (16, 265)
+            card_width = box if len(topics) == 3 else 239
+            for x, topic in zip(positions, topics, strict=True):
+                skills.extend(card(x, y + 48, card_width, f"K{index} · {topic}", focus=row == 2))
+                index += 1
+
+        interviews = []
+        for index, title in enumerate(labels["interview_formats"]):
+            y = 54 + index * 46
+            interviews += [
+                (
+                    f'<rect x="16" y="{y}" width="488" height="39" rx="6" '
+                    f"{paint.both('surface', 'axis')}/>"
+                ),
+                paint.swatch(29, y + 14, "leadership", size=11),
+                paint.label(54, y + 26, title, size=18, weight=600),
+            ]
+
+        project = [
+            line("M172 90h10m-5 -4l5 4-5 4m161 -4h10m-5 -4l5 4-5 4"),
+            line("M426 122v28m-4 -5l4 5 4 -5"),
+            line("M348 182h-10m5 -4l-5 4 5 4m-161 -4h-10m5 -4l-5 4 5 4"),
+            line("M504 182h8V90h-8m5 -4l-5 4 5 4", focus=True),
+            paint.swatch(17, 232, "leadership"),
+            paint.label(34, 242, labels["project_return"], role="ink2", size=15),
+        ]
+        positions = [(x, 58) for x in columns] + [(x, 150) for x in reversed(columns)]
+        for index, ((x, y), title) in enumerate(
+            zip(positions, labels["project_stages"], strict=True)
+        ):
+            project.extend(card(x, y, box, f"{index + 1} · {title}", focus=index in (2, 3)))
+
+        return {
+            "careers-route": frame("route", 534, route),
+            "fde-skills": frame("skills", 450, skills),
+            "fde-interviews": frame("interviews", 293, interviews),
+            "fde-project": frame("project", 256, project),
+        }
 
     def postings(self, lang: str, mode: str) -> str:
         """Demand: the share of postings in the sample that mention each theme."""

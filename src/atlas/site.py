@@ -41,6 +41,8 @@ TAB = {"en": None, "ru": "Русский"}
 LINK = re.compile(r"(\]\()([^)\s]+)((?:\s+\"[^\"]*\")?\))")
 NESTED = re.compile(r"^((?:  )+)(?=(?:[-*+]|\d+\.) )")
 FENCE = re.compile(r"^\s*(```|~~~)")
+SVG_PICTURE = re.compile(r"<picture>.*?</picture>", re.DOTALL)
+SVG_ATTRIBUTE = re.compile(r'(\b(?:src|srcset)=")([^"\s]+\.svg)(")')
 
 
 def in_docs(path: str) -> str:
@@ -74,7 +76,10 @@ def section(lang: str, renderer: Renderer) -> list[dict]:
         {
             reference_name(lang, "careers"): [
                 {labels["map"]: in_docs(f"{base(lang)}/careers/README.md")},
+                {labels["career_market"]: in_docs(f"{base(lang)}/careers/market.md")},
                 {"Forward Deployed Engineer": in_docs(f"{base(lang)}/careers/fde.md")},
+                {"Product Builder": in_docs(f"{base(lang)}/careers/product-builder.md")},
+                {labels["career_sources"]: in_docs(f"{base(lang)}/careers/sources.md")},
             ]
         }
     )
@@ -143,6 +148,13 @@ def rewrite_links(markdown: str, page: str) -> str:
     `page` is the page's path relative to `docs/`, as MkDocs reports it.
     """
     folder = posixpath.dirname(posixpath.join(DOCS, page))
+    for lang in LANGS:
+        if page == in_docs(hub_page(lang)):
+            # Only the hub's breadcrumb would become a link back to this same page.
+            backlink = LABELS[lang]["back"].format(
+                readme=posixpath.relpath("README.ru.md" if lang == "ru" else "README.md", folder)
+            )
+            markdown = markdown.replace(" · " + backlink, "", 1)
 
     def replace(match: re.Match) -> str:
         opening, target, closing = match.groups()
@@ -176,3 +188,20 @@ def nest_lists(markdown: str) -> str:
             line = NESTED.sub(lambda m: m.group(1) * 2, line)
         lines.append(line)
     return "\n".join(lines)
+
+
+def rewrite_picture_paths(markdown: str, source: str, destination: str) -> str:
+    """Resolve SVG paths in raw picture tags against the built HTML location."""
+    source_dir = posixpath.dirname(source)
+    destination_dir = posixpath.dirname(destination) or "."
+
+    def rewrite_attribute(match: re.Match) -> str:
+        opening, image, closing = match.groups()
+        if urlsplit(image).scheme or image.startswith("/"):
+            return match.group(0)
+        path = posixpath.normpath(posixpath.join(source_dir, image))
+        if not path.startswith("assets/"):
+            return match.group(0)
+        return f"{opening}{posixpath.relpath(path, destination_dir)}{closing}"
+
+    return SVG_PICTURE.sub(lambda match: SVG_ATTRIBUTE.sub(rewrite_attribute, match[0]), markdown)

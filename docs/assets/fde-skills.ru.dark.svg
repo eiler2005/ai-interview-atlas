@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="450" viewBox="0 0 520 450" role="img" aria-labelledby="figure-title figure-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="figure-title">Выберите навык для практики</title>
+<desc id="figure-desc">Код и отладка · Данные и интеграции · Архитектура и эксплуатация · LLM и поиск · Агенты и инструменты · Оценка и безопасность · Постановка задачи и эффект · Коммуникация и ответственность</desc>
+<rect x="0.5" y="0.5" width="519" height="449" rx="10" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
+<text x="16" y="34" font-size="20" fill="#ffffff" font-weight="700">Выберите навык для практики</text>
+<text x="16" y="71" font-size="18" fill="#ffffff" font-weight="650">Инженерная основа</text>
+<text x="16" y="92" font-size="14" fill="#c3c2b7">Собрать и найти причину</text>
+<rect x="16" y="102" width="156" height="64" rx="6" fill="#1a1a19" stroke="#383835"/>
+<text x="94" y="129.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K1 · Код и</text>
+<text x="94" y="150.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">отладка</text>
+<rect x="182" y="102" width="156" height="64" rx="6" fill="#1a1a19" stroke="#383835"/>
+<text x="260" y="129.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K2 · Данные и</text>
+<text x="260" y="150.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">интеграции</text>
+<rect x="348" y="102" width="156" height="64" rx="6" fill="#1a1a19" stroke="#383835"/>
+<text x="426" y="119" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K3 ·</text>
+<text x="426" y="140" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">Архитектура и</text>
+<text x="426" y="161" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">эксплуатация</text>
+<text x="16" y="207" font-size="18" fill="#ffffff" font-weight="650">ИИ-системы</text>
+<text x="16" y="228" font-size="14" fill="#c3c2b7">Обосновать, проверить, ограничить</text>
+<rect x="16" y="238" width="156" height="64" rx="6" fill="#1a1a19" stroke="#383835"/>
+<text x="94" y="265.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K4 · LLM и</text>
+<text x="94" y="286.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">поиск</text>
+<rect x="182" y="238" width="156" height="64" rx="6" fill="#1a1a19" stroke="#383835"/>
+<text x="260" y="265.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K5 · Агенты и</text>
+<text x="260" y="286.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">инструменты</text>
+<rect x="348" y="238" width="156" height="64" rx="6" fill="#1a1a19" stroke="#383835"/>
+<text x="426" y="265.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K6 · Оценка и</text>
+<text x="426" y="286.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">безопасность</text>
+<text x="16" y="343" font-size="18" fill="#ffffff" font-weight="650">Работа с людьми</text>
+<text x="16" y="364" font-size="14" fill="#c3c2b7">Согласовать, объяснить, передать</text>
+<rect x="16" y="374" width="239" height="64" rx="6" fill="#1a1a19" stroke="#d95926"/>
+<text x="135.5" y="401.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K7 · Постановка задачи</text>
+<text x="135.5" y="422.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">и эффект</text>
+<rect x="265" y="374" width="239" height="64" rx="6" fill="#1a1a19" stroke="#d95926"/>
+<text x="384.5" y="401.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">K8 · Коммуникация и</text>
+<text x="384.5" y="422.5" font-size="17" fill="#ffffff" font-weight="600" text-anchor="middle">ответственность</text>
+</svg>

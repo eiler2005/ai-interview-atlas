@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="293" viewBox="0 0 520 293" role="img" aria-labelledby="figure-title figure-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="figure-title">Выберите формат репетиции</title>
+<desc id="figure-desc">Код и отладка · Проектирование системы · Задача заказчика · Демо и уточнения · Собственный опыт</desc>
+<rect x="0.5" y="0.5" width="519" height="292" rx="10" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
+<text x="16" y="34" font-size="20" fill="#ffffff" font-weight="700">Выберите формат репетиции</text>
+<rect x="16" y="54" width="488" height="39" rx="6" fill="#1a1a19" stroke="#383835"/>
+<rect x="29" y="68" width="11" height="11" rx="2" fill="#d95926"/>
+<text x="54" y="80" font-size="18" fill="#ffffff" font-weight="600">Код и отладка</text>
+<rect x="16" y="100" width="488" height="39" rx="6" fill="#1a1a19" stroke="#383835"/>
+<rect x="29" y="114" width="11" height="11" rx="2" fill="#d95926"/>
+<text x="54" y="126" font-size="18" fill="#ffffff" font-weight="600">Проектирование системы</text>
+<rect x="16" y="146" width="488" height="39" rx="6" fill="#1a1a19" stroke="#383835"/>
+<rect x="29" y="160" width="11" height="11" rx="2" fill="#d95926"/>
+<text x="54" y="172" font-size="18" fill="#ffffff" font-weight="600">Задача заказчика</text>
+<rect x="16" y="192" width="488" height="39" rx="6" fill="#1a1a19" stroke="#383835"/>
+<rect x="29" y="206" width="11" height="11" rx="2" fill="#d95926"/>
+<text x="54" y="218" font-size="18" fill="#ffffff" font-weight="600">Демо и уточнения</text>
+<rect x="16" y="238" width="488" height="39" rx="6" fill="#1a1a19" stroke="#383835"/>
+<rect x="29" y="252" width="11" height="11" rx="2" fill="#d95926"/>
+<text x="54" y="264" font-size="18" fill="#ffffff" font-weight="600">Собственный опыт</text>
+</svg>

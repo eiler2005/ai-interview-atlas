@@ -298,9 +298,24 @@ LABELS = {
         "navigate": "**Navigate:**",
         "map": "Map of the atlas",
         "map_intro": (
-            "Every page of the atlas in one place. Start with the priority questions of your "
-            "track, then go deeper by theme or by employer."
+            "Explore a role, compare a job description, or practise interview questions "
+            "for your track."
         ),
+        "map_career": "Explore a career",
+        "map_career_hint": "Compare the work and its requirements.",
+        "map_job": "Check a job description",
+        "map_job_hint": "Use FDE to identify requirements and evidence you can show.",
+        "map_practice": "Practise for an interview",
+        "map_practice_hint": "Start with the priority questions for your track.",
+        "map_evidence": "How questions are sourced",
+        "map_evidence_title": "Where the questions come from",
+        "map_legend": (
+            "✅ company-confirmed · 🗣 candidate report · † guide or compilation without "
+            "first-hand evidence · 🧪 practice question based on job-posting themes"
+        ),
+        "map_fde": "FDE career guide",
+        "career_sources": "Career sources",
+        "career_market": "Market snapshot",
         "start_short": "Start: {track}",
         "start_name": "Start here",
         "answers_name": "Answers",
@@ -728,9 +743,23 @@ LABELS = {
         "navigate": "**Навигация:**",
         "map": "Карта атласа",
         "map_intro": (
-            "Все страницы атласа в одном месте. Начните с приоритетных вопросов своего трека, "
-            "затем углубляйтесь по темам или по работодателям."
+            "Выберите профессию, сверьте требования вакансии или начните с вопросов своего трека."
         ),
+        "map_career": "Выбираю профессию",
+        "map_career_hint": "Сравнить работу и посмотреть требования.",
+        "map_job": "Сверяю вакансию",
+        "map_job_hint": "На примере FDE выделить требования и выбрать подтверждение навыков.",
+        "map_practice": "Готовлюсь к интервью",
+        "map_practice_hint": "Начать с приоритетных вопросов своего трека.",
+        "map_evidence": "Как проверены вопросы",
+        "map_evidence_title": "Происхождение вопросов",
+        "map_legend": (
+            "✅ подтверждено компанией · 🗣 рассказ кандидата · † руководство или сборник "
+            "без первичного свидетельства · 🧪 учебный вопрос по темам вакансий"
+        ),
+        "map_fde": "Профессия FDE и подготовка",
+        "career_sources": "Источники карьерного раздела",
+        "career_market": "Срез рынка",
         "start_short": "С чего начать: {track}",
         "start_name": "С чего начать",
         "answers_name": "Ответы",
@@ -1000,6 +1029,7 @@ def role_page(lang: str, family: str) -> str:
 
 # Targets of [label](page:key) links in the AI roles guide.
 ROLE_PAGE_PATHS = {
+    "fde-career": lambda lang: f"{base(lang)}/careers/fde.md",
     "learning-path": lambda lang: f"{base(lang)}/LEARNING_PATH.md",
     "reasoning-models": lambda lang: f"{base(lang)}/REASONING_MODELS.md",
     "methodology": methodology_page,
@@ -1109,6 +1139,8 @@ class Renderer:
             for mode in charts.MODES:
                 for name in ("banner", "evidence", "coverage"):
                     pages[asset(name, lang, mode)] = getattr(figures, name)(lang, mode)
+                for name, svg in figures.careers(lang, mode).items():
+                    pages[asset(name, lang, mode)] = svg
                 if self.content.roadmap:
                     pages[asset("roadmap", lang, mode)] = figures.roadmap(lang, mode)
                 if self.content.radar:
@@ -1633,9 +1665,24 @@ class Renderer:
             "",
             labels["map_intro"],
             "",
-            self._source_mix(lang, page),
+            f"**[{labels['map_career']}](careers/README.md)** — {labels['map_career_hint']}",
             "",
-            labels["legend"],
+            f"**[{labels['map_job']}](careers/fde.md#role-requirements)** — "
+            + labels["map_job_hint"],
+            "",
+            f"**{labels['map_practice']}** — {labels['map_practice_hint']} "
+            + " · ".join(
+                f"[{self.track_names[track][lang]}]({rel(page, start_page(lang, track))})"
+                for track in TRACKS
+            ),
+            "",
+            labels["map_legend"] + f". [{labels['map_evidence']}](#evidence).",
+            "",
+            " · ".join(
+                f"[{labels[key]}](#{key})"
+                for key in ("themes", "companies", "reference")
+                if key != "companies" or content.companies
+            ),
             "",
             f"## {anchor('tracks')}{labels['tracks']}",
             "",
@@ -1643,12 +1690,6 @@ class Renderer:
         for track in content.taxonomy["tracks"]:
             priority = self.start_here(track["id"])
             lines.append(f"- **{track['name'][lang]}.** {md(track['summary'][lang])}")
-            roles = [
-                r["name"][lang] for r in content.taxonomy["roles"] if r["track"] == track["id"]
-            ]
-            if roles:
-                lines.append(f"  - {labels['roles']}: {', '.join(roles)}")
-            lines += self.role_pages_line(lang, page, track["id"])
             start = rel(page, start_page(lang, track["id"]))
             lines.append(
                 f"  - [{labels['start_name']}]({start}): "
@@ -1661,6 +1702,24 @@ class Renderer:
                     f"  - [{labels['answers_name']}]({answers}): "
                     + labels["answers_summary"].format(done=len(done), total=len(priority))
                 )
+            roles = [
+                r["name"][lang] for r in content.taxonomy["roles"] if r["track"] == track["id"]
+            ]
+            if roles:
+                lines.append(f"  - {labels['roles']}: {', '.join(roles)}")
+            lines += self.role_pages_line(lang, page, track["id"])
+            if track["id"] == "engineering":
+                lines.append(f"  - [{labels['map_fde']}](careers/fde.md)")
+        lines += [
+            "",
+            f"## {anchor('evidence')}{labels['map_evidence_title']}",
+            "",
+            self._source_mix(lang, page),
+            "",
+            f"[{reference_name(lang, 'methodology')}]({rel(page, methodology_page(lang))})"
+            + " · "
+            + f"[{reference_name(lang, 'sources')}]({rel(page, sources_page(lang))})",
+        ]
         names = {track: self.track_names[track][lang] for track in TRACKS}
         lines += [
             "",

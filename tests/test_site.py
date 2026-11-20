@@ -49,6 +49,9 @@ def test_menu_lists_every_generated_page_in_both_languages_once():
     for guide in ("AI_ROLES.md", "REASONING_MODELS.md", "LEARNING_PATH.md", *GUIDES):
         assert guide in listed
         assert f"ru/{guide}" in listed
+    for guide in ("README", "market", "fde", "product-builder", "sources"):
+        assert f"careers/{guide}.md" in listed
+        assert f"ru/careers/{guide}.md" in listed
 
 
 def test_curriculum_guides_are_discoverable_without_replacing_track_question_links():
@@ -98,4 +101,32 @@ def test_nested_lists_get_four_spaces_per_level_outside_code():
     text = "- a\n  - b\n    - c\n```\n  - kept\n```\n  continuation"
     assert site.nest_lists(text) == (
         "- a\n    - b\n        - c\n```\n  - kept\n```\n  continuation"
+    )
+
+
+def test_picture_paths_follow_the_built_page_depth():
+    picture = (
+        '<picture><source srcset="../../assets/skills.ru.dark.svg">'
+        '<img src="../../assets/skills.ru.svg" alt="Skills"></picture>'
+    )
+    actual = site.rewrite_picture_paths(picture, "ru/careers/fde.md", "ru/careers/fde/index.html")
+    assert 'srcset="../../../assets/skills.ru.dark.svg"' in actual
+    assert 'src="../../../assets/skills.ru.svg"' in actual
+    assert site.rewrite_picture_paths(picture, "ru/careers/README.md", "ru/careers/index.html") == (
+        picture
+    )
+
+
+def test_site_hub_drops_only_its_self_breadcrumb():
+    pages = render(load(FIXTURE, today=TODAY))
+    for lang, page in (("en", "README.md"), ("ru", "ru/README.md")):
+        original = pages[f"docs/{page}"]
+        assert "← [AI Interview Atlas]" in original
+        rewritten = site.rewrite_links(original, page)
+        assert "← [AI Interview Atlas]" not in rewritten
+        assert "[Русский]" in rewritten if lang == "en" else "[English]" in rewritten
+        assert "(careers/fde.md#role-requirements)" in rewritten
+    original = pages["docs/start/engineering.md"]
+    assert "[AI Interview Atlas](../README.md)" in site.rewrite_links(
+        original, "start/engineering.md"
     )
