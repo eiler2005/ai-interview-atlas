@@ -3,6 +3,11 @@
 
 English · [Русский](README.ru.md)
 
+## <a id="future-careers"></a>[Future careers](docs/careers/README.md)
+
+- [Forward Deployed Engineer (FDE)](docs/careers/fde.md)
+- [Product Builder](docs/careers/product-builder.md)
+
 ![AI Interview Atlas — Engineering & Leadership. Questions, answers and learning paths.](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.1/hero-banner-v2.png)
 
 <picture>
@@ -14,7 +19,7 @@ English · [Русский](README.ru.md)
 [![checks](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml/badge.svg)](https://github.com/eiler2005/ai-interview-atlas/actions/workflows/checks.yml)
 [![PDF editions](https://img.shields.io/badge/PDF-editions-137c80)](https://github.com/eiler2005/ai-interview-atlas/releases/latest)
 
-**Navigate:** [Map of the atlas](docs/README.md) · [Start: AI Engineering](docs/start/engineering.md) · [Start: AI Leadership](docs/start/leadership.md) · [Themes](#themes) · [Companies](#companies) · [Learning path](docs/LEARNING_PATH.md) · [AI roles](docs/AI_ROLES.md) · [Reasoning models](docs/REASONING_MODELS.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest) · [Careers ahead](docs/careers/README.md)
+**Navigate:** [Map of the atlas](docs/README.md) · [Start: AI Engineering](docs/start/engineering.md) · [Start: AI Leadership](docs/start/leadership.md) · [Themes](#themes) · [Companies](#companies) · [Learning path](docs/LEARNING_PATH.md) · [AI roles](docs/AI_ROLES.md) · [Reasoning models](docs/REASONING_MODELS.md) · [PDF](https://github.com/eiler2005/ai-interview-atlas/releases/latest) · [Future careers](docs/careers/README.md)
 
 **Prepare for AI interviews with attributed questions, practice prompts and primary reading.**
 

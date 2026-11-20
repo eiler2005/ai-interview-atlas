@@ -76,9 +76,9 @@ def section(lang: str, renderer: Renderer) -> list[dict]:
         {
             reference_name(lang, "careers"): [
                 {labels["map"]: in_docs(f"{base(lang)}/careers/README.md")},
-                {labels["career_market"]: in_docs(f"{base(lang)}/careers/market.md")},
                 {"Forward Deployed Engineer": in_docs(f"{base(lang)}/careers/fde.md")},
                 {"Product Builder": in_docs(f"{base(lang)}/careers/product-builder.md")},
+                {labels["career_market"]: in_docs(f"{base(lang)}/careers/market.md")},
                 {labels["career_sources"]: in_docs(f"{base(lang)}/careers/sources.md")},
             ]
         }

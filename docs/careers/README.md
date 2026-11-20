@@ -1,4 +1,4 @@
-# Careers ahead
+# Future careers
 
 [English](README.md) · [Русский](../ru/careers/README.md) · [Atlas map](../README.md)
 

@@ -324,7 +324,7 @@ LABELS = {
         "theme_summary": "What it covers",
         "reference": "Reference",
         "reference_items": [
-            ("careers", "Careers ahead", "emerging roles and practical interview preparation"),
+            ("careers", "Future careers", "emerging roles and practical interview preparation"),
             ("common", "Asked across companies", "questions reported at two or more companies"),
             ("radar", "Requirements radar", "what job postings ask for, by theme"),
             ("learning_path", "Learning path", "a study curriculum with weekly practice"),
@@ -1415,6 +1415,8 @@ class Renderer:
             "",
             self.switch(lang, page, readme(other(lang))),
             "",
+            *self.career_links(lang, page),
+            "",
             f"![{labels['banner_alt']}]({BANNER})",
             "",
             # The hero above is a fixed image; this card is generated, so its figures move
@@ -1652,6 +1654,19 @@ class Renderer:
         """GitHub's anchor for a plain heading without punctuation."""
         return heading.strip().lower().replace(" ", "-")
 
+    def career_links(self, lang: str, page: str) -> list[str]:
+        """The shared career entrance for repository and site home pages."""
+        folder = f"{base(lang)}/careers"
+        return [
+            (
+                f"## {anchor('future-careers')}"
+                f"[{reference_name(lang, 'careers')}]({rel(page, f'{folder}/README.md')})"
+            ),
+            "",
+            f"- [Forward Deployed Engineer (FDE)]({rel(page, f'{folder}/fde.md')})",
+            f"- [Product Builder]({rel(page, f'{folder}/product-builder.md')})",
+        ]
+
     def hub(self, lang: str) -> str:
         """Map of the atlas: every generated and hand-written page, grouped by purpose."""
         labels, content, page = LABELS[lang], self.content, hub_page(lang)
@@ -1664,6 +1679,8 @@ class Renderer:
             + labels["back"].format(readme=rel(page, readme(lang))),
             "",
             labels["map_intro"],
+            "",
+            *self.career_links(lang, page),
             "",
             f"**[{labels['map_career']}](careers/README.md)** — {labels['map_career_hint']}",
             "",

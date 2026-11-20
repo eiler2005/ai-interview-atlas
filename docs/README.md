@@ -5,6 +5,11 @@ English · [Русский](ru/README.md) · ← [AI Interview Atlas](../README.
 
 Explore a role, compare a job description, or practise interview questions for your track.
 
+## <a id="future-careers"></a>[Future careers](careers/README.md)
+
+- [Forward Deployed Engineer (FDE)](careers/fde.md)
+- [Product Builder](careers/product-builder.md)
+
 **[Explore a career](careers/README.md)** — Compare the work and its requirements.
 
 **[Check a job description](careers/fde.md#role-requirements)** — Use FDE to identify requirements and evidence you can show.
@@ -69,7 +74,7 @@ Of 278 questions attributed to published sources, 230 rely only on preparation g
 
 ## <a id="reference"></a>Reference
 
-- [Careers ahead](careers/README.md): emerging roles and practical interview preparation.
+- [Future careers](careers/README.md): emerging roles and practical interview preparation.
 - [Asked across companies](common.md): questions reported at two or more companies.
 - [Requirements radar](radar.md): what job postings ask for, by theme.
 - [Learning path](LEARNING_PATH.md): a study curriculum with weekly practice.

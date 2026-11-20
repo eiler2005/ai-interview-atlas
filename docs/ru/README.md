@@ -5,6 +5,11 @@
 
 Выберите профессию, сверьте требования вакансии или начните с вопросов своего трека.
 
+## <a id="future-careers"></a>[Профессии будущего](careers/README.md)
+
+- [Forward Deployed Engineer (FDE)](careers/fde.md)
+- [Product Builder](careers/product-builder.md)
+
 **[Выбираю профессию](careers/README.md)** — Сравнить работу и посмотреть требования.
 
 **[Сверяю вакансию](careers/fde.md#role-requirements)** — На примере FDE выделить требования и выбрать подтверждение навыков.

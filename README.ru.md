@@ -3,6 +3,11 @@
 
 [English](README.md) · Русский
 
+## <a id="future-careers"></a>[Профессии будущего](docs/ru/careers/README.md)
+
+- [Forward Deployed Engineer (FDE)](docs/ru/careers/fde.md)
+- [Product Builder](docs/ru/careers/product-builder.md)
+
 ![AI Interview Atlas — AI-инженерия и AI-лидерство. Вопросы, ответы и учебные планы.](https://github.com/eiler2005/ai-interview-atlas/releases/download/v0.1.1/hero-banner-v2.png)
 
 <picture>

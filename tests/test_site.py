@@ -80,6 +80,26 @@ def test_curriculum_guides_are_discoverable_without_replacing_track_question_lin
         assert '<a id="regression-gate"></a>' not in start
 
 
+def test_future_careers_are_a_standalone_section_on_both_front_pages():
+    pages = render(load(FIXTURE, today=TODAY))
+    for prefix, readme in (("docs", "README.md"), ("docs/ru", "README.ru.md")):
+        for path in (readme, f"{prefix}/README.md"):
+            markdown = pages[path]
+            _, section = markdown.split('<a id="future-careers"></a>', maxsplit=1)
+            section = section.split("\n## ", maxsplit=1)[0]
+            targets = {
+                posixpath.normpath(posixpath.join(posixpath.dirname(path), urlsplit(link).path))
+                for link in links.LINK.findall(section)
+            }
+            assert {
+                f"{prefix}/careers/{guide}.md" for guide in ("README", "fde", "product-builder")
+            } <= (targets)
+        assert pages[readme].index('id="future-careers"') < pages[readme].index("/evidence.")
+        assert pages[f"{prefix}/README.md"].index('id="future-careers"') < pages[
+            f"{prefix}/README.md"
+        ].index('id="tracks"')
+
+
 def test_links_outside_docs_go_to_the_map_or_to_github():
     text = (
         "[Atlas](../../README.md) [RU](../../README.ru.md#top) [Guide](../../CONTRIBUTING.md) "
