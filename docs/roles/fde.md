@@ -7,7 +7,7 @@ AI Engineering / AI Leadership · Roles covered: Forward deployed engineer (FDE)
 
 Gets a useful AI system working in a customer's environment, from discovery to handoff.
 
-On this page: [What the role involves](#scope) · [How it is interviewed (17)](#interviews) · [Questions (28)](#role-questions) · [Preparation](#prep)
+On this page: [What the role involves](#scope) · [How it is interviewed (17)](#interviews) · [Questions (32)](#role-questions) · [Preparation](#prep)
 
 ## <a id="scope"></a>What the role involves
 
@@ -59,6 +59,9 @@ Questions whose source says they were asked for one of these roles.
 - **[Design a secure developer API for model access, including authentication, quotas, streaming responses and backwards compatibility.](../themes/ai-system-design.md#sd-model-api)**
   - System design · [AI system design](../themes/ai-system-design.md) · Asked at: [Anthropic](../companies/anthropic.md) † · ✍ [Answer](../answers/engineering.md#sd-model-api)
   - Sources (Forward deployed engineer (FDE)): † [Anthropic Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/anthropic-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-29
+- **[In an interest-sharing application, how would you speed up meeting-history lookups and interest searches if interests must remain stored in an array?](../themes/coding-practical.md#code-interest-search-followups)**
+  - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Palantir](../companies/palantir.md) 🗣
+  - Sources (Forward deployed engineer (FDE)): 🗣 [Palantir FDSE Interview Experience (REJECTION)](https://www.reddit.com/r/csMajors/comments/1j99s3z/palantir_fdse_interview_experience_rejection/), Reddit / r/csMajors, published 2025-03-12, retrieved 2026-11-20
 - **[Build a semantic search over a product catalogue that a chat model can call as a tool.](../themes/coding-practical.md#code-catalogue-search-tool)**
   - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [OpenAI](../companies/openai.md) †
   - Sources (Forward deployed engineer (FDE)): † [OpenAI Forward Deployed Engineer (FDE) Interview Guide](https://www.tryexponent.com/guides/openai-forward-deployed-engineer-interview), Aced (formerly Exponent), retrieved 2026-09-29
@@ -74,6 +77,12 @@ Questions whose source says they were asked for one of these roles.
 - **[Write SQL queries to answer questions about a dataset, without being able to run them.](../themes/coding-practical.md#code-sql-by-hand)**
   - Coding · [Practical coding](../themes/coding-practical.md) · Asked at: [Palantir](../companies/palantir.md) 🗣
   - Sources (Forward deployed engineer (FDE)): 🗣 [Palantir Forward Deployed Software Engineer Interview Experience - United States](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-united-states-november-9-2025-no-offer-negative-a89581e3/), Taro, candidate report, retrieved 2026-09-29
+- **[Design an application through which people can share their interests. Clarify the intended functionality before choosing the design.](../themes/applied-scenarios.md#app-interest-sharing-decomposition)**
+  - Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · Asked at: [Palantir](../companies/palantir.md) 🗣
+  - Sources (Forward deployed engineer (FDE)): 🗣 [Palantir FDSE Interview Experience (REJECTION)](https://www.reddit.com/r/csMajors/comments/1j99s3z/palantir_fdse_interview_experience_rejection/), Reddit / r/csMajors, published 2025-03-12, retrieved 2026-11-20
+- **[Design an application that finds possible recipes from ingredients and supports booking cooks; implement the recipe-selection function.](../themes/applied-scenarios.md#app-recipe-selection-decomposition)**
+  - Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · Asked at: [Palantir](../companies/palantir.md) 🗣
+  - Sources (Forward deployed engineer (FDE)): 🗣 [Palantir \| FDSWE Intern \| London \| Nov 2019 [Reject]](https://leetcode.com/discuss/post/437248/palantir-fdswe-intern-london-nov-2019-reject/), LeetCode Discuss, published 2019-11-25, retrieved 2026-11-20
 - **[After an introduction to insider trading, explain how you would detect it: what data would you need, what would you ask the customer and what patterns would you look for?](../themes/applied-scenarios.md#app-financial-crime-decomposition)**
   - Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · Asked at: [Palantir](../companies/palantir.md) 🗣
   - Sources (Forward deployed engineer (FDE)): 🗣 [So You Want to Hire a Forward Deployed Engineer](https://review.firstround.com/so-you-want-to-hire-a-forward-deployed-engineer/), First Round Review, published 2026-02-24, retrieved 2026-09-29
@@ -86,6 +95,9 @@ Questions whose source says they were asked for one of these roles.
 - **[Integrate a library you have never used into an existing system within minutes, then design the surrounding system for scale, storage and failures.](../themes/applied-scenarios.md#app-learn-then-design)**
   - Applied scenario · [Applied and customer scenarios](../themes/applied-scenarios.md) · Asked at: [Palantir](../companies/palantir.md) 🗣
   - Sources (Forward deployed engineer (FDE)): 🗣 [Palantir Forward Deployed Software Engineer Interview Experience - Denver, Colorado](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-denver-co-march-1-2025-accepted-offer-positive-92cad6d6/), Taro, candidate report, retrieved 2026-09-29
+- **[What experience do you have working directly with customers?](../themes/behavioral-values.md#beh-fde-customer-experience)**
+  - Self-presentation · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [OpenAI](../companies/openai.md) 🗣
+  - Sources (Forward deployed engineer (FDE)): 🗣 [OpenAI Forward Deployed Software Engineer — author's recruiter-screen update](https://www.reddit.com/r/leetcode/comments/1itqib8/comment/me08i7k/), Reddit / r/leetcode, retrieved 2026-11-20
 - **[Why this company, and why the forward deployed role rather than engineering on the core product?](../themes/behavioral-values.md#beh-why-forward-deployed)**
   - Self-presentation · [Behavioral and values](../themes/behavioral-values.md) · Asked at: [Palantir](../companies/palantir.md) 🗣
   - Sources (Forward deployed engineer (FDE)): 🗣 [Palantir Forward Deployed Software Engineer Interview Experience - New York, New York](https://www.jointaro.com/interviews/companies/palantir/experiences/forward-deployed-software-engineer-new-york-ny-august-15-2025-no-offer-positive-816dddf1/), Taro, candidate report, retrieved 2026-09-29

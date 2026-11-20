@@ -1,5 +1,58 @@
 theme: "applied-scenarios"
 questions:
+  - id: "app-interest-sharing-decomposition"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Design an application through which people can share their interests. Clarify the intended functionality before choosing the design."
+      ru: "Спроектируйте приложение, в котором люди делятся своими интересами. До выбора устройства системы уточните нужную функциональность."
+    tests:
+      en: "Whether you turn an open-ended product request into a coherent functional design. The clarification emphasis follows the candidate's account; the outline is editorial guidance."
+      ru: "Умеете ли вы превратить открытый запрос в связный функциональный проект. Акцент на уточнении следует рассказу кандидата; план ответа — рекомендация редакции."
+    provenance: "published"
+    added: "2026-11-20"
+    evidence:
+      - source: "reddit-palantir-fdse-march-2025"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+    outline:
+      en:
+        - "Clarify whose interests are shared, with whom, and what users need to accomplish."
+        - "Sketch entities, user actions and data flow for an agreed first version."
+        - "Trace a concrete interaction through the design; introduce scale assumptions only when relevant."
+      ru:
+        - "Уточнить, чьи интересы публикуются, кому видны и какую задачу решают пользователи."
+        - "Описать сущности, действия и движение данных для согласованной первой версии."
+        - "Проследить конкретное действие через систему; вводить предположения о масштабе по необходимости."
+    reading: []
+  - id: "app-recipe-selection-decomposition"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "applied_scenario"
+    text:
+      en: "Design an application that finds possible recipes from ingredients and supports booking cooks; implement the recipe-selection function."
+      ru: "Спроектируйте приложение для подбора рецептов по ингредиентам и бронирования услуг поваров; реализуйте функцию выбора подходящих рецептов."
+    tests:
+      en: "Whether you connect a product workflow to implementable logic. Reported for a London FDSWE internship in November 2019; the source omits the exact data model and matching rules."
+      ru: "Умеете ли вы связать пользовательский процесс с реализуемой логикой. Рассказ о FDSWE-стажировке в Лондоне в ноябре 2019 года; точная модель данных и правила подбора в источнике отсутствуют."
+    provenance: "published"
+    added: "2026-11-20"
+    evidence:
+      - source: "leetcode-palantir-fdswe-intern-2019"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+        observed: "2019-11"
+    outline:
+      en:
+        - "Agree ingredient matching, quantities and substitutions before coding; these rules are not supplied by the report."
+        - "Separate recipe selection from cook availability and booking state."
+        - "Implement the agreed contract and test missing ingredients, empty inputs and multiple matches."
+      ru:
+        - "До кода согласовать совпадение ингредиентов, количества и замены: рассказ этих правил не содержит."
+        - "Разделить выбор рецепта, доступность повара и состояние бронирования."
+        - "Реализовать согласованный контракт; проверить нехватку ингредиентов, пустой ввод и несколько совпадений."
+    reading: []
   - id: "app-claims-discovery"
     tracks: ["engineering","leadership"]
     roles: ["forward-deployed-engineer", "deployment-strategist"]

@@ -1,5 +1,31 @@
 theme: "behavioral-values"
 questions:
+  - id: "beh-fde-customer-experience"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "self_presentation"
+    text:
+      en: "What experience do you have working directly with customers?"
+      ru: "Какой у вас опыт непосредственной работы с заказчиками?"
+    tests:
+      en: "Whether you can describe your actual customer-facing responsibilities. Reported in an OpenAI FDE recruiter screen, not a complete technical loop."
+      ru: "Умеете ли вы описать собственную ответственность в работе с заказчиками. Вопрос из рассказа о разговоре с рекрутером OpenAI на FDE, не о полном техническом отборе."
+    provenance: "published"
+    added: "2026-11-20"
+    evidence:
+      - source: "reddit-openai-fde-recruiter-update"
+        company: "openai"
+        role: "forward-deployed-engineer"
+    outline:
+      en:
+        - "Use a real example and distinguish external customers from internal users."
+        - "Explain what you personally clarified, built or communicated and who owned the remaining work."
+        - "Describe the result and feedback; if you lack direct customer experience, state that and identify relevant adjacent experience."
+      ru:
+        - "Привести реальный пример и различить внешних заказчиков и внутренних пользователей."
+        - "Объяснить, что вы лично уточнили, реализовали или донесли и кто отвечал за остальную работу."
+        - "Назвать результат и обратную связь; если прямого опыта нет, сказать об этом и описать подходящий смежный опыт."
+    reading: []
   - id: "beh-motivation-and-disagreement"
     tracks: ["engineering","leadership"]
     type: "self_presentation"

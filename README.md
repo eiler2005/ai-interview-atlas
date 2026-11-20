@@ -25,7 +25,7 @@ English · [Русский](README.ru.md)
 
 Two tracks — AI Engineering and AI Leadership — with company interview guides and answer checklists. Each reported question cites its evidence; the markers distinguish company confirmation, candidate reports and secondary compilations. Generated practice questions are labelled separately.
 
-Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](docs/sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+Of 282 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](docs/sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/evidence.en.dark.svg">
@@ -36,11 +36,11 @@ Released PDF books are dated snapshots for offline reading. The website may cont
 
 ## What is inside
 
-- **306 questions** across 17 themes: 230 for engineering, 166 for leadership. Each says what it tests and what a strong answer covers.
+- **310 questions** across 17 themes: 234 for engineering, 166 for leadership. Each says what it tests and what a strong answer covers.
 - **165 written answers** to the priority questions — a paragraph you could say aloud, not a link to a paid course.
 - **29 company pages**: the interview loop stage by stage, the coding requirement, and the questions reported for that company.
 - **6 role pages** in the [AI roles guide](docs/AI_ROLES.md): what each role involves, how it is interviewed and which questions to practise.
-- **247 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
+- **252 sources**, each with the date it was read, so you can check anything yourself and see what has aged.
 - **A requirements radar** built from real job postings: what employers actually ask for, by theme.
 
 ## Why this one
@@ -89,14 +89,14 @@ Questions reported at two or more companies, strongest basis first.
 | [Safety, security and governance](docs/themes/safety-security-governance.md) | 11 | 19 |
 | [Multimodal and voice](docs/themes/multimodal-voice.md) | 14 | 1 |
 | [AI system design](docs/themes/ai-system-design.md) | 16 | 5 |
-| [Practical coding](docs/themes/coding-practical.md) | 28 | 1 |
+| [Practical coding](docs/themes/coding-practical.md) | 29 | 1 |
 | [AI product strategy and metrics](docs/themes/ai-product-strategy.md) | 0 | 24 |
 | [AI platform and operating model](docs/themes/ai-operating-model.md) | 6 | 10 |
 | [Leading engineering teams](docs/themes/engineering-leadership.md) | 1 | 21 |
 | [Programmes and delivery](docs/themes/program-delivery.md) | 4 | 13 |
-| [Applied and customer scenarios](docs/themes/applied-scenarios.md) | 20 | 21 |
+| [Applied and customer scenarios](docs/themes/applied-scenarios.md) | 22 | 21 |
 | [Payments and regulated domains](docs/themes/domain-payments-fintech.md) | 4 | 5 |
-| [Behavioral and values](docs/themes/behavioral-values.md) | 21 | 24 |
+| [Behavioral and values](docs/themes/behavioral-values.md) | 22 | 24 |
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/coverage.en.dark.svg">
@@ -108,7 +108,7 @@ Questions reported at two or more companies, strongest basis first.
 | Company | Segment | Markets | Coding | Questions | Reviewed |
 | --- | --- | --- | --- | ---: | --- |
 | [Anthropic](docs/companies/anthropic.md) | Frontier AI labs | International | required | 39 | 2026-09-26 |
-| [OpenAI](docs/companies/openai.md) | Frontier AI labs | International | unknown | 31 | 2026-09-26 |
+| [OpenAI](docs/companies/openai.md) | Frontier AI labs | International | unknown | 32 | 2026-09-26 |
 | [Amazon](docs/companies/amazon.md) | Big Tech | International | unknown | 12 | 2026-10-05 |
 | [Canva](docs/companies/canva.md) | Big Tech | International | required | 1 | 2026-09-30 |
 | [Google and Google DeepMind](docs/companies/google.md) | Big Tech | International | varies by role | 18 | 2026-09-26 |
@@ -124,7 +124,7 @@ Questions reported at two or more companies, strongest basis first.
 | [Perplexity](docs/companies/perplexity.md) | AI-native products | International | unknown | 15 | 2026-09-26 |
 | [Sierra](docs/companies/sierra.md) | AI-native products | International | required | 4 | 2026-09-29 |
 | [Atlassian](docs/companies/atlassian.md) | Enterprise and forward-deployed AI | International | varies by role | 0 | 2026-09-26 |
-| [Palantir](docs/companies/palantir.md) | Enterprise and forward-deployed AI | International | unknown | 27 | 2026-09-26 |
+| [Palantir](docs/companies/palantir.md) | Enterprise and forward-deployed AI | International | unknown | 30 | 2026-09-26 |
 | [Adyen](docs/companies/adyen.md) | Fintech and payments | International | varies by role | 0 | 2026-09-26 |
 | [Monzo](docs/companies/monzo.md) | Fintech and payments | International | varies by role | 2 | 2026-09-26 |
 | [Ramp](docs/companies/ramp.md) | Fintech and payments | International | required | 0 | 2026-09-29 |

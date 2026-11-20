@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/applied-scenarios.md) · [AI Interview 
 
 Open-ended situations with customers and messy problems: the first 48 hours, rescuing a pilot, decomposing a business problem.
 
-On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-engineering) · [AI Leadership (5)](#track-leadership)
+On this page: [Both tracks (16)](#track-both) · [AI Engineering (6)](#track-engineering) · [AI Leadership (5)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -140,6 +140,20 @@ On this page: [Both tracks (16)](#track-both) · [AI Engineering (4)](#track-eng
 
 ## <a id="track-engineering"></a>AI Engineering
 
+- <a id="app-interest-sharing-decomposition"></a>**Design an application through which people can share their interests. Clarify the intended functionality before choosing the design.**
+  - Applied scenario · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-interest-sharing-decomposition&title=%5BCorrection%5D%20app-interest-sharing-decomposition)
+  - Tests: Whether you turn an open-ended product request into a coherent functional design. The clarification emphasis follows the candidate's account; the outline is editorial guidance.
+  - A strong answer covers:
+    - Clarify whose interests are shared, with whom, and what users need to accomplish.
+    - Sketch entities, user actions and data flow for an agreed first version.
+    - Trace a concrete interaction through the design; introduce scale assumptions only when relevant.
+- <a id="app-recipe-selection-decomposition"></a>**Design an application that finds possible recipes from ingredients and supports booking cooks; implement the recipe-selection function.**
+  - Applied scenario · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-recipe-selection-decomposition&title=%5BCorrection%5D%20app-recipe-selection-decomposition)
+  - Tests: Whether you connect a product workflow to implementable logic. Reported for a London FDSWE internship in November 2019; the source omits the exact data model and matching rules.
+  - A strong answer covers:
+    - Agree ingredient matching, quantities and substitutions before coding; these rules are not supplied by the report.
+    - Separate recipe selection from cook availability and booking state.
+    - Implement the agreed contract and test missing ingredients, empty inputs and multiple matches.
 - <a id="app-agent-product-poc"></a>**Instead of a coding round, build a proof of concept for a customer scenario inside the company's own agent product and show how the customer would use it.**
   - Applied scenario · Asked at: [Cognition](../companies/cognition.md) † · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=app-agent-product-poc&title=%5BCorrection%5D%20app-agent-product-poc)
   - Tests: Whether you understand how customers actually use the product, not only how to write code.

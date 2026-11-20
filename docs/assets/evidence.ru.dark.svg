@@ -3,17 +3,17 @@
 <desc id="figure-desc">Две составные полосы: банк вопросов по сильнейшему свидетельству и этапы интервью компаний по силе утверждения.</desc>
 <rect x="0.5" y="0.5" width="739" height="274" rx="10" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
 <text x="20" y="32" font-size="16" fill="#ffffff" font-weight="600">На чём держится атлас</text>
-<text x="20" y="62" font-size="13" fill="#ffffff" font-weight="600">306 вопросов</text>
-<rect x="20" y="74" width="23.16" height="30" rx="3" fill="#b7d3f6"/>
-<rect x="45.16" y="74" width="82.64" height="30" rx="3" fill="#6da7ec"/>
-<rect x="129.8" y="74" width="524.14" height="30" rx="3" fill="#2a78d6"/>
-<rect x="655.95" y="74" width="62.05" height="30" rx="3" fill="#898781"/>
+<text x="20" y="62" font-size="13" fill="#ffffff" font-weight="600">310 вопросов</text>
+<rect x="20" y="74" width="22.84" height="30" rx="3" fill="#b7d3f6"/>
+<rect x="44.84" y="74" width="90.58" height="30" rx="3" fill="#6da7ec"/>
+<rect x="137.42" y="74" width="517.35" height="30" rx="3" fill="#2a78d6"/>
+<rect x="656.77" y="74" width="61.23" height="30" rx="3" fill="#898781"/>
 <rect x="20" y="114" width="9" height="9" rx="2" fill="#b7d3f6"/>
 <text x="35" y="123" font-size="11" fill="#c3c2b7">Подтверждено компанией 11 (4%)</text>
 <rect x="248" y="114" width="9" height="9" rx="2" fill="#6da7ec"/>
-<text x="263" y="123" font-size="11" fill="#c3c2b7">Рассказ участника 37 (12%)</text>
+<text x="263" y="123" font-size="11" fill="#c3c2b7">Рассказ участника 41 (13%)</text>
 <rect x="450.8" y="114" width="9" height="9" rx="2" fill="#2a78d6"/>
-<text x="465.8" y="123" font-size="11" fill="#c3c2b7">Подборка или гайд 230 (75%)</text>
+<text x="465.8" y="123" font-size="11" fill="#c3c2b7">Подборка или гайд 230 (74%)</text>
 <rect x="20" y="131" width="9" height="9" rx="2" fill="#898781"/>
 <text x="35" y="140" font-size="11" fill="#c3c2b7">Учебная практика 28 (9%)</text>
 <text x="20" y="164" font-size="13" fill="#ffffff" font-weight="600">128 этапов интервью</text>

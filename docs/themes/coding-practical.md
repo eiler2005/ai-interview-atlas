@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/coding-practical.md) · [AI Interview A
 
 Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review.
 
-On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-engineering)
+On this page: [Both tracks (1)](#track-both) · [AI Engineering (28)](#track-engineering)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -20,6 +20,13 @@ On this page: [Both tracks (1)](#track-both) · [AI Engineering (27)](#track-eng
 
 ## <a id="track-engineering"></a>AI Engineering
 
+- <a id="code-interest-search-followups"></a>**In an interest-sharing application, how would you speed up meeting-history lookups and interest searches if interests must remain stored in an array?**
+  - Coding · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-interest-search-followups&title=%5BCorrection%5D%20code-interest-search-followups)
+  - Tests: Whether you choose data structures from an agreed lookup contract. These are reported follow-ups; the preceding search(user_id, users) specification was not published in full.
+  - A strong answer covers:
+    - Clarify the lookup key, exact versus prefix matching, duplicates and update frequency.
+    - Compare an index for history with scans; for the array, explain when sorting and binary search satisfy the agreed query.
+    - Account for index memory, sorting and update costs; test boundary cases. The candidate's suggested solution is not an official answer.
 - <a id="code-causal-attention"></a>**Implement scaled dot-product attention with a causal mask and tests that would expose attention to future tokens.**
   - Coding · Asked at: [Amazon](../companies/amazon.md) †, [Anthropic](../companies/anthropic.md) †, [Google and Google DeepMind](../companies/google.md) † · ✍ [Answer](../answers/engineering.md#code-causal-attention) · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-causal-attention&title=%5BCorrection%5D%20code-causal-attention)
   - Tests: Whether shapes, masking and numerical stability are correct in executable code.

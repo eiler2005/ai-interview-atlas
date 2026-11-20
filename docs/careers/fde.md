@@ -93,6 +93,8 @@ An engineer should demonstrate working code. An integration specialist should sh
 
 ## <a id="interview-prep"></a>Interviews: evidence and practice
 
+**[Worked answers to reported FDE questions](fde-forum-answers.md)** — 12 detailed walkthroughs with code, reasoning, follow-ups and checks. Use the [forum reports](fde-forum-reports.md) to see which parts participants actually described.
+
 Prepare in this order: check the target team's process, select relevant reported questions, rehearse a mock, then fix a demonstrated gap. Coding requirements vary; neither AI tools nor customer-facing work make coding fundamentals disappear.
 
 <picture>
@@ -110,7 +112,7 @@ Prepare in this order: check the target team's process, select relevant reported
 
 **A 25-minute mock:** 5 minutes to identify the user, current task and constraints; 10 to propose a bounded pilot; 5 for the customer's objections; 5 for feedback. These times are our exercise format. The observer checks whether you ask before prescribing, define a measurable result, expose assumptions and agree an owner and next step. Repeat with a new constraint: data cannot leave the customer's environment.
 
-For more attributed stages and questions, use the [sourced FDE role guide](../roles/fde.md). The Reddit account's visible post and comments contained no disclosure restriction when checked; hidden replies were not assessed. Material indicating NDA restrictions is excluded under the [methodology](../METHODOLOGY.md).
+For concrete questions from participants, read [FDE forum reports](fde-forum-reports.md): Reddit and LeetCode accounts, with dates, role scope and missing details kept visible. For more attributed stages and questions, use the [sourced FDE role guide](../roles/fde.md). Material indicating NDA restrictions is excluded under the [methodology](../METHODOLOGY.md).
 
 ## Practice cases
 

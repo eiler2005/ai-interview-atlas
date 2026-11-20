@@ -36,7 +36,7 @@ Explore a role, compare a job description, or practise interview questions for y
 
 ## <a id="evidence"></a>Where the questions come from
 
-Of 278 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
+Of 282 questions attributed to published sources, 230 rely only on preparation guides or compilations (†). Another 28 are generated practice questions (🧪). Primary reading supports technical understanding; it does not prove that an employer asked a question. 194 questions cite the same compilation: [AI Engineering Interview Questions Company Wise](sources.md#kind-secondary-compilation). This concentration limits independent corroboration; company tags from that compilation remain secondary evidence.
 
 [Methodology](METHODOLOGY.md) · [Sources](sources.md)
 
@@ -53,14 +53,14 @@ Of 278 questions attributed to published sources, 230 rely only on preparation g
 | [Safety, security and governance](themes/safety-security-governance.md) | Prompt injection, data exfiltration, guardrails, privacy, red-teaming, and the regulation and risk frameworks leaders are accountable for. | 11 | 19 |
 | [Multimodal and voice](themes/multimodal-voice.md) | Vision-language models, real-time voice agents, speech quality and multimodal retrieval. | 14 | 1 |
 | [AI system design](themes/ai-system-design.md) | End-to-end design of AI products and platforms, explained aloud with requirements, trade-offs and failure modes. | 16 | 5 |
-| [Practical coding](themes/coding-practical.md) | Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review. | 28 | 1 |
+| [Practical coding](themes/coding-practical.md) | Work-like coding: concurrency, rate limits, retries, evolving specifications, debugging and code review. | 29 | 1 |
 | [AI product strategy and metrics](themes/ai-product-strategy.md) | When AI is worth it, how to design AI features, measure them and build the business case. | 0 | 24 |
 | [AI platform and operating model](themes/ai-operating-model.md) | Internal AI platforms, adoption across an organisation, enablement, cost governance and centres of excellence. | 6 | 10 |
 | [Leading engineering teams](themes/engineering-leadership.md) | Hiring, coaching, performance, team design and delivery for teams that build AI. | 1 | 21 |
 | [Programmes and delivery](themes/program-delivery.md) | Planning and running cross-team work: dependencies, launches, risk and communication. | 4 | 13 |
-| [Applied and customer scenarios](themes/applied-scenarios.md) | Open-ended situations with customers and messy problems: the first 48 hours, rescuing a pilot, decomposing a business problem. | 20 | 21 |
+| [Applied and customer scenarios](themes/applied-scenarios.md) | Open-ended situations with customers and messy problems: the first 48 hours, rescuing a pilot, decomposing a business problem. | 22 | 21 |
 | [Payments and regulated domains](themes/domain-payments-fintech.md) | AI in payments, banking and other regulated industries, including agentic commerce. | 4 | 5 |
-| [Behavioral and values](themes/behavioral-values.md) | Your real stories, motivation and judgement: ownership, conflict, mistakes, and why this company. | 21 | 24 |
+| [Behavioral and values](themes/behavioral-values.md) | Your real stories, motivation and judgement: ownership, conflict, mistakes, and why this company. | 22 | 24 |
 
 ## <a id="companies"></a>Companies
 

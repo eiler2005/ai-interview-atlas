@@ -7,7 +7,7 @@ Enterprise and forward-deployed AI · International · Loop reviewed 2026-09-26
 
 Guides and a hiring-side account centre the loop on decomposition: turning an ambiguous real problem into a scoped plan. A 2025 candidate report adds a technical round judged on reasoning under ambiguity. Guides also report restrictions on AI assistance; confirm the current team's format and tool rules.
 
-On this page: [Interview loop](#loop) · [Questions (27)](#questions)
+On this page: [Interview loop](#loop) · [Questions (30)](#questions)
 
 ## Roles covered
 
@@ -129,6 +129,13 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 
 ### [Practical coding](../themes/coding-practical.md)
 
+- **[In an interest-sharing application, how would you speed up meeting-history lookups and interest searches if interests must remain stored in an array?](../themes/coding-practical.md#code-interest-search-followups)**
+  - Coding · Asked at: Palantir 🗣
+  - Tests: Whether you choose data structures from an agreed lookup contract. These are reported follow-ups; the preceding search(user_id, users) specification was not published in full.
+  - A strong answer covers:
+    - Clarify the lookup key, exact versus prefix matching, duplicates and update frequency.
+    - Compare an index for history with scans; for the array, explain when sorting and binary search satisfy the agreed query.
+    - Account for index memory, sorting and update costs; test boundary cases. The candidate's suggested solution is not an official answer.
 - **[Write a function that collects a paginated REST result while handling page size, termination and incomplete responses explicitly.](../themes/coding-practical.md#code-pagination)**
   - Coding · Asked at: Palantir †
   - Tests: Whether boundary conditions prevent missing or duplicated records.
@@ -183,6 +190,20 @@ On this page: [Interview loop](#loop) · [Questions (27)](#questions)
 
 ### [Applied and customer scenarios](../themes/applied-scenarios.md)
 
+- **[Design an application through which people can share their interests. Clarify the intended functionality before choosing the design.](../themes/applied-scenarios.md#app-interest-sharing-decomposition)**
+  - Applied scenario · Asked at: Palantir 🗣
+  - Tests: Whether you turn an open-ended product request into a coherent functional design. The clarification emphasis follows the candidate's account; the outline is editorial guidance.
+  - A strong answer covers:
+    - Clarify whose interests are shared, with whom, and what users need to accomplish.
+    - Sketch entities, user actions and data flow for an agreed first version.
+    - Trace a concrete interaction through the design; introduce scale assumptions only when relevant.
+- **[Design an application that finds possible recipes from ingredients and supports booking cooks; implement the recipe-selection function.](../themes/applied-scenarios.md#app-recipe-selection-decomposition)**
+  - Applied scenario · Asked at: Palantir 🗣
+  - Tests: Whether you connect a product workflow to implementable logic. Reported for a London FDSWE internship in November 2019; the source omits the exact data model and matching rules.
+  - A strong answer covers:
+    - Agree ingredient matching, quantities and substitutions before coding; these rules are not supplied by the report.
+    - Separate recipe selection from cook availability and booking state.
+    - Implement the agreed contract and test missing ingredients, empty inputs and multiple matches.
 - **[A customer executive wants to cancel an AI pilot because it keeps producing wrong results. What would you do over the next 48 hours?](../themes/applied-scenarios.md#app-pilot-rescue)**
   - Applied scenario · Senior · Asked at: Palantir † · ✍ [Answer](../answers/leadership.md#app-pilot-rescue)
   - Tests: Whether you combine incident triage with a credible customer recovery plan.

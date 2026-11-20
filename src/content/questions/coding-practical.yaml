@@ -1,5 +1,31 @@
 theme: "coding-practical"
 questions:
+  - id: "code-interest-search-followups"
+    tracks: ["engineering"]
+    roles: ["forward-deployed-engineer"]
+    type: "coding"
+    text:
+      en: "In an interest-sharing application, how would you speed up meeting-history lookups and interest searches if interests must remain stored in an array?"
+      ru: "Как ускорить поиск в истории встреч и поиск интересов в приложении для обмена интересами, если интересы должны остаться в массиве?"
+    tests:
+      en: "Whether you choose data structures from an agreed lookup contract. These are reported follow-ups; the preceding search(user_id, users) specification was not published in full."
+      ru: "Умеете ли вы выбирать структуры данных по согласованному контракту поиска. Это уточняющие вопросы из рассказа; полное условие предшествующей search(user_id, users) не опубликовано."
+    provenance: "published"
+    added: "2026-11-20"
+    evidence:
+      - source: "reddit-palantir-fdse-march-2025"
+        company: "palantir"
+        role: "forward-deployed-engineer"
+    outline:
+      en:
+        - "Clarify the lookup key, exact versus prefix matching, duplicates and update frequency."
+        - "Compare an index for history with scans; for the array, explain when sorting and binary search satisfy the agreed query."
+        - "Account for index memory, sorting and update costs; test boundary cases. The candidate's suggested solution is not an official answer."
+      ru:
+        - "Уточнить ключ поиска, точное или префиксное совпадение, дубликаты и частоту обновлений."
+        - "Сравнить индекс истории с перебором; для массива объяснить, когда сортировка и бинарный поиск отвечают согласованному запросу."
+        - "Учесть память индекса, сортировку и обновления; проверить крайние случаи. Предложенное кандидатом решение не является официальным ответом."
+    reading: []
   - id: "code-causal-attention"
     tracks: ["engineering"]
     type: "coding"

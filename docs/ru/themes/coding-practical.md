@@ -5,7 +5,7 @@
 
 Кодинг, похожий на работу: конкурентность, лимиты, повторы, растущая спецификация, отладка и code review.
 
-На этой странице: [Оба трека (1)](#track-both) · [AI-инженерия (27)](#track-engineering)
+На этой странице: [Оба трека (1)](#track-both) · [AI-инженерия (28)](#track-engineering)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -20,6 +20,13 @@
 
 ## <a id="track-engineering"></a>AI-инженерия
 
+- <a id="code-interest-search-followups"></a>**Как ускорить поиск в истории встреч и поиск интересов в приложении для обмена интересами, если интересы должны остаться в массиве?**
+  - Кодинг · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-interest-search-followups&title=%5BCorrection%5D%20code-interest-search-followups)
+  - Что проверяет: Умеете ли вы выбирать структуры данных по согласованному контракту поиска. Это уточняющие вопросы из рассказа; полное условие предшествующей search(user_id, users) не опубликовано.
+  - Сильный ответ покрывает:
+    - Уточнить ключ поиска, точное или префиксное совпадение, дубликаты и частоту обновлений.
+    - Сравнить индекс истории с перебором; для массива объяснить, когда сортировка и бинарный поиск отвечают согласованному запросу.
+    - Учесть память индекса, сортировку и обновления; проверить крайние случаи. Предложенное кандидатом решение не является официальным ответом.
 - <a id="code-causal-attention"></a>**Реализуйте scaled dot-product attention с causal mask и тестами, выявляющими доступ к будущим токенам.**
   - Кодинг · Где спрашивали: [Amazon](../companies/amazon.md) †, [Anthropic](../companies/anthropic.md) †, [Google и Google DeepMind](../companies/google.md) † · ✍ [Ответ](../answers/engineering.md#code-causal-attention) · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=code-causal-attention&title=%5BCorrection%5D%20code-causal-attention)
   - Что проверяет: Умение корректно реализовать размерности, маскирование и численную устойчивость.

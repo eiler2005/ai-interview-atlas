@@ -5,7 +5,7 @@
 
 Ваши реальные истории, мотивация и суждения: ответственность, конфликты, ошибки и почему именно эта компания.
 
-На этой странице: [Оба трека (19)](#track-both) · [AI-инженерия (2)](#track-engineering) · [AI-лидерство (5)](#track-leadership)
+На этой странице: [Оба трека (19)](#track-both) · [AI-инженерия (3)](#track-engineering) · [AI-лидерство (5)](#track-leadership)
 
 ## <a id="track-both"></a>Оба трека
 
@@ -164,6 +164,13 @@
 
 ## <a id="track-engineering"></a>AI-инженерия
 
+- <a id="beh-fde-customer-experience"></a>**Какой у вас опыт непосредственной работы с заказчиками?**
+  - Самопрезентация · Где спрашивали: [OpenAI](../companies/openai.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-fde-customer-experience&title=%5BCorrection%5D%20beh-fde-customer-experience)
+  - Что проверяет: Умеете ли вы описать собственную ответственность в работе с заказчиками. Вопрос из рассказа о разговоре с рекрутером OpenAI на FDE, не о полном техническом отборе.
+  - Сильный ответ покрывает:
+    - Привести реальный пример и различить внешних заказчиков и внутренних пользователей.
+    - Объяснить, что вы лично уточнили, реализовали или донесли и кто отвечал за остальную работу.
+    - Назвать результат и обратную связь; если прямого опыта нет, сказать об этом и описать подходящий смежный опыт.
 - <a id="beh-why-forward-deployed"></a>**Почему эта компания и почему именно forward deployed, а не разработка основного продукта?**
   - Самопрезентация · Где спрашивали: [Palantir](../companies/palantir.md) 🗣 · [Предложить правку](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-why-forward-deployed&title=%5BCorrection%5D%20beh-why-forward-deployed)
   - Что проверяет: Соответствует ли ваша мотивация работе с клиентами и внедрению, а не только имени компании.

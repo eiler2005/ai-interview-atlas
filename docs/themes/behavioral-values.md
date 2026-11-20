@@ -5,7 +5,7 @@ English · [Русский](../ru/themes/behavioral-values.md) · [AI Interview 
 
 Your real stories, motivation and judgement: ownership, conflict, mistakes, and why this company.
 
-On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-engineering) · [AI Leadership (5)](#track-leadership)
+On this page: [Both tracks (19)](#track-both) · [AI Engineering (3)](#track-engineering) · [AI Leadership (5)](#track-leadership)
 
 ## <a id="track-both"></a>Both tracks
 
@@ -164,6 +164,13 @@ On this page: [Both tracks (19)](#track-both) · [AI Engineering (2)](#track-eng
 
 ## <a id="track-engineering"></a>AI Engineering
 
+- <a id="beh-fde-customer-experience"></a>**What experience do you have working directly with customers?**
+  - Self-presentation · Asked at: [OpenAI](../companies/openai.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-fde-customer-experience&title=%5BCorrection%5D%20beh-fde-customer-experience)
+  - Tests: Whether you can describe your actual customer-facing responsibilities. Reported in an OpenAI FDE recruiter screen, not a complete technical loop.
+  - A strong answer covers:
+    - Use a real example and distinguish external customers from internal users.
+    - Explain what you personally clarified, built or communicated and who owned the remaining work.
+    - Describe the result and feedback; if you lack direct customer experience, state that and identify relevant adjacent experience.
 - <a id="beh-why-forward-deployed"></a>**Why this company, and why the forward deployed role rather than engineering on the core product?**
   - Self-presentation · Asked at: [Palantir](../companies/palantir.md) 🗣 · [Suggest a fix](https://github.com/eiler2005/ai-interview-atlas/issues/new?template=correction.yml&question=beh-why-forward-deployed&title=%5BCorrection%5D%20beh-why-forward-deployed)
   - Tests: Whether your motivation fits customer-facing delivery work, not only the company's name.

@@ -13,7 +13,7 @@ Markers: ✅ confirmed by the company · 🗣 candidate report · † prep guide
 
 | Role family | What it owns | Reported stages | Companies | Reported questions | Practice questions |
 | --- | --- | ---: | ---: | ---: | ---: |
-| [Forward Deployed Engineer (FDE)](roles/fde.md) | Gets a useful AI system working in a customer's environment, from discovery to handoff. | 17 | 5 | 14 | 14 |
+| [Forward Deployed Engineer (FDE)](roles/fde.md) | Gets a useful AI system working in a customer's environment, from discovery to handoff. | 17 | 5 | 18 | 14 |
 | [Applied AI / agent product engineer](roles/applied-ai.md) | Turns model capabilities into working product behaviour: interfaces, agent runtimes, tools and recoverable failures. | 12 | 5 | 9 | 18 |
 | [AI evaluation and reliability engineer](roles/eval-reliability.md) | Produces trustworthy evidence about system behaviour: measurement strategy, regressions and release decisions. | 0 | 0 | 0 | 14 |
 | [Inference / AI platform engineer](roles/inference-platform.md) | Makes AI computation and shared services perform: bottlenecks, validated optimisations and telemetry. | 4 | 1 | 1 | 18 |

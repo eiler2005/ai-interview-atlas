@@ -7,7 +7,7 @@ Frontier AI labs · International · Loop reviewed 2026-09-26
 
 Guides describe practical coding rather than puzzles, a project presentation and, in some loops, an AI-assisted coding round. Product managers are expected to work close to general managers. The official interview guide could not be read for this edition, so every stage below is secondary.
 
-On this page: [Interview loop](#loop) · [Questions (31)](#questions)
+On this page: [Interview loop](#loop) · [Questions (32)](#questions)
 
 ## Roles covered
 
@@ -263,6 +263,13 @@ On this page: [Interview loop](#loop) · [Questions (31)](#questions)
 
 ### [Behavioral and values](../themes/behavioral-values.md)
 
+- **[What experience do you have working directly with customers?](../themes/behavioral-values.md#beh-fde-customer-experience)**
+  - Self-presentation · Asked at: OpenAI 🗣
+  - Tests: Whether you can describe your actual customer-facing responsibilities. Reported in an OpenAI FDE recruiter screen, not a complete technical loop.
+  - A strong answer covers:
+    - Use a real example and distinguish external customers from internal users.
+    - Explain what you personally clarified, built or communicated and who owned the remaining work.
+    - Describe the result and feedback; if you lack direct customer experience, state that and identify relevant adjacent experience.
 - **[Describe a mistake you made, its consequences and what you changed afterward.](../themes/behavioral-values.md#beh-mistake-learning)**
   - Behavioral · Senior · Asked at: OpenAI † · ✍ [Answer](../answers/leadership.md#beh-mistake-learning)
   - Tests: Whether you take responsibility and show learning through concrete behaviour.

@@ -18,7 +18,8 @@ Understand what a role asks you to do, then choose what to practise. This guide 
 | What should I learn next? | [Skills K1–K8](fde.md#skills) |
 | What should I practise? | [Interview evidence](fde.md#interview-prep) · [Projects](fde.md#projects) |
 | How do I organise preparation? | [Two-week plan](fde.md#two-week-preparation-plan) |
-| What has been reported about FDE interviews? | [Sourced role guide](../roles/fde.md) |
+| What has been reported about FDE interviews? | [Questions from forum accounts](fde-forum-reports.md) · [Sourced role guide](../roles/fde.md) |
+| How do I answer the reported questions? | [12 worked answers with code and self-checks](fde-forum-answers.md) |
 | Which other AI roles should I compare? | [AI role families](../AI_ROLES.md) |
 
 The [Atlas map](../README.md) offers routes by profession, vacancy and interview. The [project roadmap](../ROADMAP.md) describes repository development, not your study schedule.
